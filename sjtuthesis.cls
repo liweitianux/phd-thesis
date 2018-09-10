@@ -350,7 +350,7 @@
   \pdfbookmark[0]{标题页}{title}
   \thispagestyle{empty}
   \begin{center}
-  {\songti\zihao{-3}\sjtu@label@statement}
+  {\zihao{-3}\sjtu@label@statement}
   \vskip\stretch{1}
   {\heiti\zihao{3}\sjtu@value@title}
   \vskip\stretch{1}
