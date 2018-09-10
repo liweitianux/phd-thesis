@@ -397,8 +397,9 @@
 \newcommand\englishauthor[1]{\def\sjtu@value@englishauthor{#1}}
 \newcommand\englishadvisor[1]{\def\sjtu@value@englishadvisor{#1}}
 \newcommand\englishcoadvisor[1]{\def\sjtu@value@englishcoadvisor{#1}}
-\newcommand\englishschool[1]{\def\sjtu@value@englishschool{#1}}
 \newcommand\englishinstitute[1]{\def\sjtu@value@englishinstitute{#1}}
+\newcommand\englishschool[1]{\def\sjtu@value@englishschool{#1}}
+\newcommand\englishlocation[1]{\def\sjtu@value@englishlocation{#1}}
 \newcommand\englishdate[1]{\def\sjtu@value@englishdate{#1}}
 \newcommand\englishdegree[1]{\def\sjtu@value@englishdegree{#1}}
 \newcommand\englishmajor[1]{\def\sjtu@value@englishmajor{#1}}
