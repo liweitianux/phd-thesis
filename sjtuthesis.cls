@@ -199,8 +199,8 @@
 
 % Caption setting in ccaption pacakge
 \captiondelim{\ }
-\captionnamefont{\kaishu\small}
-\captiontitlefont{\kaishu\small}
+\captionnamefont{\sffamily\small}
+\captiontitlefont{\sffamily\small}
 
 % Floating parameters
 \renewcommand{\textfraction}{0.15}
@@ -487,7 +487,7 @@
   \fancypagestyle{main}{
     \fancyhf{}
     \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
-    \fancyhead[R]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
+    \fancyhead[R]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
     \fancyfoot[C]{\small 第~{\bfseries\thepage}~页\,共~{\bfseries\pageref{last}}~页}
     \renewcommand{\headheight}{32pt}
   }
@@ -495,15 +495,15 @@
   \fancypagestyle{biglast}{
     \fancyhf{}
     \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
-    \fancyhead[R]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
+    \fancyhead[R]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
     \fancyfoot[C]{\small 第~{\bfseries\thepage}~页\,共~{\bfseries\pageref{biglast}}~页}
     \renewcommand{\headheight}{32pt}
   }
   %% 开章页页眉页脚
   \fancypagestyle{plain}{% 设置开章页页眉页脚风格(只有页码作为页脚)
     \fancyhf{}
-    \fancyhead[L]{\nouppercase{\small\kaishu\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}}
-    \fancyhead[R]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
+    \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
+    \fancyhead[R]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
     \fancyfoot[C]{\small 第~{\bf\thepage}~页\,共~{\bf\pageref{last}}~页}
     \renewcommand{\headheight}{32pt}
   }
@@ -512,34 +512,51 @@
   \if@twoside
     %% 正文页眉页脚
     \fancypagestyle{main}{
-      \fancyhead[LO, RE]{\small\kaishu\sjtu@value@school\sjtu@value@chinesedegree\sjtu@label@thesis}
-      \fancyhead[RO]{\nouppercase{\small\kaishu\leftmark}}
-      \fancyhead[LE]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
+      \fancyhead[LO, RE]{%
+        \small\sffamily%
+        \sjtu@value@school\sjtu@value@chinesedegree%
+        \sjtu@label@thesis%
+      }
+      \fancyhead[RO]{\nouppercase{\small\sffamily\leftmark}}
+      \fancyhead[LE]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
       \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
       \renewcommand{\headheight}{32pt}
     }
     %% 开章页页眉页脚
     \fancypagestyle{plain}{
       \fancyhf{}
-      \fancyhead[LO,RE]{\nouppercase{\small\kaishu\sjtu@value@school\sjtu@value@chinesedegree\sjtu@label@thesis}}
-      \fancyhead[RO]{\nouppercase{\small\kaishu\leftmark}}
-      \fancyhead[LE]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
+      \fancyhead[LO, RE]{%
+        \nouppercase{%
+          \small\sffamily%
+          \sjtu@value@school\sjtu@value@chinesedegree%
+          \sjtu@label@thesis%
+        }}
+      \fancyhead[RO]{\nouppercase{\small\sffamily\leftmark}}
+      \fancyhead[LE]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
       \fancyfoot[C]{\small ---~{\bf\thepage}~---}
       \renewcommand{\headheight}{32pt}
     }
   \else
   %% 正文页
   \fancypagestyle{main}{
-    \fancyhead[L]{\small\kaishu\sjtu@value@school\sjtu@value@chinesedegree\sjtu@label@thesis}
-    \fancyhead[R]{\nouppercase{\small\kaishu\leftmark}}
+    \fancyhead[L]{%
+      \small\sffamily%
+      \sjtu@value@school\sjtu@value@chinesedegree%
+      \sjtu@label@thesis%
+    }
+    \fancyhead[R]{\nouppercase{\small\sffamily\leftmark}}
     \fancyfoot[C]{\small ---~{\bf\thepage}~---}
     \renewcommand{\headheight}{32pt}
   }
   \fancypagestyle{plain}{
     \fancyhf{}
-    \fancyhead[L]{\nouppercase{\small\kaishu\sjtu@value@school\sjtu@value@chinesedegree\sjtu@label@thesis}}
-    \fancyhead[R]{\nouppercase{\small\kaishu\leftmark}}
-    % \fancyhead[L]{\small {\it\sjtu@value@titlemark}}
+    \fancyhead[L]{%
+      \nouppercase{%
+        \small\sffamily%
+        \sjtu@value@school\sjtu@value@chinesedegree%
+        \sjtu@label@thesis%
+      }}
+    \fancyhead[R]{\nouppercase{\small\sffamily\leftmark}}
     \fancyfoot[C]{\small ---~{\bf\thepage}~---}
     \renewcommand{\headheight}{32pt}
   }
@@ -687,14 +704,15 @@
   \fancypagestyle{biglast}{
     \fancyhf{}
     \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
-    \fancyhead[R]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
-    \fancyfoot[C]{\small 第~{\bfseries\thepage}~页\,共~{\bfseries\pageref{biglast}}~页}
+    \fancyhead[R]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
+    \fancyfoot[C]{%
+      \small 第~{\bfseries\thepage}~页\,共~{\bfseries\pageref{biglast}}~页}
     \renewcommand{\headheight}{32pt}
   }
   \fancypagestyle{plain}{% 设置开章页页眉页脚风格(只有页码作为页脚)
     \fancyhf{}
     \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
-    \fancyhead[R]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
+    \fancyhead[R]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
     \fancyfoot[C]{\small 第~{\bf\thepage}~页\,共~{\bf\pageref{biglast}}~页}
     \renewcommand{\headheight}{32pt}
   }
