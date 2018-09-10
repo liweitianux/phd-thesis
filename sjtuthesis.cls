@@ -1,16 +1,17 @@
-%# -*- coding: utf-8-unix -*-
 %==================================================
-%% sjtuthesis.cls for SJTU Master Thesis
+%% sjtuthesis.cls for SJTU Thesis
 %%==================================================
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{sjtuthesis}[2016/04/06 v0.9 Shanghai Jiao Tong University Template]
 \def\version{v0.9}
+
 \newif\ifsjtu@bachelor\sjtu@bachelorfalse
 \newif\ifsjtu@master\sjtu@masterfalse
 \newif\ifsjtu@doctor\sjtu@doctorfalse
 \newif\ifsjtu@review\sjtu@reviewfalse
 \newif\ifsjtu@submit\sjtu@submitfalse
+
 \DeclareOption{bachelor}{\sjtu@bachelortrue}
 \DeclareOption{master}{\sjtu@mastertrue}
 \DeclareOption{doctor}{\sjtu@doctortrue}
@@ -18,12 +19,15 @@
 \DeclareOption{submit}{\sjtu@submittrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
+
 \LoadClass[a4paper,UTF8,scheme=chinese]{ctexbook}
+
 \ifsjtu@bachelor\relax\else
   \ifsjtu@master\relax\else
     \ifsjtu@doctor\relax\else
       \ClassError{sjtuthesis}%
-      		{You have to specify one of thesis options: bachelor, master or doctor.}{}
+        {You have to specify one of thesis options: bachelor, master or doctor.}%
+        {}
     \fi
   \fi
 \fi
@@ -31,12 +35,12 @@
 %% sjtuthesis.cls segments
 % 0. Import sjtuthesis.cfg
 % 1. Import and configure LaTeX packages.
-% 2. Define general-purpose LaTeX commands. 
+% 2. Define general-purpose LaTeX commands.
 % 3. Configure the imported packages, also extend LaTeX command in sjtuthesis
 % 4. Draw the sjtuthesis
 
 %==========
-% Segment 0. Import sjtuthesis.cfg 
+% Segment 0. Import sjtuthesis.cfg
 %==========
 
 %% 导入 sjtuthesis.cfg 文件
@@ -47,7 +51,7 @@
 % Segment 1. Import LaTeX packages.
 %==========
 
-\RequirePackage[centering,a4paper,body={16cm,22cm}]{geometry} %设置版面
+\RequirePackage[centering,a4paper,body={16cm,22cm}]{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
 \RequirePackage{fontspec}
@@ -56,24 +60,16 @@
 \RequirePackage{dcolumn}
 \RequirePackage{multirow}
 \RequirePackage{booktabs}
-\RequirePackage{mathtools,amsthm,amsfonts,amssymb,bm,mathrsfs} 
-\RequirePackage{upgreek}
+%\RequirePackage{mathtools,amsthm,amsfonts,amssymb,bm,mathrsfs}
+\RequirePackage{amsmath,amsthm,amssymb,mathtools}
+\RequirePackage[math-style=TeX]{unicode-math}
 \RequirePackage{graphicx}
 \RequirePackage{subfigure}
 \RequirePackage{ccaption}
-\RequirePackage[backend=biber,style=gb7714-2015]{biblatex}
-\DeclareCiteCommand{\citen} %加入一个水平引用函数
-  {[\usebibmacro{cite:init}%直接添加方括号
-   \usebibmacro{prenote}}
-  {\usebibmacro{citeindex}%
-   \usebibmacro{cite:comp}}
-  {}
-  {\usebibmacro{cite:dump}%
-   \usebibmacro{postnote}]}
+\RequirePackage[backend=biber, style=gb7714-2015]{biblatex}
 \RequirePackage{xcolor}
 \RequirePackage{wasysym}
 \RequirePackage{listings}
-\RequirePackage[xetex, bookmarksnumbered, colorlinks, urlcolor=black, linkcolor=black, citecolor=black, plainpages=false, pdfstartview=FitH]{hyperref}
 \RequirePackage{longtable}
 \RequirePackage[perpage, bottom]{footmisc}
 \RequirePackage[inline]{enumitem}
@@ -83,6 +79,24 @@
 \RequirePackage{siunitx}
 \RequirePackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
+\RequirePackage[%
+    bookmarksnumbered,
+    colorlinks,
+    urlcolor=black,
+    linkcolor=black,
+    citecolor=black,
+    plainpages=false,
+    pdfstartview=FitH
+]{hyperref}
+
+\DeclareCiteCommand{\citen} %加入一个水平引用函数
+  {[\usebibmacro{cite:init} %直接添加方括号
+   \usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite:comp}}
+  {}
+  {\usebibmacro{cite:dump}%
+   \usebibmacro{postnote}]}
 
 %==========
 % Segment 2. Define general-purpose LaTeX commands.
@@ -90,7 +104,7 @@
 
 \setcounter{secnumdepth}{4}  % 章节编号深度 (part 对应 -1)
 \setcounter{tocdepth}{2}     % 目录深度 (part 对应 -1)
-    
+
 % User defined command list
 %% \me \mi \mj \dif \cleardoublepage \cndash \CJKLaTeX
 
@@ -98,24 +112,26 @@
 \newcolumntype{d}[1]{D{.}{.}{#1}}% or D{.}{,}{#1} or D{.}{\cdot}{#1}
 
 % upper math letter
-\newcommand{\me}{\mathrm{e}} 
+\newcommand{\me}{\mathrm{e}}
 \newcommand{\mi}{\mathrm{i}}
 \newcommand{\mj}{\mathrm{j}}
 \newcommand{\dif}{\mathrm{d}}
 
-\def\cleardoublepage{\clearpage%
-	\if@openright%
-	  \ifodd
-	    \c@page%
-	  \else%
-  	    \thispagestyle{empty}%
-  	    \hbox{}%
-	    \newpage%
-	  \fi%
-	\fi}
+\def\cleardoublepage{%
+  \clearpage%
+  \if@openright%
+    \ifodd
+      \c@page%
+    \else%
+      \thispagestyle{empty}%
+      \hbox{}%
+      \newpage%
+    \fi%
+  \fi
+}
 
 % CJK-LaTeX Logo \CJKLaTeX
-\newcommand{\CJKLaTeX}{CJK--\LaTeX} 
+\newcommand{\CJKLaTeX}{CJK--\LaTeX}
 
 % cndash
 \newcommand{\cndash}{\rule{0.0em}{0pt}\rule[0.35em]{1.4em}{0.05em}\rule{0.2em}{0pt}}
@@ -136,38 +152,42 @@
 \ctexset{listfigurename={\sjtu@listfigurename}}
 \ctexset{listtablename={\sjtu@listtablename}}
 \floatname{algorithm}{\sjtu@label@algo}
-\renewcommand{\algorithmicrequire}{\textbf{输入:}} 
+\renewcommand{\algorithmicrequire}{\textbf{输入:}}
 \renewcommand{\algorithmicensure}{\textbf{输出:}}
 \renewcommand{\listalgorithmname}{\sjtu@listalgorithmname}
 \renewcommand{\lstlistingname}{\sjtu@value@listingname}
 
 % Title Settings at the chapter Level
-\ctexset{chapter={
-	nameformat={\Large\bfseries},
-	titleformat={\Large\bfseries},
-	beforeskip={15\p@},
-	afterskip={12\p@},
-	}
+\ctexset{%
+  chapter={
+    nameformat={\Large\bfseries},
+    titleformat={\Large\bfseries},
+    beforeskip={15\p@},
+    afterskip={12\p@},
+  }
 }
 % Title Settings at the section Level
-\ctexset{section={
-	format={\large\bfseries},
-	afterskip={1.0ex \@plus .2ex},
-	}
+\ctexset{%
+  section={
+    format={\large\bfseries},
+    afterskip={1.0ex \@plus 0.2ex},
+  }
 }
 % Title Settings at the subection Level
-\ctexset{subsection={
-	format={\bfseries\normalsize},
-	indent={0\ccwd},
-	afterskip={1.0ex \@plus .2ex},
-	}
+\ctexset{%
+  subsection={
+    format={\bfseries\normalsize},
+    indent={0\ccwd},
+    afterskip={1.0ex \@plus 0.2ex},
+  }
 }
 % Title Settings at the subsubection Level
-\ctexset{subsubsection={
-	format={\normalfont\normalsize},
-	indent={0\ccwd},
-	afterskip={1.0ex \@plus .2ex},
-	}
+\ctexset{%
+  subsubsection={
+    format={\normalfont\normalsize},
+    indent={0\ccwd},
+    afterskip={1.0ex \@plus 0.2ex},
+  }
 }
 
 % bullets in the item
@@ -210,34 +230,40 @@
 \tikzstyle{arrow} = [thick,->,>=stealth]
 
 % Setting Package listings/lstlistings
-\lstset{tabsize=4, %
+\lstset{
+  tabsize=4,
   frame=shadowbox, %把代码用带有阴影的框圈起来
-  commentstyle=\color{red!50!green!50!blue!50},%浅灰色的注释
-  rulesepcolor=\color{red!20!green!20!blue!20},%代码块边框为淡青色
+  commentstyle=\color{red!50!green!50!blue!50}, %浅灰色的注释
+  rulesepcolor=\color{red!20!green!20!blue!20}, %代码块边框为淡青色
   keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体
-  showstringspaces=false,%不显示代码字符串中间的空格标记
-  stringstyle=\ttfamily, % 代码字符串的特殊格式
+  showstringspaces=false, %不显示代码字符串中间的空格标记
+  stringstyle=\ttfamily, %代码字符串的特殊格式
   keepspaces=true, %
   breakindent=22pt, %
-  numbers=left,%左侧显示行号
-  stepnumber=1,%
+  numbers=left, %左侧显示行号
+  stepnumber=1, %
   numberstyle=\tiny, %行号字体用小号
   basicstyle={\footnotesize\ttfamily}, %
   showspaces=false, %
   flexiblecolumns=true, %
   breaklines=true, %对过长的代码自动换行
-  breakautoindent=true,%
+  breakautoindent=true, %
   breakindent=4em, %
   aboveskip=1em, %代码块边框
   %% added by http://bbs.ctex.org/viewthread.php?tid=53451
   fontadjust,
   captionpos=t,
-  framextopmargin=2pt,framexbottommargin=2pt,abovecaptionskip=-3pt,belowcaptionskip=3pt,
+  framextopmargin=2pt,
+  framexbottommargin=2pt,
+  abovecaptionskip=-3pt,
+  belowcaptionskip=3pt,
   xleftmargin=4em,xrightmargin=4em, % 设定listing左右的空白
   texcl=true,
   % 设定中文冲突，断行，列模式，数学环境输入，listing数字的样式
-  extendedchars=false,columns=flexible,mathescape=true
-  numbersep=-1em
+  extendedchars=false,
+  columns=flexible,
+  mathescape=true,
+  numbersep=-1em,
 }
 
 % 定理环境
@@ -272,7 +298,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The following definitions add Switch statement to LaTeX algorithmicx package
 % It's based on Werner's answer on stackoverflow
-% http://tex.stackexchange.com/questions/53357/switch-cases-in-algorithmic  
+% http://tex.stackexchange.com/questions/53357/switch-cases-in-algorithmic
 
 % New definitions
 \algnewcommand\algorithmicswitch{\textbf{switch}}
@@ -332,22 +358,32 @@
   \def\arraystretch{1.5}
   \begin{tabular}{rl}
     \ifsjtu@review
-      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@author\end{CJKfilltwosides} & \underline{\makebox[150pt]{}}\\
-      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@studentnumber\end{CJKfilltwosides} & \underline{\makebox[150pt]{}} \\
-      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@advisor\end{CJKfilltwosides}  & \underline{\makebox[150pt]{}} \\ 
+      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@author\end{CJKfilltwosides}
+        & \underline{\makebox[150pt]{}} \\
+      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@studentnumber\end{CJKfilltwosides}
+        & \underline{\makebox[150pt]{}} \\
+      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@advisor\end{CJKfilltwosides}
+        & \underline{\makebox[150pt]{}} \\
       \ifx\sjtu@value@coadvisor\undefined\else
-        \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@coadvisor\end{CJKfilltwosides} & \underline{\makebox[150pt]{}} \\ 
+        \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@coadvisor\end{CJKfilltwosides}
+          & \underline{\makebox[150pt]{}} \\
       \fi
     \else
-      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@author\end{CJKfilltwosides}	& \underline{\makebox[150pt]{\sjtu@value@author}} \\
-      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@studentnumber\end{CJKfilltwosides} & \underline{\makebox[150pt]{\sjtu@value@studentnumber}} \\
-      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@advisor\end{CJKfilltwosides} 	 & \underline{\makebox[150pt]{\sjtu@value@advisor}} \\ 
+      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@author\end{CJKfilltwosides}
+        & \underline{\makebox[150pt]{\sjtu@value@author}} \\
+      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@studentnumber\end{CJKfilltwosides}
+        & \underline{\makebox[150pt]{\sjtu@value@studentnumber}} \\
+      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@advisor\end{CJKfilltwosides}
+        & \underline{\makebox[150pt]{\sjtu@value@advisor}} \\
       \ifx\sjtu@value@coadvisor\undefined\else
-        \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@coadvisor\end{CJKfilltwosides} 	 & \underline{\makebox[150pt]{\sjtu@value@coadvisor}} \\ 
+        \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@coadvisor\end{CJKfilltwosides}
+          & \underline{\makebox[150pt]{\sjtu@value@coadvisor}} \\
       \fi
     \fi
-      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@major\end{CJKfilltwosides} 	 & \underline{\makebox[150pt]{\sjtu@value@major}} \\
-      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@defenddate\end{CJKfilltwosides} 	 & \underline{\makebox[150pt]{\sjtu@value@defenddate}}
+      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@major\end{CJKfilltwosides}
+        & \underline{\makebox[150pt]{\sjtu@value@major}} \\
+      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@defenddate\end{CJKfilltwosides}
+        & \underline{\makebox[150pt]{\sjtu@value@defenddate}}
   \end{tabular}
   \end{center}
   \vskip \stretch{0.5}
@@ -365,12 +401,13 @@
 \newcommand\englishdate[1]{\def\sjtu@value@englishdate{#1}}
 \newcommand\englishdegree[1]{\def\sjtu@value@englishdegree{#1}}
 \newcommand\englishmajor[1]{\def\sjtu@value@englishmajor{#1}}
+
 % "绘制"英文标题页
 \newcommand\makeenglishtitle[1]{%
   \cleardoublepage
   \thispagestyle{empty}
   \begin{center}
-      {\normalfont\zihao{4} \sjtu@label@englishstatement} 
+      {\normalfont\zihao{4} \sjtu@label@englishstatement}
       \vspace{20pt} \vskip\stretch{1}
       {\huge\sjtu@value@englishtitle \vskip 1pt}
       \vskip \stretch{1}
@@ -379,21 +416,25 @@
       \vskip 3pt
       \vskip \stretch{2}
     \else
-      {\normalfont\zihao{4}\sjtu@value@englishauthor} 
+      {\normalfont\zihao{4}\sjtu@value@englishauthor}
       \vskip \stretch{1}
-      {\normalfont\zihao{4}\sjtu@label@englishadvisor} 
+      {\normalfont\zihao{4}\sjtu@label@englishadvisor}
       \vskip 2pt
-      {\normalfont\zihao{4}\sjtu@value@englishadvisor} 
+      {\normalfont\zihao{4}\sjtu@value@englishadvisor}
       \vskip 5pt
       \ifx\sjtu@value@englishcoadvisor\undefined\else
-        {\normalfont\zihao{4}\sjtu@label@englishcoadvisor} 
+        {\normalfont\zihao{4}\sjtu@label@englishcoadvisor}
         \vskip 2pt
-        {\normalfont\zihao{4}\sjtu@value@englishcoadvisor} 
+        {\normalfont\zihao{4}\sjtu@value@englishcoadvisor}
         \vskip \stretch{2}
       \fi
-    \fi 
-    \normalfont\sjtu@value@englishinstitute \vskip 30pt
-    \normalfont\sjtu@value@englishdate \vskip 20pt
+    \fi
+    \vskip 20pt
+    {\normalfont
+      \sjtu@value@englishinstitute \\
+      \sjtu@value@englishschool \\
+      \sjtu@value@englishlocation \vskip 20pt
+      \sjtu@value@englishdate}
   \end{center}
   \cleardoublepage
 }
@@ -403,47 +444,50 @@
   \cleardoublepage
   \thispagestyle{empty}
   \begin{center}
-  	{\bf\zihao{3} \sjtu@value@school}\\
-  	{\bf\zihao{3} \sjtu@label@original}
+    {\bf\zihao{3} \sjtu@value@school}\\
+    \vskip 10pt
+    {\bf\zihao{3} \sjtu@label@original}
   \end{center}
   \vskip 10pt
   {\par\zihao{-4}\sjtu@label@originalcontent\par}
   \vskip 60pt
-  \hspace{13em}\sjtu@label@authorsign\hrulefill\hspace{1.5em}
+  \hfill\sjtu@label@authorsign\rule{11em}{0.5pt}
   \vskip 15pt
-  \hspace{16em}\sjtu@label@originalDate\hspace{1em}
+  \hfill\sjtu@label@originalDate
   \cleardoublepage
 }
-
 
 % 授权声明
 \newcommand\makeDeclareAuthorization{%
   \cleardoublepage
   \thispagestyle{empty}
   \begin{center}
-  	{\bf\zihao{3} \sjtu@value@school}\\
-  	{\bf\zihao{3} \sjtu@label@authorization}
+    {\bf\zihao{3} \sjtu@value@school}\\
+    \vskip 10pt
+    {\bf\zihao{3} \sjtu@label@authorization}
   \end{center}
   \vskip 10pt
   {\par\zihao{-4}\sjtu@label@authorizationcontent\par}
   \vskip 60pt
-  \sjtu@label@authorsign\hrulefill\hspace{3em}\sjtu@label@Supervisorsign\hrulefill
+  \sjtu@label@authorsign\rule{11em}{0.5pt} \hfill
+  \sjtu@label@Supervisorsign\rule{11em}{0.5pt}
   \vskip 15pt
-  \sjtu@label@originalDate\hfill\hspace{3em}\sjtu@label@originalDate
+  \noindent\makebox[5em]{}\sjtu@label@originalDate \hfill
+  \makebox[3em]{}\sjtu@label@originalDate
   \cleardoublepage
 }
 
 % fancyhdr页眉页脚设置
 \ifsjtu@bachelor
-	% 本科学位论文页眉页脚设置
-	%% 正文页眉页脚
-	\fancypagestyle{main}{
-	  \fancyhf{}
-	  \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
-	  \fancyhead[R]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
-	  \fancyfoot[C]{\small 第~{\bfseries\thepage}~页\,共~{\bfseries\pageref{last}}~页}
-	  \renewcommand{\headheight}{32pt}
-	}
+  % 本科学位论文页眉页脚设置
+  %% 正文页眉页脚
+  \fancypagestyle{main}{
+    \fancyhf{}
+    \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
+    \fancyhead[R]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
+    \fancyfoot[C]{\small 第~{\bfseries\thepage}~页\,共~{\bfseries\pageref{last}}~页}
+    \renewcommand{\headheight}{32pt}
+  }
   %% 英文大摘要
   \fancypagestyle{biglast}{
     \fancyhf{}
@@ -452,60 +496,82 @@
     \fancyfoot[C]{\small 第~{\bfseries\thepage}~页\,共~{\bfseries\pageref{biglast}}~页}
     \renewcommand{\headheight}{32pt}
   }
-	%% 开章页页眉页脚
-	\fancypagestyle{plain}{% 设置开章页页眉页脚风格(只有页码作为页脚)
-	  \fancyhf{}
-	  \fancyhead[L]{\nouppercase{\small\kaishu\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}}
-	  \fancyhead[R]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
-	  \fancyfoot[C]{\small 第~{\bf\thepage}~页\,共~{\bf\pageref{last}}~页}
-	  \renewcommand{\headheight}{32pt}
-	}
+  %% 开章页页眉页脚
+  \fancypagestyle{plain}{% 设置开章页页眉页脚风格(只有页码作为页脚)
+    \fancyhf{}
+    \fancyhead[L]{\nouppercase{\small\kaishu\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}}
+    \fancyhead[R]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
+    \fancyfoot[C]{\small 第~{\bf\thepage}~页\,共~{\bf\pageref{last}}~页}
+    \renewcommand{\headheight}{32pt}
+  }
 \else
-	% 研究生学位论文页眉页脚设置
-	\if@twoside
-	  %% 正文页眉页脚
-	  \fancypagestyle{main}{
-	    \fancyhead[LO, RE]{\small\kaishu\sjtu@value@school\sjtu@value@chinesedegree\sjtu@label@thesis}
-	    \fancyhead[RO]{\nouppercase{\small\kaishu\leftmark}}
-	    \fancyhead[LE]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
-	    \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
-	    \renewcommand{\headheight}{32pt}
-	  }
-	  %% 开章页页眉页脚
-	  \fancypagestyle{plain}{
-	    \fancyhf{}
-	    \fancyhead[LO,RE]{\nouppercase{\small\kaishu\sjtu@value@school\sjtu@value@chinesedegree\sjtu@label@thesis}}
-	    \fancyhead[RO]{\nouppercase{\small\kaishu\leftmark}}
-	    \fancyhead[LE]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
-	    \fancyfoot[C]{\small ---~{\bf\thepage}~---}
-	    \renewcommand{\headheight}{32pt}
-	  }
-	\else
-	%% 正文页
-	\fancypagestyle{main}{
-	  \fancyhead[L]{\small\kaishu\sjtu@value@school\sjtu@value@chinesedegree\sjtu@label@thesis}
-	  \fancyhead[R]{\nouppercase{\small\kaishu\leftmark}}
-	  \fancyfoot[C]{\small ---~{\bf\thepage}~---}
-	  \renewcommand{\headheight}{32pt}
-	}
-	\fancypagestyle{plain}{
-	  \fancyhf{}
-	  \fancyhead[L]{\nouppercase{\small\kaishu\sjtu@value@school\sjtu@value@chinesedegree\sjtu@label@thesis}}
-	  \fancyhead[R]{\nouppercase{\small\kaishu\leftmark}}
-	  % \fancyhead[L]{\small {\it\sjtu@value@titlemark}}
-	  \fancyfoot[C]{\small ---~{\bf\thepage}~---}
-	  \renewcommand{\headheight}{32pt}
-	}
-	\fi
+  % 研究生学位论文页眉页脚设置
+  \if@twoside
+    %% 正文页眉页脚
+    \fancypagestyle{main}{
+      \fancyhead[LO, RE]{\small\kaishu\sjtu@value@school\sjtu@value@chinesedegree\sjtu@label@thesis}
+      \fancyhead[RO]{\nouppercase{\small\kaishu\leftmark}}
+      \fancyhead[LE]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
+      \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
+      \renewcommand{\headheight}{32pt}
+    }
+    %% 开章页页眉页脚
+    \fancypagestyle{plain}{
+      \fancyhf{}
+      \fancyhead[LO,RE]{\nouppercase{\small\kaishu\sjtu@value@school\sjtu@value@chinesedegree\sjtu@label@thesis}}
+      \fancyhead[RO]{\nouppercase{\small\kaishu\leftmark}}
+      \fancyhead[LE]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
+      \fancyfoot[C]{\small ---~{\bf\thepage}~---}
+      \renewcommand{\headheight}{32pt}
+    }
+  \else
+  %% 正文页
+  \fancypagestyle{main}{
+    \fancyhead[L]{\small\kaishu\sjtu@value@school\sjtu@value@chinesedegree\sjtu@label@thesis}
+    \fancyhead[R]{\nouppercase{\small\kaishu\leftmark}}
+    \fancyfoot[C]{\small ---~{\bf\thepage}~---}
+    \renewcommand{\headheight}{32pt}
+  }
+  \fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[L]{\nouppercase{\small\kaishu\sjtu@value@school\sjtu@value@chinesedegree\sjtu@label@thesis}}
+    \fancyhead[R]{\nouppercase{\small\kaishu\leftmark}}
+    % \fancyhead[L]{\small {\it\sjtu@value@titlemark}}
+    \fancyfoot[C]{\small ---~{\bf\thepage}~---}
+    \renewcommand{\headheight}{32pt}
+  }
+  \fi
 \fi
 
-% 中英文摘要
-\newenvironment{abstract}{\cleardoublepage \pdfbookmark[0]{\sjtu@label@abstract}{abstract}
-\chapter*{\sjtu@value@title\vskip 20pt\sjtu@label@abstract}\markboth{\sjtu@label@abstract}{}}{}
-\newcommand\keywords[1]{\vspace{2ex}\noindent{\bf\large \sjtu@label@keywords} #1}
-\newenvironment{englishabstract}{\cleardoublepage\pdfbookmark[0]{\sjtu@label@englishabstract}{englishabstract}
-\chapter*{\sjtu@value@englishtitle\vskip 20pt\bfseries \sjtu@label@englishabstract}\markboth{\sjtu@label@englishabstract}{}}{}
-\newcommand\englishkeywords[1]{\vspace{2ex}\noindent{\bf\large \sjtu@label@englishkeywords} #1}
+% 中文摘要
+\newenvironment{abstract}{%
+  \cleardoublepage
+  \pdfbookmark[0]{\sjtu@label@abstract}{abstract}
+  \chapter*{%
+    \sjtu@value@title
+    \vskip 20pt
+    \sjtu@label@abstract}
+  \markboth{\sjtu@label@abstract}{}%
+}{}
+\newcommand\keywords[1]{%
+  \vspace{2ex}
+  \noindent{\bf\large \sjtu@label@keywords} #1%
+}
+
+% 英文摘要
+\newenvironment{englishabstract}{%
+  \cleardoublepage
+  \pdfbookmark[0]{Abstract}{englishabstract}
+  \chapter*{%
+    \sjtu@value@englishtitle
+    \vskip 20pt
+    \bfseries \sjtu@label@englishabstract}
+  \markboth{\sjtu@label@englishabstract}{}%
+}{}
+\newcommand\englishkeywords[1]{%
+  \vspace{2ex}
+  \noindent{\bf\large \sjtu@label@englishkeywords} #1%
+}
 
 \renewcommand\tableofcontents{%
   \cleardoublepage
@@ -580,62 +646,62 @@
        {\@latex@warning{Empty `projects' environment}}%
       \endlist}
 
-\newenvironment{resume}
-  {\chapter{\sjtu@label@resume}}
+\newenvironment{resume}%
+  {\chapter{\sjtu@label@resume}}%
   {}
-  
-\newenvironment{resumesection}[1]
+
+\newenvironment{resumesection}[1]%
   {{\noindent\normalfont\bfseries #1}
    \list{}{\labelwidth\z@
            \leftmargin 2\ccwd}
-   \item\relax}
-   {\endlist}
-   
-\newenvironment{resumelist}[1]
+   \item\relax}%
+  {\endlist}
+
+\newenvironment{resumelist}[1]%
   {{\noindent\normalfont\bfseries #1}
    \list{}{\labelwidth\z@
            \leftmargin 4\ccwd
            \itemindent -2\ccwd
            \listparindent\itemindent}
-   \item\relax}
-   {\endlist}
-   
-\renewenvironment{thanks}
-  {\chapter{\sjtu@label@thanks}\label{last}}
+   \item\relax}%
+  {\endlist}
+
+\renewenvironment{thanks}%
+  {\chapter{\sjtu@label@thanks}\label{last}}%
   {}
 
-\newenvironment{summary}
-{\chapter*{\sjtu@label@summary\markboth{\sjtu@label@summary}{}}\addcontentsline{toc}{chapter}{\sjtu@label@summary}
-}{}
+\newenvironment{summary}%
+  {\chapter*{\sjtu@label@summary\markboth{\sjtu@label@summary}{}}
+   \addcontentsline{toc}{chapter}{\sjtu@label@summary}}%
+  {}
 
-\newenvironment{symbolnote}{\chapter{\sjtu@label@symbolnote}
-}{}
+\newenvironment{symbolnote}%
+  {\chapter{\sjtu@label@symbolnote}}%
+  {}
 
-\newenvironment{bigabstract}
-{
-\setcounter{page}{1}
-\fancypagestyle{biglast}{
-  \fancyhf{}
-  \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
-  \fancyhead[R]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
-  \fancyfoot[C]{\small 第~{\bfseries\thepage}~页\,共~{\bfseries\pageref{biglast}}~页}
-  \renewcommand{\headheight}{32pt}
-}
-
-\fancypagestyle{plain}{% 设置开章页页眉页脚风格(只有页码作为页脚)
-  \fancyhf{}
-  \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
-  \fancyhead[R]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
-  \fancyfoot[C]{\small 第~{\bf\thepage}~页\,共~{\bf\pageref{biglast}}~页}
-  \renewcommand{\headheight}{32pt}
-}
-
-\chapter*{\bf\MakeUppercase{\sjtu@value@englishtitle}\vskip 20pt }
-}
-{\label{biglast}}
+\newenvironment{bigabstract}%
+  {\setcounter{page}{1}
+  \fancypagestyle{biglast}{
+    \fancyhf{}
+    \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
+    \fancyhead[R]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
+    \fancyfoot[C]{\small 第~{\bfseries\thepage}~页\,共~{\bfseries\pageref{biglast}}~页}
+    \renewcommand{\headheight}{32pt}
+  }
+  \fancypagestyle{plain}{% 设置开章页页眉页脚风格(只有页码作为页脚)
+    \fancyhf{}
+    \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
+    \fancyhead[R]{\nouppercase{\small\kaishu\sjtu@value@titlemark}}
+    \fancyfoot[C]{\small 第~{\bf\thepage}~页\,共~{\bf\pageref{biglast}}~页}
+    \renewcommand{\headheight}{32pt}
+  }
+  \chapter*{\bf\MakeUppercase{\sjtu@value@englishtitle}
+  \vskip 20pt}
+  }%
+  {\label{biglast}}
 
 \endinput
 
 %%
 %% End of file `sjtuthesis.cls'.
-
+%%
