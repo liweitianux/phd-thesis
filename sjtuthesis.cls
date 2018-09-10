@@ -352,38 +352,38 @@
   \begin{center}
   {\zihao{-3}\sjtu@label@statement}
   \vskip\stretch{1}
-  {\heiti\zihao{3}\sjtu@value@title}
+  {\bfseries\zihao{3}\sjtu@value@title}
   \vskip\stretch{1}
   {\fangsong\zihao{4}}
   \def\tabcolsep{1pt}
   \def\arraystretch{1.5}
   \begin{tabular}{rl}
     \ifsjtu@review
-      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@author\end{CJKfilltwosides}
+      \begin{CJKfilltwosides}{4em}\bfseries\sjtu@label@author\end{CJKfilltwosides}
         & \underline{\makebox[150pt]{}} \\
-      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@studentnumber\end{CJKfilltwosides}
+      \begin{CJKfilltwosides}{4em}\bfseries\sjtu@label@studentnumber\end{CJKfilltwosides}
         & \underline{\makebox[150pt]{}} \\
-      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@advisor\end{CJKfilltwosides}
+      \begin{CJKfilltwosides}{4em}\bfseries\sjtu@label@advisor\end{CJKfilltwosides}
         & \underline{\makebox[150pt]{}} \\
       \ifx\sjtu@value@coadvisor\undefined\else
-        \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@coadvisor\end{CJKfilltwosides}
+        \begin{CJKfilltwosides}{4em}\bfseries\sjtu@label@coadvisor\end{CJKfilltwosides}
           & \underline{\makebox[150pt]{}} \\
       \fi
     \else
-      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@author\end{CJKfilltwosides}
+      \begin{CJKfilltwosides}{4em}\bfseries\sjtu@label@author\end{CJKfilltwosides}
         & \underline{\makebox[150pt]{\sjtu@value@author}} \\
-      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@studentnumber\end{CJKfilltwosides}
+      \begin{CJKfilltwosides}{4em}\bfseries\sjtu@label@studentnumber\end{CJKfilltwosides}
         & \underline{\makebox[150pt]{\sjtu@value@studentnumber}} \\
-      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@advisor\end{CJKfilltwosides}
+      \begin{CJKfilltwosides}{4em}\bfseries\sjtu@label@advisor\end{CJKfilltwosides}
         & \underline{\makebox[150pt]{\sjtu@value@advisor}} \\
       \ifx\sjtu@value@coadvisor\undefined\else
-        \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@coadvisor\end{CJKfilltwosides}
+        \begin{CJKfilltwosides}{4em}\bfseries\sjtu@label@coadvisor\end{CJKfilltwosides}
           & \underline{\makebox[150pt]{\sjtu@value@coadvisor}} \\
       \fi
     \fi
-      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@major\end{CJKfilltwosides}
+      \begin{CJKfilltwosides}{4em}\bfseries\sjtu@label@major\end{CJKfilltwosides}
         & \underline{\makebox[150pt]{\sjtu@value@major}} \\
-      \begin{CJKfilltwosides}{4em}\heiti\sjtu@label@defenddate\end{CJKfilltwosides}
+      \begin{CJKfilltwosides}{4em}\bfseries\sjtu@label@defenddate\end{CJKfilltwosides}
         & \underline{\makebox[150pt]{\sjtu@value@defenddate}}
   \end{tabular}
   \end{center}
