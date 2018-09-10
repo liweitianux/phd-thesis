@@ -347,6 +347,7 @@
 % “绘制”SJTU中文标题页
 \renewcommand\maketitle[1]{%
   \cleardoublepage
+  \pdfbookmark[0]{标题页}{title}
   \thispagestyle{empty}
   \begin{center}
   {\songti\zihao{-3}\sjtu@label@statement}
@@ -405,6 +406,7 @@
 % "绘制"英文标题页
 \newcommand\makeenglishtitle[1]{%
   \cleardoublepage
+  \pdfbookmark[0]{Title Page}{englishtitle}
   \thispagestyle{empty}
   \begin{center}
       {\normalfont\zihao{4} \sjtu@label@englishstatement}
