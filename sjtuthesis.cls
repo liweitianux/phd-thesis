@@ -293,7 +293,7 @@
   \newtheorem{blem}[thm]{\sjtu@label@lem~}
   \newtheorem{bprop}[thm]{\sjtu@label@prop~}
   \newtheorem{bcor}[thm]{\sjtu@label@cor~}
-  \renewcommand{\proofname}{\bf\sjtu@label@proof}
+  \renewcommand{\proofname}{\bfseries\sjtu@label@proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The following definitions add Switch statement to LaTeX algorithmicx package
@@ -447,7 +447,7 @@
   \pdfbookmark[0]{\sjtu@label@originality}{originality}
   \thispagestyle{empty}
   \begin{center}
-    {\bf\zihao{3} \sjtu@value@school}\\
+    {\bfseries\zihao{3} \sjtu@value@school}
     \vskip 10pt
     {\bfseries\zihao{3} \sjtu@label@originality}
   \end{center}
@@ -466,9 +466,9 @@
   \pdfbookmark[0]{\sjtu@label@authorization}{authorization}
   \thispagestyle{empty}
   \begin{center}
-    {\bf\zihao{3} \sjtu@value@school}\\
+    {\bfseries\zihao{3} \sjtu@value@school}
     \vskip 10pt
-    {\bf\zihao{3} \sjtu@label@authorization}
+    {\bfseries\zihao{3} \sjtu@label@authorization}
   \end{center}
   \vskip 10pt
   {\par\zihao{-4}\sjtu@label@authorizationContent\par}
@@ -489,7 +489,7 @@
     \fancyhf{}
     \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
     \fancyhead[R]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
-    \fancyfoot[C]{\small 第~{\bfseries\thepage}~页\,共~{\bfseries\pageref{last}}~页}
+    \fancyfoot[C]{\small 第~\textbf{\thepage}~页\,共~\textbf{\pageref{last}}~页}
     \renewcommand{\headheight}{32pt}
   }
   %% 英文大摘要
@@ -497,7 +497,7 @@
     \fancyhf{}
     \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
     \fancyhead[R]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
-    \fancyfoot[C]{\small 第~{\bfseries\thepage}~页\,共~{\bfseries\pageref{biglast}}~页}
+    \fancyfoot[C]{\small 第~\textbf{\thepage}~页\,共~\textbf{\pageref{biglast}}~页}
     \renewcommand{\headheight}{32pt}
   }
   %% 开章页页眉页脚
@@ -505,7 +505,7 @@
     \fancyhf{}
     \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
     \fancyhead[R]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
-    \fancyfoot[C]{\small 第~{\bf\thepage}~页\,共~{\bf\pageref{last}}~页}
+    \fancyfoot[C]{\small 第~\textbf{\thepage}~页\,共~\textbf{\pageref{last}}~页}
     \renewcommand{\headheight}{32pt}
   }
 \else
@@ -520,7 +520,7 @@
       }
       \fancyhead[RO]{\nouppercase{\small\sffamily\leftmark}}
       \fancyhead[LE]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
-      \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
+      \fancyfoot[C]{\small ---~\textbf{\thepage}~---}
       \renewcommand{\headheight}{32pt}
     }
     %% 开章页页眉页脚
@@ -534,7 +534,7 @@
         }}
       \fancyhead[RO]{\nouppercase{\small\sffamily\leftmark}}
       \fancyhead[LE]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
-      \fancyfoot[C]{\small ---~{\bf\thepage}~---}
+      \fancyfoot[C]{\small ---~\textbf{\thepage}~---}
       \renewcommand{\headheight}{32pt}
     }
   \else
@@ -546,7 +546,7 @@
       \sjtu@label@thesis%
     }
     \fancyhead[R]{\nouppercase{\small\sffamily\leftmark}}
-    \fancyfoot[C]{\small ---~{\bf\thepage}~---}
+    \fancyfoot[C]{\small ---~\textbf{\thepage}~---}
     \renewcommand{\headheight}{32pt}
   }
   \fancypagestyle{plain}{
@@ -558,7 +558,7 @@
         \sjtu@label@thesis%
       }}
     \fancyhead[R]{\nouppercase{\small\sffamily\leftmark}}
-    \fancyfoot[C]{\small ---~{\bf\thepage}~---}
+    \fancyfoot[C]{\small ---~\textbf{\thepage}~---}
     \renewcommand{\headheight}{32pt}
   }
   \fi
@@ -575,8 +575,8 @@
   \markboth{\sjtu@label@abstract}{}%
 }{}
 \newcommand\keywords[1]{%
-  \vspace{2ex}
-  \noindent{\bf\large \sjtu@label@keywords} #1%
+  \vspace{2ex}\noindent
+  {\bfseries\large \sjtu@label@keywords} #1%
 }
 
 % 英文摘要
@@ -590,8 +590,8 @@
   \markboth{\sjtu@label@englishabstract}{}%
 }{}
 \newcommand\englishkeywords[1]{%
-  \vspace{2ex}
-  \noindent{\bf\large \sjtu@label@englishkeywords} #1%
+  \vspace{2ex}\noindent
+  {\bfseries\large \sjtu@label@englishkeywords} #1%
 }
 
 \renewcommand\tableofcontents{%
@@ -706,19 +706,18 @@
     \fancyhf{}
     \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
     \fancyhead[R]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
-    \fancyfoot[C]{%
-      \small 第~{\bfseries\thepage}~页\,共~{\bfseries\pageref{biglast}}~页}
+    \fancyfoot[C]{\small 第~\textbf{\thepage}~页\,共~\textbf{\pageref{biglast}}~页}
     \renewcommand{\headheight}{32pt}
   }
   \fancypagestyle{plain}{% 设置开章页页眉页脚风格(只有页码作为页脚)
     \fancyhf{}
     \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
     \fancyhead[R]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
-    \fancyfoot[C]{\small 第~{\bf\thepage}~页\,共~{\bf\pageref{biglast}}~页}
+    \fancyfoot[C]{\small 第~\textbf{\thepage}~页\,共~\textbf{\pageref{biglast}}~页}
     \renewcommand{\headheight}{32pt}
   }
-  \chapter*{\bf\MakeUppercase{\sjtu@value@englishtitle}
-  \vskip 20pt}
+  \chapter*{\bfseries\MakeUppercase{\sjtu@value@englishtitle}}
+  \vskip 20pt
   }%
   {\label{biglast}}
 
