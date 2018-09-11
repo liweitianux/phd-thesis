@@ -1,12 +1,13 @@
-THESIS = thesis
-TEX_DIR = tex
-BIB_DIR = bib
+THESIS= thesis
+TEX_DIR= tex
+BIB_DIR= bib
+TEMPLATE= sjtuthesis.cls sjtuthesis.cfg
 
-LATEXMK_OPT = -xelatex
+LATEXMK_OPT= -xelatex
 
 all: $(THESIS).pdf
 
-$(THESIS).pdf: $(THESIS).tex $(TEX_DIR)/*.tex $(BIB_DIR)/*.bib sjtuthesis.cls sjtuthesis.cfg
+$(THESIS).pdf: $(THESIS).tex $(TEX_DIR)/*.tex $(BIB_DIR)/*.bib $(TEMPLATE)
 	latexmk $(LATEXMK_OPT) $(THESIS)
 
 validate:
@@ -27,11 +28,4 @@ clean:
 	    $(TEX_DIR)/*.xdv $(TEX_DIR)/*.aux \
 	    $(TEX_DIR)/*.log $(TEX_DIR)/*.fls _tmp_.pdf *.xml
 
-git:
-	git push --tags github; git push github
-	git push --tags gitlab; git push gitlab
-
-zip:
-	git archive --format zip --output thesis.zip master
-
-.PHONY: all clean wordcount git zip
+.PHONY: all clean wordcount
