@@ -354,7 +354,6 @@
   \vskip\stretch{1}
   {\bfseries\zihao{3}\sjtu@value@title}
   \vskip\stretch{1}
-  {\fangsong\zihao{4}}
   \def\tabcolsep{1pt}
   \def\arraystretch{1.5}
   \begin{tabular}{rl}
