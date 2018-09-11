@@ -71,6 +71,7 @@
 \RequirePackage{xcolor}
 \RequirePackage{wasysym}
 \RequirePackage{listings}
+\RequirePackage{textcomp}
 \RequirePackage{longtable}
 \RequirePackage[perpage, bottom]{footmisc}
 \RequirePackage[inline]{enumitem}
@@ -283,6 +284,9 @@
   columns=flexible,
   mathescape=true,
   numbersep=-1em,
+  % 改变双引号和单引号的样式
+  literate={"}{\textquotedbl}1,
+  upquote=true,
 }
 
 % 定理环境
