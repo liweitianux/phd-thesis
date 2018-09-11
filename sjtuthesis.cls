@@ -444,6 +444,7 @@
 % 原创性声明
 \newcommand\makeDeclareOriginality{%
   \cleardoublepage
+  \pdfbookmark[0]{\sjtu@label@originality}{originality}
   \thispagestyle{empty}
   \begin{center}
     {\bf\zihao{3} \sjtu@value@school}\\
@@ -462,6 +463,7 @@
 % 授权声明
 \newcommand\makeDeclareAuthorization{%
   \cleardoublepage
+  \pdfbookmark[0]{\sjtu@label@authorization}{authorization}
   \thispagestyle{empty}
   \begin{center}
     {\bf\zihao{3} \sjtu@value@school}\\

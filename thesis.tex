@@ -70,8 +70,10 @@
 \makeatletter
 \ifsjtu@submit\relax
   \includepdf{pdf/original.pdf}
+  \pdfbookmark[0]{\sjtu@label@originality}{originality}
   \cleardoublepage
   \includepdf{pdf/authorization.pdf}
+  \pdfbookmark[0]{\sjtu@label@authorization}{authorization}
   \cleardoublepage
 \else
 \ifsjtu@review\relax
