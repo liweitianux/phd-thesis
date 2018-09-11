@@ -442,20 +442,20 @@
 }
 
 % 原创性声明
-\newcommand\makeDeclareOriginal{%
+\newcommand\makeDeclareOriginality{%
   \cleardoublepage
   \thispagestyle{empty}
   \begin{center}
     {\bf\zihao{3} \sjtu@value@school}\\
     \vskip 10pt
-    {\bf\zihao{3} \sjtu@label@original}
+    {\bfseries\zihao{3} \sjtu@label@originality}
   \end{center}
   \vskip 10pt
-  {\par\zihao{-4}\sjtu@label@originalcontent\par}
+  {\par\zihao{-4}\sjtu@label@originalityContent\par}
   \vskip 60pt
   \hfill\sjtu@label@authorsign\rule{11em}{0.5pt}
   \vskip 15pt
-  \hfill\sjtu@label@originalDate
+  \hfill\sjtu@label@originalityDate
   \cleardoublepage
 }
 
@@ -469,13 +469,13 @@
     {\bf\zihao{3} \sjtu@label@authorization}
   \end{center}
   \vskip 10pt
-  {\par\zihao{-4}\sjtu@label@authorizationcontent\par}
+  {\par\zihao{-4}\sjtu@label@authorizationContent\par}
   \vskip 60pt
   \sjtu@label@authorsign\rule{11em}{0.5pt} \hfill
-  \sjtu@label@Supervisorsign\rule{11em}{0.5pt}
+  \sjtu@label@advisorsign\rule{11em}{0.5pt}
   \vskip 15pt
-  \noindent\makebox[5em]{}\sjtu@label@originalDate \hfill
-  \makebox[3em]{}\sjtu@label@originalDate
+  \noindent\makebox[5em]{}\sjtu@label@originalityDate \hfill
+  \makebox[3em]{}\sjtu@label@originalityDate
   \cleardoublepage
 }
 
