@@ -204,7 +204,7 @@
   labelformat=simple,
   labelsep=space,
   justification=centering,
-  font=small,
+  font={small,sffamily},
 }
 \captionsetup[bi-first]{bi-first}
 \captionsetup[bi-second]{bi-second}
@@ -226,12 +226,13 @@
 \renewcommand{\bottomfraction}{0.65}
 \renewcommand{\floatpagefraction}{0.60}
 
-% 定公式、图、表、算法的编号为"3-1"的形式，即分隔符由.变为短杠
+% 定公式、图、表、算法、代码的编号为"3-1"的形式，即分隔符由.变为短杠
 \renewcommand{\theequation}{\arabic{chapter}--\arabic{equation}}
 \renewcommand{\thefigure}{\arabic{chapter}--\arabic{figure}}
 \renewcommand\p@subfigure{\thefigure}
 \renewcommand{\thetable}{\arabic{chapter}--\arabic{table}}
 \renewcommand{\thealgorithm}{\arabic{chapter}--\arabic{algorithm}}
+\renewcommand{\thelstlisting}{\arabic{chapter}--\arabic{lstlisting}}
 
 % 使用enumitem宏包配制列表环境
 % 紧凑间距
@@ -273,8 +274,8 @@
   captionpos=t,
   framextopmargin=2pt,
   framexbottommargin=2pt,
-  abovecaptionskip=-3pt,
-  belowcaptionskip=3pt,
+  abovecaptionskip=-6pt,
+  belowcaptionskip=9pt,
   xleftmargin=4em,xrightmargin=4em, % 设定listing左右的空白
   texcl=true,
   % 设定中文冲突，断行，列模式，数学环境输入，listing数字的样式
