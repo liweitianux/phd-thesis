@@ -217,6 +217,9 @@
   \def\figurename{Figure}
 }
 
+% Algorithm counter resets every chapter
+\@addtoreset{algorithm}{chapter}
+
 % Floating parameters
 \renewcommand{\textfraction}{0.15}
 \renewcommand{\topfraction}{0.85}
