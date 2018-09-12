@@ -244,12 +244,12 @@
 
 % 定公式、图、表、算法、代码的编号为"3-1"的形式，即分隔符由.变为短杠
 \AtBeginDocument{%
-  \renewcommand{\theequation}{\arabic{chapter}--\arabic{equation}}
-  \renewcommand{\thefigure}{\arabic{chapter}--\arabic{figure}}
+  \renewcommand{\theequation}{\thechapter--\arabic{equation}}
+  \renewcommand{\thefigure}{\thechapter--\arabic{figure}}
   \renewcommand\p@subfigure{\thefigure}
-  \renewcommand{\thetable}{\arabic{chapter}--\arabic{table}}
-  \renewcommand{\thealgorithm}{\arabic{chapter}--\arabic{algorithm}}
-  \renewcommand{\thelstlisting}{\arabic{chapter}--\arabic{lstlisting}}
+  \renewcommand{\thetable}{\thechapter--\arabic{table}}
+  \renewcommand{\thealgorithm}{\thechapter--\arabic{algorithm}}
+  \renewcommand{\thelstlisting}{\thechapter--\arabic{lstlisting}}
 }
 
 % 使用enumitem宏包配制列表环境
@@ -662,7 +662,7 @@
   \else
     \pagestyle{main}
   \fi
-  \pagenumbering{Roman}
+  \pagenumbering{roman}
 }
 \renewcommand\mainmatter{%
   \cleardoublepage
@@ -683,7 +683,7 @@
 }{}
 \newcommand\keywords[1]{%
   \vspace{2ex}\noindent
-  {\bfseries\large \sjtu@label@keywords} #1%
+  {\bfseries\large \sjtu@label@keywords}{#1}%
 }
 
 % 英文摘要
@@ -698,7 +698,7 @@
 }{}
 \newcommand\englishkeywords[1]{%
   \vspace{2ex}\noindent
-  {\bfseries\large \sjtu@label@englishkeywords} #1%
+  {\bfseries\large \sjtu@label@englishkeywords}{#1}%
 }
 
 % 主要符号对照表
