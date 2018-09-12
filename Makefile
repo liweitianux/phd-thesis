@@ -10,11 +10,11 @@ thesis.pdf: $(SRCS) $(TEMPLATE)
 	env TEXINPUTS=$(TEXINPUTS) BSTINPUTS=$(BSTINPUTS) latexmk -xelatex thesis
 
 wordcount:
-	@perl tools/texcount.pl thesis.tex -inc \
+	@texcount thesis.tex -inc \
 	    | awk '/total/ {getline; print "词数    :",$$4}'
-	@perl tools/texcount.pl thesis.tex -inc -char \
+	@texcount thesis.tex -inc -char \
 	    | awk '/total/ {getline; print "字符数  :",$$4}'
-	@perl tools/texcount.pl thesis.tex -inc -ch-only \
+	@texcount thesis.tex -inc -ch-only \
 	    | awk '/total/ {getline; print "中文字数:",$$4}'
 
 clean:
