@@ -6,12 +6,14 @@
 \ProvidesClass{sjtuthesis}[2018/09/12 v0.10 SJTU Thesis Template]
 \def\version{v0.10}
 
+\newif\ifsjtu@english\sjtu@englishfalse
 \newif\ifsjtu@bachelor\sjtu@bachelorfalse
 \newif\ifsjtu@master\sjtu@masterfalse
 \newif\ifsjtu@doctor\sjtu@doctorfalse
 \newif\ifsjtu@review\sjtu@reviewfalse
 \newif\ifsjtu@submit\sjtu@submitfalse
 
+\DeclareOption{english}{\sjtu@englishtrue}
 \DeclareOption{bachelor}{\sjtu@bachelortrue}
 \DeclareOption{master}{\sjtu@mastertrue}
 \DeclareOption{doctor}{\sjtu@doctortrue}
@@ -20,17 +22,25 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
 
-\LoadClass[a4paper,UTF8,scheme=chinese]{ctexbook}
-
-\ifsjtu@bachelor\relax\else
+\ifsjtu@english
+  \PassOptionsToClass{scheme=plain}{ctexbook}
+\else
+  \PassOptionsToClass{scheme=chinese}{ctexbook}
+\fi
+\ifsjtu@bachelor
+  \PassOptionsToClass{zihao=5}{ctexbook}
+\else
+  \PassOptionsToClass{zihao=-4}{ctexbook}
   \ifsjtu@master\relax\else
     \ifsjtu@doctor\relax\else
       \ClassError{sjtuthesis}%
-        {You have to specify one of thesis options: bachelor, master or doctor.}%
-        {}
+        {You have to specify one of thesis options: bachelor, master or doctor.}{}
     \fi
   \fi
 \fi
+\PassOptionsToPackage{no-math}{fontspec}
+\LoadClass[a4paper,UTF8]{ctexbook}
+
 
 %% sjtuthesis.cls segments
 % 0. Import sjtuthesis.cfg
@@ -185,10 +195,13 @@
 }
 
 \floatname{algorithm}{\sjtu@label@algo}
-\renewcommand{\algorithmicrequire}{\textbf{输入:}}
-\renewcommand{\algorithmicensure}{\textbf{输出:}}
+\renewcommand{\algorithmicrequire}{\textbf{\sjtu@algorithmicrequire}}
+\renewcommand{\algorithmicensure}{\textbf{\sjtu@algorithmicensure}}
 \renewcommand{\listalgorithmname}{\sjtu@listalgorithmname}
 \renewcommand{\lstlistingname}{\sjtu@value@listingname}
+
+% Set indent in English mode
+\ifsjtu@english\setlength{\parindent}{2\ccwd}\fi
 
 % bullets in the item
 \renewcommand{\labelitemi}{\ensuremath{\bullet}}
@@ -359,10 +372,6 @@
 \newcommand\confidential[1]{\def\sjtu@value@confidential{#1}}
 \newcommand\school[1]{\def\sjtu@value@school{#1}}
 \newcommand\chinesedegree[1]{\def\sjtu@value@chinesedegree{#1}}
-\renewcommand\title[2][\sjtu@value@title]{%
-  \def\sjtu@value@title{#2}
-  \def\sjtu@value@titlemark{\MakeUppercase{#1}}}
-\renewcommand\author[1]{\def\sjtu@value@author{#1}}
 \newcommand\advisor[1]{\def\sjtu@value@advisor{#1}}
 \newcommand\coadvisor[1]{\def\sjtu@value@coadvisor{#1}}
 \newcommand\major[1]{\def\sjtu@value@major{#1}}
@@ -370,6 +379,8 @@
 \newcommand\defenddate[1]{\def\sjtu@value@defenddate{#1}}
 \newcommand\institute[1]{\def\sjtu@value@institute{#1}}
 \newcommand\chairman[1]{\def\sjtu@value@chairman{#1}}
+\renewcommand\title[1]{\def\sjtu@value@chinesetitle{#1}}
+\renewcommand\author[1]{\def\sjtu@value@author{#1}}
 
 % “绘制”中文标题页
 \newcommand\makechinesetitle{%
@@ -378,11 +389,11 @@
   \begin{center}
   {\zihao{-3}\sjtu@label@statement}
   \vskip\stretch{1}
-  {\bfseries\zihao{3}\sjtu@value@title}
+  {\bfseries\zihao{3}\sjtu@value@chinesetitle}
   \vskip\stretch{1}
   \def\tabcolsep{1pt}
   \def\arraystretch{1.5}
-  \begin{tabular}{>{\begin{CJKfilltwosides}{4em}\bfseries}r<{\end{CJKfilltwosides}}l}
+  \begin{tabular}{>{\begin{CJKfilltwosides}{4\ccwd}\bfseries}r<{\end{CJKfilltwosides}}l}
     \ifsjtu@review
       \sjtu@label@author        & \underline{\makebox[150pt]{}} \\
       \sjtu@label@studentnumber & \underline{\makebox[150pt]{}} \\
@@ -472,12 +483,12 @@
     {\sffamily\zihao{2}
     \begin{tabular}{r@{：}l}
       \sjtu@label@title &
-      {\zihao{-2}\underline{\begin{minipage}{360pt}\centering\sjtu@value@title\end{minipage}}}
+      {\zihao{-2}\underline{\begin{minipage}{360pt}\centering\sjtu@value@chinesetitle\end{minipage}}}
     \end{tabular}}
     \vskip \stretch{1}
     {\sffamily\zihao{3}
     \def\arraystretch{1.1}
-    \begin{tabular}{>{\begin{CJKfilltwosides}{4em}}r<{\end{CJKfilltwosides}}@{：}l}
+    \begin{tabular}{>{\begin{CJKfilltwosides}{4\ccwd}}r<{\end{CJKfilltwosides}}@{：}l}
       \ifsjtu@review
         \sjtu@label@author        & \underline{\makebox[180pt]{}} \\
         \sjtu@label@studentnumber & \underline{\makebox[180pt]{}} \\
@@ -498,7 +509,7 @@
 }
 
 \renewcommand\maketitle{%
-  \pdfbookmark[0]{扉~~~~页}{titlepage}
+  \pdfbookmark[0]{\sjtu@titlepage}{titlepage}
   \ifsjtu@bachelor
     \makechinesetitle@bachelor
   \else
@@ -665,10 +676,10 @@
   \cleardoublepage
   \pdfbookmark[0]{\sjtu@label@abstract}{abstract}
   \chapter*{%
-    \sjtu@value@title
+    \sjtu@value@chinesetitle
     \vskip 20pt
-    \sjtu@label@abstract}
-  \markboth{\sjtu@label@abstract}{}%
+    \sjtu@label@chineseabstract}
+  \markboth{\sjtu@label@chineseabstract}{}%
 }{}
 \newcommand\keywords[1]{%
   \vspace{2ex}\noindent
@@ -682,13 +693,17 @@
   \chapter*{%
     \sjtu@value@englishtitle
     \vskip 20pt
-    \bfseries \sjtu@label@englishabstract}
+    \MakeUppercase{\sjtu@label@englishabstract}}
   \markboth{\sjtu@label@englishabstract}{}%
 }{}
 \newcommand\englishkeywords[1]{%
   \vspace{2ex}\noindent
   {\bfseries\large \sjtu@label@englishkeywords} #1%
 }
+
+% 主要符号对照表
+\newenvironment{nomenclaturename}{\cleardoublepage
+\chapter{\sjtu@nomenclature}{}}{}
 
 \newenvironment{publications}[1]
      {\chapter{\sjtu@label@publications}%
