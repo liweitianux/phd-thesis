@@ -151,47 +151,44 @@
 
 %% CTeX Settings
 % 名称：目录、表格索引、插图索引、算法、算法索引、代码
-\ctexset{contentsname={\sjtu@contentsname}}
-\ctexset{listfigurename={\sjtu@listfigurename}}
-\ctexset{listtablename={\sjtu@listtablename}}
+\ctexset{%
+  contentsname={\sjtu@contentsname},
+  listfigurename={\sjtu@listfigurename},
+  listtablename={\sjtu@listtablename},
+  autoindent=true,
+  chapter={%
+    format={\zihao{3}\bfseries\centering},
+    nameformat={},
+    titleformat={},
+    aftername={\quad},
+    afterindent=true,
+    beforeskip={15\p@},
+    afterskip={12\p@},
+  },
+  section={%
+    format={\zihao{4}\bfseries},
+    afterindent=true,
+    afterskip={1.0ex \@plus 0.2ex},
+  },
+  subsection={%
+    format={\zihao{-4}\bfseries},
+    afterindent=true,
+    afterskip={1.0ex \@plus 0.2ex},
+  },
+  subsubsection={%
+    format={\normalsize\normalfont},
+    afterindent=true,
+    afterskip={1.0ex \@plus 0.2ex},
+  },
+  paragraph/afterindent=true,
+  subparagraph/afterindent=true,
+}
+
 \floatname{algorithm}{\sjtu@label@algo}
 \renewcommand{\algorithmicrequire}{\textbf{输入:}}
 \renewcommand{\algorithmicensure}{\textbf{输出:}}
 \renewcommand{\listalgorithmname}{\sjtu@listalgorithmname}
 \renewcommand{\lstlistingname}{\sjtu@value@listingname}
-
-% Title Settings at the chapter Level
-\ctexset{%
-  chapter={
-    nameformat={\Large\bfseries},
-    titleformat={\Large\bfseries},
-    beforeskip={15\p@},
-    afterskip={12\p@},
-  }
-}
-% Title Settings at the section Level
-\ctexset{%
-  section={
-    format={\large\bfseries},
-    afterskip={1.0ex \@plus 0.2ex},
-  }
-}
-% Title Settings at the subection Level
-\ctexset{%
-  subsection={
-    format={\bfseries\normalsize},
-    indent={0\ccwd},
-    afterskip={1.0ex \@plus 0.2ex},
-  }
-}
-% Title Settings at the subsubection Level
-\ctexset{%
-  subsubsection={
-    format={\normalfont\normalsize},
-    indent={0\ccwd},
-    afterskip={1.0ex \@plus 0.2ex},
-  }
-}
 
 % bullets in the item
 \renewcommand{\labelitemi}{\ensuremath{\bullet}}
