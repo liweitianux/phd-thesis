@@ -54,7 +54,7 @@
 \RequirePackage{etoolbox}
 \RequirePackage[centering,a4paper,body={16cm,22cm}]{geometry}
 \RequirePackage{fancyhdr}
-\RequirePackage{lastpage}
+\RequirePackage{pageslts}
 \RequirePackage{fontspec}
 \RequirePackage{metalogo,doc}
 \RequirePackage{array}
@@ -548,87 +548,117 @@
 }
 
 % fancyhdr页眉页脚设置
-\ifsjtu@bachelor
-  % 本科学位论文页眉页脚设置
-  %% 正文页眉页脚
-  \fancypagestyle{main}{
+\ifsjtu@english
+  \def\sjtu@value@titlemark{\sjtu@value@englishtitle}
+  \newcommand\sjtu@fancyhead{\footnotesize\kaishu}
+  \newcommand\sjtu@fancyfoot[2]{%
+    \small --~~Page~~{\textbf{#1}}~~of~~{\textbf{#2}}~~--}
+\else
+  \def\sjtu@value@titlemark{\sjtu@value@chinesetitle}
+  \newcommand\sjtu@fancyhead{\small\kaishu}
+  \newcommand\sjtu@fancyfoot[2]{%
+    \small 第~{\textbf{#1}}~页\,共~{\textbf{#2}}~页}
+\fi
+\def\markboxwidth{0.75\textwidth}
+\AtBeginDocument{\pagenumbering{Alph}}
+
+\ifsjtu@bachelor  % 本科学位论文页眉页脚设置
+  %% 前言页眉页脚
+  \fancypagestyle{front}{%
     \fancyhf{}
-    \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
-    \fancyhead[R]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
-    \fancyfoot[C]{\small 第~\textbf{\thepage}~页\,共~\textbf{\pageref{last}}~页}
+    \fancyhead[L]{\includegraphics{sjtubanner}}
+    \fancyhead[R]{%
+      \parbox[b]{\markboxwidth}{%
+        \raggedleft\nouppercase{\sjtu@fancyhead\sjtu@value@titlemark}}}
+    \fancyfoot[C]{\sjtu@fancyfoot{\thepage}{\lastpageref{pagesLTS.Roman}}}
+    \renewcommand{\headheight}{32pt}
+  }
+  %% 正文页眉页脚
+  \fancypagestyle{main}{%
+    \fancyhf{}
+    \fancyhead[L]{\includegraphics{sjtubanner}}
+    \fancyhead[R]{%
+      \parbox[b]{\markboxwidth}{%
+        \raggedleft\nouppercase{\sjtu@fancyhead\sjtu@value@titlemark}}}
+    \fancyfoot[C]{\sjtu@fancyfoot{\thepage}{\lastpageref{pagesLTS.arabic}}}
     \renewcommand{\headheight}{32pt}
   }
   %% 英文大摘要
-  \fancypagestyle{biglast}{
+  \fancypagestyle{biglast}{%
     \fancyhf{}
-    \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
-    \fancyhead[R]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
-    \fancyfoot[C]{\small 第~\textbf{\thepage}~页\,共~\textbf{\pageref{biglast}}~页}
+    \fancyhead[L]{\includegraphics{sjtubanner}}
+    \fancyhead[R]{%
+      \parbox[b]{\markboxwidth}{%
+        \raggedleft\nouppercase{\sjtu@fancyhead\sjtu@value@titlemark}}}
+    \fancyfoot[C]{%
+      \sjtu@fancyfoot{%
+        \theCurrentPageLocal}{\lastpageref{pagesLTS.roman.local}}}
     \renewcommand{\headheight}{32pt}
   }
-  %% 开章页页眉页脚
-  \fancypagestyle{plain}{% 设置开章页页眉页脚风格(只有页码作为页脚)
-    \fancyhf{}
-    \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
-    \fancyhead[R]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
-    \fancyfoot[C]{\small 第~\textbf{\thepage}~页\,共~\textbf{\pageref{last}}~页}
-    \renewcommand{\headheight}{32pt}
-  }
-\else
-  % 研究生学位论文页眉页脚设置
-  \if@twoside
+\else  % 研究生学位论文页眉页脚设置
+  \if@twoside  % 双面打印
+    %% 开章页页眉页脚
+    \fancypagestyle{front}{
+      \fancyhf{}
+      \fancyhead[LO,RE]{%
+        \small\sffamily%
+        \sjtu@value@school\sjtu@value@chinesedegree%
+        \sjtu@label@thesis}
+      \fancyhead[LE,RO]{\nouppercase{\sjtu@fancyhead\leftmark}}
+      \fancyfoot[C]{\small ---~\textbf{\thepage}~---}
+      \renewcommand{\headheight}{32pt}
+    }
     %% 正文页眉页脚
     \fancypagestyle{main}{
-      \fancyhead[LO, RE]{%
-        \small\sffamily%
-        \sjtu@value@school\sjtu@value@chinesedegree%
-        \sjtu@label@thesis%
-      }
-      \fancyhead[RO]{\nouppercase{\small\sffamily\leftmark}}
-      \fancyhead[LE]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
-      \fancyfoot[C]{\small ---~\textbf{\thepage}~---}
-      \renewcommand{\headheight}{32pt}
-    }
-    %% 开章页页眉页脚
-    \fancypagestyle{plain}{
       \fancyhf{}
-      \fancyhead[LO, RE]{%
-        \nouppercase{%
-          \small\sffamily%
-          \sjtu@value@school\sjtu@value@chinesedegree%
-          \sjtu@label@thesis%
-        }}
-      \fancyhead[RO]{\nouppercase{\small\sffamily\leftmark}}
-      \fancyhead[LE]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
+      \fancyhead[LO,RE]{%
+        \small\sffamily%
+        \sjtu@value@school\sjtu@value@chinesedegree%
+        \sjtu@label@thesis}
+      \fancyhead[LE,RO]{\nouppercase{\sjtu@fancyhead\leftmark}}
       \fancyfoot[C]{\small ---~\textbf{\thepage}~---}
       \renewcommand{\headheight}{32pt}
     }
-  \else
-  %% 正文页
-  \fancypagestyle{main}{
-    \fancyhead[L]{%
-      \small\sffamily%
-      \sjtu@value@school\sjtu@value@chinesedegree%
-      \sjtu@label@thesis%
-    }
-    \fancyhead[R]{\nouppercase{\small\sffamily\leftmark}}
-    \fancyfoot[C]{\small ---~\textbf{\thepage}~---}
-    \renewcommand{\headheight}{32pt}
-  }
-  \fancypagestyle{plain}{
-    \fancyhf{}
-    \fancyhead[L]{%
-      \nouppercase{%
+  \else  % 单面打印
+    \fancypagestyle{front}{
+      \fancyhf{}
+      \fancyhead[L]{%
         \small\sffamily%
         \sjtu@value@school\sjtu@value@chinesedegree%
-        \sjtu@label@thesis%
-      }}
-    \fancyhead[R]{\nouppercase{\small\sffamily\leftmark}}
-    \fancyfoot[C]{\small ---~\textbf{\thepage}~---}
-    \renewcommand{\headheight}{32pt}
-  }
+        \sjtu@label@thesis}
+      \fancyhead[R]{\nouppercase{\sjtu@fancyhead\leftmark}}
+      \fancyfoot[C]{\small ---~\textbf{\thepage}~---}
+      \renewcommand{\headheight}{32pt}
+    }
+    \fancypagestyle{main}{
+      \fancyhf{}
+      \fancyhead[L]{%
+        \small\sffamily%
+        \sjtu@value@school\sjtu@value@chinesedegree%
+        \sjtu@label@thesis}
+      \fancyhead[R]{\nouppercase{\sjtu@fancyhead\leftmark}}
+      \fancyfoot[C]{\small ---~\textbf{\thepage}~---}
+      \renewcommand{\headheight}{32pt}
+    }
   \fi
 \fi
+
+\renewcommand\frontmatter{%
+  \cleardoublepage
+  \@mainmatterfalse
+  \ifsjtu@bachelor
+    \pagestyle{front}
+  \else
+    \pagestyle{main}
+  \fi
+  \pagenumbering{Roman}
+}
+\renewcommand\mainmatter{%
+  \cleardoublepage
+  \@mainmattertrue
+  \pagestyle{main}
+  \pagenumbering{arabic}
+}
 
 % 中文摘要
 \newenvironment{abstract}{%
@@ -766,26 +796,16 @@
   {\chapter{\sjtu@label@symbolnote}}%
   {}
 
-\newenvironment{bigabstract}%
-  {\setcounter{page}{1}
-  \fancypagestyle{biglast}{
-    \fancyhf{}
-    \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
-    \fancyhead[R]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
-    \fancyfoot[C]{\small 第~\textbf{\thepage}~页\,共~\textbf{\pageref{biglast}}~页}
-    \renewcommand{\headheight}{32pt}
+\newenvironment{bigabstract}{%
+  \cleardoublepage
+  \pagenumbering{roman}
+  \pagestyle{biglast}
+  \chapter*{%
+    \bfseries
+    \MakeUppercase\sjtu@value@englishtitle
+    \vskip 20pt
   }
-  \fancypagestyle{plain}{% 设置开章页页眉页脚风格(只有页码作为页脚)
-    \fancyhf{}
-    \fancyhead[L]{\includegraphics[width=0.22\textwidth]{figure/sjtubanner}}
-    \fancyhead[R]{\nouppercase{\small\sffamily\sjtu@value@titlemark}}
-    \fancyfoot[C]{\small 第~\textbf{\thepage}~页\,共~\textbf{\pageref{biglast}}~页}
-    \renewcommand{\headheight}{32pt}
-  }
-  \chapter*{\bfseries\MakeUppercase{\sjtu@value@englishtitle}}
-  \vskip 20pt
-  }%
-  {\label{biglast}}
+}{\cleardoublepage}
 
 \endinput
 
