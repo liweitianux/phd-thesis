@@ -41,20 +41,48 @@
 \PassOptionsToPackage{no-math}{fontspec}
 \LoadClass[a4paper,UTF8]{ctexbook}
 
-
 %% sjtuthesis.cls segments
-% 0. Import sjtuthesis.cfg
+% 0. Import sjtuthesis.cfg and define values
 % 1. Import and configure LaTeX packages.
 % 2. Define general-purpose LaTeX commands.
 % 3. Configure the imported packages, also extend LaTeX command in sjtuthesis
 % 4. Draw the sjtuthesis
 
 %==========
-% Segment 0. Import sjtuthesis.cfg
+% Segment 0. Import sjtuthesis.cfg and define values
 %==========
 
-%% 导入 sjtuthesis.cfg 文件
 \AtEndOfClass{\input{sjtuthesis.cfg}}
+
+% Chinese title page
+\newcommand\keywords[1]{\def\sjtu@value@keywords{#1}}
+\newcommand\classification[1]{\def\sjtu@value@classification{#1}}
+\newcommand\studentnumber[1]{\def\sjtu@value@studentnumber{#1}}
+\newcommand\confidential[1]{\def\sjtu@value@confidential{#1}}
+\newcommand\school[1]{\def\sjtu@value@school{#1}}
+\newcommand\chinesedegree[1]{\def\sjtu@value@chinesedegree{#1}}
+\newcommand\advisor[1]{\def\sjtu@value@advisor{#1}}
+\newcommand\coadvisor[1]{\def\sjtu@value@coadvisor{#1}}
+\newcommand\major[1]{\def\sjtu@value@major{#1}}
+\newcommand\submitdate[1]{\def\sjtu@value@submitdate{#1}}
+\newcommand\defenddate[1]{\def\sjtu@value@defenddate{#1}}
+\newcommand\institute[1]{\def\sjtu@value@institute{#1}}
+\newcommand\chairman[1]{\def\sjtu@value@chairman{#1}}
+\renewcommand\title[1]{\def\sjtu@value@chinesetitle{#1}}
+\renewcommand\author[1]{\def\sjtu@value@author{#1}}
+
+% English title page
+\newcommand\englishkeywords[1]{\def\sjtu@value@englishkeywords{#1}}
+\newcommand\englishtitle[1]{\def\sjtu@value@englishtitle{#1}}
+\newcommand\englishauthor[1]{\def\sjtu@value@englishauthor{#1}}
+\newcommand\englishadvisor[1]{\def\sjtu@value@englishadvisor{#1}}
+\newcommand\englishcoadvisor[1]{\def\sjtu@value@englishcoadvisor{#1}}
+\newcommand\englishinstitute[1]{\def\sjtu@value@englishinstitute{#1}}
+\newcommand\englishschool[1]{\def\sjtu@value@englishschool{#1}}
+\newcommand\englishlocation[1]{\def\sjtu@value@englishlocation{#1}}
+\newcommand\englishdate[1]{\def\sjtu@value@englishdate{#1}}
+\newcommand\englishdegree[1]{\def\sjtu@value@englishdegree{#1}}
+\newcommand\englishmajor[1]{\def\sjtu@value@englishmajor{#1}}
 
 
 %==========
@@ -92,17 +120,25 @@
 \RequirePackage{calc}
 \RequirePackage{algorithm, algorithmicx, algpseudocode}
 \RequirePackage{siunitx}
+
 \RequirePackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
-\RequirePackage[%
-  bookmarksnumbered,
-  colorlinks,
-  urlcolor=black,
-  linkcolor=black,
-  citecolor=black,
-  plainpages=false,
-  pdfstartview=FitH,
-]{hyperref}
+
+% Delay the execution of \hypersetup at \begin{document}.
+% NOTE: Should be set before hyperref uses it.
+\AtBeginDocument{
+  \hypersetup{
+    bookmarksnumbered,
+    colorlinks,
+    pdfstartview=FitH,
+    pdfborder={0 0 0},% No border around links
+    pdfauthor={\sjtu@value@author},
+    pdftitle={\sjtu@value@chinesetitle},
+    pdfsubject={\sjtu@value@school \sjtu@value@chinesedegree \sjtu@label@thesis},
+    pdfkeywords={\sjtu@value@keywords},
+  }
+}
+\RequirePackage{hyperref}
 
 
 %==========
@@ -367,21 +403,6 @@
 % Segment 4. Draw the sjtuthesis
 %==========
 
-\newcommand\classification[1]{\def\sjtu@value@classification{#1}}
-\newcommand\studentnumber[1]{\def\sjtu@value@studentnumber{#1}}
-\newcommand\confidential[1]{\def\sjtu@value@confidential{#1}}
-\newcommand\school[1]{\def\sjtu@value@school{#1}}
-\newcommand\chinesedegree[1]{\def\sjtu@value@chinesedegree{#1}}
-\newcommand\advisor[1]{\def\sjtu@value@advisor{#1}}
-\newcommand\coadvisor[1]{\def\sjtu@value@coadvisor{#1}}
-\newcommand\major[1]{\def\sjtu@value@major{#1}}
-\newcommand\submitdate[1]{\def\sjtu@value@submitdate{#1}}
-\newcommand\defenddate[1]{\def\sjtu@value@defenddate{#1}}
-\newcommand\institute[1]{\def\sjtu@value@institute{#1}}
-\newcommand\chairman[1]{\def\sjtu@value@chairman{#1}}
-\renewcommand\title[1]{\def\sjtu@value@chinesetitle{#1}}
-\renewcommand\author[1]{\def\sjtu@value@author{#1}}
-
 % “绘制”中文标题页
 \newcommand\makechinesetitle{%
   \cleardoublepage
@@ -416,18 +437,6 @@
   \vskip \stretch{0.5}
   \cleardoublepage
 }
-
-% English Title Page
-\newcommand\englishtitle[1]{\def\sjtu@value@englishtitle{#1}}
-\newcommand\englishauthor[1]{\def\sjtu@value@englishauthor{#1}}
-\newcommand\englishadvisor[1]{\def\sjtu@value@englishadvisor{#1}}
-\newcommand\englishcoadvisor[1]{\def\sjtu@value@englishcoadvisor{#1}}
-\newcommand\englishinstitute[1]{\def\sjtu@value@englishinstitute{#1}}
-\newcommand\englishschool[1]{\def\sjtu@value@englishschool{#1}}
-\newcommand\englishlocation[1]{\def\sjtu@value@englishlocation{#1}}
-\newcommand\englishdate[1]{\def\sjtu@value@englishdate{#1}}
-\newcommand\englishdegree[1]{\def\sjtu@value@englishdegree{#1}}
-\newcommand\englishmajor[1]{\def\sjtu@value@englishmajor{#1}}
 
 % "绘制"英文标题页
 \newcommand\makeenglishtitle{%
@@ -671,7 +680,7 @@
   \pagenumbering{arabic}
 }
 
-% 中文摘要
+% 中文摘要+关键词
 \newenvironment{abstract}{%
   \cleardoublepage
   \pdfbookmark[0]{\sjtu@label@abstract}{abstract}
@@ -679,14 +688,16 @@
     \sjtu@value@chinesetitle
     \vskip 20pt
     \sjtu@label@chineseabstract}
-  \markboth{\sjtu@label@chineseabstract}{}%
-}{}
-\newcommand\keywords[1]{%
-  \vspace{2ex}\noindent
-  {\bfseries\large \sjtu@label@keywords}{#1}%
+  \markboth{\sjtu@label@chineseabstract}{}
+}{%
+  \vspace{2ex}
+  \par\noindent
+  {\zihao{4}
+    \textbf{\sjtu@label@keywords}
+    \sjtu@value@keywords}
 }
 
-% 英文摘要
+% Abstract + key words
 \newenvironment{englishabstract}{%
   \cleardoublepage
   \pdfbookmark[0]{Abstract}{englishabstract}
@@ -694,11 +705,13 @@
     \sjtu@value@englishtitle
     \vskip 20pt
     \MakeUppercase{\sjtu@label@englishabstract}}
-  \markboth{\sjtu@label@englishabstract}{}%
-}{}
-\newcommand\englishkeywords[1]{%
-  \vspace{2ex}\noindent
-  {\bfseries\large \sjtu@label@englishkeywords}{#1}%
+  \markboth{\sjtu@label@englishabstract}{}
+}{%
+  \vspace{2ex}
+  \par\noindent
+  {\zihao{4}
+    \textbf{\sjtu@label@englishkeywords}
+    \sjtu@value@englishkeywords}
 }
 
 % 主要符号对照表
