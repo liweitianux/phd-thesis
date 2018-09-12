@@ -220,6 +220,9 @@
   \def\figurename{Figure}
 }
 
+% Set footnote font size in threeparttable
+\appto\TPTnoteSettings{\footnotesize}
+
 % Algorithm counter resets every chapter
 \@addtoreset{algorithm}{chapter}
 
