@@ -230,12 +230,12 @@
 \renewcommand{\floatpagefraction}{0.60}
 
 % 定公式、图、表、算法、代码的编号为"3-1"的形式，即分隔符由.变为短杠
-\renewcommand{\theequation}{\arabic{chapter}--\arabic{equation}}
-\renewcommand{\thefigure}{\arabic{chapter}--\arabic{figure}}
-\renewcommand\p@subfigure{\thefigure}
-\renewcommand{\thetable}{\arabic{chapter}--\arabic{table}}
-\renewcommand{\thealgorithm}{\arabic{chapter}--\arabic{algorithm}}
 \AtBeginDocument{%
+  \renewcommand{\theequation}{\arabic{chapter}--\arabic{equation}}
+  \renewcommand{\thefigure}{\arabic{chapter}--\arabic{figure}}
+  \renewcommand\p@subfigure{\thefigure}
+  \renewcommand{\thetable}{\arabic{chapter}--\arabic{table}}
+  \renewcommand{\thealgorithm}{\arabic{chapter}--\arabic{algorithm}}
   \renewcommand{\thelstlisting}{\arabic{chapter}--\arabic{lstlisting}}
 }
 
