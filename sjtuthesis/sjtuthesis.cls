@@ -715,117 +715,136 @@
 }
 
 % 主要符号对照表
-\newenvironment{nomenclaturename}{\cleardoublepage
-\chapter{\sjtu@nomenclature}{}}{}
+\newenvironment{nomenclaturename}{%
+  \cleardoublepage
+  \chapter{\sjtu@nomenclature}{}
+}{}
 
-\newenvironment{publications}[1]
-     {\chapter{\sjtu@label@publications}%
-      \@mkboth{\MakeUppercase\sjtu@label@publications}
-              {\MakeUppercase\sjtu@label@publications}%
-      \list{\@biblabel{\@arabic\c@enumiv}}%
-           {\settowidth\labelwidth{\@biblabel{#1}}%
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
-            \@openbib@code
-            \usecounter{enumiv}%
-            \let\p@enumiv\@empty
-            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-      \sloppy
-      \clubpenalty4000
-      \@clubpenalty \clubpenalty
-      \widowpenalty4000%
-      \sfcode`\.\@m}
-     {\def\@noitemerr
-       {\@latex@warning{Empty `publications' environment}}%
-      \endlist}
+% 发表论文
+\newenvironment{publications}[1]{
+  \chapter{\sjtu@label@publications}%
+  \@mkboth{\MakeUppercase\sjtu@label@publications}
+  {\MakeUppercase\sjtu@label@publications}%
+  \list{%
+    \@biblabel{\@arabic\c@enumiv}
+  }{%
+    \settowidth\labelwidth{\@biblabel{#1}}%
+    \leftmargin\labelwidth
+    \advance\leftmargin\labelsep
+    \@openbib@code
+    \usecounter{enumiv}%
+    \let\p@enumiv\@empty
+    \renewcommand\theenumiv{\@arabic\c@enumiv}
+  }%
+  \sloppy
+  \clubpenalty4000
+  \@clubpenalty \clubpenalty
+  \widowpenalty4000%
+  \sfcode`\.\@m%
+}{%
+  \def\@noitemerr
+  {\@latex@warning{Empty `publications' environment}}%
+  \endlist
+}
 
-\newenvironment{patents}[1]
-     {\chapter{\sjtu@label@patents}%
-      \@mkboth{\MakeUppercase\sjtu@label@patents}
-              {\MakeUppercase\sjtu@label@patents}%
-      \list{\@biblabel{\@arabic\c@enumiv}}%
-           {\settowidth\labelwidth{\@biblabel{#1}}%
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
-            \@openbib@code
-            \usecounter{enumiv}%
-            \let\p@enumiv\@empty
-            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-      \sloppy
-      \clubpenalty4000
-      \@clubpenalty \clubpenalty
-      \widowpenalty4000%
-      \sfcode`\.\@m}
-     {\def\@noitemerr
-       {\@latex@warning{Empty `patents' environment}}%
-      \endlist}
+% 申请专利
+\newenvironment{patents}[1]{%
+  \chapter{\sjtu@label@patents}%
+  \@mkboth{\MakeUppercase\sjtu@label@patents}
+  {\MakeUppercase\sjtu@label@patents}%
+  \list{%
+    \@biblabel{\@arabic\c@enumiv}
+  }{%
+    \settowidth\labelwidth{\@biblabel{#1}}%
+    \leftmargin\labelwidth
+    \advance\leftmargin\labelsep
+    \@openbib@code
+    \usecounter{enumiv}%
+    \let\p@enumiv\@empty
+    \renewcommand\theenumiv{\@arabic\c@enumiv}
+  }%
+  \sloppy
+  \clubpenalty4000
+  \@clubpenalty \clubpenalty
+  \widowpenalty4000%
+  \sfcode`\.\@m%
+}{%
+  \def\@noitemerr
+  {\@latex@warning{Empty `patents' environment}}%
+  \endlist
+}
 
-\newenvironment{projects}[1]
-     {\chapter{\sjtu@label@projects}%
-      \@mkboth{\MakeUppercase\sjtu@label@projects}
-              {\MakeUppercase\sjtu@label@projects}%
-      \list{\@biblabel{\@arabic\c@enumiv}}%
-           {\settowidth\labelwidth{\@biblabel{#1}}%
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
-            \@openbib@code
-            \usecounter{enumiv}%
-            \let\p@enumiv\@empty
-            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-      \sloppy
-      \clubpenalty4000
-      \@clubpenalty \clubpenalty
-      \widowpenalty4000%
-      \sfcode`\.\@m}
-     {\def\@noitemerr
-       {\@latex@warning{Empty `projects' environment}}%
-      \endlist}
+% 参与项目
+\newenvironment{projects}[1]{%
+  \chapter{\sjtu@label@projects}%
+  \@mkboth{\MakeUppercase\sjtu@label@projects}
+  {\MakeUppercase\sjtu@label@projects}%
+  \list{%
+    \@biblabel{\@arabic\c@enumiv}
+  }{%
+    \settowidth\labelwidth{\@biblabel{#1}}%
+    \leftmargin\labelwidth
+    \advance\leftmargin\labelsep
+    \@openbib@code
+    \usecounter{enumiv}%
+    \let\p@enumiv\@empty
+    \renewcommand\theenumiv{\@arabic\c@enumiv}
+  }%
+  \sloppy
+  \clubpenalty4000
+  \@clubpenalty \clubpenalty
+  \widowpenalty4000%
+  \sfcode`\.\@m%
+}{%
+  \def\@noitemerr
+  {\@latex@warning{Empty `projects' environment}}%
+  \endlist
+}
 
-\newenvironment{resume}%
-  {\chapter{\sjtu@label@resume}}%
-  {}
+% 简历
+\newenvironment{resume}{%
+  \chapter{\sjtu@label@resume}
+}{}
 
-\newenvironment{resumesection}[1]%
-  {{\noindent\normalfont\bfseries #1}
-   \list{}{\labelwidth\z@
-           \leftmargin 2\ccwd}
-   \item\relax}%
-  {\endlist}
-
-\newenvironment{resumelist}[1]%
-  {{\noindent\normalfont\bfseries #1}
-   \list{}{\labelwidth\z@
-           \leftmargin 4\ccwd
-           \itemindent -2\ccwd
-           \listparindent\itemindent}
-   \item\relax}%
-  {\endlist}
-
-\renewenvironment{thanks}{%
-  \chapter*{%
-    \sjtu@label@thanks
-    \markboth{\sjtu@label@thanks}{}
+\newenvironment{resumesection}[1]{%
+  {\noindent\normalfont\bfseries #1}
+  \list{}{%
+    \labelwidth\z@
+    \leftmargin 2\ccwd
   }
+  \item\relax
+}{\endlist}
+
+\newenvironment{resumelist}[1]{%
+  {\noindent\normalfont\bfseries #1}
+  \list{}{%
+    \labelwidth\z@
+    \leftmargin 4\ccwd
+    \itemindent -2\ccwd
+    \listparindent\itemindent
+  }
+  \item\relax
+}{\endlist}
+
+% 致谢
+\renewenvironment{thanks}{%
+  \chapter*{\sjtu@label@thanks\markboth{\sjtu@label@thanks}{}}
   \addcontentsline{toc}{chapter}{\sjtu@label@thanks}
 }{}
 
+% 全文总结
 \newenvironment{summary}{%
-  \chapter*{%
-    \sjtu@label@summary
-    \markboth{\sjtu@label@summary}{}
-  }
+  \chapter*{\sjtu@label@summary\markboth{\sjtu@label@summary}{}}
   \addcontentsline{toc}{chapter}{\sjtu@label@summary}
 }{}
 
+% 本科学位论文 - 英文大摘要
 \newenvironment{bigabstract}{%
   \cleardoublepage
   \pagenumbering{roman}
   \pagestyle{biglast}
-  \chapter*{%
-    \bfseries
-    \MakeUppercase\sjtu@value@englishtitle
-    \vskip 20pt
-  }
+  \chapter*{\bfseries\MakeUppercase\sjtu@value@englishtitle}
+  \vskip 20pt
 }{\cleardoublepage}
 
 \endinput
