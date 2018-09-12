@@ -68,6 +68,7 @@
 \RequirePackage{subfigure}
 \RequirePackage{caption}
 \RequirePackage[list=off]{bicaption}
+\RequirePackage{csquotes}
 \RequirePackage[backend=biber, style=gb7714-2015]{biblatex}
 \RequirePackage{xcolor}
 \RequirePackage{wasysym}
@@ -83,13 +84,13 @@
 \RequirePackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
 \RequirePackage[%
-    bookmarksnumbered,
-    colorlinks,
-    urlcolor=black,
-    linkcolor=black,
-    citecolor=black,
-    plainpages=false,
-    pdfstartview=FitH
+  bookmarksnumbered,
+  colorlinks,
+  urlcolor=black,
+  linkcolor=black,
+  citecolor=black,
+  plainpages=false,
+  pdfstartview=FitH,
 ]{hyperref}
 
 \DeclareCiteCommand{\citen} %加入一个水平引用函数
