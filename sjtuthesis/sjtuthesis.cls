@@ -1,10 +1,10 @@
-%==================================================
-%% sjtuthesis.cls for SJTU Thesis
+%%==================================================
+%% SJTU Thesis Template
 %%==================================================
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{sjtuthesis}[2016/04/06 v0.9 Shanghai Jiao Tong University Template]
-\def\version{v0.9}
+\ProvidesClass{sjtuthesis}[2018/09/12 v0.10 SJTU Thesis Template]
+\def\version{v0.10}
 
 \newif\ifsjtu@bachelor\sjtu@bachelorfalse
 \newif\ifsjtu@master\sjtu@masterfalse
