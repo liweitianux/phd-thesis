@@ -206,7 +206,7 @@
   labelformat=simple,
   labelsep=space,
   justification=centering,
-  font={small,sffamily},
+  font={small,sf},
 }
 \captionsetup[bi-first]{bi-first}
 \captionsetup[bi-second]{bi-second}
@@ -234,7 +234,9 @@
 \renewcommand\p@subfigure{\thefigure}
 \renewcommand{\thetable}{\arabic{chapter}--\arabic{table}}
 \renewcommand{\thealgorithm}{\arabic{chapter}--\arabic{algorithm}}
-\renewcommand{\thelstlisting}{\arabic{chapter}--\arabic{lstlisting}}
+\AtBeginDocument{%
+  \renewcommand{\thelstlisting}{\arabic{chapter}--\arabic{lstlisting}}
+}
 
 % 使用enumitem宏包配制列表环境
 % 紧凑间距
@@ -351,16 +353,6 @@
 % Segment 4. Draw the sjtuthesis
 %==========
 
-\renewcommand\maketitle{%
-  \pdfbookmark[0]{扉~~~~页}{titlepage}
-  \ifsjtu@bachelor
-    \makechinesetitle@bachelor
-  \else
-    \makechinesetitle
-    \makeenglishtitle
-  \fi
-}
-
 \newcommand\classification[1]{\def\sjtu@value@classification{#1}}
 \newcommand\studentnumber[1]{\def\sjtu@value@studentnumber{#1}}
 \newcommand\confidential[1]{\def\sjtu@value@confidential{#1}}
@@ -379,7 +371,7 @@
 \newcommand\chairman[1]{\def\sjtu@value@chairman{#1}}
 
 % “绘制”中文标题页
-\renewcommand\makechinesetitle{%
+\newcommand\makechinesetitle{%
   \cleardoublepage
   \thispagestyle{empty}
   \begin{center}
@@ -389,7 +381,7 @@
   \vskip\stretch{1}
   \def\tabcolsep{1pt}
   \def\arraystretch{1.5}
-  \begin{tabular}{>{\begin{CJKfilltwosides}{4em}\heiti}r<{\end{CJKfilltwosides}}l}
+  \begin{tabular}{>{\begin{CJKfilltwosides}{4em}\bfseries}r<{\end{CJKfilltwosides}}l}
     \ifsjtu@review
       \sjtu@label@author        & \underline{\makebox[150pt]{}} \\
       \sjtu@label@studentnumber & \underline{\makebox[150pt]{}} \\
@@ -502,6 +494,16 @@
     \end{tabular}}
   \end{center}
   \cleardoublepage
+}
+
+\renewcommand\maketitle{%
+  \pdfbookmark[0]{扉~~~~页}{titlepage}
+  \ifsjtu@bachelor
+    \makechinesetitle@bachelor
+  \else
+    \makechinesetitle
+    \makeenglishtitle
+  \fi
 }
 
 % 原创性声明
