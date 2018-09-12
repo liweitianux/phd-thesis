@@ -275,7 +275,7 @@
   captionpos=t,
   framextopmargin=2pt,
   framexbottommargin=2pt,
-  abovecaptionskip=-6pt,
+  abovecaptionskip=-9pt,
   belowcaptionskip=9pt,
   xleftmargin=4em,xrightmargin=4em, % 设定listing左右的空白
   texcl=true,
