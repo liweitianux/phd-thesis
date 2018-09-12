@@ -51,6 +51,7 @@
 % Segment 1. Import LaTeX packages.
 %==========
 
+\RequirePackage{etoolbox}
 \RequirePackage[centering,a4paper,body={16cm,22cm}]{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
@@ -101,9 +102,6 @@
 \setcounter{secnumdepth}{4}  % 章节编号深度 (part 对应 -1)
 \setcounter{tocdepth}{2}     % 目录深度 (part 对应 -1)
 
-% User defined command list
-%% \me \mi \mj \dif \cleardoublepage \cndash \CJKLaTeX
-
 % A new column type
 \newcolumntype{d}[1]{D{.}{.}{#1}}% or D{.}{,}{#1} or D{.}{\cdot}{#1}
 
@@ -113,24 +111,33 @@
 \newcommand{\mj}{\mathrm{j}}
 \newcommand{\dif}{\mathrm{d}}
 
-\def\cleardoublepage{%
-  \clearpage%
-  \if@openright%
-    \ifodd
-      \c@page%
-    \else%
-      \thispagestyle{empty}%
-      \hbox{}%
-      \newpage%
-    \fi%
-  \fi
-}
-
 % CJK-LaTeX Logo \CJKLaTeX
 \newcommand{\CJKLaTeX}{CJK--\LaTeX}
 
 % cndash
-\newcommand{\cndash}{\rule{0.0em}{0pt}\rule[0.35em]{1.4em}{0.05em}\rule{0.2em}{0pt}}
+\newcommand{\cndash}{%
+  \rule{0.0em}{0pt}\rule[0.35em]{1.4em}{0.05em}\rule{0.2em}{0pt}%
+}
+
+% patch commands
+\patchcmd\cleardoublepage%
+  {\newpage}%
+  {\thispagestyle{empty}\newpage}%
+  {}{}
+\patchcmd\chapter%
+  {\thispagestyle{\CTEX@chapter@pagestyle}}%
+  {}{}{}
+\patchcmd\@chapter%
+  {\if@twocolumn}%
+  {\addtocontents{loa}{\protect\addvspace{10\p@}}%
+   \if@twocolumn}%
+  {}{}
+\patchcmd\tableofcontents%
+  {\chapter}%
+  {\cleardoublepage%
+   \pdfbookmark[0]{\contentsname}{toc}%
+   \chapter}%
+  {}{}
 
 %==========
 % Segment 3. Configure the imported packages, also extend LaTeX command in sjtuthesis
