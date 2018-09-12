@@ -690,16 +690,6 @@
   {\bfseries\large \sjtu@label@englishkeywords} #1%
 }
 
-\renewcommand\tableofcontents{%
-  \cleardoublepage
-  \pdfbookmark[0]{\contentsname}{toc}
-  \chapter*{\contentsname}
-  \@mkboth{\MakeUppercase\contentsname}{\MakeUppercase\contentsname}%
-  \@starttoc{toc}%
-}
-
-\addtocontents{toc}{\let\string\CTEX@spaceChar\relax}
-
 \newenvironment{publications}[1]
      {\chapter{\sjtu@label@publications}%
       \@mkboth{\MakeUppercase\sjtu@label@publications}
@@ -783,18 +773,21 @@
    \item\relax}%
   {\endlist}
 
-\renewenvironment{thanks}%
-  {\chapter{\sjtu@label@thanks}\label{last}}%
-  {}
+\renewenvironment{thanks}{%
+  \chapter*{%
+    \sjtu@label@thanks
+    \markboth{\sjtu@label@thanks}{}
+  }
+  \addcontentsline{toc}{chapter}{\sjtu@label@thanks}
+}{}
 
-\newenvironment{summary}%
-  {\chapter*{\sjtu@label@summary\markboth{\sjtu@label@summary}{}}
-   \addcontentsline{toc}{chapter}{\sjtu@label@summary}}%
-  {}
-
-\newenvironment{symbolnote}%
-  {\chapter{\sjtu@label@symbolnote}}%
-  {}
+\newenvironment{summary}{%
+  \chapter*{%
+    \sjtu@label@summary
+    \markboth{\sjtu@label@summary}{}
+  }
+  \addcontentsline{toc}{chapter}{\sjtu@label@summary}
+}{}
 
 \newenvironment{bigabstract}{%
   \cleardoublepage
