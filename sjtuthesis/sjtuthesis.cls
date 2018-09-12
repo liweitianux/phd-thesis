@@ -65,9 +65,9 @@
 \RequirePackage{amsmath,amsthm,amssymb,mathtools}
 \RequirePackage[math-style=TeX]{unicode-math}
 \RequirePackage{graphicx}
-\RequirePackage{subfigure}
 \RequirePackage{caption}
 \RequirePackage[list=off]{bicaption}
+\RequirePackage{subcaption}
 \RequirePackage{csquotes}
 \RequirePackage[backend=biber, style=gb7714-2015]{biblatex}
 \RequirePackage{xcolor}
@@ -201,6 +201,7 @@
   justification=centering,
   font={small,sf},
 }
+\captionsetup[sub]{font=footnotesize}
 \captionsetup[bi-first]{bi-first}
 \captionsetup[bi-second]{bi-second}
 \DeclareCaptionOption{bi-first}[]{
