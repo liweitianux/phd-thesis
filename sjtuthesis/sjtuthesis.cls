@@ -823,7 +823,6 @@
     \itemindent -2\ccwd
     \listparindent\itemindent
   }
-  \item\relax
 }{\endlist}
 
 % 致谢
