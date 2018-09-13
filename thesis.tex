@@ -16,6 +16,7 @@
 %				% 原创性声明、授权声明
 \documentclass[doctor, openright, twoside]{sjtuthesis}
 
+\usepackage{soul}
 
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont{TeX Gyre Pagella}
@@ -28,6 +29,7 @@
 \setCJKmonofont{Noto Sans Mono CJK SC}
 \xeCJKsetup{PunctStyle=kaiming}
 
+\newcommand{\doi}[1]{\href{https://doi.org/#1}{doi:#1}}
 \newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
 % 不得超过 36 字
 \title{%
