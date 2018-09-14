@@ -85,6 +85,42 @@
 \newcommand\solphys{Solar Physics}
 \newcommand\ssr{Space Science Reviews}
 
+% siunitx settings and new units
+\sisetup{
+  range-phrase=\text{--},
+  range-units=single,
+  product-units=repeat,
+  list-separator={, },
+  list-final-separator={, and },
+  separate-uncertainty=true,
+}
+%
+\DeclareSIUnit\arcsec{arcsec}
+\DeclareSIUnit\arcmin{arcmin}
+\DeclareSIUnit\cMpc{cMpc}  % comoving Mpc
+\DeclareSIUnit\cGpc{cGpc}  % comoving Gpc
+\DeclareSIUnit\deg{deg}
+\DeclareSIUnit\erg{erg}
+\DeclareSIUnit\gauss{G}
+\DeclareSIUnit\hubble{\text{$h$}}
+\DeclareSIUnit\jansky{Jy}
+\DeclareSIUnit\lightyear{ly}
+\DeclareSIUnit\parsec{pc}
+\DeclareSIUnit\rayleigh{Rayleigh}
+\DeclareSIUnit\solarmass{\text{M$_{\odot}$}}
+\DeclareSIUnit\year{yr}
+%
+\DeclareSIUnit\keV{\kilo\electronvolt}
+\DeclareSIUnit\kHz{\kilo\hertz}
+\DeclareSIUnit\kpc{\kilo\parsec}
+\DeclareSIUnit\mJy{\milli\jansky}
+\DeclareSIUnit\mK{\milli\kelvin}
+\DeclareSIUnit\uG{\micro\gauss}
+\DeclareSIUnit\Gyr{\giga\year}
+\DeclareSIUnit\MHz{\mega\hertz}
+\DeclareSIUnit\Mpc{\mega\parsec}
+\DeclareSIUnit\Gpc{\giga\parsec}
+
 
 %=====================================================================
 
