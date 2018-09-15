@@ -122,6 +122,13 @@
 \DeclareSIUnit\Mpc{\mega\parsec}
 \DeclareSIUnit\Gpc{\giga\parsec}
 
+\usepackage{acro}  % acronyms, symbols, glossaries
+\acsetup{
+  list-heading=chapter,
+}
+\input{tex/symbol.tex}
+\input{tex/glossary.tex}
+
 
 %=====================================================================
 
@@ -206,7 +213,10 @@
 % \listofalgorithms
 % \addcontentsline{toc}{chapter}{\listalgorithmname}
 
-\include{tex/symbols}
+\printacronyms[
+  include-classes=symbol,
+  name={主要符号对照表},
+]
 
 %---------------------------------------------------------------------
 \mainmatter
@@ -230,7 +240,11 @@
 
 \printbibliography[heading=bibintoc]
 
-\include{tex/glossary}
+\printacronyms[
+  include-classes=glossary,
+  name={主要术语对照表},
+]
+
 
 % 致谢、发表论文、申请专利、参与项目、简历
 % 用于盲审的论文需隐去致谢、发表论文、申请专利、参与的项目
