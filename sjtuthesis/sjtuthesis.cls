@@ -704,7 +704,7 @@
   \chapter*{%
     \sjtu@value@englishtitle
     \vskip 20pt
-    \MakeUppercase{\sjtu@label@englishabstract}}
+    \sjtu@label@englishabstract}
   \markboth{\sjtu@label@englishabstract}{}
 }{%
   \vspace{2ex}
