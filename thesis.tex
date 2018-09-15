@@ -16,8 +16,6 @@
 %				% 原创性声明、授权声明
 \documentclass[doctor, openright, twoside]{sjtuthesis}
 
-\usepackage{soul}
-
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont{TeX Gyre Pagella}
 \setsansfont{TeX Gyre Heros}
@@ -215,6 +213,12 @@
 \pagestyle{main}
 
 \include{tex/chap-introduction}
+\include{tex/chap-interferometry}
+\include{tex/chap-eor-detection}
+\include{tex/chap-sky-simulation}
+\include{tex/chap-obs-simulation}
+\include{tex/chap-halo}
+\include{tex/chap-cdae}
 \include{tex/summary}
 
 \appendix
@@ -225,6 +229,8 @@
 \backmatter
 
 \printbibliography[heading=bibintoc]
+
+\include{tex/glossary}
 
 % 致谢、发表论文、申请专利、参与项目、简历
 % 用于盲审的论文需隐去致谢、发表论文、申请专利、参与的项目
