@@ -30,6 +30,15 @@
 \let\emph\relax  % there's no \RedeclareTextFontCommand
 \DeclareTextFontCommand{\emph}{\boldmath\bfseries}
 
+% hyperref's \autoref command
+% Credit: https://tex.stackexchange.com/a/66150
+\def\equationautorefname~#1\null{式~(#1)\null}
+\def\chapterautorefname~#1\null{第{#1}章\null}
+\def\sectionautorefname{\textsection}
+\def\subsectionautorefname{\textsection}
+\def\figureautorefname{图}
+\def\tableautorefname{表}
+
 \newcommand{\doi}[1]{\href{https://doi.org/#1}{doi:#1}}
 \newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
 
