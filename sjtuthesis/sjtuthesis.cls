@@ -130,6 +130,9 @@
   \hypersetup{
     bookmarksnumbered,
     colorlinks,
+    urlcolor=blue,
+    linkcolor=blue,
+    citecolor=blue,
     pdfstartview=FitH,
     pdfborder={0 0 0},% No border around links
     pdfauthor={\sjtu@value@author},
