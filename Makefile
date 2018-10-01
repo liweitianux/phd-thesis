@@ -9,7 +9,7 @@ all: thesis.pdf
 thesis.pdf: $(SRCS) $(TEMPLATE)
 	env TEXINPUTS=$(TEXINPUTS) BSTINPUTS=$(BSTINPUTS) latexmk -xelatex thesis
 
-wordcount:
+count:
 	@texcount thesis.tex -inc \
 	    | awk '/total/ {getline; print "词数    :",$$4}'
 	@texcount thesis.tex -inc -char \
