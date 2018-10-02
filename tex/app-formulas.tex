@@ -1,0 +1,114 @@
+%%
+%% Copyright (c) 2018 Weitian LI <liweitianux@sjtu.edu.cn>
+%% Creative Commons BY 4.0
+%%
+
+\chapter{补充公式}
+\label{chap:formulas}
+
+
+在本文所采用的平直 \lcdm/ 宇宙中，
+\ac{delta-crit}随红移的变化关系可表示为 \cite{kitayama1996,randall2002}：
+\begin{equation}
+  \label{eq:delta-crit}
+  \acs{delta-crit} = \frac{D(z=0)}{\acs{Dz}}
+    \left[ \frac{3 (12\pi)^{2/3}}{20} \right]
+    \left[1 + 0.0123 \log_{10} \acs{Ofz} \right] ,
+\end{equation}
+其中 \acs{Ofz} 是\acl{Ofz}：
+\begin{equation}
+  \label{eq:omega-fz}
+  \acs{Ofz} = \frac{\acs{Om0} (1+z)^3}{\acs{Om0} (1+z)^3 + \acs{Ol0}} ,
+\end{equation}
+\acs{Dz} 是\acl{Dz}，可由下述公式计算：
+\begin{equation}
+  \label{eq:growth-factor}
+  D(x) = \frac{(x^3 + 2)^{1/2}}{x^{3/2}}
+    \mathlarger{\int_0^x} y^{3/2} (y^3 + 2)^{-3/2} \,\D{y} ,
+\end{equation}
+并且 $x_0 \equiv (2 \acs{Ol0}/\acs{Om0})^{1/3}$、$x = x_0 / (1+z)$
+[\textcite{peebles1980}, 式~(13.6)]。
+
+在红移 $z$ 时的宇宙年龄具有如下解析计算形式：
+\begin{align}
+  \label{eq:universe-age}
+  t(z; \acs{Om0})
+    & = \frac{1}{\acs{H0}} \mathlarger{\int_z^{\infty}}
+      \!\frac{\D{z'}}{(1+z')\sqrt{1 + z' (3+3z'+z'^2) \acs{Om0}}}
+      \nonumber \\
+    & = \frac{2}{3 \acs{H0} \sqrt{1-\acs{Om0}}} \sinh^{-1}
+      \!\left( \sqrt{\frac{\acs{Om0}^{-1} - 1}{(1+z)^3}} \right),
+\end{align}
+[参见 \textcite{thomas2000}, 式~(18)]。
+
+\acl{Hz}为：
+\begin{equation}
+  \label{eq:hubble-z}
+  \acs{Hz} = \acs{H0} \, \acs{Ez}
+    = \acs{H0} \sqrt{\acs{Om0} (1+z)^3 + \acs{Ol0}} ,
+\end{equation}
+其中 \acs{Ez} 是\acl{Ez} \cite{hogg1999}。
+此时的宇宙临界密度为：
+\begin{equation}
+  \label{eq:rho-crit}
+  \acs{rho-crit} = \frac{3 H^2(z)}{8 \pi \acs{G}} ,
+\end{equation}
+其中 \acs{G} 是\acl{G}。
+
+星系团的\ac{r-vir}由下式给出：
+\begin{equation}
+  \label{eq:radius-virial}
+  \acs{r-vir} = \left[
+    \frac{3 \acs{M-vir}}{4\pi \acs{Delta-vir} \acs{rho-crit}}
+  \right]^{1/3},
+\end{equation}
+其中 \acs{M-vir} 是星系团的\acl{M-vir}（亦可当作其总质量）、
+\acs{Delta-vir} 是\acl{Delta-vir}，由下式给出
+\cite{kitayama1996,cassano2005}：
+\begin{equation}
+  \label{eq:delta-vir}
+  \acs{Delta-vir} = 18\pi^2 \left[ 1 + 0.4093 \, w(z)^{0.9052} \right],
+\end{equation}
+并且 $w(z) \equiv \Omega_f^{-1}(z) - 1$。
+
+
+The \emph{angular diameter distance} $D_A$ is defined as the ratio of
+an object's physical transverse size to its (observed) angular size
+(in radians).  Note that it does \emph{not} increases indefinitely
+as $z \to \infty$, therefore more distant (e.g., $z > 1$)
+objects of same physical size may actually appear larger!
+The angular diameter distance is used to convert the observed angular
+separations between sources into their proper separations, and it is
+related to the \emph{transverse comoving distance} $D_M$ by
+\cite{weinberg1972,peebles1993,hogg1999}:
+\begin{equation}
+  \label{eq:da-dm}
+  D_A(z) = \frac{D_M(z)}{1 + z}.
+\end{equation}
+
+The \emph{luminosity distance} $D_L$ is defined by the relationship
+between the measured bolometric (i.e., integrated over all frequencies)
+flux $S_{\R{bolo}}$ and the object's intrinsic bolometric luminosity
+$L_{\R{bolo}}$:
+\begin{equation}
+  \label{eq:dl-def}
+  D_L \equiv \sqrt{\frac{L_{\R{bolo}}}{4\pi S_{\R{bolo}}}}.
+\end{equation}
+And it is related to the transverse comoving distance and angular
+diameter distance by \cite{weinberg1972,hogg1999,ellis2007}:
+\begin{equation}
+  \label{eq:dl-dm-da}
+  D_L(z) = (1+z) D_M(z) = (1+z)^2 D_A(z).
+\end{equation}
+
+In the radio frequency regime, the Rayleigh-Jeans approximation
+always holds, therefore the spectral brightness $I_{\nu}$ can be
+equivalently expressed by \emph{brightness temperature} $T_b(\nu)$
+through the relation \cite{condon2016}:
+\begin{equation}
+  \label{eq:brightness-temp}
+  T_b(\nu) \equiv \frac{I_{\nu} c^2}{2 k_B \nu^2}.
+\end{equation}
+
+
+%% EOF
