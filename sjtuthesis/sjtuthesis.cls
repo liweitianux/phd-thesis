@@ -127,6 +127,7 @@
 \RequirePackage{calc}
 \RequirePackage{algorithm, algorithmicx, algpseudocode}
 \RequirePackage{siunitx}
+\RequirePackage{relsize}
 
 \RequirePackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
