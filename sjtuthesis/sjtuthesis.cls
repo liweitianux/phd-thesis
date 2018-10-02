@@ -162,15 +162,6 @@
 % A new column type
 \newcolumntype{d}[1]{D{.}{.}{#1}}% or D{.}{,}{#1} or D{.}{\cdot}{#1}
 
-% upper math letter
-\newcommand{\me}{\mathrm{e}}
-\newcommand{\mi}{\mathrm{i}}
-\newcommand{\mj}{\mathrm{j}}
-\newcommand{\dif}{\mathrm{d}}
-
-% CJK-LaTeX Logo \CJKLaTeX
-\newcommand{\CJKLaTeX}{CJK--\LaTeX}
-
 % cndash
 \newcommand{\cndash}{%
   \rule{0.0em}{0pt}\rule[0.35em]{1.4em}{0.05em}\rule{0.2em}{0pt}%
@@ -199,9 +190,6 @@
 %==========
 % Segment 3. Configure the imported packages, also extend LaTeX command in sjtuthesis
 %==========
-
-% Set the mainfont
-\setmainfont{TeX Gyre Termes}
 
 %% 行距缩放因子
 \linespread{1.3}
