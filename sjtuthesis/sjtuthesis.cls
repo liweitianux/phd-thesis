@@ -90,19 +90,26 @@
 %==========
 
 \RequirePackage{etoolbox}
-\RequirePackage[centering,a4paper,body={16cm,22cm}]{geometry}
+\RequirePackage[
+  centering,
+  a4paper,
+  body={16cm,22cm},
+]{geometry}
+\RequirePackage{fontspec}
+\RequirePackage{mathtools, amsthm, amssymb}
+\RequirePackage[
+  math-style=TeX,
+  bold-style=TeX,
+  sans-style=upright,
+]{unicode-math}
 \RequirePackage{fancyhdr}
 \RequirePackage{pageslts}
-\RequirePackage{fontspec}
-\RequirePackage{metalogo,doc}
+\RequirePackage{metalogo, doc}
 \RequirePackage{array}
 \RequirePackage{threeparttable}
+\RequirePackage{longtable}
 \RequirePackage{dcolumn}
 \RequirePackage{multirow}
-\RequirePackage{booktabs}
-%\RequirePackage{mathtools,amsthm,amsfonts,amssymb,bm,mathrsfs}
-\RequirePackage{amsmath,amsthm,amssymb,mathtools}
-\RequirePackage[math-style=TeX]{unicode-math}
 \RequirePackage{graphicx}
 \RequirePackage{caption}
 \RequirePackage[list=off]{bicaption}
@@ -113,8 +120,8 @@
 \RequirePackage{wasysym}
 \RequirePackage{listings}
 \RequirePackage{textcomp}
-\RequirePackage{longtable}
 \RequirePackage[perpage, bottom]{footmisc}
+\RequirePackage{booktabs}
 \RequirePackage[inline]{enumitem}
 \RequirePackage{pdfpages}
 \RequirePackage{calc}
