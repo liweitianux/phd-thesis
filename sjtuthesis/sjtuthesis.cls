@@ -106,10 +106,11 @@
 \RequirePackage{pageslts}
 \RequirePackage{metalogo, doc}
 \RequirePackage{array}
-\RequirePackage{threeparttable}
-\RequirePackage{longtable}
 \RequirePackage{dcolumn}
 \RequirePackage{multirow}
+\RequirePackage{booktabs}
+\RequirePackage{longtable}
+\RequirePackage{threeparttablex}
 \RequirePackage{graphicx}
 \RequirePackage{caption}
 \RequirePackage[list=off]{bicaption}
@@ -121,7 +122,6 @@
 \RequirePackage{listings}
 \RequirePackage{textcomp}
 \RequirePackage[perpage, bottom]{footmisc}
-\RequirePackage{booktabs}
 \RequirePackage[inline]{enumitem}
 \RequirePackage{pdfpages}
 \RequirePackage{calc}
