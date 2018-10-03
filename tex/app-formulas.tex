@@ -20,16 +20,17 @@
   \label{eq:omega-fz}
   \acs{Ofz} = \frac{\acs{Om0} (1+z)^3}{\acs{Om0} (1+z)^3 + \acs{Ol0}} ,
 \end{equation}
-\acs{Dz} 是\acl{Dz}，可由下述公式计算：
+\acs{Dz} 是\acl{Dz}，可由下述公式计算
+[参见 \textcite{peebles1980}, 式~(13.6)]：
 \begin{equation}
   \label{eq:growth-factor}
   D(x) = \frac{(x^3 + 2)^{1/2}}{x^{3/2}}
     \mathlarger{\int_0^x} y^{3/2} (y^3 + 2)^{-3/2} \,\D{y} ,
 \end{equation}
-并且 $x_0 \equiv (2 \acs{Ol0}/\acs{Om0})^{1/3}$、$x = x_0 / (1+z)$
-[\textcite{peebles1980}, 式~(13.6)]。
+并且 $x_0 \equiv (2 \acs{Ol0}/\acs{Om0})^{1/3}$、$x = x_0 / (1+z)$。
 
-在红移 $z$ 时的宇宙年龄具有如下解析计算形式：
+在红移 $z$ 时的宇宙年龄具有如下解析计算形式
+[参见 \textcite{thomas2000}, 式~(18)]：
 \begin{align}
   \label{eq:universe-age}
   t(z; \acs{Om0})
@@ -37,9 +38,8 @@
       \!\frac{\D{z'}}{(1+z')\sqrt{1 + z' (3+3z'+z'^2) \acs{Om0}}}
       \nonumber \\
     & = \frac{2}{3 \acs{H0} \sqrt{1-\acs{Om0}}} \sinh^{-1}
-      \!\left( \sqrt{\frac{\acs{Om0}^{-1} - 1}{(1+z)^3}} \right),
+      \!\left( \sqrt{\frac{\Omega_m^{-1} - 1}{(1+z)^3}} \right).
 \end{align}
-[参见 \textcite{thomas2000}, 式~(18)]。
 
 \acl{Hz}为：
 \begin{equation}
@@ -48,14 +48,14 @@
     = \acs{H0} \sqrt{\acs{Om0} (1+z)^3 + \acs{Ol0}} ,
 \end{equation}
 其中 \acs{Ez} 是\acl{Ez} \cite{hogg1999}。
-此时的宇宙临界密度为：
+该红移处的宇宙临界密度为：
 \begin{equation}
   \label{eq:rho-crit}
   \acs{rho-crit} = \frac{3 H^2(z)}{8 \pi \acs{G}} ,
 \end{equation}
 其中 \acs{G} 是\acl{G}。
 
-星系团的\ac{r-vir}由下式给出：
+星系团的\acf{r-vir}由下式给出：
 \begin{equation}
   \label{eq:radius-virial}
   \acs{r-vir} = \left[
@@ -71,43 +71,24 @@
 \end{equation}
 并且 $w(z) \equiv \Omega_f^{-1}(z) - 1$。
 
+一个物体的\acf{DA}定义为该物体的物理横向尺寸与其对观测者的张角
+（以 \si{radian} 为单位）之比。
+需要注意的是，由于宇宙膨胀的原因，该距离并不随红移单调递增，
+即相同物理尺寸的物体位于更高红移（如 $z > 1$）处时反而看起来更大 \cite{hogg1999}。
 
-The \emph{angular diameter distance} $D_A$ is defined as the ratio of
-an object's physical transverse size to its (observed) angular size
-(in radians).  Note that it does \emph{not} increases indefinitely
-as $z \to \infty$, therefore more distant (e.g., $z > 1$)
-objects of same physical size may actually appear larger!
-The angular diameter distance is used to convert the observed angular
-separations between sources into their proper separations, and it is
-related to the \emph{transverse comoving distance} $D_M$ by
-\cite{weinberg1972,peebles1993,hogg1999}:
-\begin{equation}
-  \label{eq:da-dm}
-  D_A(z) = \frac{D_M(z)}{1 + z}.
-\end{equation}
-
-The \emph{luminosity distance} $D_L$ is defined by the relationship
-between the measured bolometric (i.e., integrated over all frequencies)
-flux $S_{\R{bolo}}$ and the object's intrinsic bolometric luminosity
-$L_{\R{bolo}}$:
+一个物体的\acf{DL}由以下关系定义：
 \begin{equation}
   \label{eq:dl-def}
-  D_L \equiv \sqrt{\frac{L_{\R{bolo}}}{4\pi S_{\R{bolo}}}}.
+  \acs{DL} \equiv \sqrt{\frac{\acs{L-bolo}}{4\pi \acs{S-bolo}}},
 \end{equation}
-And it is related to the transverse comoving distance and angular
-diameter distance by \cite{weinberg1972,hogg1999,ellis2007}:
-\begin{equation}
-  \label{eq:dl-dm-da}
-  D_L(z) = (1+z) D_M(z) = (1+z)^2 D_A(z).
-\end{equation}
+其中 \acs{L-bolo} 是该物体的本征\acl{L-bolo}，
+\acs{S-bolo} 是测得的\acl{S-bolo}（对全频段积分）。
 
-In the radio frequency regime, the Rayleigh-Jeans approximation
-always holds, therefore the spectral brightness $I_{\nu}$ can be
-equivalently expressed by \emph{brightness temperature} $T_b(\nu)$
-through the relation \cite{condon2016}:
+对于一个位于红移 $z$ 的物体，其\acl{DL}与\acl{DA}之间存在以下关联
+\cite{weinberg1972,hogg1999,ellis2007}：
 \begin{equation}
-  \label{eq:brightness-temp}
-  T_b(\nu) \equiv \frac{I_{\nu} c^2}{2 k_B \nu^2}.
+  \label{eq:dl-da}
+  \acs{DL}(z) = (1+z)^2 \acs{DA}(z).
 \end{equation}
 
 
