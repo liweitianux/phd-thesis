@@ -39,17 +39,18 @@
 \def\figureautorefname{图}
 \def\tableautorefname{表}
 
-\newcommand{\doi}[1]{\href{https://doi.org/#1}{doi:#1}}
+\newcommand{\doi}[1]{\href{https://doi.org/#1}{\textsc{doi}:#1}}
 \newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
 \newcommand{\circled}[1]{{\large\textcircled{\small #1}}}
 \newcommand{\R}[1]{\mathrm{#1}}  % text math alphabets
 \newcommand{\B}[1]{\symbf{#1}}  % single-letter bold math
-\newcommand{\V}[1]{\symbfit{#1}}  % bold italic (vector)
+\newcommand{\V}[1]{\symbfit{#1}}  % bold italic
 \newcommand{\M}[1]{\symbfsf{#1}}  % bold sans-serif (matrix)
 \newcommand{\D}[1]{\mathrm{d} #1}
 \newcommand{\diff}[2]{\frac{\D{#1}}{\D{#2}}}
 
 \def\lcdm/{$\Lambda$CDM}
+\def\hisignal/{21\,cm~信号}
 
 % Journals
 \newcommand\aap{Astronomy and Astrophysics}
@@ -138,11 +139,12 @@
 \DeclareSIUnit\kpc{\kilo\parsec}
 \DeclareSIUnit\mJy{\milli\jansky}
 \DeclareSIUnit\mK{\milli\kelvin}
-\DeclareSIUnit\uG{\micro\gauss}
+\DeclareSIUnit\Gpc{\giga\parsec}
 \DeclareSIUnit\Gyr{\giga\year}
 \DeclareSIUnit\MHz{\mega\hertz}
 \DeclareSIUnit\Mpc{\mega\parsec}
-\DeclareSIUnit\Gpc{\giga\parsec}
+\DeclareSIUnit\Myr{\mega\year}
+\DeclareSIUnit\uG{\micro\gauss}
 
 \usepackage{acro}  % acronyms, symbols, glossaries
 \acsetup{
