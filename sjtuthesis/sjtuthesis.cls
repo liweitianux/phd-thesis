@@ -170,7 +170,7 @@
 % patch commands
 \patchcmd\cleardoublepage%
   {\newpage}%
-  {\thispagestyle{empty}\newpage}%
+  {\thispagestyle{blank}\newpage}%
   {}{}
 \patchcmd\chapter%
   {\thispagestyle{\CTEX@chapter@pagestyle}}%
@@ -615,6 +615,12 @@
     \renewcommand{\headheight}{32pt}
   }
 \else  % 研究生学位论文页眉页脚设置
+  %% 空白页
+  \fancypagestyle{blank}{
+    \fancyhf{}
+    \fancyfoot[C]{\small ---~nil~---}
+    \renewcommand{\headrulewidth}{0pt}
+  }
   \if@twoside  % 双面打印
     %% 开章页页眉页脚
     \fancypagestyle{front}{
