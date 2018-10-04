@@ -569,12 +569,12 @@
 % fancyhdr页眉页脚设置
 \ifsjtu@english
   \def\sjtu@value@titlemark{\sjtu@value@englishtitle}
-  \newcommand\sjtu@fancyhead{\footnotesize\kaishu}
+  \newcommand\sjtu@fancyhead{\footnotesize\sffamily}
   \newcommand\sjtu@fancyfoot[2]{%
     \small --~~Page~~{\textbf{#1}}~~of~~{\textbf{#2}}~~--}
 \else
   \def\sjtu@value@titlemark{\sjtu@value@chinesetitle}
-  \newcommand\sjtu@fancyhead{\small\kaishu}
+  \newcommand\sjtu@fancyhead{\small\sffamily}
   \newcommand\sjtu@fancyfoot[2]{%
     \small 第~{\textbf{#1}}~页\,共~{\textbf{#2}}~页}
 \fi
