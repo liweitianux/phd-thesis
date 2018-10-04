@@ -249,9 +249,10 @@
 \captionsetup{%
   format=plain,
   labelformat=simple,
-  labelsep=space,
+  labelsep=period,
   justification=centering,
-  font={small,sf},
+  textfont={small,sf},
+  labelfont={small,bf},
 }
 \captionsetup[sub]{font=footnotesize}
 \captionsetup[bi-first]{bi-first}
