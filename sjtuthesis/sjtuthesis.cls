@@ -129,9 +129,6 @@
 \RequirePackage{siunitx}
 \RequirePackage{relsize}
 
-\RequirePackage{tikz}
-\usetikzlibrary{shapes.geometric, arrows}
-
 % Delay the execution of \hypersetup at \begin{document}.
 % NOTE: Should be set before hyperref uses it.
 \AtBeginDocument{
@@ -294,13 +291,6 @@
 % 列表和段落头对齐
 \setlist*{leftmargin=*}
 \setlist[1]{labelindent=\parindent} % Only the level 1
-
-% 流程图定义基本形状
-\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm, text centered, draw=black]
-\tikzstyle{io} = [trapezium, trapezium left angle=75, trapezium right angle=105, minimum width=1cm, minimum height=1cm, text centered, draw=black]
-\tikzstyle{process} = [rectangle, minimum width=2cm, minimum height=1cm, text centered, draw=black]
-\tikzstyle{decision} = [diamond, minimum width=2cm, minimum height=1cm, text centered, draw=black]
-\tikzstyle{arrow} = [thick,->,>=stealth]
 
 % Setting Package listings/lstlistings
 \lstset{
