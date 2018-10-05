@@ -27,6 +27,33 @@
 \setCJKmonofont{FandolFang}
 \xeCJKsetup{PunctStyle=kaiming}
 
+% biblatex
+% Credit: http://www.khirevich.com/latex/biblatex/
+\ExecuteBibliographyOptions{
+  backref=true,
+  mincitenames=1,
+  maxcitenames=2,
+}
+% period after the authors
+\renewcommand{\labelnamepunct}{\addperiod\space}
+% discard the period at the very end of a record
+\renewcommand{\finentrypunct}{}
+% discard the period after the doi link
+\renewcommand{\newunitpunct}{\addspace\midsentence}
+% use lowercase English for backref
+\DefineBibliographyStrings{english}{%
+  backrefpage  = {\lowercase{s}ee p.}, % for single page number
+  backrefpages = {\lowercase{s}ee pp.} % for multiple page numbers
+}
+\DeclareDelimFormat{finalnamedelim}{\addspace\&\space}
+\DeclareFieldFormat[book]{title}{\textbf{#1}\addperiod\space}
+\DeclareFieldFormat[article]{title}{\textit{#1}\addperiod\space}
+\DeclareFieldFormat[article]{volume}{\textbf{#1}\addcolon\space}
+\DeclareFieldFormat{pages}{#1\addperiod\space}
+%
+\newcommand{\citeay}[1]{\citeauthor{#1} \citeyear{#1} \parencite{#1}}
+
+% Change 'emph' style to bold face
 \let\emph\relax  % there's no \RedeclareTextFontCommand
 \DeclareTextFontCommand{\emph}{\boldmath\bfseries}
 
@@ -39,6 +66,7 @@
 \def\figureautorefname{图}
 \def\tableautorefname{表}
 
+% custom commands
 \newcommand{\doi}[1]{\href{https://doi.org/#1}{\textsc{doi}:#1}}
 \newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
 \newcommand{\circled}[1]{{\large\textcircled{\small #1}}}
