@@ -47,8 +47,9 @@
 }
 \DeclareDelimFormat{finalnamedelim}{\addspace\&\space}
 \DeclareFieldFormat[book]{title}{\textbf{#1}\addperiod\space}
-\DeclareFieldFormat[article]{title}{\textit{#1}\addperiod\space}
-\DeclareFieldFormat[article]{volume}{\textbf{#1}\addcolon\space}
+\DeclareFieldFormat[article,inproceedings]{title}{\textit{#1}\addperiod\space}
+\DeclareFieldFormat[inproceedings]{booktitle}{\textit{#1}\addperiod\space}
+\DeclareFieldFormat[article,inproceedings]{volume}{\textbf{#1}\addcolon\space}
 \DeclareFieldFormat{pages}{#1\addperiod\space}
 %
 \newcommand{\citeay}[1]{\citeauthor{#1} \citeyear{#1} \parencite{#1}}
