@@ -56,7 +56,7 @@
     of the Universe, mainly including the \acs{aoi} (A),
     the \acs{da} (B), the \acs{cd} (C), and the \acs{eor} (D, E).
     The thick curve in the top panel shows the predicted intensity
-    of the \SI{21}{\cm} signal.
+    of the 21\,cm signal.
     \\\textcopyright{}
     \acuse{dare}\ac{dare},
     \url{http://lunar.colorado.edu/dare/science.html}, (2018-09-23).
@@ -86,17 +86,18 @@
 电离氢区的尺度以及演化过程如何？
 研究\acl{eor}的对于理解宇宙早期结构形成以及星系的形成与演化有重要意义，
 是建立完整的宇宙演化图景的关键环节之一。
-具体请参见 \textcite{fan2006}, \textcite{morales2010},
-\textcite{pritchard2012}, \textcite{zaroubi2013} 等综述文。
+具体请参见 \citeay{fan2006}, \citeay{morales2010},
+\citeay{pritchard2012}, \citeay{zaroubi2013},
+\citeay{koopmans2015} 等综述文。
 
 在\acl{eor}及其之前的\acl{da}，尽管缺乏发光天体可供观测，
-但是宇宙中丰富的\acl{hi}所辐射的 \SI{21}{\cm} 谱线
+但是宇宙中丰富的\acl{hi}所辐射的 21\,cm 谱线
 （以下简称 \emph{\hisignal/}；
 详见 \autoref{sec:21cm-signal}）为探测该时期提供了有效途径。
 对 \hisignal/的探测是目前对\acl{eor}及其之前的\acl{da}开展系统性
 研究的最直接而有效的观测手段 \cite{koopmans2015,furlanetto2016}。
 
-\acl{hi}的 \SI{21}{\cm} 谱线的本征频率约为 \SI{1420}{\MHz}。
+\acl{hi}的 21\,cm 谱线的本征频率约为 \SI{1420}{\MHz}。
 源自\acl{eor}的 \hisignal/（以下简称 \emph{EoR 信号}）经历显著红移后
 应出现在约 \SIrange{90}{200}{\MHz}，对应低频射电波段。
 EoR 信号到达地球时已非常微弱，仅约几 \si{\mK} 至十几 \si{\mK}，
@@ -116,7 +117,8 @@ EoR 信号到达地球时已非常微弱，仅约几 \si{\mK} 至十几 \si{\mK}
 
 在低频射电波段，强烈的前景干扰（主要源自银河系以及河外点源；
 详见 \autoref{sec:fg-intro}）比待探测的 EoR 信号高出约 5 个数量级；
-即便按干涉阵列所测量的天空亮度涨落来衡量，前景干扰的涨落也是待测信号的数千倍。
+即便按干涉阵列所测量的天空亮度涨落来衡量，前景干扰的涨落也是待测信号的数千倍
+\cite{zaroubi2013}。
 如何准确把握前景干扰并将其有效扣除，是成功探测 EoR 信号的关键。
 由于低频射电观测和巡天数据的严重不足，我们对该波段的前景的了解非常有限，
 无法达到探测 EoR 信号所要求的精度。
@@ -139,7 +141,7 @@ EoR 信号到达地球时已非常微弱，仅约几 \si{\mK} 至十几 \si{\mK}
 本文的研究内容分为以下两部分：
 \begin{itemize}
 \item
-\emph{改进低频射电天空的模拟}：
+\emph{改进低频射电天空的模拟:}
 深刻理解各前景成分的性质（如强度、空间分布、频谱结构）并充分把握它们对 EoR 探测
 的干扰方式，是研发具有针对性的前景去除和 EoR 信号分离算法的前提与关键 (ref???)。
 由于复杂的仪器效应和严重的观测干扰，低频干涉阵列的系统校准非常困难
@@ -165,7 +167,7 @@ EoR 信号到达地球时已非常微弱，仅约几 \si{\mK} 至十几 \si{\mK}
 进而在考虑干涉阵列的实际仪器效应的情况下，有效地评估\acl{rh}对 EoR 探测的影响。
 
 \item
-\emph{研发 EoR 信号分离新算法}：
+\emph{研发 EoR 信号分离新算法:}
 为了提取淹没于前景干扰中的 EoR 信号，一系列方法已被提出来用于处理前景
 （详见 \autoref{sec:fg-methods}）。
 这些前景处理方法可大致分为\ac{fgrm}和\ac{fgav}两大类，
@@ -234,8 +236,8 @@ EoR 信号的异同，量化\acl{rh}在运用\acl{fgrm}或\acl{fgav}的情况下
 本文余下章节安排如下：
 \autoref{chap:interferometry}将介绍射电天文学和射电干涉技术的基础知识，
 包括基本辐射理论、天线原理、干涉阵列及综合孔径成像等。
-在\autoref{chap:detection}，我们将介绍利用\acl{hi} \SI{21}{\cm}
-信号探测宇宙再电离时期的方法和困难、以及前景处理方法。
+在\autoref{chap:detection}，我们将介绍利用\acl{hi}
+\hisignal/探测宇宙再电离时期的方法和困难、以及前景处理方法。
 在\autoref{chap:simulation}，我们首先模拟各前景成分和 EoR 信号的\acl{skymap}，
 然后进行干涉阵列的模拟观测，得到整合了实际仪器效应的观测图像。
 据此，我们在\autoref{chap:halo}借助\acl{ps}量化评估\acl{rh}对
