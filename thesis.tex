@@ -77,13 +77,16 @@
 \newcommand{\circled}[1]{{\large\textcircled{\small #1}}}
 \newcommand{\Cpi}{\symup{\pi}}  % constant pi
 \newcommand{\Ce}{\symup{e}}  % constant e
+\newcommand{\Ci}{\symup{i}}  % complex i
 \newcommand{\R}[1]{\mathrm{#1}}  % text math alphabets
 \newcommand{\B}[1]{\symbf{#1}}  % single-letter bold math
 \newcommand{\V}[1]{\symbfit{#1}}  % bold italic
 \newcommand{\M}[1]{\symbfsf{#1}}  % bold sans-serif (matrix)
-\newcommand{\D}[1]{\mathrm{d} #1}
-\newcommand{\diff}[2]{\frac{\D{#1}}{\D{#2}}}
-
+\newcommand{\D}[1]{\,\mathrm{d}#1}
+\newcommand{\diff}[2]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\klos}{\text{$k_{\parallel}$}}
+\newcommand{\kperp}{\text{$k_{\bot}$}}
+%
 \def\lcdm/{$\Lambda$CDM}
 \def\hisignal/{21\,cm~信号}
 
@@ -143,6 +146,7 @@
 % New math operators
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\sinc}{sinc}
 
 % siunitx settings and new units
 \sisetup{
