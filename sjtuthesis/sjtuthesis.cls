@@ -159,12 +159,11 @@
 % A new column type
 \newcolumntype{d}[1]{D{.}{.}{#1}}% or D{.}{,}{#1} or D{.}{\cdot}{#1}
 
-% cndash
+% New 'cndash'
 \newcommand{\cndash}{%
   \rule{0.0em}{0pt}\rule[0.35em]{1.4em}{0.05em}\rule{0.2em}{0pt}%
 }
 
-% patch commands
 \patchcmd\cleardoublepage%
   {\newpage}%
   {\thispagestyle{blank}\newpage}%
@@ -188,11 +187,8 @@
 % Segment 3. Configure the imported packages, also extend LaTeX command in sjtuthesis
 %==========
 
-%% 行距缩放因子
 \linespread{1.3}
 
-%% CTeX Settings
-% 名称：目录、表格索引、插图索引、算法、算法索引、代码
 \ctexset{%
   contentsname={\sjtu@contentsname},
   listfigurename={\sjtu@listfigurename},
@@ -235,10 +231,10 @@
 % Set indent in English mode
 \ifsjtu@english\setlength{\parindent}{2\ccwd}\fi
 
-% bullets in the item
+% Bullets in the item
 \renewcommand{\labelitemi}{\ensuremath{\bullet}}
 
-%% Graphic path & file extension
+% Graphics path & file extension
 \graphicspath{{fig/}{figure/}{figures/}{logo/}{logos/}{graph/}{graphs}}
 \DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.jpeg}
 
@@ -275,7 +271,7 @@
 \renewcommand{\bottomfraction}{0.65}
 \renewcommand{\floatpagefraction}{0.60}
 
-% 定公式、图、表、算法、代码的编号为"3-1"的形式，即分隔符由.变为短杠
+% 公式、图、表、算法、代码的编号为"3-1"的形式
 \AtBeginDocument{%
   \renewcommand{\theequation}{\thechapter--\arabic{equation}}
   \renewcommand{\thefigure}{\thechapter--\arabic{figure}}
@@ -285,14 +281,14 @@
   \renewcommand{\thelstlisting}{\thechapter--\arabic{lstlisting}}
 }
 
-% 使用enumitem宏包配制列表环境
+% 使用 enumitem 宏包配制列表环境
 % 紧凑间距
 \setlist{nosep}
 % 列表和段落头对齐
 \setlist*{leftmargin=*}
 \setlist[1]{labelindent=\parindent} % Only the level 1
 
-% Setting Package listings/lstlistings
+% Set listings/lstlistings
 \lstset{
   tabsize=4,
   frame=shadowbox, %把代码用带有阴影的框圈起来
@@ -389,11 +385,13 @@
 \algnewcommand\Assert[1]{\State \algorithmicassert(#1)}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 %==========
 % Segment 4. Draw the sjtuthesis
 %==========
 
-% “绘制”中文标题页
+% 标题页
+%
 \newcommand\makechinesetitle{%
   \cleardoublepage
   \thispagestyle{empty}
@@ -428,7 +426,8 @@
   \cleardoublepage
 }
 
-% "绘制"英文标题页
+% Title page
+%
 \newcommand\makeenglishtitle{%
   \cleardoublepage
   \thispagestyle{empty}
@@ -465,7 +464,8 @@
   \cleardoublepage
 }
 
-% “绘制”学士论文中文标题页
+% 本科学位论文 - 标题页
+%
 \newcommand\makechinesetitle@bachelor{%
   \cleardoublepage
   \thispagestyle{empty}
@@ -518,6 +518,7 @@
 }
 
 % 原创性声明
+%
 \newcommand\makeDeclareOriginality{%
   \cleardoublepage
   \pdfbookmark[0]{\sjtu@label@originality}{originality}
@@ -537,6 +538,7 @@
 }
 
 % 授权声明
+%
 \newcommand\makeDeclareAuthorization{%
   \cleardoublepage
   \pdfbookmark[0]{\sjtu@label@authorization}{authorization}
@@ -557,7 +559,8 @@
   \cleardoublepage
 }
 
-% fancyhdr页眉页脚设置
+% 中英文页眉页脚设置
+%
 \ifsjtu@english
   \def\sjtu@value@titlemark{\sjtu@value@englishtitle}
   \newcommand\sjtu@fancyhead{\footnotesize\sffamily}
@@ -572,7 +575,9 @@
 \def\markboxwidth{0.75\textwidth}
 \AtBeginDocument{\pagenumbering{Alph}}
 
-\ifsjtu@bachelor  % 本科学位论文页眉页脚设置
+% 本科学位论文 - 页眉页脚设置
+%
+\ifsjtu@bachelor
   %% 前言页眉页脚
   \fancypagestyle{front}{%
     \fancyhf{}
@@ -605,7 +610,10 @@
         \theCurrentPageLocal}{\lastpageref{pagesLTS.roman.local}}}
     \renewcommand{\headheight}{32pt}
   }
-\else  % 研究生学位论文页眉页脚设置
+
+% 研究生学位论文 - 页眉页脚设置
+%
+\else
   %% 空白页
   \fancypagestyle{blank}{
     \fancyhf{}
@@ -676,7 +684,8 @@
   \pagenumbering{arabic}
 }
 
-% 中文摘要+关键词
+% 摘要+关键词
+%
 \newenvironment{abstract}{%
   \cleardoublepage
   \pdfbookmark[0]{\sjtu@label@abstract}{abstract}
@@ -693,7 +702,8 @@
     \sjtu@value@keywords}
 }
 
-% Abstract + key words
+% Abstract + keywords
+%
 \newenvironment{englishabstract}{%
   \cleardoublepage
   \pdfbookmark[0]{Abstract}{englishabstract}
@@ -711,12 +721,14 @@
 }
 
 % 主要符号对照表
+%
 \newenvironment{nomenclaturename}{%
   \cleardoublepage
   \chapter{\sjtu@nomenclature}{}
 }{}
 
 % 发表论文
+%
 \newenvironment{publications}[1]{
   \chapter{\sjtu@label@publications}%
   \@mkboth{\MakeUppercase\sjtu@label@publications}
@@ -744,6 +756,7 @@
 }
 
 % 申请专利
+%
 \newenvironment{patents}[1]{%
   \chapter{\sjtu@label@patents}%
   \@mkboth{\MakeUppercase\sjtu@label@patents}
@@ -771,6 +784,7 @@
 }
 
 % 参与项目
+%
 \newenvironment{projects}[1]{%
   \chapter{\sjtu@label@projects}%
   \@mkboth{\MakeUppercase\sjtu@label@projects}
@@ -798,6 +812,7 @@
 }
 
 % 简历
+%
 \newenvironment{resume}{%
   \chapter{\sjtu@label@resume}
 }{}
@@ -822,18 +837,21 @@
 }{\endlist}
 
 % 致谢
+%
 \renewenvironment{thanks}{%
   \chapter*{\sjtu@label@thanks\markboth{\sjtu@label@thanks}{}}
   \addcontentsline{toc}{chapter}{\sjtu@label@thanks}
 }{}
 
 % 全文总结
+%
 \newenvironment{summary}{%
   \chapter*{\sjtu@label@summary\markboth{\sjtu@label@summary}{}}
   \addcontentsline{toc}{chapter}{\sjtu@label@summary}
 }{}
 
 % 本科学位论文 - 英文大摘要
+%
 \newenvironment{bigabstract}{%
   \cleardoublepage
   \pagenumbering{roman}
