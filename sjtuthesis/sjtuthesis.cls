@@ -164,6 +164,9 @@
   \rule{0.0em}{0pt}\rule[0.35em]{1.4em}{0.05em}\rule{0.2em}{0pt}%
 }
 
+% Select text if review or not
+\newcommand{\reviewornot}[2]{\ifsjtu@review #1 \else #2 \fi}
+
 \patchcmd\cleardoublepage%
   {\newpage}%
   {\thispagestyle{blank}\newpage}%
