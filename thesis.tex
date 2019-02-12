@@ -1,5 +1,5 @@
 %%
-%% Copyright (c) 2018 Weitian LI <liweitianux@sjtu.edu.cn>
+%% Copyright (c) 2018-2019 Weitian LI <liweitianux@sjtu.edu.cn>
 %% Creative Commons BY 4.0
 %%
 
@@ -14,7 +14,12 @@
 %				% 导师姓名、致谢、发表论文和参与的项目
 %   submit			% 定稿提交的论文，插入签名扫描版的
 %				% 原创性声明、授权声明
-\documentclass[doctor, openright, twoside]{sjtuthesis}
+\documentclass[
+  doctor,
+  openright,
+  twoside,
+  %review,
+]{sjtuthesis}
 
 \usepackage{microtype}
 \usepackage{fontawesome5}
@@ -357,13 +362,10 @@
 \else
   % 盲审论文中，发表学术论文及参与科研情况等仅以第几作者注明即可，
   % 不要出现作者或他人姓名
-  \ifsjtu@review\relax
-    \include{tex/publications-review}
-    % \include{tex/projects-review}
-  \else
-    \include{tex/publications}
-    % \include{tex/projects}
-    % \include{tex/patents}
+  \include{tex/publications}
+  % \include{tex/projects}
+  % \include{tex/patents}
+  \ifsjtu@review\relax\else
     \include{tex/resume}
   \fi
 \fi
