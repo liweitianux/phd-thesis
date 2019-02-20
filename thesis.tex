@@ -66,6 +66,9 @@
 \let\emph\relax  % there's no \RedeclareTextFontCommand
 \DeclareTextFontCommand{\emph}{\boldmath\bfseries}
 
+% Continuous footnote numbering
+\counterwithout{footnote}{chapter}
+
 % hyperref's \autoref command
 % Credit: https://tex.stackexchange.com/a/66150
 \def\equationautorefname~#1\null{式~(#1)\null}

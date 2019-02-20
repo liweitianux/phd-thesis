@@ -121,7 +121,6 @@
 \RequirePackage{wasysym}
 \RequirePackage{listings}
 \RequirePackage{textcomp}
-\RequirePackage[perpage, bottom]{footmisc}
 \RequirePackage[inline]{enumitem}
 \RequirePackage{pdfpages}
 \RequirePackage{calc}
