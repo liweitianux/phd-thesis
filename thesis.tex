@@ -63,6 +63,7 @@
 \DeclareFieldFormat{pages}{#1\addperiod\space}
 %
 \newcommand{\citeay}[1]{\citeauthor{#1} \citeyear{#1} \parencite{#1}}
+\newcommand{\citet}[1]{\citeauthor{#1} (\citeyear{#1})\cite{#1}}
 
 % Change 'emph' style to bold face
 \let\emph\relax  % there's no \RedeclareTextFontCommand
@@ -187,6 +188,7 @@
 \DeclareSIUnit\kHz{\kilo\hertz}
 \DeclareSIUnit\kpc{\kilo\parsec}
 \DeclareSIUnit\mJy{\milli\jansky}
+\DeclareSIUnit\mm{\milli\meter}
 \DeclareSIUnit\mK{\milli\kelvin}
 \DeclareSIUnit\Gpc{\giga\parsec}
 \DeclareSIUnit\Gyr{\giga\year}
