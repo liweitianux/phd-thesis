@@ -1,5 +1,5 @@
 %%
-%% Copyright (c) 2018 Weitian LI <liweitianux@sjtu.edu.cn>
+%% Copyright (c) 2018-2019 Weitian LI <liweitianux@sjtu.edu.cn>
 %% Creative Commons BY 4.0
 %%
 
@@ -9,29 +9,9 @@
 \begin{ThreePartTable}
 \renewcommand{\TPTminimum}{\textwidth}
 \centering
-\footnotesize
+\small
 
-\begin{TableNotes}
-  \item[a] 自 \SI{168}{\MHz} 按谱指数 $\alpha=2.1$ 外延。
-  \item[b] 自 \SI{323}{\MHz} 按谱指数 $\alpha=1.3$ 外延。
-  \item[c] 自 \SI{153}{\MHz} 按谱指数 $\alpha=1.7$ 外延。
-  \item[d] 自 \SI{346}{\MHz} 按谱指数 $\alpha=1.0$ 外延。
-  \item[e] 自 \SI{168}{\MHz} 按谱指数 $\alpha=1.2$ 外延。
-  \item[f] 自 \SI{168}{\MHz} 按谱指数 $\alpha=0.88$ 外延。
-  \item[g] 自 \SI{168}{\MHz} 按谱指数 $\alpha=1.5$ 外延。
-  \item[h] 自 \SI{168}{\MHz} 按谱指数 $\alpha=1.3$ 外延。
-  \item[i] 自 \SI{610}{\MHz} 按谱指数 $\alpha=1.2$ 外延。
-  \item[j] 自 \SI{145}{\MHz} 按谱指数 $\alpha=1.03$ 外延。
-  \item[k] 自 \SI{325}{\MHz} 按谱指数 $\alpha=1.04$ 外延。
-  \item[l] 自 \SI{340}{\MHz} 按谱指数 $\alpha=1.5$ 外延。
-  \item[m] 自 \SI{1714}{\MHz} 按谱指数 $\alpha=1.1$ 外延。
-  \item[n] 自 \SI{610}{\MHz} 按谱指数 $\alpha=1.4$ 外延。
-  \item[o] 自 \SI{610}{\MHz} 按谱指数 $\alpha=1.3$ 外延。
-  \item[p] 自 \SI{1867}{\MHz} 按谱指数 $\alpha=1.3$ 外延。
-  \item[q] 自 \SI{168}{\MHz} 按谱指数 $\alpha=1.4$ 外延。
-\end{TableNotes}
-
-\begin{longtable}{lcccr@{$\,\pm\,$}lr@{$\,\pm\,$}lll}
+\begin{longtable}{clcccr@{$\,\pm\,$}lr@{$\,\pm\,$}llll}
 \bicaption[已观测到的射电晕目录]{%
   目前已观测到的 71 个射电晕及 9 个候选者（截至 2018 年 1 月）
 }{%
@@ -40,142 +20,171 @@
 }
 \label{tab:halos} \\
 
-\multicolumn{9}{p{\linewidth}}{%
+\multicolumn{11}{p{\linewidth}}{%
   \textbf{各列说明}:
-  \textbf{(1)} 星系团名称;
-  \textbf{(2)} 红移;
-  \textbf{(3)} 角度与尺寸的转换因子（已换算至本文所采用的宇宙学参数）;
-  \textbf{(4)} \acl{rh}的最大线性尺寸，单位 \si{\Mpc};
-  \textbf{(5)} \SI{1.4}{\GHz} 流量密度，单位 \si{\mJy};
-  \textbf{(6)} \SI{1.4}{\GHz} 射电功率，单位 \SI{e24}{\watt\per\hertz}
+  \textbf{(1)} 序号;
+  \textbf{(2)} 星系团名称;
+  \textbf{(3)} 红移;
+  \textbf{(4)} 角度与尺寸的转换因子（已换算至本文所采用的宇宙学参数）;
+  \textbf{(5)} \acl{rh}的最大尺寸，单位 \si{\Mpc};
+  \textbf{(6)} \SI{1.4}{\GHz} 流量密度，单位 \si{\mJy};
+  \textbf{(7)} \SI{1.4}{\GHz} 射电功率，单位 \SI{e24}{\watt\per\hertz}
   （已换算至本文所采用的宇宙学参数）;
-  \textbf{(7)} 数据的来源文献以及备注。
+  \textbf{(8)} 备注说明（%
+    \enquote{cH}: 候选\acl{rh};
+    \enquote{+R}: 另有单\acl{rr};
+    \enquote{+2R}: 另有双\acl{rr};
+    \enquote{+cR}: 另有单候选\acl{rr}）;
+  \textbf{(9)} 数据的来源文献。
 } \\
 \noalign{\vskip 1ex}
 
 \toprule
-名称 &  % 1
-红移 &  % 2
-\si{\kpc}/\si{\arcsecond} &  % 3
-尺寸 &  % 4
-\multicolumn{2}{c}{$S_{\SI{1.4}{\GHz}}$} &  % 5,6
-\multicolumn{2}{c}{$P_{\SI{1.4}{\GHz}}$} &  % 7,8
-文献与备注 \\  % 9
-% units
-& & & [\si{\Mpc}] &
+序号 &  % 1
+名称 &  % 2
+红移 &  % 3
+\si{\kpc}/\si{\arcsecond} &  % 4
+尺寸 &  % 5
+\multicolumn{2}{c}{$S_{\SI{1.4}{\GHz}}$} &  % 6,7
+\multicolumn{2}{c}{$P_{\SI{1.4}{\GHz}}$} &  % 8,9
+备注 & 文献 \\  % 10,11
+%% units
+& & & & [\si{\Mpc}] &
 \multicolumn{2}{c}{[\si{\mJy}]} &  % flux
-\multicolumn{2}{c}{[\SI{e24}{\watt\per\hertz}]} & \\ % power
-% column numbers
-(1) & (2) & (3) & (4) &
-\multicolumn{2}{c}{(5)} & \multicolumn{2}{c}{(6)} & (7) \\
+\multicolumn{2}{c}{[\SI{e24}{\watt\per\hertz}]} &  % power
+& \\
+%% column numbers
+(1) & (2) & (3) & (4) & (5) &
+\multicolumn{2}{c}{(6)} &
+\multicolumn{2}{c}{(7)} &
+(8) & (9) \\
 \midrule
 \endfirsthead
 
-\multicolumn{9}{c}{\textsf{\tablename~\thetable~~（接上页）}} \\
+\multicolumn{11}{c}{\textsf{\tablename~\thetable~~（接上页）}} \\
 \toprule
-名称 &  % 1
-红移 &  % 2
-\si{\kpc}/\si{\arcsecond} &  % 3
-尺寸 &  % 4
-\multicolumn{2}{c}{$S_{\SI{1.4}{\GHz}}$} &  % 5,6
-\multicolumn{2}{c}{$P_{\SI{1.4}{\GHz}}$} &  % 7,8
-文献和备注 \\  % 9
+序号 &  % 1
+名称 &  % 2
+红移 &  % 3
+\si{\kpc}/\si{\arcsecond} &  % 4
+尺寸 &  % 5
+\multicolumn{2}{c}{$S_{\SI{1.4}{\GHz}}$} &  % 6,7
+\multicolumn{2}{c}{$P_{\SI{1.4}{\GHz}}$} &  % 8,9
+备注 & 文献 \\  % 10,11
 \midrule
 \endhead
 
 \bottomrule
-\multicolumn{9}{r}{\textsf{下页继续……}}
+\multicolumn{11}{r}{\textsf{下页继续……}}
 \endfoot
 
 \bottomrule
-\insertTableNotes
+\multicolumn{11}{p{\linewidth}}{%
+  \textbf{标注说明}:
+  \textbf{(a)} 自  \SI{168}{\MHz} 按谱指数 $\alpha=2.1$ 外延;
+  \textbf{(b)} 自  \SI{323}{\MHz} 按谱指数 $\alpha=1.3$ 外延;
+  \textbf{(c)} 自  \SI{153}{\MHz} 按谱指数 $\alpha=1.7$ 外延;
+  \textbf{(d)} 自  \SI{346}{\MHz} 按谱指数 $\alpha=1.0$ 外延;
+  \textbf{(e)} 自  \SI{168}{\MHz} 按谱指数 $\alpha=1.2$ 外延;
+  \textbf{(f)} 自  \SI{168}{\MHz} 按谱指数 $\alpha=0.88$ 外延;
+  \textbf{(g)} 自  \SI{168}{\MHz} 按谱指数 $\alpha=1.5$ 外延;
+  \textbf{(h)} 自  \SI{168}{\MHz} 按谱指数 $\alpha=1.3$ 外延;
+  \textbf{(i)} 自  \SI{610}{\MHz} 按谱指数 $\alpha=1.2$ 外延;
+  \textbf{(j)} 自  \SI{145}{\MHz} 按谱指数 $\alpha=1.03$ 外延;
+  \textbf{(k)} 自  \SI{325}{\MHz} 按谱指数 $\alpha=1.04$ 外延;
+  \textbf{(l)} 自  \SI{340}{\MHz} 按谱指数 $\alpha=1.5$ 外延;
+  \textbf{(m)} 自 \SI{1714}{\MHz} 按谱指数 $\alpha=1.1$ 外延;
+  \textbf{(n)} 自  \SI{610}{\MHz} 按谱指数 $\alpha=1.4$ 外延;
+  \textbf{(o)} 自  \SI{610}{\MHz} 按谱指数 $\alpha=1.3$ 外延;
+  \textbf{(p)} 自 \SI{1867}{\MHz} 按谱指数 $\alpha=1.3$ 外延;
+  \textbf{(q)} 自  \SI{168}{\MHz} 按谱指数 $\alpha=1.4$ 外延。
+}
 \endlastfoot
 
 % table data
-% Name                 z        kpc/"  size    S1.4   Serr   P1.4     Perr   Ref/Notes
-1E 0657$-$56         & 0.2960 & 4.38 & 1.48 &  78.0 &  5.0 & 21.33 &  1.49 & \parencite{liang2000}  \\
-Abell 141            & 0.2300 & 3.64 & 1.20 &   1.3 &  0.1\tnote{a} &  0.25 &  0.02 & \parencite{duchesne2017}  \\
-Abell 209            & 0.2060 & 3.34 & 1.40 &  16.9 &  1.0 &  2.04 &  0.12 & \parencite{giovannini2009}；含单候选\acl{rr}  \\
-Abell 399            & 0.0718 & 1.35 & 0.57 &  16.0 &  2.0 &  0.20 &  0.03 & \parencite{murgia2010}；与 Abell 401 成双\acl{rh}  \\
-Abell 401            & 0.0737 & 1.38 & 0.49 &  17.0 &  1.0 &  0.20 &  0.01 & \parencite{bacchi2003}；与 Abell 399 成双\acl{rh}  \\
-Abell 520            & 0.1990 & 3.25 & 0.99 &  34.4 &  1.5 &  3.17 &  0.14 & \parencite{govoni2001}  \\
-Abell 521            & 0.2533 & 3.91 & 1.17 &   5.9 &  0.5 &  1.12 &  0.09 & \parencite{giovannini2009}；含单\acl{rr}  \\
-Abell 523            & 0.1000 & 1.82 & 1.30 &  59.0 &  5.0 &  1.47 &  0.12 & \parencite{giovannini2011}  \\
-Abell 545            & 0.1540 & 2.64 & 0.81 &  23.0 &  1.0 &  1.25 &  0.05 & \parencite{bacchi2003}  \\
-Abell 665            & 0.1818 & 3.03 & 1.66 &  43.1 &  2.2 &  3.28 &  0.17 & \parencite{giovannini2000}  \\
-Abell 697            & 0.2820 & 4.23 & 0.75 &   5.2 &  0.5 &  2.20 &  0.21 & \parencite{vanWeeren2011}  \\
-Abell 746            & 0.2320 & 3.67 & 0.85 &  18.0 &  4.0 &  3.80 &  0.84 & \parencite{vanWeeren2011}；含单\acl{rr}  \\
-Abell 754            & 0.0542 & 1.04 & 0.95 &  86.0 &  4.0 &  0.56 &  0.03 & \parencite{bacchi2003}；含单\acl{rr}  \\
-Abell 773            & 0.2170 & 3.48 & 1.13 &  12.7 &  1.3 &  1.39 &  0.14 & \parencite{govoni2001}  \\
-Abell 781            & 0.3004 & 4.42 & 1.60 &  20.5 &  5.0 &  5.90 &  1.44 & \parencite{govoni2011}；含单候选\acl{rr}  \\
-Abell 800            & 0.2223 & 3.55 & 1.28 &  10.6 &  0.9 &  1.52 &  0.13 & \parencite{govoni2012}  \\
-Abell 851            & 0.4069 & 5.40 & 1.08 &   3.7 &  0.3 &  2.14 &  0.17 & \parencite{giovannini2009}  \\
-Abell 1132           & 0.1369 & 2.39 & 0.74 &   3.3 &  1.5 &  0.16 &  0.07 & \parencite{wilber2018}  \\
-Abell 1213           & 0.0469 & 0.91 & 0.22 &  72.2 &  3.5 &  0.36 &  0.02 & \parencite{giovannini2009}  \\
-Abell 1300           & 0.3100 & 4.52 & 0.92 &  20.0 &  2.0 &  2.99 &  0.30 & \parencite{reid1999}；含单\acl{rr}  \\
-Abell 1351           & 0.3220 & 4.64 & 1.08 &  32.4 &  --- & 11.37 &  ---  & \parencite{giacintucci2011b}  \\
-Abell 1443           & 0.2700 & 4.10 & 1.10 &  11.0 &  1.1\tnote{b} &  2.53 &  0.30 & \parencite{bonafede2015}；候选\acl{rh}  \\
-Abell 1451           & 0.1989 & 3.25 & 0.74 &   5.4 &  0.5 &  0.62 &  0.07 & \parencite{cuciti2018}；含单候选\acl{rr}  \\
-Abell 1550           & 0.2540 & 3.92 & 1.41 &   7.7 &  1.6 &  1.49 &  0.31 & \parencite{govoni2012}  \\
-Abell 1656           & 0.0232 & 0.46 & 0.58 & 530.0 & 50.0 &  0.31 &  0.03 & \parencite{kim1990}；含单候选\acl{rr}  \\
-Abell 1682           & 0.2272 & 3.61 & 0.85 &   2.3 &  0.5\tnote{c} &  0.41 &  0.08 & \parencite{macario2013}；候选\acl{rh}  \\
-Abell 1689           & 0.1832 & 3.05 & 0.73 &  10.0 &  2.9 &  0.92 &  0.27 & \parencite{vacca2011}  \\
-Abell 1758A          & 0.2790 & 4.20 & 0.63 &   3.9 &  0.4 &  0.93 &  0.10 & \parencite{giovannini2009}；含单\acl{rr}  \\
-Abell 1914           & 0.1712 & 2.88 & 1.16 &  64.0 &  3.0 &  4.32 &  0.20 & \parencite{bacchi2003}  \\
-Abell 1995           & 0.3186 & 4.61 & 0.83 &   4.1 &  0.7 &  1.35 &  0.23 & \parencite{giovannini2009}  \\
-Abell 2034           & 0.1130 & 2.03 & 0.60 &   7.3 &  2.0 &  0.28 &  0.08 & \parencite{vanWeeren2011}；含单\acl{rr}  \\
-Abell 2061           & 0.0784 & 1.46 & 1.68 &  16.9 &  4.2 &  0.25 &  0.06 & \parencite{farnsworth2013}；含单\acl{rr}  \\
-Abell 2065           & 0.0726 & 1.36 & 1.08 &  32.9 & 11.0 &  0.41 &  0.14 & \parencite{farnsworth2013}  \\
-Abell 2069           & 0.1160 & 2.08 & 0.90 &   6.2 &  2.2\tnote{d} &  0.25 &  0.05 & \parencite{drabent2015}；\acl{rh}可能呈两部分  \\
-Abell 2142           & 0.0909 & 1.67 & 0.99 &  11.8 &  0.8 &  1.12 &  0.08 & \parencite{venturi2017}；\acl{rh}呈两部分  \\
-Abell 2163           & 0.2030 & 3.31 & 2.04 & 155.0 &  2.0 & 14.93 &  0.20 & \parencite{feretti2001}；含单\acl{rr}  \\
-Abell 2218           & 0.1710 & 2.88 & 0.35 &   4.7 &  0.1 &  0.32 &  0.01 & \parencite{giovannini2000}  \\
-Abell 2219           & 0.2256 & 3.59 & 1.54 &  81.0 &  4.0 &  9.72 &  0.48 & \parencite{bacchi2003}  \\
-Abell 2254           & 0.1780 & 2.98 & 0.85 &  33.7 &  1.8 &  2.43 &  0.13 & \parencite{govoni2001}  \\
-Abell 2255           & 0.0806 & 1.50 & 0.90 &  56.0 &  3.0 &  0.87 &  0.05 & \parencite{govoni2005}；含单\acl{rr}  \\
-Abell 2256           & 0.0594 & 1.13 & 0.81 & 103.4 &  1.1 &  0.82 &  0.01 & \parencite{clarke2006}；含单\acl{rr}  \\
-Abell 2294           & 0.1780 & 2.98 & 0.54 &   5.8 &  0.5 &  0.51 &  0.04 & \parencite{giovannini2009}  \\
-Abell 2319           & 0.0524 & 1.01 & 0.93 & 153.0 &  8.0 &  0.54 &  0.03 & \parencite{feretti1997}  \\
-Abell 2680           & 0.1901 & 3.14 & 0.57 &   1.8 &  0.6\tnote{e} &  0.16 &  0.05 & \parencite{duchesne2017}；候选\acl{rh}  \\
-Abell 2693           & 0.1730 & 2.91 & 0.65 &   7.7 &  0.9\tnote{f} &  0.61 &  0.07 & \parencite{duchesne2017}；候选\acl{rh}  \\
-Abell 2744           & 0.3080 & 4.50 & 1.62 &  57.1 &  2.9 & 12.89 &  0.65 & \parencite{govoni2001}；含单\acl{rr}  \\
-Abell 2811           & 0.1080 & 1.95 & 0.48 &   3.4 &  0.7\tnote{g} &  0.10 &  0.02 & \parencite{duchesne2017}  \\
-Abell 3411           & 0.1687 & 2.85 & 0.90 &   4.8 &  0.5 &  0.46 &  0.05 & \parencite{vanWeeren2013}；含单\acl{rr}  \\
-Abell 3562           & 0.0480 & 0.93 & 0.44 &  20.0 &  2.0 &  0.10 &  0.01 & \parencite{venturi2003}  \\
-Abell 3888           & 0.1510 & 2.60 & 0.99 &  27.6 &  3.1 &  1.85 &  0.19 & \parencite{shakouri2016}  \\
-Abell S84            & 0.1080 & 1.95 & 0.49 &   2.1 &  0.3\tnote{h} &  0.06 &  0.01 & \parencite{duchesne2017}；候选\acl{rh}  \\
-Abell S1121          & 0.3580 & 4.98 & 1.25 &   9.8 &  3.1\tnote{h} &  4.54 &  1.44 & \parencite{duchesne2017}  \\
-ACT-CL J0102$-$4915  & 0.8700 & 7.73 & 2.17 &  10.7 &  1.1\tnote{i} & 44.43 &  1.28 & \parencite{lindner2014}；含双\acl{rr}  \\
-ACT-CL J0256.5$+$0006 & 0.3430 & 4.84 & 0.79 &   2.1 &  0.5\tnote{i} &  0.97 &  0.29 & \parencite{knowles2016}  \\
-CIZA J0107.7$+$5408  & 0.1066 & 1.93 & 1.10 &  55.0 &  5.0 &  1.80 &  0.16 & \parencite{vanWeeren2011}  \\
-CIZA J0638.1$+$4747  & 0.1740 & 2.92 & 0.59 &   3.6 &  0.2 &  0.30 &  0.02 & \parencite{cuciti2018}  \\
-CIZA J1938.3$+$5409  & 0.2600 & 3.99 & 0.72 &   1.6 &  0.2\tnote{b} &  0.36 &  0.05 & \parencite{bonafede2015}  \\
-CIZA J2242.8$+$5301  & 0.1921 & 3.16 & 1.77 &  33.5 &  6.2\tnote{j} &  3.40 &  0.97 & \parencite{govoni2012}；含双\acl{rr}  \\
-ClG 0016+16          & 0.5456 & 6.37 & 0.77 &   5.5 &  --- &  4.42 &  ---  & \parencite{giovannini2000}  \\
-ClG 0217+70          & 0.0655 & 1.24 & 0.73 &  58.6 &  0.9 &  0.54 &  0.01 & \parencite{brown2011}；含双\acl{rr}  \\
-ClG 1446+26          & 0.3700 & 5.09 & 1.22 &   7.7 &  2.6 &  3.57 &  1.21 & \parencite{govoni2012}；含单\acl{rr}  \\
-ClG 1821+64          & 0.2990 & 4.41 & 1.10 &  13.0 &  0.8\tnote{k} &  3.70 &  0.10 & \parencite{bonafede2014b}  \\
-MACS J0416.1$-$2403  & 0.3960 & 5.31 & 0.64 &   1.7 &  0.8\tnote{l} &  1.26 &  0.29 & \parencite{pandeyPommier2015}  \\
-MACS J0520.7$-$1328  & 0.3400 & 4.81 & 0.80 &   9.0 &  1.6 &  3.38 &  0.60 & \parencite{macario2014}；候选\acl{rh}  \\
-MACS J0553.4$-$3342  & 0.4070 & 5.40 & 1.32 &   9.2 &  0.7\tnote{b} &  6.73 &  0.61 & \parencite{bonafede2012}  \\
-MACS J0717.5$+$3745  & 0.5458 & 6.37 & 1.20 & 118.0 &  5.0 & 50.00 & 10.00 & \parencite{vanWeeren2009}；含单\acl{rr}  \\
-MACS J0949.8$+$1708  & 0.3825 & 5.20 & 1.04 &   3.1 &  0.3\tnote{b} &  1.63 &  0.15 & \parencite{bonafede2015}  \\
-MACS J1149.5$+$2223  & 0.5444 & 6.36 & 1.32 &   1.2 &  0.5 &  1.95 &  0.93 & \parencite{bonafede2012}；候选\acl{rh}，含双\acl{rr}  \\
-MACS J1752.0$+$4440  & 0.3660 & 5.05 & 1.65 &  14.2 &  1.4\tnote{m} &  9.50 &  0.91 & \parencite{vanWeeren2012}；含双\acl{rr}  \\
-MACS J2243.3$-$0935  & 0.4470 & 5.71 & 0.91 &   3.1 &  0.6\tnote{n} &  3.11 &  0.58 & \parencite{cantwell2016}；含单候选\acl{rr}  \\
-PLCK G147.3$-$16.6   & 0.6500 & 6.92 & 1.80 &   2.5 &  0.4\tnote{o} &  5.10 &  0.80 & \parencite{vanWeeren2014}  \\
-PLCK G171.9$-$40.7   & 0.2700 & 4.10 & 0.99 &  18.0 &  2.0 &  4.76 &  0.10 & \parencite{giacintucci2013}  \\
-PLCK G285.0$-$23.7   & 0.3900 & 5.26 & 0.73 &   2.9 &  0.4\tnote{p} &  1.67 &  0.21 & \parencite{martinezAviles2016}  \\
-PLCK G287.0$+$32.9   & 0.3900 & 5.26 & 1.30 &   8.8 &  0.9 &  5.10 &  0.51 & \parencite{bonafede2014a}；含双\acl{rr}  \\
-PSZ1 G108.18$-$11.53 & 0.3347 & 4.77 & 0.84 &   6.8 &  0.2 &  2.72 &  0.10 & \parencite{deGasperin2015}；含双\acl{rr}  \\
-RXC J1234.2$+$0947   & 0.2290 & 3.63 & 0.92 &   2.0 &  --- &  0.30 &  ---  & \parencite{govoni2012}；候选\acl{rh}  \\
-RXC J1314.4$-$2515   & 0.2474 & 3.85 & 1.27 &  20.3 &  0.8 &  1.45 &  0.06 & \parencite{feretti2005}；含双\acl{rr}  \\
-RXC J1514.9$-$1523   & 0.2226 & 3.55 & 1.38 &  10.0 &  2.0 &  1.65 &  0.33 & \parencite{giacintucci2011a}  \\
-RXC J2003.5$-$2323   & 0.3171 & 4.59 & 1.38 &  35.0 &  2.0 & 11.96 &  0.68 & \parencite{giacintucci2009}  \\
-RXC J2351.0$-$1954   & 0.2477 & 3.85 & 0.64 &   4.5 &  0.9\tnote{q} &  0.89 &  0.18 & \parencite{duchesne2017}；候选\acl{rh}  \\
+% No. Name                   z        kpc/"  size    S1.4   Serr            P1.4     Perr   Note  Reference
+ 1 & 1E 0657$-$56          & 0.2960 & 4.38 & 1.48 &  78.0 &  5.0          & 21.33 &  1.49 & --- & \parencite{liang2000}  \\
+ 2 & Abell 141             & 0.2300 & 3.64 & 1.20 &   1.3 &  0.1\tnote{a} &  0.25 &  0.02 & --- & \parencite{duchesne2017}  \\
+ 3 & Abell 209             & 0.2060 & 3.34 & 1.40 &  16.9 &  1.0          &  2.04 &  0.12 & +cR & \parencite{giovannini2009}  \\
+ 4 & Abell 399             & 0.0718 & 1.35 & 0.57 &  16.0 &  2.0          &  0.20 &  0.03 & --- & \parencite{murgia2010}  \\
+ 5 & Abell 401             & 0.0737 & 1.38 & 0.49 &  17.0 &  1.0          &  0.20 &  0.01 & --- & \parencite{bacchi2003}  \\
+ 6 & Abell 520             & 0.1990 & 3.25 & 0.99 &  34.4 &  1.5          &  3.17 &  0.14 & --- & \parencite{govoni2001}  \\
+ 7 & Abell 521             & 0.2533 & 3.91 & 1.17 &   5.9 &  0.5          &  1.12 &  0.09 & +R  & \parencite{giovannini2009}  \\
+ 8 & Abell 523             & 0.1000 & 1.82 & 1.30 &  59.0 &  5.0          &  1.47 &  0.12 & --- & \parencite{giovannini2011}  \\
+ 9 & Abell 545             & 0.1540 & 2.64 & 0.81 &  23.0 &  1.0          &  1.25 &  0.05 & --- & \parencite{bacchi2003}  \\
+10 & Abell 665             & 0.1818 & 3.03 & 1.66 &  43.1 &  2.2          &  3.28 &  0.17 & --- & \parencite{giovannini2000}  \\
+11 & Abell 697             & 0.2820 & 4.23 & 0.75 &   5.2 &  0.5          &  2.20 &  0.21 & --- & \parencite{vanWeeren2011}  \\
+12 & Abell 746             & 0.2320 & 3.67 & 0.85 &  18.0 &  4.0          &  3.80 &  0.84 & +R  & \parencite{vanWeeren2011}  \\
+13 & Abell 754             & 0.0542 & 1.04 & 0.95 &  86.0 &  4.0          &  0.56 &  0.03 & +R  & \parencite{bacchi2003}  \\
+14 & Abell 773             & 0.2170 & 3.48 & 1.13 &  12.7 &  1.3          &  1.39 &  0.14 & --- & \parencite{govoni2001}  \\
+15 & Abell 781             & 0.3004 & 4.42 & 1.60 &  20.5 &  5.0          &  5.90 &  1.44 & +cR & \parencite{govoni2011}  \\
+16 & Abell 800             & 0.2223 & 3.55 & 1.28 &  10.6 &  0.9          &  1.52 &  0.13 & --- & \parencite{govoni2012}  \\
+17 & Abell 851             & 0.4069 & 5.40 & 1.08 &   3.7 &  0.3          &  2.14 &  0.17 & --- & \parencite{giovannini2009}  \\
+18 & Abell 1132            & 0.1369 & 2.39 & 0.74 &   3.3 &  1.5          &  0.16 &  0.07 & --- & \parencite{wilber2018}  \\
+19 & Abell 1213            & 0.0469 & 0.91 & 0.22 &  72.2 &  3.5          &  0.36 &  0.02 & --- & \parencite{giovannini2009}  \\
+20 & Abell 1300            & 0.3100 & 4.52 & 0.92 &  20.0 &  2.0          &  2.99 &  0.30 & +R  & \parencite{reid1999}  \\
+21 & Abell 1351            & 0.3220 & 4.64 & 1.08 &  32.4 &  ---          & 11.37 &  ---  & --- & \parencite{giacintucci2011b}  \\
+22 & Abell 1443            & 0.2700 & 4.10 & 1.10 &  11.0 &  1.1\tnote{b} &  2.53 &  0.30 & cH  & \parencite{bonafede2015}  \\
+23 & Abell 1451            & 0.1989 & 3.25 & 0.74 &   5.4 &  0.5          &  0.62 &  0.07 & +cR & \parencite{cuciti2018}  \\
+24 & Abell 1550            & 0.2540 & 3.92 & 1.41 &   7.7 &  1.6          &  1.49 &  0.31 & --- & \parencite{govoni2012}  \\
+25 & Abell 1656            & 0.0232 & 0.46 & 0.58 & 530.0 & 50.0          &  0.31 &  0.03 & +cR & \parencite{kim1990}  \\
+26 & Abell 1682            & 0.2272 & 3.61 & 0.85 &   2.3 &  0.5\tnote{c} &  0.41 &  0.08 & cH  & \parencite{macario2013}  \\
+27 & Abell 1689            & 0.1832 & 3.05 & 0.73 &  10.0 &  2.9          &  0.92 &  0.27 & --- & \parencite{vacca2011}  \\
+28 & Abell 1758A           & 0.2790 & 4.20 & 0.63 &   3.9 &  0.4          &  0.93 &  0.10 & +R  & \parencite{giovannini2009}  \\
+29 & Abell 1914            & 0.1712 & 2.88 & 1.16 &  64.0 &  3.0          &  4.32 &  0.20 & --- & \parencite{bacchi2003}  \\
+30 & Abell 1995            & 0.3186 & 4.61 & 0.83 &   4.1 &  0.7          &  1.35 &  0.23 & --- & \parencite{giovannini2009}  \\
+31 & Abell 2034            & 0.1130 & 2.03 & 0.60 &   7.3 &  2.0          &  0.28 &  0.08 & +R  & \parencite{vanWeeren2011}  \\
+32 & Abell 2061            & 0.0784 & 1.46 & 1.68 &  16.9 &  4.2          &  0.25 &  0.06 & +R  & \parencite{farnsworth2013}  \\
+33 & Abell 2065            & 0.0726 & 1.36 & 1.08 &  32.9 & 11.0          &  0.41 &  0.14 & --- & \parencite{farnsworth2013}  \\
+34 & Abell 2069            & 0.1160 & 2.08 & 0.90 &   6.2 &  2.2\tnote{d} &  0.25 &  0.05 & --- & \parencite{drabent2015}  \\
+35 & Abell 2142            & 0.0909 & 1.67 & 0.99 &  11.8 &  0.8          &  1.12 &  0.08 & --- & \parencite{venturi2017}  \\
+36 & Abell 2163            & 0.2030 & 3.31 & 2.04 & 155.0 &  2.0          & 14.93 &  0.20 & +R  & \parencite{feretti2001}  \\
+37 & Abell 2218            & 0.1710 & 2.88 & 0.35 &   4.7 &  0.1          &  0.32 &  0.01 & --- & \parencite{giovannini2000}  \\
+38 & Abell 2219            & 0.2256 & 3.59 & 1.54 &  81.0 &  4.0          &  9.72 &  0.48 & --- & \parencite{bacchi2003}  \\
+39 & Abell 2254            & 0.1780 & 2.98 & 0.85 &  33.7 &  1.8          &  2.43 &  0.13 & --- & \parencite{govoni2001}  \\
+40 & Abell 2255            & 0.0806 & 1.50 & 0.90 &  56.0 &  3.0          &  0.87 &  0.05 & +R  & \parencite{govoni2005}  \\
+41 & Abell 2256            & 0.0594 & 1.13 & 0.81 & 103.4 &  1.1          &  0.82 &  0.01 & +R  & \parencite{clarke2006}  \\
+42 & Abell 2294            & 0.1780 & 2.98 & 0.54 &   5.8 &  0.5          &  0.51 &  0.04 & --- & \parencite{giovannini2009}  \\
+43 & Abell 2319            & 0.0524 & 1.01 & 0.93 & 153.0 &  8.0          &  0.54 &  0.03 & --- & \parencite{feretti1997}  \\
+44 & Abell 2680            & 0.1901 & 3.14 & 0.57 &   1.8 &  0.6\tnote{e} &  0.16 &  0.05 & cH  & \parencite{duchesne2017}  \\
+45 & Abell 2693            & 0.1730 & 2.91 & 0.65 &   7.7 &  0.9\tnote{f} &  0.61 &  0.07 & cH  & \parencite{duchesne2017}  \\
+46 & Abell 2744            & 0.3080 & 4.50 & 1.62 &  57.1 &  2.9          & 12.89 &  0.65 & +R  & \parencite{govoni2001}  \\
+47 & Abell 2811            & 0.1080 & 1.95 & 0.48 &   3.4 &  0.7\tnote{g} &  0.10 &  0.02 & --- & \parencite{duchesne2017}  \\
+48 & Abell 3411            & 0.1687 & 2.85 & 0.90 &   4.8 &  0.5          &  0.46 &  0.05 & +R  & \parencite{vanWeeren2013}  \\
+49 & Abell 3562            & 0.0480 & 0.93 & 0.44 &  20.0 &  2.0          &  0.10 &  0.01 & --- & \parencite{venturi2003}  \\
+50 & Abell 3888            & 0.1510 & 2.60 & 0.99 &  27.6 &  3.1          &  1.85 &  0.19 & --- & \parencite{shakouri2016}  \\
+51 & Abell S84             & 0.1080 & 1.95 & 0.49 &   2.1 &  0.3\tnote{h} &  0.06 &  0.01 & cH  & \parencite{duchesne2017}  \\
+52 & Abell S1121           & 0.3580 & 4.98 & 1.25 &   9.8 &  3.1\tnote{h} &  4.54 &  1.44 & --- & \parencite{duchesne2017}  \\
+53 & ACT-CL J0102$-$4915   & 0.8700 & 7.73 & 2.17 &  10.7 &  1.1\tnote{i} & 44.43 &  1.28 & +2R & \parencite{lindner2014}  \\
+54 & ACT-CL J0256.5$+$0006 & 0.3430 & 4.84 & 0.79 &   2.1 &  0.5\tnote{i} &  0.97 &  0.29 & --- & \parencite{knowles2016}  \\
+55 & CIZA J0107.7$+$5408   & 0.1066 & 1.93 & 1.10 &  55.0 &  5.0          &  1.80 &  0.16 & --- & \parencite{vanWeeren2011}  \\
+56 & CIZA J0638.1$+$4747   & 0.1740 & 2.92 & 0.59 &   3.6 &  0.2          &  0.30 &  0.02 & --- & \parencite{cuciti2018}  \\
+57 & CIZA J1938.3$+$5409   & 0.2600 & 3.99 & 0.72 &   1.6 &  0.2\tnote{b} &  0.36 &  0.05 & --- & \parencite{bonafede2015}  \\
+58 & CIZA J2242.8$+$5301   & 0.1921 & 3.16 & 1.77 &  33.5 &  6.2\tnote{j} &  3.40 &  0.97 & +2R & \parencite{govoni2012}  \\
+59 & ClG 0016+16           & 0.5456 & 6.37 & 0.77 &   5.5 &  ---          &  4.42 &  ---  & --- & \parencite{giovannini2000}  \\
+60 & ClG 0217+70           & 0.0655 & 1.24 & 0.73 &  58.6 &  0.9          &  0.54 &  0.01 & +2R & \parencite{brown2011}  \\
+61 & ClG 1446+26           & 0.3700 & 5.09 & 1.22 &   7.7 &  2.6          &  3.57 &  1.21 & +R  & \parencite{govoni2012}  \\
+62 & ClG 1821+64           & 0.2990 & 4.41 & 1.10 &  13.0 &  0.8\tnote{k} &  3.70 &  0.10 & --- & \parencite{bonafede2014b}  \\
+63 & MACS J0416.1$-$2403   & 0.3960 & 5.31 & 0.64 &   1.7 &  0.8\tnote{l} &  1.26 &  0.29 & --- & \parencite{pandeyPommier2015}  \\
+64 & MACS J0520.7$-$1328   & 0.3400 & 4.81 & 0.80 &   9.0 &  1.6          &  3.38 &  0.60 & cH  & \parencite{macario2014}  \\
+65 & MACS J0553.4$-$3342   & 0.4070 & 5.40 & 1.32 &   9.2 &  0.7\tnote{b} &  6.73 &  0.61 & --- & \parencite{bonafede2012}  \\
+66 & MACS J0717.5$+$3745   & 0.5458 & 6.37 & 1.20 & 118.0 &  5.0          & 50.00 & 10.00 & +R  & \parencite{vanWeeren2009}  \\
+67 & MACS J0949.8$+$1708   & 0.3825 & 5.20 & 1.04 &   3.1 &  0.3\tnote{b} &  1.63 &  0.15 & --- & \parencite{bonafede2015}  \\
+68 & MACS J1149.5$+$2223   & 0.5444 & 6.36 & 1.32 &   1.2 &  0.5          &  1.95 &  0.93 & cH, +2R & \parencite{bonafede2012}  \\
+69 & MACS J1752.0$+$4440   & 0.3660 & 5.05 & 1.65 &  14.2 &  1.4\tnote{m} &  9.50 &  0.91 & +2R & \parencite{vanWeeren2012}  \\
+70 & MACS J2243.3$-$0935   & 0.4470 & 5.71 & 0.91 &   3.1 &  0.6\tnote{n} &  3.11 &  0.58 & +cR & \parencite{cantwell2016}  \\
+71 & PLCK G147.3$-$16.6    & 0.6500 & 6.92 & 1.80 &   2.5 &  0.4\tnote{o} &  5.10 &  0.80 & --- & \parencite{vanWeeren2014}  \\
+72 & PLCK G171.9$-$40.7    & 0.2700 & 4.10 & 0.99 &  18.0 &  2.0          &  4.76 &  0.10 & --- & \parencite{giacintucci2013}  \\
+73 & PLCK G285.0$-$23.7    & 0.3900 & 5.26 & 0.73 &   2.9 &  0.4\tnote{p} &  1.67 &  0.21 & --- & \parencite{martinezAviles2016}  \\
+74 & PLCK G287.0$+$32.9    & 0.3900 & 5.26 & 1.30 &   8.8 &  0.9          &  5.10 &  0.51 & +2R & \parencite{bonafede2014a}  \\
+75 & PSZ1 G108.18$-$11.53  & 0.3347 & 4.77 & 0.84 &   6.8 &  0.2          &  2.72 &  0.10 & +2R & \parencite{deGasperin2015}  \\
+76 & RXC J1234.2$+$0947    & 0.2290 & 3.63 & 0.92 &   2.0 &  ---          &  0.30 &  ---  & cH  & \parencite{govoni2012}  \\
+77 & RXC J1314.4$-$2515    & 0.2474 & 3.85 & 1.27 &  20.3 &  0.8          &  1.45 &  0.06 & +2R & \parencite{feretti2005}  \\
+78 & RXC J1514.9$-$1523    & 0.2226 & 3.55 & 1.38 &  10.0 &  2.0          &  1.65 &  0.33 & --- & \parencite{giacintucci2011a}  \\
+79 & RXC J2003.5$-$2323    & 0.3171 & 4.59 & 1.38 &  35.0 &  2.0          & 11.96 &  0.68 & --- & \parencite{giacintucci2009}  \\
+80 & RXC J2351.0$-$1954    & 0.2477 & 3.85 & 0.64 &   4.5 &  0.9\tnote{q} &  0.89 &  0.18 & cH  & \parencite{duchesne2017}  \\
 \end{longtable}
 
 \end{ThreePartTable}
-
 
 %% EOF
