@@ -202,6 +202,13 @@
 \input{tex/symbol.tex}
 \input{tex/glossary.tex}
 
+% Help track changes
+% Credit: https://tex.stackexchange.com/a/49913
+\newcommand{\editone}[1]{{\leavevmode\color{cyan}#1}}
+\newcommand{\edittwo}[1]{{\leavevmode\color{magenta}#1}}
+%\renewcommand{\editone}[1]{{#1}}
+%\renewcommand{\edittwo}[1]{{#1}}
+
 \AtBeginBibliography{
   \linespread{1.1}
   \small
