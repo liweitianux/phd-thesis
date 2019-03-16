@@ -1,0 +1,53 @@
+%%
+%% Copyright (c) 2019 Weitian LI <liweitianux@sjtu.edu.cn>
+%% Creative Commons BY 4.0
+%%
+
+\chapter{单位换算}
+\label{chap:units}
+
+在 \ac{cgs} 单位制中，力 (force) $F$ 的单位及其换算关系为：
+\begin{align}
+  \label{eq:cgs-force}
+  \SI{1}{\dyne}
+    & = \SI{1}{\gram \cm \second\tothe{-2}} \\
+    & = \SI{e-5}{\newton} .
+\end{align}
+能量 (energy) $E$ 的单位及其换算关系为：
+\begin{align}
+  \label{eq:cgs-work}
+  \SI{1}{\erg}
+    & = \SI{1}{\gram \cm\tothe{2} \second\tothe{-2}} \\
+    & = \SI{e-7}{\joule} .
+\end{align}
+
+针对电磁学，有多个基于 \ac{cgs} 单位制的扩展，其中\ac{g-units}是最常用的。
+在该单位制中，电荷 $q$ 的单位及其换算关系为：
+\begin{align}
+  \label{eq:gu-electrical-charge}
+  \SI{1}{\esu}
+    & \equiv \SI{1}{\statcoulomb} \equiv \SI{1}{\franklin} \\
+    & = \SI{1}{\dyne\tothe{1/2} \cm} \\
+    & = \SI{1}{\cm\tothe{3/2} \gram\tothe{1/2} \per\second} \\
+    & = (10 c)^{-1}\,\si{\coulomb} \approx \SI{3.33564e-10}{\coulomb} ,
+\end{align}
+其中 $c = \SI{299792458}{\meter\per\second} $ 为真空中的光速。
+磁感应强度 (magnetic induction) $\B{B}$ 的单位及其换算关系为：
+\begin{align}
+  \label{eq:gu-b-field}
+  \SI{1}{\gauss}
+    & = \SI{1}{\esu \cm\tothe{-2}} \\
+    & = \SI{1}{\cm\tothe{-1/2} \gram\tothe{1/2} \second} \\
+    & = \SI{e-4}{\tesla} .
+\end{align}
+
+天文中常用的流量密度 (flux density) $S$ 的单位及其换算关系为：
+\begin{align}
+  \label{eq:jy-conv}
+  \SI{1}{\jansky}
+    & = \SI{e-26}{\watt \meter\tothe{-2} \per\hertz} \\
+    & = \SI{e-23}{\erg \per\second \cm\tothe{-2} \per\hertz} .
+\end{align}
+
+
+%% EOF
