@@ -2,12 +2,19 @@ TEXINPUTS:=	.:sjtuthesis:texmf:$(TEXINPUTS)
 BSTINPUTS:=	.:sjtuthesis:texmf:$(BSTINPUTS)
 
 TEMPLATE:=	$(wildcard sjtuthesis/*)
-SRCS:=		thesis.tex references.bib $(wildcard tex/*.tex)
+BIB:=		references.bib
+SRCS:=		thesis.tex $(wildcard tex/*.tex)
 
 all: thesis.pdf
 
-thesis.pdf: $(SRCS) $(TEMPLATE)
+thesis.pdf: $(SRCS) $(BIB) $(TEMPLATE)
 	env TEXINPUTS=$(TEXINPUTS) BSTINPUTS=$(BSTINPUTS) latexmk -xelatex thesis
+
+pdf: $(SRCS) $(TEMPLATE)
+	env TEXINPUTS=$(TEXINPUTS) BSTINPUTS=$(BSTINPUTS) xelatex thesis
+
+bib: thesis.bcf $(BIB)
+	biber thesis
 
 fix:
 	@echo "Trim trailing whitespace ..."
