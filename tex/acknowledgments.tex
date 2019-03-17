@@ -1,5 +1,5 @@
 %%
-%% Copyright (c) 2018 Weitian LI <liweitianux@sjtu.edu.cn>
+%% Copyright (c) 2018-2019 Weitian LI <liweitianux@sjtu.edu.cn>
 %% Creative Commons BY 4.0
 %%
 
@@ -9,19 +9,28 @@
 
 感谢导师徐海光教授的悉心培养，让我获得做人与做学问的全面成长。
 
-感谢师兄师姐的指导，特别是王婧颖师姐。
+感谢师兄师姐的帮助，特别是王婧颖师姐。
 感谢课题组里一起奋斗的小伙伴：
 朱正浩、胡丹、马志贤、单晨曦、郑东超、朱永凯、连晓丽、刘宇星。
-感谢好友朱睿敏以及 Jeffrey Hsu 对论文的帮助。
+感谢 Jeffrey Hsu 以及好友朱睿敏对论文的帮助。
 还需要感谢国家天文台和上海天文台的老师、学长和学姐的关心和指导。
+
+本工作使用了
+由 Fred Dulwich 开发的 \texttt{OSKAR} 模拟软件
+以及他提供的 \acs{ska1low} 阵列布局、
+由 André Offringa 开发的 \texttt{WSClean} 成像软件、
+由 Mathieu Remazeilles 提供的高分辨率 Haslam \SI{408}{\MHz}
+银河系全天辐射图、
+由 Giovanna Giardino 提供的银河系同步辐射谱指数全天分布图。
+在此非常感谢他们。
 
 感谢国家自然科学基金委
 （项目编号：11433002、11621303、11835009、61371147、11125313）
 和科学技术部（项目编号：2018YFA0404601、2017YFF0210903）
 为本工作提供的资助。
 
-上海交通大学的互联网是国内首屈一指的，如果没有这个优良条件，这里的一切都将是浮云。
-我也将无法忘记在这里结识的一群好朋友。
+上海交通大学的互联网是国内首屈一指的，如果没有这个优良条件，本工作将是一片浮云。
+同时，我也将无法忘记在这里结识的一群好朋友。
 
 本工作的完成离不开以下项目/工具/网站的支持：
 \href{https://github.com/adobe-fonts}{Adobe 开源字体} (%
@@ -30,46 +39,58 @@
 \href{https://github.com/adobe-fonts/source-sans-pro}{\textsf{Source \textbf{Sans} \textit{Pro}}},
 \href{https://github.com/adobe-fonts/source-code-pro}{\texttt{Source \textbf{Code} \textit{Pro}}}),
 \href{https://arxiv.org/}{arXiv},
-\href{http://ads.harvard.edu/}{Astrophysics Data System},
+\href{http://ads.harvard.edu/}{Astrophysics Data System (ADS)},
 \href{https://www.bing.com/dict}{Bing 词典},
+\href{https://www.claws-mail.org/}{Claws Mail},
+\href{https://developer.nvidia.com/cuda-zone}{CUDA},
 \href{https://www.debian.org/}{Debian GNU/Linux},
 \href{https://www.gnu.org/s/emacs/}{Emacs},
+\href{https://github.com/markummitchell/engauge-digitizer}{Engauge Digitizer},
+\href{https://wiki.gnome.org/Apps/Evince}{Evince},
 \href{https://fcitx-im.org/}{Fcitx},
+\href{https://www.geany.org/}{Geany},
+\href{https://www.gimp.org/}{GIMP},
 \href{https://git-scm.com/}{Git},
 \href{https://github.com/}{Github},
 \href{https://www.google.com/}{Google 搜索},
+\href{https://imagemagick.org/}{ImageMagick},
 \href{https://github.com/sjtug/SJTUThesis}{交大学位论文模板},
 \href{https://keras.io/}{Keras},
-\href{https://www.latex-project.org/}{\LaTeX},
+\href{https://www.latex-project.org/}{\LaTeX} (%
+\href{https://tug.org/texlive/}{\TeX{} Live}),
 \href{https://www.libreoffice.org/}{LibreOffice},
 \href{https://www.mozilla.org/en-US/firefox/}{Mozilla Firefox},
-\href{https://ned.ipac.caltech.edu/}{NASA/IPAC Extragalactic Database},
+\href{https://ned.ipac.caltech.edu/}{NASA/IPAC Extragalactic Database (NED)},
 \href{https://okular.kde.org/}{Okular},
 \href{https://www.openssh.com/}{OpenSSH},
 \href{https://github.com/OxfordSKA/OSKAR}{OSKAR},
 \href{https://www.python.org/}{Python} (%
 \href{https://www.astropy.org/}{Astropy},
 \href{https://jupyter.org/}{Jupyter},
-\href{https://matplotlib.org/}{matplotlib},
+\href{https://matplotlib.org/}{Matplotlib},
 \href{https://www.numpy.org/}{NumPy},
-\href{https://pandas.pydata.org/}{pandas},
+\href{https://pandas.pydata.org/}{Pandas},
 \href{https://scipy.org/}{SciPy}),
+\href{http://jonls.dk/redshift/}{Redshift},
+\href{https://rsync.samba.org/}{Rsync},
 \href{http://ds9.si.edu/}{SAOImage DS9},
 \href{https://shadowsocks.org/}{ShadowSocks},
+\href{https://stackexchange.com/}{Stack Exchange},
 \href{https://stackoverflow.com/}{Stack Overflow},
 \href{https://syncthing.net/}{Syncthing},
 \href{https://www.tensorflow.org/}{TensorFlow},
+\href{https://jonas.github.io/tig/}{Tig},
 \href{https://github.com/tmux/tmux}{Tmux},
 \href{https://www.vim.org/}{Vim},
 \href{https://www.wechat.com/}{微信},
 \href{https://www.wikipedia.org/}{Wikipedia},
 \href{http://wps-community.org/}{WPS Office},
 \href{https://sourceforge.net/projects/wsclean/}{WSClean},
-\href{https://www.xfce.org/}{XFCE},
+\href{https://www.xfce.org/}{Xfce},
 \href{http://www.zsh.org/}{Zsh}。
 此外，感谢 \href{https://www.dragonflybsd.org/}{DragonFly BSD}
 项目及其 IRC 上那群很棒的人。
 
-最后，感谢女友尹璐璐，感谢她十年来坚定不移的支持和鼓励，她是我今生的至爱。
+最后，我要感谢女友尹璐璐，感谢她十年来坚定不移的支持和鼓励，她是我今生的至爱。
 
 \end{thanks}
