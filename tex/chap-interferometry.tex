@@ -30,10 +30,10 @@ TODO
   \centering
   \includegraphics[width=\textwidth]{atmospheric-em-transmittance}
   \bicaption[大气层的电磁辐射透射率]{%
-    大气层的电磁辐射透射率随波长（即频率）的变化。
+    大气层的电磁辐射透射率随波长（即频率）的变化.
     除了光学窗口，大气层还有一个更加宽广的射电窗口，
     从 $\lambda \sim \SI{1}{\mm} (\nu \sim \SI{300}{\GHz})$
-    延伸到 $\lambda \sim \SI{20}{\meter} (\nu \sim \SI{15}{\MHz})$。
+    延伸到 $\lambda \sim \SI{20}{\meter} (\nu \sim \SI{15}{\MHz})$.
   }{%
     Electromagnetic transmittance of the Earth's atmosphere.
     In addition to the visible optical window, there is another
@@ -121,16 +121,16 @@ TODO
 \label{sec:interferometry}
 
 根据衍射原理，望远镜的角分辨率为 $\theta \sim \lambda / D$，
-其中 $\lambda$ 为辐射信号的波长（对应于观测频率），$D$ 为望远镜的直径。
+其中 $\lambda$ 为辐射信号的波长（对应于观测频率），$D$ 为望远镜的直径.
 相比光学波段，射电信号的波长要长得多，为了实现足够好的角分辨率，
 必须建造巨型的望远镜，如 \SI{100}{\meter} 口径的 \ac{gbt}、
 \SI{305}{\meter} 口径的 Arecibo、
-\SI{500}{\meter} 口径的 \ac{fast}。
+\SI{500}{\meter} 口径的 \ac{fast}.
 然而，在数百 \si{\MHz} 的低频射电波段，望远镜的口径需达到惊人的 \SI{10}{\km}
 才能在 \SI{100}{\MHz} 实现约 \SI{1}{\arcminute} 的角分辨率，
-这对于单口径望远镜而言显然是不现实的。
+这对于单口径望远镜而言显然是不现实的.
 因此，低频射电观测通常使用干涉测量技术，通过联合一系列小望远镜开展相干测量并综合，
-获得高分辨率图像。
+获得高分辨率图像.
 
 %---------------------------------------------------------------------
 \subsection{二元准单色干涉仪}
@@ -139,10 +139,10 @@ TODO
   \centering
   \includegraphics[width=0.7\textwidth]{interferometer}
   \bicaption[二元准单色干涉仪]{%
-    二元准单色干涉仪的构成示意图。
+    二元准单色干涉仪的构成示意图.
     两个相同的天线相距 $\B{b}$ 放置并指向位于 $\hat{\B{s}}$ 方向的辐射源，
     接收的信号被放大后，再经过\acl*{ctor}的相乘（$\times$）
-    和时间平均（$\langle\;\rangle$），得到输出响应 $R$。
+    和时间平均（$\langle\;\rangle$），得到输出响应 $R$.
   }{%
     The components of a two-element quasi-monochromatic interferometer
     observing in a very narrow radio frequency band centered at
@@ -159,8 +159,8 @@ TODO
 \end{figure}
 
 考虑一个最简单的二元准单色干涉仪（如\autoref{fig:interferometer} 所示），
-由两个相同的天线和相关器构成，只测量频率为 $\nu$ 的准单色信号。
-由于辐射源非常遥远，其信号到达干涉仪时为平面波（忽略电离层扰动等影响）。
+由两个相同的天线和相关器构成，只测量频率为 $\nu$ 的准单色信号.
+由于辐射源非常遥远，其信号到达干涉仪时为平面波（忽略电离层扰动等影响）.
 同一个波面被两个天线接收之间存在一个时间差，即\ac{tau-g}:
 \begin{equation}
   \label{eq:tau-g}
@@ -168,13 +168,13 @@ TODO
 \end{equation}
 其中 \acs{c} 是\acl{c}，
 $\B{b}$ 为两天线之间的基线矢量（由天线 1 指向天线 2），
-$\hat{\B{s}}$ 为指向辐射源的单位矢量。
+$\hat{\B{s}}$ 为指向辐射源的单位矢量.
 两个天线接收信号后分别输出电压响应：
 \begin{align}
   V_1(t) &= V \cos [\omega (t - \acs{tau-g})], \\
   V_2(t) &= V \cos (\omega t),
 \end{align}
-其中 $\omega = 2\Cpi\nu$ 为角频率。
+其中 $\omega = 2\Cpi\nu$ 为角频率.
 然后，\ac{ctor}将两个天线的响应相乘：
 \begin{align}
   V_1(t) V_2(t) &= V^2 \cos [\omega (t - \acs{tau-g})] \cos (\omega t) \\
@@ -189,14 +189,14 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量。
 \end{equation}
 由于天线响应 $V_1$ 和 $V_2$ 正比于辐射源的电场强度以及天线\acl{gain}，
 因此\acl{ctor}响应 $R$ 正比于辐射源的流量密度 $S$
-以及 $\sqrt{A_1 A_2}$，其中 $A_1$ 和 $A_2$ 为两个天线的有效接收面积。
+以及 $\sqrt{A_1 A_2}$，其中 $A_1$ 和 $A_2$ 为两个天线的有效接收面积.
 
 由于地球的自转，辐射源的方向 $\hat{\B{s}}$ 发生变化，\acl{tau-g} \acs{tau-g}
 也随之变化，于是\acl{ctor}的输出 $R$ 出现正弦形式的振荡，即\ac{fringe}，其相位为：
 \begin{equation}
   \phi = \omega\tau_g = 2\Cpi b \cos\theta / \lambda,
 \end{equation}
-其中 $\theta$ 为方向 $\hat{\B{s}}$ 和基线矢量 $\B{b}$ 之间的夹角。
+其中 $\theta$ 为方向 $\hat{\B{s}}$ 和基线矢量 $\B{b}$ 之间的夹角.
 于是有
 \begin{equation}
   \diff{\phi}{\theta} = 2\Cpi \left( \frac{b \sin\theta}{\lambda} \right),
@@ -206,11 +206,11 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量。
   \label{eq:sb-width}
   \acs{sb-width} = \frac{\lambda}{b \sin\theta},
 \end{equation}
-这也代表着干涉仪的角分辨能力。
+这也代表着干涉仪的角分辨能力.
 
 天线的\ac{pp}描述了其响应随方向的变化情况，也被称为干涉仪的\ac{pb}，
 将对输出 $R$ 产生调制，如\autoref{fig:interferometer} 所示，
-其中\acl{ctor}的输出\acl{fringe}的包络示意了\acl{pb}的衰减情况。
+其中\acl{ctor}的输出\acl{fringe}的包络示意了\acl{pb}的衰减情况.
 
 对于一个表面亮度分布为 $\acs{Ifreq}(\hat{\B{s}})$ 的\acl{extsrc}，
 由于不同位置产生的辐射互不相干，因此可以被当作一系列独立的点源处理，
@@ -223,7 +223,7 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量。
       2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \D{\Omega},
 \end{equation}
 其中下标 \enquote{$c$} 表示 \enquote{cosine} \acl{ctor}的输出，
-以区分下文将要介绍的 \enquote{sine} \acl{ctor}。
+以区分下文将要介绍的 \enquote{sine} \acl{ctor}.
 
 一个任意的亮度分布 $I$ 可分解为奇对称成分 $I_O$ 与偶对称成分 $I_E$ 之和，
 然而\autoref{eq:resp-cos} 描述的 cosine \acl{ctor}只能测量其中的
@@ -244,7 +244,7 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量。
     = \int I_O(\hat{\B{s}}) \sin \left(
       2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \D{\Omega}.
 \end{equation}
-\ac{cctor} 即为 cosine 和 sine \acl{ctor}的组合。
+\ac{cctor} 即为 cosine 和 sine \acl{ctor}的组合.
 相应地，\ac{Vis}，简称\emph{\acl{vis}}，可定义为：
 \begin{equation}
   \label{eq:vis}
@@ -256,7 +256,7 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量。
 %---------------------------------------------------------------------
 \subsection{有限带宽}
 
-现在，将上述二元干涉仪推广至测量有限带宽的信号。
+现在，将上述二元干涉仪推广至测量有限带宽的信号.
 考虑一段中心频率为 $\nu_c$ 且宽度为 $\Delta\nu$ 的窄频带，
 若辐射源的亮度以及天线的响应在此频带内基本不变，
 则可知测量的\acl{vis} [\autoref{eq:vis}] 为：
@@ -278,13 +278,13 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量。
       1, & \quad \text{if } x = 0.
     \end{cases}
 \end{equation}
-因此，干涉仪测得的\acl{fringe}幅度减弱至原来的 $\sinc(\Delta\nu\,\tau_g)$ 倍。
+因此，干涉仪测得的\acl{fringe}幅度减弱至原来的 $\sinc(\Delta\nu\,\tau_g)$ 倍.
 为了最小化该损失，可以给前导天线的输出信号增加\ac{tau-c}，
 如\autoref{fig:interferometer-tau0} 所示，并随地球自转而调节 \acs{tau-c}
-使其满足 $|\acs{tau-c} - \acs{tau-g}| \ll (\Delta\nu)^{-1}$。
-在此情况下，到达\acl{ctor}时两个天线的信号的相位是同步的。
+使其满足 $|\acs{tau-c} - \acs{tau-g}| \ll (\Delta\nu)^{-1}$.
+在此情况下，到达\acl{ctor}时两个天线的信号的相位是同步的.
 同时，满足 $\acs{tau-c} = \acs{tau-g}$ 的方向 $\hat{\B{s}}_0$
-称为\ac{delay-center}或\ac{phase-refpos}。
+称为\ac{delay-center}或\ac{phase-refpos}.
 
 \begin{figure}
   \centering
@@ -292,7 +292,7 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量。
   \bicaption[\acl*{tau-c} \acs*{tau-c}]{%
     通过给前导天线（即天线 2）增加\acl*{tau-c}
     $\acs*{tau-c} \approx \acs*{tau-g}$，
-    使得两天线的信号在相关运算时相位尽量同步，从而最小化带宽效应对测量条纹的衰减影响。
+    使得两天线的信号在相关运算时相位尽量同步，从而最小化带宽效应对测量条纹的衰减影响.
   }{%
     By introducing the compensating delay
     $\acs*{tau-c} \approx \acs*{tau-g}$ in the signal path of the leading
@@ -307,9 +307,9 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量。
 \end{figure}
 
 \acl{tau-g} \acs{tau-g} 会随方向而变化，因此\acl{tau-c} \acs{tau-c}
-只对特定方向 $\hat{\B{s}}_0$ （即\acl{delay-center}）是正好准确的。
+只对特定方向 $\hat{\B{s}}_0$ （即\acl{delay-center}）是正好准确的.
 偏离\acl{delay-center}的角度 $\Delta\theta$ 越大，\acl{tau-c} \acs{tau-c}
-的修正效果越差，带宽带来的损失越大，即\ac{bw-smear}。
+的修正效果越差，带宽带来的损失越大，即\ac{bw-smear}.
 该涂污效应限制了有效的视场大小，为满足：
 \begin{equation}
   \Delta\nu \Delta\tau_g
@@ -322,13 +322,13 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量。
   \Delta\theta \ll \frac{\nu \acs{sb-width}}{\Delta\nu}.
 \end{equation}
 另一个解决\acl{bw-smear}的方法是将宽频带划分为一系列足够窄的频率通道
-（如每个通道仅宽几十 \si{\kHz}），每个通道的信号都被独立地相关运算得到\acl{vis}。
+（如每个通道仅宽几十 \si{\kHz}），每个通道的信号都被独立地相关运算得到\acl{vis}.
 
 类似地，如果\acl{ctor}的积分时间 $\Delta t$ 过长，则辐射源的位置 $\hat{\B{s}}$
 会因地球自转而发生显著改变（可与 \acs{sb-width} 相比拟），
-导致\acl{tau-c} \acs{tau-c} 的修正效果变差，即\ac{t-smear}。
+导致\acl{tau-c} \acs{tau-c} 的修正效果变差，即\ac{t-smear}.
 一个距离\acl{delay-center} $\Delta\theta$ 的目标的移动速度为
-$v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度。
+$v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 为了最小化\acl{t-smear}的影响，\acl{ctor}的积分时间 $\Delta t$ 需满足：
 \begin{equation}
   v \Delta t = \omega_e \Delta\theta \Delta t \ll \theta_s,
@@ -347,10 +347,10 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度。
   \includegraphics[width=0.5\textwidth]{interferometer-coordsys}
   \bicaption[$(u,v,w)$ 坐标系]{%
     干涉仪的 $(u,v,w)$ 直角坐标系，其中 $w$ 轴指向参考方向 $\hat{\B{s}}_0$，
-    通常为目标的中心，$u$ 轴向东，$v$ 轴向北。
+    通常为目标的中心，$u$ 轴向东，$v$ 轴向北.
     基线矢量可表示为 $\B{b} = (u,v,w) \lambda$，
     目标的亮度分布则用\acl*{dc}描述，即 $I(\hat{\B{s}}) = I(l,m)$，
-    其中 $l, m$ 为方向矢量 $\hat{\B{s}}$ 分别对 $u, v$ 轴的投影长度。
+    其中 $l, m$ 为方向矢量 $\hat{\B{s}}$ 分别对 $u, v$ 轴的投影长度.
   }{%
     The $(u,v,w)$ Cartesian coordinate system for interferometers,
     in which the $w$-axis points in the reference direction
@@ -370,10 +370,10 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度。
 为了能够实际运用\autoref{eq:vis} 或\autoref{eq:vis-bw} 获得图像，
 需要定义一个坐标系，如\autoref{fig:interferometer-coordsys}
 所示的 $(u,v,w)$ 直角坐标系是最常用的，其中 $w$ 轴指向参考方向 $\hat{\B{s}}_0$，
-通常为目标的中心，$u$ 轴向东，$v$ 轴向北。
+通常为目标的中心，$u$ 轴向东，$v$ 轴向北.
 于是，基线矢量 $\B{b} = (u,v,w) \lambda$，
 方向矢量 $\hat{\B{s}} = (l,m,\sqrt{1-l^2-m^2})$，
-其中 $l, m$ 为 $\hat{\B{s}}$ 分别对 $u, v$ 轴的投影长度，即\ac{dc}。
+其中 $l, m$ 为 $\hat{\B{s}}$ 分别对 $u, v$ 轴的投影长度，即\ac{dc}.
 再利用 $\D{\Omega} = \D{l}\D{m} \,/ \sqrt{1-l^2-m^2}$，
 \autoref{eq:vis} 可表示为：
 \begin{equation}
@@ -382,10 +382,10 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度。
     \exp \left[ -2\Cpi\Ci \left( ul+vm+w\sqrt{1-l^2-m^2} \right) \right]
     \D{l}\D{m}.
 \end{equation}
-需注意，这\emph{不是}二维 Fourier 变换。
+需注意，这\emph{不是}二维 Fourier 变换.
 
 然而，在下述两种常见的特殊情况下，上式可变成二维 Fourier 变换，
-从而通过逆运算获得目标的亮度分布。
+从而通过逆运算获得目标的亮度分布.
 \begin{itemize}
 \item
 \emph{所有基线矢量共面:}
@@ -393,7 +393,7 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度。
 (1) 干涉阵列的天线只沿东西方向分布，如 \ac{wsrt}，尽管地球自转，
 所有基线矢量均落在同一垂直于地球自转轴的平面内；
 (2) 虽然干涉阵列的天线分布在一个二维平面，如 \autoref{ssec:miteor}
-将介绍的 \ac*{miteor}，但只考虑瞬时观测。
+将介绍的 \ac*{miteor}，但只考虑瞬时观测.
 此时，可以选取合适的坐标系使得 $w = 0$，于是\autoref{eq:vis-uvw}
 变成二维 Fourier 变换，利用其逆变换可得目标的亮度分布为：
 \begin{equation}
@@ -435,12 +435,12 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度。
 根据\autoref{eq:vis} 中基线矢量 $\B{b}$ 和方向矢量 $\hat{\B{s}}$ 之间的对称性，
 上述第一种情况要求 $\B{b}$ 全部在同一平面内，
 第二种情况要求 $\hat{\B{s}}$ 在天球上的对应点全部在同一平面内，即视场足够小，
-因此，这两种情况可理解为相同近似条件的不同表现形式 \cite{clark1999}。
+因此，这两种情况可理解为相同近似条件的不同表现形式 \cite{clark1999}.
 如果无法满足以上两种情况，比如大视场成像，则需要采用专门的成像方法
 \cite{cornwell1992,sault2007}，
 比如 \ac{w-proj}法 \cite{cornwell2008}、\ac{w-stack}法 \cite{humphreys2011}
 （\autoref{ssec:imaging} 将使用的 WSClean 成像软件实现了该方法
-\cite{offringa2014,offringa2017}）。
+\cite{offringa2014,offringa2017}）.
 
 %---------------------------------------------------------------------
 \subsection{\texorpdfstring{$uv$}{uv} 覆盖}
@@ -448,22 +448,22 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度。
 由于天空的亮度分布 $I_{\nu}(l,m)$ 为实数，因此测量的\acl{vis}满足
 $\acs{Vis}(-u,-v) = \acs{Vis}^*(u,v)$，
 于是基线矢量为 $\B{b} = (u,v,w)\lambda$ 的二元干涉仪在每个时刻测量
-$uv$ 平面上两个相互对称的点的\acl{vis}。
+$uv$ 平面上两个相互对称的点的\acl{vis}.
 随着地球自转，$\B{b}$ 的各分量逐渐变化，经过 \SI{24}{\hour}，
-该基线所测量的\acl{vis}数据对应 $uv$ 平面上两个相互对称的椭圆。
+该基线所测量的\acl{vis}数据对应 $uv$ 平面上两个相互对称的椭圆.
 一个干涉阵列通常由大量天线组成，因此 $N_A$ 个天线之间可形成 $N_A(N_A-1)/2$ 条基线，
 每条基线都将测量 $uv$ 平面上相应位置的\acl{vis}，
-可以显著增加 $uv$ 覆盖度，即 $uv$ 平面上被测量的点。
-\autoref{fig:uv-coverages} 展示了不同天线数目、不同观测时长的 $uv$ 覆盖样例。
+可以显著增加 $uv$ 覆盖度，即 $uv$ 平面上被测量的点.
+\autoref{fig:uv-coverages} 展示了不同天线数目、不同观测时长的 $uv$ 覆盖样例.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{uv-coverages}
   \bicaption[$uv$ 覆盖样例]{%
-    $uv$ 覆盖样例。
+    $uv$ 覆盖样例.
     \emph{从上往下:} 干涉阵列分别包括 2、5、10 和 50 个呈对数螺旋状分布的天线；
     \emph{从左到右:} 观测时间分别为 \SI{10}{\second}、\SI{2}{\hour}、
-    \SI{4}{\hour} 和 \SI{6}{\hour}。
+    \SI{4}{\hour} 和 \SI{6}{\hour}.
   }{%
     Examples of $uv$ coverages.
     \emph{Top to bottom:} the interferometer includes 2, 5, 10, and 50
@@ -482,7 +482,7 @@ $uv$ 平面上两个相互对称的点的\acl{vis}。
   \label{eq:sf}
   \acs{S-uv} = \sum_{k,t} \delta(u - u_{k,t}, v - v_{k,t}),
 \end{equation}
-其中 $u_{k,t}, v_{k,t}$ 为基线 $\B{b}_k$ 在 $t$ 时刻在 $uv$ 平面内的分量。
+其中 $u_{k,t}, v_{k,t}$ 为基线 $\B{b}_k$ 在 $t$ 时刻在 $uv$ 平面内的分量.
 于是，干涉阵列实际测量的\acl{vis}数据为 $\acs{Vis}(u,v) \acs{S-uv}$，
 由于无法获得目标亮度分布的全部信息，
 根据\autoref{eq:vis-inv2} 对此进行逆 Fourier 变换仅能得到目标的\ac{dirty-map}：
@@ -500,24 +500,24 @@ $uv$ 平面上两个相互对称的点的\acl{vis}。
   \label{eq:syn-beam}
   B(l,m) = \iint \acs{S-uv} \exp [2\Cpi\Ci\, (ul+vm)] \D{l}\D{m}
 \end{equation}
-是\acl{sf} \acs{S-uv} 的 Fourier 变换，称为\ac{sb}或\ac{psf}。
-\autoref{fig:imaging-relations} 展示了成像过程中各种变换关系。
+是\acl{sf} \acs{S-uv} 的 Fourier 变换，称为\ac{sb}或\ac{psf}.
+\autoref{fig:imaging-relations} 展示了成像过程中各种变换关系.
 为了从\acl{dirty-map} $I_{\nu}^D$ 尽可能地恢复目标的真实图像，
 则需要使用复杂的非线性\ac{deconv}方法，
 比如 CLEAN 算法 \cite{hogbom1974,cornwell1999}、
-\ac{mem} \cite{narayan1986}。
+\ac{mem} \cite{narayan1986}.
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{imaging-relations}
   \bicaption[成像过程中的变换关系]{%
-    成像过程中的各种变换关系。
+    成像过程中的各种变换关系.
     \emph{(a)} 天空的真实图像；
     \emph{(b)} 干涉阵列的\acl*{sb}，对应 (e) 的 Fourier 变换；
     \emph{(c)} 脏图，对应 (f) 的 Fourier 变换；
     \emph{(d)} \acl*{vis}的真实数据，对应 (a) 的 Fourier 变换；
     \emph{(e)} 干涉阵列的\acl*{sf}；
-    \emph{(f)} 实际测量到的\acl*{vis}数据，为 (d) 和 (e) 乘积。
+    \emph{(f)} 实际测量到的\acl*{vis}数据，为 (d) 和 (e) 乘积.
   }{%
     The transform relations among the imaging process.
     \emph{(a)} The true sky map;
@@ -549,38 +549,38 @@ ERA: \S 3.6.3.2:confusion; \S 3.7.6
 \section{主要低频干涉阵列}
 \label{sec:instruments}
 
-大型低频干涉阵列是目前测量 EoR 信号的主要设备。
+大型低频干涉阵列是目前测量 EoR 信号的主要设备.
 近十几年以来，国内外已建成一批各具特色的低频干涉阵列，
-还有若干新型干涉阵列正在兴建或准备建设。
-以下对其中主要的干涉阵列作简要介绍。
+还有若干新型干涉阵列正在兴建或准备建设.
+以下对其中主要的干涉阵列作简要介绍.
 
 %---------------------------------------------------------------------
 \subsection{21CMA}
 
 \acf{21cma} 是我国开展“宇宙第一缕曙光”探测的低频射电干涉阵列，
-位于中国西部天山深处的乌拉斯台，环绕在四周的高山能提供宁静的射电环境。
+位于中国西部天山深处的乌拉斯台，环绕在四周的高山能提供宁静的射电环境.
 \acs{21cma} 的 81 个站点呈 T 形分布在东西约 \SI{6}{\km}、
 南北约 \SI{4}{\km} 的两条直线上
-（\autoref{fig:21cma} 展示了沿东西方向的部分站点）。
+（\autoref{fig:21cma} 展示了沿东西方向的部分站点）.
 每个站点包含 127 根对数周期天线，工作频率为 \SIrange{50}{200}{\MHz}，
 频率分辨率为 \SI{24.4}{\kHz}，
 角分辨率达 \SI{1}{\arcminute}（在 \SI{200}{\MHz} 处），
 采用模拟波束合成固定观测以北天极为中心、半径约 \SI{5}{\degree} 的天区
-\cite{wang2013,zheng2016}。
+\cite{wang2013,zheng2016}.
 \acs{21cma} 已于 2006 年建设完成，并于 2009 年升级了新型低噪声放大器和
-基于 \acs{gpu} 的数据采集系统，目前已积累多年的观测数据。
+基于 \acs{gpu} 的数据采集系统，目前已积累多年的观测数据.
 \acs{21cma} 作为中国主要的 \acs{ska} 探路者项目，
 项目成员开发了完整的数据处理流程及软件、
 提出了射频干涉探测及抑制新方法 \cite{huang2016}、
-探测并编录了北天极视场内的 624 个射电源 \cite{zheng2016}。
+探测并编录了北天极视场内的 624 个射电源 \cite{zheng2016}.
 目前，\acs{21cma} 正在改造升级数字多波束合成系统，
-以实现多目标跟踪观测，掌握低频脉冲星的搜寻技术。
+以实现多目标跟踪观测，掌握低频脉冲星的搜寻技术.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{21CMA}
   \bicaption[21CMA 东西方向的部分站点]{%
-    \acs{21cma} 东西方向的部分站点，每个站点包含 127 根对数周期天线。
+    \acs{21cma} 东西方向的部分站点，每个站点包含 127 根对数周期天线.
   }{%
     Part of the \acs{21cma} stations along the east-west direction,
     with each station including 127 log-periodic antennas.
@@ -595,29 +595,29 @@ ERA: \S 3.6.3.2:confusion; \S 3.7.6
 
 \acf{lofar} 是由\ac{astron}建造的新型低频干涉阵列 \cite{vanHaarlem2013}，
 由工作在 \SIrange{10}{90}{\MHz} 波段的低频段天线（LBA）和
-工作在 \SIrange{110}{250}{\MHz} 波段的高频段天线（HBA）两部分组成。
+工作在 \SIrange{110}{250}{\MHz} 波段的高频段天线（HBA）两部分组成.
 \acs{lofar} 共有 51 个站点，
 其中 24 个站点分布在半径 \SI{2}{\km} 的核心区域
 （\autoref{fig:lofar} 显示了最中心的部分），
 14 个站点呈螺旋状分布在外围区域，
 还有 13 个国际站点分布在德国、法国、瑞士、英国、波兰和爱尔兰，
-基线长达 \SI{1500}{\km}。
+基线长达 \SI{1500}{\km}.
 荷兰境内的 38 个站点各包含 96 个 LBA 和 48 个 HBA，
-13 个国际站点每个包含 96 个 LBA 和 96 个 HBA。
+13 个国际站点每个包含 96 个 LBA 和 96 个 HBA.
 \acs{lofar} 采用了数字多波束合成技术，能实现多目标跟踪观测，
 并且显著提高巡天效率，为 \acs{ska1low} 提供强有力的技术支持
-\cite{deVos2009,vanHaarlem2013,pizzo2018}。
+\cite{deVos2009,vanHaarlem2013,pizzo2018}.
 \acs{lofar} 于 2012 年建设完成并开始观测，
 已经完成北天 \SIrange{120}{168}{\MHz} 的深度巡天
-\ac{lotss} \cite{shimwell2017,shimwell2019}。
-目前，\acs{lofar} 正在提议 2.0 升级计划。
+\ac{lotss} \cite{shimwell2017,shimwell2019}.
+目前，\acs{lofar} 正在提议 2.0 升级计划.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{LOFAR-superterp}
   \bicaption[LOFAR 核心区域的中心]{%
-    \acs{lofar} 核心区域的中心。
-    小块深色区域为 LBA，大块深色区域为 HBA。
+    \acs{lofar} 核心区域的中心.
+    小块深色区域为 LBA，大块深色区域为 HBA.
   }{%
     The heart of the \acs{lofar} core.
     The small dark regions are installed with LBA,
@@ -632,32 +632,32 @@ ERA: \S 3.6.3.2:confusion; \S 3.7.6
 \subsection{MWA}
 
 \acf{mwa} 位于澳大利亚西部的 Murchison 射电天文台，是 \acs{ska1low} 的先驱
-\cite{lonsdale2009,bowman2013,tingay2013,wayth2018}。
-该阵列的主要科学目标包括宇宙再电离信号探测、河内及河外射电源、暂现源和空间气候。
+\cite{lonsdale2009,bowman2013,tingay2013,wayth2018}.
+该阵列的主要科学目标包括宇宙再电离信号探测、河内及河外射电源、暂现源和空间气候.
 \acs{mwa} 工作在 \SIrange{80}{300}{\MHz} 频段，使用一种双极化偶极子天线，
-每个站点包含 16 个天线（按 4 行 4 列规则排列）。
-所有天线均固定指向天顶，工作时通过调控各天线的时延来控制波束的合成与指向。
+每个站点包含 16 个天线（按 4 行 4 列规则排列）.
+所有天线均固定指向天顶，工作时通过调控各天线的时延来控制波束的合成与指向.
 \acs{mwa} 自 2007 年开始建设，于 2012 年完成了一期 128 个站点的建设，
-于 2017 年底完成了二期 128 个新站点的扩建工作\cite{wayth2018}，目前已投入使用。
-\autoref{fig:mwa} 显示了 \acs{mwa} 东侧六边形区域内的站点。
+于 2017 年底完成了二期 128 个新站点的扩建工作\cite{wayth2018}，目前已投入使用.
+\autoref{fig:mwa} 显示了 \acs{mwa} 东侧六边形区域内的站点.
 \acs{mwa} 的站点分为两部分：
 一部分紧凑地排列在六边形区域内，主要用于探测再电离信号以及研究银河系大尺度结构；
-另一部分散布于四周较大区域，实现较高的空间分辨率，便于开展河外射电源等研究。
+另一部分散布于四周较大区域，实现较高的空间分辨率，便于开展河外射电源等研究.
 \acs{mwa} 一期已完成了 \ac{gleam} 巡天项目 \cite{wayth2015}，
 并已发布一批成果，比如点源目录 \cite{hurleyWalker2017}、
 银河系内 \Hii/ 区目录 \cite{su2018}、
-高分辨率 EoR 前景模型 \cite{procopio2017}、等等。
-使用 \acs{mwa} 二期开展的 \ac{gleam-x} 巡天也正在积极进行 \cite{hurleyWalker2017prop}。
+高分辨率 EoR 前景模型 \cite{procopio2017}、等等.
+使用 \acs{mwa} 二期开展的 \ac{gleam-x} 巡天也正在积极进行 \cite{hurleyWalker2017prop}.
 作为少有的覆盖南天的低频射电巡天，\acs{gleam} 和 \acs{gleam-x}
-将为 \acs{ska1low} 的巡天工作提供校准指导和星表的交叉认证。
+将为 \acs{ska1low} 的巡天工作提供校准指导和星表的交叉认证.
 同时 \acs{mwa} 也将会为 \acs{ska1low} 的宇宙再电离探测任务提供
-更精准的天空模型和天区指导。
+更精准的天空模型和天区指导.
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{MWA}
   \bicaption[MWA 东部站点]{%
-    \acs{mwa} 东侧六边形区域内的站点，每个站点包含 16 个天线。
+    \acs{mwa} 东侧六边形区域内的站点，每个站点包含 16 个天线.
   }{%
     The stations inside the \acs{mwa}'s east hexagonal region,
     with each station consisting of 16 antennas.
@@ -676,23 +676,23 @@ ERA: \S 3.6.3.2:confusion; \S 3.7.6
 每个站点的大小约 \SI{100x100}{\meter} 并且包含 256 个双极化天线，
 总接收面积达 \SI{1}{\km\squared}（在 \SI{10}{\MHz} 处），
 工作在非常低频的 \SIrange{10}{88}{\MHz} 波段，
-这是我们目前了解最少的射电波段 \cite{ellingson2009}。
+这是我们目前了解最少的射电波段 \cite{ellingson2009}.
 借助其高灵敏度和高角分辨率，\acs{lwa} 将打开这一个新射电窗口，
 研究宇宙高能粒子加速机制、早期宇宙及其演化、暂现源、银河系星际介质、
-太阳活动及电离层性质等。
-\acs{lwa} 所采用的大站点设计使其更适合研究银河系的大尺度结构。
+太阳活动及电离层性质等.
+\acs{lwa} 所采用的大站点设计使其更适合研究银河系的大尺度结构.
 \acs{lwa} 的首个站点（LWA1；\autoref{fig:lwa}）位于\ac{vla} 附近，
 已于 2009 年建设完成，并于 2011 年开始正式观测 \cite{taylor2012,ellingson2013}；
-其他站点正在积极建设之中。
-\acs{lwa} 亦采用数字波束合成技术，但其创新之处在于每个站点均可独立使用并成像。
+其他站点正在积极建设之中.
+\acs{lwa} 亦采用数字波束合成技术，但其创新之处在于每个站点均可独立使用并成像.
 目前已使用 \acs{lwa}1 开展巡天并获得了 \SIrange{35}{80}{\MHz}
-北天图像 \cite{dowell2017}。
+北天图像 \cite{dowell2017}.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{LWA1}
   \bicaption[LWA 的首个站点（LWA1）]{%
-    位于 \acs{vla} 附近的 \acs{lwa} 的首个站点（LWA1），包含 256 个天线。
+    位于 \acs{vla} 附近的 \acs{lwa} 的首个站点（LWA1），包含 256 个天线.
   }{%
     The first station of \acs{lwa}, i.e., LWA1,
     which locates near the \acs{vla} and contains 256 antennas.
@@ -709,18 +709,18 @@ ERA: \S 3.6.3.2:confusion; \S 3.7.6
 \acf{miteor} 是一个使用\ac{fftt} 新技术\cite{tegmark2009,tegmark2010}的先导阵列，
 由 64 个按 8 行 8 列规则分布的全同双极化天线构成（\autoref{fig:miteor}），
 在 \SIrange{100}{200}{\MHz} 范围内覆盖两个宽度为 \SI{25}{\MHz} 的频段
-\cite{zheng2014}。
+\cite{zheng2014}.
 利用这种天线布局方式，可以直接对天线采集信号运用\ac{fft}进行成像，
 避免了传统干涉阵列耗时的天线/站点间两两相关运算，
 将计算复杂度由 $O(N_{\!A}^2)$ 显著降为 $O(\acs{N-ant} \log\acs{N-ant})$，
 其中 \acs{N-ant} 为\acl{N-ant}；
-同时还将数据存储压力从 $O(N_{\!A}^2)$ 大幅减轻至 $O(\acs{N-ant})$。
+同时还将数据存储压力从 $O(N_{\!A}^2)$ 大幅减轻至 $O(\acs{N-ant})$.
 如此可以极大地降低建设和运行成本，非常有利于建设超大规模的干涉阵列，
-实现极高的灵敏度。
-此外，阵列中的大量冗余基线能为系统自校准提供有效帮助 \cite{dillon2016}。
+实现极高的灵敏度.
+此外，阵列中的大量冗余基线能为系统自校准提供有效帮助 \cite{dillon2016}.
 目前，\acs{miteor} 已开展观测并公布了 \SIrange{128}{175}{\MHz} 的北天图像
-\cite{zheng2017}，充分验证了 \acs{fftt} 技术的可行性。
-该技术的创新性和巨大潜力能在未来 EoR 实验中发挥重要作用。
+\cite{zheng2017}，充分验证了 \acs{fftt} 技术的可行性.
+该技术的创新性和巨大潜力能在未来 EoR 实验中发挥重要作用.
 
 \begin{figure}
   \centering
@@ -728,7 +728,7 @@ ERA: \S 3.6.3.2:confusion; \S 3.7.6
   \bicaption[MITEoR 干涉阵列]{%
     在 2013 年夏天部署完成的 \acs{miteor} 干涉阵列，
     64 个双极化天线规则地分布在 \SI{21x21}{\meter} 的矩形区域，
-    相互之间分隔 \SI{3}{\meter}。
+    相互之间分隔 \SI{3}{\meter}.
   }{%
     The \acs{miteor} array deployed in the summer of 2013.
     The 64 dual-polarization antennas were laid on a \SI{21x21}{\meter}
@@ -743,26 +743,26 @@ ERA: \S 3.6.3.2:confusion; \S 3.7.6
 \subsection{HERA}
 
 \acf{hera} 是正在南非 Karoo 射电天文保护区建造的、
-继 \ac{paper} 等探路者阵列之后的第二代宇宙再电离时期探测阵列 \cite{deboer2017}。
+继 \ac{paper} 等探路者阵列之后的第二代宇宙再电离时期探测阵列 \cite{deboer2017}.
 其首要科学目标是精确测量源自宇宙再电离时期甚至\acl{cd}时期的 \hisignal/
-及其功率谱的演化，从而描绘宇宙再电离时期以及之前的宇宙大尺度结构。
+及其功率谱的演化，从而描绘宇宙再电离时期以及之前的宇宙大尺度结构.
 该阵列将由 350 面直径为 \SI{14}{\meter} 的固定式抛物面碟形天线构成，
-观测频率为 \SIrange{50}{250}{\MHz}。
+观测频率为 \SIrange{50}{250}{\MHz}.
 \acs{hera} 的阵型和天线设计保证了它能够为 EoR 信号的观测提供高灵敏度、
 波束形状和其他仪器效应相对简单可控、
-易于借助大量冗余基线对系统进行高精度校准 \cite{dillon2016}。
+易于借助大量冗余基线对系统进行高精度校准 \cite{dillon2016}.
 该设计还保证 \acs{hera} 能够有效利用\ac{ds} 技术\cite{parsons2012}
-和\acl{fgavd}方法（详见 \autoref{sec:fgavd}）来处理观测数据。
+和\acl{fgavd}方法（详见 \autoref{sec:fgavd}）来处理观测数据.
 目前 \acs{hera} 的第一期 37 面天线已经安装完毕并开始试观测
 （\autoref{fig:hera} 显示了 \acs{hera} 已于 2016 年建成的 19 面天线），
-第二期的 128 面天线也已开始建设，是 \acs{ska1low} 的有力竞争者。
+第二期的 128 面天线也已开始建设，是 \acs{ska1low} 的有力竞争者.
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{HERA19}
   \bicaption[HERA 已建成的 19 面天线]{%
-    \acs{hera} 在 2016 年建成的 19 面碟形天线。
-    后方的小型天线属于 \acs{paper} 项目。
+    \acs{hera} 在 2016 年建成的 19 面碟形天线.
+    后方的小型天线属于 \acs{paper} 项目.
   }{%
     The \acs{hera}'s 19 dish antennas deployed in South Africa in 2016.
     The small antennas in the background belong to the \acs{paper}
@@ -782,12 +782,12 @@ ERA: \S 3.6.3.2:confusion; \S 3.7.6
 和位于南非 Karoo 的中频阵列 (SKA-Mid) 组成（\autoref{fig:ska}），
 计划最终包含上百万个低频天线和上千面中频碟形天线，
 达到约 \SI{1}{\km\squared} 的接收面积，
-实现极高的灵敏度、分辨率和巡天速度。
-SKA 的建设分别两期，第一期 (SKA1) 将建设约 \SI{10}{\percent} 的天线。
+实现极高的灵敏度、分辨率和巡天速度.
+SKA 的建设分别两期，第一期 (SKA1) 将建设约 \SI{10}{\percent} 的天线.
 SKA1-Low 将由分布在 512 个站点的约 13 万根天线组成，最长基线约 \SI{65}{\km}，
 观测频率为 \SIrange{50}{350}{\MHz}，
 SKA1-Mid 将由 197 面（包含 MeerKAT 的 64 面）碟形天线组成，
-最长基线约 \SI{150}{\km}，观测频率为 \SI{350}{\MHz} 至 \SI{15.3}{\GHz}。
+最长基线约 \SI{150}{\km}，观测频率为 \SI{350}{\MHz} 至 \SI{15.3}{\GHz}.
 SKA 的关键科学目标有\cite{braun2015}：
 宇宙再电离时期和黎明时期（功率谱测量甚至直接成像观测）\cite{mellema2013,mellema2015,koopmans2015}、
 宇宙学和暗能量\cite{maartens2015,santos2015}、
@@ -795,15 +795,15 @@ SKA 的关键科学目标有\cite{braun2015}：
 星系形成与演化（连续谱巡天和中性氢巡天）\cite{prandoni2015,staveley2015}、
 暂现源\cite{fender2015}、
 宇宙磁场的起源与演化\cite{johnston2015}、
-以及地外生命\cite{hoare2015}。
-目前 SKA1 已在积极建设之中，预计 2025 年左右能够使用部分天线开展科学观测。
+以及地外生命\cite{hoare2015}.
+目前 SKA1 已在积极建设之中，预计 2025 年左右能够使用部分天线开展科学观测.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{SKA1-low-closeup}%
   \includegraphics[width=0.5\textwidth]{SKA1-mid-closeup}
   \bicaption[SKA 低频和中频天线示意图]{%
-    SKA-Low 偶极天线（左栏）和 SKA-Mid 碟形天线（右栏）的想像图。
+    SKA-Low 偶极天线（左栏）和 SKA-Mid 碟形天线（右栏）的想像图.
   }{%
     The artist rendition of the SKA-Low dipole antennas (left)
     and the SKA-Mid dishes (right).
