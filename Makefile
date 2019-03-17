@@ -9,6 +9,12 @@ all: thesis.pdf
 thesis.pdf: $(SRCS) $(TEMPLATE)
 	env TEXINPUTS=$(TEXINPUTS) BSTINPUTS=$(BSTINPUTS) latexmk -xelatex thesis
 
+fix:
+	@echo "Trim trailing whitespace ..."
+	@for f in $(SRCS); do sed -i -E 's/\s+$$//' $$f; done
+	@echo "Change period style ..."
+	@for f in $(SRCS); do sed -i -E -e 's/。$$/./' -e 's/。/. /' $$f; done
+
 count:
 	@texcount thesis.tex -inc \
 	    | awk '/total/ {getline; print "词数    :",$$4}'
@@ -21,4 +27,4 @@ clean:
 	latexmk -C thesis
 	rm -f *.xdv *.bbl *.loa *.fls *.xml tex/*.aux
 
-.PHONY: all clean wordcount
+.PHONY: all clean count fix
