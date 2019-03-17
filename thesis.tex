@@ -315,12 +315,8 @@
   \pdfbookmark[0]{\sjtu@label@authorization}{authorization}
   \cleardoublepage
 \else
-\ifsjtu@review\relax
-% exclude the originality and authorization declarations
-\else
   \makeDeclareOriginality
   \makeDeclareAuthorization
-\fi
 \fi
 \makeatother
 
@@ -371,13 +367,10 @@
   name={主要术语对照表},
 ]
 
-
-% 致谢、发表论文、申请专利、参与项目、简历
-% 用于盲审的论文需隐去致谢、发表论文、申请专利、参与的项目
-
 \makeatletter
-% 盲审删去删去致谢页
-\ifsjtu@review\relax\else
+\ifsjtu@review\relax
+  % Excluded for review
+\else
   \include{tex/acknowledgments}
 \fi
 \ifsjtu@bachelor
@@ -385,8 +378,6 @@
   \pagestyle{biglast}
   \include{tex/app-abstract}
 \else
-  % 盲审论文中，发表学术论文及参与科研情况等仅以第几作者注明即可，
-  % 不要出现作者或他人姓名
   \include{tex/publications}
   % \include{tex/projects}
   % \include{tex/patents}
