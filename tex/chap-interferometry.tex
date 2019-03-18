@@ -26,20 +26,20 @@ TODO
 
 TODO
 
-\begin{figure}[!htp]
+\begin{figure}
   \centering
   \includegraphics[width=\textwidth]{atmospheric-em-transmittance}
   \bicaption[大气层的电磁辐射透射率]{%
     大气层的电磁辐射透射率随波长（即频率）的变化.
     除了光学窗口，大气层还有一个更加宽广的射电窗口，
-    从 $\lambda \sim \SI{1}{\mm} (\nu \sim \SI{300}{\GHz})$
-    延伸到 $\lambda \sim \SI{20}{\meter} (\nu \sim \SI{15}{\MHz})$.
+    从 $\lambda \sim \SI{1}{\mm}$ ($\nu \sim \SI{300}{\GHz}$)
+    延伸到 $\lambda \sim \SI{20}{\meter}$ ($\nu \sim \SI{15}{\MHz}$).
   }{%
     Electromagnetic transmittance of the Earth's atmosphere.
     In addition to the visible optical window, there is another
     much wider radio window, which spans from
-    $\lambda \sim \SI{1}{\mm} (\nu \sim \SI{300}{\GHz})$
-    to $\lambda \sim \SI{20}{\meter} (\nu \sim \SI{15}{\MHz})$.
+    $\lambda \sim \SI{1}{\mm}$ ($\nu \sim \SI{300}{\GHz}$)
+    to $\lambda \sim \SI{20}{\meter}$ ($\nu \sim \SI{15}{\MHz}$).
     \\\textcopyright{}
     \citeay{condon2016}, \S\,1.1.2.
   }
@@ -276,14 +276,14 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 将对输出 $R$ 产生调制，如\autoref{fig:interferometer} 所示，
 其中\acl{ctor}的输出\acl{fringe}的包络示意了\acl{pb}的衰减情况.
 
-对于一个表面亮度分布为 $\acs{Ifreq}(\hat{\B{s}})$ 的\acl{extsrc}，
+对于一个表面亮度分布为 $\acs{I-nu}(\hat{\B{s}})$ 的\acl{extsrc}，
 由于不同位置产生的辐射互不相干，因此可以被当作一系列独立的点源处理，
 于是上述二元准单色干涉仪的输出响应为：
 \begin{equation}
   \label{eq:resp-cos}
-  R_c = \int \acs{Ifreq}(\hat{\B{s}}) \cos \left(
+  R_c = \int \acs{I-nu}(\hat{\B{s}}) \cos \left(
       \omega \B{b}\cdot\hat{\B{s}} / c \right) \D{\Omega}
-    = \int \acs{Ifreq}(\hat{\B{s}}) \cos \left(
+    = \int \acs{I-nu}(\hat{\B{s}}) \cos \left(
       2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \D{\Omega},
 \end{equation}
 其中下标 \enquote{$c$} 表示 \enquote{cosine} \acl{ctor}的输出，
@@ -624,8 +624,8 @@ ERA: \S 3.6.3.2:confusion; \S 3.7.6
 \acf{21cma} 是我国开展“宇宙第一缕曙光”探测的低频射电干涉阵列，
 位于中国西部天山深处的乌拉斯台，环绕在四周的高山能提供宁静的射电环境.
 \acs{21cma} 的 81 个站点呈 T 形分布在东西约 \SI{6}{\km}、
-南北约 \SI{4}{\km} 的两条直线上
-（\autoref{fig:21cma} 展示了沿东西方向的部分站点）.
+南北约 \SI{4}{\km} 的两条直线上.
+\autoref{fig:21cma} 展示了沿东西方向的部分站点.
 每个站点包含 127 根对数周期天线，工作频率为 \SIrange{50}{200}{\MHz}，
 频率分辨率为 \SI{24.4}{\kHz}，
 角分辨率达 \SI{1}{\arcminute}（在 \SI{200}{\MHz} 处），
