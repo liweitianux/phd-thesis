@@ -56,25 +56,89 @@ TODO
 \section{辐射理论}
 \label{sec:radiation}
 
-TODO ...
-spectral brightness $I_{\nu}$
-
 %---------------------------------------------------------------------
 \subsection{亮度和流量密度}
 
-In the radio frequency regime, the Rayleigh-Jeans approximation
-always holds, therefore the spectral brightness $I_{\nu}$ can be
-equivalently expressed by \emph{brightness temperature} $T_b(\nu)$
-through the relation \cite{condon2016}:
+考虑一个面积为 $\D{\sigma}$ 的探测器，测量一个与其法线方向呈 $\theta$ 角度、
+所张立体角为 $\D{\Omega}$ 的源的辐射（如\autoref{fig:intensity} 所示），
+若探测器在频率宽度 $\D{\nu}$ 接收到的功率为 $\D{P}$，
+则源的\emph{\acf{I-nu}} 为：
 \begin{equation}
-  \label{eq:Tb}
-  T_b(\nu) \equiv \frac{I_{\nu} c^2}{2 k_B \nu^2}.
+  \label{eq:intensity}
+  \acs{I-nu} \equiv
+    \frac{\D{P}}{(\cos\theta\,\D{\sigma}) \,\D{\nu} \,\D{\Omega}} \,,
 \end{equation}
+其单位是 [\si{\watt\per\square\meter\per\hertz\per\steradian}].
+\acl{I-nu} \acs{I-nu} 亦被称为\emph{谱亮度 (spectral brightness)}，
+有时也被简称为\emph{强度}或\emph{亮度}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.3\textwidth]{specific-intensity}
+  \bicaption[\acl*{I-nu} \acs*{I-nu} 的测量]{%
+    \acl*{I-nu} \acs*{I-nu} 的测量示意图.
+  }{%
+    The specific intensity \acs*{I-nu} measured by a detector of area
+    $\D{\sigma}$ to a source extending a solid angle of $\D{\Omega}$.
+    \\\textcopyright{}
+    \citeay{condon2016}, \S\,2.1.
+  }
+  \label{fig:intensity}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{flux-density}
+  \bicaption[\acl*{S-nu} \acs*{S-nu} 的定义示意图]{%
+    \acl*{S-nu} \acs*{S-nu} 的定义示意图.
+  }{%
+    An illustration of the definition of flux density \acs*{S-nu}.
+    \\\textcopyright{}
+    \citeay{condon2016}, \S\,2.1.
+  }
+  \label{fig:flux-density}
+\end{figure}
+
+对于一个离散源，其所张的立体角是确定的，如图\autoref{fig:flux-density} 所示，
+因此探测器单位投影面积上接收到的谱功率 (spectral power)
+即为这个源的\emph{\acf{S-nu}}：
+\begin{equation}
+  \label{eq:flux-density}
+  \acs{S-nu} \equiv
+    \int_{\R{source}} \acs{I-nu}(\theta,\phi) \cos\theta \,\D{\Omega} ,
+\end{equation}
+其单位是 [\si{\watt\per\square\meter\per\hertz}].
+实际中常用的单位是 \si{\jansky}，换算关系为
+$\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 
 %---------------------------------------------------------------------
 \subsection{黑体辐射和亮温度}
 
-TODO
+\emph{黑体}是能够吸收全部入射辐射的理想物体.
+处于热力学平衡态的黑体产生的辐射称为\emph{黑体辐射}，其能谱分布只取决于黑体的温度，
+由 \emph{Planck 辐射定律}给出：
+\begin{equation}
+  \label{eq:bb-planck}
+  B_{\nu}(\nu, T) = \frac{2 h \nu^3}{c^2}
+    \frac{1}{\exp(h \nu / \acs{kb} T) - 1} ,
+\end{equation}
+其中 $B_{\nu}$ 是在频率 $\nu$ 处的谱亮度，$h$ 是 Planck 常数，$c$ 是光速.
+
+在射电波段，$h\nu \ll \acs{kb}T$ 通常成立，因此\autoref{eq:bb-planck}
+可近似为：
+\begin{equation}
+  \label{eq:bb-rj}
+  B_{\nu}(\nu, T) \approx \frac{2\,\acs{kb}T \nu^2}{c^2} .
+\end{equation}
+该式就是 \emph{Rayleigh--Jeans 近似}.
+在该近似下，辐射黑体的谱亮度 $B_{\nu}$ 与其温度 $T$ 严格成正比.
+因此，一个源的谱亮度（即比强度） $I_{\nu}$
+可以很方便地使用\emph{\acf{T-b}} 来描述：
+\begin{equation}
+  \label{eq:Tb}
+  \acs{T-b}(\nu) \equiv \frac{\acs{I-nu} c^2}{2 \,\acs{kb} \nu^2} .
+\end{equation}
+注意 \acs{T-b} 会随频率而变.
 
 
 %=====================================================================
