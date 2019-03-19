@@ -117,7 +117,6 @@
 \RequirePackage[inline]{enumitem}
 \RequirePackage{pdfpages}
 \RequirePackage{calc}
-\RequirePackage{algorithm, algorithmicx, algpseudocode}
 \RequirePackage{siunitx}
 \RequirePackage{relsize}
 
@@ -218,10 +217,6 @@
   subparagraph/afterindent=true,
 }
 
-\floatname{algorithm}{\sjtu@label@algo}
-\renewcommand{\algorithmicrequire}{\textbf{\sjtu@algorithmicrequire}}
-\renewcommand{\algorithmicensure}{\textbf{\sjtu@algorithmicensure}}
-\renewcommand{\listalgorithmname}{\sjtu@listalgorithmname}
 \renewcommand{\lstlistingname}{\sjtu@value@listingname}
 
 % Set indent in English mode
@@ -258,9 +253,6 @@
 % Set footnote font size in threeparttable
 \appto\TPTnoteSettings{\footnotesize}
 
-% Algorithm counter resets every chapter
-\@addtoreset{algorithm}{chapter}
-
 % Floating parameters
 \renewcommand{\textfraction}{0.15}
 \renewcommand{\topfraction}{0.85}
@@ -273,7 +265,6 @@
   \renewcommand{\thefigure}{\thechapter--\arabic{figure}}
   \renewcommand\p@subfigure{\thefigure}
   \renewcommand{\thetable}{\thechapter--\arabic{table}}
-  \renewcommand{\thealgorithm}{\thechapter--\arabic{algorithm}}
   \renewcommand{\thelstlisting}{\thechapter--\arabic{lstlisting}}
 }
 
@@ -321,63 +312,6 @@
   literate={"}{\textquotedbl}1,
   upquote=true,
 }
-
-% 定理环境
-\newtheoremstyle{break}% name
-  {}%      Space above, empty = `usual value'
-  {}%      Space below
-  {\itshape}% Body font
-  {}%         Indent amount (empty = no indent, \parindent = para indent)
-  {\bfseries}% Thm head font
-  {.}%        Punctuation after thm head
-  {\newline}% Space after thm head: \newline = linebreak
-  {}%         Thm head spec
-\theoremstyle{plain}
-  \newtheorem{algo}{\sjtu@label@algo~}[chapter]
-  \newtheorem{thm}{\sjtu@label@thm~}[chapter]
-  \newtheorem{lem}[thm]{\sjtu@label@lem~}
-  \newtheorem{prop}[thm]{\sjtu@label@prop~}
-  \newtheorem{cor}[thm]{\sjtu@label@cor~}
-\theoremstyle{definition}
-  \newtheorem{defn}{\sjtu@label@defn~}[chapter]
-  \newtheorem{conj}{\sjtu@label@conj~}[chapter]
-  \newtheorem{exmp}{\sjtu@label@exmp~}[chapter]
-  \newtheorem{rem}{\sjtu@label@rem~}
-  \newtheorem{case}{\sjtu@label@case~}
-\theoremstyle{break}
-  \newtheorem{bthm}[thm]{\sjtu@label@thm~}
-  \newtheorem{blem}[thm]{\sjtu@label@lem~}
-  \newtheorem{bprop}[thm]{\sjtu@label@prop~}
-  \newtheorem{bcor}[thm]{\sjtu@label@cor~}
-  \renewcommand{\proofname}{\bfseries\sjtu@label@proof}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% The following definitions add Switch statement to LaTeX algorithmicx package
-% It's based on Werner's answer on stackoverflow
-% http://tex.stackexchange.com/questions/53357/switch-cases-in-algorithmic
-
-% New definitions
-\algnewcommand\algorithmicswitch{\textbf{switch}}
-\algnewcommand\algorithmiccase{\textbf{case}}
-\algnewcommand\algorithmicdefault{\textbf{default}}
-
-% New "environments"
-% using \algtext*{<env>} removes any typesetting of that command
-\algdef{SE}[SWITCH]{Switch}{EndSwitch}[1]{\algorithmicswitch\ (#1)}{\algorithmicend\ \algorithmicswitch}%
-%\algtext*{EndSwitch}%
-\algdef{SE}[CASE]{Case}{EndCase}[1]{\algorithmiccase\ #1:}{\algorithmicend\ \algorithmiccase}%
-\algtext*{EndCase}%
-\algdef{SE}[DEFAULT]{Default}{EndDefault}{\algorithmicdefault\ :}{\algorithmicend\ \algorithmicdefault}%
-\algtext*{EndDefault}%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% The following add some extra commands to LaTeX algorithmicx package
-
-% Assert
-\algnewcommand\algorithmicassert{\texttt{assert}}
-\algnewcommand\Assert[1]{\State \algorithmicassert(#1)}%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %==========
