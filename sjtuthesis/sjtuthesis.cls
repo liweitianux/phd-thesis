@@ -3,7 +3,7 @@
 %%==================================================
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{sjtuthesis}[2019/03/19 v0.11 SJTU Thesis Template]
+\ProvidesClass{sjtuthesis}[2019/03/19 v0.12 SJTU Thesis Template]
 
 \newif\ifsjtu@english\sjtu@englishfalse
 \newif\ifsjtu@bachelor\sjtu@bachelorfalse
@@ -157,7 +157,7 @@
 }
 
 % Select text if review or not
-\newcommand{\reviewornot}[2]{\ifsjtu@review #1 \else #2 \fi}
+\newcommand{\reviewornot}[2]{\ifsjtu@review{#1}\else{#2}\fi}
 
 \patchcmd\cleardoublepage%
   {\newpage}%
@@ -231,7 +231,7 @@
 \renewcommand{\labelitemi}{\ensuremath{\bullet}}
 
 % Graphics path & file extension
-\graphicspath{{fig/}{figure/}{figures/}{logo/}{logos/}{graph/}{graphs}}
+\graphicspath{{fig/}{figure/}{figures/}{logo/}{logos/}{graph/}{graphs/}}
 \DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.jpeg}
 
 % Caption setting in caption and bicaption pacakge
