@@ -3,7 +3,7 @@
 %%==================================================
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{sjtuthesis}[2019/03/19 v0.12 SJTU Thesis Template]
+\ProvidesClass{sjtuthesis}[2019/03/19 v0.13 SJTU Thesis Template]
 
 \newif\ifsjtu@english\sjtu@englishfalse
 \newif\ifsjtu@bachelor\sjtu@bachelorfalse
@@ -217,8 +217,6 @@
   subparagraph/afterindent=true,
 }
 
-\renewcommand{\lstlistingname}{\sjtu@value@listingname}
-
 % Set indent in English mode
 \ifsjtu@english\setlength{\parindent}{2\ccwd}\fi
 
@@ -249,6 +247,8 @@
   \def\tablename{Table}
   \def\figurename{Figure}
 }
+
+\renewcommand{\lstlistingname}{\sjtu@listingname}
 
 % Set footnote font size in threeparttable
 \appto\TPTnoteSettings{\footnotesize}
