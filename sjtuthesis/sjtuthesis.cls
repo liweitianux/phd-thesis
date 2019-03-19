@@ -3,7 +3,7 @@
 %%==================================================
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{sjtuthesis}[2019/03/19 v0.13 SJTU Thesis Template]
+\ProvidesClass{sjtuthesis}[2019/03/19 v0.14 SJTU Thesis Template]
 
 \newif\ifsjtu@english\sjtu@englishfalse
 \newif\ifsjtu@bachelor\sjtu@bachelorfalse
@@ -253,13 +253,20 @@
 % Set footnote font size in threeparttable
 \appto\TPTnoteSettings{\footnotesize}
 
-% Floating parameters
-\renewcommand{\textfraction}{0.15}
-\renewcommand{\topfraction}{0.85}
-\renewcommand{\bottomfraction}{0.65}
-\renewcommand{\floatpagefraction}{0.60}
+% Better control of floats
+% Credit: https://aty.sdsu.edu/bibliog/latex/floats.html
+% (for all pages)
+\renewcommand{\topfraction}{0.9}  % max fraction of floats at top
+\renewcommand{\bottomfraction}{0.8}  % max fraction of floats at bottom
+% (for text pages)
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\textfraction}{0.07}  % allow minimal text with figs
+% (for float pages)
+\renewcommand{\floatpagefraction}{0.7}  % require fuller float pages
 
-% 公式、图、表、算法、代码的编号为"3-1"的形式
+% 公式、图、表、代码的编号为"3-1"的形式
 \AtBeginDocument{%
   \renewcommand{\theequation}{\thechapter--\arabic{equation}}
   \renewcommand{\thefigure}{\thechapter--\arabic{figure}}
