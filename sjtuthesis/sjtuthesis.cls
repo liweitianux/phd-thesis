@@ -3,8 +3,7 @@
 %%==================================================
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{sjtuthesis}[2018/09/12 v0.10 SJTU Thesis Template]
-\def\version{v0.10}
+\ProvidesClass{sjtuthesis}[2019/03/19 v0.11 SJTU Thesis Template]
 
 \newif\ifsjtu@english\sjtu@englishfalse
 \newif\ifsjtu@bachelor\sjtu@bachelorfalse
@@ -34,19 +33,13 @@
   \ifsjtu@master\relax\else
     \ifsjtu@doctor\relax\else
       \ClassError{sjtuthesis}%
-        {You have to specify one of thesis options: bachelor, master or doctor.}{}
+        {Require one of options: bachelor/master/doctor.}{}
     \fi
   \fi
 \fi
 \PassOptionsToPackage{no-math}{fontspec}
 \LoadClass[a4paper,UTF8]{ctexbook}
 
-%% sjtuthesis.cls segments
-% 0. Import sjtuthesis.cfg and define values
-% 1. Import and configure LaTeX packages.
-% 2. Define general-purpose LaTeX commands.
-% 3. Configure the imported packages, also extend LaTeX command in sjtuthesis
-% 4. Draw the sjtuthesis
 
 %==========
 % Segment 0. Import sjtuthesis.cfg and define values
@@ -185,8 +178,9 @@
    \chapter}%
   {}{}
 
+
 %==========
-% Segment 3. Configure the imported packages, also extend LaTeX command in sjtuthesis
+% Segment 3. Configure packages and extend LaTeX commands
 %==========
 
 \linespread{1.3}
@@ -284,10 +278,8 @@
 }
 
 % 使用 enumitem 宏包配制列表环境
-% 紧凑间距
 \setlist{nosep}
-% 列表和段落头对齐
-\setlist*{leftmargin=*}
+\setlist*{leftmargin=*} % 列表和段落头对齐
 \setlist[1]{labelindent=\parindent} % Only the level 1
 
 % Set listings/lstlistings
@@ -864,6 +856,4 @@
 
 \endinput
 
-%%
 %% End of file `sjtuthesis.cls'.
-%%
