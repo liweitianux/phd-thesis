@@ -161,42 +161,231 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 
 
 %=====================================================================
-\section{天线原理}
+\section{天线基础}
 \label{sec:antenna}
 
-TODO
+\emph{天线}可分为接收型（如射电望远镜）和发射型（如雷达）两类.
+前者接收外界的电磁波将其转换成电信号，后者则将输入的电信号转换成电磁波发射出去.
+在种类繁多的天线中，\emph{短偶极天线}是其中最基本的一种，
+下文对其进行简要介绍，并以此天线为例介绍若干重要的天线概念.
 
 %---------------------------------------------------------------------
-\subsection{辐射方向图}
+\subsection{短偶极天线}
 
-TODO
+\emph{短偶极天线}由两个总长度 $l$ 远小于一个波长 $\lambda$ 的导体组成，
+如\autoref{fig:short-dipole} 所示.
+当接上一个交流驱动电流后，导体内的电子会发生往复的加速运动，从而激发电磁波.
+
+首先考虑一个加速度为 $\dot{v}$ 的电荷 $q$，在距离 $r$ 处产生的切向
+（即与 $r$ 的方向垂直）电场强度为 [详见 \citeay{condon2016}, \S\,2.7]：
+\begin{equation}
+  \label{eq:q-efield}
+  E_{\bot} = \frac{q \dot{v} \sin\theta}{r c^2} ,
+\end{equation}
+其中 $\theta$ 为 $r$ 与 $v$ 之间的夹角.
+天线的每一小段 $\D{z}$ 均会贡献一定的电场强度 $\D{E_{\bot}}$，
+由于 $l \ll \lambda$，因此产生的电场总强度为：
+\begin{equation}
+  \label{eq:dipole-efield1}
+  E_{\bot} = \int_{-l/2}^{l/2}
+    \frac{\dot{v} \sin\theta}{r c^2} \,\diff{q}{z}\D{z} .
+\end{equation}
+对于远场情形 ($r \gg l$)，$1/r$ 可视为常数而提出积分号.
+考虑一个正弦的驱动电流：
+\begin{equation}
+  \label{eq:dipole-current}
+  I = I_0 \Ce^{-\Ci \omega t} ,
+\end{equation}
+其中 $I_0$ 为电流峰值，
+可知 $\dot{v} = -\Ci \omega v$.
+利用导线中的电流可表示为：
+\begin{equation}
+  \label{eq:wire-current}
+  I \equiv \diff{q}{t} = \diff{q}{z} \diff{z}{t} = \diff{q}{z} v ,
+\end{equation}
+可得
+\begin{equation}
+  \label{eq:dipole-efield2}
+  E_{\bot}
+    = -\frac{\Ci\omega \sin\theta}{r c^2}
+      \int_{-l/2}^{l/2} \diff{q}{z} v \,\D{z}
+    = -\frac{\Ci\omega \sin\theta}{r c^2} \int_{-l/2}^{l/2} I\,\D{z} .
+\end{equation}
+从天线的中点到两端，电流近似线性地减小至 0，即
+\begin{equation}
+  \label{eq:dipole-current-dist}
+  I(z) \approx I_0 \Ce^{-\Ci\omega t}
+    \left[ 1 - \frac{|z|}{l/2} \right] .
+\end{equation}
+最终可得天线在 $r$ 处产生的切向电场强度为：
+\begin{equation}
+  \label{eq:dipole-efield}
+  E_{\bot} \approx
+    -\frac{\Ci\omega \sin\theta}{r c^2} \frac{I_0 l}{2} \Ce^{-\Ci\omega t}
+    = -\frac{\Ci\Cpi \sin\theta}{c} \frac{I_0 l}{\lambda}
+      \frac{\Ce^{-\Ci\omega t}}{r} .
+\end{equation}
+\autoref{fig:dipole-radiation} 显示了一个无限短的偶极天线（即 Hertz 偶极子）
+的电场强度分布图.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{short-dipole}
+  \bicaption[短偶极天线示意图]{%
+    分析短偶极天线的辐射所采用的坐标系统.
+  }{%
+    The coordinate system used to describe the radiation from a
+    short dipole.
+    \\\textcopyright{}
+    \citeay{condon2016}, \S\,3.1.1.
+  }
+  \label{fig:short-dipole}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{hertzian-dipole-radiation}
+  \bicaption[Hertz 偶极子的电场强度分布图]{%
+    Hertz 偶极子的电场强度分布图.
+  }{%
+    The electric field intensity radiated from a Hertzian dipole.
+    \\\textcopyright{}
+    nageljr, \url{https://www.deviantart.com/nageljr/art/The-Hertzian-Dipole-Antenna-542377463}, (2019-03-18), CC BY.
+  }
+  \label{fig:dipole-radiation}
+\end{figure}
 
 %---------------------------------------------------------------------
-\subsection{增益和阻抗}
+\subsection{功率方向图和增益}
 
-TODO
+\emph{\acf{pp}} $P(\theta,\phi)$ 是指一个天线的辐射功率的角向分布.
+对于短偶极天线，由\autoref{eq:dipole-efield} 可得时间平均的 Poynting 流量
+（即单位面积流过的功率）为：
+\begin{equation}
+  \label{eq:poynting-flux}
+  \langle S \rangle = \frac{c}{4\Cpi} \langle E_{\bot}^2 \rangle
+    = \frac{\Cpi}{8\,c} \left( \frac{I_0 l}{\lambda} \right)^2
+      \frac{\sin^2\theta}{r^2} .
+\end{equation}
+于是，归一化的\acl{pp}为：
+\begin{equation}
+  \label{eq:power-pattern}
+  P(\theta,\phi) = \sin^2\theta .
+\end{equation}
+对于更普遍的情况，$P(\theta,\phi)$ 将与两个空间方位角 $(\theta, \phi)$
+均相关.
+
+\emph{\acf{gain}} $G(\theta,\phi)$ 定义为天线在方向 $(\theta, \phi)$
+的辐射功率 $P(\theta,\phi)$ 与一个总辐射功率相等但各向辐射同性的天线的辐射功率
+$\overline{P}$ 之比，即：
+\begin{equation}
+  \label{eq:gain}
+  G(\theta,\phi) = \frac{P(\theta,\phi)}{\overline{P}}
+    = \frac{4\Cpi P(\theta,\phi)}{\int P(\theta,\phi) \,\D{\Omega}} .
+\end{equation}
+可见，一个天线的\acl{gain}与其\acl{pp}只相差一个常数.
 
 %---------------------------------------------------------------------
-\subsection{主瓣和旁瓣}
+\subsection{主瓣}
 
-TODO
+天线的\acl{pp} $P(\theta,\phi)$ 通常会在一定方向范围明显大于在其他方向的值，
+这个方向范围便称为天线的\emph{\acf{mainlobe}}，
+其余的称为\emph{\acf{sidelobe}}，如\autoref{fig:lobes} 所示.
+主瓣的立体角 $\Omega_{\R{MB}}$ 定义为：
+\begin{equation}
+  \label{eq:omega-mb}
+  \Omega_{\R{MB}} = \int_{\R{MB}} P_n(\theta,\phi) \,\D{\Omega} ,
+\end{equation}
+其中 $P_n(\theta,\phi) \equiv P(\theta,\phi) / P_{\R{max}}$
+为归一化的\acl{pp}.
+主瓣的角度范围一般由\emph{\acf{hpbw}}描述，其定义为 $P(\theta,\phi)$
+下降至最大值的一半时主瓣的两点之间的角距离，亦如\autoref{fig:lobes} 所示.
 
-ERA: eq:(3.96,3.118)
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{antenna-lobes}
+  \bicaption[天线的主瓣及其宽度示意图]{%
+    天线的主瓣及其\acl*{hpbw}示意图.
+  }{%
+    Diagram of an antenna's main lobe and its HPBW.
+    \\\textcopyright{}
+    \citeay{zuniga2009}.
+  }
+  \label{fig:lobes}
+\end{figure}
 
 %---------------------------------------------------------------------
-\subsection{有效面积}
+\subsection{有效接收面积}
 
-TODO
+若一个天线测量一个流量密度为 $S_{\nu}$ 的非偏振源输出的谱功率为 $P_{\nu}$，
+则该天线的\emph{有效接收面积 (effective collecting area)} $A_e$ 定义为：
+\begin{equation}
+  \label{eq:area-eff}
+  A_e \equiv \frac{2 P_{\nu}}{S_{\nu}} ,
+\end{equation}
+其中的因子 2 是因为单个天线只能响应一个偏振方向.
 
-%---------------------------------------------------------------------
-\subsection{互易定理}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{average-area-thought-exp}
+  \bicaption[计算天线平均接收面积的思想实验]{%
+    计算天线平均接收面积 $\langle A_e \rangle$ 的思想实验.
+  }{%
+    A though experiment to calculate the average collection area
+    $\langle A_e \rangle$.
+    \\\textcopyright{}
+    \citeay{condon2016}, \S\,3.1.4.
+  }
+  \label{fig:Aavg-thought-exp}
+\end{figure}
 
-(???) TODO
+一个天线的\emph{平均接收面积}为：
+\begin{equation}
+  \label{eq:area-avg1}
+  \langle A_e \rangle
+    \equiv \frac{1}{4\Cpi} \int A_e(\theta,\phi) \,\D{\Omega} .
+\end{equation}
+为计算该面积，可借助这样一个思想实验：
+一个理想的无损天线和一个匹配的理想电阻，分别置于两个温度均为 $T$ 的空腔中而达到热平衡，
+天线和电阻之间使用导线相连，两个空腔之间有一个特殊的阀门，能够阻挡电磁波，
+但允许频率范围为 $[\nu, \,\nu+\D{\nu}]$ 的电流通过导线，
+如\autoref{fig:Aavg-thought-exp} 所示.
+因为整个系统处于热平衡状态，所以导线中没有净能量流动，
+否则其中一个空腔将升温、另一个则冷却，违背热力学第二定律.
+因此，天线接收各方向的无偏振黑体辐射所产生的总谱功率为：
+\begin{equation}
+  P_{\nu,a} = \frac{1}{2} \int A_e(\theta,\phi) B_{\nu} \,\D{\Omega} ,
+\end{equation}
+该谱功率必须等于电阻产生的热噪声的谱功率 $P_{\nu,r}$.
+代入\autoref{eq:nyquist} 和\autoref{eq:planck}，可得
+\begin{equation}
+  \acs{kb}T = \frac{2\,\acs{kb}T}{2\lambda^2}
+    \int A_e(\theta,\phi) \,\D{\Omega} .
+\end{equation}
+于是获得天线的平均接收面积 $\langle A_e \rangle$ 为：
+\begin{equation}
+  \label{eq:area-avg}
+  \langle A_e \rangle = \frac{\lambda^2}{4\Cpi}.
+\end{equation}
 
 %---------------------------------------------------------------------
 \subsection{天线温度}
+\label{sec:t-ant}
 
-TODO
+一个被置于温度为 $T$ 的黑体辐射环境中的天线，
+输出的噪声将与温度为 $T$ 的电阻所产生的热噪声 [\autoref{eq:nyquist-approx}]
+是不可分辨的，该电阻被称为天线的\emph{匹配电阻}.
+据此，可定义\emph{\ac{T-ant}} 为其匹配电阻的温度，即
+\begin{equation}
+  \label{eq:t-ant}
+  \acs{T-ant} \equiv \frac{P_{\nu}}{\acs{kb}} .
+\end{equation}
+结合\autoref{eq:area-eff} 给出的有效接收面积，
+一个流量密度为 $S_{\nu}$ 无偏振辐射源将使天线温度 \acs{T-ant} 上升：
+\begin{equation}
+  \label{eq:dt-source}
+  \Delta T = \frac{A_e S_{\nu}}{2\,\acs{kb}} .
+\end{equation}
 
 
 %=====================================================================
