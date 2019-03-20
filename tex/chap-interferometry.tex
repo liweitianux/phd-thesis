@@ -812,9 +812,61 @@ $uv$ 平面上两个相互对称的点的\acl{vis}.
 %---------------------------------------------------------------------
 \subsection{灵敏度}
 
-point-source sensitivity, brightness sensitivity
+考虑一个噪声功率的等效温度为 $T_s$ 的天线，其每个测量值的\ac{rms}误差为
+$\sigma \approx \sqrt{2} T_s$
+[详见 \citeay{condon2016}, 附录 B.6].
+设信号的带宽为 $\Delta\nu$，根据\emph{采样定理 (sampling theorem)}，
+在时间 $\tau$ 内应采样 $N \gtrsim 2 \Delta\nu \,\tau$ 个数据点.
+于是，对时间平均后的测量值的涨落为：
+\begin{equation}
+  \label{eq:radiometer}
+  \sigma_T = \frac{\sqrt{2} T_s}{\sqrt{N}}
+    \approx \frac{T_s}{\sqrt{\Delta\nu \,\tau}} ,
+\end{equation}
+其中 $\tau$ 为\ac{t-int}.
+$\tau$ 越大，$\sigma_T$ 越小，则达到的灵敏度越高.
+然而在实际情况中，多种系统误差会限制灵敏度的提高，
+比如天线和接收机的\acl{gain}变化、大气层辐射的不规则涨落、
+未分辨背景源产生的\ac{confusion}、等等。
 
-ERA: \S 3.6.3.2:confusion; \S 3.7.6
+若一个点源的辐射使天线的温度 $T_s$ 升高了 $\Delta T$，
+则根据\autoref{eq:dt-source} 可测得该点源的流量密度为：
+\begin{equation}
+  S_{\nu} = 2\,\acs{kb} \Delta T / A_e ,
+\end{equation}
+相应的测量误差为：
+\begin{align}
+  \sigma_S
+    & = \frac{2\,\acs{kb}}{A_e} \sigma(T_s + \Delta T) \\
+    & \approx \frac{2\,\acs{kb}}{A_e} \sigma(T_s) \\
+    & = \frac{2\,\acs{kb} T_s}{A_e \sqrt{\Delta\nu \,\tau}} .
+\end{align}
+此即单天线的\emph{点源灵敏度}.
+
+对于由两个相同天线构成的二元干涉仪，其点源灵敏度为：
+\begin{equation}
+  \label{eq:sigma-ps1}
+  \sigma_S = \frac{\sqrt{2}\,\acs{kb} T_s}{A_e \sqrt{\Delta\nu \,\tau}} .
+\end{equation}
+由 \acs{N-ant} 个相同天线构成的干涉仪可形成 $\acs{N-ant}(\acs{N-ant}-1)$
+个独立的二元干涉仪，因此其\emph{点源灵敏度}为：
+\begin{equation}
+  \label{eq:sigma-ps}
+  \sigma_S = \frac{2\,\acs{kb} T_s}{
+    A_e \sqrt{\acs{N-ant}(\acs{N-ant}-1) \Delta\nu \,\tau}} .
+\end{equation}
+
+如果观测一个\acf{extsrc}，则需要考虑干涉仪的\emph{亮度灵敏度}，
+可利用 Rayleigh--Jeans 近似 [\autoref{eq:rj-approx}]
+直接由 $\sigma_S$ 导出：
+\begin{equation}
+  \label{eq:sigma-tb}
+  \sigma_b = \frac{\lambda^2}{2\,\acs{kb}} \frac{\sigma_S}{\Omega_A} ,
+\end{equation}
+其中 $\Omega_A$ 是波束的立体角.
+相比单口径望远镜，干涉仪的基线长、角分辨率高，
+因此\acl{sb}的立体角 $\Omega_A$ 非常小，
+从而导致其亮度灵敏度 $\sigma_b$ 明显差于单口径望远镜.
 
 
 %=====================================================================
