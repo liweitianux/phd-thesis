@@ -53,7 +53,7 @@ TODO
 
 
 %=====================================================================
-\section{辐射理论}
+\section{辐射基础}
 \label{sec:radiation}
 
 %---------------------------------------------------------------------
@@ -118,16 +118,16 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 处于热力学平衡态的黑体产生的辐射称为\emph{黑体辐射}，其能谱分布只取决于黑体的温度，
 由 \emph{Planck 辐射定律}给出：
 \begin{equation}
-  \label{eq:bb-planck}
+  \label{eq:planck}
   B_{\nu}(\nu, T) = \frac{2 h \nu^3}{c^2}
     \frac{1}{\exp(h \nu / \acs{kb} T) - 1} ,
 \end{equation}
 其中 $B_{\nu}$ 是在频率 $\nu$ 处的谱亮度，$h$ 是 Planck 常数，$c$ 是光速.
 
-在射电波段，$h\nu \ll \acs{kb}T$ 通常成立，因此\autoref{eq:bb-planck}
+在射电波段，$h\nu \ll \acs{kb}T$ 通常成立，因此\autoref{eq:planck}
 可近似为：
 \begin{equation}
-  \label{eq:bb-rj}
+  \label{eq:rj-approx}
   B_{\nu}(\nu, T) \approx \frac{2\,\acs{kb}T \nu^2}{c^2} .
 \end{equation}
 该式就是 \emph{Rayleigh--Jeans 近似}.
@@ -139,6 +139,25 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
   \acs{T-b}(\nu) \equiv \frac{\acs{I-nu} c^2}{2 \,\acs{kb} \nu^2} .
 \end{equation}
 注意 \acs{T-b} 会随频率而变.
+
+%---------------------------------------------------------------------
+\subsection{电阻的热噪声}
+
+一个温度为 $T$ 的电阻 (resistor)，因其内部的载流子（通常是电子）的随机热运动而产生噪声，
+该噪声亦称 \emph{Johnson--Nyquist 噪声} \cite{johnson1928,nyquist1928}，
+其谱功率 (spectral power, 即每单位频率的功率) 由以下 \emph{Nyquist 近似}给出
+[详见 \citeay{condon2016}, \S\,2.5]：
+\begin{equation}
+  \label{eq:nyquist-approx}
+  P_{\nu} = \acs{kb} T .
+\end{equation}
+该式是 Rayleigh--Jeans 近似 [\autoref{eq:rj-approx}] 在电学里的对应.
+类似地，该近似公式只适用于 $h\nu \ll \acs{kb}T$ 的经典范畴.
+在考虑量子化修正后，严格的 \emph{Nyquist 公式}为：
+\begin{equation}
+  \label{eq:nyquist}
+  P_{\nu} = \frac{h\nu}{\exp(h \nu / \acs{kb} T) - 1} .
+\end{equation}
 
 
 %=====================================================================
