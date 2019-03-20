@@ -18,6 +18,9 @@
 *.fdb_latexmk
 *.zip
 *.gz
-thesis.pdf
-README.pdf
 auto/
+backup/
+docs/
+figures/raw/
+figures/unused/
+reports/
