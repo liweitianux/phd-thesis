@@ -72,7 +72,7 @@
 % Continuous footnote numbering
 \counterwithout{footnote}{chapter}
 
-% hyperref's \autoref command
+% Set labels for hyperref's '\autoref'
 % Credit: https://tex.stackexchange.com/a/66150
 \def\equationautorefname~#1\null{式~(#1)\null}
 \def\chapterautorefname~#1\null{第{#1}章\null}
@@ -201,7 +201,6 @@
 \DeclareSIUnit\Myr{\mega\year}
 \DeclareSIUnit\uG{\micro\gauss}
 
-\usepackage{longtable}  % will be used by '\printacronyms'
 \usepackage{acro}  % acronyms, symbols, glossaries
 \acsetup{list-heading=chapter}
 \input{tex/symbol.tex}
@@ -330,8 +329,6 @@
 \addcontentsline{toc}{chapter}{\listfigurename}
 \listoftables
 \addcontentsline{toc}{chapter}{\listtablename}
-% \listofalgorithms
-% \addcontentsline{toc}{chapter}{\listalgorithmname}
 
 \acsetup{list-style=longtable}
 \printacronyms[
