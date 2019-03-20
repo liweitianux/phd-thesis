@@ -172,7 +172,9 @@ $B(x)$、$C(x)$、$T(x)$ 和 $Q(x)$ 分别描述了粒子的
 \section{算法测试}
 
 为了检测算法的实现是否正确，可将其应用于几种已知解析解的情况\cite{park1996,donnert2014}.
-第一个测试是\emph{硬球公式 (hard-sphere equation)}：
+第一个测试是\emph{硬球公式 (hard-sphere equation)}%
+\footnote{\citeay{park1996} 的公式 (22) 和 \citeay{donnert2014} 的公式 (34)
+均写错了一个正负号.}：
 \begin{equation}
   \label{eq:fp-test1}
   \pdiff{u}{t} = \pdiff{}{x} \left[ x^2 \pdiff{u}{x} + (1-x) u \right]
@@ -188,7 +190,7 @@ $\Theta(t)$ 为 Heaviside 阶跃函数 (step function).
   \pdiff{u}{t} = \pdiff{}{x} \left[ x^2 \pdiff{u}{x} - x u \right]
     - \frac{u}{x} + \delta(x-x_{\R{inj}}) \Theta(t) .
 \end{equation}
-相比第一个测试，此测试中的逃逸项 $T(x)$ 增加了能量依赖，并因此具有多个数量级的变化.
+相比第一个测试，此测试中的逃逸项 $T(x)$ 增加了能量依赖而具有多个数量级的变化.
 
 第三个测试是：
 \begin{equation}
