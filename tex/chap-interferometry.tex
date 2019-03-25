@@ -6,25 +6,22 @@
 \chapter{射电干涉技术基础}
 \label{chap:interferometry}
 
-主要参考资料:
-\citeay{condon2016}, \citeay{clark1999}, \citeay{thompson1999},
-\citeay{thompson2017}, \citeay{wilson2014} ...
-
 %=====================================================================
 \section{射电天文学简介}
 \label{sec:radio-astronomy}
 
-我们对宇宙的几乎所有认识都来自于观测并研究
-
 %---------------------------------------------------------------------
-\subsection{射电天文学是什么？}
+\subsection{简介和历史}
 
-TODO
-
-%---------------------------------------------------------------------
-\subsection{射电窗口}
-
-TODO
+我们对宇宙的几乎所有认识都来自于观测并研究所接收到的电磁辐射，
+在射电波段对天体和宇宙开展研究的天文学分支称为\emph{射电天文学 (radio astronomy)}.
+对于地面上的射电望远镜，观测频率的下限约为 $\nu_{\R{min}} \sim \SI{10}{\MHz}$
+($\lambda_{\R{max}} \sim \SI{30}{\meter}$)，
+取决于\ac{ionosphere}的截断频率，低于该频率的电磁波将被反射而无法到达地面.
+观测频率的上限约为 $\nu_{\R{max}} \sim \SI{1000}{\GHz}$
+($\lambda_{\R{min}} \sim \SI{0.3}{\mm}$)，主要原因是\ac{troposphere}中的
+分子（主要是 $\mathrm{H_2 O}$ 和 $\mathrm{O_2}$）的最低转动能带的共振吸收.
+\autoref{fig:atmospheric-emt} 显示了大气层的电磁辐射透射率以及相应的射电观测窗口.
 
 \begin{figure}[htp]
   \centering
@@ -32,24 +29,140 @@ TODO
   \bicaption[大气层的电磁辐射透射率]{%
     大气层的电磁辐射透射率随波长（即频率）的变化.
     除了光学窗口，大气层还有一个更加宽广的射电窗口，
-    从 $\lambda \sim \SI{1}{\mm}$ ($\nu \sim \SI{300}{\GHz}$)
-    延伸到 $\lambda \sim \SI{20}{\meter}$ ($\nu \sim \SI{15}{\MHz}$).
+    从 $\lambda \sim \SI{0.3}{\mm}$ ($\nu \sim \SI{1000}{\GHz}$)
+    延伸到 $\lambda \sim \SI{30}{\meter}$ ($\nu \sim \SI{10}{\MHz}$).
+    大气层对电磁辐射的吸收情况会随时间以及地理位置而变化.
   }{%
     Electromagnetic transmittance of the Earth's atmosphere.
     In addition to the visible optical window, there is another
     much wider radio window, which spans from
-    $\lambda \sim \SI{1}{\mm}$ ($\nu \sim \SI{300}{\GHz}$)
-    to $\lambda \sim \SI{20}{\meter}$ ($\nu \sim \SI{15}{\MHz}$).
+    $\lambda \sim \SI{0.3}{\mm}$ ($\nu \sim \SI{1000}{\GHz}$)
+    to $\lambda \sim \SI{30}{\meter}$ ($\nu \sim \SI{10}{\MHz}$).
     \\\textcopyright{}
     \citeay{condon2016}, \S\,1.1.2.
   }
   \label{fig:atmospheric-emt}
 \end{figure}
 
+首次发现源自地球之外的射电辐射是在 1932 年被 Bell 电话实验室的工程师
+Karl Guthe Jansky 意外得到的.
+上世纪 20 年代，Bell 电话公司基于短波（$\lambda \sim \SI{15}{\meter}$）传输
+建设了跨洋电话服务，但是发现通话受到了强烈的干扰，因此 Bell 电话实验室派
+Jansky 去查明干扰来源.
+Jansky 建造了一个对方向敏感的可转动天线（如\autoref{fig:jansky-antenna} 所示）
+用来监测 \SI{20.5}{\MHz} ($\lambda \approx \SI{14.6}{\meter}$) 处的射电辐射.
+经过观测，他发现绝大部分的干扰源自暴风雨的闪电.
+此外，他还发现有一个较弱的不明噪声，其强度在每天发生周期性的变化，
+他怀疑该噪声可能源自太阳的射电辐射.
+但是持续的观测显示该不明噪声的准确周期为 \SI{23}{\hour}\,\SI{56}{\minute}，
+并不是刚好 \SI{24}{\hour}.
+将此困惑与他的一个天文学家朋友 Albert Melvin Skellett 讨论后，
+Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源是银河系中心 \cite{jansky1933}.
+
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{KarlJansky-antenna}
+  \bicaption[Karl G. Jansky 和他的天线]{%
+    Karl G. Jansky 和他的天线.
+    该天线可转动，主要接收水平方向的辐射.
+  }{%
+    Karl G. Jansky and the antenna that discovered the cosmic radio emission.
+    The antenna can rotate in azimuth and mainly receive horizontal
+    emissions.
+    \\\textcopyright{}
+    \acuse{nrao,aui,nsf}\acs{nrao}/\acs{aui}/\acs{nsf}.
+  }
+  \label{fig:jansky-antenna}
+\end{figure}
+
+然而，Jansky 的发现未能得到足够的关注和重视，他本人也被分配到其他项目而无法继续
+详细研究银河系的射电辐射.
+幸运的是，另一位无线电工程师 Grote Reber 对 Jansky 的发现产生了极大兴趣，
+于是耗费数年在自家后院建造了世界第一台抛物面射电望远镜
+（如\autoref{fig:reber-telescope} 所示）.
+在 1938 年，Reber 用这台望远镜成功地在 \SI{160}{\MHz} 探测到了银河系的辐射.
+他进一步开展了银河系的第一次射电巡天观测，这些结果发表于专业的天文期刊
+\apj \cite{reber1940}，使得 Jansky 的成果得到了应有的重视.
+
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=0.6\textwidth]{GroteReber-telescope}
+  \bicaption[Grote Reber 的射电望远镜]{%
+    Grote Reber 在自家后院建造的射电望远镜，使用了直径约 \SI{10}{\meter} 的抛物面.
+  }{%
+    Grote Reber's backyard radio telescope using a parabolic reflector
+    of diameter about \SI{10}{\meter}.
+    \\\textcopyright{}
+    \acs{nrao}/\acs{aui}/\acs{nsf}.
+  }
+  \label{fig:reber-telescope}
+\end{figure}
+
+后续的几年里，尽管第二次世界大战阻碍了射电天文的发展，但是极大地刺激了无线电技术
+和雷达设备的研发.
+这些方面的成果在战争结束后给射电天文学带来了长足进步，开创了一系列新技术和新方法.
+其中最值得一提的是由 Martin Ryle 和 Antony Hewish 发明的\ac{as}技术，
+使射电观测的角分辨率和灵敏度得到了空前的提高.
+
+自射电窗口被打开以来，射电天文学已取得了一系列激动人心的新发现，主要包括：
+银河系和其他多种天体的非热辐射 \cite{reber1940}、
+由超大质量黑洞驱动的射电星系\cite{baade1954}和\ac{quasar}\cite{hazard1963,schmidt1963}及其演化、
+冷星际介质（如原子、离子和分子）的热辐射谱线、
+星际分子的\ac{maser} \cite{weaver1965}、
+源自宇宙大爆炸的 \ac{cmb} \cite{penzias1965}、
+\ac{pulsar}和中子星 \cite{hewish1968}、
+星系的 \ac{hi} 旋转曲线显示其内部存在\ac{dm} \cite{roberts1975}、
+强\ac{gl} \cite{walsh1979}.
+总之，射电天文学揭开了宇宙在光学波段所见完全不同的一面（如\autoref{fig:radio-sky} 所示），
+极大地促进了我们对宇宙的认识，深刻地改变了我们对宇宙的理解.
+
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{nrao-radio-sky}
+  \bicaption[与光学波段所见完全不同的射电天空]{%
+    在 NRAO 台址的照片上方显示了由 NRAO 前 \SI{91}{\meter} 射电望远镜获得的
+    \SI{4.85}{\GHz} 射电天空图像.
+  }{%
+    The \SI{4.85}{\GHz} radio sky made with the NRAO former \SI{91}{\meter}
+    telescope is shown above an old photograph of the NRAO site.
+    \\\textcopyright{}
+    \acs{nrao}/\acs{aui}/\acs{nsf}.
+  }
+  \label{fig:radio-sky}
+\end{figure}
+
 %---------------------------------------------------------------------
 \subsection{机遇和挑战}
 
-TODO
+尽管大气层的射电窗口允许低至约 \SI{10}{\MHz} 的观测，但由于各种技术和条件的限制，
+以往的射电观测和研究主要位于 $\gtrsim \si{\GHz}$ 的中高频波段.
+相比中高频波段，低频波段（约 \SIrange{100}{300}{\MHz}）主要有以下几点优势：
+\begin{itemize}
+  \item 低频波段对应的辐射波长更长，受尘埃的影响更小，因此能够观测到星系更核心的区域.
+  \item \ac{synrad}在低频波段更强且寿命更长，因此更利于探测\ac{gc}、
+    \ac{sc}甚至\ac{lsf}的弥散射电辐射.
+  \item 多种等离子体效应（如散射、色散、Faraday 旋转）的强度按 $\nu^{-2}$ 变化，
+    因此在低频波段更适合研究星际电子密度、磁场强度、等等.
+  \item 源自宇宙再电离时期 (红移 $z \sim \numrange{6}{16}$)
+    的\acl{hi} \hisignal/历经红移后将出现在低频波段，因此不可避免地需要在
+    此波段开展观测，探测该信号以研究宇宙早期的再电离过程
+    （详见 \autoref{sec:21cm-signal}）.
+  \item 低频射电望远镜通常具有大视场，能够显著提高巡天速度，非常有利于搜寻
+    脉冲星、暂现源、等等.
+\end{itemize}
+
+随着相关技术取得了充分发展，低频射电波段已在近十多年来得到了重点关注并取得了长足进步，
+目前已建成一批工作在此波段的干涉阵列，
+主要包括 \ac{21cma}、\ac{gmrt}、\ac{mwa}、\ac{lofar}.
+此外还有若干正在积极建设的新型低频干涉阵列，比如 \ac{lwa}、\ac{hera}、\ac{ska}.
+可见，低频射电波段正在成为射电天文及至整个天文领域的热点和前沿，
+
+当然，在低频波段开展观测也面临更大的挑战，
+比如强烈的人工源\ac{rfi}、\ac{ionosphere}的扰动、
+通常需要建设更大更复杂的干涉阵列、解决更复杂的仪器效应、
+研发更有效的数据处理方法（参见 \autoref{sec:det-methods}）.
+尽管如此，可以肯定低频射电天文将成为射电天文领域的重要力量，
+并为整个天文学的发展作出不可磨灭的贡献.
 
 
 %=====================================================================
