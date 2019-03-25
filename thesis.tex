@@ -207,6 +207,7 @@
 \usepackage{acro}  % acronyms, symbols, glossaries
 \acsetup{list-heading=chapter}
 \input{tex/symbol.tex}
+\input{tex/acronym.tex}
 \input{tex/glossary.tex}
 
 % Help track changes
@@ -364,6 +365,10 @@
 \printbibliography[heading=bibintoc]
 
 \acsetup{list-style=description}
+\printacronyms[
+  include-classes=acronym,
+  name={主要缩略语对照表},
+]
 \printacronyms[
   include-classes=glossary,
   name={主要术语对照表},
