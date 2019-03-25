@@ -205,7 +205,10 @@
 \DeclareSIUnit\uG{\micro\gauss}
 
 \usepackage{acro}  % acronyms, symbols, glossaries
-\acsetup{list-heading=chapter}
+\acsetup{
+  list-heading=chapter,
+  extra-style=bracket,
+}
 \input{tex/symbol.tex}
 \input{tex/acronym.tex}
 \input{tex/glossary.tex}
@@ -364,7 +367,16 @@
 
 \printbibliography[heading=bibintoc]
 
-\acsetup{list-style=description}
+\newlist{acronymlist}{description}{1}
+\setlist[acronymlist]{
+  noitemsep,
+  itemindent=0pt,
+  labelindent=0pt,
+  labelwidth=8em,
+  leftmargin=9em,
+}
+\DeclareAcroListStyle{myacronym}{list}{list=acronymlist}
+\acsetup{list-style=myacronym}
 \printacronyms[
   include-classes=acronym,
   name={主要缩略语对照表},
