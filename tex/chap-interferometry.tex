@@ -136,7 +136,7 @@ Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源�
 
 尽管大气层的射电窗口允许低至约 \SI{10}{\MHz} 的观测，但由于各种技术和条件的限制，
 以往的射电观测和研究主要位于 $\gtrsim \si{\GHz}$ 的中高频波段.
-相比中高频波段，低频波段（约 \SIrange{100}{300}{\MHz}）主要有以下几点优势：
+相比中高频波段，低频波段（约 \SIrange{50}{300}{\MHz}）主要有以下几点优势：
 \begin{itemize}
   \item 低频波段对应的辐射波长更长，受尘埃的影响更小，因此能够观测到星系更核心的区域.
   \item \ac{synrad}在低频波段更强且寿命更长，因此更利于探测\ac{gc}、
@@ -380,7 +380,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
     = \frac{\Cpi}{8\,c} \left( \frac{I_0 l}{\lambda} \right)^2
       \frac{\sin^2\theta}{r^2} .
 \end{equation}
-于是，归一化的\acl{pp}为：
+于是，归一化的\ac{pp}为：
 \begin{equation}
   \label{eq:power-pattern}
   P(\theta,\phi) = \sin^2\theta .
@@ -396,12 +396,12 @@ $\overline{P}$ 之比，即：
   G(\theta,\phi) = \frac{P(\theta,\phi)}{\overline{P}}
     = \frac{4\Cpi P(\theta,\phi)}{\int P(\theta,\phi) \,\D{\Omega}} .
 \end{equation}
-可见，一个天线的\acl{gain}与其\acl{pp}只相差一个常数.
+可见，一个天线的\ac{gain}与其\ac{pp}只相差一个常数.
 
 %---------------------------------------------------------------------
 \subsection{主瓣}
 
-天线的\acl{pp} $P(\theta,\phi)$ 通常会在一定方向范围明显大于在其他方向的值，
+天线的\ac{pp} $P(\theta,\phi)$ 通常会在一定方向范围明显大于在其他方向的值，
 这个方向范围便称为天线的\emph{\acf{mainlobe}}，
 其余的称为\emph{\acf{sidelobe}}，如\autoref{fig:lobes} 所示.
 主瓣的立体角 $\Omega_{\R{MB}}$ 定义为：
@@ -410,7 +410,7 @@ $\overline{P}$ 之比，即：
   \Omega_{\R{MB}} = \int_{\R{MB}} P_n(\theta,\phi) \,\D{\Omega} ,
 \end{equation}
 其中 $P_n(\theta,\phi) \equiv P(\theta,\phi) / P_{\R{max}}$
-为归一化的\acl{pp}.
+为归一化的\ac{pp}.
 主瓣的角度范围一般由\emph{\acf{hpbw}}描述，其定义为 $P(\theta,\phi)$
 下降至最大值的一半时主瓣的两点之间的角距离，亦如\autoref{fig:lobes} 所示.
 
@@ -526,7 +526,7 @@ $\overline{P}$ 之比，即：
   \bicaption[二元准单色干涉仪]{%
     二元准单色干涉仪的构成示意图.
     两个相同的天线相距 $\B{b}$ 放置并指向位于 $\hat{\B{s}}$ 方向的辐射源，
-    接收的信号被放大后，再经过\acl*{ctor}的相乘（$\times$）
+    接收的信号被放大后，再经过\acs*{ctor}的相乘（$\times$）
     和时间平均（$\langle\;\rangle$），得到输出响应 $R$.
   }{%
     The components of a two-element quasi-monochromatic interferometer
@@ -566,20 +566,20 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
     &= \frac{1}{2} V^2 \left[ \cos (2\omega t - \omega \acs{tau-g})
       + \cos (\omega \acs{tau-g}) \right].
 \end{align}
-接着，\acl{ctor}再对相乘后的响应进行时间平均 [参见\autoref{eq:ctor-avgtime}]：
+接着，\ac{ctor}再对相乘后的响应进行时间平均 [参见\autoref{eq:ctor-avgtime}]：
 \begin{equation}
   \label{eq:resp-corr}
   R = \langle V_1(t) V_2(t) \rangle
     = \frac{1}{2} V^2 \cos (\omega \acs{tau-g}).
 \end{equation}
-由于天线响应 $V_1$ 和 $V_2$ 正比于辐射源的电场强度以及天线\acl{gain}
+由于天线响应 $V_1$ 和 $V_2$ 正比于辐射源的电场强度以及天线的\ac{gain}
 [参见\autoref{eq:gain}]，
-因此\acl{ctor}响应 $R$ 正比于辐射源的流量密度 $S$
+因此\ac{ctor}的响应 $R$ 正比于辐射源的流量密度 $S$
 以及 $\sqrt{A_1 A_2}$，其中 $A_1$ 和 $A_2$ 为两个天线的有效接收面积
 [参见\autoref{eq:area-avg}].
 
 由于地球的自转，辐射源的方向 $\hat{\B{s}}$ 发生变化，\acl{tau-g} \acs{tau-g}
-也随之变化，于是\acl{ctor}的输出 $R$ 出现正弦形式的振荡，即\emph{\acf{fringe}}，
+也随之变化，于是\ac{ctor}的输出 $R$ 出现正弦形式的振荡，即\emph{\acf{fringe}}，
 其相位为：
 \begin{equation}
   \phi = \omega\tau_g = 2\Cpi b \cos\theta / \lambda,
@@ -589,18 +589,18 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 \begin{equation}
   \diff{\phi}{\theta} = 2\Cpi \left( \frac{b \sin\theta}{\lambda} \right),
 \end{equation}
-可得单个\acl{fringe}的宽度，即干涉仪的\emph{\acf{sb-width}}：
+可得单个\ac{fringe}的宽度，即干涉仪的\emph{\acf{sb-width}}：
 \begin{equation}
   \label{eq:sb-width}
   \acs{sb-width} = \frac{\lambda}{b \sin\theta},
 \end{equation}
 此参数描述了干涉仪的角分辨能力.
 
-天线的\acl{pp}描述了其响应随方向的变化情况，也被称为干涉仪的\emph{\acf{pb}}，
+天线的\ac{pp}描述了其响应随方向的变化情况，也被称为干涉仪的\emph{\acf{pb}}，
 将对输出 $R$ 产生调制，如\autoref{fig:interferometer} 所示，
-其中\acl{ctor}的输出\acl{fringe}的包络示意了\acl{pb}的衰减情况.
+其中\ac{ctor}的输出\ac{fringe}的包络示意了\ac{pb}的衰减情况.
 
-对于一个表面亮度分布为 $\acs{I-nu}(\hat{\B{s}})$ 的\acl{extsrc}，
+对于一个表面亮度分布为 $\acs{I-nu}(\hat{\B{s}})$ 的\ac{extsrc}，
 由于不同位置产生的辐射互不相干，因此可以被当作一系列独立的点源处理，
 于是上述二元准单色干涉仪的输出响应为：
 \begin{equation}
@@ -610,11 +610,11 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
     = \int \acs{I-nu}(\hat{\B{s}}) \cos \left(
       2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \D{\Omega},
 \end{equation}
-其中下标 \enquote{$c$} 表示 \enquote{cosine} \acl{ctor}的输出，
-以区分下文将要介绍的 \enquote{sine} \acl{ctor}.
+其中下标 \enquote{$c$} 表示 \enquote{cosine} \ac{ctor}的输出，
+以区分下文将要介绍的 \enquote{sine} \ac{ctor}.
 
 一个任意的亮度分布 $I$ 可分解为奇对称成分 $I_O$ 与偶对称成分 $I_E$ 之和，
-然而\autoref{eq:resp-cos} 描述的 cosine \acl{ctor}只能测量其中的
+然而\autoref{eq:resp-cos} 描述的 cosine \ac{ctor}只能测量其中的
 偶对称成分 $I_E$，即：
 \begin{equation}
   R_c = \int \left[ I_O(\hat{\B{s}}) + I_E(\hat{\B{s}}) \right]
@@ -623,7 +623,7 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
     = \int I_E(\hat{\B{s}}) \cos \left(
       2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \D{\Omega}.
 \end{equation}
-为了能够测量另一个奇对称成分 $I_O$，则需要一个 \enquote{sine} \acl{ctor}，
+为了能够测量另一个奇对称成分 $I_O$，则需要一个 \enquote{sine} \ac{ctor}，
 可通过对其中一个天线的输出增加 $\Cpi/2$ 的相位延迟来实现，于是有：
 \begin{equation}
   R_s = \int \left[ I_O(\hat{\B{s}}) + I_E(\hat{\B{s}}) \right]
@@ -632,8 +632,8 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
     = \int I_O(\hat{\B{s}}) \sin \left(
       2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \D{\Omega}.
 \end{equation}
-\ac{cctor} 即为 cosine 和 sine \acl{ctor}的组合.
-相应地，\emph{\acf{Vis}}，简称\emph{\acl{vis}}，可定义为：
+\ac{cctor} 即为一对 cosine 和 sine \ac{ctor}的组合.
+相应地，\emph{\acf{Vis}}，简称\emph{\ac{vis}}，可定义为：
 \begin{equation}
   \label{eq:vis}
   \acs{Vis} \equiv R_c - \Ci R_s
@@ -647,7 +647,7 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 现在，将上述二元干涉仪推广至测量有限带宽的信号.
 考虑一段中心频率为 $\nu_c$ 且宽度为 $\Delta\nu$ 的窄频带，
 若辐射源的亮度以及天线的响应在此频带内基本不变，
-则可知测量的\acl{vis} [\autoref{eq:vis}] 为：
+则可知测量的\ac{vis} [\autoref{eq:vis}] 为：
 \begin{align}
   \acs{Vis} &= \int \left[ \frac{1}{\Delta\nu}
         \int_{\nu_c-\Delta\nu/2}^{\nu_c+\Delta\nu/2}
@@ -666,11 +666,11 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
       1, & \quad \text{if } x = 0.
     \end{cases}
 \end{equation}
-因此，干涉仪测得的\acl{fringe}幅度减弱至原来的 $\sinc(\Delta\nu\,\tau_g)$ 倍.
+因此，干涉仪测得的\ac{fringe}幅度减弱至原来的 $\sinc(\Delta\nu\,\tau_g)$ 倍.
 为了最小化该损失，可以给前导天线的输出信号增加\emph{\acf{tau-c}}，
 如\autoref{fig:interferometer-tau0} 所示，并随地球自转而调节 \acs{tau-c}
 使其满足 $|\acs{tau-c} - \acs{tau-g}| \ll (\Delta\nu)^{-1}$.
-在此情况下，到达\acl{ctor}时两个天线的信号的相位是同步的.
+在此情况下，到达\ac{ctor}时两个天线的信号的相位是同步的.
 同时，满足 $\acs{tau-c} = \acs{tau-g}$ 的方向 $\hat{\B{s}}_0$
 称为\emph{\acf{delay-center}}或\emph{\acf{phase-refpos}}.
 
@@ -695,8 +695,8 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 \end{figure}
 
 \acl{tau-g} \acs{tau-g} 会随方向而变化，因此\acl{tau-c} \acs{tau-c}
-只对特定方向 $\hat{\B{s}}_0$ （即\acl{delay-center}）是正好准确的.
-偏离\acl{delay-center}的角度 $\Delta\theta$ 越大，\acl{tau-c} \acs{tau-c}
+只对特定方向 $\hat{\B{s}}_0$ （即\ac{delay-center}）是正好准确的.
+偏离\ac{delay-center}的角度 $\Delta\theta$ 越大，\acl{tau-c} \acs{tau-c}
 的修正效果越差，带宽带来的损失越大，即\emph{\acf{bw-smear}}.
 该涂污效应限制了有效的视场大小，为满足：
 \begin{equation}
@@ -709,15 +709,15 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 \begin{equation}
   \Delta\theta \ll \frac{\nu \acs{sb-width}}{\Delta\nu}.
 \end{equation}
-另一个解决\acl{bw-smear}的方法是将宽频带划分为一系列足够窄的频率通道
-（如每个通道仅宽几十 \si{\kHz}），每个通道的信号都被独立地相关运算得到\acl{vis}.
+另一个解决\ac{bw-smear}的方法是将宽频带划分为一系列足够窄的频率通道
+（如每个通道仅宽几十 \si{\kHz}），每个通道的信号都被独立地相关运算得到\ac{vis}.
 
-类似地，如果\acl{ctor}的积分时间 $\Delta t$ 过长，则辐射源的位置 $\hat{\B{s}}$
+类似地，如果\ac{ctor}的积分时间 $\Delta t$ 过长，则辐射源的位置 $\hat{\B{s}}$
 会因地球自转而发生显著改变（可与 \acs{sb-width} 相比拟），
 导致\acl{tau-c} \acs{tau-c} 的修正效果变差，即\emph{\acf{t-smear}}.
 一个距离\acl{delay-center} $\Delta\theta$ 的目标的移动速度为
 $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
-为了最小化\acl{t-smear}的影响，\acl{ctor}的积分时间 $\Delta t$ 需满足：
+为了最小化\ac{t-smear}的影响，\ac{ctor}的积分时间 $\Delta t$ 需满足：
 \begin{equation}
   v \Delta t = \omega_e \Delta\theta \Delta t \ll \theta_s,
 \end{equation}
@@ -737,7 +737,7 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
     干涉仪的 $(u,v,w)$ 直角坐标系，其中 $w$ 轴指向参考方向 $\hat{\B{s}}_0$，
     通常为目标的中心，$u$ 轴向东，$v$ 轴向北.
     基线矢量可表示为 $\B{b} = (u,v,w) \lambda$，
-    目标的亮度分布则用\acl*{dc}描述，即 $I(\hat{\B{s}}) = I(l,m)$，
+    目标的亮度分布则用\acs*{dc}描述，即 $I(\hat{\B{s}}) = I(l,m)$，
     其中 $l, m$ 为方向矢量 $\hat{\B{s}}$ 分别对 $u, v$ 轴的投影长度.
   }{%
     The $(u,v,w)$ Cartesian coordinate system for interferometers,
@@ -833,14 +833,14 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 %---------------------------------------------------------------------
 \subsection{\texorpdfstring{$uv$}{uv} 覆盖}
 
-由于天空的亮度分布 $I_{\nu}(l,m)$ 为实数，因此测量的\acl{vis}满足
+由于天空的亮度分布 $I_{\nu}(l,m)$ 为实数，因此测量的\ac{vis}满足
 $\acs{Vis}(-u,-v) = \acs{Vis}^*(u,v)$，
 于是基线矢量为 $\B{b} = (u,v,w)\lambda$ 的二元干涉仪在每个时刻测量
-$uv$ 平面上两个相互对称的点的\acl{vis}.
+$uv$ 平面上两个相互对称的点的\ac{vis}.
 随着地球自转，$\B{b}$ 的各分量逐渐变化，经过 \SI{24}{\hour}，
-该基线所测量的\acl{vis}数据对应 $uv$ 平面上两个相互对称的椭圆.
+该基线所测量的\ac{vis}数据对应 $uv$ 平面上两个相互对称的椭圆.
 一个干涉阵列通常由大量天线组成，因此 $N_A$ 个天线之间可形成 $N_A(N_A-1)/2$ 条基线，
-每条基线都将测量 $uv$ 平面上相应位置的\acl{vis}，
+每条基线都将测量 $uv$ 平面上相应位置的\ac{vis}，
 可以显著增加 $uv$ 覆盖度，即 $uv$ 平面上被测量的点.
 \autoref{fig:uv-coverages} 展示了不同天线数目、不同观测时长的 $uv$ 覆盖样例.
 
@@ -871,7 +871,7 @@ $uv$ 平面上两个相互对称的点的\acl{vis}.
   \acs{S-uv} = \sum_{k,t} \delta(u - u_{k,t}, v - v_{k,t}),
 \end{equation}
 其中 $u_{k,t}, v_{k,t}$ 为基线 $\B{b}_k$ 在 $t$ 时刻在 $uv$ 平面内的分量.
-于是，干涉阵列实际测量的\acl{vis}数据为 $\acs{Vis}(u,v) \acs{S-uv}$，
+于是，干涉阵列实际测量的\ac{vis}数据为 $\acs{Vis}(u,v) \acs{S-uv}$，
 由于无法获得目标亮度分布的全部信息，
 根据\autoref{eq:vis-inv2} 对此进行逆 Fourier 变换
 仅能得到目标的\emph{\acf{dirty-map}}：
@@ -889,10 +889,10 @@ $uv$ 平面上两个相互对称的点的\acl{vis}.
   \label{eq:syn-beam}
   B(l,m) = \iint \acs{S-uv} \exp [2\Cpi\Ci\, (ul+vm)] \D{l}\D{m}
 \end{equation}
-是\acl{sf} \acs{S-uv} 的 Fourier 变换，
-称为\emph{\ac{sb}}或\emph{\ac{psf}}.
+是\ac{sf} \acs{S-uv} 的 Fourier 变换，
+称为\emph{\acf{sb}}或\emph{\acf{psf}}.
 \autoref{fig:imaging-relations} 展示了成像过程中各种变换关系.
-为了从\acl{dirty-map} $I_{\nu}^D$ 尽可能地恢复目标的真实图像，
+为了从\ac{dirty-map} $I_{\nu}^D$ 尽可能地恢复目标的真实图像，
 则需要使用复杂的非线性\ac{deconv}方法，
 比如 CLEAN 算法 \cite{hogbom1974,cornwell1999}、
 \ac{mem} \cite{narayan1986}.
@@ -903,11 +903,11 @@ $uv$ 平面上两个相互对称的点的\acl{vis}.
   \bicaption[成像过程中的变换关系]{%
     成像过程中的各种变换关系.
     \emph{(a)} 天空的真实图像；
-    \emph{(b)} 干涉阵列的\acl*{sb}，对应 (e) 的 Fourier 变换；
+    \emph{(b)} 干涉阵列的\acs*{sb}，对应 (e) 的 Fourier 变换；
     \emph{(c)} 脏图，对应 (f) 的 Fourier 变换；
-    \emph{(d)} \acl*{vis}的真实数据，对应 (a) 的 Fourier 变换；
-    \emph{(e)} 干涉阵列的\acl*{sf}；
-    \emph{(f)} 实际测量到的\acl*{vis}数据，为 (d) 和 (e) 乘积.
+    \emph{(d)} \acs*{vis}的真实数据，对应 (a) 的 Fourier 变换；
+    \emph{(e)} 干涉阵列的\acs*{sf}；
+    \emph{(f)} 实际测量到的\acs*{vis}数据，为 (d) 和 (e) 乘积.
   }{%
     The transform relations among the imaging process.
     \emph{(a)} The true sky map;
@@ -944,7 +944,7 @@ $\sigma \approx \sqrt{2} T_s$
 其中 $\tau$ 为\ac{t-int}.
 $\tau$ 越大，$\sigma_T$ 越小，则达到的灵敏度越高.
 然而在实际情况中，多种系统误差会限制灵敏度的提高，
-比如天线和接收机的\acl{gain}变化、大气层辐射的不规则涨落、
+比如天线和接收机的\ac{gain}变化、大气层辐射的不规则涨落、
 未分辨背景源产生的\ac{confusion}、等等。
 
 若一个点源的辐射使天线的温度 $T_s$ 升高了 $\Delta T$，
@@ -983,7 +983,7 @@ $\tau$ 越大，$\sigma_T$ 越小，则达到的灵敏度越高.
 \end{equation}
 其中 $\Omega_A$ 是波束的立体角.
 相比单口径望远镜，干涉仪的基线长、角分辨率高，
-因此\acl{sb}的立体角 $\Omega_A$ 非常小，
+因此\ac{sb}的立体角 $\Omega_A$ 非常小，
 从而导致其亮度灵敏度 $\sigma_b$ 明显差于单口径望远镜.
 
 
@@ -1022,12 +1022,12 @@ $\tau$ 越大，$\sigma_T$ 越小，则达到的灵敏度越高.
   \centering
   \includegraphics[width=0.8\textwidth]{21CMA}
   \bicaption[21CMA 东西方向的部分站点]{%
-    \acs{21cma} 东西方向的部分站点，每个站点包含 127 根对数周期天线.
+    21CMA 东西方向的部分站点，每个站点包含 127 根对数周期天线.
   }{%
-    Part of the \acs{21cma} stations along the east-west direction,
+    Part of the 21CMA stations along the east-west direction,
     with each station including 127 log-periodic antennas.
     \\\textcopyright{}
-    \acs{21cma}, \acl{nao}.
+    21CMA, \acuse{nao}\acl{nao}.
   }
   \label{fig:21cma}
 \end{figure}
@@ -1186,7 +1186,7 @@ $\tau$ 越大，$\sigma_T$ 越小，则达到的灵敏度越高.
 
 \acf{hera} 是正在南非 Karoo 射电天文保护区建造的、
 继 \ac{paper} 等探路者阵列之后的第二代宇宙再电离时期探测阵列 \cite{deboer2017}.
-其首要科学目标是精确测量源自宇宙再电离时期甚至\acl{cd}时期的 \hisignal/
+其首要科学目标是精确测量源自宇宙再电离时期甚至\ac{cd}时期的 \hisignal/
 及其功率谱的演化，从而描绘宇宙再电离时期以及之前的宇宙大尺度结构.
 该阵列将由 350 面直径为 \SI{14}{\meter} 的固定式抛物面碟形天线构成，
 观测频率为 \SIrange{50}{250}{\MHz}.
@@ -1194,7 +1194,7 @@ $\tau$ 越大，$\sigma_T$ 越小，则达到的灵敏度越高.
 波束形状和其他仪器效应相对简单可控、
 易于借助大量冗余基线对系统进行高精度校准 \cite{dillon2016}.
 该设计还保证 \acs{hera} 能够有效利用\ac{delay-spec} 技术\cite{parsons2012}
-和\acl{fgavd}方法（详见 \autoref{sec:fgavd}）来处理观测数据.
+和\ac{fgavd}方法（详见 \autoref{sec:fgavd}）来处理观测数据.
 目前 \acs{hera} 的第一期 37 面天线已经安装完毕并开始试观测
 （\autoref{fig:hera} 显示了 \acs{hera} 已于 2016 年建成的 19 面天线），
 第二期的 128 面天线也已开始建设，是 SKA1-Low 的有力竞争者.

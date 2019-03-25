@@ -10,7 +10,7 @@
 \emph{\acf{eor}}是早期宇宙的一段缺乏了解的时期，目前的理论研究以及有限的观测证据表明
 该时期从宇宙大爆炸之后约 \SI{300}{\Myr} 持续到约 \SI{1}{\Gyr}，对应红移范围
 约为 \numrange{6}{15} （参见 \citeay{koopmans2015} 及其所引文献）.
-充分探明并理解该时期是为进一步揭示更早期的\acl{cd}和\acl{da}（$z > 15$）、
+充分探明并理解该时期是为进一步揭示更早的\ac{cd}和\ac{da}（$z > 15$）、
 建立完整的宇宙演化图景的关键环节 (ref???).
 在低频射电波段（约 \SIrange{50}{200}{\MHz}）
 探测源自\acl{eor}的 \ac{hi} \hisignal/是目前研究该时期
@@ -20,6 +20,8 @@
 %=====================================================================
 \section{中性氢~21\texorpdfstring{\,}{ }cm~信号}
 \label{sec:21cm-signal}
+
+TODO...
 
 physical theory ...
 EoR observation principle ...
@@ -81,7 +83,7 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 \autoref{fig:eor-foregrounds} 显示了主要的前景成分及其在
 \SI{120}{\MHz} 处的强度.
 因此，即便是轻微的前景处理不当，都会导致微弱的 EoR 信号被淹没而无法被捕捉到.
-此外，部分前景成分（如银河系\acl{synrad}）存在显著偏振，
+此外，部分前景成分（如银河系\ac{synrad}）存在显著偏振，
 该偏振成分可能发生泄漏而影响前景强度的测量，即\ac{pl}效应 (ref???)，
 导致前景的频谱结构复杂化而变得更加难以处理 (ref???).
 如何处理强烈的前景干扰并成功分离 EoR 信号，
@@ -109,29 +111,30 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 %.......................................
 \item
 \emph{人工源的\acl{rfi}:}
-随着科技的进步和社会的发展，人类活动产生的无线电波已在地球上无处不在.
+随着科技的进步和社会的发展，人类活动产生的无线电波已在地球上无处不在，
+对射电天文观测产生了严重的\acf{rfi}.
 这些人工源主要有：\ac{am}和\ac{fm}广播、卫星通信、\ac{gps}信号、
 对讲机、手机、移动通信基站、航空通信、雷达、等等.
 虽然 EoR 探测设备通常建设在人烟稀少的射电宁静区域，但是仍不可避免受到
-人工源的\acl{rfi}，甚至由月亮以及太空碎片反射回来的无线电波都可能
+人工源的 \ac{rfi}，甚至由月亮以及太空碎片反射回来的无线电波都可能
 对 EoR 观测产生一定程度的影响 \cite{mckinley2013,tingay2013rfi}.
-如\autoref{fig:rfi-mwa} 所示的是 MWA 在其各子频段的\acl{vis}数据
-被标记为\acl{rfi}的比例，其中突显了\ac{fm}广播、卫星通信以及数字电视
+如\autoref{fig:rfi-mwa} 所示的是 MWA 在其各子频段的\ac{vis}数据
+被标记为 \ac{rfi} 的比例，其中突显了\ac{fm}广播、卫星通信以及数字电视
 等干扰源对 EoR 探测所造成的影响.
-\acl{rfi}的强度通常会高出天空信号的若干个数量级 \cite{bentum2011} (ref???)，
+\ac{rfi} 的强度通常会高出天空信号的若干个数量级 \cite{bentum2011} (ref???)，
 并且实时发生变化.
-目前的主要办法是识别并屏蔽存在明显\acl{rfi}的时间和频率片段
+目前的主要办法是识别并屏蔽存在明显 \ac{rfi} 的时间和频率片段
 \cite{offringa2010,offringa2012,prasad2012}，
 但是残留的干扰可能会对前景处理以及 EoR 信号测量均产生严重影响 \cite{offringa2015}.
 
 \begin{figure}[tbp]
   \centering
   \includegraphics[width=0.7\textwidth]{RFI-MWA}
-  \bicaption[MWA 各子频段内的\acl*{rfi}比例]{%
-    MWA 各子频段的\acl{vis}数据被标记为\acl{rfi}的比例.
+  \bicaption[MWA 各子频段内的 \ac*{rfi} 比例]{%
+    MWA 各子频段的\acs*{vis}数据被标记为 \acs*{rfi} 的比例.
   }{%
-    The \acs{rfi} occupancy, calculated as the percentage of
-    visibilities that are detected as \acs{rfi} by the flagger,
+    The \acs*{rfi} occupancy, calculated as the percentage of
+    visibilities that are detected as \acs*{rfi} by the flagger,
     per sub-band for the MWA.
     \\\textcopyright{}
     \citeay{offringa2015}.
@@ -142,28 +145,28 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 %.......................................
 \item
 \emph{电离层干扰:}
-\ac{ionosphere}是地球大气层上部被太阳辐射电离的部分，从约 \SI{60}{\km}
+\acf{ionosphere}是地球大气层上部被太阳辐射电离的部分，从约 \SI{60}{\km}
 延伸至约 \SI{1000}{\km} 的高空，覆盖了大气层的\ac{thermosphere}以及
 部分\ac{mesosphere}和\ac{exosphere}，是地球\ac{magnetosphere}的内界
 （如\autoref{fig:ionosphere} 所示）.
-\acl{ionosphere}的大气已经非常稀薄，因此被太阳辐射中的紫外线和 X 射线电离的
+电离层的大气已经非常稀薄，因此被太阳辐射中的紫外线和 X 射线电离的
 空气分子所产生的自由电子在复合前可以短暂地自由活动，形成等离子体，能够对电磁波的
 传播产生影响.
-在 \SI{300}{\MHz} 的低频波段，\acl{ionosphere}主要对电磁波产生折射、
+在 \SI{300}{\MHz} 的低频波段，电离层主要对电磁波产生折射、
 传播延迟、Faraday 旋转等影响，导致测量数据存在相位和幅度误差
 \cite{intema2009,thompson2017}.
-由于主要受太阳活动的影响，\acl{ionosphere}的状态会随时间和位置而发生剧烈变化，
+由于主要受太阳活动的影响，电离层的状态会随时间和位置而发生剧烈变化，
 因此对干涉阵列各天线产生的干扰程度也存在差异且时刻发生变化.
 为了高质量的图像，必须实时（分钟量级???）校准观测数据 (ref???)，
 而且对每个天线施加的校准需要有针对性 (ref???)，这将成为一个严重的计算负担，
-还需要发展更加有效的\acl{ionosphere}校准算法 \cite{intema2009,deGasperin2018}.
+还需要发展更加有效的电离层校准算法 \cite{intema2009,deGasperin2018}.
 
 \begin{figure}[tbp]
   \centering
   \includegraphics[width=0.5\textwidth]{atmosphere-with-ionosphere}
   \bicaption[大气层和电离层的关系]{%
     地球的大气层和电离层之间的关系.
-    \acl{ionosphere}是大气层上部被太阳辐射电离的部分.
+    电离层是大气层上部被太阳辐射电离的部分.
   }{%
     The relation between Earth's atmosphere and ionosphere, which
     is the ionized part of upper atmosphere.
@@ -179,17 +182,17 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 \item
 \emph{仪器效应:}
 当代的干涉阵列通常由成千上万根天线组成. 由于生产和安装过程的差异以及随环境和时间的变化，
-每根天线的性能都不可能完全相同，导致所形成的\acl{stb}存在很多不确定因素，
-而且各个\acl{station}的波束也互不相同.
-对于采用数字\acl{bf}技术的\acl{pa}而言，波束的形态更会随着所指方向而发生大幅变化
+每根天线的性能都不可能完全相同，导致所形成的\ac{stb}存在很多不确定因素，
+而且各个\ac{station}的波束也互不相同.
+对于采用数字\ac{bf}技术的\ac{pa}而言，波束的形态更会随着所指方向而发生大幅变化
 \cite{smirnov2011iii,vanWeeren2016,jagannathan2017}.
-因此，如果未能全面地校准\acl{stb}，那么后续对其他仪器效应的校准、亮点源剥离、
+因此，如果未能全面地校准\ac{stb}，那么后续对其他仪器效应的校准、亮点源剥离、
 前景去除等任务都会受到严重影响 \cite{noordam2004,neben2016}.
 此外，还有一系列已知和未知的复杂仪器效应，比如：
 显著的旁瓣 \cite{thyagarajan2015,mort2017}、
 波束的频率依赖效应 \cite{liu2009ps,datta2010,morales2012}
 （另见 \autoref{sec:eor-window} 和 \autoref{sec:fdeffect}）、
-\acl{pl} \cite{asad2016,asad2018,lenc2017}、
+\ac{pl} \cite{asad2016,asad2018,lenc2017}、
 天线响应随频率的变化 \cite{bernardi2015,trott2017}、
 信号传输过程中在电缆内的反射 \cite{beardsley2016}.
 如何准确有效地校准仪器，发挥出仪器的设计性能，是目前最迫切的任务之一
@@ -202,7 +205,7 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 由此引发出一系列难题 \cite{norris2011} (ref???)，比如：
 如何对原始数据进行实时相关处理？
 如何传输和存储如此海量的数据？
-如何实现有效的数字\acl{bf}和多波束技术？
+如何实现有效的数字\ac{bf}和多波束技术？
 如何进行海量数据的校准处理？
 如何处理海量数据实现大视场高动态范围成像？
 缓解或解决这些问题，不仅依赖于更快更高效的计算资源 \cite{magro2014,vermij2017}，
@@ -220,20 +223,20 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 %---------------------------------------------------------------------
 \subsection{银河系同步辐射}
 
-\acl{synrad}
+\ac{synrad} ...
 polarization leakage ...
 spectral index variation ...
 
 %---------------------------------------------------------------------
 \subsection{银河系轫致辐射}
 
-\acl{brad}
+\ac{brad} ...
 TODO
 
 %---------------------------------------------------------------------
 \subsection{河外点源}
 
-\acl{pntsrc}
+\ac{pntsrc} ...
 TODO
 
 clustering effect ...
@@ -241,29 +244,29 @@ clustering effect ...
 %---------------------------------------------------------------------
 \subsection{星系团}
 
-\acl{gc}
+\ac{gc} ...
 radio halos, relics, mini-halos ...
 
 \subsubsection{射电晕}
 
-\acl{rh}
+\ac{rh} ...
 radio halos ...
 
 \subsubsection{射电遗迹}
 
-\acl{rr}
+\ac{rr} ...
 radio relics ...
 
 \subsubsection{迷你射电晕}
 
-\acl{rmh}
+\ac{rmh} ...
 radio mini-halos ...
 
 %---------------------------------------------------------------------
 \subsection{超星系团和大尺度纤维状结构}
 
-\acl{sc}
-\acl{lsf}
+\ac{sc} ...
+\ac{lsf} ...
 intergalactic medium (virial shocks) ...
 superclusters, large-scale filaments ...
 
@@ -293,14 +296,14 @@ about 10 Mpc, sub-MHz, sub-degree fluctuations ...
 \subsection{前景扣除法}
 \label{sec:fgrm}
 
-\acl{fgrm}
+\ac{fgrm} ...
 parametric approaches, non-parametric approaches ...
 
 %---------------------------------------------------------------------
 \subsection{前景回避法}
 \label{sec:fgavd}
 
-\acl{fgavd}
+\ac{fgavd} ...
 2D power spectrum, EoR window
 
 
