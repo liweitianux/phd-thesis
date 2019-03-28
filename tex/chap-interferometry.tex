@@ -172,19 +172,6 @@ Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源�
 %---------------------------------------------------------------------
 \subsection{亮度和流量密度}
 
-考虑一个面积为 $\D{\sigma}$ 的探测器，测量一个与其法线方向呈 $\theta$ 角度、
-所张立体角为 $\D{\Omega}$ 的源的辐射（如\autoref{fig:intensity} 所示），
-若探测器在频率范围 $[\nu, \,\nu+\D{\nu}]$ 内接收到的功率为 $\D{P}$，
-则源的\emph{\acf{I-nu}} 为：
-\begin{equation}
-  \label{eq:intensity}
-  \acs{I-nu} \equiv
-    \frac{\D{P}}{(\cos\theta\,\D{\sigma}) \,\D{\nu} \,\D{\Omega}} \,,
-\end{equation}
-其单位是 [\si{\watt\per\square\meter\per\hertz\per\steradian}].
-\acl{I-nu} \acs{I-nu} 亦被称为\emph{谱亮度 (spectral brightness)}，
-有时也被简称为\emph{强度}或\emph{亮度}.
-
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.3\textwidth]{specific-intensity}
@@ -198,6 +185,19 @@ Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源�
   }
   \label{fig:intensity}
 \end{figure}
+
+考虑一个面积为 $\D{\sigma}$ 的探测器，测量一个与其法线方向呈 $\theta$ 角度、
+所张立体角为 $\D{\Omega}$ 的源的辐射（如\autoref{fig:intensity} 所示），
+若探测器在频率范围 $[\nu, \,\nu+\D{\nu}]$ 内接收到的功率为 $\D{P_{\nu}}$，
+则源的\emph{\acf{I-nu}} 为：
+\begin{equation}
+  \label{eq:intensity}
+  \acs{I-nu} \equiv
+    \frac{\D{P_{\nu}}}{(\cos\theta\,\D{\sigma}) \,\D{\nu} \,\D{\Omega}} \,,
+\end{equation}
+其单位是 [\si{\watt\per\square\meter\per\hertz\per\steradian}].
+\acl{I-nu} \acs{I-nu} 亦被称为\emph{谱亮度 (spectral brightness)}，
+有时也被简称为\emph{强度}或\emph{亮度}.
 
 \begin{figure}[htp]
   \centering
@@ -223,6 +223,51 @@ Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源�
 其单位是 [\si{\watt\per\square\meter\per\hertz}].
 实际中常用的单位是 \si{\jansky}，换算关系为
 $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
+
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=0.6\textwidth]{specific-intensity-conservation}
+  \bicaption[\acl*{I-nu} \acs*{I-nu} 沿光线保持不变]{%
+    在自由空间里\acl*{I-nu} \acs*{I-nu} 沿光线保持不变.
+  }{%
+    The specific intensity \acs*{I-nu} conserved along a ray in empty space.
+    \\\textcopyright{}
+    \citeay{condon2016}, \S\,2.1.
+  }
+  \label{fig:intensity-conservation}
+\end{figure}
+
+考虑由源发射的一束光线，
+设 $\D{\sigma_1}$ 和 $\D{\sigma_2}$ 是光线上相距为 $r$ 的两个无限小截面，
+如\autoref{fig:intensity-conservation} 所示，
+则两个面元相互所张的立体角为：
+\begin{align}
+  \D{\Omega_1} & = \frac{\cos\theta_2 \,\D{\sigma_2}}{r^2} , \\
+  \D{\Omega_2} & = \frac{\cos\theta_1 \,\D{\sigma_1}}{r^2} .
+\end{align}
+于是，在频率范围 $[\nu, \,\nu+\D{\nu}]$ 以及立体角 $\D{\Omega_1}$ 之内
+流过面元 $\D{\sigma_1}$ 的功率为：
+\begin{align}
+  \D{P_1} & = (\acs{I-nu})_1 \cos\theta_1
+      \,\D{\Omega_1} \,\D{\sigma_1} \,\D{\nu}  \\
+    & = (\acs{I-nu})_1 \left( \frac{\cos\theta_1 \cos\theta_2}{r^2} \right)
+      \,\D{\sigma_1} \,\D{\sigma_2} \,\D{\nu} ,
+\end{align}
+类似地，流过面元 $\D{\sigma_2}$ 的功率为：
+\begin{align}
+  \D{P_2} & = (\acs{I-nu})_2 \cos\theta_2
+      \,\D{\Omega_2} \,\D{\sigma_2} \,\D{\nu}  \\
+    & = (\acs{I-nu})_2 \left( \frac{\cos\theta_1 \cos\theta_2}{r^2} \right)
+      \,\D{\sigma_1} \,\D{\sigma_2} \,\D{\nu} .
+\end{align}
+由于在自由空间里（即没有吸收和发射）能量守恒，即 $\D{P_1} \D{t} = \D{P_2} \D{t}$，
+可得：
+\begin{equation}
+  \label{eq:intensity-conservation}
+  (\acs{I-nu})_1 = (\acs{I-nu})_2 .
+\end{equation}
+所以，在自由空间里\acl*{I-nu} \acs*{I-nu} 沿光线保持不变，与距离无关.
+
 
 %---------------------------------------------------------------------
 \subsection{黑体辐射和亮温度}
