@@ -268,6 +268,94 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 \end{equation}
 所以，在自由空间里\acl*{I-nu} \acs*{I-nu} 沿光线保持不变，与距离无关.
 
+%---------------------------------------------------------------------
+\subsection{辐射转移}
+
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=0.6\textwidth]{radiative-transfer}
+  \bicaption[辐射转移示意图]{%
+    辐射转移示意图.
+    距离 $s$ 沿源向探测器的方向增长，介质的入端和出端的距离分别为
+    $s_{\R{in}}$ 和 $s_{\R{out}}$.
+    光深 $\tau$ 的增长方向与 $s$ 相反.
+  }{%
+    An illustration of the radiative transfer.
+    The distance $s$ increases along the ray from the source to the detector.
+    The distances at the input end and the output end of the intervening
+    medium are $s_{\R{in}}$ and $s_{\R{out}}$, respectively.
+    The optical depth $\tau$ is measured in the opposite direction as $s$.
+    \\\textcopyright{}
+    \citeay{condon2016}, \S\,2.2.
+  }
+  \label{fig:radiative-transfer}
+\end{figure}
+
+当辐射的传播空间中存在吸收和发射时（如\autoref{fig:radiative-transfer} 所示），
+其\acl{I-nu} \acs{I-nu} 会发生改变，具体变化可由\emph{\acf{rt}}方程描述.
+首先考虑吸收情形，一个辐射光子通过介质中一个厚度为 $\D{s}$ 的薄层时被吸收的概率 $\D{p}$ 为：
+\begin{equation}
+  \D{p} = \acs{coef-absorption} \,\D{s} ,
+\end{equation}
+其中 \acs{coef-absorption} 为\emph{\acl{coef-absorption}}，
+量纲为 $\big[\text{长度}^{-1}\big]$.
+于是，\acl{I-nu} \acs{I-nu} 在通过厚度 $\D{s}$ 的介质后的损失比例为：
+\begin{equation}
+  \label{eq:rt-absorption}
+  \frac{\D{\acs{I-nu}}}{\acs{I-nu}} = - \acs{coef-absorption} \,\D{s} .
+\end{equation}
+对上式的两边沿介质的吸收路径积分，可得：
+\begin{equation}
+  \int_{s_{\R{in}}}^{s_{\R{out}}} \frac{\D{\acs{I-nu}}}{\acs{I-nu}}
+    = \ln\acs{I-nu} \,\Big|_{s_{\R{in}}}^{s_{\R{out}}}
+    = - \int_{s_{\R{in}}}^{s_{\R{out}}} \acs{coef-absorption}(s') \,\D{s'} ,
+\end{equation}
+即
+\begin{equation}
+  \label{eq:intensity-loss1}
+  \frac{\acs{I-nu}(s_{\R{out}})}{\acs{I-nu}(s_{\R{in}})} =
+    \exp \left[ - \int_{s_{\R{in}}}^{s_{\R{out}}}
+      \acs{coef-absorption}(s') \,\D{s'} \right] .
+\end{equation}
+据此，可定义\emph{\acf{optical-depth}}为：
+\begin{equation}
+  \label{eq:optical-depth}
+  \acs{optical-depth} \equiv
+    - \int_{s_{\R{out}}}^{s_{\R{in}}} \acs{coef-absorption}(s') \,\D{s'} .
+\end{equation}
+注意，上式的积分方向与 $s$ 相反（另见\autoref{fig:radiative-transfer}），
+如此可使 $\tau > 0$ 并且随着观测者对介质的观测深度而增大.
+利用\acl{optical-depth} \acs{optical-depth}，
+\autoref{eq:intensity-loss1} 可以写成：
+\begin{equation}
+  \label{eq:intensity-loss}
+  \frac{\acs{I-nu}(s_{\R{out}})}{\acs{I-nu}(s_{\R{in}})} =
+    \exp (-\acs{optical-depth}) .
+\end{equation}
+当 $\tau \ll 1$ 时，称介质是\emph{光学薄}的；
+当 $\tau \gg 1$ 时，则称介质是\emph{光学厚}的.
+
+另一方面，介质可能产生辐射使\acl{I-nu} \acs{I-nu} 增强.
+考虑介质中的一个体积元 $\D{s}\D{\sigma}$，在频率范围 $[\nu, \,\nu+\D{\nu}]$ 内
+沿某一方向的立体角元 $\D{\Omega}$ 所发射的谱功率为：
+\begin{equation}
+  \D{P_{\nu}} =
+    \acs{coef-emission} \,\D{s}\,\D{\sigma}\,\D{\nu}\,\D{\Omega} ,
+\end{equation}
+其中 \acs{coef-emission} 为\emph{\acl{coef-emission} (emission coefficient)}.
+当不存在吸收时，\acs{coef-emission} 可表示为：
+\begin{equation}
+  \label{eq:coef-emission}
+  \acs{coef-emission} = \diff{\acs{I-nu}}{s} .
+\end{equation}
+易知 \acs{coef-emission} 的单位为
+[\si{\watt\per\cubic\meter\per\hertz\per\steradian}].
+综合上式和\autoref{eq:rt-absorption}，可得\emph{\ac{rt}方程}为：
+\begin{equation}
+  \label{eq:radiative-transfer}
+  \diff{\acs{I-nu}}{s} =
+    - \acs{coef-absorption} \,\acs{I-nu} + \acs{coef-emission} .
+\end{equation}
 
 %---------------------------------------------------------------------
 \subsection{黑体辐射和亮温度}
