@@ -552,7 +552,7 @@
   %% 空白页
   \fancypagestyle{blank}{
     \fancyhf{}
-    \fancyfoot[C]{\small ---~nil~---}
+    \fancyfoot[C]{\small ---~---}
     \renewcommand{\headrulewidth}{0pt}
   }
   \if@twoside  % 双面打印
