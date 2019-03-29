@@ -170,7 +170,7 @@ Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源�
 \label{sec:radiation}
 
 %---------------------------------------------------------------------
-\subsection{亮度和流量密度}
+\subsection{基本概念}
 
 \begin{figure}[htp]
   \centering
@@ -224,6 +224,34 @@ Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源�
 实际中常用的单位是 \si{\jansky}，换算关系为
 $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 
+辐射场的单位体积内的谱能量 (spectral energy) 称为其\emph{\acf{u-nu}}.
+取辐射场中的一个体积元 $\D{w}$，对于来自某一方向的立体角元 $\D{\Omega}$
+的一束辐射 $\acs{I-nu}(\theta,\phi)$，
+可认为体积元 $\D{w}$ 具有长度 $\D{s}$ 以及横截面积 $\D{\sigma}$，
+即 $\D{w} = \D{s}\,\D{\sigma}$，
+于是这束辐射 $\acs{I-nu}(\theta,\phi)$ 对该体积元的谱能量贡献为：
+\begin{equation}
+  \D{\acs{u-nu}}\,\D{w}
+    = \acs{I-nu}(\theta,\phi) \,\D{\Omega}\,\D{\sigma}
+      \left( \frac{\D{s}}{\acs{speed-light}} \right) ,
+\end{equation}
+其中 \acs{speed-light} 是\acl{speed-light}.
+将上式对所有方向积分，即得辐射场的\acl{u-nu}：
+\begin{equation}
+  \label{eq:spectral-energy-density}
+  \acs{u-nu} = \int \D{\acs{u-nu}}
+    = \frac{1}{\acs{speed-light}}
+      \int_{4\Cpi} \acs{I-nu}(\theta,\phi) \,\D{\Omega} .
+\end{equation}
+如果辐射场是各向同性的，即 $\acs{I-nu}(\theta,\phi) = \acs{I-nu}$，则有：
+\begin{equation}
+  \label{eq:spectral-energy-density-iso}
+  \acs{u-nu} = \frac{4\Cpi \, \acs{I-nu}}{\acs{speed-light}} .
+\end{equation}
+
+%---------------------------------------------------------------------
+\subsection{辐射转移}
+
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.6\textwidth]{specific-intensity-conservation}
@@ -236,9 +264,6 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
   }
   \label{fig:intensity-conservation}
 \end{figure}
-
-%---------------------------------------------------------------------
-\subsection{辐射转移}
 
 在自由空间里，即不存在吸收和发射，辐射的\acl*{I-nu} \acs*{I-nu} 保持不变，与距离无关.
 考虑由源发射的一束光线，
