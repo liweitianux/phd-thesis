@@ -114,7 +114,7 @@ Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源�
 星系的 \ac{hi} 旋转曲线显示其内部存在\ac{dm} \cite{roberts1975}、
 强\ac{gl} \cite{walsh1979}.
 总之，射电天文学揭开了宇宙在光学波段所见完全不同的一面（如\autoref{fig:radio-sky} 所示），
-极大地促进了我们对宇宙的认识，深刻地改变了我们对宇宙的理解.
+极大地拓展了我们对宇宙的认识，深刻地改变了我们对宇宙的理解.
 
 \begin{figure}[htp]
   \centering
@@ -195,7 +195,7 @@ Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源�
   \acs{I-nu} \equiv
     \frac{\D{P_{\nu}}}{(\cos\theta\,\D{\sigma}) \,\D{\nu} \,\D{\Omega}} \,,
 \end{equation}
-其单位是 [\si{\watt\per\square\meter\per\hertz\per\steradian}].
+其 \ac{si} 单位是 [\si{\watt\per\square\meter\per\hertz\per\steradian}].
 \acl{I-nu} \acs{I-nu} 亦被称为\emph{谱亮度 (spectral brightness)}，
 有时也被简称为\emph{强度}或\emph{亮度}.
 
@@ -220,11 +220,12 @@ Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源�
   \acs{S-nu} \equiv
     \int_{\R{source}} \acs{I-nu}(\theta,\phi) \cos\theta \,\D{\Omega} ,
 \end{equation}
-其单位是 [\si{\watt\per\square\meter\per\hertz}].
+其 \ac{si} 单位是 [\si{\watt\per\square\meter\per\hertz}].
 实际中常用的单位是 \si{\jansky}，换算关系为
 $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 
-辐射场的单位体积内的谱能量 (spectral energy) 称为其\emph{\acf{u-nu}}.
+辐射场的\emph{\acf{u-nu}}是指每单位体积的谱能量 (spectral energy)
+其 \ac{si} 单位为 [\si{\joule\per\cubic\meter\per\hertz}].
 取辐射场中的一个体积元 $\D{w}$，对于来自某一方向的立体角元 $\D{\Omega}$
 的一束辐射 $\acs{I-nu}(\theta,\phi)$，
 可认为体积元 $\D{w}$ 具有长度 $\D{s}$ 以及横截面积 $\D{\sigma}$，
@@ -239,7 +240,8 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 将上式对所有方向积分，即得辐射场的\acl{u-nu}：
 \begin{equation}
   \label{eq:spectral-energy-density}
-  \acs{u-nu} = \int \D{\acs{u-nu}}
+  \acs{u-nu}
+    = \int_{4\Cpi} \D{\acs{u-nu}}
     = \frac{1}{\acs{speed-light}}
       \int_{4\Cpi} \acs{I-nu}(\theta,\phi) \,\D{\Omega} .
 \end{equation}
