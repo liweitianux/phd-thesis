@@ -3,7 +3,7 @@ BSTINPUTS:=	.:sjtuthesis:texmf:$(BSTINPUTS)
 
 TEMPLATE:=	$(wildcard sjtuthesis/*)
 BIB:=		references.bib
-SRCS:=		thesis.tex $(wildcard tex/*.tex)
+SRCS:=		thesis.tex $(wildcard src/*.tex)
 
 all: thesis.pdf
 
@@ -32,6 +32,6 @@ count:
 
 clean:
 	latexmk -C thesis
-	rm -f *.xdv *.bbl *.loa *.fls *.xml tex/*.aux
+	rm -f $(SRCS:.tex=.aux) *.xdv *.bbl *.loa *.fls *.xml
 
 .PHONY: all clean count fix
