@@ -450,14 +450,14 @@ $\theta$ 为 $r$ 与 $v$ 之间的夹角.
   I \equiv \diff{q}{t} = \diff{q}{z} \diff{z}{t} = \diff{q}{z} v ,
 \end{equation}
 可得
-\begin{equation}
+\begin{align}
   \label{eq:dipole-efield2}
   E_{\bot}
-    = -\frac{\Ci\omega \sin\theta}{r \acs{speed-light}^2}
-      \int_{-l/2}^{l/2} \diff{q}{z} v \,\D{z}
-    = -\frac{\Ci\omega \sin\theta}{r \acs{speed-light}^2}
+    & = -\frac{\Ci\omega \sin\theta}{r \acs{speed-light}^2}
+      \int_{-l/2}^{l/2} \diff{q}{z} v \,\D{z} \\
+    & = -\frac{\Ci\omega \sin\theta}{r \acs{speed-light}^2}
       \int_{-l/2}^{l/2} I\,\D{z} .
-\end{equation}
+\end{align}
 从天线的中点到两端，电流近似线性地减小至 0，即
 \begin{equation}
   \label{eq:dipole-current-dist}
@@ -739,43 +739,45 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 对于一个表面亮度分布为 $\acs{I-nu}(\hat{\B{s}})$ 的\ac{src-extended}，
 由于不同位置产生的辐射互不相干，因此可以被当作一系列独立的点源处理，
 于是上述二元准单色干涉仪的输出响应为：
-\begin{equation}
+\begin{align}
   \label{eq:resp-cos}
-  R_c = \int \acs{I-nu}(\hat{\B{s}}) \cos \left(
-      \omega \B{b}\cdot\hat{\B{s}} / \acs{speed-light} \right) \,\D{\Omega}
-    = \int \acs{I-nu}(\hat{\B{s}}) \cos \left(
+  R_c & = \int \acs{I-nu}(\hat{\B{s}})
+      \cos \left( \omega \B{b}\cdot\hat{\B{s}} / \acs{speed-light} \right)
+      \,\D{\Omega}  \\
+    & = \int \acs{I-nu}(\hat{\B{s}}) \cos \left(
       2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \,\D{\Omega},
-\end{equation}
+\end{align}
 其中下标 \enquote{$c$} 表示 \enquote{cosine} \ac{ctor}的输出，
 以区分下文将要介绍的 \enquote{sine} \ac{ctor}.
 
 一个任意的亮度分布 $I$ 可分解为奇对称成分 $I_O$ 与偶对称成分 $I_E$ 之和，
 然而\autoref{eq:resp-cos} 描述的 cosine \ac{ctor}只能测量其中的
 偶对称成分 $I_E$，即：
-\begin{equation}
-  R_c = \int \left[ I_O(\hat{\B{s}}) + I_E(\hat{\B{s}}) \right]
+\begin{align}
+  R_c & = \int \left[ I_O(\hat{\B{s}}) + I_E(\hat{\B{s}}) \right]
       \cos \left( 2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right)
-      \,\D{\Omega}
-    = \int I_E(\hat{\B{s}}) \cos \left(
+      \,\D{\Omega}  \\
+    & = \int I_E(\hat{\B{s}}) \cos \left(
       2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \,\D{\Omega}.
-\end{equation}
+\end{align}
 为了能够测量另一个奇对称成分 $I_O$，则需要一个 \enquote{sine} \ac{ctor}，
 可通过对其中一个天线的输出增加 $\Cpi/2$ 的相位延迟来实现，于是有：
-\begin{equation}
-  R_s = \int \left[ I_O(\hat{\B{s}}) + I_E(\hat{\B{s}}) \right]
+\begin{align}
+  R_s & = \int \left[ I_O(\hat{\B{s}}) + I_E(\hat{\B{s}}) \right]
       \sin \left( 2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right)
-      \,\D{\Omega}
-    = \int I_O(\hat{\B{s}}) \sin \left(
+      \,\D{\Omega}  \\
+    & = \int I_O(\hat{\B{s}}) \sin \left(
       2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \,\D{\Omega}.
-\end{equation}
+\end{align}
 \ac{cctor} 即为一对 cosine 和 sine \ac{ctor}的组合.
 相应地，\emph{\acf{Vis}}，简称\emph{\ac{vis}}，可定义为：
-\begin{equation}
+\begin{align}
   \label{eq:vis}
-  \acs{Vis} \equiv R_c - \Ci\, R_s
-    = \int I_{\nu}(\hat{\B{s}}) \exp
+  \acs{Vis}
+    & \equiv R_c - \Ci\, R_s  \\
+    & = \int I_{\nu}(\hat{\B{s}}) \exp
       (-2\Cpi\Ci\, \B{b}\cdot\hat{\B{s}} / \lambda) \,\D{\Omega}.
-\end{equation}
+\end{align}
 
 %---------------------------------------------------------------------
 \subsection{有限带宽}
@@ -940,13 +942,15 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
     \frac{I_{\nu}(l,m)}{\sqrt{1-l^2-m^2}}
     \exp [-2\Cpi\Ci\, (ul+vm) -\Ci\Cpi w(l^2+m^2)] \,\D{l}\,\D{m}.
 \end{equation}
-如果 $|\Cpi w(l^2+m^2)| \ll 1$，即 $\exp [-\Ci\Cpi w(l^2+m^2)] \sim 1$，
+如果 $\big| \Cpi w(l^2+m^2) \big| \ll 1$，
+即 $\exp [-\Ci\Cpi w(l^2+m^2)] \sim 1$，
 则上式成为二维 Fourier 变换，即：
-\begin{equation}
-  \acs{Vis}(u,v) \equiv \acs{Vis}(u,v,w) \exp (2\Cpi\Ci\,w)
-    = \iint \frac{I_{\nu}(l,m)}{\sqrt{1-l^2-m^2}}
+\begin{align}
+  \acs{Vis}(u,v)
+    & \equiv \acs{Vis}(u,v,w) \exp (2\Cpi\Ci\,w)  \\
+    & = \iint \frac{I_{\nu}(l,m)}{\sqrt{1-l^2-m^2}}
     \exp [-2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m},
-\end{equation}
+\end{align}
 对其进行逆变换即可得到目标的亮度分布 $I_{\nu}(l,m)$：
 \begin{equation}
   \label{eq:vis-inv2}
