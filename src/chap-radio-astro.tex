@@ -358,7 +358,62 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 \end{equation}
 
 %---------------------------------------------------------------------
+\subsection{Kirchhoff 定律}
+
+\emph{\acf{te}}，简称\emph{热平衡}，
+是指一个系统在没有外界影响的条件下，其各部分的宏观属性在长时间内不发生任何变化的状态.
+这是热力学中的一个基本实验定律，是定义温度的基础.
+
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Kirchhoff-law-experiment}
+  \bicaption[推导 Kirchhoff 定律的思想实验]{%
+    推导 Kirchhoff 定律的思想实验.
+  }{%
+    A thought experiment to derive the Kirchhoff's law.
+    \\\textcopyright{}
+    \citeay{condon2016}, \S\,2.2.
+  }
+  \label{fig:kirchhoff-experiment}
+\end{figure}
+
+考虑如下思想实验：
+两个由不同材料制成、包含不同介质的空腔放在一起，
+中间由一个仅允许频率在 $[\nu, \,\nu+\D{\nu}]$ 之间的辐射通过的阀门连接，
+如\autoref{fig:kirchhoff-experiment} 所示.
+在\emph{完全热平衡}的情形下，即物质和辐射场具有相同的温度，
+空腔产生的辐射与黑体辐射（见 \autoref{sec:blackbody}）相同，
+完全由温度决定，而与其材质或者内部介质无关.
+当两个空腔在任意温度 $T$ 达到完全热平衡时，没有\emph{净}能量从一个空腔辐射到另一个，
+否则损失能量的空腔将冷却，另一个空腔将升温，从而违背热力学第二定律.
+由此可知：
+\begin{align}
+  \diff{\acs{I-nu}}{s} & = 0 , \\
+  \acs{I-nu} & = B_{\nu}(T) ,
+\end{align}
+其中 $B_{\nu}(T)$ 为空腔的辐射频谱.
+于是辐射转移方程 [\autoref{eq:radiative-transfer}] 成为：
+\begin{equation}
+  \diff{\acs{I-nu}}{s} = 0
+    = - \acs{coef-absorption} \,B_{\nu}(T) + \acs{coef-emission} ,
+\end{equation}
+所以：
+\begin{equation}
+  \label{eq:kirchhoff-law}
+  \frac{\acs{coef-emission}(T)}{\acs{coef-absorption}(T)} = B_{\nu}(T) ,
+\end{equation}
+该式对任意频率 $\nu$ 均成立.
+这就是完全热平衡系统的\emph{Kirchhoff 定律}.
+
+完全的热平衡只有在特殊的条件下才能实现.
+对于一般的系统，产生发射或吸收的物质并不与辐射场达到热平衡，但如果物质本身是热平衡的，
+则称该系统处于\emph{\acf{lte}}.
+Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
+不过 $\acs{I-nu}$ 与 $B_{\nu}(T)$ 通常不相等.
+
+%---------------------------------------------------------------------
 \subsection{黑体辐射和亮温度}
+\label{sec:blackbody}
 
 \emph{黑体}是能够吸收全部入射辐射的理想物体.
 处于热力学平衡态的黑体产生的辐射称为\emph{黑体辐射}，其能谱分布只取决于黑体的温度，
