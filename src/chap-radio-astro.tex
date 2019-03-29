@@ -424,15 +424,17 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 （即与 $r$ 的方向垂直）电场强度为 [详见 \citeay{condon2016}, \S\,2.7]：
 \begin{equation}
   \label{eq:q-efield}
-  E_{\bot} = \frac{q \dot{v} \sin\theta}{r c^2} ,
+  E_{\bot} = \frac{q \dot{v} \sin\theta}{r \acs{speed-light}^2} ,
 \end{equation}
-其中 $\theta$ 为 $r$ 与 $v$ 之间的夹角.
+其中
+\acs{speed-light} 是\acl{speed-light}，
+$\theta$ 为 $r$ 与 $v$ 之间的夹角.
 天线的每一小段 $\D{z}$ 均会贡献一定的电场强度 $\D{E_{\bot}}$，
 由于 $l \ll \lambda$，因此产生的电场总强度为：
 \begin{equation}
   \label{eq:dipole-efield1}
   E_{\bot} = \int_{-l/2}^{l/2}
-    \frac{\dot{v} \sin\theta}{r c^2} \,\diff{q}{z}\D{z} .
+    \frac{\dot{v} \sin\theta}{r \acs{speed-light}^2} \,\diff{q}{z}\D{z} .
 \end{equation}
 对于远场情形 ($r \gg l$)，$1/r$ 可视为常数而提出积分号.
 考虑一个正弦的驱动电流：
@@ -451,9 +453,10 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 \begin{equation}
   \label{eq:dipole-efield2}
   E_{\bot}
-    = -\frac{\Ci\omega \sin\theta}{r c^2}
+    = -\frac{\Ci\omega \sin\theta}{r \acs{speed-light}^2}
       \int_{-l/2}^{l/2} \diff{q}{z} v \,\D{z}
-    = -\frac{\Ci\omega \sin\theta}{r c^2} \int_{-l/2}^{l/2} I\,\D{z} .
+    = -\frac{\Ci\omega \sin\theta}{r \acs{speed-light}^2}
+      \int_{-l/2}^{l/2} I\,\D{z} .
 \end{equation}
 从天线的中点到两端，电流近似线性地减小至 0，即
 \begin{equation}
@@ -462,13 +465,14 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
     \left[ 1 - \frac{|z|}{l/2} \right] .
 \end{equation}
 最终可得天线在 $r$ 处产生的切向电场强度为：
-\begin{equation}
+\begin{align}
   \label{eq:dipole-efield}
-  E_{\bot} \approx
-    -\frac{\Ci\omega \sin\theta}{r c^2} \frac{I_0 l}{2} \Ce^{-\Ci\omega t}
-    = -\frac{\Ci\Cpi \sin\theta}{c} \frac{I_0 l}{\lambda}
-      \frac{\Ce^{-\Ci\omega t}}{r} .
-\end{equation}
+  E_{\bot}
+    & \approx -\frac{\Ci\omega \sin\theta}{r \acs{speed-light}^2}
+      \frac{I_0 l}{2} \Ce^{-\Ci\omega t} \\
+    & = -\frac{\Ci\Cpi \sin\theta}{\acs{speed-light}}
+      \frac{I_0 l}{\lambda} \frac{\Ce^{-\Ci\omega t}}{r} .
+\end{align}
 \autoref{fig:dipole-radiation} 显示了一个无限短的偶极天线（即 Hertz 偶极子）
 的电场强度分布图.
 
@@ -503,13 +507,14 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 \subsection{功率方向图和增益}
 
 \emph{\acf{pp}} $P(\theta,\phi)$ 是指一个天线的辐射功率的角向分布.
-对于短偶极天线，由\autoref{eq:dipole-efield} 可得时间平均的 Poynting 流量
-（即单位面积流过的功率）为：
+对于短偶极天线，由\autoref{eq:dipole-efield} 可得时间平均的
+\emph{Poynting 流量}（即单位面积流过的功率）为：
 \begin{equation}
   \label{eq:poynting-flux}
-  \langle S \rangle = \frac{c}{4\Cpi} \langle E_{\bot}^2 \rangle
-    = \frac{\Cpi}{8\,c} \left( \frac{I_0 l}{\lambda} \right)^2
-      \frac{\sin^2\theta}{r^2} .
+  \langle S \rangle
+    = \frac{\acs{speed-light}}{4\Cpi} \langle E_{\bot}^2 \rangle
+    = \frac{\Cpi}{8\,\acs{speed-light}}
+      \left( \frac{I_0 l}{\lambda} \right)^2 \frac{\sin^2\theta}{r^2} .
 \end{equation}
 于是，归一化的\ac{pp}为：
 \begin{equation}
@@ -680,9 +685,9 @@ $\overline{P}$ 之比，即：
 同一个波面被两个天线接收之间存在一个时间差，即\emph{\acf{tau-g}}:
 \begin{equation}
   \label{eq:tau-g}
-  \acs{tau-g} = \frac{\B{b} \cdot \hat{\B{s}}}{\acs{c}},
+  \acs{tau-g} = \frac{\B{b} \cdot \hat{\B{s}}}{\acs{speed-light}},
 \end{equation}
-其中 \acs{c} 是\acl{c}，
+其中 \acs{speed-light} 是\acl{speed-light}，
 $\B{b}$ 为两天线之间的基线矢量（由天线 1 指向天线 2），
 $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 两个天线接收信号后分别输出电压响应：
@@ -713,7 +718,7 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 也随之变化，于是\ac{ctor}的输出 $R$ 出现正弦形式的振荡，即\emph{\acf{fringe}}，
 其相位为：
 \begin{equation}
-  \phi = \omega\tau_g = 2\Cpi b \cos\theta / \lambda,
+  \phi = \omega\tau_g = 2\Cpi \left( \frac{b \cos\theta}{\lambda} \right),
 \end{equation}
 其中 $\theta$ 为方向 $\hat{\B{s}}$ 和基线矢量 $\B{b}$ 之间的夹角.
 于是有
@@ -737,9 +742,9 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 \begin{equation}
   \label{eq:resp-cos}
   R_c = \int \acs{I-nu}(\hat{\B{s}}) \cos \left(
-      \omega \B{b}\cdot\hat{\B{s}} / c \right) \D{\Omega}
+      \omega \B{b}\cdot\hat{\B{s}} / \acs{speed-light} \right) \,\D{\Omega}
     = \int \acs{I-nu}(\hat{\B{s}}) \cos \left(
-      2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \D{\Omega},
+      2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \,\D{\Omega},
 \end{equation}
 其中下标 \enquote{$c$} 表示 \enquote{cosine} \ac{ctor}的输出，
 以区分下文将要介绍的 \enquote{sine} \ac{ctor}.
@@ -750,26 +755,26 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 \begin{equation}
   R_c = \int \left[ I_O(\hat{\B{s}}) + I_E(\hat{\B{s}}) \right]
       \cos \left( 2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right)
-      \D{\Omega}
+      \,\D{\Omega}
     = \int I_E(\hat{\B{s}}) \cos \left(
-      2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \D{\Omega}.
+      2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \,\D{\Omega}.
 \end{equation}
 为了能够测量另一个奇对称成分 $I_O$，则需要一个 \enquote{sine} \ac{ctor}，
 可通过对其中一个天线的输出增加 $\Cpi/2$ 的相位延迟来实现，于是有：
 \begin{equation}
   R_s = \int \left[ I_O(\hat{\B{s}}) + I_E(\hat{\B{s}}) \right]
       \sin \left( 2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right)
-      \D{\Omega}
+      \,\D{\Omega}
     = \int I_O(\hat{\B{s}}) \sin \left(
-      2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \D{\Omega}.
+      2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \,\D{\Omega}.
 \end{equation}
 \ac{cctor} 即为一对 cosine 和 sine \ac{ctor}的组合.
 相应地，\emph{\acf{Vis}}，简称\emph{\ac{vis}}，可定义为：
 \begin{equation}
   \label{eq:vis}
-  \acs{Vis} \equiv R_c - \Ci R_s
+  \acs{Vis} \equiv R_c - \Ci\, R_s
     = \int I_{\nu}(\hat{\B{s}}) \exp
-      (-2\Cpi\Ci\, \B{b}\cdot\hat{\B{s}} / \lambda) \D{\Omega}.
+      (-2\Cpi\Ci\, \B{b}\cdot\hat{\B{s}} / \lambda) \,\D{\Omega}.
 \end{equation}
 
 %---------------------------------------------------------------------
@@ -783,9 +788,9 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
   \acs{Vis} &= \int \left[ \frac{1}{\Delta\nu}
         \int_{\nu_c-\Delta\nu/2}^{\nu_c+\Delta\nu/2}
         I(\hat{\B{s}}, \nu) \exp (-2\Cpi\Ci\, \nu\tau_g)
-      \right] \D{\Omega} \\
+      \right] \,\D{\Omega} \\
     &\approx \int I_{\nu}(\hat{\B{s}}) \sinc (\Delta\nu\,\tau_g)
-      \exp (-2\Cpi\Ci\, \nu_c\tau_g) \D{\Omega},
+      \exp (-2\Cpi\Ci\, \nu_c\tau_g) \,\D{\Omega},
   \label{eq:vis-bw}
 \end{align}
 其中 $\sinc(\cdot)$ 为归一化 sinc 函数，定义如下：
@@ -833,7 +838,7 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 \begin{equation}
   \Delta\nu \Delta\tau_g
     \approx \Delta\nu \diff{\tau_g}{\theta} \Delta\theta
-    = \frac{b \sin\theta}{c} \Delta\nu \Delta\theta
+    = \frac{b \sin\theta}{\acs{speed-light}} \Delta\nu \Delta\theta
     \ll 1,
 \end{equation}
 则要求：
@@ -893,13 +898,13 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 于是，基线矢量 $\B{b} = (u,v,w) \lambda$，
 方向矢量 $\hat{\B{s}} = \left( l, m, \sqrt{1-l^2-m^2} \right)$，
 其中 $l, m$ 为 $\hat{\B{s}}$ 分别对 $u, v$ 轴的投影长度，即\ac{dc}.
-再利用 $\D{\Omega} = \D{l}\D{m} \,\big/ \sqrt{1-l^2-m^2}$，
+再利用 $\D{\Omega} = \D{l}\,\D{m} \,\big/ \sqrt{1-l^2-m^2}$，
 \autoref{eq:vis} 可表示为：
 \begin{equation}
   \label{eq:vis-uvw}
   \acs{Vis}(u,v,w) = \iint \frac{I_{\nu}(l,m)}{\sqrt{1-l^2-m^2}}
     \exp \left[ -2\Cpi\Ci \left( ul+vm+w\sqrt{1-l^2-m^2} \right) \right]
-    \D{l}\D{m}.
+    \,\D{l}\,\D{m}.
 \end{equation}
 需注意，这\emph{不是}二维 Fourier 变换.
 
@@ -918,7 +923,7 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 \begin{equation}
   \label{eq:vis-inv1}
   \frac{I_{\nu}(l,m)}{\sqrt{1-l^2-m^2}} = \iint \acs{Vis}(u,v, w \equiv 0)
-    \exp [2\Cpi\Ci\, (ul+vm)] \D{l}\D{m}.
+    \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m}.
 \end{equation}
 
 %.......................................
@@ -933,20 +938,20 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 \begin{equation}
   \acs{Vis}(u,v,w) \approx \exp (-2\Cpi\Ci\,w) \iint
     \frac{I_{\nu}(l,m)}{\sqrt{1-l^2-m^2}}
-    \exp [-2\Cpi\Ci\, (ul+vm) -\Ci\Cpi w(l^2+m^2)] \D{l}\D{m}.
+    \exp [-2\Cpi\Ci\, (ul+vm) -\Ci\Cpi w(l^2+m^2)] \,\D{l}\,\D{m}.
 \end{equation}
 如果 $|\Cpi w(l^2+m^2)| \ll 1$，即 $\exp [-\Ci\Cpi w(l^2+m^2)] \sim 1$，
 则上式成为二维 Fourier 变换，即：
 \begin{equation}
   \acs{Vis}(u,v) \equiv \acs{Vis}(u,v,w) \exp (2\Cpi\Ci\,w)
     = \iint \frac{I_{\nu}(l,m)}{\sqrt{1-l^2-m^2}}
-    \exp [-2\Cpi\Ci\, (ul+vm)] \D{l}\D{m},
+    \exp [-2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m},
 \end{equation}
 对其进行逆变换即可得到目标的亮度分布 $I_{\nu}(l,m)$：
 \begin{equation}
   \label{eq:vis-inv2}
   \frac{I_{\nu}(l,m)}{\sqrt{1-l^2-m^2}} = \iint \acs{Vis}(u,v)
-    \exp [2\Cpi\Ci\, (ul+vm)] \D{l}\D{m}.
+    \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m}.
 \end{equation}
 
 \end{itemize}
@@ -1009,7 +1014,7 @@ $uv$ 平面上两个相互对称的点的\ac{vis}.
 \begin{equation}
   \label{eq:dirty-map}
   \frac{I_{\nu}^D(l,m)}{\sqrt{1-l^2-m^2}} = \iint
-    \acs{Vis}(u,v) \acs{S-uv} \exp [2\Cpi\Ci\, (ul+vm)] \D{l}\D{m}.
+    \acs{Vis}(u,v) \acs{S-uv} \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m}.
 \end{equation}
 利用\ac{conv-theorem}，上式可表示为：
 \begin{equation}
@@ -1018,7 +1023,7 @@ $uv$ 平面上两个相互对称的点的\ac{vis}.
 其中
 \begin{equation}
   \label{eq:syn-beam}
-  B(l,m) = \iint \acs{S-uv} \exp [2\Cpi\Ci\, (ul+vm)] \D{l}\D{m}
+  B(l,m) = \iint \acs{S-uv} \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m}
 \end{equation}
 是\ac{sf} \acs{S-uv} 的 Fourier 变换，
 称为\emph{\acf{sb}}或\emph{\acf{psf}}.
@@ -1081,7 +1086,7 @@ $\tau$ 越大，$\sigma_T$ 越小，则达到的灵敏度越高.
 若一个点源的辐射使天线的温度 $T_s$ 升高了 $\Delta T$，
 则根据\autoref{eq:dt-source} 可测得该点源的流量密度为：
 \begin{equation}
-  S_{\nu} = 2\,\acs{kb} \Delta T / A_e ,
+  S_{\nu} = \frac{2\,\acs{kb} \Delta T}{A_e} ,
 \end{equation}
 相应的测量误差为：
 \begin{align}
