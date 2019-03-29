@@ -8,6 +8,7 @@
 
 %=====================================================================
 \section{射电天文学简介}
+\label{sec:radio-astro-intro}
 
 %---------------------------------------------------------------------
 \subsection{简介和历史}
@@ -394,7 +395,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 [详见 \citeay{condon2016}, \S\,2.5]：
 \begin{equation}
   \label{eq:nyquist-approx}
-  P_{\nu} = \acs{kb} T .
+  P_{\nu} \approx \acs{kb} T .
 \end{equation}
 该式是 Rayleigh--Jeans 近似 [\autoref{eq:rj-approx}] 在电学里的对应.
 类似地，该近似公式只适用于 $h\nu \ll \acs{kb}T$ 的经典范畴.
@@ -600,7 +601,7 @@ $\overline{P}$ 之比，即：
 天线和电阻之间使用导线相连，两个空腔之间有一个特殊的阀门，能够阻挡电磁波，
 但允许频率范围为 $[\nu, \,\nu+\D{\nu}]$ 的电流通过导线，
 如\autoref{fig:Aavg-thought-exp} 所示.
-因为整个系统处于热平衡状态，所以导线中没有净能量流动，
+因为整个系统处于热平衡状态，所以导线中没有\emph{净}能量流动，
 否则其中一个空腔将升温、另一个则冷却，违背热力学第二定律.
 因此，天线接收各方向的无偏振黑体辐射所产生的总谱功率为：
 \begin{equation}
@@ -620,7 +621,6 @@ $\overline{P}$ 之比，即：
 
 %---------------------------------------------------------------------
 \subsection{天线温度}
-\label{sec:t-ant}
 
 一个被置于温度为 $T$ 的黑体辐射环境中的天线，
 输出的噪声将与温度为 $T$ 的电阻所产生的热噪声 [\autoref{eq:nyquist-approx}]
@@ -973,7 +973,7 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 如果无法满足以上两种情况，比如大视场成像，则需要采用专门的成像方法
 \cite{cornwell1992,sault2007}，
 比如 \ac{w-proj}法 \cite{cornwell2008}、\ac{w-stack}法 \cite{humphreys2011}
-（\autoref{ssec:imaging} 将使用的 WSClean 成像软件实现了该方法
+（将在 \autoref{ssec:imaging} 使用的 \texttt{WSClean} 成像软件实现了该方法
 \cite{offringa2014,offringa2017}）.
 
 %---------------------------------------------------------------------
