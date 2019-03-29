@@ -208,9 +208,9 @@
   extra-style=bracket,
   extra-format={\it},
 }
-\input{tex/symbol.tex}
-\input{tex/acronym.tex}
-\input{tex/glossary.tex}
+\input{src/symbol.tex}
+\input{src/acronym.tex}
+\input{src/glossary.tex}
 
 % Help track changes
 % Credit: https://tex.stackexchange.com/a/49913
@@ -328,7 +328,7 @@
 %---------------------------------------------------------------------
 \frontmatter
 
-\include{tex/abstract}
+\include{src/abstract}
 
 \tableofcontents
 \listoffigures
@@ -346,20 +346,20 @@
 \mainmatter
 \pagestyle{main}
 
-\include{tex/chap-introduction}
-\include{tex/chap-radio-astro}
-\include{tex/chap-detection}
-\include{tex/chap-simulation}
-\include{tex/chap-halo}
-\include{tex/chap-cdae}
-\include{tex/summary}
+\include{src/chap-introduction}
+\include{src/chap-radio-astro}
+\include{src/chap-detection}
+\include{src/chap-simulation}
+\include{src/chap-halo}
+\include{src/chap-cdae}
+\include{src/summary}
 
 \appendix
 
-\include{tex/app-formulas}
-\include{tex/app-units}
-\include{tex/app-fpsolver}
-\include{tex/app-halos}
+\include{src/app-formulas}
+\include{src/app-units}
+\include{src/app-fpsolver}
+\include{src/app-halos}
 
 %---------------------------------------------------------------------
 \backmatter
@@ -389,18 +389,18 @@
 \ifsjtu@review\relax
   % Excluded for review
 \else
-  \include{tex/acknowledgments}
+  \include{src/acknowledgments}
 \fi
 \ifsjtu@bachelor
   % 本科学位论文要求在最后有一个英文大摘要，单独编页码
   \pagestyle{biglast}
-  \include{tex/app-abstract}
+  \include{src/app-abstract}
 \else
-  \include{tex/publications}
-  % \include{tex/projects}
-  % \include{tex/patents}
+  \include{src/publications}
+  % \include{src/projects}
+  % \include{src/patents}
   \ifsjtu@review\relax\else
-    \include{tex/resume}
+    \include{src/resume}
   \fi
 \fi
 \makeatother
