@@ -138,7 +138,7 @@ Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源�
 相比中高频波段，低频波段（约 \SIrange{50}{300}{\MHz}）主要有以下几点优势：
 \begin{itemize}
   \item 低频波段对应的辐射波长更长，受尘埃的影响更小，因此能够观测到星系更核心的区域.
-  \item \ac{synrad}在低频波段更强且寿命更长，因此更利于探测\ac{gc}、
+  \item \ac{rad-syn}在低频波段更强且寿命更长，因此更利于探测\ac{gc}、
     \ac{sc}甚至\ac{lsf}的弥散射电辐射.
   \item 多种等离子体效应（如散射、色散、Faraday 旋转）的强度按 $\nu^{-2}$ 变化，
     因此在低频波段更适合研究星际电子密度、磁场强度、等等.
@@ -731,7 +731,7 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 将对输出 $R$ 产生调制，如\autoref{fig:interferometer} 所示，
 其中\ac{ctor}的输出\ac{fringe}的包络示意了\ac{pb}的衰减情况.
 
-对于一个表面亮度分布为 $\acs{I-nu}(\hat{\B{s}})$ 的\ac{extsrc}，
+对于一个表面亮度分布为 $\acs{I-nu}(\hat{\B{s}})$ 的\ac{src-extended}，
 由于不同位置产生的辐射互不相干，因此可以被当作一系列独立的点源处理，
 于是上述二元准单色干涉仪的输出响应为：
 \begin{equation}
@@ -1105,7 +1105,7 @@ $\tau$ 越大，$\sigma_T$ 越小，则达到的灵敏度越高.
     A_e \sqrt{\acs{N-ant}(\acs{N-ant}-1) \Delta\nu \,\tau}} .
 \end{equation}
 
-如果观测一个\acf{extsrc}，则需要考虑干涉仪的\emph{亮度灵敏度}，
+如果观测一个\acf{src-extended}，则需要考虑干涉仪的\emph{亮度灵敏度}，
 可利用 Rayleigh--Jeans 近似 [\autoref{eq:rj-approx}]
 直接由 $\sigma_S$ 导出：
 \begin{equation}
