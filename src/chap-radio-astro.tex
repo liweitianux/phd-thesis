@@ -377,12 +377,13 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 该式就是 \emph{Rayleigh--Jeans 近似}.
 在该近似下，辐射黑体的谱亮度 $B_{\nu}$ 与其温度 $T$ 严格成正比.
 因此，一个源的谱亮度（即比强度） $I_{\nu}$
-可以很方便地使用\emph{\acf{T-b}} 来描述：
+可以很方便地使用\emph{\acf{T-brightness}} 来描述：
 \begin{equation}
   \label{eq:Tb}
-  \acs{T-b}(\nu) \equiv \frac{\acs{I-nu} c^2}{2 \,\acs{kb} \nu^2} .
+  \acs{T-brightness}(\nu)
+    \equiv \frac{\acs{I-nu} c^2}{2 \,\acs{kb} \nu^2} .
 \end{equation}
-注意 \acs{T-b} 会随频率而变.
+注意 \acs{T-brightness} 会随频率而变.
 
 %---------------------------------------------------------------------
 \subsection{电阻的热噪声}
@@ -624,13 +625,13 @@ $\overline{P}$ 之比，即：
 一个被置于温度为 $T$ 的黑体辐射环境中的天线，
 输出的噪声将与温度为 $T$ 的电阻所产生的热噪声 [\autoref{eq:nyquist-approx}]
 是不可分辨的，该电阻被称为天线的\emph{匹配电阻}.
-据此，可定义\emph{\ac{T-ant}} 为其匹配电阻的温度，即
+据此，可定义\emph{\ac{T-antenna}} 为其匹配电阻的温度，即
 \begin{equation}
   \label{eq:t-ant}
-  \acs{T-ant} \equiv \frac{P_{\nu}}{\acs{kb}} .
+  \acs{T-antenna} \equiv \frac{P_{\nu}}{\acs{kb}} .
 \end{equation}
 结合\autoref{eq:area-eff} 给出的有效接收面积，
-一个流量密度为 $S_{\nu}$ 无偏振辐射源将使天线温度 \acs{T-ant} 上升：
+一个流量密度为 $S_{\nu}$ 无偏振辐射源将使天线温度 \acs{T-antenna} 上升：
 \begin{equation}
   \label{eq:dt-source}
   \Delta T = \frac{A_e S_{\nu}}{2\,\acs{kb}} .
@@ -682,31 +683,31 @@ $\overline{P}$ 之比，即：
 考虑一个最简单的二元准单色干涉仪（如\autoref{fig:interferometer} 所示），
 由两个相同的天线和相关器构成，只测量频率为 $\nu$ 的准单色信号.
 由于辐射源非常遥远，其信号到达干涉仪时为平面波（忽略电离层扰动等影响）.
-同一个波面被两个天线接收之间存在一个时间差，即\emph{\acf{tau-g}}:
+同一个波面被两个天线接收之间存在一个时间差，即\emph{\acf{delay-geo}}:
 \begin{equation}
-  \label{eq:tau-g}
-  \acs{tau-g} = \frac{\B{b} \cdot \hat{\B{s}}}{\acs{speed-light}},
+  \acs{delay-geo} = \frac{\B{b} \cdot \hat{\B{s}}}{\acs{speed-light}},
 \end{equation}
 其中 \acs{speed-light} 是\acl{speed-light}，
 $\B{b}$ 为两天线之间的基线矢量（由天线 1 指向天线 2），
 $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 两个天线接收信号后分别输出电压响应：
 \begin{align}
-  V_1(t) &= V \cos [\omega (t - \acs{tau-g})], \\
+  V_1(t) &= V \cos [\omega (t - \acs{delay-geo})], \\
   V_2(t) &= V \cos (\omega t),
 \end{align}
 其中 $\omega = 2\Cpi\nu$ 为角频率.
 然后，\emph{\acf{ctor}}将两个天线的响应相乘：
 \begin{align}
-  V_1(t) V_2(t) &= V^2 \cos [\omega (t - \acs{tau-g})] \cos (\omega t) \\
-    &= \frac{1}{2} V^2 \left[ \cos (2\omega t - \omega \acs{tau-g})
-      + \cos (\omega \acs{tau-g}) \right].
+  V_1(t) V_2(t)
+    &= V^2 \cos [\omega (t - \acs{delay-geo})] \cos (\omega t) \\
+    &= \frac{1}{2} V^2 \left[ \cos (2\omega t - \omega \acs{delay-geo})
+      + \cos (\omega \acs{delay-geo}) \right].
 \end{align}
 接着，\ac{ctor}再对相乘后的响应进行时间平均 [参见\autoref{eq:ctor-avgtime}]：
 \begin{equation}
   \label{eq:resp-corr}
   R = \langle V_1(t) V_2(t) \rangle
-    = \frac{1}{2} V^2 \cos (\omega \acs{tau-g}).
+    = \frac{1}{2} V^2 \cos (\omega \acs{delay-geo}).
 \end{equation}
 由于天线响应 $V_1$ 和 $V_2$ 正比于辐射源的电场强度以及天线的\ac{gain}
 [参见\autoref{eq:gain}]，
@@ -714,11 +715,13 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 以及 $\sqrt{A_1 A_2}$，其中 $A_1$ 和 $A_2$ 为两个天线的有效接收面积
 [参见\autoref{eq:area-avg}].
 
-由于地球的自转，辐射源的方向 $\hat{\B{s}}$ 发生变化，\acl{tau-g} \acs{tau-g}
-也随之变化，于是\ac{ctor}的输出 $R$ 出现正弦形式的振荡，即\emph{\acf{fringe}}，
+由于地球的自转，辐射源的方向 $\hat{\B{s}}$ 发生变化，
+\acl{delay-geo} \acs{delay-geo} 也随之变化，
+于是\ac{ctor}的输出 $R$ 出现正弦形式的振荡，即\emph{\acf{fringe}}，
 其相位为：
 \begin{equation}
-  \phi = \omega\tau_g = 2\Cpi \left( \frac{b \cos\theta}{\lambda} \right),
+  \phi = \omega \acs{delay-geo}
+    = 2\Cpi \left( \frac{b \cos\theta}{\lambda} \right),
 \end{equation}
 其中 $\theta$ 为方向 $\hat{\B{s}}$ 和基线矢量 $\B{b}$ 之间的夹角.
 于是有
@@ -789,10 +792,10 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 \begin{align}
   \acs{Vis} &= \int \left[ \frac{1}{\Delta\nu}
         \int_{\nu_c-\Delta\nu/2}^{\nu_c+\Delta\nu/2}
-        I(\hat{\B{s}}, \nu) \exp (-2\Cpi\Ci\, \nu\tau_g)
+        I(\hat{\B{s}}, \nu) \exp (-2\Cpi\Ci\, \nu\acs{delay-geo})
       \right] \,\D{\Omega} \\
-    &\approx \int I_{\nu}(\hat{\B{s}}) \sinc (\Delta\nu\,\tau_g)
-      \exp (-2\Cpi\Ci\, \nu_c\tau_g) \,\D{\Omega},
+    &\approx \int I_{\nu}(\hat{\B{s}}) \sinc (\Delta\nu\,\acs{delay-geo})
+      \exp (-2\Cpi\Ci\, \nu_c\acs{delay-geo}) \,\D{\Omega},
   \label{eq:vis-bw}
 \end{align}
 其中 $\sinc(\cdot)$ 为归一化 sinc 函数，定义如下：
@@ -804,26 +807,27 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
       1, & \quad \text{if } x = 0.
     \end{cases}
 \end{equation}
-因此，干涉仪测得的\ac{fringe}幅度减弱至原来的 $\sinc(\Delta\nu\,\tau_g)$ 倍.
-为了最小化该损失，可以给前导天线的输出信号增加\emph{\acf{tau-c}}，
-如\autoref{fig:interferometer-tau0} 所示，并随地球自转而调节 \acs{tau-c}
-使其满足 $|\acs{tau-c} - \acs{tau-g}| \ll (\Delta\nu)^{-1}$.
+因此，干涉仪测得的\ac{fringe}幅度减弱至原来的
+$\sinc(\Delta\nu\,\acs{delay-geo})$ 倍.
+为了最小化该损失，可以给前导天线的输出信号增加\emph{\acf{delay-comp}}，
+如\autoref{fig:interferometer-tau0} 所示，并随地球自转而调节 \acs{delay-comp}
+使其满足 $|\acs{delay-comp} - \acs{delay-geo}| \ll (\Delta\nu)^{-1}$.
 在此情况下，到达\ac{ctor}时两个天线的信号的相位是同步的.
-同时，满足 $\acs{tau-c} = \acs{tau-g}$ 的方向 $\hat{\B{s}}_0$
+同时，满足 $\acs{delay-comp} = \acs{delay-geo}$ 的方向 $\hat{\B{s}}_0$
 称为\emph{\acf{delay-center}}或\emph{\acf{phase-refpos}}.
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.6\textwidth]{interferometer-tau0}
-  \bicaption[\acl*{tau-c} \acs*{tau-c}]{%
-    通过给前导天线（即天线 2）增加\acl*{tau-c}
-    $\acs*{tau-c} \approx \acs*{tau-g}$，
+  \bicaption[\acl*{delay-comp} \acs*{delay-comp}]{%
+    通过给前导天线（即天线 2）增加\acl*{delay-comp}
+    $\acs*{delay-comp} \approx \acs*{delay-geo}$，
     使得两天线的信号在相关运算时相位尽量同步，从而最小化带宽效应对测量条纹的衰减影响.
   }{%
     By introducing the compensating delay
-    $\acs*{tau-c} \approx \acs*{tau-g}$ in the signal path of the leading
-    antenna (i.e., antenna 2), the phases of the two signals are almost
-    in sync when they reach the correlator, hence minimizing the
+    $\acs*{delay-comp} \approx \acs*{delay-geo}$ in the signal path of the
+    leading antenna (i.e., antenna 2), the phases of the two signals are
+    almost in sync when they reach the correlator, hence minimizing the
     attenuation to the measured fringes caused by the finite bandwidth
     effect.
     \\\textcopyright{}
@@ -832,14 +836,16 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
   \label{fig:interferometer-tau0}
 \end{figure}
 
-\acl{tau-g} \acs{tau-g} 会随方向而变化，因此\acl{tau-c} \acs{tau-c}
-只对特定方向 $\hat{\B{s}}_0$ （即\ac{delay-center}）是正好准确的.
-偏离\ac{delay-center}的角度 $\Delta\theta$ 越大，\acl{tau-c} \acs{tau-c}
-的修正效果越差，带宽带来的损失越大，即\emph{\acf{bw-smear}}.
+\acl{delay-geo} \acs{delay-geo} 会随方向而变化，
+因此\acl{delay-comp} \acs{delay-comp} 只对特定方向 $\hat{\B{s}}_0$
+（即\ac{delay-center}）是正好准确的.
+偏离\ac{delay-center}的角度 $\Delta\theta$ 越大，
+\acl{delay-comp} \acs{delay-comp} 的修正效果越差，
+带宽带来的损失越大，即\emph{\acf{bw-smear}}.
 该涂污效应限制了有效的视场大小，为满足：
 \begin{equation}
-  \Delta\nu \Delta\tau_g
-    \approx \Delta\nu \diff{\tau_g}{\theta} \Delta\theta
+  \Delta\nu \Delta\acs{delay-geo}
+    \approx \Delta\nu \diff{\acs{delay-geo}}{\theta} \Delta\theta
     = \frac{b \sin\theta}{\acs{speed-light}} \Delta\nu \Delta\theta
     \ll 1,
 \end{equation}
@@ -852,7 +858,7 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 
 类似地，如果\ac{ctor}的积分时间 $\Delta t$ 过长，则辐射源的位置 $\hat{\B{s}}$
 会因地球自转而发生显著改变（可与 \acs{sb-width} 相比拟），
-导致\acl{tau-c} \acs{tau-c} 的修正效果变差，即\emph{\acf{t-smear}}.
+导致\acl{delay-comp} \acs{delay-comp} 的修正效果变差，即\emph{\acf{t-smear}}.
 一个距离\acl{delay-center} $\Delta\theta$ 的目标的移动速度为
 $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 为了最小化\ac{t-smear}的影响，\ac{ctor}的积分时间 $\Delta t$ 需满足：
