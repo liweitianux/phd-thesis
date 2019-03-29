@@ -237,6 +237,10 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
   \label{fig:intensity-conservation}
 \end{figure}
 
+%---------------------------------------------------------------------
+\subsection{辐射转移}
+
+在自由空间里，即不存在吸收和发射，辐射的\acl*{I-nu} \acs*{I-nu} 保持不变，与距离无关.
 考虑由源发射的一束光线，
 设 $\D{\sigma_1}$ 和 $\D{\sigma_2}$ 是光线上相距为 $r$ 的两个无限小截面，
 如\autoref{fig:intensity-conservation} 所示，
@@ -260,16 +264,12 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
     & = (\acs{I-nu})_2 \left( \frac{\cos\theta_1 \cos\theta_2}{r^2} \right)
       \,\D{\sigma_1} \,\D{\sigma_2} \,\D{\nu} .
 \end{align}
-由于在自由空间里（即没有吸收和发射）能量守恒，即 $\D{P_1} \D{t} = \D{P_2} \D{t}$，
+利用能量守恒，即 $\D{P_1}\,\D{t} = \D{P_2}\,\D{t}$，
 可得：
 \begin{equation}
   \label{eq:intensity-conservation}
   (\acs{I-nu})_1 = (\acs{I-nu})_2 .
 \end{equation}
-所以，在自由空间里\acl*{I-nu} \acs*{I-nu} 沿光线保持不变，与距离无关.
-
-%---------------------------------------------------------------------
-\subsection{辐射转移}
 
 \begin{figure}[htp]
   \centering
@@ -291,8 +291,8 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
   \label{fig:radiative-transfer}
 \end{figure}
 
-当辐射的传播空间中存在吸收和发射时（如\autoref{fig:radiative-transfer} 所示），
-其\acl{I-nu} \acs{I-nu} 会发生改变，具体变化可由\emph{\acf{rt}}方程描述.
+当传播空间中存在吸收和发射时（如\autoref{fig:radiative-transfer} 所示），
+辐射的\acl{I-nu} \acs{I-nu} 会发生改变，具体变化可由\emph{\acf{rt}}方程描述.
 首先考虑吸收情形，一个辐射光子通过介质中一个厚度为 $\D{s}$ 的薄层时被吸收的概率 $\D{p}$ 为：
 \begin{equation}
   \D{p} = \acs{coef-absorption} \,\D{s} ,
