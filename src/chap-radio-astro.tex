@@ -630,6 +630,107 @@ $g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}.
 这就是描述三个 Einstein 系数相互关联的\emph{\ac{detailed-balance}方程}.
 只要知道任何一个 Einstein 系数，就可以据此导出另外两个系数.
 
+%---------------------------------------------------------------------
+\subsection{辐射转移方程}
+
+在考虑辐射转移时，物质的性质是由\acl{coef-emission} \acs{coef-emission}
+和\acl{coef-absorption} \acs{coef-absorption} 描述的.
+对于谱线的辐射转移问题，
+\acs{coef-emission} 和 \acs{coef-absorption} 可使用 Einstein 系数表示出来，
+利用\ac{detailed-balance}方程 [\autoref{eq:detailed-balance}]
+可进一步只使用\ac{em-spontaneous}系数 $A_{21}$
+来描述 \acs{coef-emission} 和 \acs{coef-absorption}，
+这将是非常有用的.
+
+考虑一个在能级 $E_1$ 和 $E_2$ 之间跃迁的热平衡系统，
+原子（或分子）在这两个能级上的布居数密度分别为 $N_1$ 和 $N_2$.
+对于系统中的一个体积元 $\D{V} = \D{s}\,\D{\sigma}$，
+在时间 $\D{t}$、频率范围 $[\nu, \,\nu+\D{\nu}]$、
+沿某一方向的立体角元 $\D{\Omega}$ 内通过\ac{em-spontaneous}产生的能量为：
+\begin{equation}
+  \D{E_{\R{sp}}(\nu)} = h \nu_0 A_{21} N_2 \phi(\nu)
+    \,\D{V}\,\D{t}\,\D{\nu} \left( \frac{\D{\Omega}}{4\Cpi} \right) ,
+\end{equation}
+其中 $\nu_0 = (E_2 - E_1) / h$ 为谱线的中心频率，
+$\phi(\nu)$ 为\acf{line-profile}.
+类似地，体积元 $\D{V}$ 通过\ac{em-stimulated}产生的能量为：
+\begin{equation}
+  \D{E_{\R{st}}(\nu)} = h \nu_0 B_{21} N_2 \phi(\nu) \acs{u-nu}
+    \,\D{V}\,\D{t}\,\D{\nu} \left( \frac{\D{\Omega}}{4\Cpi} \right) ,
+\end{equation}
+以及吸收的能量为：
+\begin{equation}
+  \D{E_a(\nu)} = h \nu_0 B_{12} N_1 \phi(\nu) \acs{u-nu}
+    \,\D{V}\,\D{t}\,\D{\nu} \left( \frac{\D{\Omega}}{4\Cpi} \right) ,
+\end{equation}
+其中
+$\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
+为辐射场的\acl{u-nu} [参见\autoref{eq:spectral-energy-density-iso}].
+在热平衡的情形下，有
+\begin{equation}
+  \D{E_{\R{sp}}(\nu)} + \D{E_{\R{st}}(\nu)} - \D{E_a(\nu)}
+    = \D{\acs{I-nu}}\,\D{\sigma}\,\D{t}\,\D{\nu}\,\D{\Omega} ,
+\end{equation}
+即为含有 Einstein 系数的辐射转移方程：
+\begin{equation}
+  \diff{\acs{I-nu}}{s}
+    = - \left [ \frac{h \nu_0}{\acs{speed-light}}
+      (B_{12} N_1 - B_{21} N_2) \phi(\nu) \right] \acs{I-nu}
+      + \frac{h \nu_0}{4\Cpi} A_{21} N_2 \phi(\nu) .
+\end{equation}
+对比 \autoref{sec:radiative-transfer} 所述的辐射转移方程
+[\autoref{eq:radiative-transfer}]，
+可得 \acs{coef-emission} 和 \acs{coef-absorption} 分别为：
+\begin{align}
+  \acs{coef-emission}
+    & = \frac{h \nu_0}{4\Cpi} A_{21} N_2 \phi(\nu) ,
+  \label{eq:coef-emission-einstein} \\
+  \acs{coef-absorption}
+    & = \frac{h \nu_0}{\acs{speed-light}}
+      (B_{12} N_1 - B_{21} N_2) \phi(\nu) .
+  \label{eq:coef-absorption-einstein1}
+\end{align}
+
+将\ac{detailed-balance}方程 [\autoref{eq:detailed-balance}]
+代入上述两式，可得：
+\begin{equation}
+  \label{eq:emission-absorption-ratio1}
+  \frac{\acs{coef-emission}}{\acs{coef-absorption}}
+    = \frac{2 h \nu_0^3}{\acs{speed-light}^2}
+      \left( \frac{g_2}{g_1} \frac{N_1}{N_2} - 1 \right)^{-1} .
+\end{equation}
+对于局部热平衡的系统，Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 给出：
+\begin{equation}
+  \label{eq:emission-absorption-ratio2}
+  \frac{\acs{coef-emission}}{\acs{coef-absorption}}
+    = B_{\nu}(T)
+    = \frac{2 h \nu_0^3}{\acs{speed-light}^2} \left[
+      \exp\left( \frac{h \nu_0}{\acs{kb} T} \right) - 1 \right]^{-1}.
+\end{equation}
+其中使用了 Planck 辐射定律 [\autoref{eq:planck}].
+比较\autoref{eq:emission-absorption-ratio1}
+和\autoref{eq:emission-absorption-ratio2}，可得：
+\begin{equation}
+  \label{eq:ratio-populations-lte}
+  \frac{N_2}{N_1}
+    = \frac{g_2}{g_1} \exp\left( - \frac{h \nu_0}{\acs{kb} T} \right) .
+\end{equation}
+这说明处于局部热平衡的系统的能级布居与完全热平衡的系统的情形
+[\autoref{eq:ratio-populations-te}] 相同.
+利用\autoref{eq:coef-emission-einstein}、
+\autoref{eq:emission-absorption-ratio1}
+以及\autoref{eq:ratio-populations-lte}，
+可以得到使用\ac{em-spontaneous}系数 $A_{21}$ 表示的 \ac{coef-absorption}：
+\begin{align}
+  \label{eq:coef-absorption-einstein}
+  \acs{coef-absorption}
+    & = \frac{\acs{speed-light}^2}{8\Cpi \nu_0^2} A_{21} N_2
+      \left[ \exp\left( \frac{h \nu_0}{\acs{kb} T} \right) - 1 \right]
+      \phi(\nu)  \\
+    & = \frac{\acs{speed-light}^2}{8\Cpi \nu_0^2} \frac{g_2}{g_1} A_{21} N_1
+      \left[ 1 - \exp\left( -\frac{h \nu_0}{\acs{kb} T} \right) \right]
+      \phi(\nu) .
+\end{align}
 
 %=====================================================================
 \section{天线基础}
