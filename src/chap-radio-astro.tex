@@ -491,6 +491,141 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
 
 
 %=====================================================================
+\section{谱线基础}
+\label{sec:spectral-line}
+
+\emph{\acf{spec-line}}是光谱上的窄（$\Delta\nu \ll \nu$）发射或吸收特征，
+均源自原子或分子的能级跃迁.
+当一个原子或分子从高能级 $E_2$ 跃迁至低能级 $E_1$ 时分发射一个特定频率的光子，
+一群这样的光子便形成了一条\emph{发射线 (emission line)}.
+反过来，如果一个原子或分子从低能级 $E_1$ 跃迁至高能级 $E_2$ 则会吸收一个特定频率的光子，
+这些被吸收的光子通常来自背景的连续谱辐射，
+因此观测到的连续谱上将出现一条\emph{吸收线 (absorption line)}.
+典型的谱线包括电离氢的复合线、中性氢的 21\,cm 超精细结构谱线
+（详见 \autoref{sec:21cm-line}）.
+
+%---------------------------------------------------------------------
+\subsection{Einstein 系数}
+
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{atom-radiation-interactions}
+  \bicaption[原子与辐射场的三种相互作用过程]{%
+    原子与辐射场的三种相互作用过程：
+    \textbf{(a)} \acs*{em-spontaneous}；
+    \textbf{(b)} \acs*{em-stimulated}；
+    \textbf{(c)} 吸收.
+  }{%
+    The three processes that an atom interacts with the radiation field:
+    \textbf{(a)} spontaneous emission;
+    \textbf{(b)} stimulated emission;
+    \textbf{(c)} absorption.
+  }
+  \label{fig:atom-interactions}
+\end{figure}
+
+原子发射和吸收电磁辐射的量子理论是 Niels Bohr 在 1913 年提出的 \cite{bohr1913}，
+接着在 1916 年，Albert Einstein 提出了原子与辐射场的三种相互作用过程
+\cite{einstein1916}，分别为：
+\begin{enumerate}
+\item \emph{\acf{em-spontaneous}}:
+  在没有外部光子的情况下，处在高能级 $E_2$ 的原子自发地向低能级 $E_1$
+  跃迁而发出光子的过程 [如\autoref{fig:atom-interactions}(a) 所示].
+  发出的光子的频率为 $\nu_0 = \Delta E / h = (E_2 - E_1) / h$，
+  其中 $h$ 为 Planck 常数.
+  此类跃迁的速率正比与原子的始态布居数 $N_2$，即：
+  \begin{equation}
+    \label{eq:rate-em-spontaneous}
+    \left( \diff{N_{21}}{t} \right)_{\R{sp}} = A_{21} N_2 .
+  \end{equation}
+
+\item \emph{\acf{em-stimulated}}:
+  在外部频率为 $\nu_0$ 的光子的激励下，处在高能级 $E_2$ 的原子向低能级 $E_1$
+  跃迁而发出光子的过程 [如\autoref{fig:atom-interactions}(b) 所示].
+  该过程产生的光子与入射光子具有相同的频率、相位、传播方向和偏振态等性质，
+  这就是\emph{\acf{laser}}的基本原理.
+  该过程的跃迁速率正比与原子的始态布居数 $N_2$
+  以及辐射场的\acl{u-nu} $\acs{u-nu}(\nu_0)$，即：
+  \begin{equation}
+    \label{eq:rate-em-stimulated}
+    \left( \diff{N_{21}}{t} \right)_{\R{st}}
+      = B_{21} N_2 \, \acs{u-nu}(\nu_0) .
+  \end{equation}
+
+\item \emph{吸收}:
+  处在低能级 $E_1$ 的原子吸收一个频率为 $\nu_0$ 的光子向高能级 $E_2$ 跃迁的过程
+  [如\autoref{fig:atom-interactions}(c) 所示].
+  类似地，该过程的跃迁速率正比与原子的始态布居数 $N_1$
+  以及辐射场的\acl{u-nu} $\acs{u-nu}(\nu_0)$，即：
+  \begin{equation}
+    \label{eq:rate-absorption}
+    \diff{N_{12}}{t} = B_{12} N_1 \, \acs{u-nu}(\nu_0) .
+  \end{equation}
+\end{enumerate}
+上述\autoref{eq:rate-em-spontaneous}、\autoref{eq:rate-em-stimulated}
+和\autoref{eq:rate-absorption} 中的比例系数 $A_{21}$、$B_{21}$ 和 $B_{12}$
+统称为\emph{Einstein 系数}.
+
+考虑一个处于完全热平衡的原子系统，
+则同一对能级 $E_1$ 和 $E_2$ 之间的三种跃迁过程应满足\emph{\acf{detailed-balance}}:
+\begin{equation}
+  \label{eq:detailed-balance1}
+  \left( \diff{N_{21}}{t} \right)_{\R{sp}}
+    + \left( \diff{N_{21}}{t} \right)_{\R{st}} = \diff{N_{12}}{t} ,
+\end{equation}
+即
+\begin{equation}
+  \label{eq:detailed-balance}
+  A_{21} N_2 + B_{21} N_2 \, \acs{u-nu}(\nu_0)
+    = B_{12} N_1 \, \acs{u-nu}(\nu_0) .
+\end{equation}
+同时，原子在两能级上的布居服从 Boltzmann 分布：
+\begin{equation}
+  \label{eq:ratio-populations}
+  \frac{N_2}{N_1}
+    = \frac{g_2}{g_1} \exp\left( - \frac{E_2-E_1}{\acs{kb} T} \right)
+    = \frac{g_2}{g_1} \exp\left( - \frac{h \nu_0}{\acs{kb} T} \right) ,
+\end{equation}
+其中 $T$ 为系统的温度，
+$g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}.
+
+由\autoref{eq:detailed-balance} 可解出辐射场的能量谱分布：
+\begin{equation}
+  \label{eq:radiation-spec1}
+  \acs{u-nu}(\nu_0) = \frac{A_{21}}{(N_1/N_2) B_{12} - B_{21}} ,
+\end{equation}
+代入\autoref{eq:ratio-populations} 可进一步得到：
+\begin{equation}
+  \label{eq:radiation-spec1}
+  \acs{u-nu}(\nu_0) = A_{21} \left[ \frac{g_1}{g_2} B_{12}
+    \exp\left( \frac{h \nu_0}{\acs{kb} T} \right) - B_{21} \right]^{-1} .
+\end{equation}
+
+另一方面，辐射场的能谱分布由 Planck 辐射定律 [\autoref{eq:planck}] 给出，
+再根据\autoref{eq:spectral-energy-density-iso}，可知辐射场的\acl{u-nu}为：
+\begin{equation}
+  \label{eq:radiation-spec2}
+  \acs{u-nu}(\nu_0) = \frac{4\Cpi}{\acs{speed-light}}
+    \frac{2 h \nu_0^3}{\acs{speed-light}^2}
+    \left[ \exp\left( \frac{h \nu_0}{\acs{kb} T} \right) - 1 \right]^{-1} .
+\end{equation}
+联合上式和\autoref{eq:radiation-spec1}，可得
+\begin{equation}
+  \frac{A_{21}}{B_{21}} \left[ \frac{g_1}{g_2} \frac{B_{12}}{B_{21}}
+    \exp\left( \frac{h \nu_0}{\acs{kb} T} \right) - 1 \right]^{-1}
+  = \frac{8\Cpi h \nu_0^3}{\acs{speed-light}^3}
+    \left[ \exp\left( \frac{h \nu_0}{\acs{kb} T} \right) - 1 \right]^{-1} .
+\end{equation}
+上式必须对任意温度 $T$ 均成立，因此可导出：
+\begin{align}
+  \frac{g_1}{g_2} \frac{B_{12}}{B_{21}} & = 1 , \\
+  \frac{A_{21}}{B_{21}} & = \frac{8\Cpi h \nu_0^3}{\acs{speed-light}^3} .
+\end{align}
+这就是描述三个 Einstein 系数相互关联的\emph{\ac{detailed-balance}方程}.
+只要知道任何一个 Einstein 系数，就可以据此导出另外两个系数.
+
+
+%=====================================================================
 \section{天线基础}
 \label{sec:antenna}
 
