@@ -3,6 +3,14 @@
 %% Creative Commons BY 4.0
 %%
 
+\DeclareAcronym{bw-synthesized}{
+  short = \ensuremath{\theta_s},
+  long = 综合波束宽度,
+  foreign = synthesized beamwidth,
+  sort = theta-s,
+  class = symbol,
+}
+
 \DeclareAcronym{coef-absorption}{
   short = \ensuremath{\kappa},
   long = 吸收系数,
@@ -16,34 +24,6 @@
   long = 发射系数,
   foreign = emission coefficient,
   sort = j-nu,
-  class = symbol,
-}
-
-\DeclareAcronym{DA}{
-  short = \ensuremath{D_{\!A}},
-  long = 角直径距离,
-  foreign = angular diameter distance,
-  class = symbol,
-}
-
-\DeclareAcronym{DL}{
-  short = \ensuremath{D_{\!L}},
-  long = 光度距离,
-  foreign = luminosity distance,
-  class = symbol,
-}
-
-\DeclareAcronym{DM}{
-  short = \ensuremath{D_{\!M}},
-  long = 横向共动距离,
-  foreign = transverse comoving distance,
-  class = symbol,
-}
-
-\DeclareAcronym{Dz}{
-  short = \ensuremath{D(z)},
-  long = 增长因子,
-  foreign = growth factor,
   class = symbol,
 }
 
@@ -70,10 +50,27 @@
   class = symbol,
 }
 
-\DeclareAcronym{Delta-vir}{
-  short = \ensuremath{\Delta_{\R{vir}}(z)},
-  long = 星系团的平均过密度,
-  foreign = average overdensity,
+\DeclareAcronym{distance-angular}{
+  short = \ensuremath{D_{\!A}},
+  long = 角直径距离,
+  foreign = angular diameter distance,
+  sort = D-A,
+  class = symbol,
+}
+
+\DeclareAcronym{distance-luminosity}{
+  short = \ensuremath{D_{\!L}},
+  long = 光度距离,
+  foreign = luminosity distance,
+  sort = D-L,
+  class = symbol,
+}
+
+\DeclareAcronym{distance-comoving}{
+  short = \ensuremath{D_{\!M}},
+  long = 横向共动距离,
+  foreign = transverse comoving distance,
+  sort = D-M,
   class = symbol,
 }
 
@@ -87,6 +84,7 @@
   short = \ensuremath{\nu},
   long = 频率,
   sort = nu,
+  first-style = short,
   class = symbol,
 }
 
@@ -105,12 +103,14 @@
 \DeclareAcronym{H0}{
   short = \ensuremath{H_0},
   long = 当前的 Hubble 常数,
+  sort = H-0,
   class = symbol,
 }
 
 \DeclareAcronym{Hz}{
   short = \ensuremath{H(z)},
   long = 红移为 $z$ 时的 Hubble 常数,
+  sort = H-z,
   class = symbol,
 }
 
@@ -125,6 +125,7 @@
 \DeclareAcronym{kb}{
   short = \ensuremath{k_B},
   long = Boltzmann 常数,
+  sort = k-B,
   class = symbol,
 }
 
@@ -191,6 +192,14 @@
   class = symbol,
 }
 
+\DeclareAcronym{overdensity-vir}{
+  short = \ensuremath{\Delta_{\R{vir}}},
+  long = 星系团的平均过密度,
+  foreign = average overdensity,
+  sort = Delta-vir,
+  class = symbol,
+}
+
 \DeclareAcronym{r-core}{
   short = \ensuremath{r_c},
   long = 核半径,
@@ -209,6 +218,15 @@
   short = \ensuremath{r_{\R{vir}}},
   long = 维里半径,
   foreign = virial radius,
+  class = symbol,
+}
+
+\DeclareAcronym{redshift}{
+  short = \ensuremath{z},
+  long = 红移,
+  foreign = redshift,
+  sort = z,
+  first-style = short,
   class = symbol,
 }
 
@@ -241,25 +259,18 @@
   class = symbol,
 }
 
-\DeclareAcronym{sb-width}{
-  short = \ensuremath{\theta_s},
-  long = 综合波束宽度,
-  foreign = synthesized beamwidth,
-  sort = theta-s,
+\DeclareAcronym{sigma8}{
+  short = \ensuremath{\sigma_8},
+  long = 原初扰动在 \SI{8}{\per\hubble\Mpc} 尺度上的幅度,
+  sort = sigma-8,
   class = symbol,
 }
 
-\DeclareAcronym{sidx}{
+\DeclareAcronym{spec-index}{
   short = \ensuremath{\alpha},
   long = 谱指数,
   foreign = spectral index,
   sort = alpha,
-  class = symbol,
-}
-
-\DeclareAcronym{sigma8}{
-  short = \ensuremath{\sigma_8},
-  long = 原初扰动在 \SI{8}{\per\hubble\Mpc} 尺度上的幅度,
   class = symbol,
 }
 
@@ -303,12 +314,7 @@
   short = \ensuremath{\symscr{V}},
   long = 复可见度,
   foreign = complex visibility,
-  class = symbol,
-}
-
-\DeclareAcronym{z}{
-  short = \ensuremath{z},
-  long = 红移,
+  sort = V,
   class = symbol,
 }
 

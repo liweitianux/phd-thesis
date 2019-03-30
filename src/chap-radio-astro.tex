@@ -947,10 +947,10 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 \begin{equation}
   \diff{\phi}{\theta} = 2\Cpi \left( \frac{b \sin\theta}{\lambda} \right),
 \end{equation}
-可得单个\ac{fringe}的宽度，即干涉仪的\emph{\acf{sb-width}}：
+可得单个\ac{fringe}的宽度，即干涉仪的\emph{\acf{bw-synthesized}}：
 \begin{equation}
-  \label{eq:sb-width}
-  \acs{sb-width} = \frac{\lambda}{b \sin\theta},
+  \label{eq:bw-synthesized}
+  \acs{bw-synthesized} = \frac{\lambda}{b \sin\theta},
 \end{equation}
 此参数描述了干涉仪的角分辨能力.
 
@@ -1070,13 +1070,13 @@ $\sinc(\Delta\nu\,\acs{delay-geo})$ 倍.
 \end{equation}
 则要求：
 \begin{equation}
-  \Delta\theta \ll \frac{\nu \acs{sb-width}}{\Delta\nu}.
+  \Delta\theta \ll \frac{\nu \acs{bw-synthesized}}{\Delta\nu}.
 \end{equation}
 另一个解决\ac{bw-smear}的方法是将宽频带划分为一系列足够窄的频率通道
 （如每个通道仅宽几十 \si{\kHz}），每个通道的信号都被独立地相关运算得到\ac{vis}.
 
 类似地，如果\ac{ctor}的积分时间 $\Delta t$ 过长，则辐射源的位置 $\hat{\B{s}}$
-会因地球自转而发生显著改变（可与 \acs{sb-width} 相比拟），
+会因地球自转而发生显著改变（可与 \acs{bw-synthesized} 相比拟），
 导致\acl{delay-comp} \acs{delay-comp} 的修正效果变差，即\emph{\acf{t-smear}}.
 一个距离\acl{delay-center} $\Delta\theta$ 的目标的移动速度为
 $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.

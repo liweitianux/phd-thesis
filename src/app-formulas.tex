@@ -13,7 +13,7 @@
 \ac{delta-crit}随红移的变化关系可表示为 \cite{kitayama1996,randall2002}：
 \begin{equation}
   \label{eq:delta-crit}
-  \acs{delta-crit} = \frac{D(z=0)}{\acs{Dz}}
+  \acs{delta-crit} = \frac{D(z=0)}{D(z)}
     \left[ \frac{3 (12\Cpi)^{2/3}}{20} \right]
     \left[1 + 0.0123 \log_{10} \acs{Ofz} \right] ,
 \end{equation}
@@ -22,7 +22,7 @@
   \label{eq:omega-fz}
   \acs{Ofz} = \frac{\acs{Om0} (1+z)^3}{\acs{Om0} (1+z)^3 + \acs{Ol0}} ,
 \end{equation}
-\acs{Dz} 是\acl{Dz}，可由下述公式计算
+$D(z)$ 是增长因子 (growth factor)，可由下述公式计算
 [参见 \citeay{peebles1980}, 式~(13.6)]：
 \begin{equation}
   \label{eq:growth-factor}
@@ -47,19 +47,19 @@ $x = x_0 \big/ (1+z)$.
 其中 \acs{G} 是\acl{G}.
 
 位于红移 $z$ 处的星系团的\acf{r-vir}定义为该半径范围内星系团的平均密度
-是当时宇宙临界密度的 \acs{Delta-vir} 倍，
+是当时宇宙临界密度的 \acs{overdensity-vir} 倍，
 由下式给出：
 \begin{equation}
   \label{eq:radius-virial}
   \acs{r-vir}(z) = \left[
-    \frac{3 \acs{M-vir}}{4\Cpi \acs{Delta-vir} \acs{rho-crit}(z)}
+    \frac{3 \acs{M-vir}}{4\Cpi \acs{overdensity-vir} \acs{rho-crit}(z)}
   \right]^{1/3},
 \end{equation}
 其中 \acs{M-vir} 是星系团的\acl{M-vir}（通常用作其总引力质量），
-\acf{overdensity} \acs{Delta-vir} 为\cite{bryan1998}：
+\acf{overdensity} \acs{overdensity-vir} 为 \cite{bryan1998}：
 \begin{equation}
   \label{eq:delta-vir}
-  \acs{Delta-vir} = 18\Cpi^2 + 82 x - 39 x^2,
+  \acs{overdensity-vir}(z) = 18\Cpi^2 + 82 x - 39 x^2,
 \end{equation}
 其中 $x \equiv \Omega_f(z) - 1$ [\autoref{eq:omega-fz}].
 
@@ -71,7 +71,7 @@ $x = x_0 \big/ (1+z)$.
 星系团的平均密度是当时宇宙临界密度的 200 和 500 倍.
 于是，$M_{200}$ 和 $M_{500}$ 分别为 $r_{200}$ 和 $r_{500}$ 之内的总质量.
 一般可认为 $r_{200} \simeq \acs{r-vir}$
-以及 $r_{500} \simeq 0.65 r_{200}$ \cite{ettori2009}，
+以及 $r_{500} \simeq 0.65 \, r_{200}$ \cite{ettori2009}，
 因此 $M_{200} \simeq \acs{M-vir}$，
 而 $M_{200}$ 和 $M_{500}$ 之间的换算可参考下述方法.
 
@@ -115,22 +115,24 @@ $A = 5.71$, $B = -0.084$, 以及 $C = 0.47$.
       \!\left( \sqrt{\frac{\Omega_m^{-1} - 1}{(1+z)^3}} \right).
 \end{align}
 
-一个物体的\acf{DA}定义为该物体的物理横向尺寸与其对观测者的张角
+一个物体的\acf{distance-angular}定义为该物体的物理横向尺寸与其对观测者的张角
 （以 \si{radian} 为单位）之比.
 需要注意的是，由于宇宙膨胀的原因，该距离并不随红移单调递增，
 即相同物理尺寸的物体位于更高红移（如 $z > 1$）处时反而看起来更大 \cite{hogg1999}.
-一个物体的\acf{DL}由以下关系定义：
+一个物体的\acf{distance-luminosity}由以下关系定义：
 \begin{equation}
   \label{eq:dl-def}
-  \acs{DL} \equiv \sqrt{\frac{\acs{L-bolo}}{4\Cpi \acs{S-bolo}}},
+  \acs{distance-luminosity} \equiv
+    \sqrt{\frac{\acs{L-bolo}}{4\Cpi \acs{S-bolo}}} ,
 \end{equation}
 其中 \acs{L-bolo} 是该物体的本征\acl{L-bolo}，
 \acs{S-bolo} 是测得的\acl{S-bolo}（对全频段积分）.
-对于一个位于红移 $z$ 的物体，其\acl{DL}与\acl{DA}之间存在以下关联
+对于一个位于红移 $z$ 的物体，
+其\acl{distance-luminosity}与\acl{distance-angular}之间存在以下关联
 \cite{weinberg1972,hogg1999,ellis2007}：
 \begin{equation}
   \label{eq:dl-da}
-  \acs{DL}(z) = (1+z)^2 \acs{DA}(z).
+  \acs{distance-luminosity}(z) = (1+z)^2 \acs{distance-angular}(z) .
 \end{equation}
 
 
