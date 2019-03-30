@@ -226,13 +226,13 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 
 辐射场的\emph{\acf{u-nu}}是指每单位体积的谱能量 (spectral energy)
 其 \ac{si} 单位为 [\si{\joule\per\cubic\meter\per\hertz}].
-取辐射场中的一个体积元 $\D{w}$，对于来自某一方向的立体角元 $\D{\Omega}$
+取辐射场中的一个体积元 $\D{V}$，对于来自某一方向的立体角元 $\D{\Omega}$
 的一束辐射 $\acs{I-nu}(\theta,\phi)$，
-可认为体积元 $\D{w}$ 具有长度 $\D{s}$ 以及横截面积 $\D{\sigma}$，
-即 $\D{w} = \D{s}\,\D{\sigma}$，
+可认为体积元 $\D{V}$ 具有长度 $\D{s}$ 以及横截面积 $\D{\sigma}$，
+即 $\D{V} = \D{s}\,\D{\sigma}$，
 于是这束辐射 $\acs{I-nu}(\theta,\phi)$ 对该体积元的谱能量贡献为：
 \begin{equation}
-  \D{\acs{u-nu}}\,\D{w}
+  \D{\acs{u-nu}}\,\D{V}
     = \acs{I-nu}(\theta,\phi) \,\D{\Omega}\,\D{\sigma}
       \left( \frac{\D{s}}{\acs{speed-light}} \right) ,
 \end{equation}
@@ -253,6 +253,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 
 %---------------------------------------------------------------------
 \subsection{辐射转移}
+\label{sec:radiative-transfer}
 
 \begin{figure}[htp]
   \centering
@@ -377,7 +378,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 \end{equation}
 易知 \acs{coef-emission} 的单位为
 [\si{\watt\per\cubic\meter\per\hertz\per\steradian}].
-综合上式和\autoref{eq:rt-absorption}，可得\emph{\ac{rt}方程}为：
+综合上式和\autoref{eq:rt-absorption}，可得\emph{\ac{rt}方程}：
 \begin{equation}
   \label{eq:radiative-transfer}
   \diff{\acs{I-nu}}{s} =
@@ -575,13 +576,13 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
 \end{equation}
 即
 \begin{equation}
-  \label{eq:detailed-balance}
+  \label{eq:detailed-balance2}
   A_{21} N_2 + B_{21} N_2 \, \acs{u-nu}(\nu_0)
     = B_{12} N_1 \, \acs{u-nu}(\nu_0) .
 \end{equation}
 同时，原子在两能级上的布居服从 Boltzmann 分布：
 \begin{equation}
-  \label{eq:ratio-populations}
+  \label{eq:ratio-populations-te}
   \frac{N_2}{N_1}
     = \frac{g_2}{g_1} \exp\left( - \frac{E_2-E_1}{\acs{kb} T} \right)
     = \frac{g_2}{g_1} \exp\left( - \frac{h \nu_0}{\acs{kb} T} \right) ,
@@ -589,12 +590,11 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
 其中 $T$ 为系统的温度，
 $g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}.
 
-由\autoref{eq:detailed-balance} 可解出辐射场的能量谱分布：
+由\autoref{eq:detailed-balance2} 可解出辐射场的能量谱分布：
 \begin{equation}
-  \label{eq:radiation-spec1}
   \acs{u-nu}(\nu_0) = \frac{A_{21}}{(N_1/N_2) B_{12} - B_{21}} ,
 \end{equation}
-代入\autoref{eq:ratio-populations} 可进一步得到：
+代入\autoref{eq:ratio-populations-te} 可进一步得到：
 \begin{equation}
   \label{eq:radiation-spec1}
   \acs{u-nu}(\nu_0) = A_{21} \left[ \frac{g_1}{g_2} B_{12}
@@ -617,10 +617,16 @@ $g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}.
     \left[ \exp\left( \frac{h \nu_0}{\acs{kb} T} \right) - 1 \right]^{-1} .
 \end{equation}
 上式必须对任意温度 $T$ 均成立，因此可导出：
-\begin{align}
-  \frac{g_1}{g_2} \frac{B_{12}}{B_{21}} & = 1 , \\
-  \frac{A_{21}}{B_{21}} & = \frac{8\Cpi h \nu_0^3}{\acs{speed-light}^3} .
-\end{align}
+\begin{equation}
+  \label{eq:detailed-balance}
+  \left\{
+    \begin{aligned}
+      \frac{g_1}{g_2} \frac{B_{12}}{B_{21}} & = 1 , \\
+      \frac{A_{21}}{B_{21}} & =
+        \frac{8\Cpi h \nu_0^3}{\acs{speed-light}^3} .
+    \end{aligned}
+  \right.
+\end{equation}
 这就是描述三个 Einstein 系数相互关联的\emph{\ac{detailed-balance}方程}.
 只要知道任何一个 Einstein 系数，就可以据此导出另外两个系数.
 
