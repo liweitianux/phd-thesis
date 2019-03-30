@@ -734,6 +734,80 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
       \phi(\nu) .
 \end{align}
 
+%---------------------------------------------------------------------
+\subsection{激发温度}
+
+一个二能级系统即使未处于局部热平衡状态，
+仍然可以使用下式定义其\emph{\acf{T-excitation}}：
+\begin{equation}
+  \label{eq:t-excitation-def}
+  \frac{N_2}{N_1} \equiv \frac{g_2}{g_1}
+    \exp\left(- \frac{E_2-E_1}{\acs{kb} \acs{T-excitation}} \right)
+    = \exp\left(- \frac{h \nu_0}{\acs{kb} \acs{T-excitation}} \right) .
+\end{equation}
+该温度 \acs{T-excitation} 描述了两能级的布居数 $N_2$ 和 $N_1$ 之比，
+由系统的辐射、\ac{coll-excitation}和\ac{coll-deexcitation} 三者之间的平衡决定.
+
+在单位时间、单位体积内，如果碰撞引发 $N_1 C_{12}$ 次从低能级 $E_1$ 到高能级 $E_2$
+的激发以及 $N_2 C_{21}$ 次从 $E_2$ 到 $E_1$ 的退激，
+则\autoref{eq:detailed-balance2} 成为：
+\begin{equation}
+  \label{eq:detailed-balance-collison1}
+  N_2 (A_{21} + B_{21} \,\acs{u-nu}(\nu_0) + C_{21})
+    = N_1 (B_{12} \,\acs{u-nu}(\nu_0) + C_{12}) ,
+\end{equation}
+并且\ac{detailed-balance}要求：
+\begin{equation}
+  \label{eq:detailed-balance-collison2}
+  N_1 C_{12} = N_2 C_{21} .
+\end{equation}
+联合\autoref{eq:radiation-spec2} 和\autoref{eq:detailed-balance} 可得：
+\begin{equation}
+  \label{eq:tex-coefs-b}
+  \left\{
+  \begin{aligned}
+    B_{21} \,\acs{u-nu}(\nu_0) & =
+      A_{21} \left[ \exp\left(
+        \frac{h \nu_0}{\acs{kb} T_b} \right) - 1 \right]^{-1} , \\
+    B_{12} \,\acs{u-nu}(\nu_0) & =
+      A_{21} \frac{g_2}{g_1} \left[ \exp\left(
+        \frac{h \nu_0}{\acs{kb} T_b} \right) - 1 \right]^{-1} ,
+  \end{aligned}
+  \right.
+\end{equation}
+其中 $T_b$ 为系统环境辐射的\ac{T-brightness}.
+另外，利用\autoref{eq:ratio-populations-lte}
+和\autoref{eq:detailed-balance-collison2} 可得：
+\begin{equation}
+  \label{eq:tex-coefs-c}
+  C_{12} = \frac{g_2}{g_1} C_{21}
+    \exp\left( - \frac{h \nu_0}{\acs{kb} T_k} \right) ,
+\end{equation}
+其中 $T_k$ 为系统（通常为气体）的运动温度 (kinetic temperature).
+将\autoref{eq:tex-coefs-b}和\autoref{eq:tex-coefs-c}
+代入\autoref{eq:detailed-balance-collison1}，整理可得：
+\begin{equation}
+  \frac{N_2\,g_1}{N_1\,g_2} =
+    \frac{A_{21} + C_{21} \exp\left( -\frac{h \nu_0}{\acs{kb} T_k} \right)
+      \left[ \exp\left( \frac{h \nu_0}{\acs{kb} T_b} \right) - 1 \right]
+    }{A_{21} \exp\left( \frac{h \nu_0}{\acs{kb} T_b} \right) + C_{21}
+      \left[ \exp\left( \frac{h \nu_0}{\acs{kb} T_b} \right) - 1 \right]} .
+\end{equation}
+最后，将上式代入\autoref{eq:t-excitation-def}，得到：
+\begin{equation}
+  \label{eq:t-excitation}
+  \exp\left(- \frac{h \nu_0}{\acs{kb} \acs{T-excitation}} \right) =
+    \exp\left( -\frac{h \nu_0}{\acs{kb} T_b} \right)
+    \frac{A_{21} + C_{21} \exp\left( -\frac{h \nu_0}{\acs{kb} T_k} \right)
+      \left[ \exp\left( \frac{h \nu_0}{\acs{kb} T_b} \right) - 1 \right]
+    }{A_{21} + C_{21}
+      \left[ 1 - \exp\left( -\frac{h \nu_0}{\acs{kb} T_b} \right) \right]} .
+\end{equation}
+从上式可以看出，
+如果 $A_{21} \gg C_{21}$，则 $\acs{T-excitation} \to T_b$；
+反之，如果 $A_{21} \ll C_{21}$，则 $\acs{T-excitation} \to T_k$.
+
+
 %=====================================================================
 \section{天线基础}
 \label{sec:antenna}
