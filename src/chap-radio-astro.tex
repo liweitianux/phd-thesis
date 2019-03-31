@@ -1326,8 +1326,8 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 这可进一步分为两种情形：
 (1) 干涉阵列的天线只沿东西方向分布，如 \ac{wsrt}，尽管地球自转，
 所有基线矢量均落在同一垂直于地球自转轴的平面内；
-(2) 虽然干涉阵列的天线分布在一个二维平面，如 \autoref{ssec:miteor}
-将介绍的 \ac*{miteor}，但只考虑瞬时观测.
+(2) 虽然干涉阵列的天线分布在一个二维平面，
+如 \autoref{sec:miteor} 将介绍的 \ac*{miteor}，但只考虑瞬时观测.
 此时，可以选取合适的坐标系使得 $w = 0$，于是\autoref{eq:vis-uvw}
 变成二维 Fourier 变换，利用其逆变换可得目标的亮度分布为：
 \begin{equation}
@@ -1374,8 +1374,9 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 因此，这两种情况可理解为相同近似条件的不同表现形式 \cite{clark1999}.
 如果无法满足以上两种情况，比如大视场成像，则需要采用专门的成像方法
 \cite{cornwell1992,sault2007}，
-比如 \ac{w-proj}法 \cite{cornwell2008}、\ac{w-stack}法 \cite{humphreys2011}
-（将在 \autoref{ssec:imaging} 使用的 \texttt{WSClean} 成像软件实现了该方法
+比如 \ac{w-proj}法 \cite{cornwell2008}、
+\ac{w-stack}法 \cite{humphreys2011}
+（将在 \autoref{sec:imaging} 使用的 \texttt{WSClean} 成像软件实现了该方法
 \cite{offringa2014,offringa2017}）.
 
 %---------------------------------------------------------------------
@@ -1694,7 +1695,7 @@ $\tau$ 越大，$\sigma_T$ 越小，则达到的灵敏度越高.
 
 %---------------------------------------------------------------------
 \subsection{MITEoR}
-\label{ssec:miteor}
+\label{sec:miteor}
 
 \acf{miteor} 是一个使用\ac{fftt} 新技术\cite{tegmark2009,tegmark2010}的先导阵列，
 由 64 个按 8 行 8 列规则分布的全同双极化天线构成（\autoref{fig:miteor}），
@@ -1702,9 +1703,9 @@ $\tau$ 越大，$\sigma_T$ 越小，则达到的灵敏度越高.
 \cite{zheng2014}.
 利用这种天线布局方式，可以直接对天线采集信号运用\ac{fft}进行成像，
 避免了传统干涉阵列耗时的天线/站点间两两相关运算，
-将计算复杂度由 $O(N_{\!A}^2)$ 显著降为 $O(\acs{N-ant} \log\acs{N-ant})$，
+将计算复杂度由 $O(\acs{N-ant}^2)$ 显著降为 $O(\acs{N-ant} \log\acs{N-ant})$，
 其中 \acs{N-ant} 为\acl{N-ant}；
-同时还将数据存储压力从 $O(N_{\!A}^2)$ 大幅减轻至 $O(\acs{N-ant})$.
+同时还将数据存储压力从 $O(\acs{N-ant}^2)$ 大幅减轻至 $O(\acs{N-ant})$.
 如此可以极大地降低建设和运行成本，非常有利于建设超大规模的干涉阵列，
 实现极高的灵敏度.
 此外，阵列中的大量冗余基线能为系统自校准提供有效帮助 \cite{dillon2016}.
