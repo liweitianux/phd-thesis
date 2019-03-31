@@ -23,23 +23,75 @@
 
 %---------------------------------------------------------------------
 \subsection{21\texorpdfstring{\,}{ }cm~谱线}
+\label{sec:21cm-line}
 
-中性氢的 21\,cm 谱线
+中性氢原子的原子核（即质子）和电子均有 1/2 \ac{spin}，
+因此均具有相应的内禀磁矩 (intrinsic magnetic moment):
+\begin{align}
+  \B{\mu}_p & = |g_p| \frac{\acs{magneton-n}}{\acs{h-bar}} \B{S}_p , \\
+  \B{\mu}_e & = - |g_e| \frac{\acs{magneton-b}}{\acs{h-bar}} \B{S}_e ,
+\end{align}
+其中
+\ac{h-bar} 为\acl{h-bar}，
+$\ac{magneton-n} = e \ac{h-bar} / (2 \ac{mass-p})$ 为\acl{magneton-n}，
+$\ac{magneton-b} = e \ac{h-bar} / (2 \ac{mass-e})$ 为 \acl{magneton-b}，
+$g_p$ 和 $g_e$ 分别为质子和电子的 $g$ 因子，
+$\B{S}_p$ 和 $\B{S}_e$ 分别为质子和电子的自旋.
+电子带负电，所以磁矩方向与其自旋方向相反.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{hydrogen-spinflip}
+  \bicaption[氢原子的自旋翻转跃迁]{%
+    氢原子在基态的两个超精细分裂能级之间发生自旋翻转跃迁，产生\acs*{21cmline}.
+  }{%
+    An hydrogen atom makes a spin-flip transition between the two
+    hyperfine levels of the ground state, emitting the \acl*{21cmline}.
+    \\\textcopyright{}
+    Tiltec,
+    \url{https://en.wikipedia.org/wiki/File:Hydrogen-SpinFlip.svg},
+    (2019-03-31), 公有领域.
+  }
+  \label{fig:hi-spinflip}
+\end{figure}
+
+由于质子和电子的自旋相互作用，氢原子的\ac{ground-state}
+发生\ac{hyperfine-splitting}成为两个态：
+(1) 质子的自旋 $\B{S}_p$ 和电子的自旋 $\B{S}_e$ 平行，总角动量 $F = 1$;
+(2) $\B{S}_p$ 和 $\B{S}_e$ 反平行，总角动量 $F = 0$.
+想像两个共中心的载流线圈，系统的稳定状态（即能量最低）为两个线圈的电流方向相同，
+即两个载流线圈的磁矩平行.
+将此应用于上述两个态，可知 $F = 1$ 态（即质子和电子的自旋反平行、磁矩平行）
+的能量比 $F = 0$ 态更高 \cite{griffiths1982}.
+当氢原子从 $F = 1$ 态跃迁到 $F = 0$ 态时，
+将产生频率约为 $\nu = \SI{1420}{\MHz}$ 的辐射，
+对应的波长约为 $\lambda = \SI{21}{\cm}$，因此称为\emph{\acf{21cmline}}.
+此跃迁过程亦称为\emph{\acf{sft}}，如\autoref{fig:hi-spinflip} 所示.
+对于 $F = 1$ 态（即上能级），磁量子数 $m$ 可取 $-1, 0, 1$，
+因此这个态的\ac{dod}为 3，称为\ac{triplet}；
+对于 $F = 0$ 态（即下能级），磁量子数 $m$ 只能取 0，因此这个态是\ac{singlet}.
+
+中性氢的 \ac{21cmline}%
 首次由 Hendrik Christoffel van de Hulst 在 1945 年提出 \cite{vanDeHulst1945}，
 并由 Harold Ewen 和 Ed Purcell 在 1951 年观测到 \cite{ewen1951}.
+该谱线的频率是测量最精确的几个物理量之一 \cite{hellwig1970,essen1971}：
+\begin{equation}
+  \label{eq:hi-line-frequency}
+  \nu = \SI{1420405751.7667 +- 0.0009}{\Hz} ,
+\end{equation}
+对应真空中的波长为：
+\begin{equation}
+  \label{eq:hi-line-wavelength}
+  \lambda = \SI{21.1061140542}{\cm} .
+\end{equation}
 
-简并度 (degeneracy factor)
+%---------------------------------------------------------------------
+\subsection{自旋温度}
+
+
 固有距离 (proper distance)
 出射亮度 (emergent brightness)
 视亮度 (apparent brightness)
-
-physical theory ...
-EoR observation principle ...
-delta-Tb (spin temperature) ...
-
-
-%---------------------------------------------------------------------
-\subsection{亮温度}
 
 21 cm 信号平均强度随红移和频率（亦即宇宙年龄）的变化规律.
 在最初的宇宙黑暗时期，重子物质与 CMB 光子脱耦并随宇宙膨胀而冷却，结构也开始形成，
