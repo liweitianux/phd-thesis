@@ -637,7 +637,7 @@ $g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}.
 
 在考虑辐射转移时，物质的性质是由\acl{coef-emission} \acs{coef-emission}
 和\acl{coef-absorption} \acs{coef-absorption} 描述的.
-对于谱线的辐射转移问题，
+对于谱线的\ac{rt}问题，
 \acs{coef-emission} 和 \acs{coef-absorption} 可使用 Einstein 系数表示出来，
 利用\ac{detailed-balance}方程 [\autoref{eq:detailed-balance}]
 可进一步只使用\ac{em-spontaneous}系数 $A_{21}$
@@ -673,7 +673,7 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
   \D{E_{\R{sp}}(\nu)} + \D{E_{\R{st}}(\nu)} - \D{E_a(\nu)}
     = \D{\acs{I-nu}}\,\D{\sigma}\,\D{t}\,\D{\nu}\,\D{\Omega} ,
 \end{equation}
-即为含有 Einstein 系数的辐射转移方程：
+即为含有 Einstein 系数的\ac{rt}方程：
 \begin{equation}
   \diff{\acs{I-nu}}{s}
     = - \left [ \frac{h \nu_0}{\acs{speed-light}}
@@ -724,14 +724,15 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 以及\autoref{eq:ratio-populations-lte}，
 可以得到使用\ac{em-spontaneous}系数 $A_{21}$ 表示的 \ac{coef-absorption}：
 \begin{align}
-  \label{eq:coef-absorption-einstein}
   \acs{coef-absorption}
     & = \frac{\acs{speed-light}^2}{8\Cpi \nu_0^2} A_{21} N_2
       \left[ \exp\left( \frac{h \nu_0}{\acs{kb} T} \right) - 1 \right]
-      \phi(\nu)  \\
+      \phi(\nu)
+    \label{eq:coef-absorption-einstein2} \\
     & = \frac{\acs{speed-light}^2}{8\Cpi \nu_0^2} \frac{g_2}{g_1} A_{21} N_1
       \left[ 1 - \exp\left( -\frac{h \nu_0}{\acs{kb} T} \right) \right]
       \phi(\nu) .
+    \label{eq:coef-absorption-einstein3}
 \end{align}
 
 %---------------------------------------------------------------------
@@ -743,7 +744,8 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
   \label{eq:t-excitation-def}
   \frac{N_2}{N_1} \equiv \frac{g_2}{g_1}
     \exp\left(- \frac{E_2-E_1}{\acs{kb} \acs{T-excitation}} \right)
-    = \exp\left(- \frac{h \nu_0}{\acs{kb} \acs{T-excitation}} \right) .
+    = \frac{g_2}{g_1}
+      \exp\left( -\frac{h \nu_0}{\acs{kb} \acs{T-excitation}} \right) .
 \end{equation}
 该温度 \acs{T-excitation} 描述了两能级的布居数 $N_2$ 和 $N_1$ 之比，
 由系统的辐射、\ac{coll-excitation}和\ac{coll-deexcitation} 三者之间的平衡决定.
@@ -804,8 +806,8 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
       \left[ 1 - \exp\left( -\frac{h \nu_0}{\acs{kb} T_b} \right) \right]} .
 \end{equation}
 从上式可以看出，
-如果 $A_{21} \gg C_{21}$，则 $\acs{T-excitation} \to T_b$；
-反之，如果 $A_{21} \ll C_{21}$，则 $\acs{T-excitation} \to T_k$.
+如果辐射占主导 ($A_{21} \gg C_{21}$)，则 $\acs{T-excitation} \to T_b$；
+反之，如果碰撞占主导 ($A_{21} \ll C_{21}$)，则 $\acs{T-excitation} \to T_k$.
 
 
 %=====================================================================
