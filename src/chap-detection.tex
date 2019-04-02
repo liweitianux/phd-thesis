@@ -87,12 +87,105 @@ $\B{S}_p$ 和 $\B{S}_e$ 分别为质子和电子的自旋.
 \end{equation}
 
 %---------------------------------------------------------------------
-\subsection{自旋温度}
+\subsection{谱线亮温度}
 
+中性氢的 \ac{21cmline}的跃迁概率非常低，其\ac{em-spontaneous}系数 $A_{21}$ 为：
+\begin{equation}
+  A_{21} = \SI[separate-uncertainty=false]{2.86888(7)e-15}{\per\second} .
+\end{equation}
+对应的\ac{em-spontaneous}的半衰期为：
+\begin{equation}
+  t_{1/2} \approx 1 / A_{21}
+    = \SI{3.49e14}{\second} \approx \SI{11.1}{\Myr} .
+\end{equation}
+该\ac{timescale}远大于典型中性氢云中的氢原子因碰撞而改变自旋的\ac{timescale}，
+因此中性氢的超精细结构的能级布居将由碰撞决定.
 
-固有距离 (proper distance)
-出射亮度 (emergent brightness)
-视亮度 (apparent brightness)
+由\autoref{eq:t-excitation-def}可知，\acl{T-excitation}描述了能级的相对布居.
+鉴于\ac{21cmline}源自中性氢的\ac{sft}，在此情况下，
+\acl{T-excitation}亦被称为\emph{\acf{T-spin}}，
+描述了氢原子自旋态（即\ac{singlet}和\ac{triplet}）的相对布居 \cite{field1958}：
+\begin{equation}
+  \frac{N_2}{N_1} = \frac{g_2}{g_1}
+    \exp\left( -\frac{h \nu_0}{\acs{kb} \acs{T-spin}} \right)
+    = \frac{g_2}{g_1} \exp\left( -\frac{T_*}{\acs{T-spin}} \right),
+\end{equation}
+其中
+$g_1 = 1$ 和 $g_2 = 3$ 分别为两个能级的\ac{dod}，
+$T_* \equiv h \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
+在实际的天体物理应用中，均有 $\acs{T-spin} \gg T_*$，因此：
+\begin{equation}
+  \frac{N_2}{N_1} = \frac{g_2}{g_1} = 3 .
+\end{equation}
+将此代入\autoref{eq:coef-absorption-einstein3}，
+近似后可得中性氢云的\acl{coef-absorption}：
+\begin{equation}
+  \acs{coef-absorption} = \frac{3 \acs{speed-light}^2}{32\Cpi \nu_0}
+    \frac{A_{21} n_{\R{HI}} h}{\acs{kb} \acs{T-spin}} \phi(\nu) ,
+\end{equation}
+其中 $n_{\R{HI}} = N_1 + N_2 = 4 N_1$ 为中性氢的数密度.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{21cm-radiative-transfer}
+  \bicaption[CMB 辐射经过中性氢云的辐射转移示意图]{%
+    CMB 辐射经过中性氢云的辐射转移示意图：
+    从\acl*{T-spin}为 \acs*{T-spin} 的中性氢云出射的
+    CMB 辐射的温度为 \acs*{T-b}.
+  }{%
+    An illustration of the radiative transfer process:
+    the CMB radiation goes through a cloud of hydrogen with
+    spin temperature \acs*{T-spin} and emerges with a temperature
+    \acs*{T-b} measured by a telescope.
+    \\\textcopyright{}
+    \citeay{zaroubi2013}, \S\,4.1.
+    [经过了左右翻转]
+  }
+  \label{fig:21cm-cmb-rt}
+\end{figure}
+
+在实际观测中，需要考虑 \ac{cmb} 辐射经过中性氢云的转移过程，
+如\autoref{fig:21cm-cmb-rt} 所示.
+考虑一团处于热平衡状态、\acl{T-spin}为 \acs{T-spin} 的中性氢云，
+结合 Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 可得\ac{rt}方程为：
+\begin{equation}
+  \diff{\acs{I-nu}}{s}
+    = -\acs{coef-absorption}\,\acs{I-nu} + \acs{coef-emission}
+    = -\acs{coef-absorption}\,[\acs{I-nu} - B_{\nu}(\acs{T-spin})] ,
+\end{equation}
+其中
+$B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{eq:planck}].
+利用 Rayleigh--Jeans 近似 [\autoref{eq:rj-approx}]
+将 \acs{I-nu} 表示为\acl{T-b} $\acs{T-b}(\nu)$：
+\begin{equation}
+  \diff{\acs{T-b}}{s}
+    = -\acs{coef-absorption} [\acs{T-b} - \acs{T-spin}] .
+\end{equation}
+根据\acl{optical-depth}的定义 [\autoref{eq:optical-depth}]
+有 $\D{\tau'} = -\acs{coef-absorption}\,\D{s}$，
+代入上式可得：
+\begin{equation}
+  \diff{\acs{T-b}}{\tau'} = \acs{T-b} - \acs{T-spin} .
+\end{equation}
+上式两边均乘上 $\Ce^{-\tau'}\,\D{\tau'}$ 并积分：
+\begin{equation}
+  \acs{T-b}\,\Ce^{-\tau'}\,\big|_0^{\tau_{\nu}}
+      - \int_0^{\tau_{\nu}} \acs{T-b}\,\D{(\Ce^{-\tau'})}
+    = \int_0^{\tau_{\nu}} \acs{T-b}\,\Ce^{-\tau'}\,\D{\tau'}
+      + \acs{T-spin} \int_0^{\tau_{\nu}} \Ce^{-\tau'}\,\D{\tau'} ,
+\end{equation}
+可得：
+\begin{equation}
+  \acs{T-b}(\tau'=\tau_{\nu})\,\Ce^{-\tau_{\nu}} - \acs{T-b}(\tau'=0) =
+    \acs{T-spin} (\Ce^{-\tau_{\nu}} - 1) ,
+\end{equation}
+最后代入 $\acs{T-b}(\tau'=\tau_{\nu}) = T_{\R{cmb}}$，
+得到从中性氢云出射 ($\tau = 0$) 的辐射亮温度 $\acs{T-b}(\nu)$：
+\begin{equation}
+  \acs{T-b}(\nu)
+    = \acs{T-spin} (1 - \Ce^{-\tau_{\nu}})
+      + T_{\R{cmb}} \Ce^{-\tau_{\nu}} .
+\end{equation}
 
 21 cm 信号平均强度随红移和频率（亦即宇宙年龄）的变化规律.
 在最初的宇宙黑暗时期，重子物质与 CMB 光子脱耦并随宇宙膨胀而冷却，结构也开始形成，
