@@ -120,16 +120,70 @@ $T_* \equiv h \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
 将此代入\autoref{eq:coef-absorption-einstein3}，
 近似后可得中性氢云的\acl{coef-absorption}：
 \begin{equation}
-  \acs{coef-absorption} = \frac{3 \acs{speed-light}^2}{32\Cpi \nu_0}
-    \frac{A_{21} n_{\R{HI}} h}{\acs{kb} \acs{T-spin}} \phi(\nu) ,
+  \acs{coef-absorption} = \frac{3 h \acs{speed-light}^2}{32\Cpi \nu_0}
+    \frac{A_{21} n_{\R{HI}}}{\acs{kb} \acs{T-spin}} \phi(\nu) ,
 \end{equation}
 其中 $n_{\R{HI}} = N_1 + N_2 = 4 N_1$ 为中性氢的数密度.
+
+设一团均匀的中性氢云位于红移 $z$ 处，沿观测的视线方向的线性尺度为 $s$，
+中性氢的数密度为 $n_{\R{HI}}$，
+则其\acl{optical-depth} [\autoref{eq:optical-depth}] 为：
+\begin{align}
+  \acs{optical-depth}_{\nu0}
+    & = \int_{\R{cloud}} \acs{coef-absorption}(s') \,\D{s'}  \\
+    & = \frac{3 h \acs{speed-light}^2}{32\Cpi \nu_0}
+      \frac{A_{21}}{\acs{kb} \acs{T-spin}} \phi(\nu)
+      \int_{\R{cloud}} n_{\R{HI}}(s') \,\D{s'}  \\
+    & = \frac{3 h \acs{speed-light}^2}{32\Cpi \nu_0}
+      \frac{A_{21}}{\acs{kb} \acs{T-spin}} N_{\R{HI}} \phi(\nu) ,
+  \label{eq:21cm-optical-depth1}
+\end{align}
+其中 $N_{\R{HI}}$ 为中性氢的\ac{column-density}，可进一步写成：
+\begin{equation}
+  \label{eq:column-density}
+  N_{\R{HI}} = \acs{hi-fraction} n_{\R{HI}} s ,
+\end{equation}
+其中 \acs{hi-fraction} 为\acl{hi-fraction} (neutral fraction of hydrogen).
+
+一般说来，\ac{line-profile}包含自然展宽 (natural broadening)、
+热展宽 (thermal broadening)、压力展宽 (pressue broadening)、
+体运动展宽 (bulk motion broadening) 等因素，
+但对于 \ac{21cmline}来说，最重要的因素是宇宙膨胀引起的 Doppler 展宽.
+因此，线性尺度为 $s$ 的中性氢云的速度弥散约为 $\Delta v \sim s \acs{Hz}$，
+于是\ac{line-profile}可近似为：
+\begin{equation}
+  \phi(\nu) \sim \frac{\acs{speed-light}}{\nu \Delta v}
+    \sim \frac{\acs{speed-light}}{\nu s \acs{Hz}} .
+\end{equation}
+将上式和\autoref{eq:column-density} 代入\autoref{eq:21cm-optical-depth1}，
+可得\acl{optical-depth}：
+\begin{equation}
+  \label{eq:21cm-optical-depth2}
+  \acs{optical-depth}_{\nu0}
+    \approx \frac{3 h \acs{speed-light}^3}{32\Cpi \nu_0^2}
+      \frac{A_{21}}{\acs{kb} \acs{T-spin}}
+      \frac{\acs{hi-fraction} n_{\R{HI}}}{\acs{Hz}} .
+\end{equation}
+如果需要考虑中性氢云的\ac{v-peculiar}，则其\acl{optical-depth}应为
+\cite{furlanetto2006,pritchard2012}：
+\begin{equation}
+  \label{eq:21cm-optical-depth3}
+  \acs{optical-depth}_{\nu0}
+    \approx \frac{3 h \acs{speed-light}^3}{32\Cpi \nu_0^2}
+      \frac{A_{21}}{\acs{kb} \acs{T-spin}}
+      \frac{\acs{hi-fraction} n_{\R{HI}}}{
+        (1+z) (\partial v_{\parallel} / \partial r_{\parallel})} ,
+\end{equation}
+其中 $\partial v_{\parallel} / \partial r_{\parallel}$ 是\ac{v-proper}
+沿视线方向的梯度.
+此外，通常均有\acl{optical-depth} $\acs{optical-depth}_{\nu0} \ll 1$
+\cite{madau1997,furlanetto2006,pritchard2010mn}.
 
 \begin{figure}[tbp]
   \centering
   \includegraphics[width=0.9\textwidth]{21cm-radiative-transfer}
-  \bicaption[CMB 辐射经过中性氢云的辐射转移示意图]{%
-    CMB 辐射经过中性氢云的辐射转移示意图：
+  \bicaption[CMB 辐射穿过中性氢云的辐射转移示意图]{%
+    CMB 辐射穿过中性氢云的辐射转移示意图：
     从\acl*{T-spin}为 \acs*{T-spin} 的中性氢云出射的
     CMB 辐射的温度为 \acs*{T-b}.
   }{%
@@ -144,9 +198,9 @@ $T_* \equiv h \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
   \label{fig:21cm-cmb-rt}
 \end{figure}
 
-在实际观测中，需要考虑 \ac{cmb} 辐射经过中性氢云的转移过程，
+在实际观测中，需要考虑 \ac{cmb} 辐射穿过中性氢云的转移过程，
 如\autoref{fig:21cm-cmb-rt} 所示.
-考虑一团处于热平衡状态、\acl{T-spin}为 \acs{T-spin} 的中性氢云，
+考虑一团处于热平衡状态、\acl{T-spin}为 \acs{T-spin}、位于红移 $z$ 处的中性氢云，
 结合 Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 可得\ac{rt}方程为：
 \begin{equation}
   \diff{\acs{I-nu}}{s}
@@ -169,23 +223,51 @@ $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{e
 \end{equation}
 上式两边均乘上 $\Ce^{-\tau'}\,\D{\tau'}$ 并积分：
 \begin{equation}
-  \acs{T-b}\,\Ce^{-\tau'}\,\big|_0^{\tau_{\nu}}
-      - \int_0^{\tau_{\nu}} \acs{T-b}\,\D{(\Ce^{-\tau'})}
-    = \int_0^{\tau_{\nu}} \acs{T-b}\,\Ce^{-\tau'}\,\D{\tau'}
-      + \acs{T-spin} \int_0^{\tau_{\nu}} \Ce^{-\tau'}\,\D{\tau'} ,
+  \acs{T-b}\,\Ce^{-\tau'}\,\Big|_0^{\tau_{\nu0}}
+      - \int_0^{\tau_{\nu0}} \acs{T-b}\,\D{(\Ce^{-\tau'})}
+    = \int_0^{\tau_{\nu0}} \acs{T-b}\,\Ce^{-\tau'}\,\D{\tau'}
+      + \acs{T-spin} \int_0^{\tau_{\nu0}} \Ce^{-\tau'}\,\D{\tau'} ,
 \end{equation}
 可得：
 \begin{equation}
-  \acs{T-b}(\tau'=\tau_{\nu})\,\Ce^{-\tau_{\nu}} - \acs{T-b}(\tau'=0) =
+  \acs{T-b}(\tau'=\tau_{\nu0})\,\Ce^{-\tau_{\nu}} - \acs{T-b}(\tau'=0) =
     \acs{T-spin} (\Ce^{-\tau_{\nu}} - 1) ,
 \end{equation}
-最后代入 $\acs{T-b}(\tau'=\tau_{\nu}) = T_{\R{cmb}}$，
-得到从中性氢云出射 ($\tau = 0$) 的辐射亮温度 $\acs{T-b}(\nu)$：
+其中 $\acs{T-b}(\tau'=\tau_{\nu}) = T_{\R{cmb}}(z)$
+为辐射入射中性氢云时的亮温度，
+于是获得从中性氢云出射 ($\tau = 0$) 的辐射亮温度 $\acs{T-b}(\nu_0)$ 为：
 \begin{equation}
-  \acs{T-b}(\nu)
-    = \acs{T-spin} (1 - \Ce^{-\tau_{\nu}})
-      + T_{\R{cmb}} \Ce^{-\tau_{\nu}} .
+  \acs{T-b}(\nu_0)
+    = \acs{T-spin} (1 - \Ce^{-\tau_{\nu0}})
+      + T_{\R{cmb}}(z) \,\Ce^{-\tau_{\nu0}} .
 \end{equation}
+其中 $T_{\R{cmb}}(z)$ 为 \ac{cmb} 辐射在红移 $z$ 时的\ac{comoving-frame}
+中的亮温度：
+\begin{align}
+  T_{\R{cmb}}(z)
+    & = T_{\R{cmb}}(z=0)\,(1+z)  \\
+    & = 2.73 (1+z) \quad [\si{\kelvin}] ,
+\end{align}
+类似地，宇宙膨胀的红移效应将中性氢的 \ac{21cmline}红移至频率 $\nu = \nu_0/(1+z)$，
+同时观测到的中性氢云的亮温度将为：
+\begin{equation}
+  T_b^{\R{obs}}(\nu) = \frac{T_b(\nu_0)}{1 + z} .
+\end{equation}
+目前观测 \ac{21cmline}的策略是测量其相对于 \ac{cmb} 背景辐射的差异，
+即\emph{\acf{dT-b}}.
+综上，并结合\autoref{eq:21cm-optical-depth3}，最终可得：
+\begin{align}
+  \acs{dT-b}
+    & = \frac{T_b(\nu_0)}{1 + z} - T_{\R{cmb}}(z=0)  \\
+    & = \frac{\acs{T-spin} - T_{\R{cmb}}(z)}{1+z}
+      (1 - \Ce^{-\acs{optical-depth}_{\nu0}})  \\
+    & \approx \frac{\acs{T-spin} - T_{\R{cmb}}(z)}{1+z}
+      \acs{optical-depth}_{\nu0}  \\
+    & \approx \frac{3 h \acs{speed-light}^3 A_{21}}{32\Cpi \nu_0^2 \acs{kb}}
+      \frac{\acs{hi-fraction} n_{\R{HI}}}{
+        (1+z) (\partial v_{\parallel} / \partial r_{\parallel})}
+      \left[ 1 - \frac{T_{\R{cmb}}(z)}{\acs{T-spin}} \right] .
+\end{align}
 
 21 cm 信号平均强度随红移和频率（亦即宇宙年龄）的变化规律.
 在最初的宇宙黑暗时期，重子物质与 CMB 光子脱耦并随宇宙膨胀而冷却，结构也开始形成，
