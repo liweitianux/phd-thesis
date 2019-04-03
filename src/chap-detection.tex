@@ -256,20 +256,63 @@ $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{e
 \end{equation}
 目前观测 \ac{21cmline}的策略是测量其相对于 \ac{cmb} 背景辐射的差异，
 即\emph{\acf{dT-b}}.
-综上，并结合\autoref{eq:21cm-optical-depth3}，最终可得：
+综上，并结合\autoref{eq:21cm-optical-depth3}，最终可得待探测的 \emph{EoR 信号}为：
 \begin{align}
-  \acs{dT-b}
+  \acs{dT-b}(\nu)
     & = \frac{T_b(\nu_0)}{1 + z} - T_{\R{cmb}}(z=0)  \\
     & = \frac{\acs{T-spin} - T_{\R{cmb}}(z)}{1+z}
       (1 - \Ce^{-\acs{optical-depth}_{\nu0}})  \\
     & \approx \frac{\acs{T-spin} - T_{\R{cmb}}(z)}{1+z}
       \acs{optical-depth}_{\nu0}  \\
     & \approx \frac{3 \acs{hp} \acs{speed-light}^3 A_{21}}{
-      32\Cpi \nu_0^2 \acs{kb}}
+      32\Cpi \nu_0^2 \,\acs{kb}}
       \frac{\acs{hi-fraction} n_{\R{HI}}}{
-        (1+z) (\partial v_{\parallel} / \partial r_{\parallel})}
+        (1+z)^2 (\partial v_{\parallel} / \partial r_{\parallel})}
       \left[ 1 - \frac{T_{\R{cmb}}(z)}{\acs{T-spin}} \right] .
-    \label{eq:eor-signal}
+    \label{eq:eor-signal1}
+\end{align}
+
+由于再电离时期的红移较大 ($z \gtrsim 6$)，
+因此 Hubble 常数 [\autoref{eq:hubble-z}] 可近似为：
+\begin{equation}
+  \acs{Hz} = \acs{H0} \sqrt{\acs{Om0} (1+z)^3 + \acs{Ol0}}
+    \approx \acs{H0} \acs{Om0}^{1/2} (1+z)^{3/2} .
+\end{equation}
+结合\autoref{eq:omega-m-z}，可得红移为 $z$ 时的宇宙重子物质密度参数为：
+\begin{equation}
+  \acs{Ob0}(z) = \frac{\acs{Ob0}}{\acs{Om0}} \acs{Om0}(z)
+    \approx \frac{\acs{Ob0}}{\acs{Om0}} .
+\end{equation}
+再利用当地的重子物质\ac{overdensity}，即
+\begin{equation}
+  1 + \delta_b = \frac{\rho_b}{\bar{\rho}_b}
+    \approx \frac{n_{\R{HI}} \acs{mass-p}}{\acs{Ob0}(z) \acs{rho-crit}(z)} ,
+\end{equation}
+其中 $\acs{rho-crit}(z)$ 为\acl{rho-crit} [\autoref{eq:rho-crit}]，
+可将中性氢的数密度 $n_{\R{HI}}$ 表示为：
+\begin{align}
+  n_{\R{HI}}
+    & \approx \frac{1+\delta_b}{\acs{mass-p}} \frac{\acs{Ob0}}{\acs{Om0}}
+      \frac{3 H^2(z)}{8 \Cpi \acs{G}}  \\
+    & \approx \frac{3 \acs{H0}}{8\Cpi\acs{mass-p}\acs{G}}
+      \frac{\acs{Ob0}}{\Omega_m^{1/2}} (1+\delta_b) (1+z)^{3/2} \acs{Hz} .
+\end{align}
+将上式代入\autoref{eq:eor-signal1}，可得：
+\begin{align}
+  \label{eq:eor-signal}
+  \acs{dT-b}(\nu)
+    & \approx \frac{9 \acs{hp} \acs{speed-light}^3 A_{21}}{
+      256\Cpi^2 \nu_0^2 \,\acs{kb} \acs{mass-p} \acs{G}}
+      \frac{\acs{H0} \acs{Ob0}}{\Omega_m^{1/2}}
+      \acs{hi-fraction} (1+\delta_b) (1+z)^{1/2}
+      \left[ 1 - \frac{T_{\R{cmb}}(z)}{\acs{T-spin}} \right]
+      \left[ \frac{\acs{Hz} / (1+z)}{
+        \partial v_{\parallel} / \partial r_{\parallel}} \right]  \\
+    & \approx 12 \acs{hi-fraction} (1+\delta_b) (1+z)^{1/2}
+      \left[ 1 - \frac{T_{\R{cmb}}(z)}{\acs{T-spin}} \right]
+      \left[ \frac{\acs{Hz} / (1+z)}{
+        \partial v_{\parallel} / \partial r_{\parallel}} \right]
+      \quad [\si{\mK}]  .
 \end{align}
 
 %---------------------------------------------------------------------
