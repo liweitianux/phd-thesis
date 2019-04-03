@@ -516,14 +516,14 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
   \includegraphics[width=0.9\textwidth]{atom-radiation-interactions}
   \bicaption[原子与辐射场的三种相互作用过程]{%
     原子与辐射场的三种相互作用过程：
-    \textbf{(a)} \acs*{em-spontaneous}；
-    \textbf{(b)} \acs*{em-stimulated}；
-    \textbf{(c)} 吸收.
+    \emph{(a)} \acs*{em-spontaneous}；
+    \emph{(b)} \acs*{em-stimulated}；
+    \emph{(c)} 吸收.
   }{%
     The three processes that an atom interacts with the radiation field:
-    \textbf{(a)} spontaneous emission;
-    \textbf{(b)} stimulated emission;
-    \textbf{(c)} absorption.
+    \emph{(a)} spontaneous emission;
+    \emph{(b)} stimulated emission;
+    \emph{(c)} absorption.
   }
   \label{fig:atom-interactions}
 \end{figure}
@@ -786,15 +786,15 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 \begin{equation}
   \label{eq:tex-coefs-c}
   C_{12} = \frac{g_2}{g_1} C_{21}
-    \exp\left( - \frac{\acs{hp} \nu_0}{\acs{kb} T_k} \right) ,
+    \exp\left( - \frac{\acs{hp} \nu_0}{\acs{kb} \acs{T-kinetic}} \right) ,
 \end{equation}
-其中 $T_k$ 为系统（通常为气体）的运动温度 (kinetic temperature).
+其中 \acs{T-kinetic} 为系统（通常为气体）的\acl{T-kinetic}.
 将\autoref{eq:tex-coefs-b}和\autoref{eq:tex-coefs-c}
 代入\autoref{eq:detailed-balance-collison1}，整理可得：
 \begin{equation}
   \frac{N_2\,g_1}{N_1\,g_2} =
     \frac{A_{21} + C_{21}
-    \exp\left( -\frac{\acs{hp} \nu_0}{\acs{kb} T_k} \right)
+    \exp\left( -\frac{\acs{hp} \nu_0}{\acs{kb} \acs{T-kinetic}} \right)
       \left[ \exp\left( \frac{\acs{hp} \nu_0}{\acs{kb} T_b} \right)
         - 1 \right]
     }{A_{21} \exp\left( \frac{\acs{hp} \nu_0}{\acs{kb} T_b} \right)
@@ -807,7 +807,7 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
   \exp\left(- \frac{\acs{hp} \nu_0}{\acs{kb} \acs{T-excitation}} \right) =
     \exp\left( -\frac{\acs{hp} \nu_0}{\acs{kb} T_b} \right)
     \frac{A_{21} + C_{21} \exp\left(
-      -\frac{\acs{hp} \nu_0}{\acs{kb} T_k} \right)
+      -\frac{\acs{hp} \nu_0}{\acs{kb} \acs{T-kinetic}} \right)
       \left[ \exp\left( \frac{\acs{hp} \nu_0}{\acs{kb} T_b} \right)
         - 1 \right]
     }{A_{21} + C_{21} \left[ 1 - \exp\left(
@@ -815,7 +815,8 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 \end{equation}
 从上式可以看出，
 如果辐射占主导 ($A_{21} \gg C_{21}$)，则 $\acs{T-excitation} \to T_b$；
-反之，如果碰撞占主导 ($A_{21} \ll C_{21}$)，则 $\acs{T-excitation} \to T_k$.
+反之，如果碰撞占主导 ($A_{21} \ll C_{21}$)，
+则 $\acs{T-excitation} \to \acs{T-kinetic}$.
 
 
 %=====================================================================
@@ -1408,8 +1409,8 @@ $uv$ 平面上两个相互对称的点的\ac{vis}.
   \includegraphics[width=\textwidth]{uv-coverages}
   \bicaption[$uv$ 覆盖样例]{%
     $uv$ 覆盖样例.
-    \emph{从上往下:} 干涉阵列分别包括 2、5、10 和 50 个呈对数螺旋状分布的天线；
-    \emph{从左到右:} 观测时间分别为 \SI{10}{\second}、\SI{2}{\hour}、
+    \uline{从上往下:} 干涉阵列分别包括 2、5、10 和 50 个呈对数螺旋状分布的天线；
+    \uline{从左到右:} 观测时间分别为 \SI{10}{\second}、\SI{2}{\hour}、
     \SI{4}{\hour} 和 \SI{6}{\hour}.
   }{%
     Examples of $uv$ coverages.
