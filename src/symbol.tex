@@ -98,6 +98,8 @@
 \DeclareAcronym{G}{
   short = \ensuremath{G},
   long = 引力常数,
+  extra = \SI{6.67428e-8}{\dyne\square\cm\per\square\second},
+  first-style = short,
   class = symbol,
 }
 
@@ -125,6 +127,7 @@
 \DeclareAcronym{hp}{
   short = \ensuremath{h_p},
   long = Planck 常数,
+  extra = \SI{6.62607e-27}{\erg\second},
   sort = h-p,
   first-style = short,
   class = symbol,
@@ -134,6 +137,7 @@
   short = \ensuremath{\hbar},
   long = 约化 Planck 常数,
   foreign = reduced Planck constant,
+  extra = {$= h_p / (2\Cpi)$},
   first-style = short,
   class = symbol,
 }
@@ -157,6 +161,7 @@
 \DeclareAcronym{kb}{
   short = \ensuremath{k_B},
   long = Boltzmann 常数,
+  extra = \SI{1.38065e-16}{\erg\per\kelvin},
   sort = k-B,
   class = symbol,
 }
@@ -178,6 +183,7 @@
   short = \ensuremath{\mu_B},
   long = Bohr 磁子,
   foreign = Bohr magneton,
+  extra = \SI{9.27401e-21}{\erg\per\gauss},
   sort = mu-B,
   first-style = short,
   class = symbol,
@@ -196,6 +202,7 @@
   short = \ensuremath{m_e},
   long = 电子质量,
   foreign = electron mass,
+  extra = \SI{9.10938e-28}{\gram},
   sort = m-e,
   first-style = short,
   class = symbol,
@@ -205,7 +212,18 @@
   short = \ensuremath{m_p},
   long = 质子质量,
   foreign = proton mass,
+  extra = \SI{1.67262e-24}{\gram},
   sort = m-p,
+  first-style = short,
+  class = symbol,
+}
+
+\DeclareAcronym{mass-u}{
+  short = \ensuremath{m_u},
+  long = 原子质量单位,
+  foreign = atomic mass unit,
+  extra = \SI{1.66054e-24}{\gram},
+  sort = m-u,
   first-style = short,
   class = symbol,
 }
@@ -331,6 +349,7 @@
 \DeclareAcronym{speed-light}{
   short = \ensuremath{c},
   long = 光速,
+  extra = \SI{2.99792e10}{\cm\per\second},
   sort = c,
   class = symbol,
 }
