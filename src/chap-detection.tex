@@ -269,16 +269,106 @@ $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{e
       \frac{\acs{hi-fraction} n_{\R{HI}}}{
         (1+z) (\partial v_{\parallel} / \partial r_{\parallel})}
       \left[ 1 - \frac{T_{\R{cmb}}(z)}{\acs{T-spin}} \right] .
+    \label{eq:eor-signal}
 \end{align}
 
-21 cm 信号平均强度随红移和频率（亦即宇宙年龄）的变化规律.
-在最初的宇宙黑暗时期，重子物质与 CMB 光子脱耦并随宇宙膨胀而冷却，结构也开始形成，
-其中的冷气体可通过 21 cm 吸收信号被观测；
-然后第一代恒星及星系产生并辐射大量 Lyα 光子，
-使得中性氢的自旋态与气体温度紧密耦合，导致强烈的 21 cm 吸收信号；
-但随着星系的大量形成而加热其中的气体，中性氢的 21 cm 辐射信号逐渐变强；
-最后中性氢被逐步电离完，21 cm 辐射信号也衰减至消失
-\cite{pritchard2012}.
+%---------------------------------------------------------------------
+\subsection{亮温度的演化}
+
+由\autoref{eq:eor-signal} 易知，\acl{T-spin} \acs{T-spin}
+对 EoR 信号 $\acs{dT-b}(\nu)$ 的强度起关键作用.
+当 $\acs{T-spin} > T_{\R{cmb}}(z)$ 时，$\acs{dT-b}(\nu) > 0$ 为发射信号，
+并且当 $\acs{T-spin} \gg T_{\R{cmb}}(z)$ 时 $\acs{dT-b}(\nu)$ 达到饱和；
+当 $\acs{T-spin} < T_{\R{cmb}}(z)$ 时，$\acs{dT-b}(\nu) < 0$ 表现为吸收信号.
+\acl{T-spin} \acs{T-spin} 主要由以下三个过程决定：
+\begin{itemize}
+  \item CMB 辐射光子被中性氢吸收或者使中性氢产生\ac{em-stimulated}，
+    该过程使得 \acs{T-spin} 与 $T_{\R{cmb}}(z)$ 相互耦合；
+  \item 中性氢原子与其他原子或电子碰撞，
+    这个过程将 \acs{T-spin} 耦合到介质的\acl{T-kinetic} \acs{T-kinetic}；
+  \item 中性氢原子与 Lyα 光子发生\ac{resonant-scattering}而改变自旋状态，
+    即 Wouthuysen--Field 效应 \cite{wouthuysen1952,field1958}，
+    该过程将 \acs{T-spin} 与 Lyα 辐射的\ac{T-color}关联起来.
+\end{itemize}
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{eor-signal-evolution}
+  \bicaption[EoR 信号的平均强度的演化示意图]{%
+    \uline{（上栏）}宇宙学模拟\cite{santos2008}给出的 EoR 信号的演化过程.
+    \uline{（下栏）}理论模型给出的 EoR 信号的全天平均强度
+    $\delta\overline{T}_b$ 的变化过程.
+  }{%
+    \emph{(Upper)} The time evolution of the EoR signal dervied from
+    a cosmological simulation \cite{santos2008}.
+    \emph{(Lower)} The expected evolution of the sky-averaged EoR signal
+    $\delta\overline{T}_b$.
+    \\\textcopyright{}
+    \citeay{pritchard2012}, \S\,1.
+  }
+  \label{fig:eor-signal-evo}
+\end{figure}
+
+上述过程与宇宙的再电离过程、第一代天体的形成、星系的形成与演化等环节密切相关，
+因此 EoR 信号随宇宙的演化而发生复杂的变化，并反映在其频谱上
+（不同的频率对应于不同的红移，即宇宙年龄），如\autoref{fig:eor-signal-evo} 所示.
+EoR 信号的完整演化过程可大致分为以下几个阶段 \cite{pritchard2012}：
+\begin{enumerate}
+  \item $200 \lesssim z \lesssim 1100$:
+    \ac{recomb}之后残留的自由电子通过 Compton 散射使气体与 \ac{cmb} 保持热耦合，
+    即有 $\acs{T-kinetic} = T_{\R{cmb}}$.
+    因气体密度高，有效的碰撞使得 $\acs{T-spin} = T_{\R{cmb}}$，
+    所以此阶段没有可探测的 EoR 信号 ($\delta\overline{T}_b = 0$).
+
+  \item $40 \lesssim z \lesssim 200$:
+    气体绝热冷却 $\acs{T-kinetic} \propto (1+z)^2$
+    从而有 $\acs{T-kinetic} < T_{\R{cmb}}$，但气体中的碰撞仍然足够有效，
+    因此 $\acs{T-spin} = \acs{T-kinetic} < T_{\R{cmb}}$，
+    所以 EoR 信号在此阶段为吸收信号 ($\delta\overline{T}_b < 0$).
+
+  \item $z_* \lesssim z \lesssim 40$:
+    （$z_*$ 对应第一代天体形成的时刻.）
+    气体密度随着宇宙膨胀而显著降低，导致碰撞耦合不如 \ac{cmb} 辐射的耦合有效，
+    因此有 $\acs{T-spin} = T_{\R{cmb}}$，所以此阶段无可探测的 EoR 信号.
+
+  \item $z_{\alpha} \lesssim z \lesssim z_*$:
+    （$z_{\alpha}$ 对应 Lyα 光子的耦合达到饱和的时刻.）
+    第一代天体开始形成，辐射 Lyα 光子和 X 射线，
+    并将 \acs{T-spin} 与冷气体的温度耦合在一起，
+    即 $\acs{T-spin} \sim \acs{T-kinetic} < T_{\R{cmb}}$，
+    因此该阶段可探测到 EoR 吸收信号 ($\delta\overline{T}_b < 0$).
+
+  \item $z_h \lesssim z \lesssim z_{\alpha}$:
+    （$z_h$ 对应气体被加热至与 $T_{\R{cmb}}$ 相同温度的时刻.）
+    随着星系和宇宙大尺度结构的形成，气体逐渐被加热，
+    对 \acs{T-spin} 的影响也越来越显著.
+    在气体温度 $\acs{T-kinetic} \sim \acs{T-spin} < T_{\R{cmb}}$
+    的这一阶段，可继续探测到 EoR 吸收信号 ($\delta\overline{T}_b < 0$).
+
+  \item $z_t \lesssim z \lesssim z_h$:
+    随着气体被继续加热，$\acs{T-kinetic} \sim \acs{T-spin} > T_{\R{cmb}}$，
+    因此 EoR 信号从上一阶段的吸收信号转变为发射信号 ($\delta\overline{T}_b > 0$).
+    直到 $z_t$ 时刻，气体的温度已足够高
+    $\acs{T-kinetic} \sim \acs{T-spin} \gg T_{\R{cmb}}$，
+    EoR 信号的强度达到饱和.
+
+  \item $z_r \lesssim z \lesssim z_t$:
+    在此阶段，气体的温度 ($\acs{T-kinetic} \sim \acs{T-spin} \gg T_{\R{cmb}}$)
+    对 EoR 信号的影响已变得不重要，
+    因此 EoR 信号的强度将主要取决于\acl{hi-fraction} \acs{hi-fraction}.
+    随着再电离的进行，\acs{hi-fraction} 逐渐变小，EoR 信号的强度也随之减小，
+    直到 $z_r$ 时再电离结束.
+
+  \item $z \lesssim z_r$:
+    再电离结束后，残留的 21\,cm 信号主要源自一些塌缩的中性氢岛，比如\ac{dla}.
+\end{enumerate}
+
+由于缺乏足够的观测证据的约束，上述阶段的划分仍有很大的不确定性，
+相邻阶段之间可能有显著交叠，甚至 $z_{\alpha}$ 和 $z_h$ 的次序可能需要修正
+\cite{nusser2005,pritchard2012}.
+基于目前非常有限的观测证据，理论模型显示宇宙的再电离过程约从红移 $z \sim 15$ 开始，
+应在红移 $z > 6.5$ 之前完成，但也不能显著早于 $z \sim \numrange{7}{8}$
+\cite{choudhury2006,pritchard2010mn}.
 
 
 %=====================================================================
