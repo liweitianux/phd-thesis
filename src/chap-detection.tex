@@ -107,12 +107,12 @@ $\B{S}_p$ 和 $\B{S}_e$ 分别为质子和电子的自旋.
 描述了氢原子自旋态（即\ac{singlet}和\ac{triplet}）的相对布居 \cite{field1958}：
 \begin{equation}
   \frac{N_2}{N_1} = \frac{g_2}{g_1}
-    \exp\left( -\frac{h \nu_0}{\acs{kb} \acs{T-spin}} \right)
+    \exp\left( -\frac{\acs{hp} \nu_0}{\acs{kb} \acs{T-spin}} \right)
     = \frac{g_2}{g_1} \exp\left( -\frac{T_*}{\acs{T-spin}} \right),
 \end{equation}
 其中
 $g_1 = 1$ 和 $g_2 = 3$ 分别为两个能级的\ac{dod}，
-$T_* \equiv h \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
+$T_* \equiv \acs{hp} \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
 在实际的天体物理应用中，均有 $\acs{T-spin} \gg T_*$，因此：
 \begin{equation}
   \frac{N_2}{N_1} = \frac{g_2}{g_1} = 3 .
@@ -120,8 +120,9 @@ $T_* \equiv h \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
 将此代入\autoref{eq:coef-absorption-einstein3}，
 近似后可得中性氢云的\acl{coef-absorption}：
 \begin{equation}
-  \acs{coef-absorption} = \frac{3 h \acs{speed-light}^2}{32\Cpi \nu_0}
-    \frac{A_{21} n_{\R{HI}}}{\acs{kb} \acs{T-spin}} \phi(\nu) ,
+  \acs{coef-absorption}
+    = \frac{3 \acs{hp} \acs{speed-light}^2}{32\Cpi \nu_0}
+      \frac{A_{21} n_{\R{HI}}}{\acs{kb} \acs{T-spin}} \phi(\nu) ,
 \end{equation}
 其中 $n_{\R{HI}} = N_1 + N_2 = 4 N_1$ 为中性氢的数密度.
 
@@ -131,10 +132,10 @@ $T_* \equiv h \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
 \begin{align}
   \acs{optical-depth}_{\nu0}
     & = \int_{\R{cloud}} \acs{coef-absorption}(s') \,\D{s'}  \\
-    & = \frac{3 h \acs{speed-light}^2}{32\Cpi \nu_0}
+    & = \frac{3 \acs{hp} \acs{speed-light}^2}{32\Cpi \nu_0}
       \frac{A_{21}}{\acs{kb} \acs{T-spin}} \phi(\nu)
       \int_{\R{cloud}} n_{\R{HI}}(s') \,\D{s'}  \\
-    & = \frac{3 h \acs{speed-light}^2}{32\Cpi \nu_0}
+    & = \frac{3 \acs{hp} \acs{speed-light}^2}{32\Cpi \nu_0}
       \frac{A_{21}}{\acs{kb} \acs{T-spin}} N_{\R{HI}} \phi(\nu) ,
   \label{eq:21cm-optical-depth1}
 \end{align}
@@ -160,7 +161,7 @@ $T_* \equiv h \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
 \begin{equation}
   \label{eq:21cm-optical-depth2}
   \acs{optical-depth}_{\nu0}
-    \approx \frac{3 h \acs{speed-light}^3}{32\Cpi \nu_0^2}
+    \approx \frac{3 \acs{hp} \acs{speed-light}^3}{32\Cpi \nu_0^2}
       \frac{A_{21}}{\acs{kb} \acs{T-spin}}
       \frac{\acs{hi-fraction} n_{\R{HI}}}{\acs{Hz}} .
 \end{equation}
@@ -169,7 +170,7 @@ $T_* \equiv h \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
 \begin{equation}
   \label{eq:21cm-optical-depth3}
   \acs{optical-depth}_{\nu0}
-    \approx \frac{3 h \acs{speed-light}^3}{32\Cpi \nu_0^2}
+    \approx \frac{3 \acs{hp} \acs{speed-light}^3}{32\Cpi \nu_0^2}
       \frac{A_{21}}{\acs{kb} \acs{T-spin}}
       \frac{\acs{hi-fraction} n_{\R{HI}}}{
         (1+z) (\partial v_{\parallel} / \partial r_{\parallel})} ,
@@ -263,7 +264,8 @@ $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{e
       (1 - \Ce^{-\acs{optical-depth}_{\nu0}})  \\
     & \approx \frac{\acs{T-spin} - T_{\R{cmb}}(z)}{1+z}
       \acs{optical-depth}_{\nu0}  \\
-    & \approx \frac{3 h \acs{speed-light}^3 A_{21}}{32\Cpi \nu_0^2 \acs{kb}}
+    & \approx \frac{3 \acs{hp} \acs{speed-light}^3 A_{21}}{
+      32\Cpi \nu_0^2 \acs{kb}}
       \frac{\acs{hi-fraction} n_{\R{HI}}}{
         (1+z) (\partial v_{\parallel} / \partial r_{\parallel})}
       \left[ 1 - \frac{T_{\R{cmb}}(z)}{\acs{T-spin}} \right] .

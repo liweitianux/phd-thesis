@@ -450,13 +450,14 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
 由 \emph{Planck 辐射定律}给出：
 \begin{equation}
   \label{eq:planck}
-  B_{\nu}(\nu, T) = \frac{2 h \nu^3}{\acs{speed-light}^2}
-    \left[ \exp\left( \frac{h \nu}{\acs{kb} T} \right) - 1 \right]^{-1} ,
+  B_{\nu}(\nu, T) = \frac{2 \acs{hp} \nu^3}{\acs{speed-light}^2}
+    \left[ \exp\left( \frac{\acs{hp} \nu}{\acs{kb} T} \right) - 1 \right]^{-1} ,
 \end{equation}
-其中 $B_{\nu}$ 是在频率 $\nu$ 处的谱亮度，$h$ 是 Planck 常数，
+其中 $B_{\nu}$ 是在频率 $\nu$ 处的谱亮度，
+\acs{hp} 是\acl{hp}，
 \acs{speed-light} 是\acl{speed-light}.
 
-在射电波段，$h\nu \ll \acs{kb}T$ 通常成立，因此上式可近似为：
+在射电波段，$\acs{hp}\nu \ll \acs{kb}T$ 通常成立，因此上式可近似为：
 \begin{equation}
   \label{eq:rj-approx}
   B_{\nu}(\nu, T) \approx \frac{2\,\acs{kb}T \nu^2}{\acs{speed-light}^2} .
@@ -484,12 +485,12 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
   P_{\nu} \approx \acs{kb} T .
 \end{equation}
 该式是 Rayleigh--Jeans 近似 [\autoref{eq:rj-approx}] 在电学里的对应.
-类似地，该近似公式只适用于 $h\nu \ll \acs{kb}T$ 的经典范畴.
+类似地，该近似公式只适用于 $\acs{hp}\nu \ll \acs{kb}T$ 的经典范畴.
 在考虑量子化修正后，严格的 \emph{Nyquist 公式}为：
 \begin{equation}
   \label{eq:nyquist}
-  P_{\nu} = h \nu
-    \left[ \exp\left( \frac{h \nu}{\acs{kb} T} \right) - 1 \right]^{-1} .
+  P_{\nu} = \acs{hp} \nu
+    \left[ \exp\left( \frac{\acs{hp} \nu}{\acs{kb} T} \right) - 1 \right]^{-1} .
 \end{equation}
 
 
@@ -534,8 +535,7 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
 \item \emph{\acf{em-spontaneous}}:
   在没有外部光子的情况下，处在高能级 $E_2$ 的原子自发地向低能级 $E_1$
   跃迁而发出光子的过程 [如\autoref{fig:atom-interactions}(a) 所示].
-  发出的光子的频率为 $\nu_0 = \Delta E / h = (E_2 - E_1) / h$，
-  其中 $h$ 为 Planck 常数.
+  发出的光子的频率为 $\nu_0 = \Delta E / \acs{hp} = (E_2 - E_1) / \acs{hp}$.
   此类跃迁的速率正比与原子的始态布居数 $N_2$，即：
   \begin{equation}
     \label{eq:rate-em-spontaneous}
@@ -587,7 +587,7 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
   \label{eq:ratio-populations-te}
   \frac{N_2}{N_1}
     = \frac{g_2}{g_1} \exp\left( - \frac{E_2-E_1}{\acs{kb} T} \right)
-    = \frac{g_2}{g_1} \exp\left( - \frac{h \nu_0}{\acs{kb} T} \right) ,
+    = \frac{g_2}{g_1} \exp\left( - \frac{\acs{hp} \nu_0}{\acs{kb} T} \right) ,
 \end{equation}
 其中 $T$ 为系统的温度，
 $g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}.
@@ -600,7 +600,8 @@ $g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}.
 \begin{equation}
   \label{eq:radiation-spec1}
   \acs{u-nu}(\nu_0) = A_{21} \left[ \frac{g_1}{g_2} B_{12}
-    \exp\left( \frac{h \nu_0}{\acs{kb} T} \right) - B_{21} \right]^{-1} .
+    \exp\left( \frac{\acs{hp} \nu_0}{\acs{kb} T} \right)
+    - B_{21} \right]^{-1} .
 \end{equation}
 
 另一方面，辐射场的能谱分布由 Planck 辐射定律 [\autoref{eq:planck}] 给出，
@@ -608,15 +609,17 @@ $g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}.
 \begin{equation}
   \label{eq:radiation-spec2}
   \acs{u-nu}(\nu_0) = \frac{4\Cpi}{\acs{speed-light}}
-    \frac{2 h \nu_0^3}{\acs{speed-light}^2}
-    \left[ \exp\left( \frac{h \nu_0}{\acs{kb} T} \right) - 1 \right]^{-1} .
+    \frac{2 \acs{hp} \nu_0^3}{\acs{speed-light}^2}
+    \left[ \exp\left( \frac{\acs{hp} \nu_0}{\acs{kb} T} \right)
+      - 1 \right]^{-1} .
 \end{equation}
 联合上式和\autoref{eq:radiation-spec1}，可得
 \begin{equation}
   \frac{A_{21}}{B_{21}} \left[ \frac{g_1}{g_2} \frac{B_{12}}{B_{21}}
-    \exp\left( \frac{h \nu_0}{\acs{kb} T} \right) - 1 \right]^{-1}
-  = \frac{8\Cpi h \nu_0^3}{\acs{speed-light}^3}
-    \left[ \exp\left( \frac{h \nu_0}{\acs{kb} T} \right) - 1 \right]^{-1} .
+    \exp\left( \frac{\acs{hp} \nu_0}{\acs{kb} T} \right) - 1 \right]^{-1}
+  = \frac{8\Cpi \acs{hp} \nu_0^3}{\acs{speed-light}^3}
+    \left[ \exp\left( \frac{\acs{hp} \nu_0}{\acs{kb} T} \right)
+      - 1 \right]^{-1} .
 \end{equation}
 上式必须对任意温度 $T$ 均成立，因此可导出：
 \begin{equation}
@@ -625,7 +628,7 @@ $g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}.
     \begin{aligned}
       \frac{g_1}{g_2} \frac{B_{12}}{B_{21}} & = 1 , \\
       \frac{A_{21}}{B_{21}} & =
-        \frac{8\Cpi h \nu_0^3}{\acs{speed-light}^3} .
+        \frac{8\Cpi \acs{hp} \nu_0^3}{\acs{speed-light}^3} .
     \end{aligned}
   \right.
 \end{equation}
@@ -650,19 +653,19 @@ $g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}.
 在时间 $\D{t}$、频率范围 $[\nu, \,\nu+\D{\nu}]$、
 沿某一方向的立体角元 $\D{\Omega}$ 内通过\ac{em-spontaneous}产生的能量为：
 \begin{equation}
-  \D{E_{\R{sp}}(\nu)} = h \nu_0 A_{21} N_2 \phi(\nu)
+  \D{E_{\R{sp}}(\nu)} = \acs{hp} \nu_0 A_{21} N_2 \phi(\nu)
     \,\D{V}\,\D{t}\,\D{\nu} \left( \frac{\D{\Omega}}{4\Cpi} \right) ,
 \end{equation}
-其中 $\nu_0 = (E_2 - E_1) / h$ 为谱线的中心频率，
+其中 $\nu_0 = (E_2 - E_1) / \acs{hp}$ 为谱线的中心频率，
 $\phi(\nu)$ 为\acf{line-profile}.
 类似地，体积元 $\D{V}$ 通过\ac{em-stimulated}产生的能量为：
 \begin{equation}
-  \D{E_{\R{st}}(\nu)} = h \nu_0 B_{21} N_2 \phi(\nu) \acs{u-nu}
+  \D{E_{\R{st}}(\nu)} = \acs{hp} \nu_0 B_{21} N_2 \phi(\nu) \acs{u-nu}
     \,\D{V}\,\D{t}\,\D{\nu} \left( \frac{\D{\Omega}}{4\Cpi} \right) ,
 \end{equation}
 以及吸收的能量为：
 \begin{equation}
-  \D{E_a(\nu)} = h \nu_0 B_{12} N_1 \phi(\nu) \acs{u-nu}
+  \D{E_a(\nu)} = \acs{hp} \nu_0 B_{12} N_1 \phi(\nu) \acs{u-nu}
     \,\D{V}\,\D{t}\,\D{\nu} \left( \frac{\D{\Omega}}{4\Cpi} \right) ,
 \end{equation}
 其中
@@ -676,19 +679,19 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 即为含有 Einstein 系数的\ac{rt}方程：
 \begin{equation}
   \diff{\acs{I-nu}}{s}
-    = - \left [ \frac{h \nu_0}{\acs{speed-light}}
+    = - \left [ \frac{\acs{hp} \nu_0}{\acs{speed-light}}
       (B_{12} N_1 - B_{21} N_2) \phi(\nu) \right] \acs{I-nu}
-      + \frac{h \nu_0}{4\Cpi} A_{21} N_2 \phi(\nu) .
+      + \frac{\acs{hp} \nu_0}{4\Cpi} A_{21} N_2 \phi(\nu) .
 \end{equation}
 对比 \autoref{sec:radiative-transfer} 所述的辐射转移方程
 [\autoref{eq:radiative-transfer}]，
 可得 \acs{coef-emission} 和 \acs{coef-absorption} 分别为：
 \begin{align}
   \acs{coef-emission}
-    & = \frac{h \nu_0}{4\Cpi} A_{21} N_2 \phi(\nu) ,
+    & = \frac{\acs{hp} \nu_0}{4\Cpi} A_{21} N_2 \phi(\nu) ,
   \label{eq:coef-emission-einstein} \\
   \acs{coef-absorption}
-    & = \frac{h \nu_0}{\acs{speed-light}}
+    & = \frac{\acs{hp} \nu_0}{\acs{speed-light}}
       (B_{12} N_1 - B_{21} N_2) \phi(\nu) .
   \label{eq:coef-absorption-einstein1}
 \end{align}
@@ -698,7 +701,7 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 \begin{equation}
   \label{eq:emission-absorption-ratio1}
   \frac{\acs{coef-emission}}{\acs{coef-absorption}}
-    = \frac{2 h \nu_0^3}{\acs{speed-light}^2}
+    = \frac{2 \acs{hp} \nu_0^3}{\acs{speed-light}^2}
       \left( \frac{g_2}{g_1} \frac{N_1}{N_2} - 1 \right)^{-1} .
 \end{equation}
 对于局部热平衡的系统，Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 给出：
@@ -706,8 +709,8 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
   \label{eq:emission-absorption-ratio2}
   \frac{\acs{coef-emission}}{\acs{coef-absorption}}
     = B_{\nu}(T)
-    = \frac{2 h \nu_0^3}{\acs{speed-light}^2} \left[
-      \exp\left( \frac{h \nu_0}{\acs{kb} T} \right) - 1 \right]^{-1}.
+    = \frac{2 \acs{hp} \nu_0^3}{\acs{speed-light}^2} \left[
+      \exp\left( \frac{\acs{hp} \nu_0}{\acs{kb} T} \right) - 1 \right]^{-1}.
 \end{equation}
 其中使用了 Planck 辐射定律 [\autoref{eq:planck}].
 比较\autoref{eq:emission-absorption-ratio1}
@@ -715,7 +718,7 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 \begin{equation}
   \label{eq:ratio-populations-lte}
   \frac{N_2}{N_1}
-    = \frac{g_2}{g_1} \exp\left( - \frac{h \nu_0}{\acs{kb} T} \right) .
+    = \frac{g_2}{g_1} \exp\left( -\frac{\acs{hp} \nu_0}{\acs{kb} T} \right) .
 \end{equation}
 这说明处于局部热平衡的系统的能级布居与完全热平衡的系统的情形
 [\autoref{eq:ratio-populations-te}] 相同.
@@ -726,11 +729,11 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 \begin{align}
   \acs{coef-absorption}
     & = \frac{\acs{speed-light}^2}{8\Cpi \nu_0^2} A_{21} N_2
-      \left[ \exp\left( \frac{h \nu_0}{\acs{kb} T} \right) - 1 \right]
+      \left[ \exp\left( \frac{\acs{hp} \nu_0}{\acs{kb} T} \right) - 1 \right]
       \phi(\nu)
     \label{eq:coef-absorption-einstein2} \\
     & = \frac{\acs{speed-light}^2}{8\Cpi \nu_0^2} \frac{g_2}{g_1} A_{21} N_1
-      \left[ 1 - \exp\left( -\frac{h \nu_0}{\acs{kb} T} \right) \right]
+      \left[ 1 - \exp\left( -\frac{\acs{hp} \nu_0}{\acs{kb} T} \right) \right]
       \phi(\nu) .
     \label{eq:coef-absorption-einstein3}
 \end{align}
@@ -745,7 +748,7 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
   \frac{N_2}{N_1} \equiv \frac{g_2}{g_1}
     \exp\left(- \frac{E_2-E_1}{\acs{kb} \acs{T-excitation}} \right)
     = \frac{g_2}{g_1}
-      \exp\left( -\frac{h \nu_0}{\acs{kb} \acs{T-excitation}} \right) .
+      \exp\left( -\frac{\acs{hp} \nu_0}{\acs{kb} \acs{T-excitation}} \right) .
 \end{equation}
 该温度 \acs{T-excitation} 描述了两能级的布居数 $N_2$ 和 $N_1$ 之比，
 由系统的辐射、\ac{coll-excitation}和\ac{coll-deexcitation} 三者之间的平衡决定.
@@ -770,10 +773,10 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
   \begin{aligned}
     B_{21} \,\acs{u-nu}(\nu_0) & =
       A_{21} \left[ \exp\left(
-        \frac{h \nu_0}{\acs{kb} T_b} \right) - 1 \right]^{-1} , \\
+        \frac{\acs{hp} \nu_0}{\acs{kb} T_b} \right) - 1 \right]^{-1} , \\
     B_{12} \,\acs{u-nu}(\nu_0) & =
       A_{21} \frac{g_2}{g_1} \left[ \exp\left(
-        \frac{h \nu_0}{\acs{kb} T_b} \right) - 1 \right]^{-1} ,
+        \frac{\acs{hp} \nu_0}{\acs{kb} T_b} \right) - 1 \right]^{-1} ,
   \end{aligned}
   \right.
 \end{equation}
@@ -783,27 +786,32 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 \begin{equation}
   \label{eq:tex-coefs-c}
   C_{12} = \frac{g_2}{g_1} C_{21}
-    \exp\left( - \frac{h \nu_0}{\acs{kb} T_k} \right) ,
+    \exp\left( - \frac{\acs{hp} \nu_0}{\acs{kb} T_k} \right) ,
 \end{equation}
 其中 $T_k$ 为系统（通常为气体）的运动温度 (kinetic temperature).
 将\autoref{eq:tex-coefs-b}和\autoref{eq:tex-coefs-c}
 代入\autoref{eq:detailed-balance-collison1}，整理可得：
 \begin{equation}
   \frac{N_2\,g_1}{N_1\,g_2} =
-    \frac{A_{21} + C_{21} \exp\left( -\frac{h \nu_0}{\acs{kb} T_k} \right)
-      \left[ \exp\left( \frac{h \nu_0}{\acs{kb} T_b} \right) - 1 \right]
-    }{A_{21} \exp\left( \frac{h \nu_0}{\acs{kb} T_b} \right) + C_{21}
-      \left[ \exp\left( \frac{h \nu_0}{\acs{kb} T_b} \right) - 1 \right]} .
+    \frac{A_{21} + C_{21}
+    \exp\left( -\frac{\acs{hp} \nu_0}{\acs{kb} T_k} \right)
+      \left[ \exp\left( \frac{\acs{hp} \nu_0}{\acs{kb} T_b} \right)
+        - 1 \right]
+    }{A_{21} \exp\left( \frac{\acs{hp} \nu_0}{\acs{kb} T_b} \right)
+     + C_{21} \left[ \exp\left( \frac{\acs{hp} \nu_0}{\acs{kb} T_b}
+       \right) - 1 \right]} .
 \end{equation}
 最后，将上式代入\autoref{eq:t-excitation-def}，得到：
 \begin{equation}
   \label{eq:t-excitation}
-  \exp\left(- \frac{h \nu_0}{\acs{kb} \acs{T-excitation}} \right) =
-    \exp\left( -\frac{h \nu_0}{\acs{kb} T_b} \right)
-    \frac{A_{21} + C_{21} \exp\left( -\frac{h \nu_0}{\acs{kb} T_k} \right)
-      \left[ \exp\left( \frac{h \nu_0}{\acs{kb} T_b} \right) - 1 \right]
-    }{A_{21} + C_{21}
-      \left[ 1 - \exp\left( -\frac{h \nu_0}{\acs{kb} T_b} \right) \right]} .
+  \exp\left(- \frac{\acs{hp} \nu_0}{\acs{kb} \acs{T-excitation}} \right) =
+    \exp\left( -\frac{\acs{hp} \nu_0}{\acs{kb} T_b} \right)
+    \frac{A_{21} + C_{21} \exp\left(
+      -\frac{\acs{hp} \nu_0}{\acs{kb} T_k} \right)
+      \left[ \exp\left( \frac{\acs{hp} \nu_0}{\acs{kb} T_b} \right)
+        - 1 \right]
+    }{A_{21} + C_{21} \left[ 1 - \exp\left(
+      -\frac{\acs{hp} \nu_0}{\acs{kb} T_b} \right) \right]} .
 \end{equation}
 从上式可以看出，
 如果辐射占主导 ($A_{21} \gg C_{21}$)，则 $\acs{T-excitation} \to T_b$；
