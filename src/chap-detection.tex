@@ -462,12 +462,17 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 \SI{120}{\MHz} 处的强度.
 因此，即便是轻微的前景处理不当，都会导致微弱的 EoR 信号被淹没而无法被捕捉到.
 此外，部分前景成分（如银河系\ac{rad-syn}）存在显著偏振，
-该偏振成分可能发生泄漏而影响前景强度的测量，即\ac{pl}效应 (ref???)，
-导致前景的频谱结构复杂化而变得更加难以处理 (ref???).
+该偏振成分可能发生泄漏而影响前景强度的测量，即\ac{pl}效应 \cite{cotton1999}，
+导致前景的频谱结构复杂化而变得更加难以处理
+\cite{jelic2014,asad2015,asad2016,asad2018,gehlot2018}.
 如何处理强烈的前景干扰并成功分离 EoR 信号，
 是目前 EoR 探测领域的一个关键任务，
-不仅需要系统深入地理解前景的特征 \cite{offringa2016,carroll2016,procopio2017} (ref???)，
-还需要研发有效的前景扣除与信号分离算法 \cite{chapman2015,chapman2016} (ref???).
+不仅需要系统深入地理解各个前景成分的特征
+\cite{jelic2008,jelic2010,wang2010,liu2012,offringa2016,
+  carroll2016,murray2017,procopio2017,spinelli2018}，
+还需要研发有效的前景扣除与信号分离算法
+\cite{wang2006,jelic2008,harker2009,liu2009fgrm,chapman2012,chapman2013,
+  gu2013,wang2013,bonaldi2015,chapman2015,chapman2016,mertens2018}.
 
 \begin{figure}[tbp]
   \centering
@@ -499,10 +504,9 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 如\autoref{fig:rfi-mwa} 所示的是 MWA 在其各子频段的\ac{vis}数据
 被标记为 \ac{rfi} 的比例，其中突显了\ac{fm}广播、卫星通信以及数字电视
 等干扰源对 EoR 探测所造成的影响.
-\ac{rfi} 的强度通常会高出天空信号的若干个数量级 \cite{bentum2011} (ref???)，
-并且实时发生变化.
-目前的主要办法是识别并屏蔽存在明显 \ac{rfi} 的时间和频率片段
-\cite{offringa2010,offringa2012,prasad2012}，
+\ac{rfi} 的强度通常会高出天空信号的若干个数量级，并且实时发生变化 \cite{bentum2011}.
+目前常用的一种办法是识别并屏蔽存在明显 \ac{rfi} 的时间和频率片段
+\cite{fridman2001,offringa2010,offringa2012,prasad2012,akeret2017}，
 但是残留的干扰可能会对前景处理以及 EoR 信号测量均产生严重影响 \cite{offringa2015}.
 
 \begin{figure}[tbp]
@@ -530,14 +534,15 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 电离层的大气已经非常稀薄，因此被太阳辐射中的紫外线和 X 射线电离的
 空气分子所产生的自由电子在复合前可以短暂地自由活动，形成等离子体，能够对电磁波的
 传播产生影响.
-在 \SI{300}{\MHz} 的低频波段，电离层主要对电磁波产生折射、
+在 \SI{< 300}{\MHz} 的低频波段，电离层主要对电磁波产生折射、
 传播延迟、Faraday 旋转等影响，导致测量数据存在相位和幅度误差
 \cite{intema2009,thompson2017}.
 由于主要受太阳活动的影响，电离层的状态会随时间和位置而发生剧烈变化，
 因此对干涉阵列各天线产生的干扰程度也存在差异且时刻发生变化.
-为了高质量的图像，必须实时（分钟量级???）校准观测数据 (ref???)，
-而且对每个天线施加的校准需要有针对性 (ref???)，这将成为一个严重的计算负担，
-还需要发展更加有效的电离层校准算法 \cite{intema2009,deGasperin2018}.
+为了获得高质量的图像，必须实时校准观测数据 \cite{intema2009,jordan2017}.
+当干涉阵列的基线很长时，对每个站点或天线所施加的校准还需要有针对性.
+这些将成为 \ac{lofar}、\ac{mwa} 等大型低频干涉阵列的一个严重的计算负担
+\cite{intema2009,deGasperin2018}.
 
 \begin{figure}[tbp]
   \centering
@@ -560,7 +565,7 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 \item
 \emph{仪器效应:}
 当代的干涉阵列通常由成千上万根天线组成. 由于生产和安装过程的差异以及随环境和时间的变化，
-每根天线的性能都不可能完全相同，导致所形成的\ac{stb}存在很多不确定因素，
+\ac{station}内每根天线的性能都不可能完全相同，导致所形成的\ac{stb}存在很多不确定因素，
 而且各个\ac{station}的波束也互不相同.
 对于采用数字\ac{bf}技术的\ac{pa}而言，波束的形态更会随着所指方向而发生大幅变化
 \cite{smirnov2011iii,vanWeeren2016,jagannathan2017}.
@@ -570,7 +575,7 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 显著的旁瓣 \cite{thyagarajan2015,mort2017}、
 波束的频率依赖效应 \cite{liu2009ps,datta2010,morales2012}
 （另见 \autoref{sec:eor-window} 和 \autoref{sec:fdeffect}）、
-\ac{pl} \cite{asad2016,asad2018,lenc2017}、
+\ac{pl} \cite{asad2015,asad2016,asad2018,lenc2017}、
 天线响应随频率的变化 \cite{bernardi2015,trott2017}、
 信号传输过程中在电缆内的反射 \cite{beardsley2016}.
 如何准确有效地校准仪器，发挥出仪器的设计性能，是目前最迫切的任务之一
