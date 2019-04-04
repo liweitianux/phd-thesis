@@ -130,7 +130,7 @@ $T_* \equiv \acs{hp} \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
 中性氢的数密度为 $n_{\R{HI}}$，
 则其\acl{optical-depth} [\autoref{eq:optical-depth}] 为：
 \begin{align}
-  \acs{optical-depth}_{\nu0}
+  \acs{optical-depth}_{\nu_0}
     & = \int_{\R{cloud}} \acs{coef-absorption}(s') \,\D{s'}  \\
     & = \frac{3 \acs{hp} \acs{speed-light}^2}{32\Cpi \nu_0}
       \frac{A_{21}}{\acs{kb} \acs{T-spin}} \phi(\nu)
@@ -154,13 +154,13 @@ $T_* \equiv \acs{hp} \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
 于是\ac{line-profile}可近似为：
 \begin{equation}
   \phi(\nu) \sim \frac{\acs{speed-light}}{\nu \Delta v}
-    \sim \frac{\acs{speed-light}}{\nu s \acs{Hz}} .
+    \sim \frac{\acs{speed-light}}{\nu \, s \acs{Hz}} .
 \end{equation}
 将上式和\autoref{eq:column-density} 代入\autoref{eq:21cm-optical-depth1}，
 可得\acl{optical-depth}：
 \begin{equation}
   \label{eq:21cm-optical-depth2}
-  \acs{optical-depth}_{\nu0}
+  \acs{optical-depth}_{\nu_0}
     \approx \frac{3 \acs{hp} \acs{speed-light}^3}{32\Cpi \nu_0^2}
       \frac{A_{21}}{\acs{kb} \acs{T-spin}}
       \frac{\acs{hi-fraction} n_{\R{HI}}}{\acs{Hz}} .
@@ -169,13 +169,13 @@ $T_* \equiv \acs{hp} \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
 \cite{furlanetto2006,pritchard2012}：
 \begin{equation}
   \label{eq:21cm-optical-depth3}
-  \acs{optical-depth}_{\nu0}
+  \acs{optical-depth}_{\nu_0}
     \approx \frac{3 \acs{hp} \acs{speed-light}^3}{32\Cpi \nu_0^2}
       \frac{A_{21}}{\acs{kb} \acs{T-spin}}
       \frac{\acs{hi-fraction} n_{\R{HI}}}{
         (1+z) (\partial v_{\parallel} / \partial r_{\parallel})} ,
 \end{equation}
-其中 $\partial v_{\parallel} / \partial r_{\parallel}$ 是\ac{v-proper}
+其中 $(\partial v_{\parallel} / \partial r_{\parallel})$ 是\ac{v-proper}
 沿视线方向的梯度.
 此外，通常均有\acl{optical-depth} $\acs{optical-depth}_{\nu0} \ll 1$
 \cite{madau1997,furlanetto2006,pritchard2010mn}.
@@ -224,23 +224,23 @@ $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{e
 \end{equation}
 上式两边均乘上 $\Ce^{-\tau'}\,\D{\tau'}$ 并积分：
 \begin{equation}
-  \acs{T-b}\,\Ce^{-\tau'}\,\Big|_0^{\tau_{\nu0}}
-      - \int_0^{\tau_{\nu0}} \acs{T-b}\,\D{(\Ce^{-\tau'})}
-    = \int_0^{\tau_{\nu0}} \acs{T-b}\,\Ce^{-\tau'}\,\D{\tau'}
-      + \acs{T-spin} \int_0^{\tau_{\nu0}} \Ce^{-\tau'}\,\D{\tau'} ,
+  \acs{T-b}\,\Ce^{-\tau'}\,\Big|_0^{\tau_{\nu_0}}
+      - \int_0^{\tau_{\nu_0}} \acs{T-b}\,\D{(\Ce^{-\tau'})}
+    = \int_0^{\tau_{\nu_0}} \acs{T-b}\,\Ce^{-\tau'}\,\D{\tau'}
+      + \acs{T-spin} \int_0^{\tau_{\nu_0}} \Ce^{-\tau'}\,\D{\tau'} ,
 \end{equation}
 可得：
 \begin{equation}
-  \acs{T-b}(\tau'=\tau_{\nu0})\,\Ce^{-\tau_{\nu}} - \acs{T-b}(\tau'=0) =
-    \acs{T-spin} (\Ce^{-\tau_{\nu}} - 1) ,
+  \acs{T-b}(\tau'=\tau_{\nu_0})\,\Ce^{-\tau_{\nu}} - \acs{T-b}(\tau'=0)
+    = \acs{T-spin} (\Ce^{-\tau_{\nu}} - 1) ,
 \end{equation}
-其中 $\acs{T-b}(\tau'=\tau_{\nu}) = T_{\R{cmb}}(z)$
+其中 $\acs{T-b}(\tau'=\tau_{\nu_0}) = T_{\R{cmb}}(z)$
 为辐射入射中性氢云时的亮温度，
 于是获得从中性氢云出射 ($\tau = 0$) 的辐射亮温度 $\acs{T-b}(\nu_0)$ 为：
 \begin{equation}
   \acs{T-b}(\nu_0)
-    = \acs{T-spin} (1 - \Ce^{-\tau_{\nu0}})
-      + T_{\R{cmb}}(z) \,\Ce^{-\tau_{\nu0}} .
+    = \acs{T-spin} (1 - \Ce^{-\tau_{\nu_0}})
+      + T_{\R{cmb}}(z) \,\Ce^{-\tau_{\nu_0}} .
 \end{equation}
 其中 $T_{\R{cmb}}(z)$ 为 \ac{cmb} 辐射在红移 $z$ 时的\ac{comoving-frame}
 中的亮温度：
@@ -261,9 +261,9 @@ $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{e
   \acs{dT-b}(\nu)
     & = \frac{T_b(\nu_0)}{1 + z} - T_{\R{cmb}}(z=0)  \\
     & = \frac{\acs{T-spin} - T_{\R{cmb}}(z)}{1+z}
-      (1 - \Ce^{-\acs{optical-depth}_{\nu0}})  \\
+      (1 - \Ce^{-\acs{optical-depth}_{\nu_0}})  \\
     & \approx \frac{\acs{T-spin} - T_{\R{cmb}}(z)}{1+z}
-      \acs{optical-depth}_{\nu0}  \\
+      \acs{optical-depth}_{\nu_0}  \\
     & \approx \frac{3 \acs{hp} \acs{speed-light}^3 A_{21}}{
       32\Cpi \nu_0^2 \,\acs{kb}}
       \frac{\acs{hi-fraction} n_{\R{HI}}}{
@@ -276,7 +276,7 @@ $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{e
 因此 Hubble 常数 [\autoref{eq:hubble-z}] 可近似为：
 \begin{equation}
   \acs{Hz} = \acs{H0} \sqrt{\acs{Om0} (1+z)^3 + \acs{Ol0}}
-    \approx \acs{H0} \acs{Om0}^{1/2} (1+z)^{3/2} .
+    \approx \acs{H0} \Omega_m^{1/2} (1+z)^{3/2} .
 \end{equation}
 结合\autoref{eq:omega-m-z}，可得红移为 $z$ 时的宇宙重子物质密度参数为：
 \begin{equation}
@@ -285,7 +285,7 @@ $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{e
 \end{equation}
 再利用当地的重子物质\ac{overdensity}，即
 \begin{equation}
-  1 + \delta_b = \frac{\rho_b}{\bar{\rho}_b}
+  1 + \delta_b = \frac{\rho_b}{\overline{\rho}_b}
     \approx \frac{n_{\R{HI}} \acs{mass-p}}{\acs{Ob0}(z) \acs{rho-crit}(z)} ,
 \end{equation}
 其中 $\acs{rho-crit}(z)$ 为\acl{rho-crit} [\autoref{eq:rho-crit}]，
