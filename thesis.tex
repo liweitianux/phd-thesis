@@ -380,12 +380,14 @@
   leftmargin=9em,
 }
 \DeclareAcroListStyle{myacronym}{list}{list=acronymlist}
-\acsetup{list-style=myacronym}
+\acsetup{
+  list-style=myacronym,
+  page-style=paren,
+}
 \printacronyms[
   include-classes=acronym,
   name={主要缩略语对照表},
 ]
-\acsetup{page-style=paren}
 \printacronyms[
   include-classes=glossary,
   name={主要术语对照表},
