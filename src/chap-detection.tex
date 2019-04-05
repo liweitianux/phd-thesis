@@ -606,9 +606,66 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 %---------------------------------------------------------------------
 \subsection{银河系同步辐射}
 
-\ac{rad-syn} ...
-polarization leakage ...
-spectral index variation ...
+\emph{银河系\acs{rad-syn} (Galactic synchrotron radiation)}
+是由弥散于银河系内的高能带电粒子在磁场中发生加速运动而产生的，
+是低频射电波段 ($\gtrsim \SI{1}{\GHz}$) 最明亮的前景成分
+\cite{bernardi2009,ghosh2012}.
+在 \SI{150}{\MHz} 处，即使是高银纬辐射较弱的区域，
+银河系同步辐射亦占全部前景辐射的 \SI{\sim 70}{\percent} \cite{shaver1999}.
+\autoref{fig:galactic-syn} 上栏显示了由 \citeay{remazeilles2015}
+重新处理的 Haslam \SI{408}{\MHz} 巡天图 \cite{haslam1982}，
+可见银河系同步辐射具有明显的大尺度（约在度以上）子结构，
+这将在\ac{ps}的大尺度区域对 EoR 信号产生严重污染.
+
+银河系同步辐射的频谱近似为幂律形式，但谱指数随天空区域而变化，
+如\autoref{fig:galactic-syn} 下栏所示.
+在高银纬区域，\SIrange{100}{200}{\MHz} 范围内的平均谱指数
+$\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{galactic-haslam408}
+  \\\medskip
+  \includegraphics[width=0.9\textwidth]{galactic-spec-index}
+  \bicaption[银河系同步辐射的 \SI{408}{\MHz} 巡天图和谱指数图]{%
+    \uline{（上栏）}
+    由 \citeay{remazeilles2015} 重新处理的 Haslam \SI{408}{\MHz} 巡天图，
+    显示了银河系同步辐射的强度分布.
+    \uline{（下栏）}
+    由 \citeay{giardino2002} 处理得到的银河系同步辐射的谱指数全天分布图，
+    利用了 \SI{408}{\MHz} 全天图、\SI{1420}{\MHz} 北天图 \cite{reich1986}
+    以及 \SI{2326}{\MHz} 南天图 \cite{jonas1998}.
+  }{%
+    \emph{(Upper)} The Haslam \SI{408}{\MHz} all-sky map
+    reprocessed by \citeay{remazeilles2015} shows the
+    Galactic synchrotron radiation.
+    \emph{(Lower)} The synchrotron spectral index map obtained
+    by \citeay{giardino2002} by utilizing the \SI{408}{\MHz} all-sky map,
+    the \SI{1420}{\MHz} northern sky survey \cite{reich1986}, and
+    the \SI{2326}{\MHz} southern sky survey \cite{jonas1998}.
+  }
+  \label{fig:galactic-syn}
+\end{figure}
+
+在低频射电波段对银河系同步辐射的观测和研究仍然非常有限，
+仅有少数几个天区开展了深入观测和研究
+\cite{bernardi2009,ghosh2012,iacobelli2013,choudhuri2017}，
+基于大规模巡天的研究更是匮乏.
+由于磁场强度的涨落、高能带电粒子的密度涨落、\ac{ism}的湍流等因素的影响
+\cite{waelkens2009,lazarian2012,iacobelli2013}，
+银河系同步辐射应具有更复杂的小尺度（角分及亚角分）结构，
+但是受限于目前的观测数据（Haslam \SI{408}{\MHz} 全天图的分辨率约为 \SI{0.85}{\degree}），
+我们对这些细节的了解程度远远不够 \cite{ali2016}.
+
+另一方面，银河系同步辐射具有一定的偏振 \cite{bernardi2009,jelic2014,gehlot2018}.
+偏振的辐射通过磁场时，其偏振面会发生旋转，即 Faraday 旋转效应 \cite{rybicki1979}，
+而且旋转量依赖于辐射频率，因此天线接收到的某一偏振成分
+（如 Stokes $Q$ 或 $U$）的强度变化也依赖于频率，
+使得其频谱可能变得不光滑.
+同时，仪器因其固有的限制而无法完全隔离各偏振成分的测量，
+因此会有少量（约 \SI{1}{\percent} ???）偏振辐射\enquote{漏泄}到总辐射强度里，
+可能破坏前景频谱的光滑性，阻碍前景的准确扣除
+\cite{jelic2010,nunhokee2017,gehlot2018,spinelli2018}.
 
 %---------------------------------------------------------------------
 \subsection{银河系轫致辐射}
