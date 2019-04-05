@@ -668,10 +668,56 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 \cite{jelic2010,nunhokee2017,gehlot2018,spinelli2018}.
 
 %---------------------------------------------------------------------
-\subsection{银河系轫致辐射}
+\subsection{银河系自由--自由辐射}
 
-\ac{rad-brem} ...
-TODO
+\emph{银河系\acs{rad-ff} (Galactic free--free radiation)}
+源自于银河系的\ac{hii}区、\ac{wim}等区域的热电子的\ac{rad-brem}.
+因为电子在辐射前后都是自由的（即没有束缚在离子、原子、分子里），
+所以\ac{rad-brem}又被称为\ac{rad-ff}.
+银河系\ac{rad-ff}的谱指数 $\acs{spec-index}_{\R{ff}} \sim 2.1$，
+比\ac{rad-syn}的频谱偏平一点 \cite{dickinson2003}.
+
+在低频射电波段，除了银盘附近区域，
+银河系\ac{rad-ff}被淹没在\ac{rad-syn}之中而无法被直接观测到，
+所以我们对该辐射成分的了解非常有限.
+目前已掌握的有关银河系\ac{rad-ff}的信息主要源自 Hα 巡天 \cite{finkbeiner2003}，
+因为产生\ac{rad-ff}的电离区域同时也会产生 Hα 辐射，
+而且两种辐射的强度之间存在紧密关联，
+因此可以利用 Hα 辐射来有效地追踪\ac{rad-ff} \cite{smoot1998,dickinson2003}.
+不过 Hα 辐射容易被尘埃吸收，因此需要首先利用尘埃分布图\cite{schlegel1998}
+对 Hα 辐射进行修正，然后再推导\ac{rad-ff} \cite{dickinson2003}，
+如\autoref{fig:galactic-ff} 显示了利用该方法（详见 \autoref{sec:simu-gff}）
+得到的银河系\ac{rad-ff}在 \SI{150}{\MHz} 的全天图.
+但是在银盘附近，Hα 辐射的尘埃吸收修正将因为尘埃多、分布复杂而变得不可靠，
+从而无法给出合理的\ac{rad-ff}.
+
+另一条追踪\ac{rad-ff}的方法是利用\ac{rrl}.
+因为\ac{rrl}不受尘埃吸收的影响，所以该方法可以顺利用于银盘附近区域，
+给出可靠的\ac{rad-ff} \cite{alves2010,alves2012}.
+与前面的方法相结合，可以获得银河系\ac{rad-ff}的完整全天图.
+
+尽管银河系\ac{rad-ff}的强度远弱于同步辐射成分，
+比如在 \SI{150}{\MHz} 处贡献总前景辐射的 \SI{\sim 1}{\percent} \cite{shaver1999}，
+但仍然是重要的 EoR 前景干扰成分，原因有二 \cite{jelic2008}：
+(1) 银河系\ac{rad-ff}的强度和涨落仍然远强于 EoR 信号；
+(2) 该前景成分的谱指数和子结构与其他前景成分不同.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{galactic-freefree}
+  \bicaption[银河系自由--自由辐射在 \SI{150}{\MHz} 的全天图]{%
+    对 Hα 全天辐射图\cite{finkbeiner2003}修正尘埃吸收后得到的
+    银河系自由--自由辐射在 \SI{150}{\MHz} 的强度分布图 \cite{dickinson2003}.
+    图中靠近银盘的白色区域由于尘埃吸收修正不可靠而被屏蔽.
+  }{%
+    The Galactic free--free radiation map at \SI{150}{\MHz}
+    derived from the Hα all-sky map \cite{finkbeiner2003}
+    with dust absorption corrected \cite{dickinson2003}.
+    The white regions near the Galactic plane is masked due to
+    the large uncertainty about the correction for dust absorption.
+  }
+  \label{fig:galactic-ff}
+\end{figure}
 
 %---------------------------------------------------------------------
 \subsection{河外点源}
