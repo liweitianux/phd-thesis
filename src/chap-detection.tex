@@ -726,31 +726,50 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 %---------------------------------------------------------------------
 \subsection{河外点源}
 
-\ac{src-point} ...
-TODO
+除银河系的弥散辐射（\ac{rad-syn}和\ac{rad-ff}）之外，最强的前景干扰源
+便是数目极多的\emph{河外\acs{src-point} (extragalactic point source)}，
+这些\ac{src-point}产生的辐射在 \SI{150}{\MHz} 处贡献了总前景辐射的
+\SI{\sim 27}{\percent} \cite{shaver1999}.
+在\ac{ps}的小尺度（亚角分）区域，河外点源更是成为最强、最难处理的前景成分 (ref???).
+如\autoref{fig:mwa-eor0} 显示了 MWA EoR0 天区的深度曝光图像 \cite{offringa2016}，
+可见密布的点源.
 
-clustering effect ...
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{MWA-EoR0-fullbw}
+  \bicaption[MWA EoR0 天区的深度曝光图像]{%
+    MWA 对 EoR0 天区 (R.A. = \SI{0}{\degree}, Dec.\@ = \SI{-27}{\degree})
+    累计观测 \SI{45}{\hour} 获得的波束修正后的图像，大小约为 \SI{45 x 30}{\degree}.
+  }{%
+    The beam-corrected map of the EoR0 field
+    (R.A. = \SI{0}{\degree}, Dec.\@ = \SI{-27}{\degree}) obtained by
+    the MWA after \SI{45}{\hour} of integration time.
+    The image size is about \SI{45 x 30}{\degree}.
+    \\\textcopyright{}
+    \citeay{offringa2016}.
+  }
+  \label{fig:mwa-eor0}
+\end{figure}
 
-%---------------------------------------------------------------------
-\subsection{星系团}
+% XXX/FIXME!
+河外点源可大致分为以下几类 \cite{snellen2000,wilman2008,wang2010}：
+(1) 恒星形成星系 (star-forming galaxy)，
+包括普通晚型星系 (normal late-type galaxy) 和星暴星系 (starburst galaxy)；
+(2) 射电宁静 (radio-quiet) \ac{agn}；
+(3) \ac{fr} I 型和 II 型 \ac{agn}；
+(4) GHz 倒转谱 (GHz-peaked-spectrum) \ac{agn}；
+(5) 致密陡谱 (compact steep-spectrum) \ac{agn}.
+其中 \ac{fr} I 型和 II 型 \ac{agn} 具有强烈的\ac{jet}或射电瓣 (lobe)，
+呈现复杂的形态结构，所以\enquote{点源}这一命名并不准确，
+主要是为了与下文（\autoref{sec:eg-extended}）将要介绍的\enquote{展源}区分开来.
 
-\ac{gc} ...
-radio halos, relics, mini-halos ...
-
-\subsubsection{射电晕}
-
-\ac{rh} ...
-radio halos ...
-
-\subsubsection{射电遗迹}
-
-\ac{rr} ...
-radio relics ...
-
-\subsubsection{迷你射电晕}
-
-\ac{rmh} ...
-radio mini-halos ...
+目前的低频观测结果显示点源的频谱是光滑的，没有明显的谱线结构 \cite{offringa2016}.
+但是不同类别的点源具有不同的谱指数和频谱形态.
+还有小部分点源的辐射具有显著偏振，所以观测得到的频谱的光滑性会受到\ac{pl}的影响
+\cite{geil2011,vanEck2018}.
+此外，河外点源的成团效应 (clustering effect) 会改变其功率谱，
+该效应需要被仔细考虑以获得准确的 EoR 信号功率谱
+\cite{diMatteo2004,liu2011,murray2017}.
 
 %---------------------------------------------------------------------
 \subsection{超星系团和大尺度纤维状结构}
