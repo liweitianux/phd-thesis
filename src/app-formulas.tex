@@ -9,36 +9,18 @@
 %=====================================================================
 \section{结构形成}
 
-在本文所采用的\emph{平直 \lcdm/ 宇宙}中，
-\ac{delta-crit}随红移的变化关系可表示为 \cite{kitayama1996,randall2002}：
-\begin{equation}
-  \label{eq:delta-crit}
-  \acs{delta-crit} = \frac{D(z=0)}{D(z)}
-    \left[ \frac{3 (12\Cpi)^{2/3}}{20} \right]
-    \left[1 + 0.0123 \log_{10} \acs{Om0}(z) \right] ,
-\end{equation}
-其中 $\acs{Om0}(z)$ 是红移为 $z$ 时的宇宙物质密度参数：
-\begin{equation}
-  \label{eq:omega-m-z}
-  \acs{Om0}(z) = \frac{\acs{Om0} (1+z)^3}{\acs{Om0} (1+z)^3 + \acs{Ol0}} ,
-\end{equation}
-$D(z)$ 是增长因子 (growth factor)，可由下述公式计算
-[参见 \citeay{peebles1980}, 式~(13.6)]：
-\begin{equation}
-  \label{eq:growth-factor}
-  D(x) = \frac{(x^3 + 2)^{1/2}}{x^{3/2}}
-    \mathlarger{\int_0^x} y^{3/2} (y^3 + 2)^{-3/2} \,\D{y} ,
-\end{equation}
-并且 $x_0 \equiv (2 \acs{Ol0} \big/ \acs{Om0})^{1/3}$,
-$x = x_0 \big/ (1+z)$.
-
-\acl{Hz}为：
+在本文所采用的\emph{平直 \lcdm/ 宇宙}中，\acl{Ez} \acs{Ez} 为 \cite{hogg1999}：
+\begin{align}
+  \label{eq:Ez}
+  \acs{Ez}
+    & = \sqrt{\acs{Om0} (1+z)^3 + \Omega_k (1+z)^2 + \acs{Ol0}}  \\
+    & = \sqrt{\acs{Om0} (1+z)^3 + \acs{Ol0}} \, .
+\end{align}
+于是，\acl{Hz}可表示为：
 \begin{equation}
   \label{eq:hubble-z}
-  \acs{Hz} = \acs{H0} \, \acs{Ez}
-    = \acs{H0} \sqrt{\acs{Om0} (1+z)^3 + \acs{Ol0}} ,
+  \acs{Hz} = \acs{H0} \, \acs{Ez} .
 \end{equation}
-其中 \acs{Ez} 是\acl{Ez} \cite{hogg1999}.
 该红移处的宇宙临界密度为：
 \begin{equation}
   \label{eq:rho-crit}
@@ -62,6 +44,30 @@ $x = x_0 \big/ (1+z)$.
   \acs{overdensity-vir}(z) = 18\Cpi^2 + 82 x - 39 x^2,
 \end{equation}
 其中 $x \equiv \acs{Om0}(z) - 1$ [见\autoref{eq:omega-m-z}].
+
+在 \ac{cdm} 模型中，暗物质塌缩形成团块（即暗物质晕, dark matter halo）
+的\acl{delta-crit} (critical linear overdensity)
+随红移的变化关系可表示为 \cite{kitayama1996,randall2002}：
+\begin{equation}
+  \label{eq:delta-crit}
+  \acs{delta-crit} = \frac{D(z=0)}{D(z)}
+    \left[ \frac{3 (12\Cpi)^{2/3}}{20} \right]
+    \left[1 + 0.0123 \log_{10} \acs{Om0}(z) \right] ,
+\end{equation}
+其中 $\acs{Om0}(z)$ 是红移为 $z$ 时的宇宙物质密度参数：
+\begin{equation}
+  \label{eq:omega-m-z}
+  \acs{Om0}(z) = \frac{(1+z)^3}{E^2(z)} \acs{Om0} ,
+\end{equation}
+$D(z)$ 是增长因子 (growth factor)，可由下述公式计算
+[参见 \citeay{peebles1980}, 式~(13.6)]：
+\begin{equation}
+  \label{eq:growth-factor}
+  D(x) = \frac{(x^3 + 2)^{1/2}}{x^{3/2}}
+    \mathlarger{\int_0^x} y^{3/2} (y^3 + 2)^{-3/2} \,\D{y} ,
+\end{equation}
+并且 $x_0 \equiv (2 \acs{Ol0} \big/ \acs{Om0})^{1/3}$,
+$x = x_0 \big/ (1+z)$.
 
 
 %=====================================================================
