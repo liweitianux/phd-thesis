@@ -41,9 +41,14 @@
 \acf{overdensity} \acs{overdensity-vir} 为 \cite{bryan1998}：
 \begin{equation}
   \label{eq:delta-vir}
-  \acs{overdensity-vir}(z) = 18\Cpi^2 + 82 x - 39 x^2,
+  \acs{overdensity-vir}(z)
+    = 18\Cpi^2 + 82 [\acs{Om0}(z) - 1] - 39 [\acs{Om0}(z) - 1]^2 ,
 \end{equation}
-其中 $x \equiv \acs{Om0}(z) - 1$ [见\autoref{eq:omega-m-z}].
+其中 $\acs{Om0}(z)$ 是红移为 $z$ 时的宇宙物质密度参数：
+\begin{equation}
+  \label{eq:omega-m-z}
+  \acs{Om0}(z) = \frac{(1+z)^3}{E^2(z)} \acs{Om0} .
+\end{equation}
 
 在 \ac{cdm} 模型中，暗物质塌缩形成团块（即暗物质晕, dark matter halo）
 的\acl{delta-crit} (critical linear overdensity)
@@ -54,12 +59,7 @@
     \left[ \frac{3 (12\Cpi)^{2/3}}{20} \right]
     \left[1 + 0.0123 \log_{10} \acs{Om0}(z) \right] ,
 \end{equation}
-其中 $\acs{Om0}(z)$ 是红移为 $z$ 时的宇宙物质密度参数：
-\begin{equation}
-  \label{eq:omega-m-z}
-  \acs{Om0}(z) = \frac{(1+z)^3}{E^2(z)} \acs{Om0} ,
-\end{equation}
-$D(z)$ 是增长因子 (growth factor)，可由下述公式计算
+其中 $D(z)$ 是增长因子 (growth factor)，可由下述公式计算
 [参见 \citeay{peebles1980}, 式~(13.6)]：
 \begin{equation}
   \label{eq:growth-factor}
