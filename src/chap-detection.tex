@@ -299,9 +299,8 @@ $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{e
     & \approx \frac{3 \acs{H0}}{8\Cpi\acs{mass-p}\acs{G}}
       \frac{\acs{Ob0}}{\Omega_m^{1/2}} (1+\delta_b) (1+z)^{3/2} \acs{Hz} .
 \end{align}
-将上式代入\autoref{eq:eor-signal1}，可得：
+将上式代入\autoref{eq:eor-signal1}，可得 EoR 信号的最终表达式：
 \begin{align}
-  \label{eq:eor-signal}
   \acs{dT-b}(\nu)
     & \approx \frac{9 \acs{hp} \acs{speed-light}^3 A_{21}}{
       256\Cpi^2 \nu_0^2 \,\acs{kb} \acs{mass-p} \acs{G}}
@@ -309,18 +308,23 @@ $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{e
       \acs{hi-fraction} (1+\delta_b) (1+z)^{1/2}
       \left[ 1 - \frac{T_{\R{cmb}}(z)}{\acs{T-spin}} \right]
       \left[ \frac{\acs{Hz} / (1+z)}{
-        \partial v_{\parallel} / \partial r_{\parallel}} \right]  \\
-    & \approx 12 \acs{hi-fraction} (1+\delta_b) (1+z)^{1/2}
+        \partial v_{\parallel} / \partial r_{\parallel}} \right]
+  \label{eq:eor-signal2}  \\
+    & \approx \left( \SI{38}{\mK} \right)
+      \acs{hi-fraction} (1+\delta_b)
+      \left( \frac{1+z}{10} \right)^{1/2}
+      \left( \frac{0.27}{\acs{Om0}} \right)^{1/2}
+      \left( \frac{\acs{Ob0} \acs{h}^2}{0.023} \right)
       \left[ 1 - \frac{T_{\R{cmb}}(z)}{\acs{T-spin}} \right]
       \left[ \frac{\acs{Hz} / (1+z)}{
-        \partial v_{\parallel} / \partial r_{\parallel}} \right]
-      \quad [\si{\mK}]  .
+        \partial v_{\parallel} / \partial r_{\parallel}} \right] .
+  \label{eq:eor-signal3}
 \end{align}
 
 %---------------------------------------------------------------------
 \subsection{亮温度的演化}
 
-由\autoref{eq:eor-signal} 易知，\acl{T-spin} \acs{T-spin}
+由\autoref{eq:eor-signal2} 易知，\acl{T-spin} \acs{T-spin}
 对 EoR 信号 $\acs{dT-b}(\nu)$ 的强度起关键作用.
 当 $\acs{T-spin} > T_{\R{cmb}}(z)$ 时，$\acs{dT-b}(\nu) > 0$ 为发射信号，
 并且当 $\acs{T-spin} \gg T_{\R{cmb}}(z)$ 时 $\acs{dT-b}(\nu)$ 达到饱和；
