@@ -456,41 +456,41 @@ $\nu = \nu_0 / (1 + z)$，其中 $\nu_0$ 为 \ac{21cmline}的本征频率
 其中 $\tilde{I}^*$ 为 $\tilde{I}$ 的\ac{cconj}.
 
 然而，宇宙学研究中通常使用\ac{comoving-frame}以及一种不同的 Fourier 约定.
-一个三维场 $T(\B{r}_{\bot}, r_{\parallel})$ 的 Fourier 变换为：
+一个三维场 $T(\B{r}_{\perp}, r_{\parallel})$ 的 Fourier 变换为：
 \begin{equation}
   \label{eq:ft3d-k}
-  \tilde{T}(\B{k}_{\bot}, k_{\parallel}) =
-    \int T(\B{r}_{\bot}, r_{\parallel})
-    \exp[ -\Ci (\B{k}_{\bot} \cdot \B{r}_{\bot}
+  \tilde{T}(\B{k}_{\perp}, k_{\parallel}) =
+    \int T(\B{r}_{\perp}, r_{\parallel})
+    \exp[ -\Ci (\B{k}_{\perp} \cdot \B{r}_{\perp}
       + k_{\parallel} r_{\parallel}) ]
-    \,\mathrm{d}^2\B{r}_{\bot} \,\D{r}_{\parallel} ,
+    \,\mathrm{d}^2\B{r}_{\perp} \,\D{r}_{\parallel} ,
 \end{equation}
-其中 $(\B{r}_{\bot}, r_{\parallel})$ 分别表示
+其中 $(\B{r}_{\perp}, r_{\parallel})$ 分别表示
 垂直于视线方向和平行于视线方向的\acl{distance-comoving}，
-$(\B{k}_{\bot}, k_{\parallel}) = 2\Cpi / (\B{r}_{\bot}, r_{\parallel})$
+$(\B{k}_{\perp}, k_{\parallel}) = 2\Cpi / (\B{r}_{\perp}, r_{\parallel})$
 分别表示 Fourier 空间中垂直于视线方向和平行于视线方向的\ac{wavenumber}.
 注意，对比\autoref{eq:ft3d}，上式的相位因子少了系数 $2\Cpi$.
 于是，相应的逆 Fourier 变换为：
 \begin{equation}
-  T(\B{r}_{\bot}, r_{\parallel}) =
-    \frac{1}{(2\Cpi)^3} \int \tilde{T}(\B{k}_{\bot}, k_{\parallel})
-    \exp[ \Ci (\B{k}_{\bot} \cdot \B{r}_{\bot}
+  T(\B{r}_{\perp}, r_{\parallel}) =
+    \frac{1}{(2\Cpi)^3} \int \tilde{T}(\B{k}_{\perp}, k_{\parallel})
+    \exp[ \Ci (\B{k}_{\perp} \cdot \B{r}_{\perp}
       + k_{\parallel} r_{\parallel}) ]
-    \,\mathrm{d}^2\B{k}_{\bot} \,\D{k}_{\parallel} ,
+    \,\mathrm{d}^2\B{k}_{\perp} \,\D{k}_{\parallel} ,
 \end{equation}
-三维功率谱 $P(\B{k}_{\bot}, k_{\parallel})$ 则由下式给出：
+三维功率谱 $P(\B{k}_{\perp}, k_{\parallel})$ 则由下式给出：
 \begin{equation}
   \label{eq:ps3d-k}
-  \langle \tilde{T}(\B{k}_{\bot}, k_{\parallel})
-      \, \tilde{T}^*(\B{k}'_{\bot}, k'_{\parallel}) \rangle
-    \equiv (2\Cpi)^3 P(\B{k}_{\bot}, k_{\parallel})
-      \delta(\B{k}_{\bot} - \B{k}'_{\bot})
+  \langle \tilde{T}(\B{k}_{\perp}, k_{\parallel})
+      \, \tilde{T}^*(\B{k}'_{\perp}, k'_{\parallel}) \rangle
+    \equiv (2\Cpi)^3 P(\B{k}_{\perp}, k_{\parallel})
+      \delta(\B{k}_{\perp} - \B{k}'_{\perp})
       \delta(k_{\parallel} - k'_{\parallel}) .
 \end{equation}
 
 利用 \ac{21cmline}的观测频率、红移、\acl{distance-comoving}之间的对应关系，可得：
 \begin{align}
-  \B{r}_{\bot} & = \acs{distance-comoving}(z) \,\B{\theta} , \\
+  \B{r}_{\perp} & = \acs{distance-comoving}(z) \,\B{\theta} , \\
   \Delta r_{\parallel}
     & = \frac{\acs{speed-light}}{\nu_0 \acs{H0}}
       \frac{(1+z)^2}{\acs{Ez}} \Delta \nu ,
@@ -503,27 +503,27 @@ $(\Delta r_{\parallel}, \Delta\nu) \to (r_{\parallel}, \nu)$
 替换后仍然成立.
 对比\autoref{eq:ft3d} 和\autoref{eq:ft3d-k}，可得：
 \begin{align}
-  \B{k}_{\bot} & = \frac{2\Cpi}{\acs{distance-comoving}(z)} \B{u} , \\
+  \B{k}_{\perp} & = \frac{2\Cpi}{\acs{distance-comoving}(z)} \B{u} , \\
   k_{\parallel} & =
     \frac{2\Cpi \nu_0 \acs{H0}\acs{Ez}}{\acs{speed-light} (1+z)^2} \eta ,
 \end{align}
 据此，可知\autoref{eq:ps3d} 和\autoref{eq:ps3d-k} 给出的三维功率谱
 之间的转换关系为：
 \begin{equation}
-  P(\B{k}_{\bot}, k_{\parallel}) =
+  P(\B{k}_{\perp}, k_{\parallel}) =
     \frac{\acs{speed-light} (1+z)^2 D_{\!C}^2(z)}{\nu_0 \acs{H0}\acs{Ez}}
     \bar{P}(\B{u}, \eta) .
 \end{equation}
 更多细节可参考 \citeay{liu2014} 的附录 A.
 由\autoref{eq:ps3d-k} 给出的 EoR 信号的三维功率谱
-$P(\B{k}_{\bot}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}]，
+$P(\B{k}_{\perp}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}]，
 实际研究中更常用到的是相对应的去量纲形式 \cite{peacock1996}：
 \begin{equation}
   \label{eq:ps3d-k2}
-  \Delta^2(\B{k}_{\bot}, k_{\parallel})
-    \equiv \frac{k^3}{2\Cpi^2} P(\B{k}_{\bot}, k_{\parallel}) ,
+  \Delta^2(\B{k}_{\perp}, k_{\parallel})
+    \equiv \frac{k^3}{2\Cpi^2} P(\B{k}_{\perp}, k_{\parallel}) ,
 \end{equation}
-此形式的功率谱 $\Delta^2(\B{k}_{\bot}, k_{\parallel})$
+此形式的功率谱 $\Delta^2(\B{k}_{\perp}, k_{\parallel})$
 的单位变成 [\si{\mK\squared}].
 
 \begin{figure}[tbp]
@@ -553,7 +553,7 @@ $P(\B{k}_{\bot}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}]
 如\autoref{fig:eor-fg-fourier} 左栏所示.
 因此，可以将三维功率谱 $P(\B{k})$ 在一系列球壳里进行平均，
 得到\emph{一维\ac{ps}} $P(k)$ \cite{morales2004,datta2010}，
-其中 $k = |\B{k}| = \sqrt{|\B{k}_{\bot}|^2 + k_{\parallel}^2}$ 为球壳的半径.
+其中 $k = |\B{k}| = \sqrt{|\B{k}_{\perp}|^2 + k_{\parallel}^2}$ 为球壳的半径.
 通过这种方式，EoR 信号的信息被有效地压缩到少量 Fourier 模式 (mode) 里，
 极大地提高了每个模式里 EoR 信号的\ac{snr}，
 从而大大降低了探测 EoR 信号的难度和所需的观测时间 \cite{datta2010}.
@@ -562,7 +562,7 @@ $P(\B{k}_{\bot}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}]
 尽管前景的频谱是光滑的，但前景的空间结构非常复杂
 （如银河系的子结构、形态各异的射电星系和星系团弥散辐射；详见 \autoref{sec:fg-intro}），
 因此，在三维功率谱上，前景的功率将被较好地约束在频率维度 ($\eta$ 或 $k_{\parallel}$)，
-但却弥散在整个空间维度 ($\B{u}$ 或 $\B{k}_{\bot}$)，
+但却弥散在整个空间维度 ($\B{u}$ 或 $\B{k}_{\perp}$)，
 如\autoref{fig:eor-fg-fourier} 右栏所示.
 当简单地对三维功率谱按球壳平均时，前景的功率将出现在所有的 $k$ 模式里，淹没 EoR 信号.
 
@@ -570,15 +570,15 @@ $P(\B{k}_{\bot}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}]
   \centering
   \includegraphics[width=0.35\textwidth]{ps2d-annuli-diagram}
   \bicaption[计算二维功率谱的示意图]{%
-    计算二维功率谱 $P(k_{\bot}, k_{\parallel})$ 的示意图：
-    在三维功率谱 $P(\B{k}_{\bot}, k_{\parallel})$ 的每一个 $k_{\parallel}$ 平面里，
-    按一系列圆环（半径为 $k_{\bot} = |\B{k}_{\bot}|$）将功率平均.
+    计算二维功率谱 $P(k_{\perp}, k_{\parallel})$ 的示意图：
+    在三维功率谱 $P(\B{k}_{\perp}, k_{\parallel})$ 的每一个 $k_{\parallel}$ 平面里，
+    按一系列圆环（半径为 $k_{\perp} = |\B{k}_{\perp}|$）将功率平均.
   }{%
     A diagram showing the calculation of the \ac{2d} power spectrum
-    $P(k_{\bot}, k_{\parallel})$:
+    $P(k_{\perp}, k_{\parallel})$:
     in each $k_{\parallel}$ plane of the \ac{3d} power spectrum,
     average the powers in a series of annuli with radius of
-    $k_{\bot} = |\B{k}_{\bot}|$.
+    $k_{\perp} = |\B{k}_{\perp}|$.
     \\\textcopyright{}
     \citeay{thyagarajan2013}.
   }
@@ -590,13 +590,13 @@ EoR 信号的\ac{imgcube} $I_{\R{eor}}(\B{\theta}, \nu)$
 但是对于前景的\ac{imgcube} $I_{\R{fg}}(\B{\theta}, \nu)$，
 频率维度 $\nu$ 表示前景辐射源的频谱（通常为连续谱），
 与两个空间维度 $\B{\theta}$ 完全不同，两者之间也是相互独立的.
-因此，一个更好的方法是保持三维功率谱 $P(\B{k}_{\bot}, k_{\parallel})$
-的 $k_{\parallel}$ 维度不变，只将两个空间维度 $\B{k}_{\bot}$ 压缩至一维.
+因此，一个更好的方法是保持三维功率谱 $P(\B{k}_{\perp}, k_{\parallel})$
+的 $k_{\parallel}$ 维度不变，只将两个空间维度 $\B{k}_{\perp}$ 压缩至一维.
 具体的做法是：
 如\autoref{fig:ps2d-calculation} 所示，
 在三维功率谱的每一个 $k_{\parallel}$ 平面里，取一系列圆环将功率平均，
-得到二维功率谱 $P(k_{\bot}, k_{\parallel})$，
-其中 $k_{\bot} = |\B{k}_{\bot}|$ 是圆环的半径 \cite{datta2010,thyagarajan2013}.
+得到二维功率谱 $P(k_{\perp}, k_{\parallel})$，
+其中 $k_{\perp} = |\B{k}_{\perp}|$ 是圆环的半径 \cite{datta2010,thyagarajan2013}.
 
 在二维功率谱上，EoR 信号因具有不光滑的频谱而主要分布在 $k_{\parallel}$ 较大的区域，
 频谱光滑的前景则主要分布在 $k_{\parallel}$ 较小的区域，

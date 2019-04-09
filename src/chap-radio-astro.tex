@@ -839,16 +839,16 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 （即与 $r$ 的方向垂直）电场强度为 [详见 \citeay{condon2016}, \S\,2.7]：
 \begin{equation}
   \label{eq:q-efield}
-  E_{\bot} = \frac{q \dot{v} \sin\theta}{r \acs{speed-light}^2} ,
+  E_{\perp} = \frac{q \dot{v} \sin\theta}{r \acs{speed-light}^2} ,
 \end{equation}
 其中
 \acs{speed-light} 是\acl{speed-light}，
 $\theta$ 为 $r$ 与 $v$ 之间的夹角.
-天线的每一小段 $\D{z}$ 均会贡献一定的电场强度 $\D{E_{\bot}}$，
+天线的每一小段 $\D{z}$ 均会贡献一定的电场强度 $\D{E_{\perp}}$，
 由于 $l \ll \lambda$，因此产生的电场总强度为：
 \begin{equation}
   \label{eq:dipole-efield1}
-  E_{\bot} = \int_{-l/2}^{l/2}
+  E_{\perp} = \int_{-l/2}^{l/2}
     \frac{\dot{v} \sin\theta}{r \acs{speed-light}^2} \,\diff{q}{z}\D{z} .
 \end{equation}
 对于远场情形 ($r \gg l$)，$1/r$ 可视为常数而提出积分号.
@@ -867,7 +867,7 @@ $\theta$ 为 $r$ 与 $v$ 之间的夹角.
 可得
 \begin{align}
   \label{eq:dipole-efield2}
-  E_{\bot}
+  E_{\perp}
     & = -\frac{\Ci\omega \sin\theta}{r \acs{speed-light}^2}
       \int_{-l/2}^{l/2} \diff{q}{z} v \,\D{z} \\
     & = -\frac{\Ci\omega \sin\theta}{r \acs{speed-light}^2}
@@ -882,7 +882,7 @@ $\theta$ 为 $r$ 与 $v$ 之间的夹角.
 最终可得天线在 $r$ 处产生的切向电场强度为：
 \begin{align}
   \label{eq:dipole-efield}
-  E_{\bot}
+  E_{\perp}
     & \approx -\frac{\Ci\omega \sin\theta}{r \acs{speed-light}^2}
       \frac{I_0 l}{2} \Ce^{-\Ci\omega t} \\
     & = -\frac{\Ci\Cpi \sin\theta}{\acs{speed-light}}
@@ -927,7 +927,7 @@ $\theta$ 为 $r$ 与 $v$ 之间的夹角.
 \begin{equation}
   \label{eq:poynting-flux}
   \langle S \rangle
-    = \frac{\acs{speed-light}}{4\Cpi} \langle E_{\bot}^2 \rangle
+    = \frac{\acs{speed-light}}{4\Cpi} \langle E_{\perp}^2 \rangle
     = \frac{\Cpi}{8\,\acs{speed-light}}
       \left( \frac{I_0 l}{\lambda} \right)^2 \frac{\sin^2\theta}{r^2} .
 \end{equation}
