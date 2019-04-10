@@ -1101,7 +1101,7 @@ $\overline{P}$ 之比，即：
   \acs{delay-geo} = \frac{\B{b} \cdot \hat{\B{s}}}{\acs{speed-light}},
 \end{equation}
 其中 \acs{speed-light} 是\acl{speed-light}，
-$\B{b}$ 为两天线之间的基线矢量（由天线 1 指向天线 2），
+$\B{b}$ 为两天线之间的\ac{baseline}矢量（由天线 1 指向天线 2），
 $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 两个天线接收信号后分别输出电压响应：
 \begin{align}
@@ -1136,7 +1136,7 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
   \phi = \omega \acs{delay-geo}
     = 2\Cpi \left( \frac{b \cos\theta}{\lambda} \right),
 \end{equation}
-其中 $\theta$ 为方向 $\hat{\B{s}}$ 和基线矢量 $\B{b}$ 之间的夹角.
+其中 $\theta$ 为方向 $\hat{\B{s}}$ 和\ac{baseline}矢量 $\B{b}$ 之间的夹角.
 于是有
 \begin{equation}
   \diff{\phi}{\theta} = 2\Cpi \left( \frac{b \sin\theta}{\lambda} \right),
@@ -1316,7 +1316,7 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 需要定义一个坐标系，如\autoref{fig:interferometer-coordsys}
 所示的 $(u,v,w)$ 直角坐标系是最常用的，其中 $w$ 轴指向参考方向 $\hat{\B{s}}_0$，
 通常为目标的中心，$u$ 轴向东，$v$ 轴向北.
-于是，基线矢量 $\B{b} = (u,v,w) \lambda$，
+于是，\ac{baseline}矢量 $\B{b} = (u,v,w) \lambda$，
 方向矢量 $\hat{\B{s}} = \left( l, m, \sqrt{1-l^2-m^2} \right)$，
 其中 $l, m$ 为 $\hat{\B{s}}$ 分别对 $u, v$ 轴的投影长度，即\ac{dc}.
 再利用 $\D{\Omega} = \D{l}\,\D{m} \,\big/ \sqrt{1-l^2-m^2}$，
@@ -1333,10 +1333,10 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 从而通过逆运算获得目标的亮度分布.
 \begin{itemize}
 \item
-\emph{所有基线矢量共面:}
+\emph{所有\ac{baseline}矢量共面:}
 这可进一步分为两种情形：
 (1) 干涉阵列的天线只沿东西方向分布，如 \ac{wsrt}，尽管地球自转，
-所有基线矢量均落在同一垂直于地球自转轴的平面内；
+所有\ac{baseline}矢量均落在同一垂直于地球自转轴的平面内；
 (2) 虽然干涉阵列的天线分布在一个二维平面，
 如 \autoref{sec:miteor} 将介绍的 \ac*{miteor}，但只考虑瞬时观测.
 此时，可以选取合适的坐标系使得 $w = 0$，于是\autoref{eq:vis-uvw}
@@ -1379,7 +1379,8 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 
 \end{itemize}
 
-根据\autoref{eq:vis} 中基线矢量 $\B{b}$ 和方向矢量 $\hat{\B{s}}$ 之间的对称性，
+根据\autoref{eq:vis} 中\ac{baseline}矢量 $\B{b}$
+和方向矢量 $\hat{\B{s}}$ 之间的对称性，
 上述第一种情况要求 $\B{b}$ 全部在同一平面内，
 第二种情况要求 $\hat{\B{s}}$ 在天球上的对应点全部在同一平面内，即视场足够小，
 因此，这两种情况可理解为相同近似条件的不同表现形式 \cite{clark1999}.
@@ -1395,12 +1396,13 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 
 由于天空的亮度分布 $I_{\nu}(l,m)$ 为实数，因此测量的\ac{vis}满足
 $\acs{Vis}(-u,-v) = \acs{Vis}^*(u,v)$，
-于是基线矢量为 $\B{b} = (u,v,w)\lambda$ 的二元干涉仪在每个时刻测量
+于是\ac{baseline}矢量为 $\B{b} = (u,v,w)\lambda$ 的二元干涉仪在每个时刻测量
 $uv$ 平面上两个相互对称的点的\ac{vis}.
 随着地球自转，$\B{b}$ 的各分量逐渐变化，经过 \SI{24}{\hour}，
-该基线所测量的\ac{vis}数据对应 $uv$ 平面上两个相互对称的椭圆.
-一个干涉阵列通常由大量天线组成，因此 $N_A$ 个天线之间可形成 $N_A(N_A-1)/2$ 条基线，
-每条基线都将测量 $uv$ 平面上相应位置的\ac{vis}，
+该\ac{baseline}所测量的\ac{vis}数据对应 $uv$ 平面上两个相互对称的椭圆.
+一个干涉阵列通常由大量天线组成，
+因此 \ac{N-ant} 个天线之间可形成 $\ac{N-ant}(\ac{N-ant}-1)/2$ 条\ac{baseline}，
+每条\ac{baseline}都将测量 $uv$ 平面上相应位置的\ac{vis}，
 可以显著增加 $uv$ 覆盖度，即 $uv$ 平面上被测量的点.
 \autoref{fig:uv-coverages} 展示了不同天线数目、不同观测时长的 $uv$ 覆盖样例.
 
@@ -1430,7 +1432,7 @@ $uv$ 平面上两个相互对称的点的\ac{vis}.
   \label{eq:sf}
   \acs{S-uv} = \sum_{k,t} \delta(u - u_{k,t}, v - v_{k,t}),
 \end{equation}
-其中 $u_{k,t}, v_{k,t}$ 为基线 $\B{b}_k$ 在 $t$ 时刻在 $uv$ 平面内的分量.
+其中 $u_{k,t}, v_{k,t}$ 为\ac{baseline} $\B{b}_k$ 在 $t$ 时刻在 $uv$ 平面内的分量.
 于是，干涉阵列实际测量的\ac{vis}数据为 $\acs{Vis}(u,v) \acs{S-uv}$，
 由于无法获得目标亮度分布的全部信息，
 根据\autoref{eq:vis-inv2} 对此进行逆 Fourier 变换
