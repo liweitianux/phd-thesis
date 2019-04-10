@@ -893,7 +893,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 如\autoref{fig:galactic-ff} 显示了利用该方法（详见 \autoref{sec:simu-gff}）
 得到的银河系\ac{rad-ff}在 \SI{150}{\MHz} 的全天图.
 但是在银盘附近，Hα 辐射的尘埃吸收修正将因为尘埃多、分布复杂而变得不可靠，
-从而无法给出合理的\ac{rad-ff}.
+从而无法给出合理的\ac{rad-ff} \cite{dickinson2003}.
 
 另一种追踪\ac{rad-ff}的方法是利用\ac{rrl}.
 因为\ac{rrl}不受尘埃吸收的影响，所以该方法可以顺利用于银盘附近区域，
@@ -1157,7 +1157,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
     望远镜所能测量的二维功率谱的边界为：
     \kperp{} 的最小值和最大值分别由望远镜的视场大小和空间分辨率（对应于最长基线）决定、
     \klos{} 的最小值和最大值分别取决于频率带宽和频率分辨率.
-    图中三条粗线显示了不同前景\ac{spillover}程度
+    图中三条粗线显示了不同前景\acs*{spillover}程度
     [由 \autoref{eq:eor-window} 的 $w$ 描述]
     时的 EoR 窗口边界.
   }{%
@@ -1173,7 +1173,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
     and maximum \klos, respectively.
     The bold lines show the EoR window boundaries corresponding to
     different foreground spillovers, described by the parameter $w$
-    in \autoref{eq:eor-window}.
+    in Eq.~(\ref{eq:eor-window}).
   }
   \label{fig:eor-window}
 \end{figure}
@@ -1220,12 +1220,12 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 
 考虑一个距离视场中心角度为 $\theta$ 的平谱点源（即各频率上的亮度相同），
 可认为点源的坐标为 $(l, m) = (\sin\theta, 0)$.
-根据\autoref{eq:vis-uv}，可知该点源将在 $uv$ 平面产生一套条纹，可由下式描述：
+根据\autoref{eq:vis-uv}，该点源将在 $uv$ 平面产生一套条纹，可由下式描述：
 \begin{equation}
   \acs{Vis}(u,v) \propto \exp [-2\Cpi\Ci\, (ul+vm)]
     = \exp (-2\Cpi\Ci\, u \sin\theta) ,
 \end{equation}
-同时条纹的间隔（或周期）为：
+可知条纹的间隔（或周期）为：
 \begin{equation}
   \label{eq:ps-t-u}
   t_u = \frac{1}{\sin\theta} ,
