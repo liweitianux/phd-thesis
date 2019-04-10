@@ -1108,19 +1108,190 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 
 
 %=====================================================================
-\section{再电离窗口}
+\section{EoR 窗口}
 \label{sec:eor-window}
 
-EoR window, foreground wedge, explanation ...
+在二维功率谱 $P(\kperp, \klos)$ 上，
+频谱光滑的前景污染原则上只分布在 \klos{} 较小的区域.
+但是没有仪器是理想的，一些仪器效应和观测效应会将
+\kperp{} 模式里的功率\enquote{混合}到 \klos{} 模式里，
+即\emph{\acf{modemix}}效应，
+并且 \klos{} 受影响的范围与 \kperp{} 的大小成正相关，
+因此导致前景污染将占据二维功率谱的右下方一个楔形区域，
+即\emph{\acf{fg-wedge}}，如\autoref{fig:eor-window} 所示.
+这个现象最早由 \citeay{datta2010} 基于模拟数据研究亮点源对 EoR 探测的影响时发现，
+目前已被多个实际观测证实
+\cite{pober2013,dillon2014,dillon2015,beardsley2016,pober2016,patil2017}，
+还有一系列工作对此现象进行了解释和深入研究 \cite{morales2012,parsons2012,trott2012,
+  vedantham2012,hazelton2013,thyagarajan2013,liu2014,liu2014ii,jacobs2016}.
 
-Considering that the signal is isotropic among the sky plane, we can
-squeeze these two dimensions into $\kperp \equiv \sqrt{k_x^2 + k_y^2}$ by
-cylindrically averaging the 3D power spectrum, and obtained the 2D
-cylindrical power spectrum $P(\kperp, \klos)$ with $\klos \equiv k_z$.
-The 2D cylindrical power spectrum has the advantage to better separate
-the EoR signal from the foreground contamination, which is supposed to
-be reside in the lower-right wedge-shape region, therefore defining the
-EoR window.
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{EoR-window}
+  \bicaption[EoR 窗口和前景楔形的示意图]{%
+    二维功率谱 $P(\kperp, \klos)$ 上的 EoR 窗口（左上方绿色区域）
+    和前景楔形（右下方灰色区域）的示意图.
+    望远镜所能测量的二维功率谱的边界为：
+    \kperp{} 的最小值和最大值分别由望远镜的视场大小和空间分辨率（对应于最长基线）决定、
+    \klos{} 的最小值和最大值分别取决于频率带宽和频率分辨率.
+    图中三条粗线显示了不同前景\ac{spillover}程度
+    [由 \autoref{eq:eor-window} 的 $w$ 描述]
+    时的 EoR 窗口边界.
+  }{%
+    An illustration of the EoR window (green region in the upper left)
+    and the foreground wedge (gray region in the bottom right) in the
+    \ac{2d} power spectrum.
+    The boundaries of the \ac{2d} power spectrum that a telescope can
+    measure are constrained by:
+    the minimum and maximum \kperp{} are determined by the \ac{fov}
+    and the spatial resolution (corresponding to the longest baseline),
+    respectively;
+    the observing bandwidth and spectral resolution limit the minimum
+    and maximum \klos, respectively.
+    The bold lines show the EoR window boundaries corresponding to
+    different foreground spillovers, described by the parameter $w$
+    in \autoref{eq:eor-window}.
+  }
+  \label{fig:eor-window}
+\end{figure}
+
+引起\ac{modemix}的主要原因是干涉阵列固有的\ac{chromatic-effect}，
+如\autoref{fig:chromatic-baselines} 所示，
+即同一条\ac{baseline}的空间分辨率随着频率 $\nu$ 的增大而提高 \cite{liu2014}:
+\begin{equation}
+  \label{eq:baseline-u-nu}
+  u = \frac{b}{\lambda} = \frac{b}{\acs{speed-light}} \nu
+    \propto \kperp ,
+\end{equation}
+其中 $b$ 为\ac{baseline}的长度.
+\ac{modemix}还可能由其他多种因素引起，比如：
+干涉阵列的 \ac{psf} 随频率而变化 \cite{bowman2009,liu2009ps}、
+前景模型不精确（如点源的强度或位置有偏差） \cite{datta2010,morales2012}、
+仪器响应的校准存在偏差 \cite{morales2012}、
+相干叠加不同\ac{baseline}的测量数据 \cite{hazelton2013}.
+下文将基于干涉阵列的\ac{chromatic-effect}，
+简要介绍\ac{modemix}的基本原理以及\ac{fg-wedge}的形成原因.
+更严格的分析可参考 \citeay{liu2014} 和 \citeay{liu2014ii}.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{chromatic-baselines}
+  \bicaption[基线的\acs*{chromatic-effect}示意图]{%
+    干涉阵列的基线的\acs*{chromatic-effect}示意图.
+    观测频率越高，同一条基线 $b$ 的空间分辨率越高，
+    即所测量的波数 ($u = b / \lambda \propto \kperp$) 越大.
+    同时，基线越长，空间分辨率的变化越显著，
+    即\acs*{chromatic-effect}越明显，对应图中的线则越平.
+  }{%
+    An illustration of the chromatic effect of the interferometer baselines.
+    As the observing frequency increases, the spatial resolution of
+    one baseline $b$ also improves, i.e., the wavenumber
+    ($u = b / \lambda \propto \kperp$) measured by the baseline
+    increases.
+    Meanwhile, the longer the baseline, the more significant the variation
+    of its spatial resolution, i.e., its chromatic effect is more
+    significant.
+  }
+  \label{fig:chromatic-baselines}
+\end{figure}
+
+考虑一个距离视场中心角度为 $\theta$ 的平谱点源（即各频率上的亮度相同），
+可认为点源的坐标为 $(l, m) = (\sin\theta, 0)$.
+根据\autoref{eq:vis-uv}，可知该点源将在 $uv$ 平面产生一套条纹，可由下式描述：
+\begin{equation}
+  \acs{Vis}(u,v) \propto \exp [-2\Cpi\Ci\, (ul+vm)]
+    = \exp (-2\Cpi\Ci\, u \sin\theta) ,
+\end{equation}
+同时条纹的间隔（或周期）为：
+\begin{equation}
+  \label{eq:ps-t-u}
+  t_u = \frac{1}{\sin\theta} ,
+\end{equation}
+如\autoref{fig:chromatic-baselines} 中的背景条纹所示.
+易知，点源偏离视场中心越远，产生的条纹越细.
+
+尽管辐射源的亮度不随频率变化（即只有 \kperp{} 模式），
+但是基线的\ac{chromatic-effect}导致观测的\ac{vis}数据将随频率涨落
+（即出现了 \klos{} 模式），所以称为\ac{modemix}.
+再结合\autoref{eq:baseline-u-nu}，
+可知因\ac{modemix}引起的涨落在频率维度的变化周期为 \cite{morales2012}：
+\begin{equation}
+  \label{eq:t-nu-u}
+  t_{\nu} = \frac{\ac{speed-light}}{b} t_u
+    = \frac{\nu}{u} t_u ,
+\end{equation}
+其中 $t_u$ 是信号在空间维度 $u$ 的变化周期 [\autoref{eq:ps-t-u}].
+根据\autoref{eq:kperp-u} 和\autoref{eq:klos-eta} 可得：
+\begin{align}
+  t_{\nu} & = \frac{1}{\eta}
+    = \frac{2\Cpi \nu \ac{Hz}}{\ac{speed-light} (1+z)} \frac{1}{\klos} , \\
+  u & = \frac{\ac{D-comoving}(z)}{2\Cpi} \frac{1}{\kperp} ,
+\end{align}
+其中使用了 $\nu = \ac{freq21cm} / (1+z)$ 和 $\ac{Hz} = \ac{H0} \ac{Ez}$.
+将上式以及\autoref{eq:ps-t-u} 代入\autoref{eq:t-nu-u}，可得：
+\begin{equation}
+  \label{eq:klos-kperp}
+  \klos = \frac{\ac{Hz} \ac{D-comoving}(z) \sin\theta}{
+    \ac{speed-light} (1+z)} \kperp .
+\end{equation}
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=0.7\textwidth]{foreground-wedge-fov}
+  \bicaption[前景楔形和EoR 窗口的边界示意图]{%
+    \acs*{fg-wedge}和EoR 窗口的边界示意图.
+    距离视场中心越远的前景干扰源产生的污染区域越靠近左上方，
+    因此望远镜的视场大小确定了\acs*{fg-wedge}的边界，
+    左上方未受前景污染的区域则称为\enquote{EoR 窗口}.
+  }{%
+    The boundary between the foreground wedge and the EoR window.
+    When the distance of a foreground souce from the \ac{fov} increases,
+    its contamination in the \ac{2d} power spectrum moves toward
+    the upper-left regions.
+    Therefore, the telescope's \ac{fov} determines the boundary of the
+    foreground wedge, while the upper-left region that almost free from
+    the foreground contamination is called the \enquote{EoR window}.
+    \\\textcopyright{}
+    \citeay{morales2012}.
+  }
+  \label{fig:fg-wedge-fov}
+\end{figure}
+
+从上式可以清楚地看出，
+视场内每一个前景干扰源（如未准确扣除的点源）在二维功率谱上产生的污染分布在右下方的一条斜线上，
+\kperp{} 越大的模式被混合到 \klos{} 模式的范围也越大，形成\ac{fg-wedge}，
+如\autoref{fig:fg-wedge-fov} 所示.
+另一方面，随着前景干扰源距离视场中心越来越远，其产生的污染区域也逐渐向左上方移动.
+因此，望远镜的视场大小 \ac{Fov} 确定了\ac{fg-wedge}的边界，
+左上方未受前景污染的区域则称为\emph{EoR 窗口}，可表示为：
+\begin{equation}
+  \klos \ge \frac{\ac{Hz} \ac{D-comoving}(z) \sin\ac{Fov}}{
+    \ac{speed-light} (1+z)} \kperp .
+\end{equation}
+如\autoref{fig:fg-wedge-fov} 和\autoref{fig:eor-window} 所示.
+
+在实际情况中，二维功率谱的计算只使用一段较窄的频段
+($\ac{bandwidth} \lesssim \SI{10}{\MHz}$) 以避免宇宙演化的影响，
+所以计算过程中对频率维度进行 Fourier 变换时存在显著的边界效应.
+另外，望远镜的频率响应可能存在一些结构.
+这些因素将导致额外的前景\ac{spillover}，使得\ac{fg-wedge}变大，
+因此，\citeay{thyagarajan2013} 提出了如下改进的 EoR 窗口的边界表达式：
+\begin{equation}
+  \label{eq:eor-window}
+  \klos \ge
+    \frac{\ac{Hz} \ac{D-comoving}(z)}{\ac{speed-light} (1+z)}
+    \left[ \kperp \sin\ac{Fov}
+      + \frac{2\Cpi\ac{freq21cm} w}{(1+z) \ac{D-comoving}(z)
+        \ac{bandwidth}} \right] ,
+\end{equation}
+其中 \ac{bandwidth} 为\acl{bandwidth}，
+$w$ 描述了前景\ac{spillover}的程度.
+\autoref{fig:eor-window} 显示了 $w = 0, 1, 3$ 对应的 EoR 窗口边界.
+
+此外，位于仪器旁瓣里的前景源会导致\ac{fg-wedge}的显著扩大，
+严重损失 EoR 信号的信息，详见 \autoref{sec:fscn}.
+总之，EoR 窗口与\ac{fg-wedge}的确切边界取决于具体的仪器、观测条件、处理方法
+等多种因素，仍然有待深入而系统的研究 (ref???).
 
 
 %=====================================================================
