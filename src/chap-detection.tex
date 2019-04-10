@@ -79,10 +79,11 @@ $\B{S}_p$ 和 $\B{S}_e$ 分别为质子和电子的自旋.
 中性氢的 \ac{21cmline}%
 首次由 H.~C. van~de~Hulst 在 1945 年提出 \cite{vanDeHulst1945}，
 并由 H.~I. Ewen 和 E.~M. Purcell 在 1951 年观测到 \cite{ewen1951}.
-该谱线的频率是目前测量最精确的几个物理量之一 \cite{hellwig1970,essen1971}：
+该谱线的频率 \ac{freq21cm} 是目前测量最精确的几个物理量之一
+\cite{hellwig1970,essen1971}：
 \begin{equation}
   \label{eq:hi-line-frequency}
-  \nu_0 = \SI{1420405751.7667 +- 0.0009}{\Hz} ,
+  \acs{freq21cm} = \SI{1420405751.7667 +- 0.0009}{\Hz} ,
 \end{equation}
 对应真空中的波长为：
 \begin{equation}
@@ -253,17 +254,18 @@ $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{e
     & = T_{\R{cmb}}(z=0)\,(1+z)  \\
     & = 2.73 (1+z) \quad [\si{\kelvin}] ,
 \end{align}
-类似地，宇宙膨胀的红移效应将中性氢的 \ac{21cmline}红移至频率 $\nu = \nu_0/(1+z)$，
+类似地，宇宙膨胀的红移效应将中性氢的 \ac{21cmline}红移至频率
+$\nu = \acs{freq21cm}/(1+z)$，
 同时观测到的中性氢云的亮温度将为：
 \begin{equation}
-  T_b^{\R{obs}}(\nu) = \frac{T_b(\nu_0)}{1 + z} .
+  T_b^{\R{obs}}(\nu) = \frac{T_b(\acs{freq21cm})}{1 + z} .
 \end{equation}
 目前观测 \ac{21cmline}的策略是测量其相对于 \ac{cmb} 背景辐射的差异，
 即\emph{\acf{dT-b}}.
 综上，并结合\autoref{eq:21cm-optical-depth3}，最终可得待探测的 \emph{EoR 信号}为：
 \begin{align}
   \acs{dT-b}(\nu)
-    & = \frac{T_b(\nu_0)}{1 + z} - T_{\R{cmb}}(z=0)  \\
+    & = \frac{T_b(\acs{freq21cm})}{1 + z} - T_{\R{cmb}}(z=0)  \\
     & = \frac{\acs{T-spin} - T_{\R{cmb}}(z)}{1+z}
       (1 - \Ce^{-\acs{optical-depth}_{\nu_0}})  \\
     & \approx \frac{\acs{T-spin} - T_{\R{cmb}}(z)}{1+z}
@@ -428,7 +430,8 @@ EoR 信号的完整演化过程可大致分为以下几个阶段 \cite{pritchard
 \label{sec:ps}
 
 由于宇宙膨胀，位于红移 $z$ 处的中性氢云产生的 \ac{21cmline}将被红移至频率
-$\nu = \nu_0 / (1 + z)$，其中 $\nu_0$ 为 \ac{21cmline}的本征频率
+$\nu = \acs{freq21cm} / (1 + z)$，
+其中 \acs{freq21cm} 为 \ac{21cmline}的本征频率
 [\autoref{eq:hi-line-frequency}].
 据此，对于某一视线方向，通过在不同的频率测量 \ac{21cmline}，
 便可以相应地重建出中性氢在该视线上的分布情况.
@@ -492,7 +495,7 @@ $(\B{k}_{\perp}, k_{\parallel}) = 2\Cpi / (\B{r}_{\perp}, r_{\parallel})$
 \begin{align}
   \B{r}_{\perp} & = \acs{distance-comoving}(z) \,\B{\theta} , \\
   \Delta r_{\parallel}
-    & = \frac{\acs{speed-light}}{\nu_0 \acs{H0}}
+    & = \frac{\acs{speed-light}}{\acs{freq21cm} \acs{H0}}
       \frac{(1+z)^2}{\acs{Ez}} \Delta \nu ,
 \end{align}
 其中 $\acs{distance-comoving}(z)$ 为\acl{distance-comoving}
@@ -503,15 +506,19 @@ $(\Delta r_{\parallel}, \Delta\nu) \to (r_{\parallel}, \nu)$
 替换后仍然成立.
 对比\autoref{eq:ft3d} 和\autoref{eq:ft3d-k}，可得：
 \begin{align}
-  \B{k}_{\perp} & = \frac{2\Cpi}{\acs{distance-comoving}(z)} \B{u} , \\
+  \B{k}_{\perp} & = \frac{2\Cpi}{\acs{distance-comoving}(z)} \B{u} ,
+  \label{eq:kperp-u}  \\
   k_{\parallel} & =
-    \frac{2\Cpi \nu_0 \acs{H0}\acs{Ez}}{\acs{speed-light} (1+z)^2} \eta ,
+    \frac{2\Cpi \acs{freq21cm} \acs{H0}\acs{Ez}}{\acs{speed-light}
+      (1+z)^2} \eta ,
+  \label{eq:klos-eta}
 \end{align}
 据此，可知\autoref{eq:ps3d} 和\autoref{eq:ps3d-k} 给出的三维功率谱
 之间的转换关系为：
 \begin{equation}
   P(\B{k}_{\perp}, k_{\parallel}) =
-    \frac{\acs{speed-light} (1+z)^2 D_{\!C}^2(z)}{\nu_0 \acs{H0}\acs{Ez}}
+    \frac{\acs{speed-light} (1+z)^2 D_{\!C}^2(z)}{
+      \acs{freq21cm} \acs{H0} \acs{Ez}}
     \bar{P}(\B{u}, \eta) .
 \end{equation}
 更多细节可参考 \citeay{liu2014} 的附录 A.
