@@ -43,7 +43,7 @@ $g_p$ 和 $g_e$ 分别为质子和电子的 $g$ 因子，
 $\B{S}_p$ 和 $\B{S}_e$ 分别为质子和电子的自旋.
 电子带负电，所以磁矩方向与其自旋方向相反.
 
-\begin{figure}[tbp]
+\begin{figure}[htp]
   \centering
   \includegraphics[width=0.5\textwidth]{hydrogen-spinflip}
   \bicaption[氢原子的自旋翻转跃迁]{%
@@ -185,7 +185,7 @@ $T_* \equiv \acs{hp} \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
 此外，通常均有\acl{optical-depth} $\acs{optical-depth}_{\nu0} \ll 1$
 \cite{madau1997,furlanetto2006,pritchard2010mn}.
 
-\begin{figure}[tbp]
+\begin{figure}[htp]
   \centering
   \includegraphics[width=0.9\textwidth]{21cm-radiative-transfer}
   \bicaption[CMB 辐射穿过中性氢云的辐射转移示意图]{%
@@ -344,7 +344,7 @@ $\nu = \acs{freq21cm}/(1+z)$，
     该过程将 \acs{T-spin} 与 Lyα 辐射的\ac{T-color}关联起来.
 \end{itemize}
 
-\begin{figure}[tbp]
+\begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{eor-signal-evolution}
   \bicaption[EoR 信号的平均强度的演化示意图]{%
@@ -533,7 +533,7 @@ $P(\B{k}_{\perp}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}
 此形式的功率谱 $\Delta^2(\B{k}_{\perp}, k_{\parallel})$
 的单位变成 [\si{\mK\squared}].
 
-\begin{figure}[tbp]
+\begin{figure}[htp]
   \centering
   \includegraphics[width=0.5\textwidth]{EoR-fourier}%
   \includegraphics[width=0.5\textwidth]{foreground-fourier}
@@ -573,7 +573,7 @@ $P(\B{k}_{\perp}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}
 如\autoref{fig:eor-fg-fourier} 右栏所示.
 当简单地对三维功率谱按球壳平均时，前景的功率将出现在所有的 $k$ 模式里，淹没 EoR 信号.
 
-\begin{figure}[tbp]
+\begin{figure}[htp]
   \centering
   \includegraphics[width=0.35\textwidth]{ps2d-annuli-diagram}
   \bicaption[计算二维功率谱的示意图]{%
@@ -676,7 +676,7 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 \cite{wang2006,jelic2008,harker2009,liu2009fgrm,chapman2012,chapman2013,
   gu2013,wang2013,bonaldi2015,chapman2015,chapman2016,mertens2018}.
 
-\begin{figure}[tbp]
+\begin{figure}[htp]
   \centering
   \includegraphics[width=0.7\textwidth]{eor-foregrounds}
   \bicaption[主要前景成分及其强度示意图]{%
@@ -711,7 +711,7 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 \cite{fridman2001,offringa2010,offringa2012,prasad2012,akeret2017}，
 但是残留的干扰可能会对前景处理以及 EoR 信号测量均产生严重影响 \cite{offringa2015}.
 
-\begin{figure}[tbp]
+\begin{figure}[htp]
   \centering
   \includegraphics[width=0.7\textwidth]{RFI-MWA}
   \bicaption[MWA 各子频段内的 RFI 比例]{%
@@ -746,7 +746,7 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 这些将成为 \ac{lofar}、\ac{mwa} 等大型低频干涉阵列的一个严重的计算负担
 \cite{intema2009,deGasperin2018}.
 
-\begin{figure}[tbp]
+\begin{figure}[htp]
   \centering
   \includegraphics[width=0.5\textwidth]{atmosphere-with-ionosphere}
   \bicaption[大气层和电离层的关系]{%
@@ -826,7 +826,7 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 在高银纬区域，\SIrange{100}{200}{\MHz} 范围内的平均谱指数
 $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 
-\begin{figure}[tbp]
+\begin{figure}[htp]
   \centering
   \includegraphics[width=0.9\textwidth]{galactic-haslam408}
   \\\medskip
@@ -895,18 +895,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 但是在银盘附近，Hα 辐射的尘埃吸收修正将因为尘埃多、分布复杂而变得不可靠，
 从而无法给出合理的\ac{rad-ff} \cite{dickinson2003}.
 
-另一种追踪\ac{rad-ff}的方法是利用\ac{rrl}.
-因为\ac{rrl}不受尘埃吸收的影响，所以该方法可以顺利用于银盘附近区域，
-给出可靠的\ac{rad-ff} \cite{alves2010,alves2012}.
-与前面的方法相结合，可以获得银河系\ac{rad-ff}的完整全天图.
-
-尽管银河系\ac{rad-ff}的强度远弱于同步辐射成分，
-比如在 \SI{150}{\MHz} 处贡献了总前景辐射的 \SI{\sim 1}{\percent} \cite{shaver1999}，
-但仍然是重要的 EoR 前景干扰成分，原因有二 \cite{jelic2008}：
-(1) 银河系\ac{rad-ff}的强度和涨落仍然远强于 EoR 信号；
-(2) 该前景成分的谱指数和子结构与其他前景成分不同.
-
-\begin{figure}[tbp]
+\begin{figure}[htp]
   \centering
   \includegraphics[width=0.9\textwidth]{galactic-freefree}
   \bicaption[银河系自由--自由辐射在 \SI{150}{\MHz} 的全天图]{%
@@ -923,6 +912,17 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
   \label{fig:galactic-ff}
 \end{figure}
 
+另一种追踪\ac{rad-ff}的方法是利用\ac{rrl}.
+因为\ac{rrl}不受尘埃吸收的影响，所以该方法可以顺利用于银盘附近区域，
+给出可靠的\ac{rad-ff} \cite{alves2010,alves2012}.
+与前面的方法相结合，可以获得银河系\ac{rad-ff}的完整全天图.
+
+尽管银河系\ac{rad-ff}的强度远弱于同步辐射成分，
+比如在 \SI{150}{\MHz} 处贡献了总前景辐射的 \SI{\sim 1}{\percent} \cite{shaver1999}，
+但仍然是重要的 EoR 前景干扰成分，原因有二 \cite{jelic2008}：
+(1) 银河系\ac{rad-ff}的强度和涨落仍然远强于 EoR 信号；
+(2) 该前景成分的谱指数和子结构与其他前景成分不同.
+
 %---------------------------------------------------------------------
 \subsection{河外点源}
 
@@ -934,7 +934,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 如\autoref{fig:mwa-eor0} 显示了 MWA EoR0 天区的深度曝光图像 \cite{offringa2016}，
 可见密布的点源.
 
-\begin{figure}[tbp]
+\begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{MWA-EoR0-fullbw}
   \bicaption[MWA EoR0 天区的深度曝光图像]{%
@@ -1018,7 +1018,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 \end{itemize}
 此外，在一些星系团中同时观测到了\ac{rh}和\ac{rr}.
 
-\begin{figure}[tbp]
+\begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{cluster-diffuse-emission}
   \bicaption[星系团的弥散射电辐射的典型样例]{%
@@ -1148,7 +1148,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 还有一系列工作对此现象进行了解释和深入研究 \cite{morales2012,parsons2012,trott2012,
   vedantham2012,hazelton2013,thyagarajan2013,liu2014,liu2014ii,jacobs2016}.
 
-\begin{figure}[tbp]
+\begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{EoR-window}
   \bicaption[EoR 窗口和前景楔形的示意图]{%
@@ -1196,7 +1196,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 简要介绍\ac{modemix}的基本原理以及\ac{fg-wedge}的形成原因.
 更严格的分析可参考 \citeay{liu2014} 和 \citeay{liu2014ii}.
 
-\begin{figure}[tbp]
+\begin{figure}[htp]
   \centering
   \includegraphics[width=0.8\textwidth]{chromatic-baselines}
   \bicaption[基线的\acs*{chromatic-effect}示意图]{%
@@ -1258,7 +1258,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
     \ac{speed-light} (1+z)} \kperp .
 \end{equation}
 
-\begin{figure}[tbp]
+\begin{figure}[htp]
   \centering
   \includegraphics[width=0.7\textwidth]{foreground-wedge-fov}
   \bicaption[前景楔形和EoR 窗口的边界示意图]{%
