@@ -121,39 +121,39 @@ $A = 5.71$, $B = -0.084$, 以及 $C = 0.47$.
       \!\left( \sqrt{\frac{\Omega_m^{-1} - 1}{(1+z)^3}} \right).
 \end{align}
 
-两个相邻物体之间的\emph{\acl{distance-comoving} (comoving distance)}
-$\delta\acs{distance-comoving}$ 定义为，
-当两者随 Hubble 流共同运动时，该距离 $\delta\acs{distance-comoving}$ 保持不变
+两个相邻物体之间的\emph{\acl{D-comoving} (comoving distance)}
+$\delta\acs{D-comoving}$ 定义为，
+当两者随 Hubble 流共同运动时，该距离 $\delta\acs{D-comoving}$ 保持不变
 \cite{hogg1999}.
-所以，$\delta\acs{distance-comoving}$ 等于这两个物体之间的
+所以，$\delta\acs{D-comoving}$ 等于这两个物体之间的
 固有距离 (proper distance) 乘以 $(1+z)$.
-因此，一个位于红移 $z$ 的物体的（视向）\acl{distance-comoving}
-$\acs{distance-comoving}(z)$ 为 \cite{hogg1999}：
+因此，一个位于红移 $z$ 的物体的（视向）\acl{D-comoving}
+$\acs{D-comoving}(z)$ 为 \cite{hogg1999}：
 \begin{equation}
   \label{eq:distance-comoving}
-  \acs{distance-comoving}(z)
-    = \int_0^z \delta\acs{distance-comoving}(z')\,\D{z'}
+  \acs{D-comoving}(z)
+    = \int_0^z \delta\acs{D-comoving}(z')\,\D{z'}
     = D_{\!H} \int_0^z \frac{\D{z'}}{E(z')} .
 \end{equation}
 其中 $D_{\!H} \equiv c / H_0$ 为 Hubble 距离.
-在平直宇宙中，\acf{distance-comoving-t} 与视向\acl{distance-comoving}相等，即
+在平直宇宙中，\acf{D-comoving-t} 与视向\acl{D-comoving}相等，即
 \begin{equation}
   \label{eq:distance-comoving-t}
-  \acs{distance-comoving-t}(z) = \acs{distance-comoving}(z),
+  \acs{D-comoving-t}(z) = \acs{D-comoving}(z),
     \quad \text{for } \Omega_k = 0 .
 \end{equation}
 
-一个物体的\emph{\acf{distance-luminosity}}由以下关系定义：
+一个物体的\emph{\acf{D-luminosity}}由以下关系定义：
 \begin{equation}
   \label{eq:dl-def}
-  \acs{distance-luminosity} \equiv
+  \acs{D-luminosity} \equiv
     \sqrt{\frac{L_{\R{bolo}}}{4\Cpi S_{\R{bolo}}}} ,
 \end{equation}
 其中 $L_{\R{bolo}}$ 是该物体的本征热光度 (bolometric luminosity)，
 $S_{\R{bolo}}$ 是测得的热流量 (bolometric flux).
 这里的 $L_{\R{bolo}}$ 和 $S_{\R{bolo}}$ 都是对全频段的积分值.
 
-一个物体的\emph{\acf{distance-angular}}
+一个物体的\emph{\acf{D-angular}}
 定义为该物体的物理横向尺寸与其对观测者的张角（以 \si{radian} 为单位）之比.
 需要注意的是，由于宇宙膨胀的原因，该距离并\emph{不}随红移单调递增，
 即相同物理尺寸的物体位于更高红移（如 $z \gtrsim 1$）处时反而看起来更大 \cite{hogg1999}.
@@ -163,25 +163,25 @@ $S_{\R{bolo}}$ 是测得的热流量 (bolometric flux).
   \centering
   \includegraphics[width=0.8\textwidth]{distances-comparison}
   \bicaption[三种宇宙距离测量随红移的变化]{%
-    \acl*{distance-comoving} $\acs*{distance-comoving}(z)$、
-    \acl*{distance-angular} $\acs*{distance-angular}(z)$
-    和\acl*{distance-luminosity} $\acs*{distance-luminosity}(z)$
+    \acl*{D-comoving} $\acs*{D-comoving}(z)$、
+    \acl*{D-angular} $\acs*{D-angular}(z)$
+    和\acl*{D-luminosity} $\acs*{D-luminosity}(z)$
     三种宇宙距离测量从红移 $z = \num{e-3}$ 至 $z = \num{e3}$ 的变化情况.
   }{%
-    A comparison among the comoving distance $\acs*{distance-comoving}(z)$,
-    angular diameter distance $\acs*{distance-angular}(z)$, and
-    luminosity distance $\acs*{distance-luminosity}(z)$,
+    A comparison among the comoving distance $\acs*{D-comoving}(z)$,
+    angular diameter distance $\acs*{D-angular}(z)$, and
+    luminosity distance $\acs*{D-luminosity}(z)$,
     from redshift $z = \num{e-3}$ to $z = \num{e3}$.
   }
   \label{fig:distance-measures}
 \end{figure}
 
 一个位于红移 $z$ 的物体，
-其\acl{distance-luminosity}与\acl{distance-angular}之间有以下关系
+其\acl{D-luminosity}与\acl{D-angular}之间有以下关系
 \cite{weinberg1972,hogg1999,ellis2007}：
 \begin{equation}
   \label{eq:dl-da}
-  \acs{distance-luminosity}(z) = (1+z)^2 \acs{distance-angular}(z) .
+  \acs{D-luminosity}(z) = (1+z)^2 \acs{D-angular}(z) .
 \end{equation}
 
 
