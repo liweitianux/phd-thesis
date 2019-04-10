@@ -951,16 +951,39 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
   \label{fig:mwa-eor0}
 \end{figure}
 
-% XXX/FIXME!
-河外点源可大致分为以下几类 \cite{snellen2000,wilman2008,wang2010}：
-(1) 恒星形成星系 (star-forming galaxy)，
-包括普通晚型星系 (normal late-type galaxy) 和星暴星系 (starburst galaxy)；
-(2) 射电宁静 (radio-quiet) \ac{agn}；
-(3) \ac{fr} I 型和 II 型 \ac{agn}；
-(4) GHz 倒转谱 (GHz-peaked-spectrum) \ac{agn}；
-(5) 致密陡谱 (compact steep-spectrum) \ac{agn}.
-其中 \ac{fr} I 型和 II 型 \ac{agn} 具有强烈的\ac{jet}或射电瓣 (lobe)，
-呈现复杂的形态结构，所以\enquote{点源}这一命名并不准确，
+根据目前的观测证据，河外点源可大致分为以下几类 \cite{padovani2016}：
+\begin{itemize}
+  \item \emph{射电星系}:
+    具有尺度远大于星系本身的相对论性\ac{jet}，
+    \si{\GHz} 射电功率 $\gtrsim \SI{e22}{\watt\per\hertz}$ \cite{ledlow1996}.
+    \citeay{fanaroff1974} 根据光度和形态将射电星系大致分为两类：
+    高光度的 \ac{fr} II 型具有射电瓣 (lobe) 以及显眼的\ac{hotspot}；
+    低光度的 \ac{fr} I 型则具有相对弥散的射电羽 (plume).
+    射电星系的频谱为幂律形式，谱指数 $\ac{spec-index} \approx 0.7$，
+    但有两种源的频谱比较特殊：
+    致密陡谱 (compact steep-spectrum) 源和
+    GHz 倒转谱 (GHz-peaked-spectrum) 源；
+    这两种射电源通常被认为是年轻的射电星系 \cite{oDea1998,sadler2016}.
+
+  \item \emph{射电\ac{quasar}和\ac{blazar}}.
+
+  \item \emph{射电宁静 (radio-quiet) \ac{agn}}:
+    更准确的称法应该是\enquote{射电暗 (radio-faint)} \ac{agn}，
+    \SI{1.4}{\GHz} 射电功率 $\gtrsim \SI{e24}{\watt\per\hertz}$，
+    约占全部 \ac{agn} 的 \SI{90}{\percent} 或更多.
+
+  \item \emph{恒星形成星系 (star-forming galaxy)}:
+    宿主为旋涡星系 (spiral galaxy) 或不规则星系 (irregular galaxy)，
+    \SI{1.4}{\GHz} 射电功率 $\gtrsim \SI{e23}{\watt\per\hertz}$
+    \cite{mauch2007}，比射电宁静 \ac{agn} 还要暗一个量级.
+    在大质量恒星死亡后产生的\ac{sn-remnant}里，电子将被加速而产生同步辐射，
+    这是此类星系的主要射电辐射来源 \cite{condon1992}.
+
+  \item \emph{\ac{fr} 0 型射电星系}:
+    与 \ac{fr} I 型射电星系具有相当的射电功率，目前的巡天观测未能分辨出\ac{jet}结构，
+    因此无法按 \ac{fr} I 型或 II 型分类 \cite{baldi2010,baldi2015}.
+\end{itemize}
+由此可见，很多点源其实具有复杂的形态结构，所以\enquote{点源}这一称法并不准确，
 主要是为了与下文（\autoref{sec:eg-extended}）将要介绍的\enquote{展源}区分开来.
 
 目前的低频观测结果显示点源的频谱是光滑的，没有明显的谱线结构 \cite{offringa2016}.
