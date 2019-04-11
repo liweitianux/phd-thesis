@@ -23,9 +23,8 @@ By examining the two-dimensional power spectra inside properly defined
 EoR windows, we find that the power leaked by radio halos can still be
 significant, as the power ratios of radio halos to the EoR signal on scales
 of $\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$ can be up to
-about \SIrange{230}{800}{\percent}, \SIrange{18}{95}{\percent}, and
-\SIrange{7}{40}{\percent}
-in the three bands, when the \SI{68}{\percent} uncertainties caused by
+about \numrange{230}{800}\%, \numrange{18}{95}\%, and \numrange{7}{40}\%
+in the three bands, when the 68\% uncertainties caused by
 the variation of the number density of bright radio halos are considered.
 Furthermore, we find that radio halos located inside the far side-lobes
 of the station beam can also impose strong contamination within the EoR
@@ -78,7 +77,7 @@ foreground avoidance methods to extract the EoR signal.
     \textbf{(b)} \SIrange{154}{162}{\MHz}, and
     \textbf{(c)} \SIrange{192}{200}{\MHz} frequency bands.
     The solid red lines and shaded regions represent the median values
-    and the corresponding \SI{68}{\percent} uncertainties of the power
+    and the corresponding 68\% uncertainties of the power
     spectra for radio halos estimated from the 100 simulation runs.
   }
   \label{fig:ps1d-3bands}
@@ -88,7 +87,7 @@ We calculate the 1D dimensionless power spectra $\Delta^2(k)$ for each
 image cube obtained in \autoref{sec:obs-simu}.
 For radio halos, we make use of all the 100 simulation runs
 (\autoref{sec:radio-halos}) to estimate the median power spectra and
-the corresponding \SI{68}{\percent} uncertainties.
+the corresponding 68\% uncertainties.
 The comparisons of the power spectra $\Delta^2(k)$ between radio halos
 and the EoR signal in each frequency band are displayed
 in \autoref{fig:ps1d-3bands}, where we also show the power spectra of
@@ -101,7 +100,7 @@ in the \numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
 \si{\MHz} bands, respectively.
 Given the large uncertainties in, e.g., brightness and number density,
 of radio halos, the power spectra can vary by about \numrange{10}{100}
-times with respect to the median values within the \SI{68}{\percent}
+times with respect to the median values within the 68\%
 uncertainties (red shaded regions).
 We also find that, although on large scales
 ($k \lesssim \SI{0.1}{\per\Mpc}$) the Galactic foreground is the
@@ -199,7 +198,7 @@ frequencies (\SI{\sim 200}{\MHz}).
     The 1D power ratios $R_{\R{eorw}}(k)$ inside the EoR window of
     radio halos to the EoR signal.
     The solid lines and shaded regions show the median values and
-    corresponding \SI{68}{\percent} uncertainties, respectively.
+    corresponding 68\% uncertainties, respectively.
   }
   \label{fig:ps1d-ratio}
 \end{figure}
@@ -217,8 +216,8 @@ in \numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
 \si{\MHz} bands, respectively) are used, a conservative EoR window
 boundary can be defined to well avoid the contaminating wedge
 (Figures~\ref{fig:ps2d} and \ref{fig:ps2d-ratio}).
-However, a significant part (about \SI{55}{\percent}, \SI{54}{\percent},
-and \SI{40}{\percent} in \numrange{120}{128}, \numrange{154}{162},
+However, a significant part (about 55\%, 54\%, and 40\% in
+\numrange{120}{128}, \numrange{154}{162},
 and \numrange{192}{200} \si{\MHz} bands, respectively) of the power of
 the EoR signal is lost in the excised wedges.
 By averaging the modes only inside the defined EoR window, we calculate
@@ -229,15 +228,14 @@ inside the EoR window $R_{\R{eorw}}(k)$ are suppressed by about 4 orders
 of magnitude, which demonstrates that the EoR window is a powerful tool
 in detecting the EoR signal.
 For example, $R_{\R{eorw}}(k)$ on scales of $k \sim \SI{1}{\per\Mpc}$ are
-generally about \SI{45}{\percent}, \SI{6}{\percent}, and \SI{2}{\percent}
-in the \numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
-\si{\MHz} bands, respectively.
+generally about 45\%, 6\%, and 2\% in the \numrange{120}{128},
+\numrange{154}{162}, and \numrange{192}{200} \si{\MHz} bands, respectively.
 However, the power of radio halos leaked into the EoR window can still be
 significant, considering that $R_{\R{eorw}}(k)$ on scales of
 $\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$ can be up to
-about \SIrange{230}{800}{\percent}, \SIrange{18}{95}{\percent}, and
-\SIrange{7}{40}{\percent} in the three frequency bands within the
-\SI{68}{\percent} uncertainties (shaded regions).
+about \numrange{230}{800}\%, \numrange{18}{95}\%, and
+\numrange{7}{40}\% in the three frequency bands within the
+68\% uncertainties (shaded regions).
 
 Based on the above results, we conclude that radio halos are severe
 foreground contaminating sources to EoR observations.
@@ -275,14 +273,12 @@ spectra, we multiply each slice of the image cube by a random number
 drawn from a Gaussian distribution with unity mean and then compare
 the resulting power spectra \cite{chapman2016}.
 Some simulation and observation studies have suggested that the residual
-calibration errors in frequency channels may be about
-\SIrange{0.1}{1}{\percent}
+calibration errors in frequency channels may be about \numrange{0.1}{1}\%
 \cite{barry2016,beardsley2016,ewallWice2017}.
 We thus investigate two extreme cases here:
-a frequency artifact of amplitude $A_{\R{arti}} = \SI{0.1}{\percent}$ by
+a frequency artifact of amplitude $A_{\R{arti}} = 0.1\%$ by
 using $\sigma = 0.001$ for the Gaussian distribution,
-and a frequency artifact of $A_{\R{arti}} = \SI{1}{\percent}$ with
-$\sigma = 0.01$.
+and a frequency artifact of $A_{\R{arti}} = 1\%$ with $\sigma = 0.01$.
 
 \begin{figure}[htp]
   \centering
@@ -296,8 +292,7 @@ $\sigma = 0.01$.
     All the 100 simulation runs for radio halos are used to derive
     the median 2D power spectrum ratios that are presented here.
     The upper and lower rows show the cases of frequency artifacts
-    being $A_{\R{arti}} = \SI{0.1}{\percent}$ and
-    $A_{\R{arti}} = \SI{1}{\percent}$, respectively.
+    being $A_{\R{arti}} = 0.1\%$ and $A_{\R{arti}} = 1\%$, respectively.
     The left, middle, and right columns show the power spectrum ratios
     in the \numrange{120}{128}, \numrange{154}{162}, and
     \numrange{192}{200} \si{\MHz} bands, respectively.
@@ -313,26 +308,26 @@ image cube with the frequency artifact to the original one
 (\autoref{sec:obs-simu}),
 and present the median 2D power spectrum ratios obtained in the
 \numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
-\si{\MHz} bands with either $A_{\R{arti}} = \SI{0.1}{\percent}$ or
-\SI{1}{\percent} in \autoref{fig:ps2d-ratio-crp}.
+\si{\MHz} bands with either $A_{\R{arti}} = 0.1\%$ or 1\% in
+\autoref{fig:ps2d-ratio-crp}.
 We find that, when the frequency artifact is added, the resulting 2D
 power spectra are seriously damaged in all three frequency bands.
 On scales of $\kperp \lesssim \SI{0.2}{\per\Mpc}$ and
 $\klos \gtrsim \SI{0.3}{\per\Mpc}$,
-adding frequency artifact of $A_{\R{arti}} = \SI{0.1}{\percent}$
+adding frequency artifact of $A_{\R{arti}} = 0.1\%$
 causes the power of radio halos to be about 17, 15, and 13 times
 stronger in the \numrange{120}{128},
 \numrange{154}{162}, and \numrange{192}{200} \si{\MHz} bands,
 respectively, and the corresponding power increases are about
 1700, 1500, and 1300 times
-for frequency artifact of $A_{\R{arti}} = \SI{1}{\percent}$.
+for frequency artifact of $A_{\R{arti}} = 1\%$.
 As a comparison, we add the same frequency artifacts
-($A_{\R{arti}} = \SI{0.1}{\percent}$ and \SI{1}{\percent}) to the image
+($A_{\R{arti}} = 0.1\%$ and 1\%) to the image
 cubes of the EoR signal, but find that the changes in the calculated
 2D power spectra are negligible.
 This is because the EoR signal already fluctuates remarkably along
 the frequency dimension.
-Consequently, even very minor (\SI{\sim 0.1}{\percent}) instrumental or
+Consequently, even very minor (\num{\sim 0.1}\%) instrumental or
 calibration errors can make the contamination of radio halos
 become much stronger, particularly inside the critical EoR window.
 These results further support our conclusion made in \autoref{sec:ps2d}
