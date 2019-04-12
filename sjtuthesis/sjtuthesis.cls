@@ -124,7 +124,10 @@
 % NOTE: Should be set before hyperref uses it.
 \AtBeginDocument{
   \hypersetup{
+    unicode,
     bookmarksnumbered,
+    bookmarksdepth=subsubsection,
+    breaklinks,
     colorlinks,
     urlcolor=blue,
     linkcolor=blue,
