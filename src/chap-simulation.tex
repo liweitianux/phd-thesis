@@ -303,34 +303,34 @@ $\left\{\left( M_m^{(i)}, M_s^{(i)}, t_{\R{merger}}^{(i)} \right)\right\}$
 \subsection{演化模型}
 \label{sec:halo-evo}
 
-According to the re-acceleration model, there exists a population of
-primary (or fossil) high-energy electrons, which permeate the ICM and
-are thought to be injected by multiple processes, such as active
-galactic nucleus (AGN) activities and star formations
-(see \citeay{blasi2007} for a review).
-When a cluster experiences a major merger, the turbulence is generated
-throughout the ICM and can accelerate the primary electrons to be highly
-relativistic, resulting in the observed radio halo.
-On the other hand, relativistic electrons in the ICM lose energy via
-mechanisms that include synchrotron radiation, inverse Compton scattering
-off the CMB photons, and Coulomb collisions \cite{sarazin1999}.
-For a population of electrons with isotropic energy distribution, the
-temporal evolution of the number density distribution $n(\gamma, t)$
-is governed by the following Fokker--Planck diffusion-advection equation
-\cite{eilek1991,schlickeiser2002}
+根据\ac{turbreacc-model}，星系团 \ac{icm} 里充满一群非热的\ac{e-primary}，
+这些电子可在多种过程中产生并被注入到 \ac{icm} 中，比如 \ac{agn} 活动、恒星形成，
+详见 \citeay{blasi2007} 和 \citeay{brunetti2014} 综述文.
+当星系团经历\ac{m-major}时，整个 \ac{icm} 中都将产生剧烈的\ac{turbulence}，
+就地加速\ac{e-primary}至极高的能量 ($\ac{g} > \num{e3}$)，
+从而形成弥散的\ac{rh}.
+在另一方面，多种机制会使这些高能电子损失能量 \cite{sarazin1999}，其中包括：
+产生\ac{rad-syn}、与 \ac{cmb} 光子发生逆 Compton 散射、
+与 \ac{icm} 中的离子发生 Coulomb 碰撞.
+
+对于一群能量分布各向同性的电子，在上述加速和能量损失的共同作用，
+其能谱 \ac{n-e} 随时间的演化由以下 Fokker--Planck 方程描述
+\cite{eilek1991,schlickeiser2002}：
 \begin{equation}
   \label{eq:fokkerplanck}
-  \pdiff{n(\gamma,t)}{t} = \pdiff{}{\gamma} \left[ n(\gamma,t) \left(
-      \left| \diff{\gamma}{t} \right| -
-      \frac{2}{\gamma} D_{\gamma\gamma}(\gamma, t) \right) \right]
-    + \pdiff{}{\gamma} \left[ D_{\gamma\gamma} \pdiff{n(\gamma,t)}{\gamma}
-    \right] + Q_e(\gamma,t),
+  \pdiff{\ac{n-e}}{t} =
+    \pdiff{}{\ac{g}} \left[ \ac{n-e} \left(
+      \left| \diff{\ac{g}}{t} \right| -
+      \frac{2}{\ac{g}} \ac{coef-diffusion}(\ac{g}, t) \right) \right]
+    + \pdiff{}{\ac{g}} \left[
+      \ac{coef-diffusion} \pdiff{\ac{n-e}}{\ac{g}} \right]
+    + \ac{e-injection}(\ac{g}, t) ,
 \end{equation}
-where $\gamma$ is the Lorentz factor of electrons,
-$D_{\gamma\gamma}(\gamma, t)$ is the diffusion coefficient describing
-the interactions between the turbulence and electrons,
-$|\R{d}\gamma / \R{d}t|$ is the energy loss rate,
-and $Q_e(\gamma, t)$ describes the electron injection.
+其中
+\ac{g} 是电子的 \acl{g}，
+\ac{coef-diffusion} 是描述\ac{turbulence}和电子相对作用的\acl{coef-diffusion}，
+$|\R{d}\gamma / \R{d}t|$ 是电子的能量损失速率，
+还有 \ac{e-injection} 描述了电子的注入过程.
 
 %.....................................................................
 \subsubsection{热成分的性质}
