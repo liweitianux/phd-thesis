@@ -114,58 +114,65 @@ Enrico Fermi 最早在 1949 年提出\ac{mfluid}中的带电粒子
 \subsection{质量函数}
 \label{sec:mass-function}
 
-The Press--Schechter formalism was originally advanced as one of the standard
-method to predict the mass function of galaxy clusters and its evolution
-in the Universe \cite{press1974}, and has been extended to combine with
-the cold dark matter (CDM) models \cite{bond1991,lacey1993}.
-In this formalism, the number of galaxy clusters per unit comoving volume
-at redshift $z$ in the mass range $[M, M + \R{d}M]$ is
+现在普遍认为，宇宙目前的结构是由极早期的微小密度扰动发展而来的 \cite{peebles1980}.
+根据\acf{cdm} 模型，\ac{cdm} 粒子的速度弥散很小，因此有利于先形成小尺度结构；
+然后在引力和宇宙膨胀的共同作用下，逐步形成尺度越来越大的结构
+\cite{davis1985,bond1991,lacey1993}.
+这就是\emph{\acf{hier-clustering}}模型.
+
+当密度扰动进行非线性增长阶段，其计算变得非常复杂而主要依赖于数值模拟.
+\ac{spherical-collapse}模型可作为一个简单的解析近似得到与数值模拟相近的结果
+\cite{gunn1972}.
+根据该模型，暗物质坍缩形成暗物质晕，然后重子物质被暗物质晕的引力\ac{accretion}，
+在晕中沉积并演化为星系、星系团等结构.
+利用该模型，\citeay{press1974} 从密度扰动的随机统计性质推导出了暗物质晕
+（即星系、星系团等结构）的数目随质量的分布及其时间演化，
+即 \emph{Press-Schechter 质量函数}.
+因此，在红移 $z$ 处，每单位\ac{V-comoving}内质量范围为 $[M, M + \R{d}M]$
+的\ac{gc}的数目 \ac{n-cl} 为：
 \begin{equation}
   \label{eq:ps-mass-func}
-  n(M, z) \,\D{M} =
-    \sqrt{\frac{2}{\pi}} \frac{\langle{\rho}\rangle}{M}
+  \ac{n-cl} \,\D{M} =
+    \sqrt{\frac{2}{\Cpi}} \frac{\langle \rho_0 \rangle}{M}
     \frac{\delta_c(z)}{\sigma^2(M)} \left| \diff{\sigma(M)}{M} \right|
-    \exp\!\left[ -\frac{\delta_c^2(z)}{2\sigma^2(M)} \right] \,\D{M},
+    \exp\!\left[ -\frac{\delta_c^2(z)}{2\sigma^2(M)} \right] \,\D{M} ,
 \end{equation}
-where $M$ is the virial mass of galaxy clusters,
-$\langle {\rho} \rangle$ is the current mean density of the Universe,
-$\delta_c(z)$ is the critical linear overdensity for a region to collapse
-at redshift $z$ [see \autoref{eq:delta-crit}],
-and $\sigma(M)$ is the current root-mean-square density
-fluctuations within a sphere of mean mass $M$.
+其中
+$M$ 是星系团的质量，
+$\langle \rho_0 \rangle$ 是当前的宇宙平均密度，
+$\delta_c(z)$ 是暗物质坍缩形成暗物质晕的\acl{delta-crit}
+(critical linear overdensity) [见\autoref{eq:delta-crit}]，
+$\sigma(M)$ 是当前在平均质量为 $M$ 的球形区域里的密度涨落的\ac{rms}值.
 
-Considering the CDM model and the mass range covered by galaxy clusters,
-it is reasonable to adopt the following power-law distribution for the
-density perturbations \cite{sarazin2002,randall2002}
+在星系团的质量范围内，上式中的密度涨落 $\sigma(M)$ 可合理地近似为以下幂律形式
+\cite{sarazin2002,randall2002}：
 \begin{equation}
   \label{eq:sigma-mass}
-  \sigma(M) = \sigma_8 \left( \frac{M}{M_8} \right)^{-\alpha},
+  \sigma(M) = \ac{sigma8} \left( \frac{M}{M_8} \right)^{-\alpha} ,
 \end{equation}
-where $\sigma_8$ is the current root-mean-square density fluctuations on
-a scale of \SI{8}{\per\hubble\Mpc},
-$M_8 = (4\pi/3)(8 \,\si{\per\hubble\Mpc})^3 \langle{\rho}\rangle$
-is the mass contained in a sphere of radius \SI{8}{\per\hubble\Mpc},
-and the exponent $\alpha = (n+3)/6$ with $n = -7/5$ \cite{randall2002}
-is related to the fluctuation pattern whose power spectrum varies
-with wavenumber $k$ as $k^n$.
+其中
+\ac{sigma8} 是\acl{sigma8}，
+$M_8$ 是半径为 \SI{8}{\per\hubble\Mpc} 的球形区域里的质量：
+\begin{equation}
+  M_8 = \frac{4\Cpi \langle \rho_0 \rangle}{3}
+    (\SI{8}{\per\hubble\Mpc})^3 ,
+\end{equation}
+以及指数 $\alpha = (n+3)/6$ 并且有 $n = -7/5$ \cite{randall2002}.
 
-With a minimum galaxy cluster mass of
-$M_{\R{min}} = \SI{2e14}{\solarmass}$
-and a maximum redshift cut at $z_{\R{max}} = 4$,
-we apply \autoref{eq:ps-mass-func} and derive
-that the total number of galaxy clusters in a
-\SI{10 x 10}{\degree} sky patch is 504.
-Then, the galaxy cluster sample is built by randomly drawing mass and
-redshift pairs $(M_{\R{sim}}, z_{\R{sim}})$ from the
-mass and redshift distributions as shown in \autoref{fig:m-z-dist},
-which are determined by the Press--Schechter mass function
-[\autoref{eq:ps-mass-func}].
+将星系团的质量下限设为 $M_{\R{min}} = \SI{2e14}{\solarmass}$
+以及红移上限设为 $z_{\R{max}} = 4$，
+于是由 Press--Schechter 质量函数 [\autoref{eq:ps-mass-func}]
+可计算出 \SI{10 x 10}{\degree} 的天区内的星系团总数为 504，
+以及相应的质量和红移分布（如\autoref{fig:m-z-dist} 所示）.
+接着，对质量和红移分布随机采样，得到一系列 $(M_{\R{sim}}, z_{\R{sim}})$ 对，
+于是构建成所需的星系团样本.
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.7\textwidth]{mass-z-dist}
   \bicaption[星系团的红移和质量分布直方图]{%
-    TODO...
+    在 \SI{10 x 10}{\degree} 的天区内，星系团的红移（上栏）和质量（下栏）分布直方图.
+    其中的实线和阴影区域分别表示 500 次模拟的平均值和 68\% 误差范围.
   }{%
     The mass (upper panel) and redshift (lower panel) histograms of the
     simulated galaxy clusters in a \SI{10 x 10}{\degree} sky patch.
