@@ -335,36 +335,40 @@ $|\R{d}\gamma / \R{d}t|$ 是电子的能量损失速率，
 %.....................................................................
 \subsubsection{热成分的性质}
 
-The number density of thermal electrons $n_{\R{th}}$ in the ICM can be
-calculated as
+对于星系团 \ac{icm} 的热成分，其中的热电子的数密度 (number density) \ac{n-th} 为：
 \begin{equation}
   \label{eq:n-th}
-  n_{\R{th}} \simeq
-    \frac{3 f_{\R{gas}} M_{\R{vir}}}{4\pi \mu m_u \,r^3_{\R{vir}}},
+  \ac{n-th} \simeq
+    \frac{3 \ac{f-gas} \ac{M-vir}}{
+      4\Cpi \ac{mol-weight-m} \ac{mass-u} \,r^3_{\R{vir}}} ,
 \end{equation}
-where
-$\mu \simeq 0.6$ is the mean molecular weight \cite{ettori2013},
-$m_u$ is the atomic mass unit,
-$M_{\R{vir}}$ is the cluster's virial mass,
-$r_{\R{vir}}$ is the virial radius [see \autoref{eq:radius-virial}],
-and
-$f_{\R{gas}} \simeq \Omega_b/\Omega_m$ is the assumed gas mass fraction.
-Then, the corresponding ICM thermal energy density $\epsilon_{\R{th}}$
-is given by
+其中
+$\ac{mol-weight-m} \simeq 0.6$ 是 \ac{icm} 的\acl{mol-weight-m}
+(mean molecular weight) \cite{ettori2013}，
+\ac{mass-u} 是\acl{mass-u} (atomic mass unit)，
+\ac{M-vir} 是星系团的\acl{M-vir} (virial mass)，
+\ac{r-vir} 是其\acl{r-vir} (virial radius)
+[参见\autoref{eq:radius-virial}]，
+以及 $\ac{f-gas} \simeq \Omega_b/\Omega_m$
+是星系团中的气体占总质量 (\ac{M-vir}) 的比例.
+
+相应地，\ac{icm} 的热能密度 (thermal energy density) \ac{e-th} 由下式给出：
 \begin{equation}
   \label{eq:e-th}
-  \epsilon_{\R{th}} = \frac{3}{2} \,n_{\R{th}} k_B T_{\R{cl}}.
+  \ac{e-th} = \frac{3}{2} \,\ac{n-th} \ac{kb} \ac{T-cl} ,
 \end{equation}
-The ICM mean temperature $T_{\R{cl}}$ is approximately given by
-\cite{cavaliere1998}
+其中 \ac{icm} 的平均温度 \ac{T-cl} 可近似为 \cite{cavaliere1998}：
 \begin{equation}
   \label{eq:t-icm}
-  T_{\R{cl}} \simeq T_{\R{vir}} + \frac{3}{2} \,T_{\R{out}} ,
+  \ac{T-cl} \simeq \ac{T-vir} + \frac{3}{2} \,T_{\R{out}} ,
 \end{equation}
-where
-$T_{\R{vir}} = \mu m_u G M_{\R{vir}} / (2 \,r_{\R{vir}})$ is the virial
-temperature, and $T_{\R{out}} \simeq \SI{0.5}{\keV}$ is the temperature
-of the gas flowing into the cluster from its outskirts \cite{fujita2003}.
+其中 \ac{T-vir} 为星系团的\acl{T-vir} (virial temperature):
+\begin{equation}
+  \ac{T-vir} =
+    \frac{\ac{mol-weight-m} \ac{mass-u} \ac{G} \ac{M-vir}}{2\,\ac{r-vir}} ,
+\end{equation}
+以及 $T_{\R{out}} \simeq \SI{0.5}{\keV}$
+是从星系团外围区域 ($\gtrsim \ac{r-vir}$) 流入的气体的温度 \cite{fujita2003}.
 
 %.....................................................................
 \subsubsection{电子注入过程}
