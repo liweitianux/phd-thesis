@@ -1076,7 +1076,7 @@ $\overline{P}$ 之比，即：
   \bicaption[二元准单色干涉仪]{%
     二元准单色干涉仪的构成示意图.
     两个相同的天线相距 $\B{b}$ 放置并指向位于 $\hat{\B{s}}$ 方向的辐射源，
-    接收的信号被放大后，再经过\acs*{ctor}的相乘（$\times$）
+    接收的信号被放大后，再经过\acs*{correlator}的相乘（$\times$）
     和时间平均（$\langle\;\rangle$），得到输出响应 $R$.
   }{%
     The components of a two-element quasi-monochromatic interferometer
@@ -1109,14 +1109,15 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
   V_2(t) &= V \cos (\omega t),
 \end{align}
 其中 $\omega = 2\Cpi\nu$ 为角频率.
-然后，\emph{\acf{ctor}}将两个天线的响应相乘：
+然后，\emph{\acf{correlator}}将两个天线的响应相乘：
 \begin{align}
   V_1(t) V_2(t)
     &= V^2 \cos [\omega (t - \acs{delay-geo})] \cos (\omega t) \\
     &= \frac{1}{2} V^2 \left[ \cos (2\omega t - \omega \acs{delay-geo})
       + \cos (\omega \acs{delay-geo}) \right].
 \end{align}
-接着，\ac{ctor}再对相乘后的响应进行时间平均 [参见\autoref{eq:ctor-avgtime}]：
+接着，\ac{correlator}再对相乘后的响应进行时间平均
+[参见\autoref{eq:correlator-avgtime}]：
 \begin{equation}
   \label{eq:resp-corr}
   R = \langle V_1(t) V_2(t) \rangle
@@ -1124,13 +1125,13 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 \end{equation}
 由于天线响应 $V_1$ 和 $V_2$ 正比于辐射源的电场强度以及天线的\ac{gain}
 [参见\autoref{eq:gain}]，
-因此\ac{ctor}的响应 $R$ 正比于辐射源的流量密度 $S$
+因此\ac{correlator}的响应 $R$ 正比于辐射源的流量密度 $S$
 以及 $\sqrt{A_1 A_2}$，其中 $A_1$ 和 $A_2$ 为两个天线的有效接收面积
 [参见\autoref{eq:area-avg}].
 
 由于地球的自转，辐射源的方向 $\hat{\B{s}}$ 发生变化，
 \acl{delay-geo} \acs{delay-geo} 也随之变化，
-于是\ac{ctor}的输出 $R$ 出现正弦形式的振荡，即\emph{\acf{fringe}}，
+于是\ac{correlator}的输出 $R$ 出现正弦形式的振荡，即\emph{\acf{fringe}}，
 其相位为：
 \begin{equation}
   \phi = \omega \acs{delay-geo}
@@ -1150,7 +1151,7 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
 
 天线的\ac{pp}描述了其响应随方向的变化情况，也被称为干涉仪的\emph{\acf{beam-primary}}，
 将对输出 $R$ 产生调制，如\autoref{fig:interferometer} 所示，
-其中\ac{ctor}的输出\ac{fringe}的包络示意了\ac{beam-primary}的衰减情况.
+其中\ac{correlator}的输出\ac{fringe}的包络示意了\ac{beam-primary}的衰减情况.
 
 对于一个表面亮度分布为 $\acs{I-nu}(\hat{\B{s}})$ 的\ac{src-extended}，
 由于不同位置产生的辐射互不相干，因此可以被当作一系列独立的点源处理，
@@ -1163,11 +1164,11 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
     & = \int \acs{I-nu}(\hat{\B{s}}) \cos \left(
       2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \,\D{\Omega},
 \end{align}
-其中下标 \enquote{$c$} 表示 \enquote{cosine} \ac{ctor}的输出，
-以区分下文将要介绍的 \enquote{sine} \ac{ctor}.
+其中下标 \enquote{$c$} 表示 \enquote{cosine} \ac{correlator}的输出，
+以区分下文将要介绍的 \enquote{sine} \ac{correlator}.
 
 一个任意的亮度分布 $I$ 可分解为奇对称成分 $I_O$ 与偶对称成分 $I_E$ 之和，
-然而\autoref{eq:resp-cos} 描述的 cosine \ac{ctor}只能测量其中的
+然而\autoref{eq:resp-cos} 描述的 cosine \ac{correlator}只能测量其中的
 偶对称成分 $I_E$，即：
 \begin{align}
   R_c & = \int \left[ I_O(\hat{\B{s}}) + I_E(\hat{\B{s}}) \right]
@@ -1176,7 +1177,7 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
     & = \int I_E(\hat{\B{s}}) \cos \left(
       2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \,\D{\Omega}.
 \end{align}
-为了能够测量另一个奇对称成分 $I_O$，则需要一个 \enquote{sine} \ac{ctor}，
+为了能够测量另一个奇对称成分 $I_O$，则需要一个 \enquote{sine} \ac{correlator}，
 可通过对其中一个天线的输出增加 $\Cpi/2$ 的相位延迟来实现，于是有：
 \begin{align}
   R_s & = \int \left[ I_O(\hat{\B{s}}) + I_E(\hat{\B{s}}) \right]
@@ -1185,7 +1186,7 @@ $\hat{\B{s}}$ 为指向辐射源的单位矢量.
     & = \int I_O(\hat{\B{s}}) \sin \left(
       2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \,\D{\Omega}.
 \end{align}
-\ac{cctor} 即为一对 cosine 和 sine \ac{ctor}的组合.
+\ac{c-correlator} 即为一对 cosine 和 sine \ac{correlator}的组合.
 相应地，\emph{\acf{Vis}}，简称\emph{\ac{vis}}，可定义为：
 \begin{align}
   \label{eq:vis}
@@ -1225,7 +1226,7 @@ $\sinc(\Delta\nu\,\acs{delay-geo})$ 倍.
 为了最小化该损失，可以给前导天线的输出信号增加\emph{\acf{delay-comp}}，
 如\autoref{fig:interferometer-tau0} 所示，并随地球自转而调节 \acs{delay-comp}
 使其满足 $|\acs{delay-comp} - \acs{delay-geo}| \ll (\Delta\nu)^{-1}$.
-在此情况下，到达\ac{ctor}时两个天线的信号的相位是同步的.
+在此情况下，到达\ac{correlator}时两个天线的信号的相位是同步的.
 同时，满足 $\acs{delay-comp} = \acs{delay-geo}$ 的方向 $\hat{\B{s}}_0$
 称为\emph{\acf{delay-center}}或\emph{\acf{phase-refpos}}.
 
@@ -1269,18 +1270,18 @@ $\sinc(\Delta\nu\,\acs{delay-geo})$ 倍.
 另一个解决\ac{bw-smear}的方法是将宽频带划分为一系列足够窄的频率通道
 （如每个通道仅宽几十 \si{\kHz}），每个通道的信号都被独立地相关运算得到\ac{vis}.
 
-类似地，如果\ac{ctor}的积分时间 $\Delta t$ 过长，则辐射源的位置 $\hat{\B{s}}$
+类似地，如果\ac{correlator}的积分时间 $\Delta t$ 过长，则辐射源的位置 $\hat{\B{s}}$
 会因地球自转而发生显著改变（可与 \acs{bw-synthesized} 相比拟），
 导致\acl{delay-comp} \acs{delay-comp} 的修正效果变差，即\emph{\acf{t-smear}}.
 一个距离\acl{delay-center} $\Delta\theta$ 的目标的移动速度为
 $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
-为了最小化\ac{t-smear}的影响，\ac{ctor}的积分时间 $\Delta t$ 需满足：
+为了最小化\ac{t-smear}的影响，\ac{correlator}的积分时间 $\Delta t$ 需满足：
 \begin{equation}
   v \Delta t = \omega_e \Delta\theta \Delta t \ll \theta_s,
 \end{equation}
 即：
 \begin{equation}
-  \label{eq:ctor-avgtime}
+  \label{eq:correlator-avgtime}
   \Delta t \ll \frac{\theta_s}{\omega_e \Delta\theta}.
 \end{equation}
 
