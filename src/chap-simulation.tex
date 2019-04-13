@@ -373,32 +373,37 @@ $\ac{mol-weight-m} \simeq 0.6$ 是 \ac{icm} 的\acl{mol-weight-m}
 %.....................................................................
 \subsubsection{电子注入过程}
 
-As primary electrons are continuously injected into the ICM via multiple
-processes, it is reasonable to assume an average injection rate and a
-power-law spectrum for the electron injection process
-\cite{cassano2005,donnert2014}, i.e.,
+星系团及其成员星系中持续发生着 \ac{agn} 活动、恒星形成等过程，
+不断地将\ac{e-primary}注入到 \ac{icm} 之中.
+因此，可以假定\ac{e-primary}的注入速率 \ac{e-inj-rate} 是恒定的
+\cite{cassano2005,donnert2014}，
+同时还可假定注入电子的能谱为幂律形式 \cite{sarazin1999}，于是有：
 \begin{equation}
   \label{eq:electron-inj}
-  Q_e(\gamma, t) \simeq Q_e(\gamma) = K_e \,\gamma^{-s},
+  \ac{e-inj}(\ac{g}, t)
+    \simeq \ac{e-inj}(\ac{g})
+    = \ac{e-inj-rate} \,\ac{g}^{-s} ,
 \end{equation}
-where the spectral index $s$ is adopted to be 2.5 \cite{cassano2005}.
-Moreover, the energy density of the injected electrons can be assumed to
-account for a fraction ($\eta_e$) of the ICM thermal energy density
-\cite{cassano2005}, i.e.,
+其中 $s$ 为谱指数，在本工作中设为 2.5 \cite{cassano2005}.
+
+进一步假定注入电子的总能量密度与 \ac{icm} 热能密度 \ac{e-th} 之比为
+\ac{f-injection} \cite{cassano2005}，可得：
 \begin{equation}
-  \tau_{\R{cl}} \int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}}
-  Q_e(\gamma') \gamma'\epsilon_e \,\D{\gamma'}
-  = \eta_e \,\epsilon_{\R{th}},
+  \tau_{\R{cl}} \int_{\ac{g}_{\R{min}}}^{\ac{g}_{\R{max}}}
+  \ac{e-inj}(\ac{g}') \,\ac{g}'\ac{e-electron} \,\D{\ac{g}'}
+    = \ac{f-injection} \,\ac{e-th} ,
 \end{equation}
-where $\tau_{\R{cl}} \simeq t_{\R{sim}}$ is the cluster's age at its
-\enquote{current} redshift $z_{\R{sim}}$,
-and $\epsilon_e = m_e c^2$ is the electron's rest energy.
-Given $\gamma_{\R{min}} \ll \gamma_{\R{\max}}$, the injection rate $K_e$
-is derived to be
+其中
+$\tau_{\R{cl}} \simeq t_{\R{sim}}$
+是星系团\enquote{当前}（对应于红移 $z_{\R{sim}}$）的年龄，
+\ac{e-electron} 是\acl{e-electron} (rest energy).
+考虑到 $\ac{g}_{\R{min}} \ll \ac{g}_{\R{\max}}$，
+于是可推导出电子的注入速率 \ac{e-inj-rate} 为：
 \begin{equation}
   \label{eq:injrate}
-  K_e \simeq \frac{(s-2)\,\eta_e\,\epsilon_{\R{th}}}{\epsilon_e\,\tau_{\R{cl}}}
-    \gamma_{\R{min}}^{s-2}.
+  \ac{e-inj-rate} \simeq
+    \frac{(s-2)\,\ac{f-injection}\,\ac{e-th}}{
+      \ac{e-electron}\,\tau_{\R{cl}}} \ac{g}_{\R{min}}^{s-2} .
 \end{equation}
 
 %.....................................................................
