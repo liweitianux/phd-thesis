@@ -23,12 +23,10 @@ fix:
 	@for f in $(SRCS); do sed -i -E -e 's/。$$/./' -e 's/。/. /' $$f; done
 
 count:
-	@texcount thesis.tex -inc \
-	    | awk '/total/ {getline; print "词数    :",$$4}'
-	@texcount thesis.tex -inc -char \
-	    | awk '/total/ {getline; print "字符数  :",$$4}'
-	@texcount thesis.tex -inc -ch-only \
-	    | awk '/total/ {getline; print "中文字数:",$$4}'
+	@echo -n "Chinese character count: "
+	@pdftotext thesis.pdf - | \
+	    perl -CS -p -e 's/[^\s\p{Han}]//g' | \
+	    tr -d '\n\t ' | wc -m
 
 clean:
 	latexmk -C thesis
