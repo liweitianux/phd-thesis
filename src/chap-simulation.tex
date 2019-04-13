@@ -187,94 +187,106 @@ $M_8$ 是半径为 \SI{8}{\per\hubble\Mpc} 的球形区域里的质量：
 \subsection{并合历史}
 \label{sec:merging-history}
 
-The extended Press--Schechter theory outlined in \citeay{lacey1993} provides
-a way to describe the growth history of galaxy clusters in terms of the
-merger tree.
-In order to build the merger tree for a galaxy cluster, we start with
-its \enquote{current} mass $M_{\R{sim}}$ and redshift $z_{\R{sim}}$ obtained
-in \autoref{sec:mass-function}, and trace its growth history back in time
-by running Monte Carlo simulations to randomly determine the mass change
-$\Delta M$ at each step, which may be regarded either as a merger event
-(if $\Delta M > \Delta M_c$) or as an accretion event
-(if $\Delta M \leq \Delta M_c$).
-Since radio halos are usually associated with major mergers, we choose
-$\Delta M_c = \SI{e13}{\solarmass}$ \cite{cassano2005}.
+上述 Press--Schechter 质量函数只给出了在不同红移处宇宙中的\ac{gc}的质量分布，
+没有提供单个星系团的形成历史.
+这个问题由 \citeay{lacey1993} 通过对 Press--Schechter
+理论进行了扩展而给出了解决方案.
+给定一个星系团，\uline{扩展 Press--Schechter 理论}描述了其\ac{progenitor}的质量分布，
+然后利用 Monte Carlo 模拟便可构建出该星系团的成长历史，即\emph{\acf{m-tree}}
+\cite{lacey1993,randall2002}.
 
-We assume that during each growth step the cluster mass increases
-from $M_1$ at time $t_1$ to $M_2$ at a later time $t_2$ ($> t_1$).
-Given $M_2$ and $t_2$, the conditional probability of the cluster had
-a progenitor of mass in the range $[M_1, M_1 + \D{M_1}]$ at an earlier
-time $t_1$ can be expressed as
+设一个星系团在 $t_1$ 时刻的质量为 $M_1$，经过一次成长步骤（并合或\ac{accretion}）后，
+其质量在 $t_2$ ($> t_1$) 时刻增长为 $M_2$.
+给定 $M_2$ 和 $t_2$，扩展 Press--Schechter 理论给出了该星系团在一个较早时刻 $t_1$
+具有一个质量范围为 $[M_1,\, M_1+\D{M_1}]$ 的\ac{progenitor}的\ac{pr-cond}为
+\cite{lacey1993,randall2002}：
 \begin{equation}
   \label{eq:eps-condprob}
-  \R{Pr}(M_1, t_1 | M_2, t_2) \,\D{M_1} =
-    \frac{1}{\sqrt{2\pi}} \frac{M_2}{M_1}
+  \R{Pr}(M_1, t_1 \,|\, M_2, t_2) \,\D{M_1} =
+    \frac{1}{\sqrt{2\Cpi}} \frac{M_2}{M_1}
     \frac{\delta_{c1} - \delta_{c2}}{(\sigma_1^2 - \sigma_2^2)^{3/2}}
     \left| \diff{\sigma_1^2}{M_1} \right|
     \exp \!\left[ -\frac{(\delta_{c1} - \delta_{c2})^2}
-      {2(\sigma_1^2 - \sigma_2^2)} \right] \D{M_1} ,
+      {2(\sigma_1^2 - \sigma_2^2)} \right] \,\D{M_1} ,
 \end{equation}
-where
-$\delta_{ci} \equiv \delta_c(t_i)$, $\sigma_i \equiv \sigma(M_i)$, and
-$i = 1, 2$ are used to denote parameters defined at time $t_1$ and $t_2$,
-respectively \cite{lacey1993,randall2002}.
-By further introducing $S \equiv \sigma^2(M)$ and
-$\omega \equiv \delta_c(t)$, this equation reduces to
+其中
+$\delta_{ci} \equiv \delta_c(t_i)$，$\sigma_i \equiv \sigma(M_i)$，
+同时下标 $i = 1, 2$ 分别表示这些参数在时刻 $t_1$ 和 $t_2$ 的值.
+进一步定义 $\psi \equiv \sigma^2(M)$ 和 $\omega \equiv \delta_c(t)$，
+上式可简化为：
 \begin{equation}
-  \label{eq:eps-condprob-simp}
-  \R{Pr}(\Delta S, \Delta \omega) \,\D{\Delta S} = \frac{1}{\sqrt{2\pi}}
-  \frac{\Delta\omega}{(\Delta S)^{3/2}}
-  \exp \!\left[ -\frac{(\Delta\omega)^2}{2 \Delta S} \right] \D{\Delta S}.
+  \label{eq:eps-condprob2}
+  \R{Pr}(\Delta\psi, \Delta\omega) \,\D{\Delta\psi} =
+    \frac{1}{\sqrt{2\Cpi}} \frac{\Delta\omega}{(\Delta\psi)^{3/2}}
+    \exp \!\left[ -\frac{(\Delta\omega)^2}{2 \Delta\psi} \right]
+    \,\D{\Delta\psi} ,
 \end{equation}
+其中
+$\Delta\psi = \sigma_1^2 - \sigma_2^2$，
+$\Delta\omega = \delta_{c1} - \delta_{c2}$.
+注意 $\psi$ 随 $M$ 的增大而单调递减，$\omega$ 亦随 $t$ 的增大而单调递减.
 
-In order to resolve mergers with a mass change $\Delta M_c \ll M$
-during the backward tracing of a galaxy cluster, a time step $\Delta t$
-(i.e., $\Delta\omega$) that satisfies
+对于样本 (\autoref{sec:mass-function}) 中的每一个星系团，为了模拟其\ac{m-tree}，
+我们从\enquote{当前的}质量 $M_{\R{sim}}$ 和红移 $z_{\R{sim}}$ 出发，
+运用 Monte Carlo 方法逐步追溯其成长历史，时间步长为 $\Delta\omega$.
+为了能够分辨质量变化为 $\Delta M_c$ ($\ll M_2$) 的并合，
+时间步长 $\Delta\omega$ 应满足 \cite{lacey1993}：
 \begin{equation}
-  \label{sec:dw-step}
-  \Delta\omega \lesssim \Delta\omega_{\R{max}} = \left[
-    S \left| \diff{\ln \sigma^2}{\ln M} \right|
-    \left( \frac{\Delta M_c}{M} \right) \right]^{1/2}
+  \Delta\omega \lesssim (\Delta\omega)_{\R{max}} =
+    \left[ \psi \left| \diff{\ln \sigma^2}{\ln M_2} \right|
+      \left( \frac{\Delta M_c}{M_2} \right) \right]^{1/2} .
 \end{equation}
-is required \cite{lacey1993}, and we adopt an adaptive step of
-$\Delta\omega = \Delta\omega_{\R{max}} / 2$ \cite{randall2002}.
-At a certain step when $\Delta\omega$ is given, the mass change
-$\Delta S$ can be randomly drawn from the following cumulative
-probability distribution of sub-cluster masses
+本工作采用了自适应的时间步长 \cite{randall2002}：
+$\Delta\omega = (\Delta\omega)_{\R{max}} \big/ 2$.
+
+在追溯的每一步，当确定时间步长 $\Delta\omega$ 后，
+则并入星系团的质量（由 $\Delta\psi$ 描述）的\ac{cdf}为：
 \begin{align}
-  \label{sec:cdf-sub-masses}
-  \R{Pr}(<\!\Delta S, \Delta\omega)
-    & = \int_0^{\Delta S} \R{Pr}(\Delta S', \Delta\omega) \,\D{\Delta S'} \\
-    & = 1 - \erf \!\left( \frac{\Delta \omega}{\sqrt{2 \Delta S}} \right),
+  F_{\Delta\psi}(<\!\Delta\psi, \Delta\omega)
+    & = \int_0^{\Delta\psi} \R{Pr}(\Delta\psi', \Delta\omega)
+      \,\D{\Delta\psi'} \\
+    & = 1 - \erf \left( \frac{\Delta\omega}{\sqrt{2\Delta\psi}} \right) ,
+  \label{eq:cdf-submass}
 \end{align}
-where
-$\erf(x) = (2/\!\sqrt{\pi}) \int_0^x \R{e}^{-t^2} \,\D{t}$
-is the error function.
-Then, the cluster's progenitor mass $M_1$ is obtained as
-$S_1 = S_2 + \Delta S$.
+其中 $\erf(\cdot)$ 为\ac{errfunc}：
+\begin{equation}
+  \erf(x) = \frac{2}{\sqrt{\pi}} \int_0^x \Ce^{-t^2} \,\D{t} .
+\end{equation}
+对\autoref{eq:cdf-submass} 随机采样得到一个 $\Delta\psi$，
+于是，星系团 $M_2$ 的一个\ac{progenitor}的质量 $M_1$
+由 $\psi_1 = \psi_2 + \Delta\psi$ 确定 [参见\autoref{eq:sigma-mass}]，
+同时另一个\ac{progenitor}的质量为 $\Delta M = M_2 - M_1$.
 
-Given that observable radio halos are regarded to be associated
-with recent (in the observer's frame) major mergers
-and have typical lifetimes $\tau_{\R{halo}} \lesssim \SI{1}{\Gyr}$
-at \SI{1.4}{\GHz} \cite{brunetti2009,cassano2016},
-we trace the merging history of each galaxy cluster for
-$t_{\R{back}} = \SI{3}{\Gyr}$ from its \enquote{current}
-age $t_{\R{sim}}$ (corresponding to $z_{\R{sim}}$).
-For each built merger tree, we extract the information of all
-the mergers associated with the main cluster to carry out the
-subsequent simulation of radio halos.
-As shown in the upper panel of \autoref{fig:merging-history},
-we take one galaxy cluster of mass \SI{e15}{\solarmass} as an example and
-repeat the random merger tree build process for 30 times.
-Besides, we randomly draw 30 galaxy clusters from the sample constructed
-in \autoref{sec:mass-function} and build one merger tree instance for each
-galaxy cluster, as shown in the lower panel.
+设 $M_m \equiv \max(M_1, \Delta M)$ 和 $M_s \equiv \min(M_1, \Delta M)$
+分别为并合的主星系团（简称\emph{主团}）和子星系团（简称\emph{子团}），
+如果 $M_s > \Delta M_c$，则认为发生了一次并合事件，否则认为是\ac{accretion}过程
+\cite{randall2002}.
+通常认为可观测到的\ac{rh}与最近（在观测者的参考系）发生的\ac{m-major}相关联，
+而且\ac{rh}的典型寿命较短，比如在 \SI{1.4}{\GHz} 的寿命
+$\tau_{\R{halo}} \lesssim \SI{1}{\Gyr}$ \cite{brunetti2009,cassano2016}.
+因此，本文采用 $\Delta M_c = \SI{e13}{\solarmass}$ \cite{cassano2005}，
+并且只针对主团从\enquote{当前}时刻 $t_{\R{sim}}$ (对应于 $z_{\R{sim}}$)
+追溯 $t_{\R{back}} = \SI{3}{\Gyr}$.
+于是，获得每个星系团的并合历史
+$\left\{\left( M_m^{(i)}, M_s^{(i)}, t_{\R{merger}}^{(i)} \right)\right\}$
+用于开展后续射电晕的模拟.
+
+星系团的并合历史（即\ac{m-tree}）是随机模拟的.
+以一个质量为 \SI{e15}{\solarmass} 的星系团为例，重复模拟其\ac{m-tree} 30 次，
+可得到 30 颗不同的\ac{m-tree}，如\autoref{fig:merging-history} 上栏所示.
+同时，该图下栏显示了从 \autoref{sec:mass-function} 样本中随机挑选的 30 个星系团
+的\ac{m-tree}，其中每个星系团只随机生成了一颗\ac{m-tree}.
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.7\textwidth]{merging-history}
   \bicaption[星系团并合树的模拟结果示例]{%
-    TODO...
+    \uline{（上栏）}
+    对同一个质量为 \SI{e15}{\solarmass} 的星系团，重复模拟其\acs*{m-tree} 30 次
+    所得到的 30 颗不同的\acs*{m-tree}.
+    \uline{（下栏）}
+    从 \autoref{sec:mass-function} 样本中随机挑选 30 个星系团，
+    对每个星系团随机模拟一颗\acs*{m-tree}.
   }{%
     \textbf{(Upper)} Merger trees for one galaxy cluster of mass
     \SI{e15}{\solarmass} obtained by repeating the random build process
