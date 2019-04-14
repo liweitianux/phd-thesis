@@ -410,48 +410,65 @@ $\tau_{\R{cl}} \simeq t_{\R{sim}}$
 %.....................................................................
 \subsubsection{剥离半径}
 
-When a sub-cluster merges into the main cluster, the gas at its outer
-regions is stripped due to the ram pressure \cite{gunn1972}.
-The stripping radius \ac{r-strip} of the sub-cluster, outside which the
-stripping is efficient, can be obtained from the equipartition between
-the ram pressure and the hydrostatic pressure \cite{cassano2005}, i.e.,
+当一个子团并入主团时，其外围区域的气体将被\ac{ram-pressure}剥离，
+即\emph{\acf{ram-pressure-strip}} \cite{gunn1972}.
+对子团而言，离中心越远，则气体的流体静力学压强越小，
+\ac{ram-pressure-strip}的效果也就越显著.
+因此\emph{\acf{r-strip}}定义为，该半径处子团受到的\ac{ram-pressure}与
+气体的流体静力学压强达到平衡\cite{cassano2005}，即有：
 \begin{equation}
   \label{eq:rs-eqp}
   \bar{\rho}_m v_{\R{imp}}^2
-    = \frac{\rho_s(\ac{r-strip})}{\mu m_u} k_B T_{\R{cl,s}},
+    = \frac{\ac{rho-s}(\acs{r-strip})}{\ac{mol-weight-m} \ac{mass-u}}
+      \ac{kb} \ac{T-cl-s} ,
 \end{equation}
-where
-$\bar{\rho}_m = \mu m_u n_{\R{th,m}}$ is the mean gas density of the main
-cluster,
-$v_{\R{imp}}$ is the impact velocity of the two merging clusters,
-and $\rho_s(r)$ and $T_{\R{cl,s}}$ are the gas density profile and
-temperature of the sub-cluster, respectively.
+其中
+$\bar{\rho}_m = \ac{mol-weight-m} \ac{mass-u} \ac{n-th-m}$
+是主团的平均气体密度，
+\ac{v-imp} 是主团和子团之间的\acl{v-imp}，
+$\ac{rho-s}(r)$ 和 \ac{T-cl-s} 分别是子团的气体密度轮廓和 \ac{icm} 平均温度.
 
-Starting from a sufficiently large distance with zero velocity,
-the impact velocity $v_{\R{imp}}$ of two merging clusters with
-masses $M_{\R{vir,m}}$ and $M_{\R{vir,s}}$ is given by
-\cite{sarazin2002,cassano2005}
+两个质量分别为 \ac{M-vir-m} 和 \ac{M-vir-s} 的星系团
+从相距 $d_0$ 的地方以初速度 0 开始并合，
+可得两者的\acl{v-imp} \ac{v-imp} 为 \cite{sarazin2002,cassano2005}：
 \begin{equation}
   \label{eq:v-imp}
-  v_{\R{imp}} \simeq \left[
-    \frac{2G (M_{\R{vir,m}} + M_{\R{vir,s}})}{r_{\R{vir,m}}}
-    \left( 1 - \frac{1}{\eta_v} \right)\right]^{1/2},
+  \ac{v-imp} \simeq \left[
+    \frac{2 \ac{G} (\ac{M-vir-m} + \ac{M-vir-s})}{\ac{r-vir-m}}
+    \left( 1 - \frac{1}{\eta_v} \right)\right]^{1/2} ,
 \end{equation}
-where $\eta_v \simeq 4 \,(1 + M_{\R{vir,s}}/M_{\R{vir,m}})^{1/3}$.
+其中
+\ac{r-vir-m} 为\acl{r-vir-m}，
+$\eta_v$ 为初始距离参数，由下式给出：
+\begin{equation}
+  \eta_v
+    = \frac{d_0}{\ac{r-vir-m}}
+    \simeq 4 \left( 1 + \frac{\ac{M-vir-m}}{\ac{M-vir-m}} \right)^{1/3} .
+\end{equation}
 
-The gas density profile $\rho_s(r)$ can be well approximated with
-a standard $\beta$-model \cite{cavaliere1976}:
+星系团的气体密度轮廓可以很好地由 β 模型 \cite{cavaliere1976} 来描述：
 \begin{equation}
   \label{eq:beta-model}
-  \rho_s(r) = \rho_s(0) \left[1 + (r / r_{\R{c,s}})^2 \right]^{-3\beta/2},
+  \rho(r)
+    = \rho(0) \left[ 1 + \left(
+      \frac{r}{\ac{r-core}} \right)^2 \right]^{-3\ac{beta-slope}/2} ,
 \end{equation}
-where
-$r_{\R{c,s}}$ and $\beta$ are the core radius and slope parameter,
-respectively, and we adopt $r_{\R{c,s}} = 0.1 \,r_{\R{vir,s}}$
-\cite{sanderson2003} and
-$\beta = 2/3$ \cite{jones1984}.
-The central gas density $\rho_s(0)$ can then be determined by the total gas
-mass ($M_{\R{gas,s}} = f_{\R{gas}} M_{\R{vir,s}}$).
+其中
+$\rho(0)$ 为中心处的气体密度，
+\ac{r-core} 为\acl{r-core} (core radius)，
+\ac{beta-slope} 为\acl{beta-slope} (slope parameter).
+在本工作中，$\ac{r-core} = 0.1 \,\ac{r-vir}$ \cite{sanderson2003}
+以及 $\ac{beta-slope} = 2/3$ \cite{jones1984}.
+将 β 模型应用于上述子团，于是有：
+\begin{equation}
+  \ac{rho-s}(r)
+    = \ac{rho-s}(0) \left[ 1 + \left(
+      \frac{r}{\ac{r-core-s}} \right)^2 \right]^{-3\ac{beta-slope}/2} ,
+\end{equation}
+其中
+$\ac{r-core-s} = 0.1 \,\ac{r-vir-s}$，
+以及 $\ac{rho-s}(0)$ 则由子团的气体质量
+($\ac{M-gas-s} = \ac{f-gas} \ac{M-vir-s}$) 确定.
 
 %.....................................................................
 \subsubsection{湍流加速}
