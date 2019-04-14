@@ -591,52 +591,56 @@ $\ac{r-core-m} = 0.1 \,\ac{r-vir-m}$ 是主团的\acl{r-core}，
 %.....................................................................
 \subsubsection{能量损失过程}
 
-Among the mechanisms through which relativistic electrons
-in the ICM can lose energy, we take into account the following three
-major mechanisms in this work \cite{sarazin1999}.
-The first one is the inverse Compton scattering off the CMB photons,
-the energy loss rate of which is
+在\ac{gc} \ac{icm} 中，高能电子可通过多种机制损失能量 \cite{sarazin1999}，
+本工作考虑了其中三种主要的机制.
+第一种能量损失机制为高能电子与 \ac{cmb} 光子发生逆 Compton 散射，
+对应的能量损失速率为：
 \begin{equation}
   \label{eq:eloss-ic}
-  \left( \diff{\gamma}{t} \right)_{\R{IC}} =
-    \num{-4.32e-4} \,\gamma^2 (1+z)^4
-    \quad [\si{\per\Gyr}].
+  \left( \diff{\ac{g}}{t} \right)_{\R{IC}} =
+    \num{-4.32e-4} \,\ac{g}^2 (1+z)^4
+    \quad [\si{\per\Gyr}] .
 \end{equation}
 
-Secondly, with the \si{\uG}-level magnetic field permeating the ICM
-\cite{govoni2004,ryu2008}, relativistic electrons will
-produce synchrotron radiation and lose energy at a rate of
+第二，由于 \ac{icm} 中存在强度约 \si{\uG} 的磁场 \cite{govoni2004,ryu2008}，
+因此高能电子将产生\ac{rad-syn}而损失能量，该过程的能量损失速率为：
 \begin{equation}
   \label{eq:eloss-syn}
-  \left( \diff{\gamma}{t} \right)_{\R{syn}} =
-    \num{-4.10e-5} \,\gamma^2 \left( \frac{B}{\SI{1}{\uG}} \right)^2
-    \quad [\si{\per\Gyr}],
+  \left( \diff{\ac{g}}{t} \right)_{\R{syn}} =
+    \num{-4.10e-5} \,\ac{g}^2
+    \left( \frac{\ac{mag-field}}{\SI{1}{\uG}} \right)^2
+    \quad [\si{\per\Gyr}] ,
 \end{equation}
-where $B$ is the magnetic field strength.
-We assume that the magnetic field is uniform and its energy density reaches
-equipartition with that of cosmic rays, i.e.,
-$\epsilon_B = B^2/(8\pi) \simeq \epsilon_{\R{cr}} = \chi_{\R{cr}}\,\epsilon_{\R{th}}$
-\cite{beck2005}.
+其中 \ac{mag-field} 是磁场强度，
+本工作假定 \ac{mag-field} 在整个 \ac{icm} 是恒定的.
+为了估算 \ac{mag-field} 的大小，一个常用的假设是，
+磁场与\ac{cr}达到能量\ac{equipartition} \cite{beck2005}，
+即两者的能量密度相等：
+\begin{equation}
+  \epsilon_B = \frac{\ac{mag-field}^2}{8\Cpi}
+    \simeq \epsilon_{\R{cr}} = \ac{f-cr}\,\ac{e-th} .
+\end{equation}
 
-The last mechanism considered is that relativistic electrons interact
-with the thermal electrons via Coulomb collisions, the energy loss rate
-of which is
+第三，高能电子与 \ac{icm} 中的热电子发生 Coulomb 碰撞，从而损失能量.
+该过程导致的能量损失速率为：
 \begin{equation}
   \label{eq:eloss-coul}
-  \left( \diff{\gamma}{t} \right)_{\R{Coul}} =
-    \num{-3.79e4} \left( \frac{n_{\R{th}}}{\SI{1}{\per\cm\cubed}} \right)
+  \left( \diff{\ac{g}}{t} \right)_{\R{Coul}} =
+    \num{-3.79e4} \left( \frac{\ac{n-th}}{\SI{1}{\per\cm\cubed}} \right)
     \left[ 1 + \frac{1}{75} \ln \left(
-        \gamma \,\frac{\SI{1}{\per\cm\cubed}}{n_{\R{th}}} \right) \right]
-    \quad [\si{\per\Gyr}].
+        \ac{g}\,\frac{\SI{1}{\per\cm\cubed}}{\ac{n-th}} \right) \right]
+    \quad [\si{\per\Gyr}] ,
 \end{equation}
+其中 \ac{n-th} 为热电子的数密度，由\autoref{eq:n-th} 给出.
 
-The inverse Compton scattering and synchrotron radiation dominate
-the energy losses at the high-energy regime ($\gamma \gtrsim 1000$),
-while Coulomb collisions are the main energy-loss mechanism for electrons
-with lower energies ($\gamma \lesssim 100$).
-Therefore, electrons with intermediate energies (e.g., $\gamma \sim 300$)
-have a long lifetime (\SI{\sim 3}{\Gyr}) and can accumulate in the ICM
-as the cluster grows \cite{sarazin1999}.
+TODO: figure to illustrate the timescales of energy losses...
+
+在高能端 ($\gamma \gtrsim 1000$)，
+逆 Compton 散射和\ac{rad-syn}是能量损失的主导机制；
+在低能端 ($\gamma \lesssim 100$)，
+电子主要通过 Coulomb 碰撞而损失能量.
+因此，中等能量 ($\gamma \sim 300$) 的电子具有很长的寿命 (\SI{\sim 3}{\Gyr})，
+能够随着\ac{gc}的成长而积累在 \ac{icm} 之中 \cite{sarazin1999}.
 
 %---------------------------------------------------------------------
 \subsection{数值实现}
