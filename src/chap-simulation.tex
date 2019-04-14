@@ -457,7 +457,7 @@ $\eta_v$ 为初始距离参数，由下式给出：
 $\rho(0)$ 为中心处的气体密度，
 \ac{r-core} 为\acl{r-core} (core radius)，
 \ac{beta-slope} 为\acl{beta-slope} (slope parameter).
-在本工作中，$\ac{r-core} = 0.1 \,\ac{r-vir}$ \cite{sanderson2003}
+在本工作中，取 $\ac{r-core} = 0.1 \,\ac{r-vir}$ \cite{sanderson2003}
 以及 $\ac{beta-slope} = 2/3$ \cite{jones1984}.
 将 β 模型应用于上述子团，于是有：
 \begin{equation}
@@ -467,8 +467,15 @@ $\rho(0)$ 为中心处的气体密度，
 \end{equation}
 其中
 $\ac{r-core-s} = 0.1 \,\ac{r-vir-s}$，
-以及 $\ac{rho-s}(0)$ 则由子团的气体质量
-($\ac{M-gas-s} = \ac{f-gas} \ac{M-vir-s}$) 确定.
+以及 $\ac{rho-s}(0)$ 由子团的气体质量确定：
+\begin{align}
+  \ac{M-gas-s}
+    & = \ac{f-gas} \ac{M-vir-s}
+      = \int_0^{\ac{r-vir-s}} \ac{rho-s}(r) \,\D{r}  \\
+    & = \ac{rho-s}(0) \int_0^{\ac{r-vir-s}}
+        \left[ 1 + (r / \ac{r-core-s})^2 \right]^{-3\ac{beta-slope}/2}
+        \,\D{r} .
+\end{align}
 
 %.....................................................................
 \subsubsection{湍流加速}
