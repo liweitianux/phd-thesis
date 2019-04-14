@@ -3,6 +3,15 @@
 %% Creative Commons BY 4.0
 %%
 
+\DeclareAcronym{adiabatic-index}{
+  short = \ensuremath{\gamma_{\R{gas}}},
+  long = 绝热指数,
+  foreign = adiabatic index,
+  sort = gamma-index,
+  first-style = short,
+  class = symbol,
+}
+
 \DeclareAcronym{bandwidth}{
   short = \ensuremath{B_f},
   long = 带宽,
@@ -174,6 +183,14 @@
   class = symbol,
 }
 
+\DeclareAcronym{f-cr}{
+  short = \ensuremath{\chi_{\R{cr}}},
+  long = 宇宙射线的能量密度与 ICM 热能密度 \ac{e-th} 之比,
+  sort = chi-cr,
+  first-style = short,
+  class = symbol,
+}
+
 \DeclareAcronym{f-gas}{
   short = \ensuremath{f_{\R{gas}}},
   long = 气体质量比例,
@@ -186,6 +203,30 @@
   short = \ensuremath{\eta_e},
   long = 注入电子的总能量密度与 ICM 热能密度 \ac{e-th} 之比,
   sort = eta-e,
+  first-style = short,
+  class = symbol,
+}
+
+\DeclareAcronym{f-instability}{
+  short = \ensuremath{\zeta},
+  long = ICM 等离子体的不稳定性参数,
+  sort = zeta,
+  first-style = short,
+  class = symbol,
+}
+
+\DeclareAcronym{f-trans}{
+  short = \ensuremath{\eta_t},
+  long = 并合注入湍流的能量比例,
+  sort = eta-t,
+  first-style = short,
+  class = symbol,
+}
+
+\DeclareAcronym{f-turb}{
+  short = \ensuremath{\chi_{\R{turb}}},
+  long = 初始湍流的能量密度与 ICM 热能密度 \ac{e-th} 之比,
+  sort = chi-turb,
   first-style = short,
   class = symbol,
 }
@@ -289,6 +330,15 @@
   class = symbol,
 }
 
+\DeclareAcronym{k-turb-inj}{
+  short = \ensuremath{k_L},
+  long = 湍流注入尺度,
+  foreign = injection scale,
+  sort = k-L,
+  first-style = short,
+  class = symbol,
+}
+
 \DeclareAcronym{kb}{
   short = \ensuremath{k_B},
   long = Boltzmann 常数,
@@ -301,6 +351,13 @@
 \DeclareAcronym{M-gas-m}{
   short = \ensuremath{M_{\R{gas,m}}},
   long = 主团的气体质量,
+  first-style = short,
+  class = symbol,
+}
+
+\DeclareAcronym{M-turb}{
+  short = \ensuremath{M_{\R{turb}}},
+  long = 湍流区域内的气体质量,
   first-style = short,
   class = symbol,
 }
@@ -514,6 +571,13 @@
   class = symbol,
 }
 
+\DeclareAcronym{r-turb}{
+  short = \ensuremath{r_{\R{turb}}},
+  long = 湍流区域的半径,
+  first-style = short,
+  class = symbol,
+}
+
 \DeclareAcronym{r-vir}{
   short = \ensuremath{r_{\R{vir}}},
   long = 维里半径,
@@ -602,6 +666,7 @@
   long = 光速,
   extra = \SI{2.99792e10}{\cm\per\second},
   sort = c,
+  first-style = short,
   class = symbol,
 }
 
@@ -609,6 +674,7 @@
   short = \ensuremath{c_s},
   long = 声速,
   sort = c-s,
+  first-style = short,
   class = symbol,
 }
 
@@ -688,7 +754,25 @@
   short = \ensuremath{v_{\R{imp}}},
   long = 碰撞速度,
   foreign = impact velocity,
-  sort = peng-zhuang-su-du,
+  sort = v-imp,
+  first-style = short,
+  class = symbol,
+}
+
+\DeclareAcronym{v-turb}{
+  short = \ensuremath{\langle (\delta v_t)^2 \rangle},
+  long = 流湍的速度弥散,
+  foreign = velocity dispersion,
+  sort = v-t,
+  first-style = short,
+  class = symbol,
+}
+
+\DeclareAcronym{v-turb0}{
+  short = \ensuremath{\langle (\delta v_0)^2 \rangle},
+  long = 流湍的初始速度弥散,
+  foreign = initial velocity dispersion,
+  sort = v-0,
   first-style = short,
   class = symbol,
 }

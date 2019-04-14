@@ -473,114 +473,113 @@ $\ac{r-core-s} = 0.1 \,\ac{r-vir-s}$，
 %.....................................................................
 \subsubsection{湍流加速}
 
-The details of interactions between the turbulence and both thermal and
-relativistic particles are complicated and still poorly understood.
-Among several particle acceleration mechanisms that can be potentially
-triggered by the turbulence, the most important one is the transit time
-damping process, i.e., the turbulence dissipates its energy and
-accelerates particles by interacting with the relativistic particles
-(e.g., cosmic rays) in the ICM
-（参考 \citeay{brunetti2007} 和 \citeay{brunetti2011} 及其所引文献）.
-The associated diffusion coefficient is derived to be
-\cite{miniati2015,pinzke2017}
-\begin{equation}
-  \label{eq:dpp}
-  D_{\gamma\gamma} = 2 \gamma^2 \zeta \,k_L
-    \frac{\langle (\delta v_t)^2 \rangle^2}{\chi_{\R{cr}} \, c_s^3},
-\end{equation}
-where
-$\zeta$ is an efficiency factor characterizing the ICM plasma instabilities
-(e.g., due to spatial or temporal intermittency),
-$\chi_{\R{cr}} = \epsilon_{\R{cr}} / \epsilon_{\R{th}}$ is the relative
-energy density of cosmic rays with respect to the thermal ICM,
-$k_L \simeq 2\pi / r_{\R{turb}}$ is the turbulence injection scale
-with $r_{\R{turb}}$ being the radius of the turbulence region,
-$\langle (\delta v_t)^2 \rangle$ is the turbulence velocity dispersion,
-and $c_s$ is the sound speed in the ICM
-\begin{equation}
-  \label{eq:sound-speed}
-  c_s = \sqrt{\gamma_{\R{gas}} k_B T_{\R{cl}} / (\mu m_u)}
-\end{equation}
-with $\gamma_{\R{gas}} = 5/3$ being the adiabatic index
-of ideal monatomic gas.
+TODO:
+Turbulence; Alfven, slow, fast modes; particle acceleration:
+Lazarian et al. 2012, SSRv;
+Petrosian 2012, SSRv.
 
-In addition to mergers, mechanisms such as outflows from AGNs and galactic
-winds can introduce turbulence in the ICM, which is found to account for
-$\lesssim\,$5\% of the thermal energy in the central regions
-of relaxed clusters \cite{vazza2011}.
-Therefore, the base velocity dispersion $\langle (\delta v_0)^2 \rangle$
-of the turbulence in the absence of mergers is
+在星系团 \ac{icm} 中，\ac{turbulence}与热成分粒子以及\ac{cr}等非热成分粒子
+发生复杂的相互作用.
+对于这些相互作用的具体细节及其微观物理机制，目前的理解程度仍然非常有限.
+详见 \citeay{lazarian2012}、\citeay{petrosian2012}、
+\citeay{brunetti2014} 等综述文.
+
+在多种可能由\ac{turbulence}引起的粒子加速机制中，最重要的一种机制是\emph{\acf{ttd}}，
+即\ac{turbulence}与 \ac{icm} 中的\ac{cr}等相对论性粒子发生相互作用而耗散能量，
+从而将能量传递给粒子将其加速
+（参考 \citeay{brunetti2007} 和 \citeay{brunetti2011} 及其所引文献）.
+该加速机制给出的\acl{coef-diffusion} \ac{coef-diffusion} 为
+\cite{miniati2015,pinzke2017}：
 \begin{equation}
-  \label{eq:v-turb-base}
-  \langle (\delta v_0)^2 \rangle
-    = 3 \chi_{\R{turb}} \frac{k_B T_{\R{cl,m}}}{\mu m_u} ,
+  \ac{coef-diffusion}
+    = 2\,\ac{g}^2 \ac{f-instability} \,\ac{k-turb-inj}
+      \frac{\ac{v-turb}^2}{\ac{f-cr} \,c_s^3} ,
 \end{equation}
-where
-$\chi_{\R{turb}}$ is the ratio of energy density between the base
-turbulence and the thermal ICM.
-A merger will contribute a significant part of its energy to the turbulence
-and greatly increase the turbulence velocity dispersion
-$\langle (\delta v_t)^2 \rangle$, which leads to
+其中
+\ac{f-instability} 是描述 \ac{icm} 等离子体的不稳定性的参数，
+$\ac{f-cr} = \epsilon_{\R{cr}} / \ac{e-th}$
+是\ac{cr}的能量密度与 \ac{icm} 热能密度之比，
+$\ac{k-turb-inj} \simeq 2\Cpi / \ac{r-turb}$
+是\acl{k-turb-inj} (injection scale)，
+同时 \ac{r-turb} 是\acl{r-turb}，
+\ac{v-turb} 是\acl{v-turb} (velocity dispersion)，
+以及 \ac{speed-sound} 为 \ac{icm} 中的声速，由下式给出：
 \begin{equation}
-  \label{eq:energy-turb}
-  E_{\R{turb}} =
-    \frac{1}{2} M_{\R{turb}} \langle (\delta v_t)^2 \rangle =
-    \frac{1}{2} M_{\R{turb}} \langle (\delta v_0)^2 \rangle + \eta_t E_m ,
+  \ac{speed-sound}
+    = \sqrt{\frac{\ac{adiabatic-index} \ac{kb} \ac{T-cl}}{
+        \ac{mol-weight-m} \ac{mass-u}}} ,
 \end{equation}
-where
-$E_m$ is the energy injected by the sub-cluster during the merger,
-$\eta_t$ is the fraction of injected energy ($E_m$) transferred into
-turbulent waves,
-and $M_{\R{turb}}$ is the gas mass enclosed in the turbulence region
-of radius $r_{\R{turb}}$, i.e.,
+其中 \ac{adiabatic-index} 是气体的\acl{adiabatic-index} (adiabatic index).
+对于理想的单原子气体，$\ac{adiabatic-index} = 5/3$.
+
+除了并合，\ac{agn} 喷流、\ac{galactic-wind} 等过程也会在 \ac{icm}
+中产生\ac{turbulence} \cite{vazza2011}.
+\citeay{vazza2011} 发现在弛豫星系团的中央区域，
+\ac{turbulence}的能量与 \ac{icm} 热能之比可达 $\lesssim\,$5\%.
+因此，在并合开始前，\ac{turbulence}具有初始的速度弥散 \ac{v-turb0}：
 \begin{equation}
-  \label{eq:mass-turb}
-  M_{\R{turb}} = \int_0^{r_{\R{turb}}} \! \rho(r) 4\pi r^2 \,\D{r},
+  \ac{v-turb0}
+    = 3 \,\ac{f-turb} \frac{\ac{kb} \ac{T-cl-m}}{
+        \ac{mol-weight-m} \ac{mass-u}} ,
 \end{equation}
-where $\rho(r)$ is the gas density profile of the merged cluster
-characterized by the $\beta$-model [see \autoref{eq:beta-model}].
-The injected energy $E_m$ is approximated as the work done by the infalling
-sub-cluster, i.e.,
+其中
+\ac{f-turb} 是初始湍流的能量密度与 ICM 热能密度 \ac{e-th} 之比.
+并合会贡献一部分能量到\ac{turbulence}中，
+使得\ac{turbulence}的速度弥散 \ac{v-turb} 显著增大，于是有：
+\begin{align}
+  E_{\R{turb}}
+    & = \frac{1}{2} \ac{M-turb} \ac{v-turb}  \\
+    & = \frac{1}{2} \ac{M-turb} \ac{v-turb0} + \ac{f-trans} E_m ,
+\end{align}
+\acuse{M-turb,f-trans}
+其中
+$E_m$ 是子团在并合过程中释放的能量，
+\ac{f-trans} 是并合注入湍流的能量比例，
+以及 \ac{M-turb} 是半径为 \ac{r-turb} 的湍流区域内的气体质量，由下式给出：
+\begin{equation}
+  \ac{M-turb} = \int_0^{\ac{r-turb}} \! \rho(r) \,4\Cpi r^2 \,\D{r} ,
+\end{equation}
+其中 $\rho(r)$ 是已并合星系团的气体密度轮廓，同样由 β 模型描述
+[参见\autoref{eq:beta-model}].
+并合释放的能量 $E_m$ 近似为落入子团所做的功 \cite{fujita2003,cassano2005}，即有：
 \begin{equation}
   \label{eq:energy-inj}
-  E_m \simeq \bar{\rho}_m v_{\R{imp}}^2 V_{\R{turb}},
+  E_m \simeq \bar{\rho}_m v_{\R{imp}}^2 V_{\R{turb}} ,
 \end{equation}
-with $V_{\R{turb}} \simeq \pi r_s^2 \,r_{\R{vir,m}}$ being the swept volume
-\cite{fujita2003,cassano2005}.
-Therefore, the turbulence velocity dispersion during a merger is obtained as
+其中 $V_{\R{turb}}$ 为子团扫过的体积：
 \begin{equation}
-  \label{eq:v-turb}
-  \langle (\delta v_t)^2 \rangle
-    = \langle (\delta v_0)^2 \rangle
-    + 2 \pi\,\eta_t\, \bar{\rho}_m r_{\R{vir,m}}
-      \,\frac{r_s^2 v_{\R{imp}}^2}{M_{\R{turb}}} .
+  V_{\R{turb}} \simeq \Cpi r_s^2 \,\ac{r-vir-m} .
+\end{equation}
+综上可得，在并合过程中，湍流的速度弥散 \ac{v-turb} 为：
+\begin{equation}
+  \ac{v-turb}
+    = \ac{v-turb0}
+    + 2 \Cpi\,\ac{f-trans}\, \bar{\rho}_m \ac{r-vir-m}
+      \,\frac{r_s^2 v_{\R{imp}}^2}{\ac{M-turb}} .
 \end{equation}
 
-One remaining parameter is the turbulence region radius $r_{\R{turb}}$,
-which is estimated to be
+最后还需要估算\acl{r-turb} \ac{r-turb}，本工作假定以下关系：
 \begin{equation}
-  \label{eq:radius-turb}
-  r_{\R{turb}} = r_s + r_{\R{c,m}} ,
+  \label{eq:r-turb}
+  \ac{r-turb} = \ac{r-strip} + \ac{r-core-m} ,
 \end{equation}
-where
-$r_{\R{c,m}} = 0.1 \,r_{\R{vir,m}}$ is the core radius of the main cluster,
-and $r_s$ is the stripping radius of the sub-cluster
-[see \autoref{eq:rs-eqp}]
-with a value of $\sim \numrange{1}{2} \,r_{\R{c,m}}$
-for major mergers ($M_{\R{vir,m}} / M_{\R{vir,s}} \lesssim 3$)
-and $< r_{\R{c,m}}$ for minor mergers
-($M_{\R{vir,m}} / M_{\R{vir,s}} \sim \numrange{3}{10}$).
-This assumption is well consistent with previous simulation studies, which
-show that mergers introduce turbulence in regions of radius about
-$\numrange{0.1}{0.3} \,r_{\R{vir,m}}$
-\cite{vazza2011,vazza2012,miniati2015ss}.
-We note that minor mergers can also generate
-a relatively large turbulence region of radius about $r_{\R{c,m}}$
-due to the core gas sloshing induced by the infalling sub-cluster
-\cite{vazza2012}.
-However, the generated turbulence by a minor merger is rather weak because
-the injected energy $E_m$ is much less than a major one
-[see \autoref{eq:energy-inj}].
+其中
+$\ac{r-core-m} = 0.1 \,\ac{r-vir-m}$ 是主团的\acl{r-core}，
+\ac{r-strip} 是落入子团的\acl{r-strip} [参见\autoref{eq:rs-eqp}].
+对于\ac{m-major} ($\ac{M-vir-m} / \ac{M-vir-s} \lesssim 3$)，
+\acl{r-strip} \ac{r-strip} 约为 $\numrange{1}{2} \,\ac{r-core-m}$；
+对于\ac{m-minor} ($\ac{M-vir-m} / \ac{M-vir-s} \sim \numrange{3}{10}$)，
+则有 $\ac{r-strip} < \ac{r-core-m}$.
+前人的数值模拟研究显示，并合能够在半径约为 $\numrange{0.1}{0.3} \,r_{\R{vir,m}}$
+的范围内产生显著的湍流 \cite{vazza2011,vazza2012,miniati2015ss}.
+因此，本工作计算 \ac{r-turb} 的假定 [\autoref{eq:r-turb}]
+能够与这些模拟结果符合得比较好.
+\autoref{eq:r-turb} 显示，
+\ac{m-minor}亦能较一个半径达 \ac{r-core-m} 的较大区域内产生湍流，
+因为落入的子团会引起主团中央区域的气体\ac{sloshing}，从而产生较大范围的湍流.
+尽管如此，\ac{m-minor}释放的能量 $E_m$ 明显少于\ac{m-major}
+[参见\autoref{eq:energy-inj}]，
+因此产生的湍流也相对较弱.
 
 %.....................................................................
 \subsubsection{能量损失过程}
