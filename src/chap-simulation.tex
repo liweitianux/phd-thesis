@@ -525,6 +525,7 @@ $\ac{k-turb-inj} \simeq 2\Cpi / \ac{r-turb}$
 \ac{turbulence}的能量与 \ac{icm} 热能之比可达 $\lesssim\,$5\%.
 因此，在并合开始前，\ac{turbulence}具有初始的速度弥散 \ac{v-turb0}：
 \begin{equation}
+  \label{eq:v-turb0}
   \ac{v-turb0}
     = 3 \,\ac{f-turb} \frac{\ac{kb} \ac{T-cl-m}}{
         \ac{mol-weight-m} \ac{mass-u}} ,
@@ -534,6 +535,7 @@ $\ac{k-turb-inj} \simeq 2\Cpi / \ac{r-turb}$
 并合会贡献一部分能量到\ac{turbulence}中，
 使得\ac{turbulence}的速度弥散 \ac{v-turb} 显著增大，于是有：
 \begin{align}
+  \label{eq:energy-turb}
   E_{\R{turb}}
     & = \frac{1}{2} \ac{M-turb} \ac{v-turb}  \\
     & = \frac{1}{2} \ac{M-turb} \ac{v-turb0} + \ac{f-trans} E_m ,
@@ -646,100 +648,132 @@ TODO: figure to illustrate the timescales of energy losses...
 \subsection{数值实现}
 \label{sec:numerical}
 
-In order to solve the Fokker--Planck equation [\autoref{eq:fokkerplanck}],
-we apply an efficient numerical method proposed by \citeay{chang1970}
-and adopt the no-flux boundary condition \cite{park1996}.
-To avoid the unphysical pile-up of electrons around the lower boundary
-caused by the boundary condition,
-we define a buffer region below $\gamma_{\R{buf}}$, within which
-the spectral data are replaced by extrapolating the data above
-$\gamma_{\R{buf}}$ as a power-law spectrum \cite{donnert2014}.
-We adopt a logarithmic grid with 256 cells for $\gamma \in [1, 10^6]$,
-and let the buffer region span 10 cells.
+为了求解 Fokker--Planck 方程 [\autoref{eq:fokkerplanck}]
+获得电子能谱随时间的演化，必须借助于数值算法.
+本工作采用了由 \citeay{chang1970} 提出的\ac{finite-diff-scheme}，
+同时采用\ac{no-flux}边界条件 \cite{park1996}.
+该算法的具体介绍可参见\autoref{app:fpsolver}.
 
-By making use of the same Fokker--Planck equation but with the
-merger-induced turbulent acceleration turned off [i.e., $E_m \equiv 0$ and
-$\langle (\delta v_t)^2 \rangle \equiv \langle (\delta v_0)^2 \rangle$
-in \autoref{eq:energy-turb}],
-the initial electron spectrum $n_e(\gamma, t_0)$ is derived by evolving the
-accumulated electron spectrum $\tilde{n}_e(\gamma) = Q_e(\gamma) \,\tau_0$
-for \SI{1}{\Gyr} \cite{brunetti2007}, where $\tau_0$ is the
-cluster's age at the beginning of the earliest merger.
+在\ac{no-flux}边界条件下，电子可能在边界处出现不合理的堆积.
+因此，可以在两个边界处分别设定一个\enquote{缓冲区}，
+设其能量区间分别为：
+$[\ac{g}_{\R{min}}, \ac{g}_{\R{buf1}}]$ 和
+$[\ac{g}_{\R{buf2}}, \ac{g}_{\R{max}}]$.
+在求解过程中，利用缓冲区外 ($\ac{g}_{\R{buf1}} < \ac{g} < \ac{g}_{\R{buf2}}$)
+的有效能谱，按幂律形式外延并替换缓冲区内的能谱 \cite{borovsky1986,donnert2014}.
+本工作选取了 $\ac{g}_{\R{min}} = 1$ 和 $\ac{g}_{\R{max}} = \num{e6}$，
+并采用对数网格 (grid) 将 \ac{g} 划分为 256 个单元 (cell)，
+其中两个缓冲区均占据 10 个单元.
 
-Although the whole process of a single merger can last for about
-\SIrange{2}{3}{\Gyr} \cite{tormen2004,cassano2016}, the period
-during which the turbulence is intense enough to effectively accelerate
-electrons is relatively short.
-An appropriate estimation of the turbulent acceleration period is
-$\tau_{\R{turb}} \simeq 2 \,r_{\R{turb}} / v_{\R{imp}}$ \cite{miniati2015}.
-
-A galaxy cluster may experience multiple mergers in the past
-$t_{\R{back}} = \SI{3}{\Gyr}$.
-For each merger event
-$\left( M^{(i)}_{\R{vir,m}}, M^{(i)}_{\R{vir,s}}, t^{(i)}_{\R{begin}} \right)$,
-where $t^{(i)}_{\R{begin}}$ denotes the beginning time of this merger,
-it can induce effective turbulent acceleration (i.e., being active) during
-the period $\left[ t^{(i)}_{\R{begin}}, t^{(i)}_{\R{end}} \right]$ with
-$t^{(i)}_{\R{end}} = t^{(i)}_{\R{begin}}+\tau^{(i)}_{\R{turb}}$ being the
-time when this merger becomes inactive.
-At other times (i.e., no active merger), only the base turbulence
-contributes to the acceleration of electrons, which, however,
-is insufficient to balance the energy loss due to synchrotron radiation
-and inverse Compton scattering.
-
-Along the history of a galaxy cluster that has multiple mergers, the
-turbulence region has a different radius during different mergers.
-To take this variation into account, we identify the radius of the largest
-turbulence region ($R_{\R{turb}}$) and properly diffuse the electron
-spectrum to the sphere of radius $R_{\R{turb}}$ for mergers with a smaller
-turbulence region.
-Specifically, for a merger that is active during 
-$\left[ t^{(i)}_{\R{begin}}, t^{(i)}_{\R{end}} \right]$ and has a
-turbulence region of radius $r^{(i)}_{\R{turb}}$, the accelerated part of
-the electron spectrum during this merger [i.e., the difference between
-spectra at $t^{(i)}_{\R{end}}$ and at $t^{(i)}_{\R{begin}}$] is re-scaled
-by a volume ratio given by
+求解 Fokker--Planck 方程还需要知道初始的电子能谱 $n_e(\ac{g}, t_0)$.
+为此，首先假定 \ac{icm} 中积累的电子能谱为：
 \begin{equation}
-  \label{eq:ratio-v}
-  R_{\R{vol}} = \left[ r^{(i)}_{\R{turb}} \,\Big/ R_{\R{turb}} \right]^3 .
+  \tilde{n}_e(\ac{g}) = Q_e(\ac{g}) \,\tau_0 ,
+\end{equation}
+其中 $\tau_0 \simeq t_{\R{merger}}^{(1)}$ 为星系团在第一次并合开始时刻的年龄.
+然后在没有并合引起的湍流加速的情况下，
+即\autoref{eq:energy-turb} 中的 $E_m \equiv 0$ 以及
+$\ac{v-turb} \equiv \ac{v-turb0}$，
+让电子能谱 $\tilde{n}_e(\ac{g})$ 演化 \SI{1}{\Gyr}，
+于是获得初始电子能谱 $n_e(\ac{g}, t_0)$ 的一个合理近似 \cite{brunetti2007}.
+
+尽管一次并合的全部过程可能持续约 \SIrange{2}{3}{\Gyr} \cite{tormen2004,cassano2016}，
+但是在该过程中，并合能够产生足够强的\ac{turbulence}以有效地加速电子的时间却比较短
+($\lesssim \SI{1}{\Gyr}$).
+这段有效加速时长 \ac{tau-turb} 可估算为 \cite{miniati2015}：
+\begin{equation}
+  \ac{tau-turb} \simeq \frac{2\,\ac{r-turb}}{\ac{v-imp}} .
 \end{equation}
 
-Once the desired electron spectrum $n_e(\gamma, t)$ is obtained, the
-synchrotron emissivity at a frequency $\nu$ is given by \cite{rybicki1979}
+一个\ac{gc}在其过去的 $t_{\R{back}} = \SI{3}{\Gyr}$ 可能经历多次并合.
+对于其中的每一次并合
+$\left( M^{(i)}_{\R{vir,m}}, M^{(i)}_{\R{vir,s}}, t^{(i)}_{\R{begin}} \right)$，
+其中 $t^{(i)}_{\R{begin}} = t^{(i)}_{\R{merger}}$ 表示该并合的开始时间，
+能够引起有效的流湍加速（即认为并合正在活动）的时间段为
+$\left[ t^{(i)}_{\R{begin}}, t^{(i)}_{\R{end}} \right]$，
+其中 $t^{(i)}_{\R{end}} = t^{(i)}_{\R{begin}}+\tau^{(i)}_{\R{turb}}$
+是该并合停止活动的时间.
+在其他没有并合活动的时间段里，则只有初始湍流对电子的加速有一定的贡献
+[\autoref{eq:v-turb0}].
+然而，初始湍流很弱，所以加速效率很低，不足以平衡\ac{rad-syn}和逆 Compton 散射的能量损失.
+
+对于一个经历多次并合的\ac{gc}，每次并合所产生的湍流区域大小 (\ac{r-turb}) 是不同的.
+为了考虑这个变化，首先确定最大湍流区域的半径 \ac{R-turb}，
+然后在计算具有较小湍流区域 ($\ac{r-turb} < \ac{R-turb}$) 的并合的加速过程时，
+将加速后的电子能谱相应地稀释到半径为 \ac{R-turb} 的球形区域里.
+具体而言，对于一次有效加速时间段为
+$\left[ t^{(i)}_{\R{begin}}, t^{(i)}_{\R{end}} \right]$、
+湍流区域半径为 $r^{(i)}_{\R{turb}}$ 的并合，
+将电子能谱被此次并合所加速的部分，即
+$n_e^{\R{diff}}(\ac{g}) =
+n_e\!\left(\ac{g}, t^{(i)}_{\R{end}}\right) -
+n_e\!\left(\ac{g}, t^{(i)}_{\R{begin}}\right)$，
+按如下体积比例稀释：
+\begin{equation}
+  \label{eq:ratio-v}
+  R_{\R{vol}} = \left[ \frac{r^{(i)}_{\R{turb}}}{\ac{R-turb}} \right]^3 .
+\end{equation}
+
+一旦获得所需的电子能谱 $\ac{n-e}$，
+在频率 $\nu$ 处的\acl{syn-em} (synchrotron emissivity)
+\ac{syn-em} 为 \cite{rybicki1979}：
 \begin{equation}
   \label{sec:jnu-sync}
   % unit: [erg/s/Hz/cm^3]
-  J(\nu) = \frac{\sqrt{3} \, e^3 B}{m_e c^2}
-    \!\int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}} \!\!\!\int_0^{\pi/2}\!
-    n_e(\gamma, t) F(\nu/\nu_c) \sin^2 \!\theta \,\D{\theta} \,\D{\gamma},
+  \ac{syn-em}(\nu) =
+    \frac{\sqrt{3} \,\ac{e}^3 \ac{mag-field}}{\ac{mass-e}\ac{speed-light}^2}
+    \!\int_{\ac{g}_{\R{min}}}^{\ac{g}_{\R{max}}}
+    \!\!\!\int_0^{\Cpi/2}
+    \! \ac{syn-kernel}\!\left( \frac{\nu}{\ac{freq-crit}} \right)
+    \ac{n-e} \sin^2 \!\theta \,\D{\theta} \,\D{\ac{g}} ,
 \end{equation}
-where
-$c$ is the speed of light,
-$e$ is the elementary charge,
-$\theta$ is the pitch angle of electrons with respect to the magnetic
-field, $\nu_c = (3/2) \,\gamma^2 \nu_L \sin\theta$ is the electron's
-critical frequency with $\nu_L = e B / (2\pi m_e c)$ being the Larmor
-frequency, and $F(\cdot)$ is the synchrotron kernel:
+其中
+\ac{speed-light} 是\acl{speed-light}，\ac{e} 是\acl{e}，
+$\theta$ 是电子与磁场 \ac{mag-field} 之间的\ac{pitch-angle}，
+\ac{freq-crit} 是电子的\acl{freq-crit}：
 \begin{equation}
-  \label{eq:sync-kernel}
-  F(x) = x \int_x^{\infty} K_{5/3}(y) \,\D{y} ,
+  \ac{freq-crit} = \frac{3}{2} \ac{g}^2 \ac{freq-larmor} \sin\theta ,
 \end{equation}
-where $K_{5/3}(\cdot)$ is the modified Bessel function of 5/3 order.
+其中 \ac{freq-larmor} 是电子的 \acl{freq-larmor}：
+\begin{equation}
+  \ac{freq-larmor} =
+    \frac{\ac{e}\ac{mag-field}}{2\Cpi \ac{mass-e}\ac{speed-light}} ,
+\end{equation}
+还有 $\ac{syn-kernel}(\cdot)$ 是\acl{syn-kernel}：
+\begin{equation}
+  \ac{syn-kernel}(x) = x \int_x^{\infty} K_{5/3}(y) \,\D{y} ,
+\end{equation}
+其中 $K_{5/3}(\cdot)$ 是 5/3 阶修正 Bessel 函数.
 
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=\textwidth]{spec-evo-example}
+  \includegraphics[width=0.95\textwidth]{spec-evo-example}
   \bicaption[电子能谱和同步辐射频谱随时间的演化示例]{%
-    TODO...
+    一个在红移 $z = 0.3$ ($t \simeq \SI{10.3}{\Gyr}$)
+    经历了一次\acs*{m-major}的星系团从并合开始至
+    $z = 0.15$ ($t \simeq \SI{11.8}{\Gyr}$)
+    的高能电子能谱 \acs*{n-e} 和\acl*{syn-em}频谱
+    $\acs*{syn-em}(\nu)$ 随时间的演化.
+    \textbf{(a)}
+    高能电子能谱（实线）和相应的参考能谱（虚线；见 \autoref{sec:halo-size}）；
+    \textbf{(b)}
+    \acl*{syn-em}频谱（实线）和相应的参考频谱（虚线）；
+    \textbf{(c)}
+    同步辐射在 \SI{158}{\MHz} （蓝色实线）和 \SI{1400}{\MHz} （紫色实线）
+    处的发射率及其相应的参考发射率（虚线）随时间的变化；
+    \textbf{(d)}
+    \SI{158}{\MHz} （蓝线）和 \SI{1400}{\MHz} （紫线）处的谱指数随时间的变化.
+    阴影区域显示了射电晕存在的时间段（详见 \autoref{sec:halo-size}）.
+    星号标记了显示在子图 (a) 和 (b) 中的频谱所对应的时间点.
   }{%
     The temporal evolution of the electron and synchrotron
-    emission spectra for an example cluster with one major merger,
+    emissivity spectra for an example cluster with one major merger,
     which begins at redshift $z = 0.3$ (i.e., $t \simeq \SI{10.3}{\Gyr}$)
     and is tracked until $z = 0.15$ (i.e., $t \simeq \SI{11.8}{\Gyr}$).
     \textbf{(a)} The relativistic electron spectra (solid lines) and the
     corresponding reference electron spectra (dashed lines; see
     \autoref{sec:halo-size}).
-    \textbf{(b)} The synchrotron emission spectra (solid lines) and the
+    \textbf{(b)} The synchrotron emissivity spectra (solid lines) and the
     corresponding reference synchrotron spectra (dashed lines).
     \textbf{(c)} The variation of \SI{158}{\MHz} (solid blue line) and
     \SI{1400}{\MHz} (solid purple line) synchrotron emissivity as well as
@@ -754,22 +788,16 @@ where $K_{5/3}(\cdot)$ is the modified Bessel function of 5/3 order.
   \label{fig:spec-evo}
 \end{figure}
 
-In \autoref{fig:spec-evo}, we present the temporal evolution of the
-relativistic electron and synchrotron emission spectra for an example
-galaxy cluster with one major merger.
-The cluster has a mass of \SI{e15}{\solarmass} and merges with a
-sub-cluster of mass \SI{6e14}{\solarmass} at redshift $z = 0.3$
-(i.e., $t \simeq \SI{10.3}{\Gyr}$), from when we solve the Fokker--Planck
-equation to track the electron and synchrotron emission spectra until
-redshift $z = 0.15$ (i.e., $t \simeq \SI{11.8}{\Gyr}$).
-As demonstrated in this figure, the merger-induced turbulence is active
-for a period of $\tau_{\R{turb}} \simeq \SI{0.67}{\Gyr}$ and efficiently
-accelerates electrons to extremely high energies
-($\gamma \gtrsim \num{e4}$), which gives rise to the radio halo even at
-high frequencies ($> \si{\GHz}$).
-However, once the turbulence becomes inactive ($t > \SI{10.9}{\Gyr}$), the
-high-energy electrons quickly lose energy and the radio halo fades out
-shortly, especially at high frequencies.
+以一个经历一次\ac{m-major}、质量为 \SI{e15}{\solarmass} 的星系团为例，
+\autoref{fig:spec-evo} 显示了并合过程中高能电子能谱 \ac{n-e}
+和\acl{syn-em}频谱 $\ac{syn-em}(\nu)$ 随时间的演化.
+星系团在红移 $z = 0.3$ (对应宇宙年龄 $t \simeq \SI{10.3}{\Gyr}$)
+时与一个质量为 \SI{6e14}{\solarmass} 的子团开始并合.
+该并合的有效加速时长约为 $\tau_{\R{turb}} \simeq \SI{0.67}{\Gyr}$，
+使电子被加速到极高能量 ($\gamma \gtrsim \num{e4}$)，
+形成在中高频段 ($> \si{\GHz}$) 可见的\ac{rh}.
+然而，当并合从 $t > \SI{10.9}{\Gyr}$ 起停止活动时，
+高能端的电子迅速地损失能量而衰减，\ac{rh}也很快地消失，特别是在中高频段.
 
 %---------------------------------------------------------------------
 \subsection{识别和大小}
