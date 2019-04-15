@@ -803,69 +803,71 @@ $\theta$ 是电子与磁场 \ac{mag-field} 之间的\ac{pitch-angle}，
 \subsection{识别和大小}
 \label{sec:halo-size}
 
-Radio halos cannot form or will rapidly disappear if there is no active
-turbulent acceleration.
-In order to determine whether or not there exists a radio halo at frequency
-$\nu$, we employ the following two criteria:
-(1) the synchrotron emissivity $J(\nu)$ of the final electron spectrum
-$n_e(\gamma, t_{\R{sim}})$ is at least \num{1000} times larger than the
-emissivity $J'(\nu)$ of the reference electron spectrum
-$n'_e(\gamma, t_{\R{sim}})$, which is obtained by solving the identical
-Fokker--Planck equation but without merger-induced turbulent acceleration,
-similar to the way of deriving the initial electron spectrum
-(\autoref{sec:numerical});
-(2) the spectral index\footnote{%
-  We adopt a power-law spectrum of form $J(\nu) \propto \nu^{-\alpha}$.}
-at frequency $\nu$ satisfies $\alpha_{\nu} \le 3$.
-For the example as shown in \autoref{fig:spec-evo}(c,d), a radio halo
-is identified from about 10.6 to 11.0 \si{\Gyr} at \SI{1.4}{\GHz} and
-from about 10.5 to 11.3 \si{\Gyr} at \SI{158}{\MHz}.
-The spectral indices at \SI{1.4}{\GHz} and \SI{158}{\MHz} reach about 2.1
-and 1.0, respectively.
-These results demonstrate that radio halos have longer lifetimes at low
-frequencies and thus it is expected to observe more radio halos in
-low-frequency radio bands.
-We note that the \SI{1.4}{\GHz} spectral index ($\alpha_{1400} \sim 2.1$)
-is slightly larger than the general result from observations,
-because we calculate the spectral index around a specific frequency while
-observed spectral indices are generally obtained from two separated
-frequencies (e.g., 0.3 and 1.4 GHz \cite{feretti2012}).
+从上一节的示例可知，如果 \ac{icm} 中没有活跃的湍流加速，
+\ac{rh}要么无法形成要么会迅速消失.
+通过求解 Fokker--Planck 方程 [\autoref{eq:fokkerplanck}]
+并得到对应\ac{gc}\enquote{当前}时刻的高能电子能谱 $n_e(\ac{g}, t_{\R{sim}})$ 后，
+还需要判别\ac{rh}在频率 $\nu$ 处是否确实存在.
+为此，本工作采用以下两点判据：
+\begin{enumerate}
+  \item \acl{syn-em}在频率 $\nu$ 的值 $\ac{syn-em}(\nu)$
+    是相应的\enquote{参考值} $J'_{\R{syn}}(\nu)$ 的至少 1000 倍.
+    该参考值 $J'_{\R{syn}}(\nu)$ 由相应的参考电子能谱
+    $n'_e(\ac{g}, t_{\R{sim}})$ 确定，
+    后者的计算方法与 \autoref{sec:numerical} 中计算初始电子能谱
+    $n_e(\ac{g}, t_0)$ 的方法类似，
+    即在没有并合引起的湍流加速的情况下求解 Fokker--Planck 方程而得到.
 
-Previous studies \cite{cassano2007,basu2012}
-have shown that the radius of radio halos ($r_{\R{halo}}$)
-increases non-linearly with the cluster's virial radius ($r_{\R{vir}}$),
-which may be caused by the distributions of relativistic electrons and
-magnetic fields \cite{dolag2002}.
-Therefore, we assume the following scaling relation for $r_{\R{halo}}$:
+  \item 同步辐射在频率 $\nu$ 处谱指数满足 $\alpha_{\nu} \le 3$.
+\end{enumerate}
+
+对于\autoref{fig:spec-evo} 所示的例子，
+\ac{rh} 在 \SI{1.4}{\GHz} 处的存在时间段约为 \SIrange{10.6}{11.0}{\Gyr}，
+在 \SI{158}{\MHz} 处的存在时间段约为 \SIrange{10.5}{11.3}{\Gyr}.
+同时，\ac{rh}的同步辐射频谱在 \SI{1.4}{\GHz} 和 \SI{158}{\MHz}
+的谱指数分别达到了约 2.1 和 1.0.
+这些结果显示，\ac{rh}在低频波段 ($\lesssim \SI{200}{\MHz}$) 更容易形成，
+并且拥有更长的寿命.
+因此，在低频波段也更容易发现更多的\ac{rh}.
+此外，上述示例给出的 \SI{1.4}{\GHz} 谱指数 ($\alpha_{1400} \sim 2.1$)
+比通常的观测结果\cite{feretti2012}偏大一些，
+这是因为本工作直接在一个频率 $\nu$ 附近计算该频率处的谱指数 $\alpha_{\nu}$，
+而观测给出的谱指数 $\alpha_{\nu_1}^{\nu_2}$ 通常由两个相隔较远的频率
+($\nu_1$ 和 $\nu_2$) 的观测数据得出，比如 0.3 和 1.4 GHz \cite{feretti2012}.
+
+判别一个\ac{rh}存在后，接着需要确定其大小.
+之前的研究已显示\acl{r-halo} \ac{r-halo}
+会随\ac{gc}的\acl{r-vir} \ac{r-vir} 超线性地增大 \cite{cassano2007,basu2012}，
+这可能是由于高能电子和磁场的径向分布特征造成的 \cite{dolag2002}.
+据此，本工作假定\acl{r-halo} \ac{r-halo} 满足以下\ac{scaling-relation}：
 \begin{equation}
   \label{eq:r-halo}
-  r_{\R{halo}} = f_r R_{\R{turb}}
-    \left( \frac{r_{\R{vir}}}{r_{\R{vir,*}}} \right)^b ,
+  \ac{r-halo} = f_r \ac{R-turb}
+    \left( \frac{\ac{r-vir}}{r_{\R{vir,*}}} \right)^b ,
 \end{equation}
-where
-$R_{\R{turb}}$ is the radius of the largest turbulence region as also used
-in \autoref{eq:ratio-v},
-$r_{\R{vir,*}}$ is the virial radius of a reference cluster of mass
-\SI{e15}{\solarmass},
-and $f_r$ and $b$ are the scaling normalization and slope, respectively.
-After comparing with the observed scaling relation of
-$r_{\R{halo}} \propto r_{\R{vir}}^{2.63 \pm 0.50}$ \cite{cassano2007},
-we obtain $f_r = 0.7$ and $b = 1.8$.
+其中
+\ac{R-turb} 是最大湍流区域的半径 [另见\autoref{eq:ratio-v}]，
+$r_{\R{vir,*}}$ 是质量为 \SI{e15}{\solarmass} 的参考星系团的\acl{r-vir}，
+$f_r$ 和 $b$ 分别是\ac{scaling-relation}的系数和指数.
+\citeay{cassano2007} 获得的观测\ac{scaling-relation}为：
+$\ac{r-halo} \propto r_{\R{vir}}^{2.63 \pm 0.50}$，
+与之对比后，本工作选取 $f_r = 0.7$ 和 $b = 1.8$.
 
-Then, the power of a radio halo at frequency $\nu$ is
+于是，\ac{rh}在频率 $\nu$ 处的功率 $\ac{P-halo}(\nu)$ 为：
 \begin{equation}
   \label{eq:halo-power}
-  P(\nu) = \frac{4\pi}{3} r_{\R{halo}}^3 J(\nu),
+  \ac{P-halo}(\nu) = \frac{4\Cpi}{3} r_{\R{halo}}^3 \ac{syn-em}(\nu) ,
 \end{equation}
-and the flux density at the same frequency is
+同时在该频率处的流量密度 $\ac{S-halo}(\nu)$ 为：
 \begin{equation}
   \label{eq:halo-flux}
-  S(\nu) = \frac{(1+z_{\R{sim}}) P(\nu(1+z_{\R{sim}}))}
-    {4\pi D_{\!L}^2(z_{\R{sim}})} ,
+  \ac{S-halo}(\nu) =
+    \frac{(1+z_{\R{sim}}) \,\ac{P-halo}[\nu(1+z_{\R{sim}})]}{
+      4\Cpi D_{\!L}^2(z_{\R{sim}})} ,
 \end{equation}
-where $D_{\!L}(z_{\R{sim}})$ is the luminosity distance to the halo,
-and the factor $(1 + z_{\R{sim}})$ accounts for the $K$ correction
-\cite{hogg1999}.
+其中
+$\acs{D-luminosity}(z_{\R{sim}})$ 是\ac{rh}的\acl{D-luminosity}，
+因子 $(1 + z_{\R{sim}})$ 用于考虑 $K$ 修正 \cite{hogg1999}.
 
 %---------------------------------------------------------------------
 \subsection{模型参数和结果}
