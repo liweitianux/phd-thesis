@@ -25,12 +25,13 @@ $A(x)$ 为相位因子（如果 $x$ 表示能量，该项等于 1；
 如果 $x$ 表示动量，该项等于 $4\Cpi x^2$），
 $B(x)$、$C(x)$、$T(x)$ 和 $Q(x)$ 分别描述了粒子的
 平流 (advection)、扩散 (diffusion)、逃逸 (escape) 和注入 (injection).
-这几个系数需满足 $A(x) > 0, C(x) > 0, T(x) \ge 0, Q(x) \ge 0$.
+这几个系数需满足 $A(x) > 0,\, C(x) > 0,\, T(x) \ge 0,\, Q(x) \ge 0$.
 
-然而，简化后的 Fokker--Planck 方程仍然只能在有限的几种特殊情况下获得解析解，
+然而，简化后的 Fokker--Planck 方程 [\autoref{eq:fp-generic}]
+仍然只能在非常有限的几种特殊情况下获得解析解，
 而对于一般情况则必须求助于数值算法.
-由 \citeay{chang1970} 提出的有限差分法 (finite difference scheme)
-是一种有效的算法，下文对该算法作具体介绍.
+由 \citeay{chang1970} 提出的\ac{finite-diff-scheme}是一种有效的算法，
+下文对该算法作具体介绍.
 
 
 %=====================================================================
@@ -63,7 +64,7 @@ $B(x)$、$C(x)$、$T(x)$ 和 $Q(x)$ 分别描述了粒子的
   \label{eq:fp-f}
   F(x,t) = B(x) u(x,t) + C(x) \pdiff{u(x,t)}{x} .
 \end{equation}
-于是\emph{无流量 (no-flux) 边界条件}可写为\cite{park1995}：
+于是\emph{\ac{no-flux}边界条件}可写为 \cite{park1995}：
 \begin{equation}
   \label{eq:no-flux}
   F(x_0, t) = F(x_M, t) = 0 .
@@ -162,9 +163,9 @@ $B(x)$、$C(x)$、$T(x)$ 和 $Q(x)$ 分别描述了粒子的
 \autoref{eq:fp-tridigonal} 的线性方程组可由快速的三对角矩阵算法
 （亦称 Thomas 算法）求解\cite{press1992}.
 
-在无流量边界条件下，粒子可能在边界处堆积，这对本文所研究的湍流加速应用来说是不合理的，
+在\ac{no-flux}边界条件下，粒子可能在边界处堆积，这对本文所研究的湍流加速应用来说是不合理的，
 因此需要在边界处进行额外处理.
-可在边界处选定一个\enquote{缓冲区}，在每个时间步，利用缓冲区外的有效粒子能谱，
+可在边界处设定一个\enquote{缓冲区}，在每个时间步，利用缓冲区外的有效粒子能谱，
 按幂律谱外延并替换缓冲区内的能谱\cite{borovsky1986,donnert2014}.
 
 
