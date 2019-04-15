@@ -873,50 +873,50 @@ $\acs{D-luminosity}(z_{\R{sim}})$ 是\ac{rh}的\acl{D-luminosity}，
 \subsection{模型参数和结果}
 \label{sec:halo-results}
 
-Our model has the following parameters:
-(1) $\eta_e$: ratio of the energy density of injected electrons to the
-thermal energy density;
-(2) $\eta_t$: fraction of the merger energy transferred into the
-turbulence;
-(3) $\chi_{\R{cr}}$: relative energy density of cosmic rays to the thermal
-component;
-(4) $\chi_{\R{turb}}$: relative energy density of the base turbulence;
-(5) $\zeta$: efficiency of the ICM plasma instabilities.
-Since currently no reasonable constraints on these parameters can be
-obtained from either observational or theoretical studies,
-it is necessary to tune them to make the model predictions (e.g., the halo
-flux function, the scaling relation between the halo power and the hosting
-cluster mass) consistent with observations.
+本工作对\ac{rh}构建的模型主要包含以下 5 个待调节的参数：
+\begin{enumerate}
+  \item \ac{f-injection}:
+    注入电子的总能量密度与 \ac{icm} 热能密度 \ac{e-th} 之比；
+  \item \ac{f-trans}:
+    并合释放的能量中转化为湍流能量的比例；
+  \item \ac{f-cr}:
+    宇宙射线的能量密度与 \ac{icm} 热能密度 \ac{e-th} 之比；
+  \item \ac{f-turb}:
+    初始湍流的能量密度与 \ac{icm} 热能密度 \ac{e-th} 之比；
+  \item \ac{f-instability}:
+    \ac{icm} 等离子体的不稳定性参数.
+\end{enumerate}
+由于目前的观测和理论研究均无法给出上述参数的有效约束，
+因此有必要仔细调节这些参数，使得模型给出的结果能够符合目前的观测结果，
+主要包括\ac{fluxfunc}、射电晕的功率与宿主星系团的质量之间的\ac{scaling-relation}.
 
-We perform two comparisons between our simulations and observations.
-The first comparison involves the observed scaling relation between the
-radio halo power at \SI{1.4}{\GHz} ($P_{1400}$) and the cluster mass
-($M_{\R{vir}}$).
-We make use of the observation data presented by \citeay{cassano2013},
-who reported a scaling relation of
+我们通过以下两个对比来调节上述参数.
+第一个对比是射电晕的 \SI{1.4}{\GHz} 功率 ($P_{1400}$)
+与宿主星系团的维里质量 (\ac{M-vir}) 之间的\ac{scaling-relation}.
+观测的\ac{scaling-relation}由 \citeay{cassano2013} 给出：
 $P_{1400} \propto M_{500}^{3.70 \pm 0.56}$.
-We convert their mass $M_{500}$ to virial mass by assuming an NFW density
-profile \cite{navarro1997} and employing the mass--concentration relation
-derived by \citeay{duffy2008}.
-Secondly,
-we compare the \SI{1.4}{\GHz} all-sky integrated flux function between
-the simulated radio halos and observations.
-To this end, we have collected all currently observed radio halos
-(\autoref{tab:halos} in \autoref{app:halos};
-71 identified halos and 9 candidates; as of 2018 January).
-Considering that current observations are far from complete,
-especially at the low-flux end, our strategy is to require that the
-flux function of simulated radio halos agrees with the
-observed one at the high-flux end.
+这里需要将质量 $M_{500}$ 换算至维里质量以便与模拟结果对比，
+具体换算方法可见附录 \autoref{sec:r-m-conv}.
+
+另一个对比则利用 \SI{1.4}{\GHz} 全天积分的 \ac{fluxfunc}.
+为此，我们搜集了目前（截至 2018 年 1 月；TODO）已观测到的 80 个\ac{rh}，
+其中 71 个已确认，另外 9 个为候选，
+详见\autoref{app:halos} 中的\autoref{tab:halos}.
+考虑到目前观测到的\ac{rh}远不完备，尤其是在低流量端，
+因此在对比时只要求模拟得到的\ac{fluxfunc}与观测结果在高流量端一致.
 
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=0.8\textwidth]{halo-power-mvir}
+  \includegraphics[width=0.7\textwidth]{halo-power-mvir}
   \bicaption[射电晕 \SI{1.4}{\GHz} 功率和宿主星系团质量之间的标度关系]{%
-    TODO...
+    模拟得到的射电晕 \SI{1.4}{\GHz} 功率 ($P_{1400}$) 和宿主星系团质量
+    (\acs*{M-vir}) 之间的标度关系.
+    蓝色星号表示来自 \citeay{cassano2013} 的观测数据.
+    紫色圆点表示 500 次模拟的结果，红色虚线为模拟结果的拟合线：
+    $P_{1400} \propto M_{\R{vir}}^{3.94 \pm 0.12}$.
   }{%
     Simulated scaling relation between the radio halo power at
-    \SI{1.4}{\GHz} ($P_{1400}$) and the cluster mass ($M_{\R{vir}}$).
+    \SI{1.4}{\GHz} ($P_{1400}$) and the cluster mass (\acs*{M-vir}).
     Blue asterisks mark the observation data from \citeay{cassano2013}.
     Purple dots represent the results of 500 simulation runs
     and the dashed red line shows the fitted relation of
@@ -927,13 +927,17 @@ observed one at the high-flux end.
 
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=0.8\textwidth]{fluxfunc-simucomp}
+  \includegraphics[width=\textwidth]{fluxfunc-simucomp}
   \bicaption[射电晕 \SI{1.4}{\GHz} 流量函数的对比]{%
-    TODO...
+    模拟的射电晕（紫色实线）和观测的射电晕（红色虚线）之间的
+    \SI{1.4}{\GHz} 流量函数对比.
+    红色点线显示了 \citeay{cassano2012} 预测的 \SI{1.4}{\GHz} 流量函数.
+    作为对比，蓝色实线表示模拟的射电晕的 \SI{158}{\MHz} 流量函数.
+    阴影区域显示了从 500 次模拟估算得到的 68\% 误差范围.
   }{%
     The \SI{1.4}{\GHz} all-sky integrated flux function comparison
-    between the observed (dashed purple line) and simulated
-    (solid purple line) radio halos.
+    between the simulated (solid purple line) and observed
+    (dashed red line) radio halos.
     The dotted red line shows the \SI{1.4}{\GHz} flux function
     predicted by \citeay{cassano2012}.
     The solid blue line represents the \SI{158}{\MHz} flux function for
@@ -944,47 +948,50 @@ observed one at the high-flux end.
   \label{fig:halos-simucomp}
 \end{figure}
 
-We have explored various parameter configurations,
-and for each configuration we have repeated the simulation for 500 times
-in order to take into account the distribution variations of bright
-radio halos across the sky.
-By comparing the simulation results with the observed
-$P_{1400}$--$M_{\R{vir}}$ scaling relation and the \SI{1.4}{\GHz} flux
-function, we finally choose a set of model parameters with
-$\eta_e = 0.01\%$,
-$\eta_t = 15\%$,
-$\chi_{\R{cr}} = 1.5\%$,
-$\chi_{\R{turb}} = 1.5\%$,
-and $\zeta = 0.1$.
-As shown in \autoref{fig:halo-power}, the radio halos simulated by our
-model with the tuned parameters show a scaling relation of $P_{1400}
-\propto M_{\R{vir}}^{3.94 \pm 0.12}$, which is consistent well with that of
-\citeay{cassano2013} on both the slope and normalization.
-In \autoref{fig:halos-simucomp}, we present the \SI{1.4}{\GHz} flux
-functions for the simulated radio halos and observed ones, which agree with
-each other at the high-flux end.
-The \SI{1.4}{\GHz} flux function given by our tuned model also matches
-the prediction of \citeay{cassano2012}.
+根据上述 $P_{1400}$--\ac{M-vir} \ac{scaling-relation}可知，
+亮射电晕主要位于大质量 ($\gtrsim \SI{e15}{\solarmass}$) 星系团中.
+在一片 \SI{10 x 10}{\degree} 的天区里，
+大质量星系团有显著的涨落 (\autoref{sec:mass-function})，
+因此亮射电晕也会出现明显的涨落.
+为了考虑这个分布涨落，我们对每一种参数组合均重复模拟 500 次，
+由此估算模拟结果的均值和误差，并与上述两点观测结果进行对比.
+通过测试多种参数组合，最终选取如下一组参数：
+$\ac{f-injection} = 0.01\%$、
+$\ac{f-trans} = 15\%$、
+$\ac{f-cr} = 1.5\%$、
+$\ac{f-turb} = 1.5\%$ 以及
+$\ac{f-instability} = 0.1$.
 
-Furthermore, we display the fraction of clusters with radio halos as a
-function of the cluster mass in \autoref{fig:halo-fraction}.
-It clearly shows that more massive clusters tend to have higher
-probabilities to host radio halos.
-Meanwhile, we are expected to observe much more radio halos at low
-frequencies (e.g., $\sim \SIrange{100}{200}{\MHz}$), which could be
-generated by less intense mergers and have longer lifetimes (see also
-\autoref{sec:numerical} and \autoref{fig:spec-evo}).
+如\autoref{fig:halo-power} 所示，使用上述调节好的参数，
+模拟的射电晕给出的 $P_{1400}$--\ac{M-vir} \ac{scaling-relation}为：
+$P_{1400} \propto M_{\R{vir}}^{3.94 \pm 0.12}$.
+该\ac{scaling-relation}的斜率和截距与 \citeay{cassano2013}
+获得的观测结果都符合得很好.
+\autoref{fig:halos-simucomp} 显示了 \SI{1.4}{\GHz} \ac{fluxfunc}
+的对比结果，可见模拟的射电晕与观测的射电晕在高流量端是一致的.
+同时，本工作模拟给出的 \SI{1.4}{\GHz} \ac{fluxfunc}
+还与 \citeay{cassano2012} 的预测结果是匹配的.
+
+此外，\autoref{fig:halo-fraction} 显示了具有射电晕的星系团比例
+随星系团质量的变化.
+显然，星系团的质量越大，其中存在射电晕的概率就越高.
+同时，星系团中存在一个在低频波段（如 \SI{158}{\MHz}）可见的射电晕的概率
+也显著高于存在一个在高频波段（如 \SI{1.4}{\GHz}）可见的射电晕.
+因此，在低频波段 ($\sim \SIrange{100}{200}{\MHz}$) 将能观测到
+成千上万个射电晕，远远多于目前发现的数目 \cite{cassano2012,cassano2015}.
 
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=0.8\textwidth]{halo-fraction}
+  \includegraphics[width=0.7\textwidth]{halo-fraction}
   \bicaption[具有射电晕的星系团比例随星系团质量的变化]{%
-    TODO...
+    具有射电晕的星系团比例随星系团质量的变化.
+    蓝线和紫线分别表示在 \SI{158}{\MHz} 和 \SI{1.4}{\GHz}
+    频率处识别的射电晕比例.
   }{%
     The fraction of clusters with radio halos as a function of the cluster
     mass.
     The blue and purple lines represent the fraction of halos identified at
-    \SI{158}{\MHz} and \SI{1400}{\MHz}, respectively.
+    \SI{158}{\MHz} and \SI{1.4}{\GHz}, respectively.
   }
   \label{fig:halo-fraction}
 \end{figure}
