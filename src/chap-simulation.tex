@@ -1110,21 +1110,31 @@ $\left(0.85_{-0.54}^{+2.74}\right) \times 10^3$ \si{\mK}
 %---------------------------------------------------------------------
 \subsection{同步辐射}
 
-TODO... simulation details...
+银河系\ac{rad-syn}在低频波段的天图通过以
+Haslam \SI{408}{\MHz} 巡天图\cite{haslam1982}
+为模板按幂律形式外延得到 \cite{wang2010,bonaldi2015}：
+\begin{equation}
+  T_b^{\R{syn}}(\B{\hat{r}}, \nu)
+    = T_b^{\R{haslam}}(\B{\hat{r}}) \left( \frac{\nu}{\SI{408}{\MHz}}
+      \right)^{-\alpha_{\R{syn}}(\B{\hat{r}})} ,
+\end{equation}
+其中 $T_b^{\R{haslam}}(\B{\hat{r}})$ 为银河系 $\B{\hat{r}}$ 处的
+\SI{408}{\MHz} 亮温度，
+$\alpha_{\R{syn}}(\B{\hat{r}})$ 为该处的同步辐射谱指数.
 
-The Galactic synchrotron map is simulated by extrapolating the
-Haslam \SI{408}{\MHz} all-sky map as the template to lower frequencies
-with a power-law spectrum.
-We make use of the high-resolution version ($N_{\R{side}} = 2048$,
-pixel size \SI{\sim 1.72}{\arcminute}) of the Haslam \SI{408}{\MHz}
-map\footnote{The reprocessed Haslam \SI{408}{\MHz} map:
-  \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}},
-which was reprocessed by \citeay{remazeilles2015} using significantly
-better instrument calibration and more accurate subtraction of
-extragalactic sources.
-We also use the all-sky synchrotron spectral index map made by
-\citeay{giardino2002} to account for the index variation with sky positions.
-\autoref{fig:galactic-skymaps} 左栏显示了银河系\ac{rad-syn}在 \SI{158}{\MHz} 的天图.
+本工作使用了由 \citeay{remazeilles2015} 重新处理的 Haslam \SI{408}{\MHz}
+全天图\footnote{%
+  重新处理的 Haslam \SI{408}{\MHz} 全天图：
+  \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}}.
+与 Haslam 原图相比，新图具有更好的仪器校准以及更准确的河外点源扣除 \cite{remazeilles2015}.
+同步辐射的谱指数会随天空位置变化，
+\citeay{giardino2002} 综合了 Haslam \SI{408}{\MHz} 全天图、
+\SI{1420}{\MHz} 北天图 \cite{reich1986}
+以及 \SI{2326}{\MHz} 南天图 \cite{jonas1998}，
+处理得到了的银河系同步辐射的谱指数全天分布图.
+本工作利用了该谱指数分布图确定上式中的 $\alpha_{\R{syn}}(\B{\hat{r}})$.
+\autoref{fig:galactic-skymaps} 左栏显示了银河系\ac{rad-syn}在
+\SI{158}{\MHz} 的天图.
 
 \begin{figure}[htp]
   \centering
@@ -1132,7 +1142,9 @@ We also use the all-sky synchrotron spectral index map made by
   \hfill
   \includegraphics[width=0.498\textwidth]{skymap-gff-f158}
   \bicaption[银河系同步辐射和自由--自由辐射在 \SI{158}{\MHz} 的天图]{%
-    TODO...
+    银河系同步辐射（左栏）和自由--自由辐射（右栏）在 \SI{158}{\MHz} 的天图.
+    天区的大小为 \SI{10 x 10}{\degree}，
+    \ac{colorbar}以 \si{\kelvin} 为单位.
   }{%
     The sky maps of the Galactic synchrotron (left panel)
     and free-free (right panel) radiations at \SI{158}{\MHz}.
