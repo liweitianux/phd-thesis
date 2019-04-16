@@ -1204,27 +1204,28 @@ $T_e$ 是辐射区域的电子温度（以 \si{\kelvin} 为单位），
 %=====================================================================
 \section{河外点源}
 
-TODO... simulation details
-
-河外点源可大致分为以下几类 \cite{snellen2000,wilman2008,wang2010}：
-(1) 恒星形成星系 (star-forming galaxy)，
-包括普通晚型星系 (normal late-type galaxy) 和星暴星系 (starburst galaxy)；
-(2) 射电宁静 (radio-quiet) \ac{agn}；
-(3) \ac{fr} I 型和 II 型 \ac{agn}；
-(4) GHz 倒转谱 (GHz-peaked-spectrum) \ac{agn}；
-(5) 致密陡谱 (compact steep-spectrum) \ac{agn}.
-
-We simulate the former three types of sources by leveraging the simulation
-results made by \citeay{wilman2008}, and simulate the latter two types
-by employing their corresponding luminosity functions and spectral models.
-More details can be found in \citeay{wang2010} and references therein.
+本工作对河外点源的模拟继承自我们之前的一项工作\cite{wang2010}，
+其中模拟了以下几类点源 \cite{snellen2000,wilman2008,wang2010}：
+\begin{enumerate}
+  \item 恒星形成星系，
+    包括普通晚型星系 (normal late-type galaxy) 和星暴星系 (starburst galaxy)；
+  \item 射电宁静 (radio-quiet) \ac{agn}；
+  \item \ac{fr} I 型和 II 型 \ac{agn}；
+  \item GHz 倒转谱和致密陡谱射电星系.
+\end{enumerate}
+上述第 1--3 类点源的模拟使用了 \citeay{wilman2008} 针对 SKA 模拟的点源结果；
+第 4 类点源的模拟则利用了相应的\ac{luminfunc}和频谱模型
+\cite{oDea1998,snellen1998,fanti2001}.
+具体模拟方法可参考 \citeay{wang2010} 和 \citeay{wilman2008} 及其所引文献.
 \autoref{fig:ptrsrc-skymap} 显示了模拟的河外点源在 \SI{158}{\MHz} 的天图.
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.7\textwidth]{skymap-ptrsrc-f158}
   \bicaption[河外点源在 \SI{158}{\MHz} 的模拟天图]{%
-    TODO...
+    河外点源在 \SI{158}{\MHz} 的模拟天图.
+    天区的大小为 \SI{10 x 10}{\degree}，
+    \ac{colorbar}以 \si{\kelvin} 为单位.
   }{%
     The simulated sky map of the extragalactic point sources at \SI{158}{\MHz}.
     The sky region size is \SI{10 x 10}{\degree}
