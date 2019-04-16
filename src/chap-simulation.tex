@@ -1305,31 +1305,68 @@ $T_e$ 是辐射区域的电子温度（以 \si{\kelvin} 为单位），
 \section{干涉阵列的模拟观测}
 \label{sec:obs-simu}
 
-In order to properly evaluate the contamination of radio halos
-on the EoR observations, it is essential to take account of the
-practical instrumental effects of radio interferometers.
+干涉阵列的复杂仪器效应是制约 EoR 探测的一个重要因素
+（参见 \autoref{sec:det-difficulties}），
+同时还会影响前景干扰的行为，比如导致\ac{fg-wedge}
+（参见 \autoref{sec:eor-window}）.
+为了有效地评估射电晕对 EoR 探测的具体干扰情况，
+整合干涉阵列的仪器效应是很有必要的.
+为此，本工作采用了目前最新的 SKA1-Low 阵列布局\footnote{\raggedright%
+  SKA1-Low 阵列布局坐标:
+  \url{https://astronomers.skatelescope.org/wp-content/uploads/2016/09/SKA-TEL-SKO-0000422_02_SKA1_LowConfigurationCoordinates-1.pdf}
+  （发布日期： 2016 年 5 月 31 日）}，
+对上文模拟得到的\ac{skymap}进行模拟观测，
+获得整合了真实仪器效应的射电图像.
 
 %---------------------------------------------------------------------
 \subsection{SKA1-Low~阵列布局}
 
-TODO: layout configuration, design goals, descriptions, figures...
+SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根天线，
+合计 \num{131072} 根天线.
+每个站点呈直径 \SI{35}{\meter} 的圆形区域，
+256 根天线保持最小间隔 $d_{\R{min}} = \SI{1.5}{\meter}$
+随机分布其中 \cite{mort2017}.
+512 个站点的布局方式分为两种情况 \cite{dewdney2016ska}：
+\begin{itemize}
+  \item 核心区域：半径 $R \le \SI{500}{\meter}$，随机分布 224 个站点；
+  \item 核心区域之外：余下的 288 个站点构成 48 个站点团（每个团由 6 个站点组成），
+    分布在 3 条半径达 \SI{\sim 35}{\km} 的螺旋线上，
+    形成长达 \SI{\sim 65}{\km} 的基线.
+\end{itemize}
+\autoref{fig:ska1low-config} 显示了 SKA1-Low 的站点布局.
+利用这种布局方式，一方面核心区域的大量短基线能够提供非常高灵敏度的 EoR 测量，
+另一方面，长基线提供的高分辨率能够获得精确的前景模型，有利于 EoR 探测的前景扣除.
 
-Therefore, we employ the latest SKA1-Low layout configuration%
-\footnote{\raggedright%
-  SKA1-Low Configuration Coordinates:
-  \url{https://astronomers.skatelescope.org/wp-content/uploads/2016/09/SKA-TEL-SKO-0000422_02_SKA1_LowConfigurationCoordinates-1.pdf}
-  (released on 2016 May 21)
-}
-to simulate the SKA observations of the above simulated sky maps.
-According to this layout configuration,
-the SKA1-Low interferometer consists of 512 stations, with 224 of them
-randomly distributed within the \enquote{core} of \SI{1000}{\meter} in
-diameter, while the remaining stations are grouped into \enquote{clusters}
-and placed on 3 spiral arms extending up to a radius of
-\SI{\sim 35}{\kilo\meter}.
-Each station has 256 antennas randomly distributed with a minimum separation
-of $d_{\R{min}} = \SI{1.5}{\meter}$ inside a circular region of
-\SI{35}{\meter} in diameter \cite{mort2017}.
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=0.508\textwidth]{SKA1low-config-outside}%
+  \hfill%
+  \includegraphics[width=0.491\textwidth]{SKA1low-config-central}
+  \bicaption[SKA1-Low 站点布局图]{%
+    \uline{（左栏）}
+    中央区域 (半径 $R \le \SI{1700}{\meter}$) 之外的站点布局，
+    由分布在 3 条螺旋线上的 36 个站点团 (station cluster) 构成，
+    每个站点团包括 6 个站点.
+    \uline{（右栏）}
+    中央区域内的站点布局，
+    包括核心区域 (半径 $R \le \SI{500}{\meter}$) 内随机分布的 224 个站点，
+    以及 12 个分布在核心区域之外的站点团.
+  }{%
+    \emph{(Left)}
+    The layout configuration of stations outside the central area
+    (radius $R \le \SI{1700}{\meter}$).
+    There are 36 station clusters, each of which consists of 6 stations,
+    placing on 3 spiral arms.
+    \emph{(Right)}
+    The layout configuration of stations in the central area,
+    including the 224 randomly distributed stations in the core area
+    (radius $R \le \SI{500}{\meter}$) and another 12 station clusters
+    outside the core area.
+    \\\textcopyright{}
+    \citeay{dewdney2016ska}.
+  }
+  \label{fig:ska1low-config}
+\end{figure}
 
 %---------------------------------------------------------------------
 \subsection{模拟观测和成像}
