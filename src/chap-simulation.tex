@@ -1238,35 +1238,15 @@ $T_e$ 是辐射区域的电子温度（以 \si{\kelvin} 为单位），
 %=====================================================================
 \section{EoR 信号}
 
-The sky maps of the EoR signal are created using the 2016 data release
-from the
-\href{http://homepage.sns.it/mesinger/EOS.html}{Evolution Of 21\,cm Structure}
-project\footnote{%
-  Evolution Of 21\,cm Structure:
-  \url{http://homepage.sns.it/mesinger/EOS.html}},
-which has made use of the
-\href{http://homepage.sns.it/mesinger/DexM___21cmFAST.html}{\texttt{21cmFAST}}%
-\footnote{%
-  21cmFAST: \url{http://homepage.sns.it/mesinger/DexM___21cmFAST.html}
-} to simulate the cosmic
-reionization process from redshift 86.5 to 5.0 inside a large cube that is
-1.6 comoving \si{\Gpc} (1024 cells) along each side \cite{mesinger2016}.
-We extract the image slices at needed frequencies (i.e., redshifts) from
-the light-cone cubes of the recommended \enquote{faint galaxies} case,
-and then tile and re-scale them to have the same sky coverage and
-pixel size as our foreground maps.
-\autoref{fig:eor-tbrms} shows the root-mean-square brightness temperatures of the
-EoR signal among \SIrange{120}{200}{\MHz} ($z = \numrange{6.1}{10.8}$).
-The corresponding root-mean-square brightness temperatures at the central
-frequencies of the three adopted bands are given in \autoref{tab:tb-rms}
-and the sky map of the EoR signal at \SI{158}{\MHz} is shown in
-\autoref{fig:eor-skymap}.
-
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.8\textwidth]{eos2016-tbrms}
   \bicaption[EoR 信号在 \SIrange{120}{200}{\MHz} 的亮温度的\acs*{rms}值]{%
-    TODO...
+    EoR 信号在 \SIrange{120}{200}{\MHz} ($z = \numrange{6.1}{10.8}$)
+    的亮温度的\acs*{rms}值（绿色实线）.
+    红色阴影区域表示本工作选取的三个频段：
+    \numrange{120}{128}、
+    \numrange{154}{162} 和 \numrange{192}{200} \si{\MHz}.
   }{%
     The root-mean-square brightness temperatures of the EoR signal
     (solid green line) within \SIrange{120}{200}{\MHz}
@@ -1278,11 +1258,35 @@ and the sky map of the EoR signal at \SI{158}{\MHz} is shown in
   \label{fig:eor-tbrms}
 \end{figure}
 
+本工作使用了
+\href{http://homepage.sns.it/mesinger/EOS.html}{\textit{Evolution Of 21\,cm Structure}}
+项目\footnote{%
+  Evolution Of 21\,cm Structure:
+  \url{http://homepage.sns.it/mesinger/EOS.html}
+} 公开的 EoR 模拟数据来生成所需的 EoR 信号的天图.
+该项目使用
+\href{http://homepage.sns.it/mesinger/DexM___21cmFAST.html}{\texttt{21cmFAST}}%
+\footnote{%
+  21cmFAST: \url{http://homepage.sns.it/mesinger/DexM___21cmFAST.html}
+} 开展了宇宙再电离过程的高精度模拟，模拟盒子的边长为 \SI{1.6}{\Gpc}，
+划分为 1024 个单元，红移从 86.5 至 5.0 \cite{mesinger2016}.
+\autoref{fig:eor-tbrms} 显示了 EoR 信号在 \SIrange{120}{200}{\MHz}
+($z = \numrange{6.1}{10.8}$) 的亮温度的\acs*{rms}值.
+
+利用该项目推荐的 \enquote{faint galaxies} 情形的\ac{lightcone} \ac{imgcube}，
+我们提取所需红移（即对应所需的频率）处的图像\ac{slice}，
+然后经过适当的平铺 (tile) 和缩放，使其图像大小为 \num{1800 x 1800}
+以及天区覆盖为 \SI{10 x 10}{\degree})，即与前言的前景天图一致.
+\autoref{tab:tb-rms} 中罗列了 EoR 信号在三个频带的中心频率处的亮温度的\ac{rms}值.
+\autoref{fig:eor-skymap} 显示了 EoR 信号在 \SI{158}{\MHz} 的天图.
+
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.7\textwidth]{skymap-eor-f158}
   \bicaption[EoR 信号在 \SI{158}{\MHz} 的天图]{%
-    TODO...
+    EoR 信号在 \SI{158}{\MHz} 的天图.
+    天区的大小为 \SI{10 x 10}{\degree}，
+    \ac{colorbar}以 \si{\mK} 为单位.
   }{%
     The sky map of the EoR signal at \SI{158}{\MHz}.
     The sky region size is \SI{10 x 10}{\degree}
