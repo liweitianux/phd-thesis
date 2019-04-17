@@ -1414,6 +1414,31 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 \numrange{192}{200} \si{\MHz} 三个频带内分别为
 \SI{6 x 6}{\degree}、\SI{5 x 5}{\degree} 和 \SI{4 x 4}{\degree}.
 
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=\textwidth]{obsimg-all-f158}
+  \bicaption[各成分在 \SI{158}{\MHz} 的模拟观测图像]{%
+    各成分在 \SI{158}{\MHz} 的 SKA1-Low 模拟观测图像.
+    从左上至右下分别为：
+    \emph{(a)} EoR 信号；
+    \emph{(b)} 射电晕；
+    \emph{(c)} 银河系弥散辐射；
+    \emph{(d)} 河外点源.
+    所有图像覆盖的天区大小均为 \SI{10 x 10}{\degree}，未经切取中央区域.
+  }{%
+    The simulated SKA1-Low observed images of all components
+    at \SI{158}{\MHz}.
+    From upper-left to bottom-right:
+    \emph{(a)} EoR signal;
+    \emph{(b)} radio halos;
+    \emph{(c)} Galactic diffuse emission;
+    \emph{(d)} extragalactic point sources.
+    All the images cover a sky region of \SI{10 x 10}{\degree},
+    without cropping out the central regions.
+  }
+  \label{fig:obsimg-all}
+\end{figure}
+
 前景的频谱光滑性是区分前景污染和 EoR 信号的关键.
 为了保证这一点，我们利用了 \texttt{WSClean} 的联合\ac{channel}\ac{deconv}
 (joined-channel deconvolution) 技术 \cite{offringa2017}，
@@ -1432,8 +1457,7 @@ SKA1-Low \enquote{观测}的\ac{imgcube}：
   \item 射电晕；
   \item 河外点源（已去除最亮的一部分）.
 \end{itemize}
-
-TODO... example cleaned figures...
+\autoref{fig:obsimg-all} 展示了各成分在 \SI{158}{\MHz} 的模拟观测图像.
 
 
 %=====================================================================
