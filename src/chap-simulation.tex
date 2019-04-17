@@ -638,9 +638,33 @@ $\ac{r-core-m} = 0.1 \,\ac{r-vir-m}$ 是主团的\acl{r-core}，
 \end{equation}
 其中 \ac{n-th} 为热电子的数密度，由\autoref{eq:n-th} 给出.
 
-TODO: figure to illustrate the timescales of energy losses...
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=0.7\textwidth]{energy-loss-timescale}
+  \bicaption[电子的三种主要能量损失机制的时标对比]{%
+    电子的三种主要能量损失机制的时标 $\tau_{\R{loss}}$ 对比，
+    包括逆 Compton 散射（红色实线）、同步辐射（蓝色虚线）和 Coulomb 碰撞（紫色点线）.
+    使用的参数为：
+    $\acs{n-th} = \SI{e-4}{\per\cubic\cm}$、
+    $\acs{mag-field} = \SI{1}{\uG}$ 和 $z = 0.3$.
+  }{%
+    The comparison of timescale $\tau_{\R{loss}}$ among the three
+    major energy loss mechanisms for electrons,
+    including the inverse Compton scattering (solid red line),
+    synchrotron radiation (dashed blue line), and Coulomb collison
+    (dotted purple line).
+    The used parameters are:
+    $\acs{n-th} = \SI{e-4}{\per\cubic\cm}$,
+    $\acs{mag-field} = \SI{1}{\uG}$, and $z = 0.3$.
+  }
+  \label{fig:eloss-timescale}
+\end{figure}
 
-在高能端 ($\gamma \gtrsim 1000$)，
+取 $\acs{n-th} = \SI{e-4}{\per\cubic\cm}$、
+$\acs{mag-field} = \SI{1}{\uG}$ 和 $z = 0.3$ 为例，
+\autoref{fig:eloss-timescale} 对比显示了这三种能量损失机制的\ac{timescale}
+$\tau_{\R{loss}} = |\D{t}/\D{\ac{g}}|$.
+易知，在高能端 ($\gamma \gtrsim 1000$)，
 逆 Compton 散射和\ac{rad-syn}是能量损失的主导机制；
 在低能端 ($\gamma \lesssim 100$)，
 电子主要通过 Coulomb 碰撞而损失能量.
