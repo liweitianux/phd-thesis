@@ -555,11 +555,11 @@ $P(\B{k}_{\perp}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}
 
 当将红移范围限制在一个较窄的片段（如 $\Delta z \sim 0.5$）时，
 可以忽略宇宙演化并认为中性氢的分布是各向同性的，
-相应地，EoR 信号的三维功率谱 $P(\B{k})$ 则具有球对称分布
+相应地，EoR 信号的三维功率谱 $\ac{psD}(\B{k})$ 则具有球对称分布
 \cite{morales2004,mcQuinn2006}，
 如\autoref{fig:eor-fg-fourier} 左栏所示.
-因此，可以将三维功率谱 $P(\B{k})$ 在一系列球壳里进行平均，
-得到\emph{一维\ac{ps}} $P(k)$ \cite{morales2004,datta2010}，
+因此，可以将三维功率谱 $\ac{psD}(\B{k})$ 在一系列球壳里进行平均，
+得到\emph{一维\ac{ps}} $\ac{psD}(k)$ \cite{morales2004,datta2010}，
 其中 $k = |\B{k}| = \sqrt{|\B{k}_{\perp}|^2 + k_{\parallel}^2}$ 为球壳的半径.
 通过这种方式，EoR 信号的信息被有效地压缩到少量 Fourier 模式 (mode) 里，
 极大地提高了每个模式里 EoR 信号的\ac{snr}，
@@ -577,12 +577,13 @@ $P(\B{k}_{\perp}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}
   \centering
   \includegraphics[width=0.35\textwidth]{ps2d-annuli-diagram}
   \bicaption[计算二维功率谱的示意图]{%
-    计算二维功率谱 $P(k_{\perp}, k_{\parallel})$ 的示意图：
-    在三维功率谱 $P(\B{k}_{\perp}, k_{\parallel})$ 的每一个 $k_{\parallel}$ 平面里，
+    计算二维功率谱 $\ac{psD}(k_{\perp}, k_{\parallel})$ 的示意图：
+    在三维功率谱 $\ac{psD}(\B{k}_{\perp}, k_{\parallel})$
+    的每一个 $k_{\parallel}$ 平面里，
     按一系列圆环（半径为 $k_{\perp} = |\B{k}_{\perp}|$）将功率平均.
   }{%
     A diagram showing the calculation of the \ac{2d} power spectrum
-    $P(k_{\perp}, k_{\parallel})$:
+    $\ac{psD}(k_{\perp}, k_{\parallel})$:
     in each $k_{\parallel}$ plane of the \ac{3d} power spectrum,
     average the powers in a series of annuli with radius of
     $k_{\perp} = |\B{k}_{\perp}|$.
@@ -597,19 +598,19 @@ EoR 信号的\ac{imgcube} $I_{\R{eor}}(\B{\theta}, \nu)$
 但是对于前景的\ac{imgcube} $I_{\R{fg}}(\B{\theta}, \nu)$，
 频率维度 $\nu$ 表示前景辐射源的频谱（通常为连续谱），
 与两个空间维度 $\B{\theta}$ 完全不同，两者之间也是相互独立的.
-因此，一个更好的方法是保持三维功率谱 $P(\B{k}_{\perp}, k_{\parallel})$
-的 $k_{\parallel}$ 维度不变，只将两个空间维度 $\B{k}_{\perp}$ 压缩至一维.
-具体的做法是：
+因此，一个更好的方法是保持三维功率谱 $\ac{psD}(\B{k}_{\perp}, k_{\parallel})$
+的频率维度 $k_{\parallel}$ 不变，只将两个空间维度 $\B{k}_{\perp}$ 压缩至一维.
+具体而言：
 如\autoref{fig:ps2d-calculation} 所示，
 在三维功率谱的每一个 $k_{\parallel}$ 平面里，取一系列圆环将功率平均，
-得到二维功率谱 $P(k_{\perp}, k_{\parallel})$，
+得到\emph{二维功率谱} $\ac{psD}(k_{\perp}, k_{\parallel})$，
 其中 $k_{\perp} = |\B{k}_{\perp}|$ 是圆环的半径 \cite{datta2010,thyagarajan2013}.
 
 在二维功率谱上，EoR 信号因具有不光滑的频谱而主要分布在 $k_{\parallel}$ 较大的区域，
 频谱光滑的前景则主要分布在 $k_{\parallel}$ 较小的区域，
 因此可以避开这些受前景严重污染的区域，在相对干净的区域开展 EoR 信号的探测和研究，
 这为克服强烈的前景干扰提供了极大的便利.
-由于这个独特优势，二维功率谱目前已成为分析 EoR 观测数据的最常用工具
+由于这个独特优势，二维功率谱目前已成为分析 EoR 观测数据的最常用工具之一
 \cite{trott2012,thyagarajan2013,barry2016,beardsley2016,trott2016,patil2017}.
 
 
@@ -1135,7 +1136,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 \section{EoR 窗口}
 \label{sec:eor-window}
 
-在二维功率谱 $P(\kperp, \klos)$ 上，
+在二维功率谱 $\ac{psD}(\kperp, \klos)$ 上，
 频谱光滑的前景污染原则上只分布在 \klos{} 较小的区域.
 但是没有仪器是理想的，一些仪器效应和观测效应会将
 \kperp{} 模式里的功率\enquote{混合}到 \klos{} 模式里，
@@ -1153,7 +1154,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
   \centering
   \includegraphics[width=0.9\textwidth]{EoR-window}
   \bicaption[EoR 窗口和前景楔形的示意图]{%
-    二维功率谱 $P(\kperp, \klos)$ 上的 EoR 窗口（左上方绿色区域）
+    二维功率谱 $\ac{psD}(\kperp, \klos)$ 上的 EoR 窗口（左上方绿色区域）
     和前景楔形（右下方灰色区域）的示意图.
     望远镜所能测量的二维功率谱的边界为：
     \kperp{} 的最小值和最大值分别由望远镜的视场大小和空间分辨率（对应于最长基线）决定、
@@ -1164,7 +1165,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
   }{%
     An illustration of the EoR window (green region in the upper left)
     and the foreground wedge (gray region in the bottom right) in the
-    \ac{2d} power spectrum.
+    \ac{2d} power spectrum $\ac{psD}(\kperp, \klos)$.
     The boundaries of the \ac{2d} power spectrum that a telescope can
     measure are constrained by:
     the minimum and maximum \kperp{} are determined by the \ac{fov}
