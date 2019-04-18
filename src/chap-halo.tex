@@ -9,10 +9,10 @@
 %=====================================================================
 \section{评估方法}
 
-利用上一章模拟得到的射电晕、EoR 信号以及其他前景成分的 SKA1-Low 观测图像，
-于是可以定量地评估射电晕将对 EoR 探测产生的影响.
-我们针对\ac{fgrm}和\ac{fgavd}两类前景处理方法 (\autoref{sec:fg-methods})
-分别进行评估.
+利用\autoref{chap:simulation}模拟得到的射电晕、EoR 信号以及其他前景成分的
+SKA1-Low 观测图像，我们可以定量地评估射电晕将对 EoR 探测产生的影响.
+我们将分别针对\ac{fgrm}和\ac{fgavd}两类前景处理方法 (\autoref{sec:fg-methods})
+进行评估.
 首先，我们计算一维\ac{ps}来对比射电晕和 EoR 信号在各个尺度 $k$ 的总体功率，
 说明使用\ac{fgrm}方法时将面临的射电晕的污染强度.
 其次，我们计算二维\ac{ps}，然后在 EoR 窗口 (\autoref{sec:eor-window})
@@ -40,7 +40,7 @@ $a_2 = 0.1365995$ 和
 $a_3 = 0.0106411$.
 \autoref{fig:ft-sidelobes} 显示了使用 Blackman--Nuttall \ac{winfunc}
 之后得到的 Fourier 变换结果，可见高频 Fourier 成分的幅度被有效地抑制了.
-因此，我们对上一章模拟得到的\ac{imgcube}沿频率方向施加
+因此，我们对\autoref{chap:simulation}模拟得到的\ac{imgcube}沿频率方向施加
 Blackman--Nuttall \ac{winfunc}然后再计算\ac{ps}
 \cite{trott2015,chapman2016}.
 
