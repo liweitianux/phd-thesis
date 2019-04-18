@@ -6,57 +6,61 @@
 \chapter{射电晕对宇宙再电离探测的影响}
 \label{chap:halo}
 
-The overwhelming foreground contamination is one of the primary impediments
-to probing the EoR through measuring the redshifted 21~cm signal.
-Among various foreground components, radio halos are less studied and
-their impacts on the EoR observations are still poorly understood.
-In this work, we employ the Press--Schechter formalism, merger-induced
-turbulent re-acceleration model, and the latest SKA1-Low layout
-configuration to simulate the SKA \enquote{observed} images of radio halos.
-We calculate the one-dimensional power spectra from simulated images and
-find that radio halos can be about
-\numlist{e4; e3; e2.5} times more luminous
-than the EoR signal on scales of $\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$
-in the \numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
-\si{\MHz} bands, respectively.
-By examining the two-dimensional power spectra inside properly defined
-EoR windows, we find that the power leaked by radio halos can still be
-significant, as the power ratios of radio halos to the EoR signal on scales
-of $\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$ can be up to
-about \numrange{230}{800}\%, \numrange{18}{95}\%, and \numrange{7}{40}\%
-in the three bands, when the 68\% uncertainties caused by
-the variation of the number density of bright radio halos are considered.
-Furthermore, we find that radio halos located inside the far side-lobes
-of the station beam can also impose strong contamination within the EoR
-window.
-In conclusion, we argue that radio halos are severe foreground sources
-and need serious treatments in future EoR experiments.
-
-
 %=====================================================================
 \section{评估方法}
 
-TODO:
-foreground removal --- 1D power spectrum;
-foreground avoidance --- 2D power spectrum;
-hybrid method ...
-so need to comprehensively(?) evaluate the foreground ...
+利用上一章模拟得到的射电晕、EoR 信号以及其他前景成分的 SKA1-Low 观测图像，
+于是可以定量地评估射电晕将对 EoR 探测产生的影响.
+我们针对\ac{fgrm}和\ac{fgavd}两类前景处理方法 (\autoref{sec:fg-methods})
+分别进行评估.
+首先，我们计算一维\ac{ps}来对比射电晕和 EoR 信号在各个尺度 $k$ 的总体功率，
+说明使用\ac{fgrm}方法时将面临的射电晕的污染强度.
+其次，我们计算二维\ac{ps}，然后在 EoR 窗口 (\autoref{sec:eor-window})
+内比较射电晕和 EoR 信号的功率，
+据此评估射电晕的污染将会对使用\ac{fgavd}方法产生多大程度的影响.
 
-TODO:
-To suppress the significant side-lobes in the Fourier transform caused
-by the sharp discontinuities at the ends of the finite frequency band,
-we apply the Blackman--Nuttall window function to the frequency dimension
-before calculating the power spectra \cite{trott2015,chapman2016}.
+考虑一个有限宽的频带，信号（如前景辐射）将在频带的两端出现跃变，
+这种边界效应会导致 Fourier 变换的结果具有显著的\ac{sidelobe}.
+即使输入信号非常平滑，Fourier 变换后也会出现一系列幅度较大的高频 Fourier 成分，
+如\autoref{fig:ft-sidelobes} 所示.
+为了抑制边界效应所产生的\ac{sidelobe}，可以先对信号加窗，然后再进行 Fourier 变换.
+一个常用的选择是 Blackman--Nuttall \ac{winfunc}，
+该\ac{winfunc}具有良好的\ac{sidelobe}性质 \cite{nuttall1981}：
+\begin{equation}
+  w[n] = a_0 - a_1 \cos\left(\frac{2\Cpi n}{N}\right)
+    + a_2 \cos\left(\frac{4\Cpi n}{N}\right)
+    - a_3 \cos\left(\frac{6\Cpi n}{N}\right) ,
+\end{equation}
+其中
+$N$ 为采样点的数目（即窗的宽度），
+其他系数分别为：
+$a_0 = 0.3635819$、
+$a_1 = 0.4891775$、
+$a_2 = 0.1365995$ 和
+$a_3 = 0.0106411$.
+\autoref{fig:ft-sidelobes} 显示了使用 Blackman--Nuttall \ac{winfunc}
+之后得到的 Fourier 变换结果，可见高频 Fourier 成分的幅度被有效地抑制了.
+因此，我们对上一章模拟得到的\ac{imgcube}沿频率方向施加
+Blackman--Nuttall \ac{winfunc}然后再计算\ac{ps}
+\cite{trott2015,chapman2016}.
 
-We evaluate the contamination of radio halos on the EoR observations for
-both foreground removal and avoidance methods.
-First, we calculate the 1D power spectra and compare the powers of
-radio halos with the EoR signal, which illustrates the impacts of radio
-halos with the foreground removal methods.
-Next, we calculate the 2D power spectra and carry out the comparison
-between radio halos and the EoR signal inside the EoR window, from
-which we evaluate the effects imposed by radio halos in adopting the
-foreground avoidance methods to extract the EoR signal.
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=\textwidth]{ft-sidelobes}
+  \bicaption[加窗前后的 Fourier 变换结果对比]{%
+    直接进行 Fourier 变换（红色实线）与
+    使用 Blackman--Nuttall \acs*{winfunc}之后再 Fourier 变换（蓝色虚线）
+    的结果对比.
+    左栏显示了加窗前后的输入信号 $y = x^{-2}$，右栏显示了相应的 Fourier 变换结果.
+  }{%
+    A comparison of the Fourier transform results with and without
+    applying the Blackman--Nuttall window function.
+    The left panel shows the original input signal $y = x^{-2}$
+    (solid red line) and the windowed signal (dashed blue line);
+    the right panel shows the corresponding Fourier transform results.
+  }
+  \label{fig:ft-sidelobes}
+\end{figure}
 
 
 %=====================================================================
