@@ -28,7 +28,7 @@ The simulation parameters are also listed in \autoref{tab:freq-bands}.
 \begin{table}[htp]
   \centering
   \bicaption{%
-    三个频段的模拟参数
+    三个频带的模拟参数
   }{%
     Simulation Parameters for the Three Bands
   }
@@ -47,7 +47,8 @@ The simulation parameters are also listed in \autoref{tab:freq-bands}.
       \numrange{7.77}{8.22} &
       \numrange{6.10}{6.40} \\
     带宽 (\ac{bandwidth}) & \multicolumn{3}{c}{\SI{8}{\MHz}} \\
-    天区坐标 & (R.A., Dec.\@) = (\SI{0}{\degree}, \SI{-27}{\degree}) \\
+    天区坐标 & \multicolumn{3}{c}{%
+      (R.A., Dec.\@) = (\SI{0}{\degree}, \SI{-27}{\degree})} \\
     天区大小 & \multicolumn{3}{c}{\SI{10 x 10}{\degree}} \\
     图像大小 & \multicolumn{3}{c}{\num{1800 x 1800}} \\
     像素大小 & \multicolumn{3}{c}{\SI{20}{\arcsecond}} \\
@@ -69,10 +70,6 @@ contribution of radio halos to the low-frequency radio sky.
 \section{星系团射电晕}
 \label{sec:radio-halos}
 
-TODO: Turbulence; Alfven, slow, fast modes; particle acceleration:
-Lazarian et al. 2012, SSRv;
-Petrosian 2012, SSRv.
-
 截至目前，只有少量几个工作在研究 EoR 前景时考虑了\ac{gc}\ac{rh}
 \cite{diMatteo2004,gleser2008,jelic2008}，
 而且对\ac{rh}的建模过于简化，比如
@@ -87,7 +84,7 @@ Petrosian 2012, SSRv.
 在此基础上，本工作采用了一种半解析方法考虑了\ac{rh}的形成和演化过程，
 进一步显著改进了\ac{rh}的建模.
 对于一个\ac{gc}，
-首先根据\uline{扩展 Press--Schechter 理论} (extended Press--Schechter theory)
+首先根据扩展 Press--Schechter 理论 (extended Press--Schechter theory)
 模拟其并合历史 (\autoref{sec:merging-history})，
 运用\ac{turbreacc-model}来计算并合所产生的\ac{turbulence}对
 \ac{icm} 中高能电子的再加速过程 (\autoref{sec:halo-evo})，
@@ -195,7 +192,7 @@ $M_8$ 是半径为 \SI{8}{\per\hubble\Mpc} 的球形区域里的质量：
 没有提供单个星系团的形成历史.
 这个问题由 \citeay{lacey1993} 通过对 Press--Schechter
 理论进行了扩展而给出了解决方案.
-给定一个星系团，\uline{扩展 Press--Schechter 理论}描述了其\ac{progenitor}的质量分布，
+给定一个星系团，扩展 Press--Schechter 理论描述了其\ac{progenitor}的质量分布，
 然后利用 Monte Carlo 模拟便可构建出该星系团的成长历史，即\emph{\acf{m-tree}}
 \cite{lacey1993,randall2002}.
 
@@ -1273,7 +1270,7 @@ $T_e$ 是辐射区域的电子温度（以 \si{\kelvin} 为单位），
   \bicaption[EoR 信号在 \SIrange{120}{200}{\MHz} 的亮温度的\acs*{rms}值]{%
     EoR 信号在 \SIrange{120}{200}{\MHz} ($z = \numrange{6.1}{10.8}$)
     的亮温度的\acs*{rms}值（绿色实线）.
-    红色阴影区域表示本工作选取的三个频段：
+    红色阴影区域表示本工作选取的三个频带：
     \numrange{120}{128}、
     \numrange{154}{162} 和 \numrange{192}{200} \si{\MHz}.
   }{%
@@ -1352,7 +1349,7 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 随机分布其中 \cite{mort2017}.
 512 个站点的布局方式分为两种情况 \cite{dewdney2016ska}：
 \begin{itemize}
-  \item 核心区域：半径 $R \le \SI{500}{\meter}$，随机分布 224 个站点；
+  \item 核心区域（半径 $R \le \SI{500}{\meter}$）：随机分布 224 个站点；
   \item 核心区域之外：余下的 288 个站点构成 48 个站点团（每个团由 6 个站点组成），
     分布在 3 条半径达 \SI{\sim 35}{\km} 的螺旋线上，
     形成长达 \SI{\sim 65}{\km} 的基线.
@@ -1468,10 +1465,10 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 (joined-channel deconvolution) 技术 \cite{offringa2017}，
 将一个前景成分（如射电晕）在一个频带（如 \SIrange{154}{162}{\MHz}）
 内 51 个\ac{channel}的\ac{vis}数据作为一个整体处理，得到相应的\ac{imgcube}.
-因为 CLEAN 对 EoR 信号这种非常暗弱的弥散辐射处理效果不佳，
+由于 CLEAN 算法对 EoR 信号这种非常暗弱的弥散辐射处理效果有限，
 我们直接使用由 \texttt{WSClean} 生成的\ac{dirty-map}.
-尽管如此，因为 EoR 信号的\ac{skymap}没有明亮的点状结构，
-所以\ac{dirty-map}的质量也是足够好的.
+尽管如此，因为 EoR 信号的\ac{skymap}中没有明亮的点状结构，
+所以\ac{dirty-map}的质量已经足够好了.
 这样，我们模拟得到了以下成分在 \numrange{120}{128}、\numrange{154}{162}
 和 \numrange{192}{200} \si{\MHz} 三个频带内被
 SKA1-Low \enquote{观测}的\ac{imgcube}：
