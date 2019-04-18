@@ -72,7 +72,12 @@ Blackman--Nuttall \ac{winfunc}然后再计算\ac{ps}
   \centering
   \includegraphics[width=\textwidth]{ps1d-3bands}
   \bicaption[各成分在三个频带内的一维功率谱 $\Delta^2(k)$ 对比]{%
-    TODO...
+    EoR 信号（绿色实线）、射电晕（红色实线）、银河系弥散辐射（灰色虚线）以及
+    河外点源（灰色点虚线）之间的一维功率谱 $\Delta^2(k)$ 的对比.
+    左栏、中栏、右栏分别表示 \numrange{120}{128}、\numrange{154}{162}
+    和 \numrange{192}{200} \si{\MHz} 三个频带的结果.
+    对于射电晕，红色实线及其阴影区域分别表示从 100 次模拟结果中得到的
+    中位数和 68\% 的误差范围.
   }{%
     Comparisons of the 1D dimensionless power spectra $\Delta^2(k)$
     among the EoR signal (solid green line), radio halos (solid red line),
@@ -88,36 +93,29 @@ Blackman--Nuttall \ac{winfunc}然后再计算\ac{ps}
   \label{fig:ps1d-3bands}
 \end{figure}
 
-We calculate the 1D dimensionless power spectra $\Delta^2(k)$ for each
-image cube obtained in \autoref{sec:obs-simu}.
-For radio halos, we make use of all the 100 simulation runs
-(\autoref{sec:radio-halos}) to estimate the median power spectra and
-the corresponding 68\% uncertainties.
-The comparisons of the power spectra $\Delta^2(k)$ between radio halos
-and the EoR signal in each frequency band are displayed
-in \autoref{fig:ps1d-3bands}, where we also show the power spectra of
-Galactic diffuse emission and extragalactic point sources for comparison.
-The median power spectra (solid red lines) show that radio halos are
-generally more luminous than the EoR signal by about
-\numlist{e4; e3; e2.5} times
-on scales of $\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$
-in the \numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
-\si{\MHz} bands, respectively.
-Given the large uncertainties in, e.g., brightness and number density,
-of radio halos, the power spectra can vary by about \numrange{10}{100}
-times with respect to the median values within the 68\%
-uncertainties (red shaded regions).
-We also find that, although on large scales
-($k \lesssim \SI{0.1}{\per\Mpc}$) the Galactic foreground is the
-strongest contaminating source, its power deceases rapidly as the
-scale becomes smaller and is weaker than the median power of radio halos
-by a factor of about \numrange{10}{100} on scales of
-$\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$
-in all the three bands.
-These results evidently show that radio halos are severe foreground
-contaminating sources.
-Moreover, it can be a major challenge to accurately model and remove radio
-halos due to their diffuse and relatively complicated morphologies.
+我们对上一章模拟得到的每一个成分在每一个频带里的\ac{imgcube}分别计算了
+一维\ac{ps} $\Delta^2(k)$.
+对于射电晕，我们使用了全部 100 次模拟 (\autoref{sec:halo-maps}) 的结果
+来估算其一维功率谱的中位数和 68\% 的误差范围.
+\autoref{fig:ps1d-3bands} 显示了各成分在三个频带内的
+一维功率谱 $\Delta^2(k)$ 的对比.
+可见，在 $\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$ 尺度上，
+射电晕的典型功率（红色实线）在 \numrange{120}{128}、\numrange{154}{162} 和
+\numrange{192}{200} \si{\MHz} 频带内分别是 EoR 信号的功率的
+\num{e4}、\num{e3} 和 \num{e2.5} 倍.
+考虑到不同天区内射电晕的亮度和数目的显著涨落，
+在 68\% 的误差范围内（红色阴影区域），
+射电晕的功率能够变化约 \numrange{10}{100} 倍.
+
+对于另外两个前景成分，银河系前景在最大尺度 ($k \lesssim \SI{0.1}{\per\Mpc}$)
+上是最强的污染源，但随着尺度 $k$ 的减小，其功率也迅速减小.
+在 $\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$
+的中小尺度范围，
+射电晕的典型功率将是银河系前景的功率的约 \numrange{10}{100} 倍.
+河外点源除了在最大尺度上弱于银河系前景，在其他尺度上均是最强的污染源.
+
+以上这些结果清楚地说明射电晕是严重的 EoR 前景污染源，需要在前景扣除中被仔细处理.
+此外，射电晕还具有一定的形态结构，显著增加了对其准确建模和扣除的难度.
 
 
 %=====================================================================
