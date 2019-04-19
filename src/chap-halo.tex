@@ -71,15 +71,15 @@ Blackman--Nuttall \ac{winfunc}然后再计算\ac{ps}
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{ps1d-3bands}
-  \bicaption[各成分在三个频带内的一维功率谱 $\Delta^2(k)$ 对比]{%
+  \bicaption[各成分在三个频带内的一维功率谱 $\ac{psD}(k)$ 对比]{%
     EoR 信号（绿色实线）、射电晕（红色实线）、银河系弥散辐射（灰色虚线）以及
-    河外点源（灰色点虚线）之间的一维功率谱 $\Delta^2(k)$ 的对比.
+    河外点源（灰色点虚线）之间的一维功率谱 $\ac{psD}(k)$ 的对比.
     左栏、中栏、右栏分别表示 \numrange{120}{128}、\numrange{154}{162}
     和 \numrange{192}{200} \si{\MHz} 三个频带的结果.
     对于射电晕，红色实线及其阴影区域分别表示从 100 次模拟结果中得到的
     中位数和 68\% 的误差范围.
   }{%
-    Comparisons of the 1D dimensionless power spectra $\Delta^2(k)$
+    Comparisons of the 1D dimensionless power spectra $\ac{psD}(k)$
     among the EoR signal (solid green line), radio halos (solid red line),
     Galactic diffuse emission (dashed gray line), and extragalactic point
     sources (dash-dotted gray line) in the
@@ -94,11 +94,14 @@ Blackman--Nuttall \ac{winfunc}然后再计算\ac{ps}
 \end{figure}
 
 我们对上一章模拟得到的每一个成分在每一个频带里的\ac{imgcube}分别计算了
-一维\ac{ps} $\Delta^2(k)$.
+一维\ac{ps} $\ac{psD}(k)$.
 对于射电晕，我们使用了全部 100 次模拟 (\autoref{sec:halo-maps}) 的结果
 来估算其一维功率谱的中位数和 68\% 的误差范围.
+具体而言，在一个频带里，射电晕的 100 次模拟会生成 100 个\ac{imgcube}，
+分别计算这 100 个\ac{imgcube}的一维功率谱，
+然后从所得的 100 个一维功率谱计算每个尺度 $k$ 处的中位数和相应的 68\% 误差范围.
 \autoref{fig:ps1d-3bands} 显示了各成分在三个频带内的
-一维功率谱 $\Delta^2(k)$ 的对比.
+一维功率谱 $\ac{psD}(k)$ 的对比.
 可见，在 $\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$ 尺度上，
 射电晕的典型功率（红色实线）在 \numrange{120}{128}、\numrange{154}{162} 和
 \numrange{192}{200} \si{\MHz} 频带内分别是 EoR 信号的功率的
