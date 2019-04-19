@@ -1287,13 +1287,16 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 \kperp{} 越大的模式被混合到 \klos{} 模式的范围也越大，形成\ac{fg-wedge}，
 如\autoref{fig:fg-wedge-fov} 所示.
 另一方面，随着前景干扰源距离视场中心越来越远，其产生的污染区域也逐渐向左上方移动.
-因此，望远镜的视场大小 \ac{Fov} 确定了\ac{fg-wedge}的边界，
-左上方未受前景污染的区域则称为\emph{EoR 窗口}，可表示为：
+因此，视场内距离中心最远的干扰源（设该距离为 $\Phi$）确定了\ac{fg-wedge}的边界，
+而左上方未受前景污染的区域则称为\emph{EoR 窗口}，可表示为：
 \begin{equation}
-  \klos \ge \frac{\ac{Hz} \ac{D-comoving}(z) \sin\ac{Fov}}{
+  \klos \ge \frac{\ac{Hz} \ac{D-comoving}(z) \sin\Phi}{
     \ac{speed-light} (1+z)} \kperp .
 \end{equation}
 如\autoref{fig:fg-wedge-fov} 和\autoref{fig:eor-window} 所示.
+干涉阵列通常具有明显的\ac{sidelobe}，
+因此\ac{fg-wedge}的具体范围（如 $\Phi$ 的大小）
+与\ac{sidelobe}的行为密切相关.
 
 在实际情况中，二维功率谱的计算只使用一段较窄的频段
 ($\ac{bandwidth} \lesssim \SI{10}{\MHz}$) 以避免宇宙演化的影响，
@@ -1305,18 +1308,13 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
   \label{eq:eor-window}
   \klos \ge
     \frac{\ac{Hz} \ac{D-comoving}(z)}{\ac{speed-light} (1+z)}
-    \left[ \kperp \sin\ac{Fov}
+    \left[ \kperp \sin\Phi
       + \frac{2\Cpi\ac{freq21cm} w}{(1+z) \ac{D-comoving}(z)
         \ac{bandwidth}} \right] ,
 \end{equation}
 其中 \ac{bandwidth} 为\acl{bandwidth}，
 $w$ 描述了前景\ac{spillover}的程度.
 \autoref{fig:eor-window} 显示了 $w = 0, 1, 3$ 对应的 EoR 窗口边界.
-
-此外，位于仪器旁瓣里的前景源会导致\ac{fg-wedge}的显著扩大，
-严重损失 EoR 信号的信息，详见 \autoref{sec:fscn}.
-总之，EoR 窗口与\ac{fg-wedge}的确切边界取决于具体的仪器、观测条件、处理方法
-等多种因素，仍然有待深入而系统的研究 (ref???).
 
 
 %=====================================================================
