@@ -128,10 +128,22 @@ Blackman--Nuttall \ac{winfunc}然后再计算\ac{ps}
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{ps2d-band158}
-  \bicaption[各成分在 \SIrange{154}{162}{\MHz} 频段的二维功率谱 $P(\kperp, \klos)$]{%
-    TODO...
+  \bicaption[%
+    各成分在 \SIrange{154}{162}{\MHz} 频段的二维功率谱
+    $\ac{psD}(\kperp, \klos)$%
+  ]{%
+    各成分在 \SIrange{154}{162}{\MHz} 频段的二维功率谱
+    $\ac{psD}(\kperp, \klos)$，
+    从左上至右下分别为：
+    \textbf{(a)} EoR 信号；
+    \textbf{(b)} 射电晕（100 次模拟的中位数）；
+    \textbf{(c)} 银河系弥散辐射；
+    \textbf{(d)} 河外点源.
+    所有子图共用了以 [\si{\mK\squared\Mpc\cubed}] 为单位的对数\ac{colorbar}.
+    图中的白色虚线显示了 EoR 窗口的边界.
   }{%
-    The \SIrange{154}{162}{\MHz} 2D power spectra $P(\kperp, \klos)$ of
+    The \SIrange{154}{162}{\MHz} 2D power spectra
+    $\ac{psD}(\kperp, \klos)$ of
     \textbf{(a)} the EoR signal,
     \textbf{(b)} radio halos (median of the 100 simulation runs),
     \textbf{(c)} Galactic diffuse emission,
@@ -145,29 +157,35 @@ Blackman--Nuttall \ac{winfunc}然后再计算\ac{ps}
   \label{fig:ps2d}
 \end{figure}
 
-We take the \SIrange{154}{162}{\MHz} band as an example and show in
-\autoref{fig:ps2d} the 2D power spectra $P(\kperp, \klos)$ of the EoR
-signal, radio halos (the median power spectrum of the 100 simulation runs),
-Galactic diffuse emission, and extragalactic point sources.
-We find that, as shown in many previous works,
-the EoR signal distributes its power across all \klos{} modes,
-illustrating its rapid fluctuations along the line-of-sight dimension,
-while the spectral-smooth foreground components dominate only in the
-low-\klos{} regions ($\klos{} \lesssim \SI{0.2}{\per\Mpc}$).
-With regard to the angular dimension, the power of radio halos appears in
-the range of $\kperp \lesssim \SI{1}{\per\Mpc}$, showing a concentration
-on the intermediate scales of $\kperp \sim \SI{0.5}{\per\Mpc}$.
-Meanwhile, the powers of Galactic diffuse emission and extragalactic
-point sources dominate on the large scales of
-$\kperp \lesssim \SI{0.1}{\per\Mpc}$ and a broad angular scales of
-$\kperp \gtrsim \SI{0.1}{\per\Mpc}$, respectively.
-These results are also consistent with \autoref{fig:ps1d-3bands}(b).
+以 \SIrange{154}{162}{\MHz} 频带为例，
+\autoref{fig:ps2d} 显示了 EoR 信号、射电晕、银河系弥散辐射以及河外点源的
+二维功率谱 $\ac{psD}(\kperp, \klos)$，
+其中射电晕的二维功率谱对应于 100 次模拟结果的中位数.
+从图中容易看出，EoR 信号的功率分散在大范围的 \klos{} 模式上，
+反映了 EoR 信号沿频率维度快速变化的特点；
+频谱光滑的前景成分则集中在 \klos{} 较小的区域
+($\klos{} \lesssim \SI{0.2}{\per\Mpc}$).
+在空间维度 \kperp{}，射电晕的功率主要出现在
+$\kperp \lesssim \SI{1}{\per\Mpc}$ 的范围，
+并且倾向于集中在 $\kperp \sim \SI{0.5}{\per\Mpc}$ 的中等尺度上.
+同时，银河系弥散辐射的功率主导了 $\kperp \lesssim \SI{0.1}{\per\Mpc}$
+的大尺度区域，而河外点源的功率则占据了 $\kperp \gtrsim \SI{0.1}{\per\Mpc}$
+的中小尺度范围.
+这些结果与 \autoref{fig:ps1d-3bands}(b) 所展示的结果是相符的，
+还与诸多文献中的结果是一致的 \cite{datta2010,trott2015,barry2016,chapman2016}.
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{ps2d-ratio-3bands}
   \bicaption[射电晕和 EoR 信号的二维功率比 $R(\kperp, \klos)$]{%
-    TODO...
+    射电晕和 EoR 信号在
+    \textbf{(a)} \SIrange{120}{128}{\MHz}、
+    \textbf{(b)} \SIrange{154}{162}{\MHz} 和
+    \textbf{(c)} \SIrange{192}{200}{\MHz}
+    三个频带内的二维功率比 $R(\kperp, \klos)$.
+    这里使用的射电晕二维功率谱对应于 100 次模拟结果的中位数.
+    所有子图共用了对数\ac{colorbar}.
+    图中的白色虚线显示了 EoR 窗口的边界.
   }{%
     The 2D power spectrum ratios $R(\kperp, \klos)$ of radio halos to the
     EoR signal in the
@@ -182,24 +200,27 @@ These results are also consistent with \autoref{fig:ps1d-3bands}(b).
   \label{fig:ps2d-ratio}
 \end{figure}
 
-In order to better evaluate the importance of radio halos as foreground
-contaminating sources, we calculate the 2D power spectrum ratios
-$R(\kperp, \klos)$ that are obtained by dividing the median 2D power
-spectra of radio halos by those of the EoR signal in each frequency band.
-We find that, as shown in \autoref{fig:ps2d-ratio}, the EoR measurements
-will be significantly affected by radio halos on angular scales of
-$\gtrsim \SI{0.1}{\per\Mpc}$, $\gtrsim \SI{0.3}{\per\Mpc}$, and
-$\gtrsim \SI{0.5}{\per\Mpc}$ in the \numrange{120}{128},
-\numrange{154}{162}, and \numrange{192}{200} \si{\MHz} bands, respectively.
-It is also clearly shown that radio halos turn to cause stronger
-contamination at lower frequencies (\SI{\sim 120}{\MHz}) than at higher
-frequencies (\SI{\sim 200}{\MHz}).
+为了更具体地显示射电晕对 EoR 信号的污染情况，
+我们将射电晕的二维功率谱除以 EoR 信号的二维功率谱，
+得到两者的二维功率比 $R(\kperp, \klos)$，如\autoref{fig:ps2d-ratio} 所示，
+可见射电晕的污染区域形成一个明显的楔形 (\autoref{sec:eor-window}).
+我们发现，在 \SIrange{120}{128}{\MHz} 频带内，
+射电晕在 $\kperp \gtrsim \SI{0.1}{\per\Mpc}$ 的尺度范围内
+对 EoR 信号产生了严重污染（两者功率比值 $R \gtrsim 1$）.
+在 \numrange{154}{162} 和 \numrange{192}{200} \si{\MHz} 两个频带里，
+射电晕的主要污染范围分别为 $\kperp \gtrsim \SI{0.3}{\per\Mpc}$
+和 $\kperp \gtrsim \SI{0.5}{\per\Mpc}$.
+同时容易看出，射电晕在较低频率处 (\SI{\sim 120}{\MHz})
+对 EoR 测量的污染程度明显比在较高频率处 (\SI{\sim 200}{\MHz})
+的污染程度要强.
+\autoref{fig:ps1d-3bands} 也显示了与此一致的结果.
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.8\textwidth]{ps1d-ratio-3bands}
   \bicaption[射电晕和 EoR 信号在 EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$]{%
-    TODO...
+    射电晕和 EoR 信号在 EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$.
+    实线和阴影区域分别对应于射电晕 100 次模拟结果的中位数和 68\% 误差范围.
   }{%
     The 1D power ratios $R_{\R{eorw}}(k)$ inside the EoR window of
     radio halos to the EoR signal.
@@ -209,50 +230,49 @@ frequencies (\SI{\sim 200}{\MHz}).
   \label{fig:ps1d-ratio}
 \end{figure}
 
-To further quantify the contamination caused by radio halos when
-foreground avoidance methods are applied, we need to appropriately
-define an EoR window in the $(\kperp, \klos)$ plane to avoid the
-heavily contaminated areas and then compare the powers of radio halos
-and the EoR signal derived inside the window.
-We have tested multiple parameter configurations ($w$, $\Theta$) as
-defined in \autoref{eq:eor-window}, and find that when $w = 3$ and
-$\Theta$ being about 1.5 times the SKA1-Low's FoV (i.e.,
-$\Theta = \SI{7.5}{\degree}$, \SI{6.0}{\degree}, and \SI{4.8}{\degree}
-in \numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
-\si{\MHz} bands, respectively) are used, a conservative EoR window
-boundary can be defined to well avoid the contaminating wedge
-(Figures~\ref{fig:ps2d} and \ref{fig:ps2d-ratio}).
-However, a significant part (about 55\%, 54\%, and 40\% in
-\numrange{120}{128}, \numrange{154}{162},
-and \numrange{192}{200} \si{\MHz} bands, respectively) of the power of
-the EoR signal is lost in the excised wedges.
-By averaging the modes only inside the defined EoR window, we calculate
-the 1D power spectrum ratios $R_{\R{eorw}}(k)$ of radio halos to the EoR
-signal and present the results in \autoref{fig:ps1d-ratio}.
-We find that, compared to \autoref{fig:ps1d-3bands}, the 1D power ratios
-inside the EoR window $R_{\R{eorw}}(k)$ are suppressed by about 4 orders
-of magnitude, which demonstrates that the EoR window is a powerful tool
-in detecting the EoR signal.
-For example, $R_{\R{eorw}}(k)$ on scales of $k \sim \SI{1}{\per\Mpc}$ are
-generally about 45\%, 6\%, and 2\% in the \numrange{120}{128},
-\numrange{154}{162}, and \numrange{192}{200} \si{\MHz} bands, respectively.
-However, the power of radio halos leaked into the EoR window can still be
-significant, considering that $R_{\R{eorw}}(k)$ on scales of
-$\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$ can be up to
-about \numrange{230}{800}\%, \numrange{18}{95}\%, and
-\numrange{7}{40}\% in the three frequency bands within the
-68\% uncertainties (shaded regions).
+考虑到射电晕的污染主要集中在二维功率谱右下方的楔形区域内
+（如\autoref{fig:ps2d-ratio} 所示），
+因此可以选定一个合适的边界将其排除，
+于是便可以在左上方的 EoR 窗口内提取 EoR 信号，
+有效地避开了强烈的前景污染，这就是\ac{fgavd}方法的基本思路.
+利用\autoref{eq:eor-window} 定义的 EoR 窗口边界的表达式，
+我们测试了多种不同的 ($w$, $\Phi$) 参数组合，
+最终选择了 $w = 3$ 以及 $\Phi = 1.5\,\ac{Fov}$，
+即 $\Phi$ 在 \numrange{120}{128}、\numrange{154}{162}
+和 \numrange{192}{200} \si{\MHz} 三个频带的值分别为
+$\Phi_{124} = \SI{7.5}{\degree}$、
+$\Phi_{158} = \SI{6.0}{\degree}$ 和
+$\Phi_{196} = \SI{4.8}{\degree}$.
+\autoref{fig:ps2d} 和\autoref{fig:ps2d-ratio} 显示了如此定义的 EoR 窗口边界，
+可见能够很好地避开\ac{fg-wedge}的污染.
+但是，在 \numrange{120}{128}、\numrange{154}{162}
+和 \numrange{192}{200} \si{\MHz} 三个频带内，
+EoR 信号分别有约 55\%、54\% 和 40\% 的功率损失在避开的\ac{fg-wedge}之中.
 
-Based on the above results, we conclude that radio halos are severe
-foreground contaminating sources to EoR observations.
-Even if inside the EoR window where most of the strong foreground
-contamination is avoided, radio halos can still imprint
-non-negligible contamination on the EoR measurements, especially at
-lower frequencies (\SI{\sim 120}{\MHz}).
-Careful treatments of radio halos as well as other foreground contaminating
-sources would be indispensable for obtaining an EoR window that is not only
-sufficiently clean but also as large as possible to preseve maximum
-information of the EoR signal.
+在以上定义的 EoR 窗口内，对射电晕和 EoR 信号的二维功率比 $R(\kperp, \klos)$ 平均，
+得到一维功率比 $R_{\R{eorw}}(k)$，如\autoref{fig:ps1d-ratio} 所示.
+相比\autoref{fig:ps1d-3bands} 所示的未受 EoR 窗口约束的一维功率谱 $\ac{psD}(k)$，
+射电晕的污染在 EoR 窗口内被抑制了约 4 个数量级.
+比如，在 $k \sim \SI{1}{\per\Mpc}$ 尺度上，
+EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在 \numrange{120}{128}、
+\numrange{154}{162} 和 \numrange{192}{200} \si{\MHz}
+三个频带的典型值（图中的实线）分别约为 45\%、6\% 和 2\%.
+这充分展示了 EoR 窗口和\ac{fgavd}法是探测 EoR 信号的有力工具.
+尽管如此，由于射电晕的亮度和数目在不同天区里具有显著的涨落，
+在 68\% 的误差范围（图中的阴影区域）以及
+$\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$ 尺度范围内，
+EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够分别达到约
+\numrange{230}{800}\%、\numrange{18}{95}\% 和 \numrange{7}{40}\%，
+说明射电晕泄漏到 EoR 窗口内的功率仍然可能是显著的，
+尤其是在较低频率 (\SI{\sim 120}{\MHz}).
+
+基于本节和上一节 (\autoref{sec:ps1d}) 的结果，
+我们认为射电晕是 EoR 信号探测的一个重要前景干扰成分.
+即使在一个已避开严重污染的 EoR 窗口内，射电晕所产生的污染仍然能够
+对 EoR 信号的准确测量产生不可忽略的干扰，尤其是在 \SI{\sim 120}{\MHz} 的较低频率.
+为了获得一个尽可能干净、同时也尽可能大的 EoR 窗口，
+深入理解、建模并扣除射电晕以及其他前景干扰成分是非常必要的，
+还需要联合使用\ac{fgrm}和\ac{fgavd}两类方法，改进 EoR 信号探测手段.
 
 
 %=====================================================================
