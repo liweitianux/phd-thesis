@@ -369,36 +369,44 @@ $\klos \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 \section{远旁瓣的影响}
 \label{sec:fscn}
 
-Phased arrays, which are widely used in low-frequency radio
-interferometers (e.g., LOFAR, MWA, SKA1-Low), usually have complicated
-beam profiles.
-Sources far from the main lobe of the station beam can introduce
-noise-like corruptions, known as the far side-lobe confusion noise
-(FSCN; \citeay{smirnov2012}), to images through the multitude of
-side-lobes.
-FSCN will not decrease once the $uv$ coverage of the observation no
-longer improves, and can be the limiting factor in the noise
-performance of interferometers \cite{mort2017}.
+低频干涉阵列的波束形状非常复杂，除\ac{mainlobe}外还有一系列明显的\ac{sidelobe}
+\cite{wijnholds2010}，
+如\autoref{fig:ska-beams} 显示了 SKA1-Low 在 100 和 200 MHz 处模拟的站点波束.
+更多关于 SKA1-Low 的波束形状及其旁瓣的性质可见 \citeay{mort2017}.
+辐射源即使远离\ac{mainlobe}，也会通过\ac{sidelobe}在视场中产生类似噪声的干扰，
+这就是\emph{\acf{fscn}} \cite{smirnov2012}.
+更加重要的是，当观测的 $uv$ 覆盖达到饱和时，\ac{fscn} 便不再降低，
+因此，\ac{fscn} 可能会强于仪器的热噪声而成为制约成像质量的关键因素 \cite{mort2017}.
 
-To investigate the impacts of FSCN contributed by the radio halos
-located in the far side-lobes of the station beam, we have generated
-the corresponding sky model for the \texttt{OSKAR} simulator,
-which evaluates the radio interferometer measurement equation
-\cite{smirnov2011} and is able to perform full-sky simulations with
-realistic beam profiles.
-More details about the beam shapes and side-lobe properties of the
-SKA1-Low can be found in \citeay{mort2017}.
-As an example, we simulate the radio halos in the \SIrange{154}{162}{\MHz}
-band that cover the sky from the edge of the second side-lobe
-($\phi \sim \SI{10}{\degree}$ from the field center) to the horizon
-($\phi = \SI{90}{\degree}$).
-This emulates an ideal CLEAN procedure in practical data analysis that
-removes all the radio halos in both the main lobe and the first side-lobe
-but leaves the ones in the far side-lobes.
-Using the \texttt{OSKAR} simulator and the \texttt{WSClean} imager as
-described in \autoref{sec:obs-simu}, we obtain the dirty images of the
-central \SI{5 x 5}{\degree} region and then
-calculate the 2D power spectrum.
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=\textwidth]{SKA1-low-beams}
+  \bicaption[模拟的 SKA1-Low 站点波束]{%
+    在 100 和 200 MHz 处模拟的 SKA1-Low 站点波束.
+  }{%
+    The simulated station beams of SKA1-Low at 100 and 200 MHz.
+    \\来源/Credit:
+    \citeay{mort2017}. [删减了标识]
+  }
+  \label{fig:ska-beams}
+\end{figure}
+
+为了研究位于\ac{sidelobe}中的射电晕所产生的 \ac{fscn}，
+我们需要生成相应的天图，然后输入 \texttt{OSKAR} 软件开展模拟观测.
+\texttt{OSKAR} 利用了射电干涉仪测量方程 (measurement equation) \cite{smirnov2011}，
+实现了逼真的\ac{bf}，并且能够开展全天模拟 \cite{mort2010}.
+我们取 \SIrange{154}{162}{\MHz} 频带为例，
+首先模拟射电晕的天图，其中射电晕覆盖了从第二\ac{sidelobe}的边缘
+(距离视场中心 $\phi \sim \SI{10}{\degree}$)
+一直到地平线 ($\phi = \SI{90}{\degree}$) 的范围.
+这相当于在实际数据处理中将\ac{mainlobe}和第一\ac{sidelobe}里的射电晕
+全部识别并完全去除.
+然后，使用 \texttt{OSKAR} 和 \texttt{WSClean} 软件按
+\autoref{sec:obs-simu} 所述方法进行模拟观测并成像，
+得到视场中央 \SI{5 x 5}{\degree} 区域的\ac{dirty-map}.
+对频带内的所有频率\ac{channel}均如此处理，
+于是得到射电晕 \ac{fscn} 的\ac{imgcube}，
+最后计算其二维功率谱 $\Delta^2_{\R{fscn}}(\kperp, \klos)$.
 
 \begin{figure}[htp]
   \centering
@@ -420,25 +428,23 @@ calculate the 2D power spectrum.
   \label{fig:ps2d-fscn}
 \end{figure}
 
-In \autoref{fig:ps2d-fscn}, we present the 2D power spectrum of the FSCN
-contributed by radio halos and the corresponding 2D power spectrum ratio
-of the FSCN to the EoR signal.
-We find that the FSCN contamination is very strong as its power can be
-about 20 times the power of the EoR signal on scales of
-$\kperp \sim \SI{0.3}{\per\Mpc}$ and $\klos \sim \SI{1.0}{\per\Mpc}$.
-The wedge-shaped contamination region moves toward the top left in
-the $(\kperp, \klos)$ plane and greatly reduces the EoR window.
-In order to effectively avoid the FSCN contamination, we are forced to
-employ a much more conservative EoR window boundary, such as the one
-defined with $\Theta = \SI{90}{\degree}$ as marked in
-\autoref{fig:ps2d-fscn} with solid white line, at the cost of losing
-a remarkably larger portion of the EoR signal.
-In consequence,
-the serious FSCN contamination makes the selection of EoR sky region
-a more challenging task, since in principle neither bright radio halos
-nor other strong sources are allowed in both the main and side lobes.
-A highly accurate foreground model is hence crucial to mitigate the
-impacts of FSCN.
+\autoref{fig:ps2d-fscn} 显示了射电晕 \ac{fscn}
+的二维功率谱 $\Delta^2_{\R{fscn}}(\kperp, \klos)$
+以及与 EoR 信号的二维功率比 $R_{\R{fscn}}(\kperp, \klos)$.
+我们发现，射电晕 \ac{fscn} 将对 EoR 信号产生的干扰；
+在 $\kperp \sim \SI{0.3}{\per\Mpc}$ 和 $\klos \sim \SI{1.0}{\per\Mpc}$
+的尺度范围内，射电晕 \ac{fscn} 的功率达到了 EoR 信号的约 20 倍.
+显然可见，\ac{fg-wedge}污染区域跨过原来的边界（白色虚线）向左上方增长了很多，
+极大地压缩了 EoR 窗口的大小.
+为了能够有效地避开 \ac{fscn} 的污染，我们被迫采用一个更加保守的 EoR 窗口边界，
+如图中白色实线所示的、由 $\Phi = \SI{90}{\degree}$ 确定的边界，
+但是将损失绝大部分的 EoR 信号.
+
+因此，严重的 \ac{fscn} 污染使得筛选 EoR 观测天区成为一个更加困难的任务，
+因为不仅在\ac{mainlobe}里，还有在\ac{sidelobe}里，
+原则上都不允许存在明亮的射电晕以及其他干扰源.
+否则需要在一个远远大于视场的天区里，准确识别、建模并扣除这些干扰源，
+如此将显著增加数据处理的难度 \cite{pober2013,pober2016}.
 
 
 %=====================================================================
