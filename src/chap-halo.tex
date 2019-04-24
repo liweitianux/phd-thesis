@@ -308,20 +308,23 @@ and a frequency artifact of $A_{\R{arti}} = 1\%$ with $\sigma = 0.01$.
 
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=\textwidth]{ps2d-ratio-crp-3bands}
+  \includegraphics[width=0.75\textwidth]{ps2d-ratio-crp-3bands}
   \bicaption[有无频谱伪结构时射电晕的二维功率比 $R_{\R{arti}}(\kperp, \klos)$]{%
-    TODO...
+    有无频谱伪结构时射电晕的二维功率比 $R_{\R{arti}}(\kperp, \klos)$.
+    上、中、下三行分别对应 \numrange{120}{128}、\numrange{154}{162} 和
+    \numrange{192}{200} \si{\MHz} 三个频带；
+    左、右两列分别显示了频谱伪结构幅度为 $A_{\R{arti}} = 0.1\%$
+    和 $A_{\R{arti}} = 1\%$ 的情况；
+    白色虚线标识了 EoR 窗口的边界.
+    所有子图共用了对数\ac{colorbar}.
   }{%
-    The 2D power spectrum ratios $R_{\R{arti}}(\kperp, \klos)$ of radio
-    halos that are obtained between the modified image cubes with
-    frequency artifacts and the original ones.
-    All the 100 simulation runs for radio halos are used to derive
-    the median 2D power spectrum ratios that are presented here.
-    The upper and lower rows show the cases of frequency artifacts
-    being $A_{\R{arti}} = 0.1\%$ and $A_{\R{arti}} = 1\%$, respectively.
-    The left, middle, and right columns show the power spectrum ratios
+    The 2D power spectrum ratios $R_{\R{arti}}(\kperp, \klos)$
+    of radio halos with and without frequency artifacts.
+    The upper, middle, and lower rows show the power spectrum ratios
     in the \numrange{120}{128}, \numrange{154}{162}, and
-    \numrange{192}{200} \si{\MHz} bands, respectively.
+    \numrange{192}{200} \si{\MHz} bands, respectively;
+    the left and right columns show the cases of frequency artifacts
+    being $A_{\R{arti}} = 0.1\%$ and $A_{\R{arti}} = 1\%$, respectively.
     The dashed white lines mark the EoR window boundaries.
     All panels share the same color bar in logarithmic scale.
   }
@@ -399,15 +402,18 @@ calculate the 2D power spectrum.
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{ps2d-fscn}
-  \bicaption[远旁瓣里的射电晕的二维功率谱及其与 EoR 信号的功率谱对比]{%
-    TODO...
+  \bicaption[射电晕 FSCN 的二维功率谱及其与 EoR 信号的功率谱对比]{%
+    \emph{(a)} 射电晕 FSCN 的二维功率谱 $\Delta^2_{\R{fscn}}(\kperp, \klos)$；
+    \emph{(b)} 射电晕 FSCN 与 EoR 信号的二维功率比 $R_{\R{fscn}}(\kperp, \klos)$.
+    白色虚线和实线分别标识了 $\Phi = \SI{6}{\degree}$ 和 \SI{90}{\degree}
+    所对应的 EoR 窗口边界.
   }{%
-    \textbf{(a)} The 2D power spectrum of the FSCN caused by radio halos
+    \emph{(a)} The 2D power spectrum of the FSCN caused by radio halos
     in the far side-lobes of the station beam.
-    \textbf{(b)} The 2D power spectrum ratio of the FSCN to the EoR signal.
+    \emph{(b)} The 2D power spectrum ratio of the FSCN to the EoR signal.
     The results are derived in the \SIrange{154}{162}{\MHz} band.
     The dashed and solid white lines mark the EoR window boundaries
-    defined with $\Theta = \SI{6}{\degree}$ and \SI{90}{\degree},
+    defined with $\Phi = \SI{6}{\degree}$ and \SI{90}{\degree},
     respectively.
   }
   \label{fig:ps2d-fscn}
