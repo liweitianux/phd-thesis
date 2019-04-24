@@ -276,35 +276,30 @@ EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够
 
 
 %=====================================================================
-\section{伪频谱结构的影响}
+\section{频谱伪结构的影响}
 \label{sec:freq-artifacts}
 
-In practical observations with low-frequency radio interferometers, the
-situations are much more complicated than our simulations.
-For example, calibration uncertainties (e.g., insufficient sky modeling)
-as well as other complicated instrumental and observational effects
-(e.g., cable signal reflections, ionospheric distortions) can cause
-frequency artifacts in the derived image cubes.
+\autoref{sec:obs-simu} 模拟了理想情况下的射电干涉观测，
+但是，实际观测所面临的情况要复杂得多，
+比如，仪器的校准存在不确定性、电离层的扰动、复杂的数据处理；
+参见 \autoref{sec:det-difficulties}.
+这些复杂的仪器效应和观测效应会导致\ac{imgcube}的频谱出现伪结构，
+破坏前景辐射的频谱光谱性，从而阻碍 EoR 信号的有效分离.
 
-The smoothness along the frequency dimension is the most crucial feature
-of various foreground components and is the key to extract the faint EoR
-signal.
-However, frequency artifacts may present in the obtained image cubes due
-to calibration uncertainties and various instrumental and observational
-effects, which break the spectral smoothness of the foreground emission
-and hence damage the EoR measurements.
-
-To evaluate the influence of the frequency artifacts on the power
-spectra, we multiply each slice of the image cube by a random number
-drawn from a Gaussian distribution with unity mean and then compare
-the resulting power spectra \cite{chapman2016}.
-Some simulation and observation studies have suggested that the residual
-calibration errors in frequency channels may be about \numrange{0.1}{1}\%
+一些模拟和观测研究指出，干涉阵列的频率\ac{channel}的校准存在约
+\numrange{0.1}{1}\% 的不确定性
 \cite{barry2016,beardsley2016,ewallWice2017}.
-We thus investigate two extreme cases here:
-a frequency artifact of amplitude $A_{\R{arti}} = 0.1\%$ by
-using $\sigma = 0.001$ for the Gaussian distribution,
-and a frequency artifact of $A_{\R{arti}} = 1\%$ with $\sigma = 0.01$.
+我们对\ac{imgcube}的每一个\ac{slice}乘以一个服从平均值为 0、
+标准差为 σ 的正态分布的随机数，
+以此模拟实际观测中出现的频谱伪结构 \cite{chapman2016}；
+然后计算有无频谱伪结构的\ac{imgcube}的\ac{ps}并进行对比，
+从而评估频谱伪结构对\ac{ps}以及前景干扰的影响.
+我们考虑如下两种边界情况：
+\begin{itemize}
+  \item 频谱伪结构的幅度为 $A_{\R{arti}} = 0.1\%$，
+    对应于正态分布的标准差为 $σ = 0.001$；
+  \item 频谱伪结构的幅度为 $A_{\R{arti}} = 1\%$，对应于 $σ = 0.01$.
+\end{itemize}
 
 \begin{figure}[htp]
   \centering
@@ -331,37 +326,43 @@ and a frequency artifact of $A_{\R{arti}} = 1\%$ with $\sigma = 0.01$.
   \label{fig:ps2d-ratio-crp}
 \end{figure}
 
-For each of the 100 simulation runs for radio halos, we calculate the
-2D power spectrum ratios $R_{\R{arti}}(\kperp, \klos)$ of the modified
-image cube with the frequency artifact to the original one
-(\autoref{sec:obs-simu}),
-and present the median 2D power spectrum ratios obtained in the
-\numrange{120}{128}, \numrange{154}{162}, and \numrange{192}{200}
-\si{\MHz} bands with either $A_{\R{arti}} = 0.1\%$ or 1\% in
-\autoref{fig:ps2d-ratio-crp}.
-We find that, when the frequency artifact is added, the resulting 2D
-power spectra are seriously damaged in all three frequency bands.
-On scales of $\kperp \lesssim \SI{0.2}{\per\Mpc}$ and
-$\klos \gtrsim \SI{0.3}{\per\Mpc}$,
-adding frequency artifact of $A_{\R{arti}} = 0.1\%$
-causes the power of radio halos to be about 17, 15, and 13 times
-stronger in the \numrange{120}{128},
-\numrange{154}{162}, and \numrange{192}{200} \si{\MHz} bands,
-respectively, and the corresponding power increases are about
-1700, 1500, and 1300 times
-for frequency artifact of $A_{\R{arti}} = 1\%$.
-As a comparison, we add the same frequency artifacts
-($A_{\R{arti}} = 0.1\%$ and 1\%) to the image
-cubes of the EoR signal, but find that the changes in the calculated
-2D power spectra are negligible.
-This is because the EoR signal already fluctuates remarkably along
-the frequency dimension.
-Consequently, even very minor (\num{\sim 0.1}\%) instrumental or
-calibration errors can make the contamination of radio halos
-become much stronger, particularly inside the critical EoR window.
-These results further support our conclusion made in \autoref{sec:ps2d}
-that radio halos are important foreground sources and must be carefully
-dealt with in EoR experiments.
+给定一个\ac{imgcube}，我们计算在有频谱伪结构和无频谱伪结构情形下的二维功率谱，
+分别为 $\Delta^2_{\R{arti}}(\kperp, \klos)$ 和 $\Delta^2(\kperp, \klos)$，
+于是可得两者之比为：
+\begin{equation}
+  R_{\R{arti}}(\kperp, \klos)
+    \equiv \frac{\Delta^2_{\R{arti}}(\kperp, \klos)}{
+      \Delta^2(\kperp, \klos)} .
+\end{equation}
+对于射电晕的 100 次模拟，我们计算了每一次模拟在 \numrange{120}{128}、
+\numrange{154}{162} 和 \numrange{192}{200} \si{\MHz} 三个频带内、
+频谱伪结构幅度为 $A_{\R{arti}} = 0.1\%$ 和 $A_{\R{arti}} = 1\%$
+的情形下的二维功率比 $R_{\R{arti}}(\kperp, \klos)$，
+据此得到射电晕在三个频带内以及两种频谱伪结构幅度的情况下的二维功率比的中位数，
+结果如\autoref{fig:ps2d-ratio-crp} 所示.
+我们发现，频谱伪结构使射电晕的二维功率谱受到了严重破坏.
+在 $\kperp \lesssim \SI{0.2}{\per\Mpc}$ 和
+$\klos \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
+幅度为 $A_{\R{arti}} = 0.1\%$ 的频谱伪结构使射电晕在 \numrange{120}{128}、
+\numrange{154}{162} 和 \numrange{192}{200} \si{\MHz}
+三个频带内的功率分别增加了约 17、15 和 13 倍.
+当频谱伪结构的幅度为 $A_{\R{arti}} = 1\%$，即为前一种情况的 10 倍时，
+射电晕在相同尺度范围内的功率则为前一种情况的 100 倍，
+即在三个频带内的功率比 $R$ 分别约为 1700、1500 和 1300.
+
+作为对比，我们对 EoR 信号的\ac{imgcube}引入了同样的频谱伪结构
+($A_{\R{arti}} = 0.1\%$ 或 $1\%$)
+并计算了相应的二维功率比 $R_{\R{arti}}(\kperp, \klos)$.
+但是，我们发现 EoR 信号的二维功率谱几乎未受到频谱伪结构的影响，
+即使频谱伪结构的幅度为 $A_{\R{arti}} = 1\%$.
+这主要是因为 EoR 信号在频率维度已经具有明显的小尺度起伏结构.
+
+因此，即使是非常微小（幅度约为 \num{\sim 0.1}\%）的频谱伪结构
+也会使射电晕的干扰显著增强，特别是在关键的 EoR 窗口内.
+这说明 EoR 探测实验需要对仪器进行非常严格的校准，
+以获得非常准确的频谱响应 \cite{barry2016}.
+同时，这些结果也进一步支持我们在 \autoref{sec:ps2d} 所得的结论：
+射电晕对 EoR 探测而言是一个严重的前景干扰成分.
 
 
 %=====================================================================
