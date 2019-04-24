@@ -201,8 +201,15 @@ $\kperp \lesssim \SI{1}{\per\Mpc}$ 的范围，
 \end{figure}
 
 为了更具体地显示射电晕对 EoR 信号的污染情况，
-我们将射电晕的二维功率谱除以 EoR 信号的二维功率谱，
-得到两者的二维功率比 $R(\kperp, \klos)$，如\autoref{fig:ps2d-ratio} 所示，
+我们将射电晕的二维功率谱 $\Delta^2_{\R{halo}}(\kperp, \klos)$
+除以 EoR 信号的二维功率谱 $\Delta^2_{\R{eor}}(\kperp, \klos)$，
+得到两者的二维功率比：
+\begin{equation}
+  R(\kperp, \klos)
+    \equiv \frac{\Delta^2_{\R{halo}}(\kperp, \klos)}{
+      \Delta^2_{\R{eor}}(\kperp, \klos)} .
+\end{equation}
+如\autoref{fig:ps2d-ratio} 所示，
 可见射电晕的污染区域形成一个明显的楔形 (\autoref{sec:eor-window}).
 我们发现，在 \SIrange{120}{128}{\MHz} 频带内，
 射电晕在 $\kperp \gtrsim \SI{0.1}{\per\Mpc}$ 的尺度范围内
@@ -468,7 +475,7 @@ both of which support our conclusion that radio halos are severe
 foreground contaminating sources and need careful treatments in the
 forthcoming deep EoR observations.
 
-此工作已发表于 \apj{} (ApJ)\reviewornot{}{\cite{li.halo}}.
+本章内容已发表于 \apj{} (ApJ)\reviewornot{}{\cite{li.halo}}.
 
 
 %% EOF

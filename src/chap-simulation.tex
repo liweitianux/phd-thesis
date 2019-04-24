@@ -21,7 +21,7 @@
 \numrange{154}{162} 和 \numrange{192}{200} \si{\MHz}.
 频带的宽度取为 \SI{8}{\MHz}，是为了限制宇宙的演化效应，
 从而简化\ac{ps}的计算 (\autoref{sec:ps}) \cite{wyithe2004,thyagarajan2013}.
-考虑到 SKA1-Low 在 \SI{120}{\MHz} 的视场大小 $\ac{Fov} \sim \SI{4.9}{\degree}$，
+考虑到 SKA1-Low 在 \SI{120}{\MHz} 的视场大小 $\ac{Fov} \sim \SI{5}{\degree}$，
 我们将模拟的天区大小设为 \SI{10 x 10}{\degree}.
 此外，模拟的图像大小为 \num{1800 x 1800}，即像素大小为 \SI{20}{\arcsecond}.
 \autoref{tab:freq-bands} 汇总了这些模拟参数.
@@ -1434,7 +1434,7 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 如此兼顾了成像的噪声水平和空间分辨率 \cite{briggs1995}.
 图像的边缘区域会因为 CLEAN 程度不足而质量较差，
 因此我们只切取图像质量较好的中央区域用于后文的分析.
-考虑到望远镜的\acl{Fov}反比于观测频率 ($\ac{Fov} \propto 1/\nu$)，
+考虑到望远镜的\acl{Fov}反比于观测频率 ($\ac{Fov} \propto \nu^{-1}$)，
 图像的切取大小在 \numrange{120}{128}、\numrange{154}{162} 和
 \numrange{192}{200} \si{\MHz} 三个频带内分别为
 \SI{6 x 6}{\degree}、\SI{5 x 5}{\degree} 和 \SI{4 x 4}{\degree}.
