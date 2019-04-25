@@ -136,7 +136,7 @@ is suboptimal to represent the input \cite{masci2011}.
 On the other hand, convolutional layers, as used in convolutional neural
 networks (CNNs),
 make use of a set of small filters and share their weights among
-all locations in the data \cite{lecun1998}, which allows to
+all locations in the data \cite{leCun1998}, which allows to
 better capture the local features in the data.
 Therefore, CNNs generally have two or more orders of magnitude less
 parameters than the analogous fully connected neural networks
@@ -263,7 +263,7 @@ quantified with the mean squared error (MSE), i.e.,
 where $N_{\R{tr}}$ is the number of data points in the training set
 $S_{\R{tr}}$.
 By applying the back-propagation method
-\cite{rumelhart1986,lecun1998bp},
+\cite{rumelhart1986,leCun1998bp},
 the parameters are updated to reduce the loss $L$, so as to
 improve the quality of the reconstructed EoR signal.
 As the training goes for more epochs, the initially randomised CDAE is
@@ -668,7 +668,7 @@ The achieved excellent performance of the CDAE can be mainly attributed
 to the architecture of stacking multiple convolutional layers, which
 implements a powerful feature extraction technique by hierarchically
 combining the basic features learned in each layer to build more and
-more sophisticated features \cite{lecun2015}.
+more sophisticated features \cite{leCun2015}.
 Combined with the flexibility provided by the \num{53569} trainable
 parameters, the CDAE, after being well trained, can intelligently learn a
 model that is optimised to accurately separate the faint EoR signal
