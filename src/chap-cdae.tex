@@ -6,79 +6,54 @@
 \chapter{基于深度学习的再电离信号分离新算法}
 \label{chap:cdae}
 
-When applying the foreground removal methods to uncover the
-faint cosmological signal from the epoch of reionization (EoR),
-the foreground spectra are assumed to be smooth.
-However, this assumption can be seriously violated in practice since
-the unresolved or mis-subtracted foreground sources, which are further
-complicated by the frequency-dependent beam effects of interferometers,
-will generate significant fluctuations along the frequency dimension.
-To address this issue, we propose a novel deep-learning-based method
-that uses a 9-layer convolutional denoising autoencoder (CDAE) to
-separate the EoR signal.
-After being trained on the SKA images simulated with realistic beam
-effects, the CDAE achieves excellent performance as the mean correlation
-coefficient ($\bar{\rho}$) between the reconstructed and input EoR
-signals reaches \num{0.929 +- 0.045}.
-In comparison,
-the two representative traditional methods, namely the polynomial
-fitting method and the continuous wavelet transform method, both have
-difficulties in modelling and removing the foreground emission
-complicated with the beam effects,
-yielding only
-$\bar{\rho}_{\R{poly}} = \num{0.296 +- 0.121}$ and
-$\bar{\rho}_{\R{cwt}} = \num{0.198 +- 0.160}$, respectively.
-We conclude that, by hierarchically learning sophisticated features
-through multiple convolutional layers, the CDAE is a powerful tool that
-can be used to overcome the complicated beam effects and accurately
-separate the EoR signal.
-Our results also exhibit the great
-potential of deep-learning-based methods in future EoR experiments.
+为了能够从强烈的前景干扰中分离出微弱的 EoR 信号，
+传统的\ac{fgrm}方法都依赖于一个关键的前提：
+前景干扰具有非常光滑的频谱，而 EoR 信号沿频率维度发生剧烈变化，
+两者具有显著不同的频谱结构，从而能够被有效地分离开 \cite{morales2010,chapman2016}.
+然而，在实际情况中，未分辨的或者未完全扣除的干扰源在干涉阵列的波束效应的影响下，
+会在频率维度产生震荡形式的辐射，破坏前景频谱的光滑性 \cite{liu2009ps}.
+这会显著削弱前景干扰与 EoR 信号的可分性，
+导致传统\ac{fgrm}方法的效果大打折扣甚至失效，
+因此需要研发能够克服波束效应的 EoR 信号分离新算法.
 
 
 %=====================================================================
 \section{波束的频率依赖效应}
 \label{sec:beam-effect}
 
-TODO: 增加图片，示意...
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=\textwidth]{SKA1-low-psf}
+  \bicaption[模拟的 SKA1-Low 综合波束]{%
+    在 154、158 和 162 MHz 处模拟的 SKA1-Low \acs*{beam-synthesized}.
+    积分时间为 \SI{6}{\hour}.
+  }{%
+    The simulated synthesized beams of SKA1-Low at 154, 158, and 162 MHz.
+    The integration time is \SI{6}{\hour}.
+  }
+  \label{fig:ska-psf}
+\end{figure}
 
-The \SI{21}{\cm} line emission of neutral hydrogen from the epoch of
-reionization (EoR) is regarded as a decisive probe to directly explore
-this stage (see \citeay{furlanetto2016} for a review).
-To detect the \SI{21}{\cm} signal, which is believed to have been
-redshifted to the frequencies below \SI{200}{\MHz}, low-frequency
-radio interferometers such as the SKA \cite{koopmans2015} and its
-pathfinders have been built or under construction.
-The observational challenges, however, are immense due to
-complicated instrumental effects, ionospheric distortions, radio frequency
-interference, and the strong foreground contamination that
-overwhelms the EoR signal by about \numrange{4}{5} orders of magnitude
-(see \citeay{morales2010} for a review).
-Fortunately, in the frequency dimension the foreground contamination
-is expected to be intrinsically smooth, while the EoR signal fluctuates
-rapidly on $\sim\si{\MHz}$ scales.
-This difference is the key characteristic exploited by many foreground
-removal methods in order to uncover the faint EoR signal
-\cite{wang2006,jelic2008,liu2009fgrm,harker2009,chapman2012,
-  chapman2013,wang2013,gu2013,bonaldi2015,mertens2018}.
+一个干涉阵列拥有的\ac{baseline}的数目和长度均是有限的，
+在观测中能实现的 $uv$ 覆盖也是有限而且不完备的 (\autoref{sec:uv-coverage})，
+因此，干涉阵列的\ac{beam-synthesized}的形状非常复杂.
+如\autoref{fig:ska-psf} 所示，
+除了中间一个很窄的\ac{mainlobe}，\ac{beam-synthesized}还包含一系列\ac{sidelobe}.
+这些\ac{sidelobe}的数量非常多，相对幅度约为 \numrange{0.01}{0.1}\%，
+一直延伸到远超出视场的位置.
+另见 \citeay{liu2009ps} 的图 1 和图 3.
 
-However, the smoothness of the foreground spectra can be damaged
-by the frequency-dependent beam effects, i.e., the variation of the point
-spread function (PSF) with frequencies that cannot be perfectly
-calibrated \cite{liu2009ps}.
-Because of the incomplete $uv$ coverage,
-the PSF has a complicated profile consisting of a narrow peaky main lobe
-and a multitude of jagged side lobes with relative amplitudes of about
-0.1 per cent that extend beyond the field of view
-（参见 \citeay{liu2009ps} 的图 1 和图 3）.
-A source that is unresolved or mis-subtracted (e.g., due to the limited
-field of view) during the CLEAN process leaves catastrophic residuals,
-the locations of which vary with the frequency since the angular
-position of a PSF side lobe is inversely proportional to the frequency.
-These effects lead to complicated residuals fluctuating along the
-frequency dimension, which cannot be correctly separated from the EoR
-signal by the traditional foreground removal methods that rely on
-the smoothness of the foreground spectra.
+另一方面，\ac{beam-synthesized}的形状还依赖于观测频率.
+\ac{sidelobe}的位置 $\theta$ 会随着频率 $\nu$ 的增大而向中间移动，
+即 $\theta \propto \nu^{-1}$.
+因此，一个干扰源在视场中所产生的辐射的位置也随频率而变化.
+由于仪器的热噪声水平、成像的天区大小、CLEAN 的深度等因素的限制，
+视场中总是存在一批未分辨的以及未完全扣除而残留的干扰源.
+由这些干扰源的辐射综合而成的前景干扰，
+在频率维度将出现类似\ac{beam-synthesized}的\ac{sidelobe}形状的起伏.
+这将破坏前景辐射的频谱光滑性，使得前景干扰具有类似 EoR 信号的小尺度频谱结构，
+导致传统\ac{fgrm}方法无法有效地将两者区分开.
+另见 \citeay{liu2009ps} \S\,1.
 
 
 %=====================================================================
