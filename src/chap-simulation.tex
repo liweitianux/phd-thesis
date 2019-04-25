@@ -74,7 +74,7 @@ SKA1-Low \enquote{观测}的图像，完整地整合了干涉阵列的实际仪�
 截至目前，只有少量几个工作在研究 EoR 前景时考虑了\ac{gc}\ac{rh}
 \cite{diMatteo2004,gleser2008,jelic2008}，
 而且对\ac{rh}的建模过于简化，比如
-直接使用在低流量端很不完备的 \SI{1.4}{\GHz} \ac{fluxfunc} \cite{gleser2008}、
+直接使用在低流量端很不完备的 \SI{1.4}{\GHz} \ac{f-flux} \cite{gleser2008}、
 采用弥散很大的射电--X 射线标度关系 \cite{jelic2008}、
 假定相同的频谱指数和均匀的表面亮度分布 \cite{gleser2008,jelic2008}.
 
@@ -913,7 +913,7 @@ $\acs{D-luminosity}(z_{\R{sim}})$ 是\ac{rh}的\acl{D-luminosity}，
 \end{enumerate}
 由于目前的观测和理论研究均无法给出上述参数的有效约束，
 因此有必要仔细调节这些参数，使得模型给出的结果能够符合目前的观测结果，
-主要包括\ac{fluxfunc}、射电晕的功率与宿主星系团的质量之间的\ac{scaling-relation}.
+主要包括\ac{f-flux}、射电晕的功率与宿主星系团的质量之间的\ac{scaling-relation}.
 
 我们通过以下两个对比来调节上述参数.
 第一个对比是射电晕的 \SI{1.4}{\GHz} 功率 ($P_{1400}$)
@@ -923,12 +923,12 @@ $P_{1400} \propto M_{500}^{3.70 \pm 0.56}$.
 这里需要将质量 $M_{500}$ 换算至维里质量以便与模拟结果对比，
 具体换算方法可见附录 \autoref{sec:r-m-conv}.
 
-另一个对比则利用 \SI{1.4}{\GHz} 全天积分的 \ac{fluxfunc}.
+另一个对比则利用 \SI{1.4}{\GHz} 全天积分的\ac{f-flux}.
 为此，我们搜集了目前（截至 2018 年 1 月；TODO）已观测到的 80 个\ac{rh}，
 其中 71 个已确认，另外 9 个为候选，
 详见\autoref{app:halos} 中的\autoref{tab:halos}.
 考虑到目前观测到的\ac{rh}远不完备，尤其是在低流量端，
-因此在对比时只要求模拟得到的\ac{fluxfunc}与观测结果在高流量端一致.
+因此在对比时只要求模拟得到的\ac{f-flux}与观测结果在高流量端一致.
 
 \begin{figure}[htp]
   \centering
@@ -992,9 +992,9 @@ $\ac{f-instability} = 0.1$.
 $P_{1400} \propto M_{\R{vir}}^{3.94 \pm 0.12}$.
 该\ac{scaling-relation}的斜率和截距与 \citeay{cassano2013}
 获得的观测结果都符合得很好.
-\autoref{fig:halos-simucomp} 显示了 \SI{1.4}{\GHz} \ac{fluxfunc}
+\autoref{fig:halos-simucomp} 显示了 \SI{1.4}{\GHz} \ac{f-flux}
 的对比结果，可见模拟的射电晕与观测的射电晕在高流量端是一致的.
-同时，本工作模拟给出的 \SI{1.4}{\GHz} \ac{fluxfunc}
+同时，本工作模拟给出的 \SI{1.4}{\GHz} \ac{f-flux}
 还与 \citeay{cassano2012} 的预测结果是匹配的.
 
 此外，\autoref{fig:halo-fraction} 显示了具有射电晕的星系团比例
