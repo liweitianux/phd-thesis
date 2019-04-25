@@ -1432,7 +1432,7 @@ $uv$ 平面上两个相互对称的点的\ac{vis}.
 \end{figure}
 
 干涉阵列的天线数目总是有限的，在实际观测中 $uv$ 平面不可能被完全覆盖，
-具体覆盖情况可由\emph{\acf{sf}}描述：
+具体覆盖情况可由\emph{\acf{f-sampling}}描述：
 \begin{equation}
   \label{eq:sf}
   \acs{S-uv} = \sum_{k,t} \delta(u - u_{k,t}, v - v_{k,t}),
@@ -1456,7 +1456,7 @@ $uv$ 平面上两个相互对称的点的\ac{vis}.
   \label{eq:syn-beam}
   B(l,m) = \iint \acs{S-uv} \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m}
 \end{equation}
-是\ac{sf} \acs{S-uv} 的 Fourier 变换，
+是\ac{f-sampling} \acs{S-uv} 的 Fourier 变换，
 称为\emph{\acf{beam-synthesized}}或\emph{\acf{psf}}.
 \autoref{fig:imaging-relations} 展示了成像过程中各种变换关系.
 为了从\ac{dirty-map} $I_{\nu}^D$ 尽可能地恢复目标的真实图像，
@@ -1473,7 +1473,7 @@ $uv$ 平面上两个相互对称的点的\ac{vis}.
     \emph{(b)} 干涉阵列的\acs*{beam-synthesized}，对应 (e) 的 Fourier 变换；
     \emph{(c)} 脏图，对应 (f) 的 Fourier 变换；
     \emph{(d)} \acs*{vis}的真实数据，对应 (a) 的 Fourier 变换；
-    \emph{(e)} 干涉阵列的\acs*{sf}；
+    \emph{(e)} 干涉阵列的\acs*{f-sampling}；
     \emph{(f)} 实际测量到的\acs*{vis}数据，为 (d) 和 (e) 乘积.
   }{%
     The transform relations among the imaging process.
