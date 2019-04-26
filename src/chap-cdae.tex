@@ -60,7 +60,7 @@
 \section{基于深度学习的新算法}
 
 鉴于\ac{beam-synthesized}的形状非常复杂，并且随频率和位置而变化，
-即使付出昂贵的计算负担，
+即使付出昂贵的计算代价，
 为传统\ac{fg-rm}方法手工打造一个用于克服上述波束效应的模型仍然是非常困难的
 \cite{lochner2015}.
 此外，SKA1-Low 等大型干涉阵列的海量数据的处理已经成为一个重要的瓶颈 (ref???)，
@@ -76,7 +76,7 @@
   \includegraphics[width=\textwidth]{ml-vs-dl}
   \bicaption[机器学习和深度学习之间的主要区别]{%
     机器学习和深度学习之间的主要区别.
-    深度学习拥有\acs*{fx}的能力，而不需要手工设计需要从数据中提取的特征.
+    深度学习拥有\acs*{fx}的能力，而不必手工设计需要从数据中提取的特征.
   }{%
     The main difference between machine learning and deep learning.
     The feature extraction is an integral part of the deep learning;
@@ -102,17 +102,18 @@
 进一步降低了开发先进的\ac{ai}系统的难度，极大地拓展了\ac{ai}的应用范围 (ref???).
 \autoref{fig:ml-dl} 示意了\ac{ml}和\ac{dl}之间的主要区别.
 
-近十多年以来，\ac{dl}发展迅猛，已经被应用到诸多领域并取得了突破性成果，
+近十多年以来，\ac{dl}发展迅猛，已经被应用到诸多领域并取得了一系列突破性成果，
 详见 \citeay{leCun2015} 综述文.
 \ac{dl}方法包括多种\ac{nn} \cite{bengio2009,leCun2015,schmidhuber2015}，
 比如\ac{dnn}、\ac{cnn}、\ac{rnn}、\ac{ae}.
-其中，\ac{ae}能够以无监督 (unsupervised) 的方式从输入数据中发掘有用的特征，
+其中，\ac{ae}能够以\ac{unsupervised}的方式从输入数据中发掘有用的特征，
 从而学习得到输入数据的一个有效\ac{representation} \cite{bourlard1988}.
 因此，\ac{ae}经常被用于数据的\ac{dim-reduction}\cite{hinton2006,wang2014}
 和\ac{denoising}\cite{xie2012,lu2013,bengio2013}.
 在\ac{ae}的诸多变种中，\ac{cdae}尤其擅长于发掘数据中的抽象、细微的特征 \cite{du2017}，
 并且已经被成功地用于微弱\ac{gw}信号的\ac{denoising}\cite{shen2017}、
 单声道音源的分离\cite{grais2017}、等等.
+
 这些应用说明了 \ac{cdae} 具有从高度时变 (temporal-variable)
 的数据中提取微弱信号的出色能力，
 因此，值得尝试将 \ac{cdae} 应用于 EoR 信号的分离.
@@ -144,14 +145,16 @@
 \ac{decoder}则尝试从\ac{code} $\B{h}$ 重建原输入信号，
 可表示为 $\B{r} = g(\B{h})$；
 如\autoref{fig:autoencoder} 所示.
-在本工作中，$\B{x}$、$\B{h}$ 和 $\B{r}$ 均为一维矢量.
+因为我们将在频率维度对天空像素点逐个进行 EoR 信号的分离，
+所以，输入信号 $\B{x}$ 表示一个天空像素点的频谱，
+$\B{x}$、$\B{h}$ 和 $\B{r}$ 在本工作中均为一维矢量.
 通过对\ac{code} $\B{h}$ 施加一定的约束（如限制其维度或稀疏性），
 同时训练\ac{ae}使得重建信号 $\B{r}$ 与输入信号 $\B{x}$
 之间的\ac{loss} $L(\B{r}, \,\B{x})$ 达到最小，
 则\ac{ae}所学习到的\ac{code}将能有效地表示输入信号.
 详见 \citeay{goodfellow2016}, 第 14 章.
 
-\ac{ae}所学到的\ac{representation}对于输入数据的好坏程度直接决定了\ac{ae}的性能.
+\ac{ae}所学到的\ac{representation}的质量直接决定了\ac{ae}的性能.
 为了促使\ac{ae}学习一个更好的\ac{representation}，
 \citeay{vincent2008} 和 \citeay{vincent2010}
 基于\enquote{\ac{denoising}准则}提出了一种全新的训练策略：
@@ -203,7 +206,7 @@
 
 经典\ac{ae}由多个\ac{fc}层构成，其中每个\ac{neuron}都与上一层的所有\ac{neuron}相连，
 如\autoref{fig:autoencoder-fc} 所示.
-这种设计使\ac{ae}的参数数目随层数呈指数级增长，不利于构建很深的网络.
+这种设计使\ac{ae}的参数数目随层数呈指数级增长，难以构建很深的网络.
 此外，使用\ac{fc}层提取的特征是全局性的，
 所以\ac{fc}层不适合用来学习输入数据中的局部特征（如图像中的文字、物体等），
 而这些局部特征通常包含了数据的关键信息 \cite{masci2011}.
@@ -214,7 +217,7 @@
 同时有效地减少了参数数目.
 \ac{cnn} 的参数数目通常约为类似的\ac{fc}\ac{nn}的 1\% 或更少 \cite{grais2017}，
 所以 \ac{cnn} 更容易训练，消耗的资源（如内存和时间）也更少.
-另外，多个卷积层很容易堆叠起来；
+另外，多个卷积层可以很容易地堆叠起来；
 在前一层所提取的特征的基础上，更复杂、更抽象的特征能够从数据中提取出来.
 这种技术推动我们设计出极深（几十层甚至上百层）、极富表达力的 \ac{cnn}，
 并且这些 \ac{cnn} 在图像分类及相关领域有着非凡的表现
