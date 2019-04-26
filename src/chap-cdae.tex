@@ -308,69 +308,68 @@ $\left(\left\{ \B{v}_{i}^{(l)} \right\};\, i = 1, 2, \cdots, m_l \right)$.
 \subsection{训练和评估方法}
 \label{sec:train-eval}
 
-At the beginning, the parameters of the CDAE (i.e., the weights and biases
-of filters in all layers) are initialised randomly using the He uniform
-initialiser \cite{he2015}.
-In order to obtain an effective CDAE by
-training these parameters, the
-following three datasets are required \cite{ripley1996}:
-(1) training set ($S_{\R{tr}}$) that is used to fit the parameters;
-(2) validation set ($S_{\R{val}}$)
-that is used not only to validate whether or not the training
-process runs well (e.g., no over-fitting), but also to
-help determine the hyperparameters (e.g., the number of layers and filters;
-\autoref{sec:architecture});
-(3) test set ($S_{\R{test}}$) that is solely used to evaluate the
-performance of the trained CDAE.
-Each dataset is a collection of many data points of
-($\B{x}, \B{x}_{\R{eor}}$),
-where $\B{x} = \B{x}_{\R{eor}} + \B{x}_{\R{fg}}$ is the total emission of
-one sky pixel, and $\B{x}_{\R{eor}}$ is the corresponding EoR signal.
+在一开始，\ac{cdae} 的全部参数（即所有层的\ac{filter}的权重和\ac{bias}）
+由 He 均匀初始器 (He uniform initializer)\cite{he2015} 初始化为随机值.
+为了训练这些参数以获得一个有效的 \ac{cdae}，需要以下三个\ac{ds} \cite{ripley1996}：
+\begin{itemize}
+  \item \ac{s-training}:
+    用于拟合 \ac{cdae} 的待训练参数；
+  \item \ac{s-validation}:
+    一方面用于验证训练过程是否正常，比如没有出现\ac{overfitting}；
+    另一方面用来约束 \ac{cdae} 的\ac{hyperparam}，
+    比如层数和\ac{filter}的数目 (\autoref{sec:architecture})；
+  \item \ac{s-test}:
+    仅仅在训练结束后用来评估 \ac{cdae} 的性能.
+\end{itemize}
+上述每一个\ac{ds}都包含许多的数据点
+$\left( \B{x}^{(i)}, \,\B{x}^{(i)}_{\R{eor}} \right)$，
+其中 $\B{x}^{(i)}_{\R{eor}}$ 是一个天空像素点 $i$ 的 EoR 信号的频谱，
+$\B{x}^{(i)} = \B{x}^{(i)}_{\R{eor}} + \B{x}^{(i)}_{\R{fg}}$
+是该像素点的总辐射（前景辐射与 EoR 信号之和）的频谱.
 
-During each training epoch, the total emission $\B{x}^{(i)}$ is fed into
-the CDAE and goes through all the convolutional layers (\autoref{eq:conv}),
-outputting the reconstructed EoR signal $\B{r}^{(i)}_{\R{eor}}$.
-The difference between the reconstructed EoR signal $\B{r}^{(i)}_{\R{eor}}$
-and the input EoR signal $\B{x}^{(i)}_{\R{eor}}$ is the loss $L$ and can be
-quantified with the mean squared error (MSE), i.e.,
+在每一个训练\ac{epoch}，将总辐射 $\B{x}^{(i)}$ 输入 \ac{cdae}，
+经过一系列卷积层 [\autoref{eq:conv}]
+后得到重建的 EoR 信号 $\B{r}^{(i)}_{\R{eor}}$.
+该重建信号 $\B{r}^{(i)}_{\R{eor}}$ 与输入的 EoR 信号 $\B{x}^{(i)}_{\R{eor}}$
+之间的差异就是 \ac{cdae} 的\acl{loss} \ac{loss}，
+可利用\ac{mse}将其量化为：
 \begin{equation}
   \label{eq:loss}
-  L = \frac{1}{N_{\R{tr}}} \sum_{i=1}^{N_{\R{tr}}}
+  \ac{loss} = \frac{1}{N_{\R{tr}}} \sum_{i=1}^{N_{\R{tr}}}
     \left[ \B{r}_{\R{eor}}^{(i)} - \B{x}_{\R{eor}}^{(i)} \right]^T
-    \left[ \B{r}_{\R{eor}}^{(i)} - \B{x}_{\R{eor}}^{(i)} \right],
+    \left[ \B{r}_{\R{eor}}^{(i)} - \B{x}_{\R{eor}}^{(i)} \right] ,
 \end{equation}
-where $N_{\R{tr}}$ is the number of data points in the training set
-$S_{\R{tr}}$.
-By applying the back-propagation method
-\cite{rumelhart1986,leCun1998bp},
-the parameters are updated to reduce the loss $L$, so as to
-improve the quality of the reconstructed EoR signal.
-As the training goes for more epochs, the initially randomised CDAE is
-gradually shaped into a network
-that learns a better representation of the input and can
-reconstruct the EoR signal more accurately.
+其中 $N_{\R{tr}}$ 是\acl{s-training} \ac{s-training} 所包含数据点的数目，
+\enquote{$T$} 表示\ac{transpose}.
+运用\ac{backprop}方法\cite{rumelhart1986,leCun1998bp}，
+可以计算\acl{loss} \ac{loss} 对任意一个参数 $p_i$ 的梯度
+$\partial \ac{loss} / \partial p_i$，
+然后据此更新这些参数，使得\acl{loss} \ac{loss} 逐渐减小，
+从而提高重建的 EoR 信号 $\B{r}^{(i)}_{\R{eor}}$ 的质量.
+随着训练\ac{epoch}的增长，原来一个随机的 \ac{cdae} 被逐渐塑造成一个专用网络，
+能够发掘输入数据中的有用特征并用来重建 EoR 信号.
 
-To evaluate the performance of the trained CDAE,
-the Pearson's correlation coefficient
+为了定量评估已训练好的 \ac{cdae} 的性能，
+我们采用 Pearson \acl{coef-correlation} (correlation coefficient)
 \cite{harker2009,chapman2013}
-is adopted to measure the similarity between the reconstructed and input
-EoR signals:
+来计算由 \ac{cdae} 重建的 EoR 信号 $\B{r}_{\R{eor}}$ 与输入 EoR 信号
+$\B{x}_{\R{eor}}$ 之间的相似程度：
 \begin{equation}
   \label{eq:corrcoef}
-  \rho(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})
+  \ac{coef-correlation}(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})
       = \frac{\sum_{j=1}^{n}(r_{\R{eor},j} - \bar{r}_{\R{eor}})
-      (x_{\R{eor},j} - \bar{x}_{\R{eor}})}{
-        \sqrt{\sum_{j=1}^{n}(r_{\R{eor},j} - \bar{r}_{\R{eor}})^2
-          \sum_{j=1}^{n}(x_{\R{eor},j} - \bar{x}_{\R{eor}})^2}
-    },
+            (x_{\R{eor},j} - \bar{x}_{\R{eor}})}{
+          \sqrt{\sum_{j=1}^{n}(r_{\R{eor},j} - \bar{r}_{\R{eor}})^2
+            \sum_{j=1}^{n}(x_{\R{eor},j} - \bar{x}_{\R{eor}})^2}
+        } ,
 \end{equation}
-where
-$\bar{r}_{\R{eor}}$ and $\bar{x}_{\R{eor}}$ represent the mean
-values of $\B{r}_{\R{eor}}$ and $\B{x}_{\R{eor}}$, respectively, and $n$
-is the length of the signals.
-The closer to one the correlation coefficient
-$\rho(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})$ is,
-the better the achieved performance.
+其中
+$\bar{r}_{\R{eor}}$ 和 $\bar{x}_{\R{eor}}$ 分别表示
+$\B{r}_{\R{eor}}$ 和 $\B{x}_{\R{eor}}$ 的平均值，
+$n$ 是信号的长度.
+\acl{coef-correlation}
+$\ac{coef-correlation}(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})$ 越接近于 1，
+则表示重建的 EoR 信号越准确，\ac{cdae} 的性能也就越好.
 
 
 %=====================================================================
