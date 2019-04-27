@@ -24,7 +24,7 @@ SKA1-Low 观测图像，我们可以定量地评估射电晕将对 EoR 探测产
   \includegraphics[width=\textwidth]{ft-sidelobes}
   \bicaption[加窗前后的 Fourier 变换结果对比]{%
     直接进行 Fourier 变换（红色实线）与
-    使用 Blackman--Nuttall \acs*{winfunc}之后再 Fourier 变换（蓝色虚线）
+    使用 Blackman--Nuttall \acs*{f-window}之后再 Fourier 变换（蓝色虚线）
     的结果对比.
     左栏显示了加窗前后的输入信号 $y = (x/158)^{-2}$，
     右栏显示了相应的 Fourier 变换结果.
@@ -43,8 +43,8 @@ SKA1-Low 观测图像，我们可以定量地评估射电晕将对 EoR 探测产
 即使输入信号非常平滑，Fourier 变换后也会出现一系列幅度较大的高频 Fourier 成分，
 如\autoref{fig:ft-sidelobes} 所示.
 为了抑制边界效应所产生的\ac{sidelobe}，可以先对信号加窗，然后再进行 Fourier 变换.
-一个常用的选择是 Blackman--Nuttall \ac{winfunc}，
-该\ac{winfunc}具有良好的\ac{sidelobe}性质 \cite{nuttall1981}：
+一个常用的选择是 Blackman--Nuttall \ac{f-window}，
+该\ac{f-window}具有良好的\ac{sidelobe}性质 \cite{nuttall1981}：
 \begin{equation}
   w[n] = a_0 - a_1 \cos\left(\frac{2\Cpi n}{N}\right)
     + a_2 \cos\left(\frac{4\Cpi n}{N}\right)
@@ -57,10 +57,10 @@ $a_0 = \num{0.3635819}$,
 $a_1 = \num{0.4891775}$,
 $a_2 = \num{0.1365995}$,
 $a_3 = \num{0.0106411}$.
-\autoref{fig:ft-sidelobes} 显示了使用 Blackman--Nuttall \ac{winfunc}
+\autoref{fig:ft-sidelobes} 显示了使用 Blackman--Nuttall \ac{f-window}
 之后得到的 Fourier 变换结果，可见高频 Fourier 成分的幅度被有效地抑制了.
 因此，我们对\autoref{chap:simulation}模拟得到的\ac{imgcube}沿频率方向施加
-Blackman--Nuttall \ac{winfunc}然后再计算\ac{ps}
+Blackman--Nuttall \ac{f-window}然后再计算\ac{ps}
 \cite{trott2015,chapman2016}.
 
 
