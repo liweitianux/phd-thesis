@@ -378,186 +378,137 @@ $\ac{coef-correlation}(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})$ 越接近于 1，
 %=====================================================================
 \section{新算法的演示}
 
-experiment, demonstration
+为了演示和评估基于\ac{dl}的新算法
+（即我们在 \autoref{sec:architecture} 设计的 \ac{cdae}）的性能，
+我们首先针对 SKA1-Low 模拟得到\enquote{观测}图像 (\autoref{sec:cdae-images})，
+然后对模拟图像进行预处理，生成 \ac{cdae} 所需的\ac{ds} (\autoref{sec:preprocessing})，
+接着训练 \ac{cdae} 并评估其性能 (\autoref{sec:cdae-results})，
+最后进一步验证 \ac{cdae} 的学习能力和效果 (\autoref{sec:cdae-validation}).
 
 %---------------------------------------------------------------------
-\subsection{数据集}
-\label{sec:cdae-dataset}
+\subsection{观测图像模拟}
+\label{sec:cdae-images}
 
-We carry out end-to-end simulations to generate the SKA images to
-train the proposed CDAE and evaluate its performance.
-A representative frequency band, namely \SIrange{154}{162}{\MHz}, is chosen
-as an example \cite{datta2010} and is divided into $n_f = 101$
-channels with a resolution of \SI{80}{\kHz}.
-At each frequency channel, the sky maps of the foreground emission and the
-EoR signal are simulated within an area of \SI{10 x 10}{\degree} and are
-pixelized into \num{1800 x 1800} with a pixel size of \SI{20}{\arcsecond}.
+取 \SIrange{154}{162}{\MHz} 这一典型频带为例 \cite{datta2010}，
+将其分成 $n_f = 101$ 个宽度为 \SI{80}{\kHz} 的频率\ac{channel}.
+相比 \autoref{sec:obs-simu}，
+我们将频率分辨率从 \SI{160}{\MHz} 提高到了 \SI{80}{\MHz}，
+这样能够保留更多的频谱信息，有助于 EoR 信号的分离.
+
+利用已在\autoref{chap:simulation}中详细描述的方法，
+我们模拟了 EoR 信号 (\autoref{sec:simu-eor})
+和前景辐射在每一个频率\ac{channel}里的\ac{skymap}.
+其中前景辐射包括了银河系的\ac{rad-syn}和\ac{rad-ff} (\autoref{sec:simu-galactic})、
+河外点源 (\autoref{sec:simu-eg-point})
+以及星系团射电晕 (\autoref{sec:simu-halos}).
+所有\ac{skymap}覆盖的天区大小为 \SI{10 x 10}{\degree}，
+图像尺寸为 \num{1800 x 1800}，对应于 \SI{20}{\arcsecond} 的像素大小.
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{eor-fg-obsimg-158}
-  \bicaption[EoR 信号和前景在 \SI{158}{\MHz} 的模拟图像]{%
-    TODO...
+  \bicaption[EoR 信号和前景辐射在 \SI{158}{\MHz} 的模拟图像]{%
+    EoR 信号（左栏）和前景辐射（右栏）在 \SI{158}{\MHz} 的模拟图像.
+    两张图像的尺寸均为 \num{360 x 360} 并且覆盖天区的大小均为  \SI{2 x 2}{\degree}.
+    右栏前景辐射图像中的斑点为明亮的点源和射电晕.
   }{%
     Simulated images of the EoR signal (left panel) and the foreground
     emission (right panel) at \SI{158}{\MHz}.
     Both images have sizes of \num{360 x 360} and cover sky areas of
     \SI{2 x 2}{\degree}.
     The blobs in the right panel show the bright point sources and radio
-    haloes.
+    halos.
   }
   \label{fig:eor-fg-obsimg}
 \end{figure}
 
-Based on our previous work \cite{wang2010}, we simulate the foreground
-emission by taking into account the contributions from the Galactic
-synchrotron and free-free radiations, extragalactic point sources, and
-radio haloes.
-The Galactic synchrotron radiation is simulated by extrapolating the Haslam
-\SI{408}{\MHz} map with a power-law spectrum, the index of which is given
-by the synchrotron spectral index map \cite{giardino2002} to account for
-its variation with sky positions.
-The reprocessed Haslam \SI{408}{\MHz} map\footnote{%
-  The reprocessed Haslam \SI{408}{\MHz} map:
-  \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}}
-\cite{remazeilles2015}, which has significantly better instrument
-calibration and more accurate extragalactic source subtraction,
-is used as the template to obtain enhanced simulation results over
-\citet{wang2010}.
-By employing the tight relation between the Hα and free-free
-emissions （参见 \citeay{dickinson2003} 及其所引文献）,
-the Galactic free-free radiation can be derived from the Hα survey map
-\cite{finkbeiner2003}.
-Since the Galactic diffuse emissions vary remarkably across the sky, we
-simulate them at a central position of (R.A., Dec.\@) = (\SI{0}{\degree},
-\SI{-27}{\degree}), which has a high galactic latitude
-($b = \SI{-78.5}{\degree}$) and is an appropriate choice for the simulation
-of SKA images \cite{beardsley2016}.
-We account for the following 5 types of extragalactic point sources:
-(1) star-forming and starburst galaxies, (2) radio-quiet active galactic
-nuclei (AGNs), (3) Fanaroff-Riley type I and type II AGNs, (4) GHz-peaked
-spectrum AGNs, and (5) compact steep spectrum AGNs.
-The former three types of sources are simulated by utilising the data
-published by \citet{wilman2008} and the latter two types are simulated by
-employing their corresponding luminosity functions and spectral models.
-Similar to the real-time peeling of the brightest point sources in
-practical data analysis pipelines \cite{mitchell2008,intema2009},
-we assume that sources with a \SI{158}{\MHz} flux density
-$S_{158} > \SI{10}{\mJy}$ have been removed \cite{liu2009ps}.
-The radio haloes are simulated by generating a sample of galaxy clusters
-with the Press-Schechter formalism \cite{press1974} and then applying
-multiple scaling relations (e.g., between cluster mass and X-ray
-temperature, between X-ray temperature and radio power) to derive their
-radio emissions.
+为了在模拟的\ac{skymap}中整合实际的波束效应，
+我们按照 \autoref{sec:obs-simu} 所述方法对\ac{skymap}开展模拟观测，
+获得了 SKA1-Low 的\enquote{观测}图像.
+不过，我们根据这里的具体需求对 \autoref{sec:obs-simu} 的模拟方法进行了若干微调，
+具体如下：
+\begin{itemize}
+  \item 因为我们只区分 EoR 信号和前景辐射，
+    所以将所有前景成分的\ac{skymap}叠加起来再输入 \texttt{OSKAR} 模拟；
+  \item 假定 \SI{158}{\MHz} 流量密度 $S_{158} > \SI{10}{\mJy}$
+    的河外点源已被全部去除 \cite{liu2009ps}；
+  \item 为了强调暗弱而且比较弥散的 EoR 信号，
+    我们在使用 \texttt{WSClean} 成像时选择了自然权重 (natural weighting)，
+    同时将基线范围限制在 \numrange{30}{1000} 个波长；
+  \item 为了得到最佳的图像质量，我们只切取中央 \SI{2 x 2}{\degree}
+    的区域，对应的图像尺寸为 \num{360 x 360}.
+\end{itemize}
+这样，我们得到了一对尺寸为 \num{360 x 360 x 101} 的\ac{imgcube}：
+EoR 信号 $C_{\R{eor}}^{(1)}$ 和前景辐射 $C_{\R{fg}}^{(1)}$.
+\autoref{fig:eor-fg-obsimg} 展示了两者在中心频率 \SI{158}{\MHz} 的模拟图像.
 
-In regard to the simulation of the EoR signal, we take advantage of the
-2016 data release from the
-\textit{Evolution Of 21\,cm Structure} project\footnote{%
-  Evolution Of 21\,cm Structure:
-  \url{http://homepage.sns.it/mesinger/EOS.html}}
-\cite{mesinger2016} and extract the image slices at corresponding
-redshifts (i.e., frequencies) from the light-cone cube of the recommended
-`faint galaxies' case.
-The extracted image slices are then re-scaled to match the sky coverage and
-pixel size of the foreground maps.
-
-To incorporate the realistic frequency-dependent beam effects into the
-simulated sky maps, we further adopt the latest SKA1-Low layout
-configuration\footnote{\raggedright%
-  SKA1-Low layout:
-  \url{https://astronomers.skatelescope.org/wp-content/uploads/2016/09/SKA-TEL-SKO-0000422_02_SKA1_LowConfigurationCoordinates-1.pdf}}
-to simulate instrument observations.
-The SKA1-Low interferometer is composed of 512 stations, each of which
-contains 256 antennas randomly distributed inside a circle of
-\SI{35}{\meter} in diameter.
-The 512 stations are divided into two parts:
-(1) 224 stations are randomly distributed within the `core' region of
-\SI{1000}{\meter} in diameter;
-(2) the remaining stations are placed on 3 spiral arms extending up to a
-radius of about \SI{35}{\kilo\meter}.
-For each sky map, we employ the \textsc{OSKAR}\footnote{%
-  OSKAR: \url{https://github.com/OxfordSKA/OSKAR} (version 2.7.0)}
-simulator \cite{mort2010} to perform 6-hour synthesis imaging
-to obtain the visibility data, from which the `observed'
-image is created by the \textsc{WSClean}\footnote{%
-  WSClean: \url{https://sourceforge.net/p/wsclean} (version 2.5)}
-imager \cite{offringa2014}.
-In order to emphasize the faint and relatively diffuse EoR signal, the
-natural weighting and baselines of \numrange{30}{1000} wavelengths are
-utilised in the imaging process.
-Finally, the created images are cropped to keep only the central
-\SI{2 x 2}{\degree} regions (i.e., \num{360 x 360} pixels) for the
-purpose of the best quality.
-Therefore, we obtain a pair of image cubes of size
-\num{360 x 360 x 101} for the EoR signal $\left( C_{\R{eor}}^{(1)} \right)$
-and the foreground emission $\left( C_{\R{fg}}^{(1)} \right)$, respectively
-(see \autoref{fig:eor-fg-obsimg} for the simulated images at the
-central frequency of \SI{158}{\MHz}).
-To better illustrate the impacts of beam effects on the foreground spectra,
-we take one random sky pixel as an example and show the foreground
-spectra with and without the beam effects in \autoref{fig:cdae-simdata}, where
-the corresponding differential spectra (i.e., differences between every
-two adjacent frequency channels) and the EoR signal spectrum are also
-plotted.
-Compared to the ideal sky foreground (the top panel), the spectral
-smoothness of the `observed' foreground (the middle panel) is seriously
-damaged by the rapid fluctuations resulted from the beam effects.
-Although such fluctuations exhibit somewhat similar spectral scales
-($< \SI{1}{\MHz}$) as the EoR signal (the bottom panel), they are
-still sufficiently different, which can be exploited by the CDAE to achieve
-an effective separation.
-We note that the `observed' foreground has an amplitude of about two orders
-of magnitude smaller than the ideal foreground, the major reason for which
-is that interferometers are only sensitive to the spatial fluctuations of
-the emission \cite{braun1985}.
+为了突出显示波束效应对前景辐射的频谱的影响，我们随机地选取一个天空像素点为例，
+然后对比有无波束效应的情况下前景辐射的频谱变化，如\autoref{fig:cdae-simdata} 所示，
+其中还显示了相应的差分频谱（即相邻两个频谱\ac{channel}的差值）以及 EoR 信号的频谱.
+可以看出，前景辐射的本征频谱是非常光滑的（上栏），
+但是在复杂的波束效应的影响下出现了许多小幅度、小尺度 (\SI{< 1}{\MHz}) 的涨落（中栏），
+因此，频谱的光滑性受到了严重损坏.
+尽管这些小尺度的涨落与 EoR 信号（下栏）具有一些相似的频谱特征，
+但两者之间仍然具有足够的可区分度，可以被 \ac{cdae} 发掘出来并用于 EoR 信号的分离.
+此外，\autoref{fig:cdae-simdata} 还显示出\enquote{观测}的前景辐射（中栏）
+的强度相比原来的理想情况（上栏）约小 2 个数量级，
+导致这个差异的主要原因是因为干涉阵列无法测量天空辐射的绝对强度，
+只能响应辐射的空间涨落 \cite{braun1985}.
 
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=0.9\textwidth]{cdae-simdata-example}
+  \includegraphics[width=0.85\textwidth]{cdae-simdata-example}
   \bicaption[前景辐射和 EoR 信号的频谱示例]{%
-    TODO...
+    随机取一个天空像素点为例，得到的前景辐射和 EoR 信号的频谱.
+    \uline{（上栏）}
+    理想的（即没有波束效应）前景辐射频谱（蓝线）以及相应的差分频谱（红线）.
+    \uline{（中栏）}
+    仪器\enquote{观测}的（即包含波束效应）前景辐射频谱（蓝线）以及相应的差分频谱（红线）.
+    \uline{（下栏）}
+    EoR 信号的频谱（绿线）.
   }{%
     Example spectra of the foreground emission and the EoR signal for one
     random sky pixel.
-    \textbf{Top}: the ideal (i.e., without beam effects) foreground
-    spectrum (the blue line) and the corresponding differential spectrum
-    (the red line).
-    \textbf{Middle}: the `observed' (i.e., with beam effects) foreground
-    spectrum (the blue line) and the corresponding differential spectrum
-    (the red line).
-    \textbf{Bottom}: the EoR signal spectrum (the green line).
+    \emph{(Upper)} The ideal (i.e., without beam effects) foreground
+    spectrum (blue line) and the corresponding differential spectrum
+    (red line).
+    \emph{(Middle)} The \enquote{observed} (i.e., with beam effects)
+    foreground spectrum (blue line) and the corresponding
+    differential spectrum (red line).
+    \emph{(Lower)} The EoR signal spectrum (green line).
   }
   \label{fig:cdae-simdata}
 \end{figure}
 
-Considering that the training and evaluation of the CDAE require three
-datasets (i.e., training, validation, and test; \autoref{sec:train-eval}),
-if there are only one pair of image cubes, the test set $S_{\R{test}}$
-could only contain a small fraction of all the pixels that are randomly
-distributed on the sky, from which it is impossible to obtain a complete
-image of the reconstructed EoR signal.
-Consequently, it is beneficial to simulate another pair of image cubes
-that are solely used as the test set.
-To this end, we simulate the Galactic diffuse radiations at a central
-coordinate of (R.A., Dec.\@) = (\SI{3}{\degree}, \SI{-27}{\degree}), i.e.,
-\SI{3}{\degree} away from the first pair of image cubes, which is
-sufficient because the finally cropped image cubes only cover a sky area of
-\SI{2 x 2}{\degree}.
-Since extragalactic point sources, radio haloes, and the EoR signal are
-mostly isotropic, we shift their sky maps simulated above by
-\SI{3}{\degree} to generate the new sky maps.
-Following the same procedures to simulate instrument observations, we
-obtain the second pair of image cubes
+训练和评估 \ac{cdae} 需要三个\ac{ds}，
+分别为\acl{s-training}、\acl{s-validation} 和\acl{s-test}
+(\autoref{sec:train-eval})，
+如果只有一对\ac{imgcube}，那么\acl{s-test} \ac{s-test} 只能包含一小部分的像素点的数据，
+而且这些像素点随机地分布在天空平面里.
+在 \ac{cdae} 的测试阶段 (\autoref{sec:cdae-results})，
+利用这样一个\acl{s-test} \ac{s-test} 重建得到的 EoR 信号无法构成完整的
+（甚至局部完整的）\ac{imgcube}，
+从而无法通过图像和\ac{ps}直观地展示 \ac{cdae} 分离 EoR 信号的效果.
+因此，为\acl{s-test} \ac{s-test} 再额外模拟一对\ac{imgcube}能够解决上述问题.
+由于最终经过切取的\ac{imgcube}所覆盖的天区大小仅有 \SI{2 x 2}{\degree}，
+我们设第二对\ac{imgcube}的中心坐标为
+(R.A., Dec.\@) = (\SI{3}{\degree}, \SI{-27}{\degree})，
+即与第一对\ac{imgcube}
+$\left( C_{\R{eor}}^{(1)}, C_{\R{fg}}^{(1)} \right)$
+的中心相距 \SI{3}{\degree}.
+具体而言，我们以 (R.A., Dec.\@) = (\SI{3}{\degree}, \SI{-27}{\degree})
+为中心模拟了银河系弥散辐射（\ac{rad-syn}和\ac{rad-ff}）的\ac{skymap}；
+因为河外点源、射电晕以及 EoR 信号的空间分布几乎是各向同性的，
+所以我们将它们原来的\ac{skymap}平移 \SI{3}{\degree} 得到所需的新\ac{skymap}.
+然后，遵循相同的模拟观测方法，我们得到了第二对\ac{imgcube}
 $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$.
 
-We note that the simulations do not include thermal noise because the
-proposed method is designed to create tomographic EoR images from very deep
-observations that have a sufficiently low noise level.
-The SKA1-Low is planned to observe each of the target fields for
-about \SI{1000}{\hour}, reaching an unprecedented image noise level of
-$\,\lesssim \SI{1}{\mK}$ that allows to directly image the reionization
-structures
-\cite{mellema2013,mellema2015,koopmans2015}.
+鉴于我们所提出的新算法适用于 EoR \ac{tomography}，
+要求极深度的观测以达到足够低的噪声水平.
+比如，SKA1-Low 计划筛选 5 个 EoR 天区，然后对每个天区观测约 \SI{1000}{\hour}，
+达到空前的约小于 \SI{1}{\mK} 的亮度灵敏度 [\autoref{eq:sigma-tb}]，
+从而实现 EoR 区域的直接成像观测 \cite{mellema2013,mellema2015,koopmans2015}.
+因此，我们没有在上述模拟中包含仪器的热噪声.
 
 %---------------------------------------------------------------------
 \subsection{数据预处理}
