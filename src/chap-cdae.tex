@@ -514,50 +514,70 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$.
 \subsection{数据预处理}
 \label{sec:preprocessing}
 
-The dataset $S = \{(\B{x}, \,\B{x}_{\R{eor}})\}$ for the CDAE is derived
-from the simulated image cubes $C_{\R{eor}}$ and $C_{\R{fg}}$, each data
-point $(\B{x} = \B{x}_{\R{eor}} + \B{x}_{\R{fg}}, \,\B{x}_{\R{eor}})$
-representing the total emission and the EoR signal of one sky pixel,
-respectively.
-The dataset thus has $N_S = \num{360x360 x 2} = \num{259200}$
-data points in total.
+按照天空像素点将 \autoref{sec:cdae-images} 模拟得到的\ac{imgcube}重新组织，
+形成一系列数据点 $\left( \B{x}^{(i)}, \,\B{x}^{(i)}_{\R{eor}} \right)$，
+其中 $\B{x}^{(i)}_{\R{eor}}$ 和
+$\B{x}^{(i)} = \B{x}^{(i)}_{\R{eor}} + \B{x}^{(i)}_{\R{fg}}$
+分别表示像素点 $i$ 的 EoR 信号和总辐射的频谱.
+数据点的总数为 $N_S = \num{360x360 x 2} = \num{259200}$，
+这些数据点组成了训练和评估 \ac{cdae} 所需的\ac{ds}
+$S = \left\{ \left(\B{x}^{(i)}, \,\B{x}^{(i)}_{\R{eor}} \right) \right\}$.
+但是，\ac{cdae} 在使用该数据集 $S$ 时，
+需要分别对输入的总辐射 $X = \big\{ \B{x}^{(i)} \big\}$
+以及 EoR 信号 $X_{\R{eor}} = \big\{ \B{x}^{(i)}_{\R{eor}} \big\}$
+进行合适的预处理.
 
-For the input data $X = \{\B{x}\}$, we propose to apply the
-Fourier Transform (FT) along the frequency dimension,
-which makes the EoR signal more distinguishable from the
-foreground emission and thus easier to be learned by the CDAE
-(a comparison with the results derived without applying the FT is
-presented in \autoref{sec:why-ft}).
-The Blackman--Nuttall window function is applied to suppress the
-FT side-lobes caused by the sharp discontinuities at both ends
-of the finite frequency band \cite{chapman2016}.
-It is sufficient to keep only half the Fourier coefficients because
-$\B{x}$ is real, thus $\B{x}$ of length $n_f = 101$ is transformed to
-be 51 complex Fourier coefficients.
-The $n_{\R{ex}}$ coefficients of the lowest Fourier frequencies are
-excised since they are mostly contributed by the spectral-smooth
-foreground emission.
-We adopt $n_{\R{ex}} = 6$ to achieve a balance between the
-foreground emission suppression and the EoR signal loss.
-The real and imaginary parts of the remaining 45 complex coefficients
-are then concatenated into a new real vector of length $n_d = 90$,
-since the CDAE requires real data.
-Finally, the data are zero-centred and normalised to have unit variance.
+对于输入数据 $X = \big\{ \B{x}^{(i)} \big\}$，
+我们提出首先对信号 $\B{x}^{(i)}$ 进行 Fourier 变换.
+这样可以提高 EoR 信号与前景辐射之间的可分度，
+于是 \ac{cdae} 能够更容易、更好地学习两者之间的差异.
+（我们将在 \autoref{sec:why-ft} 讨论不使用 Fourier 变换预处理数据时所得到的结果.）
+由于信号 $\B{x}^{(i)}$ 的长度为 $n_f = 101$ 是有限的，
+为了抑制信号的边界效应使 Fourier 变换产生显著的\ac{sidelobe}
+(\autoref{sec:eval-method})，
+我们在 Fourier 变换前对信号 $\B{x}^{(i)}$ 施加 Blackman--Nuttall \ac{f-window}
+\cite{chapman2016} [\autoref{eq:bn-window}].
+因为信号 $\B{x}^{(i)}$ 全部由实数组成，
+所以变换后的 Fourier 系数 $\hat{x}^{(i)}_{f}$ 具有以下对称关系：
+\begin{equation}
+  \hat{x}^{(i)}_{f} \equiv \hat{x}^{*(i)}_{-f} ,
+\end{equation}
+其中 $f$ 表示 Fourier 频率，\enquote{$*$} 为\ac{conjugate}算符.
+因此，只需要保留一半的 Fourier 系数即可.
+于是，长度为 $n_f = 101$ 的信号 $\B{x}^{(i)}$ 变换为
+$n_c = 51$ 个复 Fourier 系数：
+\begin{equation}
+  \left( \hat{x}^{(i)}_f; \; f = 0, 1, \cdots, 50 \right) ,
+\end{equation}
+其中，Fourier 频率 $f$ 最小的几个系数主要由频谱光滑的前景辐射贡献，
+因此可以通过排除这几个 Fourier 系数来抑制前景干扰.
+为了平衡前景辐射的抑制效果和 EoR 信号的损失程度，
+经过测试，我们选择排除 $n_{\R{ex}} = 6$ 个 Fourier 频率最小的系数，
+于是剩下的 45 个 Fourier 系数为：
+\begin{equation}
+  \left( \hat{x}^{(i)}_f; \; f = 6, 7, \cdots, 50 \right) .
+\end{equation}
+因为 \ac{cdae} 只能处理实数，
+所以我们将这些复 Fourier 系数的实部和虚部分开，
+设 $\hat{x}^{(i)}_f = a_f + \Ci\,b_f$，
+然后重新拼接成一个长度为 $n_d = 90$ 的实矢量：
+\begin{equation}
+  (a_6, a_7, \cdots, a_{49}, a_{50},
+   b_{50}, b_{49}, \cdots, b_7, b_6) .
+\end{equation}
+最后，将数据标准化，使其平均值为 0、标准差为 1.
 
-The preprocessing steps for the input EoR signal
-$X_{\R{eor}} = \{\B{x}_{\R{eor}}\}$
-are basically the same except for minor adjustments.
-After applying the FT, excising the $n_{\R{ex}}$ lowest Fourier
-components, and concatenating the real and imaginary parts,
-the data elements that have a value less than the 1$^{\R{st}}$
-percentile or greater than the 99$^{\R{th}}$ percentile are truncated,
-in order to prevent the possible outliers from hindering the training of
-the CDAE.
-Finally, the value range of the data is scaled to $[-1, 1]$ by
-dividing by the maximum absolute value,
-which allows to use the `tanh' activation function whose value range
-is also $[-1, 1]$ in the output layer of the proposed CDAE
-(\autoref{sec:architecture}).
+对于输入的 EoR 信号 $X_{\R{eor}} = \big\{ \B{x}^{(i)}_{\R{eor}} \big\}$，
+我们首先使用与上述 $X$ 相同的预处理方法：
+进行 Fourier 变换，接着去除 $n_{\R{ex}}$ 个 Fourier 频率最小的系数，
+再将复 Fourier 系数的实部和虚部拼接成实矢量.
+后续的预处理步骤则与 $X$ 的预处理方法有所不同.
+计算数据的第 1 和第 99 \ac{percentile}，
+然后将小于第 1 \ac{percentile}以及大于第 99 \ac{percentile}的元素截断，
+用来防止数据中可能存在的\ac{outlier}阻碍 \ac{cdae} 的训练.
+最后，将数据除以其最大绝对值，使其数值范围为 $[-1, 1]$.
+这种处理方法允许我们在 \ac{cdae} 的输出层使用值域同样为 $[-1, 1]$
+的 \enquote{tanh} 函数作为\ac{f-activation} (\autoref{sec:architecture}).
 
 %---------------------------------------------------------------------
 \subsection{训练和结果}

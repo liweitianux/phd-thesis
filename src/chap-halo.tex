@@ -8,6 +8,7 @@
 
 %=====================================================================
 \section{评估方法}
+\label{sec:eval-method}
 
 利用\autoref{chap:simulation}模拟得到的射电晕、EoR 信号以及其他前景成分的
 SKA1-Low 观测图像，我们可以定量地评估射电晕将对 EoR 探测产生的影响.
@@ -46,6 +47,7 @@ SKA1-Low 观测图像，我们可以定量地评估射电晕将对 EoR 探测产
 一个常用的选择是 Blackman--Nuttall \ac{f-window}，
 该\ac{f-window}具有良好的\ac{sidelobe}性质 \cite{nuttall1981}：
 \begin{equation}
+  \label{eq:bn-window}
   w[n] = a_0 - a_1 \cos\left(\frac{2\Cpi n}{N}\right)
     + a_2 \cos\left(\frac{4\Cpi n}{N}\right)
     - a_3 \cos\left(\frac{6\Cpi n}{N}\right) ,
