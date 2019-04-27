@@ -708,6 +708,7 @@ model that is optimised to accurately separate the faint EoR signal
 
 %---------------------------------------------------------------------
 \subsection{进一步验证}
+\label{sec:cdae-validation}
 
 With the purpose of further validating that the trained CDAE has actually
 learned the useful features of the EoR signal, we employ the occlusion
@@ -840,7 +841,7 @@ Then by subtracting the fitted smooth component, which is regarded as
 the foreground emission, the EoR signal is expected to be uncovered.
 Using the same image cubes
 $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$
-simulated in \autoref{sec:cdae-dataset},
+simulated in \autoref{sec:cdae-images},
 we have tested polynomials of the degree from 2 (quadratic) to
 5 (quintic), and find that the quartic polynomial (degree of 4)
 can give the best result.
