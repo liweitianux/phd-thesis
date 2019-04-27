@@ -246,7 +246,7 @@ $\B{x}$、$\B{h}$ 和 $\B{r}$ 在本工作中均为一维矢量.
         由一个四层的\acs*{encoder}和一个五层的\acs*{decoder}组成.
         黄色和蓝色方框分别表示\acs*{encoder}和\acs*{decoder}输出的\acs*{fv} (FV)，
         方框下方的数字表示相应的卷积层所包含\acs*{filter}的数目.
-        除了最后一层，其他层均使用了\acs*{bn} (BN) 技术.
+        除了最后一层，其他层均使用了\acs*{batch-norm} (BN) 技术.
       }{%
         The architecture of the proposed CDAE that consists of a
         four-layer encoder and a five-layer decoder.
@@ -290,7 +290,7 @@ $\left(\left\{ \B{v}_{i}^{(l)} \right\};\, i = 1, 2, \cdots, m_l \right)$.
 并且使用\ac{elu}作为\ac{f-activation} $\phi^{(l)}(\cdot)$ \cite{clevert2016}，
 除了最后一层（即\ac{ae}的输出层）的\ac{f-activation}为\ac{f-tanh} \enquote{tanh}
 （参见 \autoref{sec:preprocessing}）.
-此外，除了最后的输出层，其他层均使用了\ac{bn}技术 \cite{ioffe2015}.
+此外，除了最后的输出层，其他层均使用了\ac{batch-norm}技术 \cite{ioffe2015}.
 该技术不仅可以加快训练速度，提高模型的准确率，
 还能作为一个\ac{regularizer}预防\ac{overfitting} \cite{geron2017}.
 
