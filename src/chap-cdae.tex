@@ -377,6 +377,7 @@ $\ac{coef-correlation}(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})$ 越接近于 1，
 
 %=====================================================================
 \section{新算法的演示}
+\label{sec:cdae-demo}
 
 为了演示和评估基于\ac{dl}的新算法
 （即我们在 \autoref{sec:architecture} 设计的 \ac{cdae}）的性能，
@@ -824,44 +825,50 @@ $N_{\R{val}}$ 是\acl{s-validation} \ac{s-validation} 包含的数据点数目.
 %=====================================================================
 \section{讨论}
 
-TODO
-
 %---------------------------------------------------------------------
 \subsection{为什么使用 Fourier 变换预处理数据？}
 \label{sec:why-ft}
 
-We perform another experiment using the same CDAE architecture,
-datasets, and data preprocessing steps, but without
-applying the FT as depicted in \autoref{sec:preprocessing}.
-After training the CDAE in the same way as described in
-\autoref{sec:cdae-results}, the correlation coefficient between the
-reconstructed and input EoR signals evaluated on the test set
-$S_{\R{test}}$ reaches only $\bar{\rho}_{\R{noft}} = \num{0.628 +- 0.167}$,
-which indicates a significantly worse performance compared to the case with
-FT applied.
-As presented in \autoref{fig:cdae-train-noft}, the training loss decreases more
-slowly and converges after about 100 epochs.
-We also find that the training process is slightly unstable given the small
-spikes on the curves of both the loss and correlation coefficient.
-These indicate that it is beneficial to preprocess the
-dataset by applying the FT along the frequency dimension, because the
-EoR signal and the foreground emission become more distinguishable
-in the Fourier domain, where the fluctuating EoR signal concentrates on
-larger Fourier modes while the spectral-smooth foreground emission
-distributes mainly on smaller Fourier modes \cite{parsons2012}.
+为了说明使用 Fourier 变换预处理数据 (\autoref{sec:preprocessing}) 的优势，
+我们开展了一次对比实验.
+与 \autoref{sec:cdae-demo} 的演示唯一的区别是：
+没有在数据预处理阶段运用 Fourier 变换.
+我们使用相同的 \ac{cdae} 架构、\ac{ds}以及训练方法，
+得到的训练结果如\autoref{fig:cdae-train-noft} 所示.
+我们发现，\acl{loss-training} \ac{loss-training} 减小的速度更慢，
+大约经过 100 个\ac{epoch}才收敛.
+同时，从\acl{s-validation} \ac{s-validation}
+计算得到的\acl{loss-validation} \ac{loss-validation} 以及
+\acl{coef-correlation} \ac{coef-correlation}
+的曲线上均有许多小\ac{spike}，
+表明 \ac{cdae} 的训练过程有一点不稳定.
+这种现象在 \autoref{sec:cdae-demo} 的演示以及\autoref{fig:cdae-train}
+中是没有的.
+此外，使用\acl{s-test} \ac{s-test} 来评估 \ac{cdae} 的性能可得，
+\ac{cdae} 重建的与输入的 EoR 信号之间的平均\acl{coef-correlation}仅有
+$\bar{\rho}_{\R{noft}} = \num{0.628 +- 0.167}$，
+显著差于 \autoref{sec:cdae-results} 的结果.
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{cdae-train-noft}
-  \bicaption[在未经 Fourier 变换预处理的数据集上训练 CDAE 得到的结果]{%
-    TODO... \autoref{fig:cdae-train}
+  \bicaption[在未使用 Fourier 变换预处理的数据集上训练 CDAE 得到的结果]{%
+    CDAE 的训练过程和结果.
+    与\autoref{fig:cdae-train} 类似，
+    但是所用\acs*{ds}在预处理过程中没有运用 Fourier 变换.
   }{%
-    Same as Fig.~\ref{fig:cdae-train} but for the case that the data are
-    preprocessed without applying the FT.
+    The training process and result of the CDAE.
+    Similar to Fig.~\ref{fig:cdae-train} but for the case that
+    the data are preprocessed without applying the Fourier Transform.
   }
   \label{fig:cdae-train-noft}
 \end{figure}
 
+这些结果说明在\ac{ds}的预处理阶段运用 Fourier 变换是非常有帮助的.
+将 EoR 信号和前景辐射的频谱信号变换到 Fourier 空间后，
+EoR 信号主要分布在较大的 Fourier \ac{mode}里，
+而频谱光滑的前景辐射则比较集中在较小的 Fourier \ac{mode}里 \cite{parsons2012}，
+所以两者的可区分度提高了，从而能够更准确地被 \ac{cdae} 学习并分离.
 
 %---------------------------------------------------------------------
 \subsection{与传统方法的对比}
