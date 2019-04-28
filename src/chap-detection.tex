@@ -561,8 +561,8 @@ $P(\B{k}_{\perp}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}
 因此，可以将三维功率谱 $\ac{psD}(\B{k})$ 在一系列球壳里进行平均，
 得到\emph{一维\ac{ps}} $\ac{psD}(k)$ \cite{morales2004,datta2010}，
 其中 $k = |\B{k}| = \sqrt{|\B{k}_{\perp}|^2 + k_{\parallel}^2}$ 为球壳的半径.
-通过这种方式，EoR 信号的信息被有效地压缩到少量 Fourier 模式 (mode) 里，
-极大地提高了每个模式里 EoR 信号的\ac{snr}，
+通过这种方式，EoR 信号的信息被有效地压缩到少量 Fourier \ac{mode}里，
+极大地提高了每个\ac{mode}里 EoR 信号的\ac{snr}，
 从而大大降低了探测 EoR 信号的难度和所需的观测时间 \cite{datta2010}.
 
 但是，在实际观测中存在目前无法完全扣除的前景干扰.
@@ -571,7 +571,8 @@ $P(\B{k}_{\perp}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}
 因此，在三维功率谱上，前景的功率将被较好地约束在频率维度 ($\eta$ 或 $k_{\parallel}$)，
 但却弥散在整个空间维度 ($\B{u}$ 或 $\B{k}_{\perp}$)，
 如\autoref{fig:eor-fg-fourier} 右栏所示.
-当简单地对三维功率谱按球壳平均时，前景的功率将出现在所有的 $k$ 模式里，淹没 EoR 信号.
+当简单地对三维功率谱按球壳平均时，前景的功率将出现在所有的 $k$ \ac{mode}里，
+淹没 EoR 信号.
 
 \begin{figure}[htp]
   \centering
@@ -1110,7 +1111,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 \item \emph{前景回避法}:
 在二维功率谱 $P(\kperp, \klos)$ 上，
 频谱光滑的前景将主要分布在 \klos{} 较小的区域.
-尽管复杂的仪器效应和观测效应会导致前景污染被\enquote{泄漏}到 \klos{} 模式里，
+尽管复杂的仪器效应和观测效应会导致前景污染被\enquote{泄漏}到 \klos{} \ac{mode}里，
 占据二维功率谱的右下方一个楔形区域，但左上方的区域仍然几乎未受前景污染的影响，
 即 EoR 窗口（详见下文 \autoref{sec:eor-window}）.
 因此，\ac{fg-avd}法通过识别并避开受到前景污染的区域，从而实现提取 EoR 信号的目标.
@@ -1139,7 +1140,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 在二维功率谱 $\ac{psD}(\kperp, \klos)$ 上，
 频谱光滑的前景污染原则上只分布在 \klos{} 较小的区域.
 但是没有仪器是理想的，一些仪器效应和观测效应会将
-\kperp{} 模式里的功率\enquote{混合}到 \klos{} 模式里，
+\kperp{} \ac{mode}里的功率\enquote{混合}到 \klos{} \ac{mode}里，
 即\emph{\acf{mode-mixing}}效应，
 并且 \klos{} 受影响的范围与 \kperp{} 的大小成正相关，
 因此导致前景污染将占据二维功率谱的右下方一个楔形区域，
@@ -1235,9 +1236,9 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 如\autoref{fig:chromatic-baselines} 中的背景条纹所示.
 易知，点源偏离视场中心越远，产生的条纹越细.
 
-尽管辐射源的亮度不随频率变化（即只有 \kperp{} 模式），
+尽管辐射源的亮度不随频率变化（即只有 \kperp{} \ac{mode}），
 但是基线的\ac{chromatic-effect}导致观测的\ac{vis}数据将随频率涨落
-（即出现了 \klos{} 模式），所以称为\ac{mode-mixing}.
+（即出现了 \klos{} \ac{mode}），所以称为\ac{mode-mixing}.
 再结合\autoref{eq:baseline-u-nu}，
 可知因\ac{mode-mixing}引起的涨落在频率维度的变化周期为 \cite{morales2012}：
 \begin{equation}
@@ -1284,7 +1285,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 
 从上式可以清楚地看出，
 视场内每一个前景干扰源（如未准确扣除的点源）在二维功率谱上产生的污染分布在右下方的一条斜线上，
-\kperp{} 越大的模式被混合到 \klos{} 模式的范围也越大，形成\ac{fg-wedge}，
+\kperp{} 越大的\ac{mode}被混合到 \klos{} \ac{mode}的范围也越大，形成\ac{fg-wedge}，
 如\autoref{fig:fg-wedge-fov} 所示.
 另一方面，随着前景干扰源距离视场中心越来越远，其产生的污染区域也逐渐向左上方移动.
 因此，视场内距离中心最远的干扰源（设该距离为 $\Phi$）确定了\ac{fg-wedge}的边界，
