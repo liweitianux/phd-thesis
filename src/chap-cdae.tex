@@ -873,94 +873,62 @@ EoR 信号主要分布在较大的 Fourier \ac{mode}里，
 %---------------------------------------------------------------------
 \subsection{与传统方法的对比}
 
-A variety of methods have been proposed to remove the foreground
-contamination with the aim of revealing the faint EoR signal.
-These methods can be broadly classified into two categories:
-(1) parametric methods that apply a parametric model (e.g., a low-degree
-polynomial) to fit and remove the foreground emission
-\cite{wang2006,jelic2008,liu2009fgrm,wang2013,bonaldi2015};
-(2) non-parametric methods, which do not assume a specific parametric model
-for the foreground emission but exploit the differences between the
-foreground emission and the EoR signal (e.g., their different spectral
-features) to separate them
-\cite{harker2009,chapman2012,chapman2013,gu2013,mertens2018}.
+如 \autoref{sec:fg-methods} 所述，
+目前已有一批方法被提出来用于扣除强烈的前景污染从而分离出微弱的 EoR 信号，
+这些\ac{fg-rm}方法可大致分为两类：参数化方法和非参数化方法.
+为了进一步展示我们基于\ac{dl}设计的新算法的性能，
+我们从传统的\ac{fg-rm}方法中挑选了两种典型的方法进行对比，
+分别是多项式拟合法\cite{wang2006} 和\ac{cwt}法 \cite{gu2013}.
+多项式拟合法因为简单、可靠而被广泛使用 \cite{jelic2008,liu2009ps,pritchard2010}，
+并且常常作为基准与其他\ac{fg-rm}方法对比 \cite{harker2009,alonso2015,chapman2015}，
+是参数化方法类别中最具代表性的一种方法.
+在非参数化方法类别中，我们选取\ac{cwt}法是因为
+该方法与 Wp 平滑法 \cite{harker2009}、\ac{gmca}法 \cite{chapman2013}
+等其他非参数化方法性能相当，但是速度更快、使用更简单 \cite{gu2013,chapman2015}.
 
-In order to further demonstrate the performance of our method, we compare
-it to two representative traditional methods:
-the polynomial fitting method \cite{wang2006} and
-the continuous wavelet transform (CWT) method \cite{gu2013}.
-The polynomial fitting method is the best representative of the parametric
-methods because it is widely used due to its simplicity and robustness
-\cite{jelic2008,liu2009ps,pritchard2010}
-and has been compared to various other foreground removal methods
-\cite{harker2009,alonso2015,chapman2015}.
-Among the non-parametric category, the CWT method is chosen since it
-performs similarly well as other non-parametric methods, such as the
-Wp smoothing method \cite{harker2009} and the generalized morphological
-component analysis method \cite{chapman2013},
-meanwhile it is faster and simpler \cite{gu2013,chapman2015}.
+对于天空的每一个像素点 $i$，
+多项式拟合法使用一个低阶多项式来拟合该像素点的总辐射的频谱
+$\B{x}^{(i)} = \B{x}^{(i)}_{\R{eor}} + \B{x}^{(i)}_{\R{fg}}$，
+确定其中的光滑成分，并作为前景扣除，从而分离出其中的 EoR 信号 \cite{wang2006}.
+使用在 \autoref{sec:cdae-images} 模拟的\ac{imgcube}
+$\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$，
+我们测试了从二阶到五阶的多项式，发现四阶多项式达到的 EoR 信号分离的效果最佳.
+然而，使用四阶多项式拟合分离的 EoR 信号与输入 EoR 信号
+之间的平均\acl{coef-correlation}仍然仅有
+$\bar{\ac{coef-correlation}}_{\R{poly}} = \num{0.296 +- 0.121}$.
+因此，当前景频谱的光滑性受到仪器的波束效应损坏时，多项式拟合法难以有效地扣除前景污染.
 
-With the polynomial fitting method,
-a low-degree polynomial is fitted along the frequency dimension for each
-sky pixel in the image cube of the total emission (i.e.,
-$C_{\R{tot}} = C_{\R{eor}} + C_{\R{fg}}$).
-Then by subtracting the fitted smooth component, which is regarded as
-the foreground emission, the EoR signal is expected to be uncovered.
-Using the same image cubes
-$\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$
-simulated in \autoref{sec:cdae-images},
-we have tested polynomials of the degree from 2 (quadratic) to
-5 (quintic), and find that the quartic polynomial (degree of 4)
-can give the best result.
-However, the correlation coefficient calculated for the separated EoR
-signal in such a case is only
-$\bar{\rho}_{\R{poly}} = \num{0.296 +- 0.121}$,
-which indicates that the polynomial fitting method performs poorly in
-removing the foreground emission.
+与其他\ac{fg-rm}方法一样，\ac{cwt}法同样依赖于前景辐射与 EoR 信号具有显著不同的频谱结构.
+对于天空每一个像素点的总辐射的频谱，首先运用基于 Morlet 小波函数的\ac{cwt}，
+于是前景辐射和 EoR 信号因为频谱特征不同而在小波空间中占据不同的区域.
+在小波空间中，可以更容易地识别那些主要源自前景辐射的小波系数并将其扣除，
+然后再逆变换回观测频率空间，便得到已扣除前景污染的 EoR 信号 \cite{gu2013}.
+使用相同的\ac{imgcube}
+$\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$，
+我们通过调节\ac{cwt}法的参数以达到最佳的性能.
+于是，我们最终采用的参数为：
+最小缩放因子 $s_{\R{min}} = 7.4$，
+最大缩放因子 $s_{\R{max}} = 50.0$，
+缩放级数 $n_{\R{scale}} = 50$，
+以及\ac{coi} $c_i = 1.6$.
+但是，\ac{cwt}法分离的 EoR 信号与输入 EoR 信号之间的平均\acl{coef-correlation}仅有
+$\bar{\ac{coef-correlation}}_{\R{cwt}} = \num{0.198 +- 0.160}$.
+这个分离结果相比上述多项式拟合法的结果还要稍差一点，
+这与 \citeay{gu2013} 的对比结果不同.
+这主要是因为我们模拟的\ac{imgcube}的频带更窄、频率分辨率更差，
+所以在使用\ac{cwt}时产生了更严重的边界效应.
 
-The CWT method works based on the same assumption as other foreground
-removal methods that the foreground emission is spectrally smooth while the
-EoR signal fluctuates rapidly along the frequency dimension.
-After applying the CWT, the foreground emission and the EoR signal locate
-at different positions in the wavelet space because of their different
-spectral scales.
-Therefore, the foreground emission can be easily separated from the EoR
-signal and be removed \cite{gu2013}.
-For each sky pixel, the spectrum of the total emission is transformed into
-the wavelet space by applying the CWT with the Morlet wavelet function.
-In the wavelet space, after identifying and removing the coefficients that
-are mainly contributed by the foreground emission, the remaining
-coefficients are transformed back to the frequency space to obtain the
-spectrum with the foreground emission removed, which is expected to be the
-EoR signal.
-By evaluating on the same dataset
-$\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$,
-we have tuned the method parameters (minimum scale $s_{\R{min}}$, maximum
-scale $s_{\R{max}}$, number of scales $n_s$, and cone of influence $c_i$)
-and adopt $s_{\R{min}} = 7.4$, $s_{\R{max}} = 50.0$, $n_s = 50$, and
-$c_i = 1.6$ to obtain the relatively best performance, which is, however,
-only $\bar{\rho}_{\R{cwt}} = \num{0.198 +- 0.160}$.
-We note that the CWT method performs slightly worse than the polynomial
-fitting method, which is different from the comparison in \citet{gu2013}.
-This may be caused by the more serious boundary effect since our simulated
-data have a narrower bandwidth and coarser frequency resolution than those
-of \citet{gu2013}.
-
-The main reason that both traditional foreground removal methods only
-obtain remarkably inferior results is that the smoothness of the foreground
-spectra is seriously damaged by the frequency-dependent beam effects, which
-cause rapid fluctuations of strength the same order as the EoR signal on
-the originally smooth foreground spectra [\autoref{fig:cdae-simdata}(b)].
-As a result, the foreground spectra complicated by the beam effects cannot
-be well fitted by a low-degree polynomial and have more similar spectral
-scales as the EoR signal.
-In consequence, both methods are unable to well model the complicated
-foreground spectra and thus have great difficulties in removing them.
-On the contrary, given its data-driven nature and powerful feature
-extraction capabilities, the CDAE is able to distil knowledge from the
-training data and learns the features to distinguish the EoR signal from
-the fluctuations arising from the beam effects.
-Hence, the CDAE achieves superior performance in separating the EoR signal.
+总之，干涉阵列的复杂波束效应使前景辐射的频谱产生了小尺度涨落，
+破坏了前景辐射的频谱光滑性 [参见\autoref{fig:cdae-simdata}(b)].
+于是，低阶多项式无法有效拟合前景辐射的频谱，
+在小波空间中区分前景辐射和 EoR 信号也变得非常困难，
+因此上述两种传统的\ac{fg-rm}方法都难以对复杂的前景辐射建模并扣除，
+导致分离的 EoR 信号的准确度都比较低.
+\ac{cdae} 则完全不同.
+凭借强大的\ac{fx}能力以及数据驱动 (data-driven) 的特点，
+\ac{cdae} 可以从训练数据中汲取信息来优化自身模型，
+实现 EoR 信号与波束效应所导致的前景频谱的涨落之间的区分.
+因此，\ac{cdae} 能够准确地分离 EoR 信号，取得非常出色的性能.
 
 
 %=====================================================================
