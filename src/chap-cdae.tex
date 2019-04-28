@@ -343,7 +343,7 @@ $\B{x}^{(i)} = \B{x}^{(i)}_{\R{eor}} + \B{x}^{(i)}_{\R{fg}}$
     \left[ \B{r}_{\R{eor}}^{(i)} - \B{x}_{\R{eor}}^{(i)} \right] ,
 \end{equation}
 其中 $N_{\R{tr}}$ 是\acl{s-training} \ac{s-training} 所包含数据点的数目，
-\enquote{$T$} 表示\ac{transpose}.
+\enquote{$T$} 表示\ac{transpose}算符.
 运用\ac{backprop}方法\cite{rumelhart1986,leCun1998bp}，
 可以计算\acl{loss} \ac{loss} 对任意一个参数 $p_i$ 的梯度
 $\partial \ac{loss} / \partial p_i$，
@@ -458,7 +458,7 @@ EoR 信号 $C_{\R{eor}}^{(1)}$ 和前景辐射 $C_{\R{fg}}^{(1)}$.
 
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=0.85\textwidth]{cdae-simdata-example}
+  \includegraphics[width=0.84\textwidth]{cdae-simdata-example}
   \bicaption[前景辐射和 EoR 信号的频谱示例]{%
     随机取一个天空像素点为例，得到的前景辐射和 EoR 信号的频谱.
     \uline{（上栏）}
@@ -504,7 +504,7 @@ $\left( C_{\R{eor}}^{(1)}, C_{\R{fg}}^{(1)} \right)$
 然后，遵循相同的模拟观测方法，我们得到了第二对\ac{imgcube}
 $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$.
 
-鉴于我们所提出的新算法适用于 EoR \ac{tomography}，
+鉴于我们的新算法是针对 EoR \ac{tomography}而设计的，
 要求极深度的观测以达到足够低的噪声水平.
 比如，SKA1-Low 计划筛选 5 个 EoR 天区，然后对每个天区观测约 \SI{1000}{\hour}，
 达到空前的约小于 \SI{1}{\mK} 的亮度灵敏度 [\autoref{eq:sigma-tb}]，
@@ -815,7 +815,7 @@ $N_{\R{val}}$ 是\acl{s-validation} \ac{s-validation} 包含的数据点数目.
 以及 EoR 信号的强度的\acs*{rms}值 $\B{y}_{\R{eor}}$.
 我们发现 \ac{cdae} 的灵敏度分布 $\B{s}$ 与 EoR 信号 $\B{y}_{\R{eor}}$
 之间的相关性为 $\ac*{coef-correlation}(\B{s}, \B{y}_{\R{eor}}) = 0.742$，
-显著强于与前景辐射 $\B{y}_{\R{fg}}$ 的相关性
+显著高于与前景辐射 $\B{y}_{\R{fg}}$ 的相关性
 [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{fg}}) = 0.562$].
 这个结果表明，训练好的 \ac{cdae} 确实从输入数据中学到了
 能够帮助区分前景辐射的 EoR 信号的特征，
@@ -915,7 +915,7 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$，
 $\bar{\ac{coef-correlation}}_{\R{cwt}} = \num{0.198 +- 0.160}$.
 这个分离结果相比上述多项式拟合法的结果还要稍差一点，
 这与 \citeay{gu2013} 的对比结果不同.
-这主要是因为我们模拟的\ac{imgcube}的频带更窄、频率分辨率更差，
+主要原因是我们模拟的\ac{imgcube}的频带更窄、频率分辨率更差，
 所以在使用\ac{cwt}时产生了更严重的边界效应.
 
 总之，干涉阵列的复杂波束效应使前景辐射的频谱产生了小尺度涨落，
@@ -950,7 +950,7 @@ complicated beam effects and accurately separate the faint EoR signal,
 exhibiting the great potential of deep-learning-based methods
 to play an important role in the forthcoming EoR experiments.
 
-本章内容已发表于 \mnras{} (MNRAS)\reviewornot{}{\cite{li.cdae}}.
+本章内容已发表于 \mnras{} (MNRAS) \cite{li.cdae}.
 
 
 %% EOF

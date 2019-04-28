@@ -659,7 +659,7 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 源自银河系以及河外源的前景辐射非常强烈，可达数百 \si{\kelvin}，
 是 EoR 信号（仅约几 \si{\mK} 至几十 \si{\mK}）的 \numrange{4}{5} 个数量级
 \cite{morales2010}.
-虽然对干涉阵列而言重要的是辐射的空间涨落幅度而非其平均强度，
+虽然对干涉阵列而言重要的是辐射的空间涨落幅度而非其绝对强度 \cite{braun1985}，
 但是前景辐射的涨落幅度仍达数 \si{\kelvin} 到数十 \si{\kelvin}，
 远远压制了待测 EoR 信号 \cite{zaroubi2013}.
 \autoref{fig:eor-foregrounds} 显示了主要的前景成分及其在
@@ -779,13 +779,13 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 亮点源剥离 (peeling)、前景去除等任务都会受到严重影响 \cite{noordam2004,neben2016}.
 此外，还有一系列已知和未知的复杂仪器效应，比如：
 显著的旁瓣 \cite{thyagarajan2015,mort2017}、
+天线响应随频率的变化 \cite{bernardi2015,trott2017}、
 波束的频率依赖效应 \cite{liu2009ps,datta2010,morales2012}
 （另见 \autoref{sec:eor-window} 和 \autoref{sec:beam-effect}）、
 \ac{pl} \cite{asad2015,asad2016,asad2018,lenc2017}、
-天线响应随频率的变化 \cite{bernardi2015,trott2017}、
-信号传输过程中在电缆内的反射 \cite{beardsley2016}.
+信号在电缆内的反射 \cite{beardsley2016}.
 如何准确有效地校准仪器，发挥出仪器的设计性能，是目前最迫切的任务之一
-\cite{wijnholds2010} (ref???).
+\cite{noordam2004,wijnholds2010} (ref???).
 
 %.......................................
 \item
@@ -1161,7 +1161,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
     \kperp{} 的最小值和最大值分别由望远镜的视场大小和空间分辨率（对应于最长基线）决定、
     \klos{} 的最小值和最大值分别取决于频率带宽和频率分辨率.
     图中三条粗线显示了不同前景\acs*{spillover}程度
-    [由 \autoref{eq:eor-window} 的 $w$ 描述]
+    [由\autoref{eq:eor-window} 中的 $w$ 描述]
     时的 EoR 窗口边界.
   }{%
     An illustration of the EoR window (green region in the upper left)
@@ -1186,7 +1186,8 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 即同一条\ac{baseline}的空间分辨率随着频率 $\nu$ 的增大而提高 \cite{liu2014}:
 \begin{equation}
   \label{eq:baseline-u-nu}
-  u = \frac{b}{\lambda} = \frac{b}{\acs{speed-light}} \nu
+  u = \frac{b}{\lambda}
+    = \frac{b \nu}{\acs{speed-light}}
     \propto \kperp ,
 \end{equation}
 其中 $b$ 为\ac{baseline}的长度.
