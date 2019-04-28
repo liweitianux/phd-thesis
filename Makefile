@@ -8,6 +8,12 @@ BIB:=		references.bib
 FIGURES:=	$(wildcard figures/*.*) \
 		$(wildcard figures/self/*.*)
 TEMPLATE:=	$(wildcard sjtuthesis/*)
+EXTRA:=		$(wildcard texmf/*) \
+		Makefile \
+		README.md
+
+ID:=		lwt
+DATE:=		$(shell date +'%Y%m%d')
 
 all: thesis.pdf
 
@@ -19,6 +25,14 @@ pdf: $(SRCS) $(TEMPLATE)
 
 bib: thesis.bcf $(BIB)
 	biber thesis
+
+dist: thesis.pdf
+	@test -d "dist" || mkdir -v "dist"
+	cp -a thesis.pdf dist/thesis.$(ID).$(DATE).pdf
+	tar -cvjf dist/thesis.$(ID).$(DATE).tar.bz2 \
+	    --transform 's@^@thesis.$(ID).$(DATE)/@' \
+	    $(SRCS) $(BIB) $(FIGURES) $(TEMPLATE) $(EXTRA)
+	@echo "Created distribution at: dist/thesis.$(ID).$(DATE).{pdf,tar.bz2}"
 
 fix:
 	@echo "Trim trailing whitespace ..."
@@ -36,4 +50,4 @@ clean:
 	latexmk -C thesis
 	rm -f $(SRCS:.tex=.aux) *.xdv *.bbl *.loa *.fls *.xml
 
-.PHONY: all clean count fix
+.PHONY: all clean count dist fix

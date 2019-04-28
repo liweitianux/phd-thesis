@@ -20,6 +20,7 @@
 *.gz
 auto/
 backup/
+dist/
 docs/
 figures/raw/
 figures/unused/
