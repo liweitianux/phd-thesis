@@ -1140,7 +1140,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 频谱光滑的前景污染原则上只分布在 \klos{} 较小的区域.
 但是没有仪器是理想的，一些仪器效应和观测效应会将
 \kperp{} 模式里的功率\enquote{混合}到 \klos{} 模式里，
-即\emph{\acf{modemix}}效应，
+即\emph{\acf{mode-mixing}}效应，
 并且 \klos{} 受影响的范围与 \kperp{} 的大小成正相关，
 因此导致前景污染将占据二维功率谱的右下方一个楔形区域，
 即\emph{\acf{fg-wedge}}，如\autoref{fig:eor-window} 所示.
@@ -1180,7 +1180,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
   \label{fig:eor-window}
 \end{figure}
 
-引起\ac{modemix}的主要原因是干涉阵列固有的\ac{chromatic-effect}，
+引起\ac{mode-mixing}的主要原因是干涉阵列固有的\ac{chromatic-effect}，
 如\autoref{fig:chromatic-baselines} 所示，
 即同一条\ac{baseline}的空间分辨率随着频率 $\nu$ 的增大而提高 \cite{liu2014}:
 \begin{equation}
@@ -1189,13 +1189,13 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
     \propto \kperp ,
 \end{equation}
 其中 $b$ 为\ac{baseline}的长度.
-\ac{modemix}还可能由其他多种因素引起，比如：
+\ac{mode-mixing}还可能由其他多种因素引起，比如：
 干涉阵列的 \ac{psf} 随频率而变化 \cite{bowman2009,liu2009ps}、
 前景模型不精确（如点源的强度或位置有偏差） \cite{datta2010,morales2012}、
 仪器响应的校准存在偏差 \cite{morales2012}、
 相干叠加不同\ac{baseline}的测量数据 \cite{hazelton2013}.
 下文将基于干涉阵列的\ac{chromatic-effect}，
-简要介绍\ac{modemix}的基本原理以及\ac{fg-wedge}的形成原因.
+简要介绍\ac{mode-mixing}的基本原理以及\ac{fg-wedge}的形成原因.
 更严格的分析可参考 \citeay{liu2014} 和 \citeay{liu2014ii}.
 
 \begin{figure}[htp]
@@ -1237,9 +1237,9 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 
 尽管辐射源的亮度不随频率变化（即只有 \kperp{} 模式），
 但是基线的\ac{chromatic-effect}导致观测的\ac{vis}数据将随频率涨落
-（即出现了 \klos{} 模式），所以称为\ac{modemix}.
+（即出现了 \klos{} 模式），所以称为\ac{mode-mixing}.
 再结合\autoref{eq:baseline-u-nu}，
-可知因\ac{modemix}引起的涨落在频率维度的变化周期为 \cite{morales2012}：
+可知因\ac{mode-mixing}引起的涨落在频率维度的变化周期为 \cite{morales2012}：
 \begin{equation}
   \label{eq:t-nu-u}
   t_{\nu} = \frac{\ac{speed-light}}{b} t_u
