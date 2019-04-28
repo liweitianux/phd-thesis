@@ -1,13 +1,17 @@
 TEXINPUTS:=	.:sjtuthesis:texmf:$(TEXINPUTS)
 BSTINPUTS:=	.:sjtuthesis:texmf:$(BSTINPUTS)
 
-TEMPLATE:=	$(wildcard sjtuthesis/*)
+SRCS:=		thesis.tex \
+		$(wildcard src/*.tex) \
+		$(wildcard scans/*)
 BIB:=		references.bib
-SRCS:=		thesis.tex $(wildcard src/*.tex)
+FIGURES:=	$(wildcard figures/*.*) \
+		$(wildcard figures/self/*.*)
+TEMPLATE:=	$(wildcard sjtuthesis/*)
 
 all: thesis.pdf
 
-thesis.pdf: $(SRCS) $(BIB) $(TEMPLATE)
+thesis.pdf: $(SRCS) $(BIB) $(FIGURES) $(TEMPLATE)
 	env TEXINPUTS=$(TEXINPUTS) BSTINPUTS=$(BSTINPUTS) latexmk -xelatex thesis
 
 pdf: $(SRCS) $(TEMPLATE)
