@@ -2,13 +2,13 @@ TEXINPUTS:=	.:sjtuthesis:texmf:$(TEXINPUTS)
 BSTINPUTS:=	.:sjtuthesis:texmf:$(BSTINPUTS)
 
 SRCS:=		thesis.tex \
-		$(wildcard src/*.tex) \
-		$(wildcard scans/*)
+		$(wildcard src/*.tex)
 BIB:=		references.bib
 FIGURES:=	$(wildcard figures/*.*) \
 		$(wildcard figures/self/*.*)
 TEMPLATE:=	$(wildcard sjtuthesis/*)
 EXTRA:=		$(wildcard texmf/*) \
+		$(wildcard scans/*.pdf) \
 		Makefile \
 		README.md
 
