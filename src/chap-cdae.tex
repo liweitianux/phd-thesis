@@ -583,98 +583,129 @@ $n_c = 51$ 个复 Fourier 系数：
 \subsection{训练和结果}
 \label{sec:cdae-results}
 
-The preprocessed data of the first cube pair
+从第一对\ac{imgcube}
 $\left( C_{\R{eor}}^{(1)}, C_{\R{fg}}^{(1)} \right)$
-are randomly partitioned into the training set ($S_{\R{tr}}$; corresponding
-to 80 per cent of the pixels, or \num{103680} data points) and the
-validation set ($S_{\R{val}}$; 20 per cent, or \num{25920} data points).
-The preprocessed data of the second cube pair
+预处理得到的数据被随机地划分为：
+\begin{itemize}
+  \item \acl{s-training} \ac{s-training}:
+    包含 \num{103680} 个数据点，对应于一个\ac{imgcube}中 80\% 的像素点；
+  \item \acl{s-validation} \ac{s-validation}:
+    包含余下的 \num{25920} 个数据点，对应于 20\% 的像素点.
+\end{itemize}
+从第二对\ac{imgcube}
 $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$
-are solely used as the test set ($S_{\R{test}}$; \num{129600} data points).
-The use of the whole image cubes as the test set enables us to create
-complete images of the reconstructed EoR signal.
+预处理得到的数据全部作为\acl{s-test} \ac{s-test}，
+即包含 \num{129600} 个数据点.
+使用完整的\ac{imgcube}作为\acl{s-test}允许我们在测试 \ac{cdae}
+的性能时能够获得重建 EoR 信号的完整图像.
 
-We implement the proposed CDAE using the
-\href{https://keras.io}{\texttt{Keras}}\footnote{%
+我们使用了 \href{https://keras.io}{\texttt{Keras}}\footnote{%
   Keras: \url{https://keras.io} (v2.2.4)}
-framework \cite{keras} with the
+框架\cite{keras}来实现 \ac{cdae}；
+\texttt{Keras} 的后端支持为 Google
 \href{https://www.tensorflow.org}{\texttt{TensorFlow}}\footnote{%
   TensorFlow: \url{https://www.tensorflow.org} (v1.12.0)}
-back end \cite{tensorflow},
-which is accelerated by the
+\cite{tensorflow}，
+并且通过 NVIDIA
 \href{https://developer.nvidia.com/cuda-zone}{\texttt{CUDA}}\footnote{%
   CUDA: \url{https://developer.nvidia.com/cuda-zone} (v9.1.85)}
-toolkit.
-We adopt a small initial learning rate ($\alpha = \num{e-5}$) and use the
-Adam optimisation method \cite{kingma2015}.
-The CDAE is trained on the training set ($S_{\R{tr}}$) with a batch size of
-100 until the training loss converges, which takes about 50 epochs.
+来利用 \ac{gpu} 加速 \ac{cdae} 的训练.
+我们采用了 Adam 优化方法\cite{kingma2015} 来训练 \ac{cdae}，
+初始\ac{learning-rate} 设为 $\alpha = \num{e-5}$，
+\ac{batch-size} 取为 100.
+然后在\acl{s-training} \ac{s-training} 上训练 \ac{cdae}，
+直到\acl{loss-training} \ac{loss-training} 收敛为止.
+如\autoref{fig:cdae-train} 所示，训练过程持续了约 50 个\ac{epoch}.
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{cdae-train}
-  \bicaption[训练 CDAE 的过程和结果]{%
-    TODO...
+  \bicaption[CDAE 的训练过程和结果]{%
+    CDAE 的训练过程和结果.
+    红色和蓝色实线分别显示了\acl*{loss-training} \ac*{loss-training}
+    和\acl*{loss-validation} \ac*{loss-validation} 随训练过程的变化情况.
+    蓝色虚线及其阴影区域分别表示从\acl*{s-validation} \ac*{s-validation}
+    计算得到的\acl*{coef-correlation} \ac*{coef-correlation} 及其标准差.
   }{%
-    The training loss (solid red line), validation loss (solid blue
-    line), and correlation coefficient ($\rho$; dashed blue
-    line with the shaded region representing its standard deviation)
-    calculated on the validation set $S_{\R{val}}$ along the training of
-    the CDAE.
+    The training loss \ac*{loss-training} (solid red line),
+    validation loss \ac*{loss-validation} (solid blue line),
+    and correlation coefficient \ac*{coef-correlation} (dashed blue line
+    with shaded region representing its standard deviation) calculated on
+    the validation set \ac*{s-validation} along the training of the CDAE.
   }
   \label{fig:cdae-train}
 \end{figure}
 
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=\textwidth]{cdae-eor-pix}
+  \includegraphics[width=0.9\textwidth]{cdae-eor-pix}
   \bicaption[CDAE 重建的 EoR 信号的示例]{%
-    TODO...
+    以\acl*{s-test} \ac*{s-test} 中一个随机像素点为例，
+    展示了 CDAE 重建的和输入的 EoR 信号之间的对比.
+    \uline{（上栏）}
+    输入的 EoR 信号 $\B{x}_{\R{eor}}$ （绿色实线）
+    和 CDAE 重建的 EoR 信号 $\B{r}_{\R{eor}}$ （蓝色虚线）
+    在 Fourier 空间的对比.
+    两个信号之间的\acl*{coef-correlation}为 $\ac*{coef-correlation} = 0.931$.
+    图中的灰线表示输入的总辐射信号 $\B{x} = \B{x}_{\R{fg}} + \B{x}_{\R{eor}}$，
+    品红阴影线标记的区域表示在 \autoref{sec:preprocessing}
+    预处理过程中排除的 Fourier 系数.
+    \uline{（下栏）}
+    输入的 EoR 信号 $\B{x}_{\R{eor}}$ （绿色实线）
+    和 CDAE 重建的 EoR 信号 $\B{r}_{\R{eor}}$ （蓝色虚线）
+    变换回观测频率空间的对比.
   }{%
     An example of the EoR signal reconstructed by the trained CDAE for
-    one pixel in $S_{\R{test}}$.
-    \textbf{(top)} The input EoR signal $\B{x}_{\R{eor}}$ (solid
-    green line) and the reconstructed EoR signal $\B{r}_{\R{eor}}$
-    (dashed blue line) in the Fourier domain.
+    one random pixel in the test set \ac*{s-test}.
+    \emph{(Upper)}
+    The input EoR signal $\B{x}_{\R{eor}}$ (solid green line) and
+    the reconstructed EoR signal $\B{r}_{\R{eor}}$ (dashed blue line)
+    in the Fourier domain.
     The correlation coefficient between the input and
-    reconstructed EoR signals is $\rho = 0.931$.
+    reconstructed EoR signals is $\ac*{coef-correlation} = 0.931$.
     The gray line represents the input total emission
     $\B{x} = \B{x}_{\R{fg}} + \B{x}_{\R{eor}}$.
     The magenta hatched region marks the excised Fourier coefficients
-    in data preprocessing.
-    \textbf{(bottom)} The input EoR signal $\B{x}_{\R{eor}}$ (solid
-    green line) and the reconstructed EoR signal $\B{r}_{\R{eor}}$
-    (dashed blue line) transformed back to the observing frequency
-    domain.
+    in data preprocessing (\autoref{sec:preprocessing}).
+    \emph{(Lower)}
+    The input EoR signal $\B{x}_{\R{eor}}$ (solid green line) and
+    the reconstructed EoR signal $\B{r}_{\R{eor}}$ (dashed blue line)
+    transformed back to the observing frequency domain.
   }
   \label{fig:cdae-eor-pix}
 \end{figure}
 
-The training and validation losses together with the evaluation index
-(i.e., the correlation coefficient $\rho$) calculated on the validation set
-$S_{\R{val}}$ during the training phase are shown in \autoref{fig:cdae-train}.
-The steadily decreasing losses and increasing correlation coefficient
-suggest that the CDAE is well trained without over-fitting.
-After training, the evaluation with the test set $S_{\R{test}}$ yields a
-high correlation coefficient of $\bar{\rho}_{\R{cdae}} = \num{0.929 +- 0.045}$
-between the reconstructed and input EoR signals.
-This result demonstrates
-that the trained CDAE achieves excellent performance in reconstructing the
-EoR signal.
-As an example, \autoref{fig:cdae-eor-pix} illustrates the reconstructed EoR
-signal ($\rho = 0.931$) for one pixel in $S_{\R{test}}$.
+\autoref{fig:cdae-train} 中还画出了\acl{loss-validation} \ac{loss-validation}
+以及从\acl{s-validation} \ac{s-validation} 计算得到的评估指标
+（即\acl{coef-correlation} \ac{coef-correlation}）
+随着 \ac{cdae} 训练过程的变化情况.
+显然可见，损失 \ac{loss-training} 和 \ac{loss-validation} 均持续减小，
+同时\acl{coef-correlation} \ac{coef-correlation} 稳步增长，
+说明 \ac{cdae} 的训练效果很好而且没有出现\ac{overfitting}.
+训练完成后，我们使用\acl{s-test} \ac{s-test} 来评估 \ac{cdae} 的性能，
+可得 \ac{cdae} 重建的 EoR 信号与输入的 EoR 信号之间的
+平均\acl{coef-correlation}达到了
+$\bar{\xi}_{\R{cdae}} = \num{0.929 +- 0.045}$.
+这个结果说明了训练好的 \ac{cdae} 在 EoR 信号的分离问题上取得了出色的成绩.
+以\acl*{s-test} \ac*{s-test} 中一个随机像素点为例，
+\autoref{fig:cdae-eor-pix} 展示了 CDAE 重建的和输入的 EoR 信号之间的对比
+($\ac{coef-correlation} = 0.931$).
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{cdae-eor-img-comp}
   \bicaption[输入的 EoR 图像和 CDAE 重建的 EoR 图像的对比]{%
-    TODO...
+    输入的 EoR 图像（左栏）和 CDAE 重建的 EoR 图像（右栏）
+    在中心频率 \SI{158}{\MHz} 处的对比.
+    图像的尺寸均为 \num{360 x 360}，并且使用了相同的\ac{colorbar}，
+    幅度因 CDAE 训练的需要已被标准化 (\autoref{sec:preprocessing}).
   }{%
-    Comparison between the input EoR image (the left panel) and
-    reconstructed EoR image (the right panel) at the central frequency of
+    Comparison between the input EoR image (left panel) and
+    reconstructed EoR image (right panel) at the central frequency of
     \SI{158}{\MHz}.
-    The images have the same size (\num{360 x 360} pixel) and the figures
-    share the same color bar (the amplitude is normalized for the CDAE).
+    The images have the same size (\num{360 x 360} pixel) and share the
+    same color bar.
+    The amplitude is normalized for the CDAE (\autoref{sec:preprocessing}).
   }
   \label{fig:cdae-eor-img}
 \end{figure}
@@ -683,47 +714,40 @@ signal ($\rho = 0.931$) for one pixel in $S_{\R{test}}$.
   \centering
   \includegraphics[width=\textwidth]{cdae-eor-ps-comp}
   \bicaption[输入的 EoR 信号和 CDAE 重建的 EoR 信号之间的二维功率谱对比]{%
-    TODO...
+    输入的 EoR 信号（左栏）和 CDAE 重建的 EoR 信号（右栏）之间的二维功率谱对比.
   }{%
-    Comparison of two-dimensional power spectra between the input (the left
-    panel) and reconstructed (the right panel) EoR signals.
+    Comparison of two-dimensional power spectra between the input
+    (left panel) and reconstructed (right panel) EoR signals.
   }
   \label{fig:cdae-eor-ps}
 \end{figure}
 
-Since the test set $S_{\R{test}}$ is derived from the whole image cubes
-$\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$, we are able to create
-complete images of the reconstructed EoR signal and calculate the
-corresponding power spectrum.
-Taking the input and reconstructed EoR images at the central frequency of
-\SI{158}{\MHz} as an example (\autoref{fig:cdae-eor-img}), the reconstructed EoR
-signal exhibits almost identical structures and amplitudes as the input EoR
-signal.
-We note that the reconstructed EoR image has weak but detectable redundant
-ripples on scales of about 10 pixels (i.e., \SI{\sim 200}{\arcsecond}),
-which are associated with the excision of the $n_{\R{ex}} = 6$ lowest
-Fourier frequencies in data preprocessing (\autoref{sec:preprocessing}).
-In addition, we calculate the two-dimensional power spectra from the image
-cubes of the input and reconstructed EoR signals (\autoref{fig:cdae-eor-ps}).
-It illustrates that the trained CDAE well recovers the EoR signal on all
-covered scales except for a very thin stripe region at
-$\kperp \approx \SI{0.7}{\per\Mpc}$, where extra powers are generated
-by the aforementioned ripples in the reconstructed EoR images.
-We also note that there is a barely visible line at
-$\kperp \approx \SI{0.1}{\per\Mpc}$ in both power spectra, which is
-caused by the boundary effect of Fourier transforming the finite frequency
-band.
+由于\acl{s-test} \ac{s-test} 源自一对完整的\ac{imgcube}
+$\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$，
+因此，在使用 \ac{s-test} 评估 \ac{cdae} 时我们能够获得
+重建 EoR 信号的完整\ac{imgcube}用来进行图像和功率谱的对比.
+以中心频率 \SI{158}{\MHz} 为例，如\autoref{fig:cdae-eor-img} 所示，
+相比输入的 EoR 图像，由 \ac{cdae} 重建的 EoR 图像中存在一些微弱的小尺度波纹结构，
+这些波纹的尺度约为 10 个像素点 (\SI{\sim 200}{\arcsecond})，
+源自数据预处理 (\autoref{sec:preprocessing}) 时去除了 $n_{\R{ex}} = 6$
+个 Fourier 频率最小的系数.
+除此之外，两张图像具有几乎完全相同的空间结构和强度分布.
 
-The results clearly demonstrate that the trained CDAE is able to accurately
-reconstruct the EoR signal, overcoming the complicated beam effects.
-The achieved excellent performance of the CDAE can be mainly attributed
-to the architecture of stacking multiple convolutional layers, which
-implements a powerful feature extraction technique by hierarchically
-combining the basic features learned in each layer to build more and
-more sophisticated features \cite{leCun2015}.
-Combined with the flexibility provided by the \num{53569} trainable
-parameters, the CDAE, after being well trained, can intelligently learn a
-model that is optimised to accurately separate the faint EoR signal
+另一方面，我们分别计算了输入的 EoR 信号和 \ac{cdae} 重建的 EoR 信号的二维\ac{ps}，
+结果如\autoref{fig:cdae-eor-ps} 所示.
+在重建 EoR 信号的二维\ac{ps} 上，上面提及的小尺度波纹结构在
+$\kperp \approx \SI{0.7}{\per\Mpc}$ 的尺度上贡献了额外的功率，形成了一条窄带.
+在数据所覆盖的其他尺度上，\ac{cdae} 很好地恢复了 EoR 信号的功率.
+此外，我们注意到两个二维\ac{ps}在 $\kperp \approx \SI{0.1}{\per\Mpc}$
+的地方均有一条隐约可见的线，源自于有限长度的信号在进行 Fourier 变换时所产生的边界效应.
+
+以上这些结果充分说明了训练好的 \ac{cdae} 能够有效地克服复杂的波束效应，
+从强烈的前景干扰中准确地重建 EoR 信号.
+\ac{cdae} 的优秀性能主要归功于堆叠多个卷积层所实现的强大的\ac{fx}能力，
+这种堆叠式架构让每一层专注于提取相对简单的特征，
+然后这些特征逐层地结合形成精细、抽象的高层次特征 \cite{leCun2015}.
+同时，\num{53569} 个可训练的参数让 \ac{cdae} 拥有高度的灵活性.
+经过有效训练后，\ac{cdae} 智能地从数据中学得一个针对 EoR 信号分离而优化的模型
 \cite{domingos2012}.
 
 %---------------------------------------------------------------------
