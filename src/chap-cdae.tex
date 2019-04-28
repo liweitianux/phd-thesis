@@ -754,55 +754,71 @@ $\kperp \approx \SI{0.7}{\per\Mpc}$ 的尺度上贡献了额外的功率，形�
 \subsection{进一步验证}
 \label{sec:cdae-validation}
 
-With the purpose of further validating that the trained CDAE has actually
-learned the useful features of the EoR signal, we employ the occlusion
-method \cite{zeiler2014} to visualise the sensitivity of the trained CDAE
-to the different part of the input data.
-At each time, we occlude three adjacent elements of every input
-$\B{x}$ in the validation set $S_{\R{val}}$, and then measure the CDAE's
-sensitivity to the occluded part, which is calculated as the
-occlusion-induced performance loss, i.e.,
-\begin{equation}
-  \label{eq:perf-loss}
-  s = \frac{1}{N_{\R{val}}} \sum_{i=1}^{N_{\R{val}}} \left[
-      \rho\left(\B{r}^{(i)}_{\R{eor}}, \B{x}^{(i)}_{\R{eor}}\right) -
-      \rho\left(\B{R}^{(i)}_{\R{eor}}, \B{x}^{(i)}_{\R{eor}}\right)
-    \right] ,
-\end{equation}
-where
-$N_{\R{val}}$ is the number of data points in the validation set,
-$\B{x}^{(i)}_{\R{eor}}$ is the input EoR signal, and
-$\B{r}^{(i)}_{\R{eor}}$ and $\B{R}^{(i)}_{\R{eor}}$ are the reconstructed
-EoR signals without and with applying the occlusion, respectively.
-By varying the occlusion part of the input data and calculating the
-sensitivities, we obtain the CDAE's sensitivity distribution ($\B{s}$) to
-every part of the input data, as shown in \autoref{fig:occ-fgeor}, where
-the root-mean-square amplitudes of the foreground emission
-($\B{y}_{\R{fg}}$) and the EoR signal ($\B{y}_{\R{eor}}$) are also plotted.
-We find that the sensitivity distribution is more correlated with the EoR
-signal [$\rho(\B{s}, \B{y}_{\R{eor}}) = 0.742$] than the foreground
-[$\rho(\B{s}, \B{y}_{\R{fg}}) = 0.562$].
-This verifies that the trained CDAE has learned useful features of the EoR
-signal to distinguish it from the foreground emission and thus becomes more
-sensitive to the data parts of higher signal-to-noise ratio.
-
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{occlusion-fgeor}
   \bicaption[CDAE 对输入数据的灵敏度分布]{%
-    TODO...
+    采用\acs*{occlusion}方法得到的 CDAE 对输入数据的灵敏度分布 $\B{s}$ （蓝线）.
+    左图红线显示了前景辐射的强度的\acs*{rms}值 $\B{y}_{\R{fg}}$；
+    右图绿线显示了 EoR 信号的强度的\acs*{rms}值 $\B{y}_{\R{eor}}$.
+    通过计算\acl*{coef-correlation} \ac*{coef-correlation}
+    可知灵敏度分布 $\B{s}$ 与 EoR 信号的相关性
+    [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{eor}}) = 0.742$]
+    显著大于与前景辐射的相关性
+    [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{fg}}) = 0.562$].
   }{%
-    The CDAE's sensitivity distribution $\B{s}$ (the blue lines in both
-    panels) obtained by applying the occlusion method.
-    We also plot the root-mean-square amplitudes of the foreground emission
-    ($\B{y}_{\R{fg}}$, the red line in the left panel) and the EoR signal
-    ($\B{y}_{\R{eor}}$, the green line in the right panel).
-    The sensitivity distribution $\B{s}$ is more correlated with the EoR
-    signal [$\rho(\B{s}, \B{y}_{\R{eor}}) = 0.742$] than the foreground
-    [$\rho(\B{s}, \B{y}_{\R{fg}}) = 0.562$].
+    The CDAE's sensitivity distribution $\B{s}$ (blue lines in both panels)
+    obtained by applying the occlusion method.
+    We also plot the root-mean-square amplitudes of
+    the foreground emission $\B{y}_{\R{fg}}$ (red line in left panel)
+    and the EoR signal $\B{y}_{\R{eor}}$ (green line in right panel).
+    The sensitivity distribution $\B{s}$ is more correlated with
+    the EoR signal
+    [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{eor}}) = 0.742$]
+    than the foreground
+    [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{fg}}) = 0.562$].
   }
   \label{fig:occ-fgeor}
 \end{figure}
+
+为了进一步验证 \ac{cdae} 真正地从数据中发掘了 EoR 信号的有用特征，
+我们采用\ac{occlusion}方法\cite{zeiler2014}
+来可视化 \ac{cdae} 对输入数据的灵敏度的分布情况.
+对\acl{s-validation} \ac{s-validation} 中的每一个输入信号 $\B{x}^{(i)}$，
+遮挡其中连续的 3 个元素，记所得被遮挡的信号为 $\tilde{\B{x}}^{(i)}$，
+然后输入训练好的 \ac{cdae}，得到重建的 EoR 信号 $\tilde{\B{r}}^{(i)}_{\R{eor}}$.
+如果输入信号 $\B{x}^{(i)}$ 没有被遮挡，
+则 \ac{cdae} 重建的 EoR 信号为 $\B{r}^{(i)}_{\R{eor}}$.
+对比在有无遮挡的两种情况下所重建的 EoR 信号的准确度，
+于是可定义 \ac{cdae} 对输入数据被遮挡部分的灵敏度 $s$ 为：
+\begin{equation}
+  \label{eq:perf-loss}
+  s = \frac{1}{N_{\R{val}}} \sum_{i=1}^{N_{\R{val}}} \left[
+      \ac{coef-correlation} \left(
+        \B{r}^{(i)}_{\R{eor}}, \B{x}^{(i)}_{\R{eor}}
+      \right) -
+      \ac{coef-correlation} \left(
+        \tilde{\B{r}}^{(i)}_{\R{eor}}, \B{x}^{(i)}_{\R{eor}}
+      \right)
+    \right] ,
+\end{equation}
+其中 $\B{x}^{(i)}_{\R{eor}}$ 为输入的 EoR 信号，
+$N_{\R{val}}$ 是\acl{s-validation} \ac{s-validation} 包含的数据点数目.
+灵敏度 $s$ 越大，说明被遮挡的部分数据对 \ac{cdae} 的性能影响越强，
+也就说明 \ac{cdae} 从该部分数据学到的特征越重要.
+
+通过每次遮挡输入数据的不同部分并计算相应的灵敏度 $s$，
+可以得到 \ac{cdae} 对输入数据各个部分的灵敏度分布 $\B{s}$，
+如\autoref{fig:occ-fgeor} 所示.
+图中还画出了前景辐射的强度的\acs*{rms}值 $\B{y}_{\R{fg}}$
+以及 EoR 信号的强度的\acs*{rms}值 $\B{y}_{\R{eor}}$.
+我们发现 \ac{cdae} 的灵敏度分布 $\B{s}$ 与 EoR 信号 $\B{y}_{\R{eor}}$
+之间的相关性为 $\ac*{coef-correlation}(\B{s}, \B{y}_{\R{eor}}) = 0.742$，
+显著强于与前景辐射 $\B{y}_{\R{fg}}$ 的相关性
+[$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{fg}}) = 0.562$].
+这个结果表明，训练好的 \ac{cdae} 确实从输入数据中学到了
+能够帮助区分前景辐射的 EoR 信号的特征，
+因此，\ac{cdae} 对输入数据中\ac{snr}高的部分也更敏感.
 
 
 %=====================================================================
