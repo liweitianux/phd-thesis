@@ -61,9 +61,10 @@
 
 鉴于\ac{beam-synthesized}的形状非常复杂，并且随频率和位置而变化，
 即使付出昂贵的计算代价，
-为传统\ac{fg-rm}方法手工打造一个用于克服上述波束效应的模型仍然是非常困难的
+为传统\ac{fg-rm}方法手工打造一个用于克服上述波束效应的模型仍然非常困难
 \cite{lochner2015}.
-此外，SKA1-Low 等大型干涉阵列的海量数据的处理已经成为一个重要的瓶颈 (ref???)，
+此外，SKA1-Low 等大型干涉阵列的海量数据的处理已经成为一个重要的瓶颈
+\cite{norris2011,dolensky2016,chrysostomou2018}，
 所以采用传统\ac{fg-rm}方法并建模克服波束效应在实际应用中几乎不可行.
 相比于传统方法，\ac{dl}方法能够自动地从数据中汲取信息用来优化模型；
 一旦训练好模型，使用该模型则变得非常高效；
@@ -93,22 +94,31 @@
 \ac{dl}是\ac{ml}的一个子集，同时后者又是\ac{ai}的一个子集.
 \ac{ai}起始于上世纪 50 年代，该领域的开创人之一 John McCarthy 将\ac{ai}定义为
 \enquote{制造智能机器的科学和工程} \cite{mcCarthy2007}.
-早期的\ac{ai}系统完全基于一整套规则，而这些规则需要明确地由人来定义和实现 (ref???).
-\ac{ml}是另一条实现\ac{ai}的途径，通过让机器从数据中学习并调整自身模型，
-达到智能化判断或预测的目的.
+早期的\ac{ai}系统完全基于一整套规则，而这些规则需要明确地由人来定义和实现
+\cite{haugeland1985,jackson1998}.
+\ac{ml}提供了另一条实现\ac{ai}的途径：
+通过让机器从数据中学习并调整自身算法，达到解决\ac{ai}领域的问题的目标
+\cite{samuel1959,mitchell1997}.
 利用该方法，我们只需要设计机器需要从数据中提取的特征以及相应的学习策略，
-而不需要编写每一条具体的规则，有效地减轻了开发\ac{ai}系统的负担 (ref???).
-\ac{dl}是\ac{ml}中的一类技术，让机器拥有了\ac{fx}的能力，
-进一步降低了开发先进的\ac{ai}系统的难度，极大地拓展了\ac{ai}的应用范围 (ref???).
+而不需要编写每一条具体的规则，有效地减轻了开发\ac{ai}系统的负担.
+\ac{dl}是\ac{ml}中的一个分支，
+利用多层\ac{nn}架构让机器自己去发掘数据中的特征，
+并从简单特征构建出复杂特征，学习得到数据的一个有效\ac{representation}
+\cite{bengio2013rl,schmidhuber2015,goodfellow2016}.
+换言之，\ac{dl}让机器自身拥有了\ac{fx}的能力，
+从而进一步降低了开发先进的\ac{ai}系统的难度，
+极大地拓展了\ac{ai}的应用范围.
 \autoref{fig:ml-dl} 示意了\ac{ml}和\ac{dl}之间的主要区别.
 
-近十多年以来，\ac{dl}发展迅猛，已经被应用到诸多领域并取得了一系列突破性成果，
+近十多年以来，\ac{dl}发展迅猛，已经被应用到计算机视觉 (computer vision)、
+语音识别 (speech recognition)、自然语言处理 (natural language processing)
+等诸多领域，并取得了一系列突破性成果，
 详见 \citeay{leCun2015} 综述文.
-\ac{dl}方法包括多种\ac{nn} \cite{bengio2009,leCun2015,schmidhuber2015}，
+\ac{dl}算法包括多种\ac{nn} \cite{bengio2009,leCun2015,schmidhuber2015}，
 比如\ac{dnn}、\ac{cnn}、\ac{rnn}、\ac{ae}.
-其中，\ac{ae}能够以\ac{unsupervised}的方式从输入数据中发掘有用的特征，
-从而学习得到输入数据的一个有效\ac{representation} \cite{bourlard1988}.
-因此，\ac{ae}经常被用于数据的\ac{dim-reduction}\cite{hinton2006,wang2014}
+其中，\ac{ae}能够以\ac{unsupervised}的方式学习得到
+输入数据的\ac{representation} \cite{bourlard1988}，
+因此经常被用于数据的\ac{dim-reduction}\cite{hinton2006,wang2014}
 和\ac{denoising}\cite{xie2012,lu2013,bengio2013}.
 在\ac{ae}的诸多变种中，\ac{cdae}尤其擅长于发掘数据中的抽象、细微的特征 \cite{du2017}，
 并且已经被成功地用于微弱\ac{gw}信号的\ac{denoising}\cite{shen2017}、

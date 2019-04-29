@@ -665,7 +665,8 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 \SI{120}{\MHz} 处的强度.
 因此，即便是轻微的前景处理不当，都会导致微弱的 EoR 信号被淹没而无法被捕捉到.
 此外，部分前景成分（如银河系\ac{rad-syn}）存在一定程度的偏振，
-该偏振成分可能发生泄漏而影响前景强度的测量，即\ac{pl}效应 \cite{cotton1999}，
+该偏振成分可能发生泄漏而影响前景强度的测量，
+即\ac{pl}效应 \cite{cotton1999,reid2008}，
 导致前景的频谱结构复杂化而变得更加难以处理
 \cite{jelic2014,asad2015,asad2016,asad2018,gehlot2018}.
 如何处理强烈的前景干扰并成功分离 EoR 信号，
@@ -784,22 +785,22 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 \ac{pl} \cite{asad2015,asad2016,asad2018,lenc2017}、
 信号在电缆内的反射 \cite{beardsley2016}.
 如何准确有效地校准仪器，发挥出仪器的设计性能，是目前最迫切的任务之一
-\cite{noordam2004,wijnholds2010} (ref???).
+\cite{noordam2004,mitchell2008,wijnholds2010,barry2016,dillon2016}.
 
 %.......................................
 \item
 \emph{海量数据:}
-大型的干涉阵列将产生海量数据，如 SKA1-Low 的数据流量预计高达 TB/s，
-由此引发出一系列难题 \cite{norris2011} (ref???)，比如：
-如何对原始数据进行实时相关处理？
-如何传输和存储如此海量的数据？
-如何进行海量数据的校准处理？
+大型的干涉阵列将产生海量数据，如 SKA1-Low 的数据流量预计高达 $\sim$\,1\,TB/s，
+由此引发一系列难题 \cite{norris2011,dolensky2016,chrysostomou2018}，
+比如：
+如何对原始数据进行实时的相关和校准？
+如何传输、分发和存储海量观测数据？
 如何实现高效的数字\ac{beam-forming}和多波束技术？
 如何处理海量数据实现大视场高动态范围成像？
 缓解或解决这些问题，不仅依赖于更快更高效的计算资源 \cite{magro2014,vermij2017}，
 建设新型的数据中心 \cite{chrysostomou2018}，
 还需要研发新算法以及编写新软件，优化数据处理流程，充分利用大规模并行计算资源
-\cite{morales2009,gunst2018} (ref???).
+\cite{morales2009,bonaldi2018,farnes2018,gunst2018}.
 
 \end{itemize}
 
@@ -868,9 +869,9 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 （如 Stokes $Q$ 或 $U$）的强度变化也依赖于频率，
 使得其频谱可能变得不光滑.
 同时，仪器因其固有的限制而无法完全隔离各偏振成分的测量，
-因此会有少量（约 1\% ???）偏振辐射\enquote{漏泄}到总辐射强度里，
+因此会有少量 ($\sim$\,1\%) 偏振辐射\enquote{漏泄}到总辐射强度里，
 可能破坏前景频谱的光滑性，阻碍前景的准确扣除
-\cite{jelic2010,nunhokee2017,gehlot2018,spinelli2018}.
+\cite{jelic2010,alonso2014,nunhokee2017,gehlot2018,spinelli2018}.
 
 %---------------------------------------------------------------------
 \subsection{银河系自由--自由辐射}
@@ -931,7 +932,8 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}.
 便是数目极多的\emph{河外\acs{src-point} (extragalactic point source)}，
 这些\ac{src-point}产生的辐射在 \SI{150}{\MHz} 处贡献了总前景辐射的
 $\sim$\,27\% \cite{shaver1999}.
-在\ac{ps}的小尺度（亚角分）区域，河外点源更是成为最强、最难处理的前景成分 (ref???).
+在\ac{ps}的小尺度（亚角分）区域，河外点源更是成为最强、最难处理的前景成分
+\cite{murray2017,procopio2017,yoshiura2018}.
 如\autoref{fig:mwa-eor0} 显示了 MWA 对 EoR0 天区\footnote{%
   MWA 针对 EoR 深度观测筛选了 3 块天区，
   中心坐标 (R.A., Dec.\@) 分别为 \cite{beardsley2016}：
@@ -1055,11 +1057,12 @@ $\sim$\,27\% \cite{shaver1999}.
 
 除了\ac{gc}，潜在的河外\ac{src-extended}还包括\ac{sc}和\ac{lsf}.
 在这些宇宙大尺度结构里分布着温度约为 \SIrange{e5}{e7}{\kelvin} 的\ac{whim}
-和强度约为 \SIrange{10}{100}{\nano\gauss} 的极微弱磁场 \cite{vazza2015}.
+和强度约为 \SIrange{10}{100}{\nano\gauss} 的极微弱磁场 \cite{vazza2014}.
 在物质落入这些宇宙大尺度结构的过程中、或者物质沿着大尺度结构流动形成星系团等结构时，
-会产生较强的激波 (Mach 数约为 ???)，从而加速粒子并产生同步辐射 (ref???).
+会产生 Mach 数 $\gtrsim$\,20 的强激波 \cite{ryu2003,skillman2008}，
+从而加速粒子并产生同步辐射 \cite{vazza2015}.
 目前还没有获得这些大尺度结构的射电观测证据，SKA 将有能力打破这个局面，
-打开研究分布在\ac{sc}和\ac{lsf}的 \ac{igm} 的大门 \cite{vazza2015}.
+打开研究分布在\ac{sc}和\ac{lsf}的 \ac{whim} 的大门 \cite{vazza2015}.
 另一方面，源自这些大尺度结构的射电辐射将如何影响 EoR 信号的探测，
 亦是一个值得探讨的问题.
 
