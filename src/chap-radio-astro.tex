@@ -1012,10 +1012,11 @@ $\overline{P}$ 之比，即：
 
 当一个天线测量一个流量密度为 $S_{\nu}$ 的非偏振源时，
 若输出的谱功率为 $P_{\nu}$，
-则该天线的\emph{有效接收面积 (effective collecting area)} $A_e$ 定义为：
+则该天线的\emph{\acl{area-eff} (effective collecting area)} \ac{area-eff}
+定义为：
 \begin{equation}
   \label{eq:area-eff}
-  A_e \equiv \frac{2 P_{\nu}}{S_{\nu}} ,
+  \ac{area-eff} \equiv \frac{2 P_{\nu}}{S_{\nu}} ,
 \end{equation}
 式中的因子 \enquote{2} 是因为单个天线只能响应一个偏振方向.
 
@@ -1023,10 +1024,10 @@ $\overline{P}$ 之比，即：
   \centering
   \includegraphics[width=0.5\textwidth]{average-area-thought-exp}
   \bicaption[计算天线的平均接收面积的思想实验]{%
-    计算天线的平均接收面积 $\langle A_e \rangle$ 的思想实验.
+    计算天线的平均接收面积 $\langle \ac*{area-eff} \rangle$ 的思想实验.
   }{%
     A thought experiment to calculate the average collection area
-    $\langle A_e \rangle$ of an antenna.
+    $\langle \ac*{area-eff} \rangle$ of an antenna.
     \\来源/Credit:
     \citeay{condon2016}, \S\,3.1.4.
   }
@@ -1036,8 +1037,8 @@ $\overline{P}$ 之比，即：
 一个天线的\emph{平均接收面积}定义为：
 \begin{equation}
   \label{eq:area-avg1}
-  \langle A_e \rangle
-    \equiv \frac{1}{4\Cpi} \int A_e(\theta,\phi) \,\D{\Omega} .
+  \langle \ac{area-eff} \rangle
+    \equiv \frac{1}{4\Cpi} \int \ac{area-eff}(\theta,\phi) \,\D{\Omega} .
 \end{equation}
 为计算该面积，可借助这样一个思想实验：
 一个理想的无损天线和一个匹配的理想电阻，分别置于两个温度均为 $T$ 的空腔中并且达到热平衡；
@@ -1048,18 +1049,20 @@ $\overline{P}$ 之比，即：
 否则其中一个空腔将升温、另一个则冷却，违背热力学第二定律.
 因此，天线接收各个方向的无偏振黑体辐射 $B_{\nu}(T)$ 所产生的\ac{spec-power}为：
 \begin{equation}
-  P_{\nu,a} = \frac{1}{2} \int A_e(\theta,\phi) B_{\nu}(T) \,\D{\Omega} ,
+  P_{\nu,a} =
+    \frac{1}{2} \int \ac{area-eff}(\theta,\phi) B_{\nu}(T) \,\D{\Omega} ,
 \end{equation}
 而且该\ac{spec-power}必须等于电阻的热噪声的\ac{spec-power} $P_{\nu,r}$.
 代入\autoref{eq:nyquist} 和\autoref{eq:planck}，可得
 \begin{equation}
-  \acs{kb}T = \frac{2\,\acs{kb}T}{2\lambda^2}
-    \int A_e(\theta,\phi) \,\D{\Omega} .
+  \acs{kb}T =
+    \frac{2\,\acs{kb}T}{2\lambda^2}
+      \int \ac{area-eff}(\theta,\phi) \,\D{\Omega} .
 \end{equation}
-于是，天线的平均接收面积 $\langle A_e \rangle$ 为：
+于是，天线的平均接收面积 $\langle \ac{area-eff} \rangle$ 为：
 \begin{equation}
   \label{eq:area-avg}
-  \langle A_e \rangle = \frac{\lambda^2}{4\Cpi}.
+  \langle \ac{area-eff} \rangle = \frac{\lambda^2}{4\Cpi}.
 \end{equation}
 
 %---------------------------------------------------------------------
@@ -1074,11 +1077,11 @@ $\overline{P}$ 之比，即：
   \label{eq:t-ant}
   \acs{T-antenna} \equiv \frac{P_{\nu}}{\acs{kb}} .
 \end{equation}
-设天线的有效接收面积为 $A_e$ [\autoref{eq:area-eff}]，
+设天线的有效接收面积为 \ac{area-eff} [\autoref{eq:area-eff}]，
 则一个流量密度为 $S_{\nu}$ 的无偏振辐射源将使天线的温度 \acs{T-antenna} 上升：
 \begin{equation}
   \label{eq:dt-source}
-  \Delta T = \frac{A_e S_{\nu}}{2\,\acs{kb}} .
+  \Delta T = \frac{\ac{area-eff} S_{\nu}}{2\,\acs{kb}} .
 \end{equation}
 
 
@@ -1569,14 +1572,15 @@ $\sigma_1 \approx \sqrt{2} \ac{T-antenna}$
 若一个点源的辐射使天线的温度 \ac{T-antenna} 升高了 $\Delta T$，
 则根据\autoref{eq:dt-source} 可测得该点源的流量密度为：
 \begin{equation}
-  S_{\nu} = \frac{2\,\ac{kb} \Delta T}{A_e} ,
+  S_{\nu} = \frac{2\,\ac{kb} \Delta T}{\ac{area-eff}} ,
 \end{equation}
 相应的测量误差为：
 \begin{align}
   \sigma_S
-    & = \frac{2\,\ac{kb}}{A_e} \sigma(\ac{T-antenna} + \Delta T) \\
-    & \approx \frac{2\,\ac{kb}}{A_e} \sigma(\ac{T-antenna}) \\
-    & = \frac{2\,\ac{kb} \ac{T-antenna}}{A_e \sqrt{\Delta\nu \,\tau}} .
+    & = \frac{2\,\ac{kb}}{\ac{area-eff}} \sigma(\ac{T-antenna} + \Delta T) \\
+    & \approx \frac{2\,\ac{kb}}{\ac{area-eff}} \sigma(\ac{T-antenna}) \\
+    & = \frac{2\,\ac{kb} \ac{T-antenna}}{
+      \ac{area-eff} \sqrt{\Delta\nu \,\tau}} .
 \end{align}
 此即单天线的\emph{点源灵敏度}.
 
@@ -1584,7 +1588,7 @@ $\sigma_1 \approx \sqrt{2} \ac{T-antenna}$
 \begin{equation}
   \sigma_S
     = \frac{\sqrt{2}\,\ac{kb} \ac{T-antenna}}{
-        A_e \sqrt{\Delta\nu \,\tau}} .
+        \ac{area-eff} \sqrt{\Delta\nu \,\tau}} .
 \end{equation}
 由 \ac{N-ant} 个相同天线构成的干涉阵列可形成 $\ac{N-ant}(\ac{N-ant}-1)/2$
 个独立的二元干涉仪，因此其点源灵敏度 $\sigma_S$ 为：
@@ -1592,7 +1596,7 @@ $\sigma_1 \approx \sqrt{2} \ac{T-antenna}$
   \label{eq:sigma-ps}
   \sigma_S
     = \frac{2\,\ac{kb} T_s}{
-        A_e \sqrt{\ac{N-ant}(\ac{N-ant}-1) \Delta\nu \,\tau}} .
+        \ac{area-eff} \sqrt{\ac{N-ant}(\ac{N-ant}-1) \Delta\nu \,\tau}} .
 \end{equation}
 
 如果观测一个\ac{src-extended}，则需要考虑干涉仪的\emph{亮度灵敏度} $\sigma_b$，
