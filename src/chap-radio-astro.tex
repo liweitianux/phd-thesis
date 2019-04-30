@@ -517,13 +517,14 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
 \label{sec:spectral-line}
 
 \emph{\acf{spec-line}}是光谱上的窄（$\Delta\nu \ll \nu$）发射或吸收特征，
-均源自原子或分子的能级跃迁.
-当一个原子或分子从高能级 $E_2$ 跃迁至低能级 $E_1$ 时分发射一个特定频率的光子，
+源自原子或分子的能级跃迁.
+当一个原子或分子从高能级 $E_2$ 跃迁至低能级 $E_1$ 时，会发射一个特定频率的光子，
 一群这样的光子便形成了一条\emph{发射线 (emission line)}.
-反过来，如果一个原子或分子从低能级 $E_1$ 跃迁至高能级 $E_2$ 则会吸收一个特定频率的光子，
+反过来，如果一个原子或分子从低能级 $E_1$ 跃迁至高能级 $E_2$，
+则会吸收一个特定频率的光子.
 这些被吸收的光子通常来自背景的连续谱辐射，
 因此观测到的连续谱上将出现一条\emph{吸收线 (absorption line)}.
-典型的谱线包括电离氢的复合线、中性氢的 21\,cm 超精细结构谱线
+典型的谱线包括\ac{hii}的复合线、中性氢的 21\,cm 超精细结构谱线
 （详见 \autoref{sec:21cm-line}）.
 
 %---------------------------------------------------------------------
@@ -551,56 +552,58 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
 \cite{einstein1916}，分别为：
 \begin{enumerate}
 \item \emph{\acf{em-spontaneous}}:
-  在没有外部光子的情况下，处在高能级 $E_2$ 的原子自发地向低能级 $E_1$
-  跃迁而发出光子的过程 [如\autoref{fig:atom-interactions}(a) 所示].
-  发出的光子的频率为 $\nu_0 = \Delta E / \acs{hp} = (E_2 - E_1) / \acs{hp}$.
-  此类跃迁的速率正比与原子的始态布居数 $N_2$，即：
+  在没有外界光子的情况下，处在高能级 $E_2$ 的原子自发地跃迁到低能级 $E_1$
+  而发射光子的过程 [如\autoref{fig:atom-interactions}(a) 所示].
+  发射的光子的频率为 $\nu_0 = \Delta E / \acs{hp} = (E_2 - E_1) / \acs{hp}$.
+  此类跃迁的速率正比与原子在高能级 $E_2$ 的布居数 $N_2$，即：
   \begin{equation}
     \label{eq:rate-em-spontaneous}
-    \left( \diff{N_{21}}{t} \right)_{\R{sp}} = A_{21} N_2 .
+    \left( \diff{N_{21}}{t} \right)_{\R{sp}} = \ac{coef-A21} N_2 ,
   \end{equation}
+  其中 \ac{coef-A21} 为\acl{coef-A21}.
 
 \item \emph{\acf{em-stimulated}}:
-  在外部频率为 $\nu_0$ 的光子的激励下，处在高能级 $E_2$ 的原子向低能级 $E_1$
-  跃迁而发出光子的过程 [如\autoref{fig:atom-interactions}(b) 所示].
+  在频率为 $\nu_0$ 的外界光子的激励下，处在高能级 $E_2$ 的原子向低能级 $E_1$
+  跃迁而发射光子的过程 [如\autoref{fig:atom-interactions}(b) 所示].
   该过程产生的光子与入射光子具有相同的频率、相位、传播方向和偏振态等性质，
   这就是\emph{\acf{laser}}的基本原理.
-  该过程的跃迁速率正比与原子的始态布居数 $N_2$
+  这个过程的跃迁速率正比与原子在高能级 $E_2$ 的布居数 $N_2$
   以及辐射场的\acl{u-nu} $\acs{u-nu}(\nu_0)$，即：
   \begin{equation}
     \label{eq:rate-em-stimulated}
     \left( \diff{N_{21}}{t} \right)_{\R{st}}
-      = B_{21} N_2 \, \acs{u-nu}(\nu_0) .
+      = \ac{coef-B21} N_2 \, \acs{u-nu}(\nu_0) ,
   \end{equation}
+  其中 \ac{coef-B21} 为\acl{coef-B21}.
 
 \item \emph{吸收}:
-  处在低能级 $E_1$ 的原子吸收一个频率为 $\nu_0$ 的光子向高能级 $E_2$ 跃迁的过程
+  处在低能级 $E_1$ 的原子吸收一个频率为 $\nu_0$ 的光子而跃迁到高能级 $E_2$ 的过程
   [如\autoref{fig:atom-interactions}(c) 所示].
-  类似地，该过程的跃迁速率正比与原子的始态布居数 $N_1$
+  类似地，该过程的跃迁速率正比与原子在低能级 $E_1$ 的布居数 $N_1$
   以及辐射场的\acl{u-nu} $\acs{u-nu}(\nu_0)$，即：
   \begin{equation}
     \label{eq:rate-absorption}
-    \diff{N_{12}}{t} = B_{12} N_1 \, \acs{u-nu}(\nu_0) .
+    \diff{N_{12}}{t} = \ac{coef-B12} N_1 \, \acs{u-nu}(\nu_0) ,
   \end{equation}
+  其中 \ac{coef-B12} 为\acl{coef-B12}.
 \end{enumerate}
-上述\autoref{eq:rate-em-spontaneous}、\autoref{eq:rate-em-stimulated}
-和\autoref{eq:rate-absorption} 中的比例系数 $A_{21}$、$B_{21}$ 和 $B_{12}$
+以上三个公式中的比例系数 \ac{coef-A21}、\ac{coef-B21} 和 \ac{coef-B12}
 统称为\emph{Einstein 系数}.
 
 考虑一个处于完全热平衡的原子系统，
-则同一对能级 $E_1$ 和 $E_2$ 之间的三种跃迁过程应满足\emph{\acf{detailed-balance}}:
+则能级 $E_1$ 和 $E_2$ 之间的三种跃迁过程应满足\emph{\acf{detailed-balance}}:
 \begin{equation}
   \label{eq:detailed-balance1}
   \left( \diff{N_{21}}{t} \right)_{\R{sp}}
     + \left( \diff{N_{21}}{t} \right)_{\R{st}} = \diff{N_{12}}{t} ,
 \end{equation}
-即
+即有：
 \begin{equation}
   \label{eq:detailed-balance2}
   A_{21} N_2 + B_{21} N_2 \, \acs{u-nu}(\nu_0)
     = B_{12} N_1 \, \acs{u-nu}(\nu_0) .
 \end{equation}
-同时，原子在两能级上的布居服从 Boltzmann 分布：
+同时，原子在两个能级上的布居服从 Boltzmann 分布：
 \begin{equation}
   \label{eq:ratio-populations-te}
   \frac{N_2}{N_1}
@@ -610,7 +613,7 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
 其中 $T$ 为系统的温度，
 $g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}.
 
-由\autoref{eq:detailed-balance2} 可解出辐射场的能量谱分布：
+从\autoref{eq:detailed-balance2} 可解出辐射场的\acl{u-nu}：
 \begin{equation}
   \acs{u-nu}(\nu_0) = \frac{A_{21}}{(N_1/N_2) B_{12} - B_{21}} ,
 \end{equation}
@@ -622,7 +625,7 @@ $g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}.
     - B_{21} \right]^{-1} .
 \end{equation}
 
-另一方面，辐射场的能谱分布由 Planck 辐射定律 [\autoref{eq:planck}] 给出，
+另一方面，辐射场的频谱 $B_{\nu}(T)$ 由 Planck 辐射定律 [\autoref{eq:planck}] 给出，
 再根据\autoref{eq:spectral-energy-density-iso}，可知辐射场的\acl{u-nu}为：
 \begin{equation}
   \label{eq:radiation-spec2}
@@ -656,57 +659,60 @@ $g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}.
 %---------------------------------------------------------------------
 \subsection{辐射转移方程}
 
-在考虑辐射转移时，物质的性质是由\acl{coef-emission} \acs{coef-emission}
-和\acl{coef-absorption} \acs{coef-absorption} 描述的.
+在考虑辐射转移时，介质的性质由\acl{coef-emission} \acs{coef-emission}
+和\acl{coef-absorption} \acs{coef-absorption} 描述.
 对于谱线的\ac{rt}问题，
-\acs{coef-emission} 和 \acs{coef-absorption} 可使用 Einstein 系数表示出来，
-利用\ac{detailed-balance}方程 [\autoref{eq:detailed-balance}]
-可进一步只使用\ac{em-spontaneous}系数 $A_{21}$
-来描述 \acs{coef-emission} 和 \acs{coef-absorption}，
-这将是非常有用的.
+\acs{coef-emission} 和 \acs{coef-absorption} 均可使用 Einstein 系数表示出来.
+利用\ac{detailed-balance}方程 [\autoref{eq:detailed-balance}]，
+可进一步只使用\acl{coef-A21} \ac{coef-A21}
+来描述 \acs{coef-emission} 和 \acs{coef-absorption}.
 
 考虑一个在能级 $E_1$ 和 $E_2$ 之间跃迁的热平衡系统，
 原子（或分子）在这两个能级上的布居数密度分别为 $N_1$ 和 $N_2$.
 对于系统中的一个体积元 $\D{V} = \D{s}\,\D{\sigma}$，
 在时间 $\D{t}$、频率范围 $[\nu, \,\nu+\D{\nu}]$、
-沿某一方向的立体角元 $\D{\Omega}$ 内通过\ac{em-spontaneous}产生的能量为：
+沿某一方向的立体角元 $\D{\Omega}$ 内通过\ac{em-spontaneous}过程产生的能量为：
 \begin{equation}
-  \D{E_{\R{sp}}(\nu)} = \acs{hp} \nu_0 A_{21} N_2 \phi(\nu)
-    \,\D{V}\,\D{t}\,\D{\nu} \left( \frac{\D{\Omega}}{4\Cpi} \right) ,
+  \D{E_{\R{sp}}(\nu)}
+    = \acs{hp} \nu_0 A_{21} N_2 \,\phi(\nu)
+      \,\D{V}\,\D{t}\,\D{\nu} \left( \frac{\D{\Omega}}{4\Cpi} \right) ,
 \end{equation}
 其中 $\nu_0 = (E_2 - E_1) / \acs{hp}$ 为谱线的中心频率，
 $\phi(\nu)$ 为\acf{line-profile}.
-类似地，体积元 $\D{V}$ 通过\ac{em-stimulated}产生的能量为：
+类似地，体积元 $\D{V}$ 通过\ac{em-stimulated}过程产生的能量为：
 \begin{equation}
-  \D{E_{\R{st}}(\nu)} = \acs{hp} \nu_0 B_{21} N_2 \phi(\nu) \acs{u-nu}
-    \,\D{V}\,\D{t}\,\D{\nu} \left( \frac{\D{\Omega}}{4\Cpi} \right) ,
+  \D{E_{\R{st}}(\nu)}
+    = \acs{hp} \nu_0 B_{21} N_2 \acs{u-nu} \,\phi(\nu)
+      \,\D{V}\,\D{t}\,\D{\nu} \left( \frac{\D{\Omega}}{4\Cpi} \right) ,
 \end{equation}
 以及吸收的能量为：
 \begin{equation}
-  \D{E_a(\nu)} = \acs{hp} \nu_0 B_{12} N_1 \phi(\nu) \acs{u-nu}
-    \,\D{V}\,\D{t}\,\D{\nu} \left( \frac{\D{\Omega}}{4\Cpi} \right) ,
+  \D{E_{\R{ab}}(\nu)}
+    = \acs{hp} \nu_0 B_{12} N_1 \acs{u-nu} \,\phi(\nu)
+      \,\D{V}\,\D{t}\,\D{\nu} \left( \frac{\D{\Omega}}{4\Cpi} \right) ,
 \end{equation}
 其中
 $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 为辐射场的\acl{u-nu} [参见\autoref{eq:spectral-energy-density-iso}].
 在热平衡的情形下，有
 \begin{equation}
-  \D{E_{\R{sp}}(\nu)} + \D{E_{\R{st}}(\nu)} - \D{E_a(\nu)}
+  \D{E_{\R{sp}}(\nu)} + \D{E_{\R{st}}(\nu)} - \D{E_{\R{ab}}(\nu)}
     = \D{\acs{I-nu}}\,\D{\sigma}\,\D{t}\,\D{\nu}\,\D{\Omega} ,
 \end{equation}
-即为含有 Einstein 系数的\ac{rt}方程：
+即为\emph{含有 Einstein 系数的\ac{rt}方程}：
 \begin{equation}
   \diff{\acs{I-nu}}{s}
     = - \left [ \frac{\acs{hp} \nu_0}{\acs{speed-light}}
       (B_{12} N_1 - B_{21} N_2) \phi(\nu) \right] \acs{I-nu}
-      + \frac{\acs{hp} \nu_0}{4\Cpi} A_{21} N_2 \phi(\nu) .
+      + \frac{\acs{hp} \nu_0}{4\Cpi} A_{21} N_2 \,\phi(\nu) .
 \end{equation}
 对比 \autoref{sec:radiative-transfer} 所述的辐射转移方程
 [\autoref{eq:radiative-transfer}]，
-可得 \acs{coef-emission} 和 \acs{coef-absorption} 分别为：
+可得\acl{coef-emission} \acs{coef-emission}
+和\acl{coef-absorption} \acs{coef-absorption} 分别为：
 \begin{align}
   \acs{coef-emission}
-    & = \frac{\acs{hp} \nu_0}{4\Cpi} A_{21} N_2 \phi(\nu) ,
+    & = \frac{\acs{hp} \nu_0}{4\Cpi} A_{21} N_2 \,\phi(\nu) ,
   \label{eq:coef-emission-einstein} \\
   \acs{coef-absorption}
     & = \frac{\acs{hp} \nu_0}{\acs{speed-light}}
@@ -743,7 +749,8 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 利用\autoref{eq:coef-emission-einstein}、
 \autoref{eq:emission-absorption-ratio1}
 以及\autoref{eq:ratio-populations-lte}，
-可以得到使用\ac{em-spontaneous}系数 $A_{21}$ 表示的 \ac{coef-absorption}：
+可以得到使用\acl{coef-A21} \ac{coef-A21}
+表示的\acl{coef-absorption} \acs{coef-absorption}：
 \begin{align}
   \acs{coef-absorption}
     & = \frac{\acs{speed-light}^2}{8\Cpi \nu_0^2} A_{21} N_2
@@ -759,8 +766,9 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 %---------------------------------------------------------------------
 \subsection{激发温度}
 
-一个二能级系统即使未处于局部热平衡状态，
-仍然可以使用下式定义其\emph{\acf{T-excitation}}：
+即使一个二能级系统未处于局部热平衡状态，
+仍然可以使用下式定义其\emph{\acl{T-excitation} (excitation temperature)}
+\ac{T-excitation}：
 \begin{equation}
   \label{eq:t-excitation-def}
   \frac{N_2}{N_1} \equiv \frac{g_2}{g_1}
@@ -768,7 +776,7 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
     = \frac{g_2}{g_1}
       \exp\left( -\frac{\acs{hp} \nu_0}{\acs{kb} \acs{T-excitation}} \right) .
 \end{equation}
-该温度 \acs{T-excitation} 描述了两能级的布居数 $N_2$ 和 $N_1$ 之比，
+该温度 \acs{T-excitation} 描述了两个能级的布居数 $N_2$ 和 $N_1$ 之比，
 由系统的辐射、\ac{coll-excitation}和\ac{coll-deexcitation} 三者之间的平衡决定.
 
 在单位时间、单位体积内，如果碰撞引发 $N_1 C_{12}$ 次从低能级 $E_1$ 到高能级 $E_2$
@@ -776,8 +784,8 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 则\autoref{eq:detailed-balance2} 成为：
 \begin{equation}
   \label{eq:detailed-balance-collison1}
-  N_2 (A_{21} + B_{21} \,\acs{u-nu}(\nu_0) + C_{21})
-    = N_1 (B_{12} \,\acs{u-nu}(\nu_0) + C_{12}) ,
+  N_2 [A_{21} + B_{21} \,\acs{u-nu}(\nu_0) + C_{21}]
+    = N_1 [B_{12} \,\acs{u-nu}(\nu_0) + C_{12}] ,
 \end{equation}
 并且\ac{detailed-balance}要求：
 \begin{equation}
@@ -787,18 +795,12 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 联合\autoref{eq:radiation-spec2} 和\autoref{eq:detailed-balance} 可得：
 \begin{equation}
   \label{eq:tex-coefs-b}
-  \left\{
-  \begin{aligned}
-    B_{21} \,\acs{u-nu}(\nu_0) & =
-      A_{21} \left[ \exp\left(
-        \frac{\acs{hp} \nu_0}{\acs{kb} T_b} \right) - 1 \right]^{-1} , \\
-    B_{12} \,\acs{u-nu}(\nu_0) & =
-      A_{21} \frac{g_2}{g_1} \left[ \exp\left(
+  B_{12} \,\acs{u-nu}(\nu_0)
+    = \frac{g_2}{g_1} B_{21} \,\acs{u-nu}(\nu_0)
+    = A_{21} \frac{g_2}{g_1} \left[ \exp\left(
         \frac{\acs{hp} \nu_0}{\acs{kb} T_b} \right) - 1 \right]^{-1} ,
-  \end{aligned}
-  \right.
 \end{equation}
-其中 $T_b$ 为系统环境辐射的\acl{T-b}.
+其中 $T_b$ 为辐射场的\acl{T-b}.
 另外，利用\autoref{eq:ratio-populations-lte}
 和\autoref{eq:detailed-balance-collison2} 可得：
 \begin{equation}
@@ -832,9 +834,11 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
       -\frac{\acs{hp} \nu_0}{\acs{kb} T_b} \right) \right]} .
 \end{equation}
 从上式可以看出，
-如果辐射占主导 ($A_{21} \gg C_{21}$)，则 $\acs{T-excitation} \to T_b$；
+如果辐射占主导 ($A_{21} \gg C_{21}$)，
+则\acl{T-excitation}趋近于辐射场的\acl{T-b} ($\acs{T-excitation} \to T_b$)；
 反之，如果碰撞占主导 ($A_{21} \ll C_{21}$)，
-则 $\acs{T-excitation} \to \acs{T-kinetic}$.
+则\acl{T-excitation}趋近于介质的\acl{T-kinetic}
+($\acs{T-excitation} \to \acs{T-kinetic}$).
 
 
 %=====================================================================
