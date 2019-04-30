@@ -15,25 +15,28 @@
 %---------------------------------------------------------------------
 \subsection{简介和历史}
 
-我们对宇宙的几乎所有认识都来自于观测并研究所接收到的电磁辐射，
+我们对宇宙的几乎所有认识都来自于观测并研究所接收到的电磁辐射.
 在射电波段对天体和宇宙开展研究的天文学分支称为\emph{射电天文学 (radio astronomy)}.
-对于地面上的射电望远镜，观测频率的下限约为 $\nu_{\R{min}} \sim \SI{10}{\MHz}$
-($\lambda_{\R{max}} \sim \SI{30}{\meter}$)，
-取决于\ac{ionosphere}的截断频率，低于该频率的电磁波将被反射而无法到达地面.
-观测频率的上限约为 $\nu_{\R{max}} \sim \SI{1000}{\GHz}$
-($\lambda_{\R{min}} \sim \SI{0.3}{\mm}$)，主要原因是\ac{troposphere}中的
-分子（主要是 $\mathrm{H_2 O}$ 和 $\mathrm{O_2}$）的最低转动能带的共振吸收.
-\autoref{fig:atmospheric-emt} 显示了大气层的电磁辐射透射率以及相应的射电观测窗口.
+对于地面上的射电望远镜，观测频率的下限 $\nu_{\R{min}} \sim \SI{10}{\MHz}$
+（即最长波长 $\lambda_{\R{max}} \sim \SI{30}{\meter}$），
+取决于\ac{ionosphere}的截断频率，
+低于该频率的电磁波将被\ac{ionosphere}反射而无法到达地面.
+观测频率的上限 $\nu_{\R{max}} \sim \SI{1000}{\GHz}$
+（即最短波长 $\lambda_{\R{min}} \sim \SI{0.3}{\mm}$），
+更高频率的电磁波将被\ac{troposphere}中的分子
+（主要是 $\mathrm{H_2 O}$ 和 $\mathrm{O_2}$）吸收.
+当然，大气层对电磁辐射的吸收情况会随时间以及地理位置而变化.
+\autoref{fig:atmospheric-emt} 显示了大气层的
+电磁辐射\ac{transmittance}以及相应的射电观测窗口.
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{atmospheric-em-transmittance}
   \bicaption[大气层的电磁辐射透射率]{%
-    大气层的电磁辐射透射率随波长（即频率）的变化.
+    大气层的电磁辐射\acs*{transmittance}随波长 $\lambda$（即频率 $\nu$）的变化.
     除了光学窗口，大气层还有一个更加宽广的射电窗口，
     从 $\lambda \sim \SI{0.3}{\mm}$ ($\nu \sim \SI{1000}{\GHz}$)
     延伸到 $\lambda \sim \SI{30}{\meter}$ ($\nu \sim \SI{10}{\MHz}$).
-    大气层对电磁辐射的吸收情况会随时间以及地理位置而变化.
   }{%
     Electromagnetic transmittance of the Earth's atmosphere.
     In addition to the visible optical window, there is another
@@ -47,19 +50,18 @@
 \end{figure}
 
 首次发现源自地球之外的射电辐射是在 1932 年被 Bell 电话实验室的工程师
-Karl Guthe Jansky 意外得到的.
-上世纪 20 年代，Bell 电话公司基于短波（$\lambda \sim \SI{15}{\meter}$）传输
-建设了跨洋电话服务，但是发现通话受到了强烈的干扰，因此 Bell 电话实验室派
-Jansky 去查明干扰来源.
+Karl G. Jansky 意外得到的.
+上世纪 20 年代，Bell 电话公司基于 $\lambda \sim \SI{15}{\meter}$
+的短波传输建设了跨洋电话服务，但是发现通话受到了强烈的干扰，因此派 Jansky 去查明干扰来源.
 Jansky 建造了一个对方向敏感的可转动天线（如\autoref{fig:jansky-antenna} 所示）
 用来监测 \SI{20.5}{\MHz} ($\lambda \approx \SI{14.6}{\meter}$) 处的射电辐射.
 经过观测，他发现绝大部分的干扰源自暴风雨的闪电.
-此外，他还发现有一个较弱的不明噪声，其强度在每天发生周期性的变化，
-他怀疑该噪声可能源自太阳的射电辐射.
-但是持续的观测显示该不明噪声的准确周期为 \SI{23}{\hour}\,\SI{56}{\minute}，
-并不是刚好 \SI{24}{\hour}.
-将此困惑与他的一个天文学家朋友 Albert Melvin Skellett 讨论后，
-Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源是银河系中心 \cite{jansky1933}.
+此外，他还发现有一个较弱的不明噪声，其强度在每天发生周期性的变化.
+因此，Jansky 怀疑该噪声可能是太阳的射电辐射.
+但是持续的观测显示这个不明噪声的准确周期为 \SI{23}{\hour}\,\SI{56}{\minute}，
+并不是恰好 \SI{24}{\hour}.
+将此困惑与他的一个天文学家朋友 Albert M. Skellett 讨论后，
+Jansky 了解到该噪声来自太阳系之外，并进一步确认其来源是银河系中心 \cite{jansky1933}.
 
 \begin{figure}[htp]
   \centering
@@ -77,14 +79,15 @@ Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源�
   \label{fig:jansky-antenna}
 \end{figure}
 
-然而，Jansky 的发现未能得到足够的关注和重视，他本人也被分配到其他项目而无法继续
-详细研究银河系的射电辐射.
-幸运的是，另一位无线电工程师 Grote Reber 对 Jansky 的发现产生了极大兴趣，
-于是耗费数年在自家后院建造了世界第一台抛物面射电望远镜
+可惜的是，Jansky 的发现未能得到足够的关注和重视，
+他本人也被分配到其他项目而无法继续研究银河系的射电辐射.
+但是幸运的是，另一位无线电工程师 Grote Reber 对 Jansky 的发现产生了极大兴趣，
+于是耗时数年在自家后院建造了世界第一台抛物面射电望远镜
 （如\autoref{fig:reber-telescope} 所示）.
 在 1938 年，Reber 用这台望远镜成功地在 \SI{160}{\MHz} 探测到了银河系的辐射.
-他进一步开展了银河系的第一次射电巡天观测，这些结果发表于专业的天文期刊
-\apj \cite{reber1940}，使得 Jansky 的成果得到了应有的重视.
+接着，他进一步开展了银河系的第一次射电巡天观测，
+并将结果发表于专业的天文学期刊 \apj \cite{reber1940}.
+自此，射电天文学登上了天文学的舞台.
 
 \begin{figure}[htp]
   \centering
@@ -100,22 +103,24 @@ Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源�
   \label{fig:reber-telescope}
 \end{figure}
 
-后续的几年里，尽管第二次世界大战阻碍了射电天文的发展，但是极大地刺激了无线电技术
-和雷达设备的研发.
-这些方面的成果在战争结束后给射电天文学带来了长足进步，开创了一系列新技术和新方法.
-其中最值得一提的是由 Martin Ryle 和 Antony Hewish 发明的\ac{as}技术，
-使射电观测的角分辨率和灵敏度得到了空前的提高.
+在后续的几年里，尽管第二次世界大战阻碍了射电天文学的发展，
+但是极大地刺激了无线电技术和雷达设备的研发.
+这些方面的成果在战争结束后给射电天文学带去了长足的进步，开创了一系列新技术和新方法.
+其中最值得一提的是由 Martin Ryle 和 Antony Hewish 发明的\ac{as}技术 \cite{ryle1960}，
+使射电观测的角分辨率得到了空前的提高.
 
-自射电窗口被打开以来，射电天文学已取得了一系列激动人心的新发现，主要包括：
-银河系和其他多种天体的非热辐射 \cite{reber1940}、
-由超大质量黑洞驱动的射电星系\cite{baade1954}和\ac{quasar}\cite{hazard1963,schmidt1963}及其演化、
-冷星际介质（如原子、离子和分子）的热辐射谱线、
+自射电窗口被打开以来，射电天文学已取得了一系列激动人心的发现，
+其中代表性的发现主要有：
+银河系和其他多种天体的非热 (non-thermal) 辐射 \cite{reber1940}、
+由超大质量黑洞驱动的射电星系\cite{baade1954}
+和\ac{quasar}\cite{hazard1963,schmidt1963}及其演化、
+冷\ac{ism}的热辐射谱线、
 星际分子的\ac{maser} \cite{weaver1965}、
-源自宇宙大爆炸的 \ac{cmb} \cite{penzias1965}、
+宇宙大爆炸的 \ac{cmb} \cite{penzias1965}、
 \ac{pulsar}和中子星 \cite{hewish1968}、
-星系的 \ac{hi} 旋转曲线显示其内部存在\ac{dm} \cite{roberts1975}、
+星系中的\ac{dm} \cite{roberts1975}、
 强\ac{gl} \cite{walsh1979}.
-总之，射电天文学揭开了宇宙在光学波段所见完全不同的一面（如\autoref{fig:radio-sky} 所示），
+总之，射电天文学揭开了宇宙的全新一面（如\autoref{fig:radio-sky} 所示），
 极大地拓展了我们对宇宙的认识，深刻地改变了我们对宇宙的理解.
 
 \begin{figure}[htp]
@@ -136,15 +141,15 @@ Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源�
 %---------------------------------------------------------------------
 \subsection{机遇和挑战}
 
-尽管大气层的射电窗口允许低至约 \SI{10}{\MHz} 的观测，但由于各种技术和条件的限制，
-以往的射电观测和研究主要位于 $\gtrsim \si{\GHz}$ 的中高频波段.
-相比中高频波段，低频波段（约 \SIrange{50}{300}{\MHz}）主要有以下几点优势：
+尽管大气层的射电窗口允许低至 $\sim$\,\SI{10}{\MHz} 的观测，但由于各种技术和条件的限制，
+以往的射电观测和研究主要在 $\gtrsim$\,\SI{1}{\GHz} 的中高频波段.
+相比中高频波段，低频波段主要有以下几点优势：
 \begin{itemize}
   \item 低频波段对应的辐射波长更长，受尘埃的影响更小，因此能够观测到星系更核心的区域.
   \item \ac{rad-syn}在低频波段更强且寿命更长，因此更利于探测\ac{gc}、
-    \ac{sc}甚至\ac{lsf}的弥散射电辐射.
+    \ac{sc}甚至\ac{lsf}的弥散射电辐射. (ref???)
   \item 多种等离子体效应（如散射、色散、Faraday 旋转）的强度按 $\nu^{-2}$ 变化，
-    因此在低频波段更适合研究星际电子密度、磁场强度、等等.
+    因此在低频波段更适合研究星际电子密度、磁场强度、等等. (ref???)
   \item 源自宇宙再电离时期 (红移 $z \sim \numrange{6}{16}$)
     的\ac{hi} 21\,cm 信号历经红移后将出现在低频波段，因此不可避免地需要在
     此波段开展观测，探测该信号以研究宇宙早期的再电离过程
@@ -153,7 +158,8 @@ Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源�
     脉冲星、暂现源、等等.
 \end{itemize}
 
-随着相关技术取得了充分发展，低频射电波段已在近十多年来得到了重点关注并取得了长足进步，
+近十多年来，与低频射电相关的工程技术已取得长足的进步.
+在射电天文学领域，低频射电波段也得到了重点关注，
 目前已建成一批工作在此波段的干涉阵列，
 主要包括 \ac{21cma}、\ac{gmrt}、\ac{mwa}、\ac{lofar}.
 此外还有若干正在积极建设的新型低频干涉阵列，比如 \ac{lwa}、\ac{hera}、\ac{ska}.
@@ -189,21 +195,21 @@ Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源�
 \end{figure}
 
 考虑一个面积为 $\D{\sigma}$ 的探测器，测量一个与其法线方向呈 $\theta$ 角度、
-所张立体角为 $\D{\Omega}$ 的源的辐射（如\autoref{fig:intensity} 所示），
+所张立体角为 $\D{\Omega}$ 的辐射源，如\autoref{fig:intensity} 所示.
 若探测器在频率范围 $[\nu, \,\nu+\D{\nu}]$ 内接收到的功率为 $\D{P_{\nu}}$，
-则源的\emph{\acf{I-nu}} 为：
+则这个源的\emph{\acl{I-nu} (specific intensity)} \ac{I-nu} 定义为：
 \begin{equation}
   \label{eq:intensity}
-  \acs{I-nu} \equiv
+  \ac{I-nu} \equiv
     \frac{\D{P_{\nu}}}{(\cos\theta\,\D{\sigma}) \,\D{\nu} \,\D{\Omega}} \,,
 \end{equation}
 其 \ac{si} 单位是 [\si{\watt\per\square\meter\per\hertz\per\steradian}].
-\acl{I-nu} \acs{I-nu} 亦被称为\emph{谱亮度 (spectral brightness)}，
+\acl{I-nu} \ac{I-nu} 亦被称为\emph{\ac{spec-brightness}}，
 有时也被简称为\emph{强度}或\emph{亮度}.
 
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=0.5\textwidth]{flux-density}
+  \includegraphics[width=0.7\textwidth]{flux-density}
   \bicaption[\acl*{S-nu} \acs*{S-nu} 的定义示意图]{%
     \acl*{S-nu} \acs*{S-nu} 的定义示意图.
   }{%
@@ -214,31 +220,38 @@ Jansky 了解到该噪声应来自太阳系之外，并进一步确认其来源�
   \label{fig:flux-density}
 \end{figure}
 
-对于一个离散源，其所张的立体角是确定的，如图\autoref{fig:flux-density} 所示，
-因此探测器单位投影面积上接收到的谱功率 (spectral power)
-即为这个源的\emph{\acf{S-nu}}：
+一个\ac{src-discrete}所张的立体角是确定的，如\autoref{fig:flux-density} 所示，
+因此探测器单位投影面积上接收到的\ac{spec-power}即为
+这个源的\emph{\acl{S-nu} (flux density)} \ac{S-nu}:
 \begin{equation}
   \label{eq:flux-density}
-  \acs{S-nu} \equiv
-    \int_{\R{source}} \acs{I-nu}(\theta,\phi) \cos\theta \,\D{\Omega} ,
+  \ac{S-nu} \equiv
+    \int_{\R{source}} \ac{I-nu}(\theta,\phi) \cos\theta \,\D{\Omega} ,
 \end{equation}
 其 \ac{si} 单位是 [\si{\watt\per\square\meter\per\hertz}].
 实际中常用的单位是 \si{\jansky}，换算关系为
 $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 
-辐射场的\emph{\acf{u-nu}}是指每单位体积的谱能量 (spectral energy)
-其 \ac{si} 单位为 [\si{\joule\per\cubic\meter\per\hertz}].
+一个辐射场的\emph{\acl{u-nu} (spectral energy density)}是指
+每单位体积的\ac{spec-energy}，具有 \ac{si} 单位
+[\si{\joule\per\cubic\meter\per\hertz}].
 取辐射场中的一个体积元 $\D{V}$，对于来自某一方向的立体角元 $\D{\Omega}$
-的一束辐射 $\acs{I-nu}(\theta,\phi)$，
-可认为体积元 $\D{V}$ 具有长度 $\D{s}$ 以及横截面积 $\D{\sigma}$，
+的一束辐射 $\ac{I-nu}(\theta,\phi)$，
+可认为该体积元 $\D{V}$ 具有长度 $\D{s}$ 以及横截面积 $\D{\sigma}$，
 即 $\D{V} = \D{s}\,\D{\sigma}$，
-于是这束辐射 $\acs{I-nu}(\theta,\phi)$ 对该体积元的谱能量贡献为：
+于是这束辐射 $\acs{I-nu}(\theta,\phi)$ 贡献给这个体积元的谱能量为：
 \begin{equation}
   \D{\acs{u-nu}}\,\D{V}
     = \acs{I-nu}(\theta,\phi) \,\D{\Omega}\,\D{\sigma}
       \left( \frac{\D{s}}{\acs{speed-light}} \right) ,
 \end{equation}
 其中 \acs{speed-light} 是\acl{speed-light}.
+所以，源自 $\D{\Omega}$ 方向的辐射 $\acs{I-nu}(\theta,\phi)$
+在体积元 $\D{V}$ 的位置贡献的\acl{u-nu}为：
+\begin{equation}
+  \D{\acs{u-nu}}
+    = \frac{\acs{I-nu}(\theta,\phi)}{\acs{speed-light}} \,\D{\Omega} ,
+\end{equation}
 将上式对所有方向积分，即得辐射场的\acl{u-nu}：
 \begin{equation}
   \label{eq:spectral-energy-density}
@@ -261,7 +274,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
   \centering
   \includegraphics[width=0.6\textwidth]{specific-intensity-conservation}
   \bicaption[\acl*{I-nu} \acs*{I-nu} 沿光线保持不变]{%
-    在自由空间里\acl*{I-nu} \acs*{I-nu} 沿光线保持不变.
+    \acl*{I-nu} \acs*{I-nu} 在自由空间里沿光线保持不变.
   }{%
     The specific intensity \acs*{I-nu} conserved along a ray in empty space.
     \\来源/Credit:
@@ -270,11 +283,12 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
   \label{fig:intensity-conservation}
 \end{figure}
 
-在自由空间里，即不存在吸收和发射，辐射的\acl*{I-nu} \acs*{I-nu} 保持不变，与距离无关.
-考虑由源发射的一束光线，
-设 $\D{\sigma_1}$ 和 $\D{\sigma_2}$ 是光线上相距为 $r$ 的两个无限小截面，
+在自由空间里，不存在吸收和发射，所以辐射的\acl*{I-nu} \acs*{I-nu} 保持不变，
+与传播的距离无关.
+为说明这一点，考虑由源发射的一束光线，
+设 $\D{\sigma_1}$ 和 $\D{\sigma_2}$ 是光线上相距为 $r$ 的两个面元，
 如\autoref{fig:intensity-conservation} 所示，
-则两个面元相互所张的立体角为：
+则两个面元相互所张的立体角分别为：
 \begin{align}
   \D{\Omega_1} & = \frac{\cos\theta_2 \,\D{\sigma_2}}{r^2} , \\
   \D{\Omega_2} & = \frac{\cos\theta_1 \,\D{\sigma_1}}{r^2} .
@@ -294,7 +308,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
     & = (\acs{I-nu})_2 \left( \frac{\cos\theta_1 \cos\theta_2}{r^2} \right)
       \,\D{\sigma_1} \,\D{\sigma_2} \,\D{\nu} .
 \end{align}
-利用能量守恒，即 $\D{P_1}\,\D{t} = \D{P_2}\,\D{t}$，
+根据能量守恒，即 $\D{P_1}\,\D{t} = \D{P_2}\,\D{t}$，
 可得：
 \begin{equation}
   \label{eq:intensity-conservation}
@@ -327,8 +341,9 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 \begin{equation}
   \D{p} = \acs{coef-absorption} \,\D{s} ,
 \end{equation}
-其中 \acs{coef-absorption} 为\emph{\acl{coef-absorption}}，
-量纲为 $\big[\text{长度}^{-1}\big]$.
+其中 \acs{coef-absorption}
+为\emph{\acl{coef-absorption} (absorption coefficient)}，
+具有 \ac{si} 单位 [\si{\per\meter}].
 于是，\acl{I-nu} \acs{I-nu} 在通过厚度 $\D{s}$ 的介质后的损失比例为：
 \begin{equation}
   \label{eq:rt-absorption}
@@ -347,16 +362,16 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
     \exp \left[ - \int_{s_{\R{in}}}^{s_{\R{out}}}
       \acs{coef-absorption}(s') \,\D{s'} \right] .
 \end{equation}
-据此，可定义\emph{\acf{optical-depth}}为：
+据此，可定义\emph{\acl{optical-depth} (optical depth)}为：
 \begin{equation}
   \label{eq:optical-depth}
   \acs{optical-depth} \equiv
     - \int_{s_{\R{out}}}^{s_{\R{in}}} \acs{coef-absorption}(s') \,\D{s'} .
 \end{equation}
-注意，上式的积分方向与 $s$ 相反（另见\autoref{fig:radiative-transfer}），
-如此可使 $\tau > 0$ 并且随着观测者对介质的观测深度而增大.
+注意，上式的积分方向与 $s$ 相反（参见\autoref{fig:radiative-transfer}），
+如此可使 $\tau > 0$ 并且与介质的观测深度成正相关.
 利用\acl{optical-depth} \acs{optical-depth}，
-\autoref{eq:intensity-loss1} 可以写成：
+可将\autoref{eq:intensity-loss1} 写成：
 \begin{equation}
   \label{eq:intensity-loss}
   \frac{\acs{I-nu}(s_{\R{out}})}{\acs{I-nu}(s_{\R{in}})} =
@@ -378,7 +393,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
   \label{eq:coef-emission}
   \acs{coef-emission} = \diff{\acs{I-nu}}{s} .
 \end{equation}
-易知 \acs{coef-emission} 的单位为
+易知 \acs{coef-emission} 的 \ac{si} 单位为
 [\si{\watt\per\cubic\meter\per\hertz\per\steradian}].
 综合上式和\autoref{eq:rt-absorption}，可得\emph{\ac{rt}方程}：
 \begin{equation}
@@ -392,7 +407,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 
 \emph{\acf{te}}，简称\emph{热平衡}，
 是指一个系统在没有外界影响的条件下，其各部分的宏观属性在长时间内不发生任何变化的状态.
-这是热力学中的一个基本实验定律，是定义温度的基础.
+这是热力学的一个基本实验定律，是定义温度的基础.
 
 \begin{figure}[htp]
   \centering
@@ -411,11 +426,12 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 两个由不同材料制成、包含不同介质的空腔放在一起，
 中间由一个仅允许频率在 $[\nu, \,\nu+\D{\nu}]$ 之间的辐射通过的阀门连接，
 如\autoref{fig:kirchhoff-experiment} 所示.
-在\emph{完全热平衡}的情形下，即物质和辐射场具有相同的温度，
-空腔产生的辐射与黑体辐射（见 \autoref{sec:blackbody}）相同，
+在\emph{完全热平衡}的情形下，即空腔中的介质和辐射场具有相同的温度，
+空腔产生的辐射与黑体辐射（详见后文 \autoref{sec:blackbody}）相同，
 完全由温度决定，而与其材质或者内部介质无关.
-当两个空腔在任意温度 $T$ 达到完全热平衡时，没有\emph{净}能量从一个空腔辐射到另一个，
-否则损失能量的空腔将冷却，另一个空腔将升温，从而违背热力学第二定律.
+当两个空腔在任意温度 $T$ 达到完全热平衡时，
+没有\emph{净}能量从一个空腔通过阀门进入到另一个空腔，
+否则损失能量的空腔将会冷却，另一个空腔将会升温，从而违背热力学第二定律.
 由此可知：
 \begin{align}
   \diff{\acs{I-nu}}{s} & = 0 , \\
@@ -432,21 +448,21 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
   \label{eq:kirchhoff-law}
   \frac{\acs{coef-emission}(T)}{\acs{coef-absorption}(T)} = B_{\nu}(T) ,
 \end{equation}
-该式对任意频率 $\nu$ 均成立.
+上式对任意频率 $\nu$ 均成立.
 这就是完全热平衡系统的\emph{Kirchhoff 定律}.
 
-完全的热平衡只有在特殊的条件下才能实现.
-对于一般的系统，产生发射或吸收的物质并不与辐射场达到热平衡，但如果物质本身是热平衡的，
-则称该系统处于\emph{\acf{lte}}.
+完全热平衡只有在特殊的条件下才能实现.
+对于一般的系统，产生发射或吸收的介质无法与辐射场达到热平衡，
+但如果介质本身是热平衡的，则称该系统处于\emph{\acf{lte}}状态.
 Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
-不过 $\acs{I-nu}$ 与 $B_{\nu}(T)$ 通常不相等.
+不过辐射场的\acl{I-nu} \ac{I-nu} 与 $B_{\nu}(T)$ 通常不相等.
 
 %---------------------------------------------------------------------
 \subsection{黑体辐射和亮温度}
 \label{sec:blackbody}
 
 \emph{黑体}是能够吸收全部入射辐射的理想物体.
-处于热力学平衡态的黑体产生的辐射称为\emph{黑体辐射}，其能谱分布只取决于黑体的温度，
+处于热力学平衡态的黑体所发出的辐射称为\emph{黑体辐射}，其能谱分布只取决于黑体的温度，
 由 \emph{Planck 辐射定律}给出：
 \begin{equation}
   \label{eq:planck}
@@ -454,38 +470,39 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
     \left[ \exp\left( \frac{\acs{hp} \nu}{\acs{kb} T} \right) - 1 \right]^{-1} ,
 \end{equation}
 其中 $B_{\nu}$ 是在频率 $\nu$ 处的谱亮度，
-\acs{hp} 是\acl{hp}，
-\acs{kb} 是\acl{kb}，
+\acs{hp} 是 \acl{hp}，
+\acs{kb} 是 \acl{kb}，
 \acs{speed-light} 是\acl{speed-light}.
 
 在射电波段，$\acs{hp}\nu \ll \acs{kb}T$ 通常成立，因此上式可近似为：
 \begin{equation}
   \label{eq:rj-approx}
-  B_{\nu}(\nu, T) \approx \frac{2\,\acs{kb}T \nu^2}{\acs{speed-light}^2} .
+  B_{\nu}(\nu, T)
+    \approx \frac{2 \nu^2 \acs{kb} T}{\acs{speed-light}^2} .
 \end{equation}
-该式就是 \emph{Rayleigh--Jeans 近似}.
-在该近似下，辐射黑体的谱亮度 $B_{\nu}$ 与其温度 $T$ 严格成正比.
-因此，一个源的谱亮度（即比强度） $I_{\nu}$
-可以很方便地使用\emph{\acf{T-b}} 来描述：
+这就是 \emph{Rayleigh--Jeans 近似}.
+在该近似下，黑体的谱亮度 $B_{\nu}$ 与其温度 $T$ 严格成正比.
+因此，一个源的亮度（即\acl{I-nu}） \ac{I-nu}
+可以很方便地使用\emph{\acl{T-b} (brightness temperature)} \ac{T-b} 来描述：
 \begin{equation}
   \label{eq:Tb}
   \acs{T-b}(\nu)
     \equiv \frac{\acs{I-nu} \acs{speed-light}^2}{2 \,\acs{kb} \nu^2} .
 \end{equation}
-注意 \acs{T-b} 会随频率而变.
+注意，对于一般的辐射源，其\acl{T-b} \ac{T-b} 会随频率 $\nu$ 发生改变.
 
 %---------------------------------------------------------------------
 \subsection{电阻的热噪声}
 
-一个温度为 $T$ 的电阻 (resistor)，因其内部的载流子（通常是电子）的随机热运动而产生噪声，
-该噪声亦称 \emph{Johnson--Nyquist 噪声} \cite{johnson1928,nyquist1928}，
-其谱功率 (spectral power, 即每单位频率的功率) 由以下 \emph{Nyquist 近似}给出
-[详见 \citeay{condon2016}, \S\,2.5]：
+一个温度为 $T$ 的电阻 (resistor)，因为内部的电子的随机热运动，所以会输出一个噪声.
+这种噪声被称为 \emph{Johnson--Nyquist 噪声} \cite{johnson1928,nyquist1928}，
+其\ac{spec-power} 由以下 \emph{Nyquist 近似}给出
+（详见 \citeay{condon2016}, \S\,2.5）：
 \begin{equation}
   \label{eq:nyquist-approx}
   P_{\nu} \approx \acs{kb} T .
 \end{equation}
-该式是 Rayleigh--Jeans 近似 [\autoref{eq:rj-approx}] 在电学里的对应.
+该式是 Rayleigh--Jeans 近似 [\autoref{eq:rj-approx}] 在电子学里的对应.
 类似地，该近似公式只适用于 $\acs{hp}\nu \ll \acs{kb}T$ 的经典范畴.
 在考虑量子化修正后，严格的 \emph{Nyquist 公式}为：
 \begin{equation}
