@@ -1110,7 +1110,7 @@ $\overline{P}$ 之比，即：
   \includegraphics[width=0.7\textwidth]{interferometer}
   \bicaption[二元准单色干涉仪]{%
     二元准单色干涉仪的构成示意图.
-    两个相同的天线相距 $\B{b}$ 放置并指向位于 $\hat{\B{s}}$ 方向的辐射源，
+    两个相同的天线相距 \ac*{v-baseline} 放置并指向位于 \ac*{v-direction} 方向的辐射源，
     接收的信号被放大后，再经过\acs*{correlator}的相乘（$\times$）
     和时间平均（$\langle\;\rangle$），得到输出响应 $R$.
   }{%
@@ -1118,7 +1118,7 @@ $\overline{P}$ 之比，即：
     observing in a very narrow radio frequency band centered at
     $\nu = \omega / (2\Cpi)$.
     The two identical antennas are separated by the baseline vector
-    $\B{b}$ and point to the source in direction $\hat{\B{s}}$.
+    \ac*{v-baseline} and point to the source in direction \ac*{v-direction}.
     The signals received by the antennas are amplified,
     multiplied ($\times$), and time averaged ($\langle\;\rangle$)
     by the correlator to yield the output response $R$.
@@ -1134,11 +1134,12 @@ $\overline{P}$ 之比，即：
 同一个波面被两个天线接收之间存在一个时间差，
 即为\emph{\acl{delay-geo} (geometric delay)} \ac{delay-geo}:
 \begin{equation}
-  \acs{delay-geo} = \frac{\B{b} \cdot \hat{\B{s}}}{\acs{speed-light}},
+  \acs{delay-geo} =
+    \frac{\ac{v-baseline} \cdot \ac{v-direction}}{\acs{speed-light}},
 \end{equation}
 其中 \acs{speed-light} 是\acl{speed-light}，
-$\B{b}$ 为两天线之间的\ac{baseline}矢量（由天线 1 指向天线 2），
-$\hat{\B{s}}$ 为辐射源的方向矢量.
+\ac{v-baseline} 为两天线之间的\acl{v-baseline}（由天线 1 指向天线 2），
+\ac{v-direction} 为辐射源的\acl{v-direction}.
 两个天线接收信号后分别输出电压响应：
 \begin{equation}
   \left\{
@@ -1168,7 +1169,7 @@ $\hat{\B{s}}$ 为辐射源的方向矢量.
 以及 $\sqrt{A_1 A_2}$，其中 $A_1$ 和 $A_2$ 为两个天线的有效接收面积
 [参见\autoref{eq:area-avg}].
 
-当辐射源的方向 $\hat{\B{s}}$ 改变时（比如由于地球的自转），
+当辐射源的方向 \ac{v-direction} 改变时（比如由于地球的自转），
 \acl{delay-geo} \acs{delay-geo} 也随之变化，
 于是\ac{correlator}的输出 $R$ 出现正弦形式的振荡，
 被称为干涉仪的响应\emph{\acf{fringe}}，
@@ -1177,7 +1178,8 @@ $\hat{\B{s}}$ 为辐射源的方向矢量.
   \phi = \omega \acs{delay-geo}
     = 2\Cpi \left( \frac{b \cos\theta}{\lambda} \right),
 \end{equation}
-其中 $\theta$ 为方向 $\hat{\B{s}}$ 和\ac{baseline}矢量 $\B{b}$ 之间的夹角.
+其中 $\theta$ 为\acl{v-direction} \ac{v-direction}
+和\acl{v-baseline} \ac{v-baseline} 之间的夹角.
 于是有
 \begin{equation}
   \diff{\phi}{\theta} = 2\Cpi \left( \frac{b \sin\theta}{\lambda} \right),
@@ -1195,15 +1197,17 @@ $\hat{\B{s}}$ 为辐射源的方向矢量.
 将对输出 $R$ 产生调制，亦如\autoref{fig:interferometer} 所示，
 其中\ac{correlator}的响应\ac{fringe}的\ac{envelope}示意了\ac{beam-primary}的衰减情况.
 
-对于一个表面亮度分布为 $\acs{I-nu}(\hat{\B{s}})$ 的\ac{src-extended}，
+对于一个表面亮度分布为 $\acs{I-nu}(\ac{v-direction})$ 的\ac{src-extended}，
 由于不同位置产生的辐射互不相干，因此可以被当作一系列独立的点源处理，
 于是上述二元准单色干涉仪的输出响应为：
 \begin{align}
-  R_c & = \int \acs{I-nu}(\hat{\B{s}})
-      \cos \left( \omega \B{b}\cdot\hat{\B{s}} / \acs{speed-light} \right)
+  R_c & = \int \acs{I-nu}(\ac{v-direction})
+      \cos \left( \omega \ac{v-baseline} \cdot \ac{v-direction} /
+        \acs{speed-light} \right)
       \,\D{\Omega}  \\
-    & = \int \acs{I-nu}(\hat{\B{s}}) \cos \left(
-      2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \,\D{\Omega},
+    & = \int \acs{I-nu}(\ac{v-direction}) \cos \left(
+        2\Cpi\, \ac{v-baseline} \cdot \ac{v-direction} / \lambda \right)
+      \,\D{\Omega},
     \label{eq:resp-cos}
 \end{align}
 其中下标 \enquote{$c$} 表示 \enquote{cosine} \ac{correlator}的输出，
@@ -1214,29 +1218,36 @@ $\hat{\B{s}}$ 为辐射源的方向矢量.
 然而\autoref{eq:resp-cos} 描述的 cosine \ac{correlator}只能测量其中的
 偶对称成分 $I_{\R{even}}$，即：
 \begin{align}
-  R_c & = \int \left[ I_O(\hat{\B{s}}) + I_E(\hat{\B{s}}) \right]
-      \cos \left( 2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right)
+  R_c & = \int \left[ I_{\R{odd}}(\ac{v-direction}) +
+        I_{\R{even}}(\ac{v-direction}) \right]
+      \cos \left( 2\Cpi\, \ac{v-baseline} \cdot \ac{v-direction} /
+        \lambda \right)
       \,\D{\Omega}  \\
-    & = \int I_E(\hat{\B{s}}) \cos \left(
-      2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \,\D{\Omega}.
+    & = \int I_{\R{even}}(\ac{v-direction}) \cos \left(
+        2\Cpi\, \ac{v-baseline} \cdot \ac{v-direction} / \lambda \right)
+      \,\D{\Omega}.
 \end{align}
 为了能够测量另一个奇对称成分 $I_{\R{odd}}$，
 则需要一个 \enquote{sine} \ac{correlator}，
 可通过对其中一个天线的输出增加 $\Cpi/2$ 的相位延迟来实现，于是有：
 \begin{align}
-  R_s & = \int \left[ I_O(\hat{\B{s}}) + I_E(\hat{\B{s}}) \right]
-      \sin \left( 2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right)
+  R_s & = \int \left[ I_{\R{odd}}(\ac{v-direction}) +
+        I_{\R{even}}(\ac{v-direction}) \right]
+      \sin \left( 2\Cpi\, \ac{v-baseline} \cdot \ac{v-direction} /
+        \lambda \right)
       \,\D{\Omega}  \\
-    & = \int I_O(\hat{\B{s}}) \sin \left(
-      2\Cpi\, \B{b}\cdot\hat{\B{s}} / \lambda \right) \,\D{\Omega}.
+    & = \int I_{\R{odd}}(\ac{v-direction}) \sin \left(
+        2\Cpi\, \ac{v-baseline} \cdot \ac{v-direction} / \lambda \right)
+      \,\D{\Omega}.
 \end{align}
 一对 cosine 和 sine \ac{correlator}的组合称为\ac{c-correlator}.
 相应地，\emph{\acl{Vis} (complex visibility)}，简称\emph{\ac{vis}}，可定义为：
 \begin{align}
   \acs{Vis}
     & \equiv R_c - \Ci\, R_s  \\
-    & = \int I_{\nu}(\hat{\B{s}}) \exp
-      (-2\Cpi\Ci\, \B{b}\cdot\hat{\B{s}} / \lambda) \,\D{\Omega}.
+    & = \int \ac{I-nu}(\ac{v-direction}) \exp
+      (-2\Cpi\Ci\, \ac{v-baseline} \cdot \ac{v-direction} / \lambda)
+      \,\D{\Omega}.
     \label{eq:vis}
 \end{align}
 
@@ -1248,11 +1259,13 @@ $\hat{\B{s}}$ 为辐射源的方向矢量.
 可认为辐射源的亮度以及天线的响应在此频带内保持不变，
 于是可得干涉仪测量的\ac{vis} [\autoref{eq:vis}] 为：
 \begin{align}
-  \acs{Vis} &= \int \left[ \frac{1}{\Delta\nu}
+  \acs{Vis}
+    & = \int \left[ \frac{1}{\Delta\nu}
         \int_{\nu_c-\Delta\nu/2}^{\nu_c+\Delta\nu/2}
-        I(\hat{\B{s}}, \nu) \exp (-2\Cpi\Ci\, \nu\acs{delay-geo})
+        I(\ac{v-direction}, \nu) \exp (-2\Cpi\Ci\, \nu\acs{delay-geo})
       \right] \,\D{\Omega} \\
-    &\approx \int I_{\nu}(\hat{\B{s}}) \sinc (\Delta\nu\,\acs{delay-geo})
+    & \approx \int \ac{I-nu}(\ac{v-direction})
+      \sinc (\Delta\nu\,\acs{delay-geo})
       \exp (-2\Cpi\Ci\, \nu_c\acs{delay-geo}) \,\D{\Omega},
   \label{eq:vis-bw}
 \end{align}
@@ -1272,7 +1285,7 @@ $\sinc(\Delta\nu\,\acs{delay-geo})$ 倍.
 使其满足 $|\acs{delay-comp} - \acs{delay-geo}| \ll (\Delta\nu)^{-1}$，
 如\autoref{fig:interferometer-tau0} 所示.
 这样，两个天线的输出信号在到达\ac{correlator}时，其相位是同步的.
-同时，满足 $\acs{delay-comp} = \acs{delay-geo}$ 的方向 $\hat{\B{s}}_0$
+同时，满足 $\acs{delay-comp} = \acs{delay-geo}$ 的方向 $\ac{v-direction}_0$
 称为\emph{\acf{delay-center}}或\emph{\acf{phase-refpos}}.
 
 \begin{figure}[htp]
@@ -1297,7 +1310,7 @@ $\sinc(\Delta\nu\,\acs{delay-geo})$ 倍.
 \end{figure}
 
 \acl{delay-geo} \acs{delay-geo} 会随方向而变化，
-因此\acl{delay-comp} \acs{delay-comp} 只对特定方向 $\hat{\B{s}}_0$
+因此\acl{delay-comp} \acs{delay-comp} 只对特定方向 $\ac{v-direction}_0$
 （即\ac{delay-center}）是正好准确的.
 偏离\ac{delay-center}的角度 $\Delta\theta$ 越大，
 \acl{delay-comp} \acs{delay-comp} 的修正效果就会越差，
@@ -1318,7 +1331,7 @@ $\sinc(\Delta\nu\,\acs{delay-geo})$ 倍.
 的频率\ac{channel}，并且对每个\ac{channel}的信号独立地进行相关运算得到\ac{vis}.
 
 类似地，如果\ac{correlator}的\ac{t-int} $\Delta t$ 过长，
-则辐射源的位置 $\hat{\B{s}}$ 会因地球自转而发生显著改变
+则辐射源的位置 \ac{v-direction} 会因地球自转而发生显著改变
 （可与 \acs{bw-synthesized} 相比拟），
 导致\acl{delay-comp} \acs{delay-comp} 的修正效果变差.
 这个效应被称为\emph{\acf{t-smear}}.
@@ -1341,21 +1354,24 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
   \centering
   \includegraphics[width=0.7\textwidth]{interferometer-coordsys}
   \bicaption[$(u,v,w)$ 坐标系]{%
-    干涉仪的 $(u,v,w)$ 直角坐标系，其中 $w$ 轴指向参考方向 $\hat{\B{s}}_0$，
+    干涉仪的 $(u,v,w)$ 直角坐标系，其中 $w$ 轴指向参考方向 $\ac*{v-direction}_0$，
     通常为目标的中心，$u$ 轴向东，$v$ 轴向北.
-    基线矢量可表示为 $\B{b} = (u,v,w) \lambda$，
-    目标的亮度分布则用\acs*{dc}描述，即 $\ac{I-nu}(\hat{\B{s}}) = \ac{I-nu}(l,m)$，
-    其中 $l, m$ 分别为方向矢量 $\hat{\B{s}}$ 对 $u, v$ 轴的投影长度.
+    \acl*{v-baseline}可表示为 $\ac*{v-baseline} = (u,v,w) \lambda$，
+    目标的亮度分布则用\acs*{dc}描述，
+    即 $\ac*{I-nu}(\ac*{v-direction}) = \ac*{I-nu}(l,m)$，
+    其中 $l, m$ 分别为\acl*{v-direction} \ac*{v-direction}
+    对 $u, v$ 轴的投影长度.
   }{%
     The $(u,v,w)$ Cartesian coordinate system for interferometers,
     in which the $w$-axis points in the reference direction
-    $\hat{\B{s}}_0$ (usually toward the source center), and
+    $\ac*{v-direction}_0$ (usually toward the source center), and
     the $u$- and $v$-axes point east and north, respectively.
-    A baseline vector is represented as $\B{b} = (u,v,w) \lambda$,
+    A baseline vector is represented as
+    $\ac*{v-baseline} = (u,v,w) \lambda$,
     and the source brightness distribution is described as
-    $\ac{I-nu}(\hat{\B{s}}) = \ac{I-nu}(l,m)$,
+    $\ac*{I-nu}(\ac*{v-direction}) = \ac*{I-nu}(l,m)$,
     where $l, m$ are direction cosines,
-    i.e., the projected lengths of the direction vector $\hat{\B{s}}$
+    i.e., the projected lengths of the direction vector \ac*{v-direction}
     against the $u$- and $v$-axes, respectively.
     \\来源/Credit:
     \citeay{thompson2017}, \S\,3.1.
@@ -1366,11 +1382,11 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 为了能够实际地运用\autoref{eq:vis} 从观测的\ac{vis}数据获得辐射源的亮度分布，
 需要定义一个坐标系.
 如\autoref{fig:interferometer-coordsys} 所示的 $(u,v,w)$ 直角坐标系是最常用的，
-其中 $w$ 轴指向参考方向 $\hat{\B{s}}_0$，
+其中 $w$ 轴指向参考方向 $\ac{v-direction}_0$，
 通常为目标的中心，$u$ 轴向东，$v$ 轴向北.
-于是，\ac{baseline}矢量为 $\B{b} = (u,v,w) \lambda$，
-方向矢量为 $\hat{\B{s}} = \left( l, m, \sqrt{1-l^2-m^2} \right)$，
-其中 $l, m$ 分别为 $\hat{\B{s}}$ 对 $u, v$ 轴的投影长度，即\ac{dc}.
+于是，\acl{v-baseline}为 $\ac{v-baseline} = (u,v,w) \lambda$，
+\acl{v-direction}为 $\ac{v-direction} = \left( l, m, \sqrt{1-l^2-m^2} \right)$，
+其中 $l, m$ 分别为 \ac{v-direction} 对 $u, v$ 轴的投影长度，即\ac{dc}.
 再利用 $\D{\Omega} = \D{l}\,\D{m} \,\big/ \sqrt{1-l^2-m^2}$，
 可将\autoref{eq:vis} 表示为：
 \begin{equation}
@@ -1386,10 +1402,10 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 从而通过逆运算获得目标的亮度分布.
 \begin{itemize}
 \item
-\emph{所有\ac{baseline}矢量共面:}
+\emph{所有\acl{v-baseline}共面:}
 这可进一步分为两种情形：
 (1) 干涉阵列的天线只沿东西方向分布，如 \ac{wsrt}，尽管地球自转，
-所有\ac{baseline}矢量均落在同一个垂直于地球自转轴的平面内；
+所有\acl{v-baseline}均落在同一个垂直于地球自转轴的平面内；
 (2) 虽然干涉阵列的天线分布在一个二维平面，如 \ac{miteor}，
 但是采用\ac{snapshot}观测模式，即每次观测或成像的\ac{t-int}足够短.
 在这两种情况下，可以选取合适的坐标系原点使得 $w = 0$，
@@ -1405,7 +1421,7 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 %.......................................
 \item
 \emph{小视场成像:}
-对于任何干涉阵列，如果只考虑以参考方向 $\hat{\B{s}}_0$ 为中心的一个足够小的区域，
+对于任何干涉阵列，如果只考虑以参考方向 $\ac{v-direction}_0$ 为中心的一个足够小的区域，
 则有：
 \begin{equation}
   w \sqrt{1-l^2-m^2}
@@ -1437,9 +1453,10 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 
 \end{itemize}
 
-上述第一种情况要求\ac{baseline}矢量 $\B{b}$ 全部在同一平面内，
-第二种情况要求方向矢量 $\hat{\B{s}}$ 在天球上的对应点全部在同一平面内，即视场足够小.
-从\autoref{eq:vis} 容易看出 $\B{b}$ 和 $\hat{\B{s}}$ 之间存在对称性，
+上述第一种情况要求\acl{v-baseline} \ac{v-baseline} 全部在同一平面内，
+第二种情况要求\acl{v-direction} \ac{v-direction}
+在天球上的对应点全部在同一平面内，即视场足够小.
+从\autoref{eq:vis} 容易看出 \ac{v-baseline} 和 \ac{v-direction} 之间存在对称性，
 因此，这两种情况可理解为相同近似条件的不同表现形式 \cite{clark1999}.
 如果无法满足以上两种情况，比如大视场成像，则需要采用专门的成像方法
 \cite{cornwell1992,sault2007}，
@@ -1452,9 +1469,9 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 \subsection{\texorpdfstring{$uv$}{uv} 覆盖}
 \label{sec:uv-coverage}
 
-设二元干涉仪的\ac{baseline}矢量为 $\B{b} = (u,v,w)\lambda$，
+设二元干涉仪的\acl{v-baseline}为 $\ac{v-baseline} = (u,v,w)\lambda$，
 在每个时刻，干涉仪测量 $uv$ 平面内位于 $(u,v)$ 和 $(-u,-v)$ 的一对\ac{vis}.
-随着地球的自转，$\B{b}$ 的各个分量逐渐变化，经过 \SI{24}{\hour}，
+随着地球的自转，\ac{v-baseline} 的各个分量逐渐变化，经过 \SI{24}{\hour}，
 该\ac{baseline}所测量的\ac{vis}数据在 $uv$ 平面内形成两个相互对称的椭圆.
 一个包含 \ac{N-ant} 个天线的干涉阵列可形成
 $\ac{N-ant}(\ac{N-ant}-1)/2$ 条\ac{baseline}，
@@ -1489,7 +1506,8 @@ $\ac{N-ant}(\ac{N-ant}-1)/2$ 条\ac{baseline}，
   \label{eq:sf}
   \acs{S-uv} = \sum_{k,t} \delta(u - u_{k,t}, v - v_{k,t}),
 \end{equation}
-其中 $u_{k,t}, v_{k,t}$ 为\ac{baseline} $\B{b}_k$ 在 $t$ 时刻在 $uv$ 平面内的分量.
+其中 $u_{k,t}, v_{k,t}$ 为\ac{baseline} $\B{b}_k$
+在 $t$ 时刻在 $uv$ 平面内的分量.
 于是，干涉阵列实际测量的\ac{vis}数据为 $\acs{Vis}(u,v) \acs{S-uv}$.
 由于无法获得目标亮度分布的全部信息，
 根据\autoref{eq:vis-inv2} 对测量的\ac{vis}数据进行逆 Fourier 变换
