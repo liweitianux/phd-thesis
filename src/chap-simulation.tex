@@ -896,7 +896,7 @@ $\acs{D-luminosity}(z_{\R{sim}})$ 是\ac{rh}的\acl{D-luminosity}，
 \subsection{模型参数和结果}
 \label{sec:halo-results}
 
-本工作对\ac{rh}构建的模型主要包含以下 5 个待调节的参数：
+我们构建的\ac{rh}模型主要包含以下 5 个待调节的参数：
 \begin{enumerate}
   \item \ac{f-injection}:
     注入电子的总能量密度与 \ac{icm} 热能密度 \ac{e-th} 之比；
@@ -921,13 +921,6 @@ $P_{1400} \propto M_{500}^{3.70 \pm 0.56}$.
 这里需要将质量 $M_{500}$ 换算至维里质量以便与模拟结果对比，
 具体换算方法可见附录 \autoref{sec:r-m-conv}.
 
-另一个对比则利用 \SI{1.4}{\GHz} 全天积分的\ac{f-flux}.
-为此，我们搜集了目前（截至 2018 年 1 月；TODO）已观测到的 80 个\ac{rh}，
-其中 71 个已确认，另外 9 个为候选，
-详见\autoref{app:halos} 中的\autoref{tab:halos}.
-考虑到目前观测到的\ac{rh}远不完备，尤其是在低流量端，
-因此在对比时只要求模拟得到的\ac{f-flux}与观测结果在高流量端一致.
-
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.7\textwidth]{halo-power-mvir}
@@ -948,9 +941,16 @@ $P_{1400} \propto M_{500}^{3.70 \pm 0.56}$.
   \label{fig:halo-power}
 \end{figure}
 
+另一个对比则利用全天积分的 \SI{1.4}{\GHz} \ac{f-flux}.
+为此，我们搜集了截至 2018 年 1 月已观测到的 80 个\ac{rh}，
+其中 71 个已确认，另外 9 个为候选，
+详见\autoref{app:halos} 中的\autoref{tab:halos}.
+考虑到目前观测到的\ac{rh}远远不够完备，尤其是在低流量端，
+因此在对比时只要求模拟得到的\ac{f-flux}与观测结果在高流量端达到一致.
+
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=\textwidth]{fluxfunc-simucomp}
+  \includegraphics[width=0.7\textwidth]{fluxfunc-simucomp}
   \bicaption[射电晕 \SI{1.4}{\GHz} 流量函数的对比]{%
     模拟的射电晕（紫色实线）和观测的射电晕（红色虚线）之间的
     \SI{1.4}{\GHz} 流量函数对比.
@@ -977,8 +977,8 @@ $P_{1400} \propto M_{500}^{3.70 \pm 0.56}$.
 大质量星系团有显著的涨落 (\autoref{sec:mass-function})，
 因此亮射电晕也会出现明显的涨落.
 为了考虑这个分布涨落，我们对每一种参数组合均重复模拟 500 次，
-由此估算模拟结果的均值和误差，并与上述两点观测结果进行对比.
-通过测试多种参数组合，最终选取如下一组参数：
+由此估算模拟结果的均值和误差，并与上述两个观测结果进行对比.
+通过测试多种参数组合，我们最终选取如下一组参数：
 $\ac{f-injection} = 0.01\%$、
 $\ac{f-trans} = 15\%$、
 $\ac{f-cr} = 1.5\%$、
@@ -990,10 +990,10 @@ $\ac{f-instability} = 0.1$.
 $P_{1400} \propto M_{\R{vir}}^{3.94 \pm 0.12}$.
 该\ac{scaling-relation}的斜率和截距与 \citeay{cassano2013}
 获得的观测结果都符合得很好.
-\autoref{fig:halos-simucomp} 显示了 \SI{1.4}{\GHz} \ac{f-flux}
-的对比结果，可见模拟的射电晕与观测的射电晕在高流量端是一致的.
-同时，本工作模拟给出的 \SI{1.4}{\GHz} \ac{f-flux}
-还与 \citeay{cassano2012} 的预测结果是匹配的.
+\autoref{fig:halos-simucomp} 显示了 \SI{1.4}{\GHz} \ac{f-flux}的对比结果，
+可见模拟的射电晕与观测的射电晕在高流量端是一致的.
+同时，本文模拟给出的 \SI{1.4}{\GHz} \ac{f-flux}还与
+\citeay{cassano2012} 的预测结果是匹配的.
 
 此外，\autoref{fig:halo-fraction} 显示了具有射电晕的星系团比例
 随星系团质量的变化.
@@ -1037,7 +1037,7 @@ $\theta = r / \acs{D-angular}(z_{\R{sim}})$ 是距离射电晕中心的角半径
 (angular radius)，
 并且 $\ac{D-angular}(z_{\R{sim}})$ 是射电晕的\acl{D-angular}；
 $\theta_{\R{halo}} = \ac{r-halo} / \acs{D-angular}(z_{\R{sim}})$.
-$I_{\nu,0}$ 为中心亮度，由射电晕的流量密度 $\ac{S-halo}(\nu)$ 确定：
+还有 $I_{\nu,0}$ 为中心亮度，由射电晕的流量密度 $\ac{S-halo}(\nu)$ 确定：
 \begin{align}
   \ac{S-halo}(\nu)
     & = \int_0^{\theta_{\R{halo}}} \ac{I-nu}(\theta) \,\D{\theta} \\
@@ -1052,9 +1052,9 @@ $I_{\nu,0}$ 为中心亮度，由射电晕的流量密度 $\ac{S-halo}(\nu)$ 确
 便可以得到\ac{rh}的亮温度 $\acs{T-b}(\nu)$ 的分布图像.
 
 如 \autoref{sec:halo-results} 所述，
-为了考虑亮射电晕数目的显著涨落，使得\autoref{chap:halo}的评估结果更具代表性，
-我们针对射电的模拟重复了 100 次，并将全部 100 次的模拟数据用于后续分析.
-基于这 100 次模拟，射电晕的亮温度的\ac{rms}值的中位数以及 68\% 的误差\footnote{%
+为了考虑亮射电晕数目的显著涨落，从而使\autoref{chap:halo}的评估结果更具代表性，
+我们重复模拟了 100 次射电晕，并将全部 100 次的模拟数据用于后续分析.
+基于这 100 次模拟，射电晕的亮温度\ac{rms}值的中位数以及 68\% 的误差\footnote{%
   68\% 的误差根据第 16 和第 84 \ac{percentile}得到.
   对于弥散很大的数据，如此计算的误差比标准差更稳健.
 }为：
@@ -1074,7 +1074,7 @@ $\left(0.85_{-0.54}^{+2.74}\right) \times 10^3$ \si{\mK}
   \bicaption[射电晕在 \SI{158}{\MHz} 的模拟天图示例]{%
     射电晕在 \SI{158}{\MHz} 的模拟天图示例，为 100 次模拟中的一次典型情况.
     天区的大小为 \SI{10 x 10}{\degree}，
-    \ac{colorbar}以 \si{\kelvin} 为单位.
+    \ac{colorbar}的单位是 \si{\kelvin}.
   }{%
     An typical example from the 100 simulation runs showing the
     simulated radio halos at \SI{158}{\MHz}.
