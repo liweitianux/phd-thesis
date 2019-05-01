@@ -1149,12 +1149,12 @@ $\sim$\,27\% \cite{shaver1999}.
 \label{sec:eor-window}
 
 在二维功率谱 $\ac{psD}(\kperp, \klos)$ 上，
-频谱光滑的前景污染原则上只分布在 \klos{} 较小的区域.
+频谱光滑的前景干扰原则上只分布在 \klos{} 较小的区域.
 但是没有仪器是理想的，一些仪器效应和观测效应会将
 \kperp{} \ac{mode}里的功率\enquote{混合}到 \klos{} \ac{mode}里，
 即\emph{\acf{mode-mixing}}效应，
 并且 \klos{} 受影响的范围与 \kperp{} 的大小成正相关，
-因此导致前景污染将占据二维功率谱的右下方一个楔形区域，
+因此，前景污染将占据二维功率谱的右下方一个楔形区域，
 即\emph{\acf{fg-wedge}}，如\autoref{fig:eor-window} 所示.
 这个现象最早由 \citeay{datta2010} 基于模拟数据研究亮点源对 EoR 探测的影响时发现，
 目前已被多个实际观测证实
@@ -1193,7 +1193,6 @@ $\sim$\,27\% \cite{shaver1999}.
 \end{figure}
 
 引起\ac{mode-mixing}的主要原因是干涉阵列固有的\ac{chromatic-effect}，
-如\autoref{fig:chromatic-baselines} 所示，
 即同一条\ac{baseline}的空间分辨率随着频率 $\nu$ 的增大而提高 \cite{liu2014}:
 \begin{equation}
   \label{eq:baseline-u-nu}
@@ -1201,12 +1200,13 @@ $\sim$\,27\% \cite{shaver1999}.
     = \frac{b \nu}{\acs{speed-light}}
     \propto \kperp ,
 \end{equation}
-其中 $b$ 为\ac{baseline}的长度.
+其中 $b$ 为\ac{baseline}的长度，
+如\autoref{fig:chromatic-baselines} 所示.
 \ac{mode-mixing}还可能由其他多种因素引起，比如：
 干涉阵列的 \ac{psf} 随频率而变化 \cite{bowman2009,liu2009ps}、
 前景模型不精确（如点源的强度或位置有偏差） \cite{datta2010,morales2012}、
-仪器响应的校准存在偏差 \cite{morales2012}、
-相干叠加不同\ac{baseline}的测量数据 \cite{hazelton2013}.
+仪器响应的校准不足 \cite{morales2012}、
+不同\ac{baseline}的测量数据的叠加 \cite{hazelton2013}.
 下文将基于干涉阵列的\ac{chromatic-effect}，
 简要介绍\ac{mode-mixing}的基本原理以及\ac{fg-wedge}的形成原因.
 更严格的分析可参考 \citeay{liu2014} 和 \citeay{liu2014ii}.
@@ -1215,11 +1215,11 @@ $\sim$\,27\% \cite{shaver1999}.
   \centering
   \includegraphics[width=0.8\textwidth]{chromatic-baselines}
   \bicaption[基线的\acs*{chromatic-effect}示意图]{%
-    干涉阵列的基线的\acs*{chromatic-effect}示意图.
+    干涉阵列基线的\acs*{chromatic-effect}示意图.
     观测频率越高，同一条基线 $b$ 的空间分辨率越高，
     即所测量的波数 ($u = b / \lambda \propto \kperp$) 越大.
-    同时，基线越长，空间分辨率的变化越显著，
-    即\acs*{chromatic-effect}越明显，对应图中的线则越平.
+    同时，基线的长度越长，其空间分辨率的变化越显著，
+    该基线的\acs*{chromatic-effect}也越明显（对应于图中的线越平）.
   }{%
     An illustration of the chromatic effect of the interferometer baselines.
     As the observing frequency increases, the spatial resolution of
@@ -1246,13 +1246,13 @@ $\sim$\,27\% \cite{shaver1999}.
   t_u = \frac{1}{\sin\theta} ,
 \end{equation}
 如\autoref{fig:chromatic-baselines} 中的背景条纹所示.
-易知，点源偏离视场中心越远，产生的条纹越细.
+易知，点源偏离视场中心越远，所产生的条纹的间隔越窄.
 
 尽管辐射源的亮度不随频率变化（即只有 \kperp{} \ac{mode}），
 但是基线的\ac{chromatic-effect}导致观测的\ac{vis}数据将随频率涨落
 （即出现了 \klos{} \ac{mode}），所以称为\ac{mode-mixing}.
 再结合\autoref{eq:baseline-u-nu}，
-可知因\ac{mode-mixing}引起的涨落在频率维度的变化周期为 \cite{morales2012}：
+可知由\ac{mode-mixing}引起的涨落在频率维度的变化周期为 \cite{morales2012}：
 \begin{equation}
   \label{eq:t-nu-u}
   t_{\nu} = \frac{\ac{speed-light}}{b} t_u
@@ -1296,25 +1296,26 @@ $\sim$\,27\% \cite{shaver1999}.
 \end{figure}
 
 从上式可以清楚地看出，
-视场内每一个前景干扰源（如未准确扣除的点源）在二维功率谱上产生的污染分布在右下方的一条斜线上，
-\kperp{} 越大的\ac{mode}被混合到 \klos{} \ac{mode}的范围也越大，形成\ac{fg-wedge}，
+视场内每一个前景干扰源（如未准确扣除的点源）在二维功率谱上产生的污染分布在右下方的一条斜线上；
+\kperp{} 越大的\ac{mode}被混合到 \klos{} \ac{mode}的范围也越大，
+于是形成\ac{fg-wedge}，
 如\autoref{fig:fg-wedge-fov} 所示.
 另一方面，随着前景干扰源距离视场中心越来越远，其产生的污染区域也逐渐向左上方移动.
 因此，视场内距离中心最远的干扰源（设该距离为 $\Phi$）确定了\ac{fg-wedge}的边界，
 而左上方未受前景污染的区域则称为\emph{EoR 窗口}，可表示为：
 \begin{equation}
   \klos \ge \frac{\ac{Hz} \ac{D-comoving}(z) \sin\Phi}{
-    \ac{speed-light} (1+z)} \kperp .
+    \ac{speed-light} (1+z)} \kperp ,
 \end{equation}
 如\autoref{fig:fg-wedge-fov} 和\autoref{fig:eor-window} 所示.
 干涉阵列通常具有明显的\ac{sidelobe}，
 因此\ac{fg-wedge}的具体范围（如 $\Phi$ 的大小）
 与\ac{sidelobe}的行为密切相关.
 
-在实际情况中，二维功率谱的计算只使用一段较窄的频段
-($\ac{bandwidth} \lesssim \SI{10}{\MHz}$) 以避免宇宙演化的影响，
-所以计算过程中对频率维度进行 Fourier 变换时存在显著的边界效应.
-另外，望远镜的频率响应可能存在一些结构.
+在实际情况中，计算二维功率谱时只使用一个较窄的频带
+(带宽 $\ac{bandwidth} \lesssim \SI{10}{\MHz}$) 以避免宇宙演化的影响，
+所以计算过程中对频率维度进行 Fourier 变换时存在一定的边界效应.
+另外，望远镜的频率响应也存在一些结构 \cite{deLeraAcedo2017,trott2017}.
 这些因素将导致额外的前景\ac{spillover}，使得\ac{fg-wedge}变大，
 因此，\citeay{thyagarajan2013} 提出了如下改进的 EoR 窗口的边界表达式：
 \begin{equation}
@@ -1327,7 +1328,7 @@ $\sim$\,27\% \cite{shaver1999}.
 \end{equation}
 其中 \ac{bandwidth} 为\acl{bandwidth}，
 $w$ 描述了前景\ac{spillover}的程度.
-\autoref{fig:eor-window} 显示了 $w = 0, 1, 3$ 对应的 EoR 窗口边界.
+\autoref{fig:eor-window} 显示了 $w = 0, 1, 3$ 所对应的 EoR 窗口边界.
 
 
 %=====================================================================
