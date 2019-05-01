@@ -450,7 +450,7 @@ $\nu = \acs{freq21cm} / (1 + z)$，
 频率维度 $\nu$ 对应中性氢的视向距离.
 此即 \emph{EoR \acf{tomography}} \cite{mellema2015}.
 
-对 EoR 信号的\ac{imgcube} $I(\B{\theta},\nu)$ 进行三维 Fourier 变换：
+通过对 EoR 信号的\ac{imgcube} $I(\B{\theta},\nu)$ 进行三维 Fourier 变换：
 \begin{equation}
   \label{eq:ft3d}
   \tilde{I}(\B{u}, \eta) =
@@ -458,17 +458,19 @@ $\nu = \acs{freq21cm} / (1 + z)$，
     \,\mathrm{d}^2\B{\theta}\,\D{\nu} ,
 \end{equation}
 其中 $(\B{u}, \eta) = 1 / (\B{\theta}, \nu)$ 分别是
-空间维度 $\B{\theta}$ 和频率维度 $\nu$ 的 Fourier 对偶 (dual).
-于是可得由下式定义的三维\ac{ps} $\bar{P}(\B{u}, \eta)$：
+空间维度 $\B{\theta}$ 和频率维度 $\nu$ 的 Fourier \ac{dual}，
+可以得到由下式定义的三维\ac{ps} $P'(\B{u}, \eta)$：
 \begin{equation}
   \label{eq:ps3d}
   \langle \tilde{I}(\B{u}, \eta) \, \tilde{I}^*(\B{u}', \eta') \rangle
-    \equiv \bar{P}(\B{u}, \eta) \delta(\B{u}-\B{u}') \delta(\eta-\eta') ,
+    \equiv P'(\B{u}, \eta) \delta(\B{u}-\B{u}') \delta(\eta-\eta') ,
 \end{equation}
 其中 \enquote{$*$} 表示\ac{conjugate}算符.
 
-然而，宇宙学研究中通常使用\ac{comoving-frame}以及一种不同的 Fourier 约定.
-一个三维场 $T(\B{r}_{\perp}, r_{\parallel})$ 的 Fourier 变换为：
+宇宙学研究需要使用\ac{comoving-frame}，
+而且采用的 Fourier 约定也与射电干涉成像所采用的约定不同.
+在宇宙学研究领域，
+一个三维场 $T(\B{r}_{\perp}, r_{\parallel})$ 的 Fourier 变换表示为：
 \begin{equation}
   \label{eq:ft3d-k}
   \tilde{T}(\B{k}_{\perp}, k_{\parallel}) =
@@ -528,12 +530,12 @@ $(\Delta r_{\parallel}, \Delta\nu) \to (r_{\parallel}, \nu)$
   P(\B{k}_{\perp}, k_{\parallel}) =
     \frac{\acs{speed-light} (1+z)^2 D_{\!C}^2(z)}{
       \acs{freq21cm} \acs{H0} \acs{Ez}}
-    \bar{P}(\B{u}, \eta) .
+    P'(\B{u}, \eta) .
 \end{equation}
 更多细节可参考 \citeay{liu2014} 的附录 A.
 由\autoref{eq:ps3d-k} 给出的 EoR 信号的三维功率谱
 $P(\B{k}_{\perp}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}]，
-实际研究中更常用到的是去量纲形式的功率谱 \cite{peacock1996}：
+实际研究中更常使用去量纲形式的功率谱 \cite{peacock1996}：
 \begin{equation}
   \label{eq:ps3d-k2}
   \ac{psD}(\B{k}_{\perp}, k_{\parallel})
@@ -548,13 +550,13 @@ $P(\B{k}_{\perp}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}
   \includegraphics[width=0.5\textwidth]{foreground-fourier}
   \bicaption[EoR 信号和前景的三维功率谱示意图]{%
     \uline{（左栏）} EoR 信号的三维功率谱示意图，呈球对称分布.
-    \uline{（右栏）} 前景的三维功率谱示意图，
+    \uline{（右栏）} 前景辐射的三维功率谱示意图，
     可见功率在两个空间维度 ($u, v$) 的分布与在频率维度 ($\eta$) 的分布情况明显不同.
   }{%
     \emph{(Left)} An illustration of the \ac{3d} power spectrum
     of the EoR signal, exhibiting the spherical symmetry.
-    \emph{(Right)} An illustration of the \ac{3d} power spectrum
-    of the foreground, showing obviously different distributions in the
+    \emph{(Right)} An illustration of the \ac{3d} power spectrum of the
+    foreground emission, showing obviously different distributions in the
     spatial directions ($u, v$) and the frequency dimension ($\eta$).
     \\来源/Credit:
     \citeay{morales2004}.
@@ -563,7 +565,7 @@ $P(\B{k}_{\perp}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}
 \end{figure}
 
 当将红移范围限制在一个较窄的片段（如 $\Delta z \sim 0.5$）时，
-可以忽略宇宙演化并认为中性氢的分布是各向同性的，
+可以忽略宇宙演化并认为中性氢的分布是各向同性的.
 相应地，EoR 信号的三维功率谱 $\ac{psD}(\B{k})$ 则具有球对称分布
 \cite{morales2004,mcQuinn2006}，
 如\autoref{fig:eor-fg-fourier} 左栏所示.
@@ -574,14 +576,15 @@ $P(\B{k}_{\perp}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}
 极大地提高了每个\ac{mode}里 EoR 信号的\ac{snr}，
 从而大大降低了探测 EoR 信号的难度和所需的观测时间 \cite{datta2010}.
 
-但是，在实际观测中存在目前无法完全扣除的前景干扰.
-尽管前景的频谱是光滑的，但前景的空间结构非常复杂
-（如银河系的子结构、形态各异的射电星系和星系团弥散辐射；详见 \autoref{sec:fg-intro}），
-因此，在三维功率谱上，前景的功率将被较好地约束在频率维度 ($\eta$ 或 $k_{\parallel}$)，
+然而，实际观测中存在目前无法完全扣除的前景干扰.
+尽管前景辐射的频谱是光滑的，但是具有非常复杂的空间结构
+（如银河系的子结构、形态各异的射电星系、星系团弥散辐射；详见 \autoref{sec:fg-intro}），
+因此，在三维功率谱中，前景辐射的功率将被较好地约束在频率维度
+($\eta$ 或 $k_{\parallel}$)，
 但却弥散在整个空间维度 ($\B{u}$ 或 $\B{k}_{\perp}$)，
 如\autoref{fig:eor-fg-fourier} 右栏所示.
-当简单地对三维功率谱按球壳平均时，前景的功率将出现在所有的 $k$ \ac{mode}里，
-淹没 EoR 信号.
+当简单地对三维功率谱按球壳平均时，
+前景辐射将出现在所有的 $k$ \ac{mode}里，淹没 EoR 信号.
 
 \begin{figure}[htp]
   \centering
@@ -606,9 +609,9 @@ $P(\B{k}_{\perp}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}
 EoR 信号的\ac{imgcube} $I_{\R{eor}}(\B{\theta}, \nu)$
 的三个维度在本质上是相同的，均映射为中性氢的空间坐标.
 但是对于前景的\ac{imgcube} $I_{\R{fg}}(\B{\theta}, \nu)$，
-频率维度 $\nu$ 表示前景辐射源的频谱（通常为连续谱），
+频率维度 $\nu$ 表示前景源的辐射频谱（通常为连续谱），
 与两个空间维度 $\B{\theta}$ 完全不同，两者之间也是相互独立的.
-因此，一个更好的方法是保持三维功率谱 $\ac{psD}(\B{k}_{\perp}, k_{\parallel})$
+因此，一个更好的处理方法是保持三维功率谱 $\ac{psD}(\B{k}_{\perp}, k_{\parallel})$
 的频率维度 $k_{\parallel}$ 不变，只将两个空间维度 $\B{k}_{\perp}$ 压缩至一维.
 具体而言：
 如\autoref{fig:ps2d-calculation} 所示，
@@ -617,9 +620,10 @@ EoR 信号的\ac{imgcube} $I_{\R{eor}}(\B{\theta}, \nu)$
 其中 $k_{\perp} = |\B{k}_{\perp}|$ 是圆环的半径 \cite{datta2010,thyagarajan2013}.
 
 在二维功率谱上，EoR 信号因具有不光滑的频谱而主要分布在 $k_{\parallel}$ 较大的区域，
-频谱光滑的前景则主要分布在 $k_{\parallel}$ 较小的区域，
-因此可以避开这些受前景严重污染的区域，在相对干净的区域开展 EoR 信号的探测和研究，
-这为克服强烈的前景干扰提供了极大的便利.
+频谱光滑的前景则主要分布在 $k_{\parallel}$ 较小的区域.
+因此，可以在二维功率谱上避开那些受前景严重污染的区域，
+在相对干净的区域开展 EoR 信号的探测和研究，
+这为克服强烈的前景干扰提供了一条非常有效的途径.
 由于这个独特优势，二维功率谱目前已成为分析 EoR 观测数据的最常用工具之一
 \cite{trott2012,thyagarajan2013,barry2016,beardsley2016,trott2016,patil2017}.
 
