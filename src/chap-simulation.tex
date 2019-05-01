@@ -1237,7 +1237,7 @@ $T_e$ 是辐射区域的电子温度（以 \si{\kelvin} 为单位），
   \bicaption[河外点源在 \SI{158}{\MHz} 的模拟天图]{%
     河外点源在 \SI{158}{\MHz} 的模拟天图.
     天区的大小为 \SI{10 x 10}{\degree}，
-    \ac{colorbar}以 \si{\kelvin} 为单位.
+    \ac{colorbar}的单位是 \si{\kelvin}.
   }{%
     The simulated sky map of the extragalactic point sources at \SI{158}{\MHz}.
     The sky region size is \SI{10 x 10}{\degree}
@@ -1246,20 +1246,21 @@ $T_e$ 是辐射区域的电子温度（以 \si{\kelvin} 为单位），
   \label{fig:ptrsrc-skymap}
 \end{figure}
 
-本工作对河外点源的模拟继承自我们之前的一项工作\cite{wang2010}，
-其中模拟了以下几类点源 \cite{snellen2000,wilman2008,wang2010}：
+本文对河外点源的模拟继承自我们之前的一项工作\cite{wang2010}，
+其中模拟了以下四类点源 \cite{snellen2000,wilman2008,wang2010}：
 \begin{enumerate}
   \item 恒星形成星系，
     包括普通晚型星系 (normal late-type galaxy) 和星暴星系 (starburst galaxy)；
   \item 射电宁静 (radio-quiet) \ac{agn}；
   \item \ac{fr} I 型和 II 型 \ac{agn}；
-  \item GHz 倒转谱和致密陡谱射电星系.
+  \item GHz 倒转谱 (GHz-peaked spectrum)
+    和致密陡谱 (compact steep-spectrum) \ac{agn}.
 \end{enumerate}
 上述第 1--3 类点源的模拟使用了 \citeay{wilman2008} 针对 SKA 模拟的点源结果；
 第 4 类点源的模拟则利用了相应的\ac{f-luminosity}和频谱模型
 \cite{oDea1998,snellen1998,fanti2001}.
 具体模拟方法可参考 \citeay{wang2010} 和 \citeay{wilman2008} 及其所引文献.
-\autoref{fig:ptrsrc-skymap} 显示了模拟的河外点源在 \SI{158}{\MHz} 的天图.
+\autoref{fig:ptrsrc-skymap} 显示了模拟的河外点源在 \SI{158}{\MHz} 的\ac{skymap}.
 在三个频带的中心频率处的亮温度的\ac{rms}值罗列在\autoref{tab:tb-rms} 中.
 
 
@@ -1273,7 +1274,7 @@ $T_e$ 是辐射区域的电子温度（以 \si{\kelvin} 为单位），
   \bicaption[EoR 信号在 \SIrange{120}{200}{\MHz} 的亮温度的\acs*{rms}值]{%
     EoR 信号在 \SIrange{120}{200}{\MHz} ($z = \numrange{6.1}{10.8}$)
     的亮温度的\acs*{rms}值（绿色实线）.
-    红色阴影区域表示本工作选取的三个频带：
+    红色阴影区域表示本文选取的三个频带：
     \numrange{120}{128}、
     \numrange{154}{162} 和 \numrange{192}{200} \si{\MHz}.
   }{%
@@ -1287,27 +1288,28 @@ $T_e$ 是辐射区域的电子温度（以 \si{\kelvin} 为单位），
   \label{fig:eor-tbrms}
 \end{figure}
 
-本工作使用了
+本文使用了
 \href{http://homepage.sns.it/mesinger/EOS.html}{\textit{Evolution Of 21\,cm Structure}}
 项目\footnote{%
   Evolution Of 21\,cm Structure:
   \url{http://homepage.sns.it/mesinger/EOS.html}
-} 公开的 EoR 模拟数据来生成所需的 EoR 信号的天图.
+} 公开的 EoR 模拟数据来生成所需的 EoR 信号的\ac{skymap}.
 该项目使用
 \href{http://homepage.sns.it/mesinger/DexM___21cmFAST.html}{\texttt{21cmFAST}}%
 \footnote{%
   21cmFAST: \url{http://homepage.sns.it/mesinger/DexM___21cmFAST.html}
-} 开展了宇宙再电离过程的高精度模拟，模拟盒子的边长为 \SI{1.6}{\Gpc}，
+}软件\cite{mesinger2011}
+开展了宇宙再电离过程的高精度模拟，模拟盒子的边长为 \SI{1.6}{\Gpc}，
 划分为 1024 个单元，红移从 86.5 至 5.0 \cite{mesinger2016}.
 \autoref{fig:eor-tbrms} 显示了 EoR 信号在 \SIrange{120}{200}{\MHz}
 ($z = \numrange{6.1}{10.8}$) 的亮温度的\acs*{rms}值.
 
 利用该项目推荐的 \enquote{faint galaxies} 情形的\ac{lightcone} \ac{imgcube}，
-我们提取所需红移（即对应所需的频率）处的图像\ac{slice}，
+我们提取所需红移（对应于所需的频率）处的图像\ac{slice}，
 然后经过适当的平铺 (tile) 和缩放，使其图像大小为 \num{1800 x 1800}
-以及天区覆盖为 \SI{10 x 10}{\degree})，即与前言的前景天图一致.
+以及天区覆盖为 \SI{10 x 10}{\degree}，即与前文的前景\ac{skymap}一致.
 \autoref{tab:tb-rms} 中罗列了 EoR 信号在三个频带的中心频率处的亮温度的\ac{rms}值.
-\autoref{fig:eor-skymap} 显示了 EoR 信号在 \SI{158}{\MHz} 的天图.
+\autoref{fig:eor-skymap} 显示了 EoR 信号在 \SI{158}{\MHz} 的\ac{skymap}.
 
 \begin{figure}[htp]
   \centering
@@ -1315,7 +1317,7 @@ $T_e$ 是辐射区域的电子温度（以 \si{\kelvin} 为单位），
   \bicaption[EoR 信号在 \SI{158}{\MHz} 的天图]{%
     EoR 信号在 \SI{158}{\MHz} 的天图.
     天区的大小为 \SI{10 x 10}{\degree}，
-    \ac{colorbar}以 \si{\mK} 为单位.
+    \ac{colorbar}的单位是 \si{\mK}.
   }{%
     The sky map of the EoR signal at \SI{158}{\MHz}.
     The sky region size is \SI{10 x 10}{\degree}
