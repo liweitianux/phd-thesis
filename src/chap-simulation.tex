@@ -1116,9 +1116,9 @@ $\left(0.85_{-0.54}^{+2.74}\right) \times 10^3$ \si{\mK}
 \label{sec:simu-galactic}
 
 在低频波段，银河系的弥散辐射主要包括\ac{rad-syn}和\ac{rad-ff}.
-本节将介绍如何模拟这两种辐射成分的图像.
+本节将介绍如何模拟这两种辐射成分的\ac{skymap}.
 
-银河系的辐射随天空位置而发生显著变化，越靠近银盘辐射越强，
+银河系的辐射会随天空位置发生显著变化，越靠近银盘辐射越强，
 因此 EoR 实验将挑选高银纬天区开展观测.
 考虑到 SKA1-Low 将建设在 \ac{mwa} (\ang{26;42;12}\,S, \ang{116;40;16}\,E)
 的旁边，同时 \ac{mwa} 目前正在研究的一块 EoR 天区位于
@@ -1127,14 +1127,14 @@ $\left(0.85_{-0.54}^{+2.74}\right) \times 10^3$ \si{\mK}
 而且几乎经过望远镜的\ac{zenith}，是一个理想的观测天区.
 这个天区对本工作所开展的模拟研究而言是一个合适的选择（另见 \autoref{sec:obs-simu}）.
 因此，我们将以 (R.A., Dec.\@) = (\SI{0}{\degree}, \SI{-27}{\degree})
-为中心坐标模拟银河系弥散辐射的天图.
+为中心坐标模拟银河系弥散辐射的\ac{skymap}.
 
 %---------------------------------------------------------------------
 \subsection{同步辐射}
 
-银河系\ac{rad-syn}在低频波段的天图通过以
-Haslam \SI{408}{\MHz} 巡天图\cite{haslam1982}
-为模板按幂律形式外延得到 \cite{wang2010,bonaldi2015}：
+银河系\ac{rad-syn}在低频波段的\ac{skymap}通过以
+Haslam \SI{408}{\MHz} 巡天图\cite{haslam1982} 为模板、
+按幂律形式外延得到 \cite{wang2010,bonaldi2015}：
 \begin{equation}
   T_b^{\R{syn}}(\B{\hat{r}}, \nu)
     = T_b^{\R{haslam}}(\B{\hat{r}}) \left( \frac{\nu}{\SI{408}{\MHz}}
@@ -1154,9 +1154,9 @@ $\alpha_{\R{syn}}(\B{\hat{r}})$ 为该处的同步辐射谱指数.
 \SI{1420}{\MHz} 北天图 \cite{reich1986}
 以及 \SI{2326}{\MHz} 南天图 \cite{jonas1998}，
 处理得到了的银河系同步辐射的谱指数全天分布图.
-本工作利用了该谱指数分布图确定上式中的 $\alpha_{\R{syn}}(\B{\hat{r}})$.
+本工作利用了该谱指数分布图来确定上式中的 $\alpha_{\R{syn}}(\B{\hat{r}})$.
 \autoref{fig:galactic-skymaps} 左栏显示了银河系\ac{rad-syn}在
-\SI{158}{\MHz} 的天图.
+\SI{158}{\MHz} 的\ac{skymap}.
 \autoref{tab:tb-rms} 中列出了在三个频带的中心频率处的亮温度的\ac{rms}值.
 
 \begin{figure}[htp]
@@ -1166,8 +1166,8 @@ $\alpha_{\R{syn}}(\B{\hat{r}})$ 为该处的同步辐射谱指数.
   \includegraphics[width=0.498\textwidth]{skymap-gff-f158}
   \bicaption[银河系同步辐射和自由--自由辐射在 \SI{158}{\MHz} 的天图]{%
     银河系同步辐射（左栏）和自由--自由辐射（右栏）在 \SI{158}{\MHz} 的天图.
-    天区的大小为 \SI{10 x 10}{\degree}，
-    \ac{colorbar}以 \si{\kelvin} 为单位.
+    天区的大小均为 \SI{10 x 10}{\degree}，
+    \ac{colorbar}的单位是 \si{\kelvin}.
   }{%
     The sky maps of the Galactic synchrotron (left panel)
     and free-free (right panel) radiations at \SI{158}{\MHz}.
@@ -1182,7 +1182,7 @@ $\alpha_{\R{syn}}(\B{\hat{r}})$ 为该处的同步辐射谱指数.
 \label{sec:simu-gff}
 
 银河系\ac{rad-ff}和 Hα 源自相同的辐射区域（如\ac{hii}区、\ac{wim}），
-因此两者之间存在紧密的联系 \cite{dickinson2003}，
+因此两者之间存在紧密的联系 \cite{dickinson2003}.
 利用该关系以及 Hα 巡天图 \cite{finkbeiner2003}，
 便可以获得所需的银河系\ac{rad-ff}的图像.
 
@@ -1217,12 +1217,13 @@ $T_e$ 是辐射区域的电子温度（以 \si{\kelvin} 为单位），
     \left[ 3.91 - \ln \nu + 1.5 \ln T_e \right] .
 \end{equation}
 
-与 \citeay{dickinson2003} 一致，本工作采用 $f_d = 0.33$
-和 $T_e = \SI{7000}{\kelvin}$.
+与 \citeay{dickinson2003} 一致，
+本文采用 $f_d = 0.33$ 和 $T_e = \SI{7000}{\kelvin}$.
 再利用 \citeay{finkbeiner2003} 提供的 Hα 辐射全天图
 以及来自 \citeay{schlegel1998} 的全天尘埃分布图，
-便可获得银河系\ac{rad-ff}在低频波段的天图.
-\autoref{fig:galactic-skymaps} 右栏显示了银河系\ac{rad-ff}在 \SI{158}{\MHz} 的天图.
+便可获得银河系\ac{rad-ff}在低频波段的\ac{skymap}.
+\autoref{fig:galactic-skymaps} 右栏显示了银河系\ac{rad-ff}在
+\SI{158}{\MHz} 的\ac{skymap}.
 \autoref{tab:tb-rms} 中列出了该前景成分在三个频带的中心频率处的亮温度的\ac{rms}值.
 
 
