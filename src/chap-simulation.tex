@@ -679,13 +679,13 @@ $\tau_{\R{loss}} = |\D{t}/\D{\ac{g}}|$.
 该算法的具体介绍可参见\autoref{app:fpsolver}.
 
 在\ac{no-flux}边界条件下，电子可能在边界处出现不合理的堆积.
-因此，可以在两个边界处分别设定一个\enquote{缓冲区}，
+因此需要在两个边界处分别设置一个\enquote{缓冲区}，
 设其能量区间分别为：
 $[\ac{g}_{\R{min}}, \ac{g}_{\R{buf1}}]$ 和
 $[\ac{g}_{\R{buf2}}, \ac{g}_{\R{max}}]$.
 在求解过程中，利用缓冲区外 ($\ac{g}_{\R{buf1}} < \ac{g} < \ac{g}_{\R{buf2}}$)
 的有效能谱，按幂律形式外延并替换缓冲区内的能谱 \cite{borovsky1986,donnert2014}.
-本工作选取了 $\ac{g}_{\R{min}} = 1$ 和 $\ac{g}_{\R{max}} = \num{e6}$，
+本文选取了 $\ac{g}_{\R{min}} = 1$ 和 $\ac{g}_{\R{max}} = \num{e6}$，
 并采用对数网格 (grid) 将 \ac{g} 划分为 256 个单元 (cell)，
 其中两个缓冲区均占据 10 个单元.
 
@@ -702,7 +702,7 @@ $\ac{v-turb} \equiv \ac{v-turb0}$，
 于是获得初始电子能谱 $n_e(\ac{g}, t_0)$ 的一个合理近似 \cite{brunetti2007}.
 
 尽管一次并合的全部过程可能持续约 \SIrange{2}{3}{\Gyr} \cite{tormen2004,cassano2016}，
-但是在该过程中，并合能够产生足够强的\ac{turbulence}以有效地加速电子的时间却比较短
+但是在这个过程中，并合能够产生足够强的\ac{turbulence}以有效地加速电子的时间却比较短
 ($\lesssim$\,\SI{1}{\Gyr}).
 这段有效加速时长 \ac{tau-turb} 可估算为 \cite{miniati2015}：
 \begin{equation}
@@ -710,14 +710,14 @@ $\ac{v-turb} \equiv \ac{v-turb0}$，
 \end{equation}
 
 一个\ac{gc}在其过去的 $t_{\R{back}} = \SI{3}{\Gyr}$ 可能经历多次并合.
-对于其中的每一次并合
+对于每一次并合
 $\left( M^{(i)}_{\R{vir,m}}, M^{(i)}_{\R{vir,s}}, t^{(i)}_{\R{begin}} \right)$，
 其中 $t^{(i)}_{\R{begin}} = t^{(i)}_{\R{merger}}$ 表示该并合的开始时间，
 能够引起有效的流湍加速（即认为并合是活跃的）的时间段为
 $\left[ t^{(i)}_{\R{begin}}, t^{(i)}_{\R{end}} \right]$，
 其中 $t^{(i)}_{\R{end}} = t^{(i)}_{\R{begin}}+\tau^{(i)}_{\R{turb}}$
-是该并合变得不活跃的时间.
-在其他没有并合活动的时间段里，则只有初始湍流对电子的加速有一定的贡献
+是此次并合变得不活跃的时间.
+在其他没有并合活动的时间段里，则只有初始湍流对电子的加速有一定程度的贡献
 [\autoref{eq:v-turb0}].
 然而，初始湍流很弱，所以加速效率很低，不足以平衡\ac{rad-syn}和逆 Compton 散射的能量损失.
 
@@ -739,8 +739,7 @@ n_e\!\left(\ac{g}, t^{(i)}_{\R{begin}}\right)$，
 \end{equation}
 
 一旦获得所需的电子能谱 $\ac{n-e}$，
-在频率 $\nu$ 处的\acl{syn-em} (synchrotron emissivity)
-\ac{syn-em} 为 \cite{rybicki1979}：
+在频率 $\nu$ 处的\acl{syn-em} (synchrotron emissivity) 为 \cite{rybicki1979}：
 \begin{equation}
   \label{sec:jnu-sync}
   % unit: [erg/s/Hz/cm^3]
@@ -820,7 +819,7 @@ $\theta$ 是电子与磁场 \ac{mag-field} 之间的\ac{pitch-angle}，
 该并合的有效加速时长约为 $\tau_{\R{turb}} \simeq \SI{0.67}{\Gyr}$，
 使电子被加速到极高能量 ($\gamma \gtrsim \num{e4}$)，
 形成在中高频段 ($> \si{\GHz}$) 可见的\ac{rh}.
-然而，当并合从 $t > \SI{10.9}{\Gyr}$ 起变得不活跃时，
+然而，当并合变得不活跃时 ($t > \SI{10.9}{\Gyr}$)，
 高能端的电子迅速地损失能量而衰减，\ac{rh}也很快地消失，特别是在中高频段.
 
 %---------------------------------------------------------------------
@@ -846,7 +845,7 @@ $\theta$ 是电子与磁场 \ac{mag-field} 之间的\ac{pitch-angle}，
 \end{enumerate}
 
 对于\autoref{fig:spec-evo} 所示的例子，
-\ac{rh} 在 \SI{1.4}{\GHz} 处的存在时间段约为 \SIrange{10.6}{11.0}{\Gyr}，
+\ac{rh}在 \SI{1.4}{\GHz} 处的存在时间段约为 \SIrange{10.6}{11.0}{\Gyr}，
 在 \SI{158}{\MHz} 处的存在时间段约为 \SIrange{10.5}{11.3}{\Gyr}.
 同时，\ac{rh}的同步辐射频谱在 \SI{1.4}{\GHz} 和 \SI{158}{\MHz}
 的谱指数分别达到了约 2.1 和 1.0.
@@ -855,15 +854,15 @@ $\theta$ 是电子与磁场 \ac{mag-field} 之间的\ac{pitch-angle}，
 因此，在低频波段也更容易发现更多的\ac{rh}.
 此外，上述示例给出的 \SI{1.4}{\GHz} 谱指数 ($\alpha_{1400} \sim 2.1$)
 比通常的观测结果\cite{feretti2012}偏大一些，
-这是因为本工作直接在一个频率 $\nu$ 附近计算该频率处的谱指数 $\alpha_{\nu}$，
-而观测给出的谱指数 $\alpha_{\nu_1}^{\nu_2}$ 通常由两个相隔较远的频率
+这是因为本文直接在一个频率 $\nu$ 附近计算该频率处的谱指数 $\alpha_{\nu}$，
+而观测给出的谱指数 $\alpha_{\nu_1}^{\nu_2}$ 通常从两个相隔较远的频率
 ($\nu_1$ 和 $\nu_2$) 的观测数据得出，比如 0.3 和 1.4 GHz \cite{feretti2012}.
 
 判别一个\ac{rh}存在后，接着需要确定其大小.
 之前的研究已显示\acl{r-halo} \ac{r-halo}
 会随\ac{gc}的\acl{r-vir} \ac{r-vir} 超线性地增大 \cite{cassano2007,basu2012}，
 这可能是由于高能电子和磁场的径向分布特征造成的 \cite{dolag2002}.
-据此，本工作假定\acl{r-halo} \ac{r-halo} 满足以下\ac{scaling-relation}：
+据此，我们假定\acl{r-halo} \ac{r-halo} 满足以下\ac{scaling-relation}：
 \begin{equation}
   \label{eq:r-halo}
   \ac{r-halo} = f_r \ac{R-turb}
@@ -875,7 +874,7 @@ $r_{\R{vir,*}}$ 是质量为 \SI{e15}{\solarmass} 的参考星系团的\acl{r-vi
 $f_r$ 和 $b$ 分别是\ac{scaling-relation}的系数和指数.
 \citeay{cassano2007} 获得的观测\ac{scaling-relation}为：
 $\ac{r-halo} \propto r_{\R{vir}}^{2.63 \pm 0.50}$，
-与之对比后，本工作选取 $f_r = 0.7$ 和 $b = 1.8$.
+与之对比后，我们选取 $f_r = 0.7$ 和 $b = 1.8$.
 
 于是，\ac{rh}在频率 $\nu$ 处的功率 $\ac{P-halo}(\nu)$ 为：
 \begin{equation}
