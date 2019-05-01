@@ -9,12 +9,14 @@
 \label{chap:detection}
 
 
-\emph{\acf{eor}}是早期宇宙的一段缺乏了解的时期，目前的理论研究以及有限的观测证据表明
-该时期从宇宙大爆炸之后约 \SI{300}{\Myr} 持续到约 \SI{1}{\Gyr}，对应红移范围
-约为 \numrange{6}{15} （参见 \citeay{koopmans2015} 及其所引文献）.
-充分探明并理解该时期是为进一步揭示更早的\ac{cd}和\ac{da}（$z > 15$）、
+\emph{\acf{eor}}是早期宇宙的一段缺乏足够了解的时期，
+目前的理论研究以及有限的观测证据表明该时期从宇宙大爆炸之后约 \SI{300}{\Myr}
+持续到约 \SI{1}{\Gyr}，
+对应红移范围约为 \numrange{6}{15}
+（参见 \citeay{koopmans2015} 及其所引文献）.
+充分探明并理解该时期，是进一步揭示更早的\ac{cd}和\ac{da}（$z > 15$）、
 建立完整的宇宙演化图景的关键环节.
-在低频射电波段（约 \SIrange{50}{200}{\MHz}）
+在低频射电波段（$\sim$\,\SIrange{50}{200}{\MHz}）
 探测源自再电离时期的 21\,cm 信号（即\emph{EoR 信号}）
 是目前研究该时期的最直接而有效的办法 \cite{madau1997,tozzi2000,furlanetto2006}.
 
@@ -28,7 +30,7 @@
 \label{sec:21cm-line}
 
 中性氢原子的原子核（即质子）和电子均有 1/2 \ac{spin}，
-因此均具有相应的内禀磁矩 (intrinsic magnetic moment):
+因此均具有相应的内禀\ac{mag-moment}:
 \begin{align}
   \B{\mu}_p & = |g_p| \frac{\acs{magneton-n}}{\acs{h-bar}} \B{S}_p , \\
   \B{\mu}_e & = - |g_e| \frac{\acs{magneton-b}}{\acs{h-bar}} \B{S}_e ,
@@ -39,6 +41,7 @@
 \ac{h-bar} 为\acl{h-bar}，
 $\ac{magneton-n} = \ac{e}\,\ac{h-bar} / (2 \ac{mass-p})$ 为\acl{magneton-n}，
 $\ac{magneton-b} = \ac{e}\,\ac{h-bar} / (2 \ac{mass-e})$ 为 \acl{magneton-b}，
+\ac{mass-p} 和 \ac{mass-e} 分别是质子和电子的质量，
 $g_p$ 和 $g_e$ 分别为质子和电子的 $g$ 因子，
 $\B{S}_p$ 和 $\B{S}_e$ 分别为质子和电子的\ac{spin}.
 电子带负电，所以磁矩方向与其自旋方向相反.
@@ -47,7 +50,7 @@ $\B{S}_p$ 和 $\B{S}_e$ 分别为质子和电子的\ac{spin}.
   \centering
   \includegraphics[width=0.5\textwidth]{hydrogen-spinflip}
   \bicaption[氢原子的自旋翻转跃迁]{%
-    氢原子在基态的两个超精细分裂能级之间发生\acs*{sft}，产生\acs*{21cmline}.
+    氢原子在基态的两个超精细分裂能级之间发生\acs*{sft}，产生 \acs*{21cmline}.
   }{%
     An hydrogen atom makes a spin-flip transition between the two
     hyperfine levels of the ground state, emitting the 21\,cm line.
@@ -59,8 +62,8 @@ $\B{S}_p$ 和 $\B{S}_e$ 分别为质子和电子的\ac{spin}.
   \label{fig:hi-spinflip}
 \end{figure}
 
-由于质子和电子的自旋相互作用，氢原子的\ac{ground-state}
-发生\ac{hyperfine-splitting}成为两个态：
+因为质子和电子的自旋发生相互作用，所以氢原子的\ac{ground-state}
+发生\ac{hyperfine-splitting}而变成两个态：
 (1) 质子的\ac{spin} $\B{S}_p$ 和电子的\ac{spin} $\B{S}_e$ 平行，总角动量 $F = 1$;
 (2) $\B{S}_p$ 和 $\B{S}_e$ 反平行，总角动量 $F = 0$.
 想像两个共中心的载流线圈，系统的稳定状态（即能量最低）为两个线圈的电流方向相同，
@@ -71,7 +74,7 @@ $\B{S}_p$ 和 $\B{S}_e$ 分别为质子和电子的\ac{spin}.
 将产生频率约为 $\nu = \SI{1420}{\MHz}$ 的辐射，
 对应的波长约为 $\lambda = \SI{21}{\cm}$，因此称为\emph{\acf{21cmline}}.
 此跃迁过程亦称为\emph{\acf{sft}}，如\autoref{fig:hi-spinflip} 所示.
-对于 $F = 1$ 态（即上能级），磁量子数 $m$ 可取 $\{ -1, 0, 1 \}$，
+对于 $F = 1$ 态（即上能级），磁量子数 $m$ 可取 $\big\{ -1, 0, 1 \big\}$，
 因此这个态的\ac{dod}为 3，称为\emph{\acf{triplet}}；
 对于 $F = 0$ 态（即下能级），磁量子数 $m$ 只能取 0，
 因此这个态是\emph{\acf{singlet}}.
@@ -94,21 +97,22 @@ $\B{S}_p$ 和 $\B{S}_e$ 分别为质子和电子的\ac{spin}.
 %---------------------------------------------------------------------
 \subsection{谱线亮温度}
 
-中性氢的 \ac{21cmline}的跃迁概率非常低，其\ac{em-spontaneous}系数 $A_{21}$ 为：
+中性氢的 \ac{21cmline}的跃迁概率非常低，其\acl{coef-A21} \ac{coef-A21} 为：
 \begin{equation}
-  A_{21} = \SI[separate-uncertainty=false]{2.86888(7)e-15}{\per\second} .
+  \ac{coef-A21} =
+    \SI[separate-uncertainty=false]{2.86888(7)e-15}{\per\second} .
 \end{equation}
 对应的\ac{em-spontaneous}的半衰期为：
 \begin{equation}
-  t_{1/2} \approx 1 / A_{21}
+  t_{1/2} \approx 1 / \ac{coef-A21}
     = \SI{3.49e14}{\second} \approx \SI{11.1}{\Myr} .
 \end{equation}
 该\ac{timescale}远大于典型中性氢云中的氢原子因碰撞而改变\ac{spin}的\ac{timescale}，
 因此中性氢的超精细结构的能级布居将由碰撞决定.
 
 由\autoref{eq:t-excitation-def}可知，\acl{T-excitation}描述了能级的相对布居.
-鉴于\ac{21cmline}源自中性氢的\ac{sft}，在此情况下，
-\acl{T-excitation}亦被称为\emph{\acf{T-spin}}，
+鉴于 \ac{21cmline}源自中性氢的\ac{sft}，在此情况下，
+\acl{T-excitation}亦被称为\emph{\acl{T-spin} (spin temperature)} \ac{T-spin}，
 描述了氢原子自旋态（即\ac{singlet}和\ac{triplet}）的相对布居 \cite{field1958}：
 \begin{equation}
   \frac{N_2}{N_1} = \frac{g_2}{g_1}
@@ -123,7 +127,7 @@ $T_* \equiv \acs{hp} \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
   \frac{N_2}{N_1} = \frac{g_2}{g_1} = 3 .
 \end{equation}
 将此代入\autoref{eq:coef-absorption-einstein3}，
-近似后可得中性氢云的\acl{coef-absorption}：
+近似后可得中性氢云的\acl{coef-absorption}为：
 \begin{equation}
   \acs{coef-absorption}
     = \frac{3 \acs{hp} \acs{speed-light}^2}{32\Cpi \nu_0}
@@ -131,7 +135,7 @@ $T_* \equiv \acs{hp} \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
 \end{equation}
 其中 $n_{\R{HI}} = N_1 + N_2 = 4 N_1$ 为中性氢的数密度.
 
-设一团均匀的中性氢云位于红移 $z$ 处，沿观测的视线方向的线性尺度为 $s$，
+设一团均匀的中性氢云位于红移 $z$ 处，沿视线方向的长度为 $s$，
 中性氢的数密度为 $n_{\R{HI}}$，
 则其\acl{optical-depth} [\autoref{eq:optical-depth}] 为：
 \begin{align}
@@ -147,16 +151,17 @@ $T_* \equiv \acs{hp} \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
 其中 $N_{\R{HI}}$ 为中性氢的\ac{column-density}，可进一步写成：
 \begin{equation}
   \label{eq:column-density}
-  N_{\R{HI}} = \acs{hi-fraction} n_{\R{HI}} s ,
+  N_{\R{HI}} = s \, n_{\R{HI}} \acs{hi-fraction} ,
 \end{equation}
 其中 \acs{hi-fraction} 为\acl{hi-fraction} (neutral fraction of hydrogen).
 
-一般说来，\ac{line-profile}包含自然展宽 (natural broadening)、
+一般而言，\ac{line-profile}与自然展宽 (natural broadening)、
 热展宽 (thermal broadening)、压力展宽 (pressue broadening)、
-体运动展宽 (bulk motion broadening) 等因素，
-但对于 \ac{21cmline}来说，最重要的因素是宇宙膨胀引起的 Doppler 展宽.
-因此，线性尺度为 $s$ 的中性氢云的速度弥散约为 $\Delta v \sim s \acs{Hz}$，
-于是\ac{line-profile}可近似为：
+体运动展宽 (bulk motion broadening) 等多种因素相关.
+但是对于 \ac{21cmline}，最重要的展宽因素是宇宙膨胀引起的 Doppler 展宽.
+根据 Hubble 定律，线性尺度为 $s$ 的中性氢云的速度弥散约为
+$\Delta v \sim s \acs{Hz}$，
+于是\ac{line-profile}可近似为 \cite{furlanetto2006,morales2010}：
 \begin{equation}
   \phi(\nu) \sim \frac{\acs{speed-light}}{\nu \Delta v}
     \sim \frac{\acs{speed-light}}{\nu \, s \acs{Hz}} .
@@ -182,7 +187,8 @@ $T_* \equiv \acs{hp} \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
 \end{equation}
 其中 $(\partial v_{\parallel} / \partial r_{\parallel})$ 是\ac{v-proper}
 沿视线方向的梯度.
-此外，通常均有\acl{optical-depth} $\acs{optical-depth}_{\nu0} \ll 1$
+此外，中性氢云的\acl{optical-depth} 通常满足
+$\acs{optical-depth}_{\nu0} \ll 1$
 \cite{madau1997,furlanetto2006,pritchard2010mn}.
 
 \begin{figure}[htp]
@@ -216,7 +222,7 @@ $T_* \equiv \acs{hp} \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$.
 其中
 $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{eq:planck}].
 利用 Rayleigh--Jeans 近似 [\autoref{eq:rj-approx}]
-将 \acs{I-nu} 表示为\acl{T-b} $\acs{T-b}(\nu)$：
+可将 \acs{I-nu} 表示为\acl{T-b} $\acs{T-b}(\nu)$，于是有：
 \begin{equation}
   \diff{\acs{T-b}}{s}
     = -\acs{coef-absorption} [\acs{T-b} - \acs{T-spin}] .
@@ -227,7 +233,7 @@ $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{e
 \begin{equation}
   \diff{\acs{T-b}}{\tau'} = \acs{T-b} - \acs{T-spin} .
 \end{equation}
-上式两边均乘上 $\Ce^{-\tau'}\,\D{\tau'}$ 并积分：
+在上式两边均乘上 $\Ce^{-\tau'}\,\D{\tau'}$ 并积分：
 \begin{equation}
   \acs{T-b}\,\Ce^{-\tau'}\,\Big|_0^{\tau_{\nu_0}}
       - \int_0^{\tau_{\nu_0}} \acs{T-b}\,\D{(\Ce^{-\tau'})}
@@ -252,17 +258,18 @@ $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{e
 \begin{align}
   T_{\R{cmb}}(z)
     & = T_{\R{cmb}}(z=0)\,(1+z)  \\
-    & = 2.73 (1+z) \quad [\si{\kelvin}] ,
+    & = 2.73 \,(1+z) \quad [\si{\kelvin}] ,
 \end{align}
-类似地，宇宙膨胀的红移效应将中性氢的 \ac{21cmline}红移至频率
+类似地，宇宙膨胀的红移效应将中性氢 \ac{21cmline}红移至频率
 $\nu = \acs{freq21cm}/(1+z)$，
 同时观测到的中性氢云的亮温度将为：
 \begin{equation}
   T_b^{\R{obs}}(\nu) = \frac{T_b(\acs{freq21cm})}{1 + z} .
 \end{equation}
-目前观测 \ac{21cmline}的策略是测量其相对于 \ac{cmb} 背景辐射的差异，
-即\emph{\acf{dT-b}}.
-综上，并结合\autoref{eq:21cm-optical-depth3}，最终可得待探测的 \emph{EoR 信号}为：
+目前观测 \ac{21cmline}的策略是测量其相对于 \ac{cmb} 辐射的差异，
+即\emph{\acl{dT-b} (differential brightness temperature)}.
+综上，并结合\autoref{eq:21cm-optical-depth3}，
+得到待探测的 \emph{EoR 信号}的\acl{dT-b} \ac{dT-b} 为：
 \begin{align}
   \acs{dT-b}(\nu)
     & = \frac{T_b(\acs{freq21cm})}{1 + z} - T_{\R{cmb}}(z=0)  \\
@@ -284,7 +291,7 @@ $\nu = \acs{freq21cm}/(1+z)$，
   \acs{Hz} = \acs{H0} \sqrt{\acs{Om0} (1+z)^3 + \acs{Ol0}}
     \approx \acs{H0} \Omega_m^{1/2} (1+z)^{3/2} .
 \end{equation}
-结合\autoref{eq:omega-m-z}，可得红移为 $z$ 时的宇宙重子物质密度参数为：
+结合\autoref{eq:omega-m-z}，可得红移 $z$ 时的宇宙重子物质的密度参数为：
 \begin{equation}
   \acs{Ob0}(z) = \frac{\acs{Ob0}}{\acs{Om0}} \acs{Om0}(z)
     \approx \frac{\acs{Ob0}}{\acs{Om0}} .
@@ -328,17 +335,17 @@ $\nu = \acs{freq21cm}/(1+z)$，
 %---------------------------------------------------------------------
 \subsection{亮温度的演化}
 
-由\autoref{eq:eor-signal2} 易知，\acl{T-spin} \acs{T-spin}
+由\autoref{eq:eor-signal2} 易知，中性氢云的 \acl{T-spin} \acs{T-spin}
 对 EoR 信号 $\acs{dT-b}(\nu)$ 的强度起关键作用.
 当 $\acs{T-spin} > T_{\R{cmb}}(z)$ 时，$\acs{dT-b}(\nu) > 0$ 为发射信号，
 并且当 $\acs{T-spin} \gg T_{\R{cmb}}(z)$ 时 $\acs{dT-b}(\nu)$ 达到饱和；
 当 $\acs{T-spin} < T_{\R{cmb}}(z)$ 时，$\acs{dT-b}(\nu) < 0$ 表现为吸收信号.
-\acl{T-spin} \acs{T-spin} 主要由以下三个过程决定：
+\acl{T-spin} \acs{T-spin} 主要由以下三个过程决定 \cite{pritchard2012}：
 \begin{itemize}
-  \item CMB 辐射光子被中性氢吸收或者使中性氢产生\ac{em-stimulated}，
+  \item CMB 光子被中性氢吸收或者使中性氢产生\ac{em-stimulated}，
     该过程使得 \acs{T-spin} 与 $T_{\R{cmb}}(z)$ 相互耦合；
   \item 中性氢原子与其他原子或电子碰撞，
-    这个过程将 \acs{T-spin} 耦合到介质的\acl{T-kinetic} \acs{T-kinetic}；
+    这个过程将 \acs{T-spin} 耦合到气体的\acl{T-kinetic} \acs{T-kinetic}；
   \item 中性氢原子与 Lyα 光子发生\ac{resonant-scattering}而改变自旋状态，
     即 Wouthuysen--Field 效应 \cite{wouthuysen1952,field1958}，
     该过程将 \acs{T-spin} 与 Lyα 辐射的\ac{T-color}关联起来.
@@ -367,19 +374,20 @@ $\nu = \acs{freq21cm}/(1+z)$，
 上述过程与宇宙的再电离过程、第一代天体的形成、星系的形成与演化等环节密切相关，
 因此 EoR 信号随宇宙的演化而发生复杂的变化，并反映在其频谱上
 （不同的频率对应于不同的红移，即宇宙年龄），如\autoref{fig:eor-signal-evo} 所示.
-EoR 信号的完整演化过程可大致分为以下几个阶段 \cite{pritchard2012}：
+EoR 信号的整个演化过程可大致分为以下几个阶段 \cite{pritchard2012}：
 \begin{enumerate}
   \item $200 \lesssim z \lesssim 1100$:
-    \ac{recombination}之后残留的自由电子通过 Compton 散射使气体与 \ac{cmb} 保持热耦合，
+    \ac{recombination}之后残留的自由电子通过 Compton 散射使气体
+    和 \ac{cmb} 之间形成耦合，
     即有 $\acs{T-kinetic} = T_{\R{cmb}}$.
-    因气体密度高，有效的碰撞使得 $\acs{T-spin} = T_{\R{cmb}}$，
+    在此阶段，因为气体的密度很高，有效的碰撞使得 $\acs{T-spin} = T_{\R{cmb}}$，
     所以此阶段没有可探测的 EoR 信号 ($\delta\overline{T}_b = 0$).
 
   \item $40 \lesssim z \lesssim 200$:
-    气体绝热冷却 $\acs{T-kinetic} \propto (1+z)^2$
-    从而有 $\acs{T-kinetic} < T_{\R{cmb}}$，但气体中的碰撞仍然足够有效，
+    气体绝热冷却从而有 $\acs{T-kinetic} < T_{\R{cmb}}$，
+    但气体中的碰撞仍然足够有效，
     因此 $\acs{T-spin} = \acs{T-kinetic} < T_{\R{cmb}}$，
-    所以 EoR 信号在此阶段为吸收信号 ($\delta\overline{T}_b < 0$).
+    所以 EoR 信号在此阶段表现为吸收信号 ($\delta\overline{T}_b < 0$).
 
   \item $z_* \lesssim z \lesssim 40$:
     （$z_*$ 对应第一代天体形成的时刻.）
@@ -389,7 +397,7 @@ EoR 信号的完整演化过程可大致分为以下几个阶段 \cite{pritchard
   \item $z_{\alpha} \lesssim z \lesssim z_*$:
     （$z_{\alpha}$ 对应 Lyα 光子的耦合达到饱和的时刻.）
     第一代天体开始形成，辐射 Lyα 光子和 X 射线，
-    并将 \acs{T-spin} 与冷气体的温度耦合在一起，
+    从而将 \acs{T-spin} 与冷气体的温度耦合到一起，
     即 $\acs{T-spin} \sim \acs{T-kinetic} < T_{\R{cmb}}$，
     因此该阶段可探测到 EoR 吸收信号 ($\delta\overline{T}_b < 0$).
 
@@ -401,10 +409,10 @@ EoR 信号的完整演化过程可大致分为以下几个阶段 \cite{pritchard
     的这一阶段，可继续探测到 EoR 吸收信号 ($\delta\overline{T}_b < 0$).
 
   \item $z_t \lesssim z \lesssim z_h$:
-    随着气体被继续加热，$\acs{T-kinetic} \sim \acs{T-spin} > T_{\R{cmb}}$，
-    因此 EoR 信号从上一阶段的吸收信号转变为发射信号 ($\delta\overline{T}_b > 0$).
-    直到 $z_t$ 时刻，气体的温度已足够高
-    $\acs{T-kinetic} \sim \acs{T-spin} \gg T_{\R{cmb}}$，
+    随着气体被进一步加热，$\acs{T-kinetic} \sim \acs{T-spin} > T_{\R{cmb}}$，
+    于是 EoR 信号从上一阶段的吸收信号转变为发射信号 ($\delta\overline{T}_b > 0$).
+    直到 $z_t$ 时刻，气体的温度已经足够高
+    ($\acs{T-kinetic} \sim \acs{T-spin} \gg T_{\R{cmb}}$)，
     EoR 信号的强度达到饱和.
 
   \item $z_r \lesssim z \lesssim z_t$:
@@ -424,6 +432,7 @@ EoR 信号的完整演化过程可大致分为以下几个阶段 \cite{pritchard
 基于目前非常有限的观测证据，理论模型显示宇宙的再电离过程约从红移 $z \sim 15$ 开始，
 应在红移 $z > 6.5$ 之前完成，但也不能显著早于 $z \sim \numrange{7}{8}$
 \cite{choudhury2006,pritchard2010mn}.
+
 
 %=====================================================================
 \section{功率谱}
