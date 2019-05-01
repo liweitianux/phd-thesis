@@ -1333,16 +1333,16 @@ $T_e$ 是辐射区域的电子温度（以 \si{\kelvin} 为单位），
 
 干涉阵列的复杂仪器效应是制约 EoR 探测的一个重要因素
 （参见 \autoref{sec:det-difficulties}），
-同时还会影响前景干扰的行为，比如导致\ac{fg-wedge}
+同时还会影响前景干扰的行为，比如导致二维功率谱上的\ac{fg-wedge}污染区域
 （参见 \autoref{sec:eor-window}）.
 为了有效地评估射电晕对 EoR 探测的具体干扰情况，
-整合干涉阵列的仪器效应是很有必要的.
-为此，本工作采用了目前最新的 SKA1-Low 阵列布局\footnote{\raggedright%
+在模拟图像中整合干涉阵列的仪器效应是非常必要的.
+为此，本文采用了目前最新的 SKA1-Low 阵列布局\footnote{\raggedright%
   SKA1-Low 阵列布局坐标:
   \url{https://astronomers.skatelescope.org/wp-content/uploads/2016/09/SKA-TEL-SKO-0000422_02_SKA1_LowConfigurationCoordinates-1.pdf}
   （发布日期： 2016 年 5 月 31 日）}，
-对上文模拟得到的\ac{skymap}进行模拟观测，
-获得整合了真实仪器效应的射电图像.
+对前文模拟得到的\ac{skymap}进行模拟观测，
+获得整合了逼真的仪器效应的射电图像.
 
 %---------------------------------------------------------------------
 \subsection{SKA1-Low~阵列布局}
@@ -1397,13 +1397,13 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 %---------------------------------------------------------------------
 \subsection{模拟观测和成像}
 
-每一个 \SI{8}{\MHz} 的频带被分为 51 个频率\ac{channel}，
+每一个宽 \SI{8}{\MHz} 的频带被分为 51 个频率\ac{channel}，
 对应的频率分辨率为 \SI{160}{\kHz}.
 在每一个频率\ac{channel}，首先模拟各个成分（包括前景辐射和 EoR 信号）的\ac{skymap}，
 然后使用 \href{https://github.com/OxfordSKA/OSKAR}{\texttt{OSKAR}}\footnote{%
   OSKAR: \url{https://github.com/OxfordSKA/OSKAR} (v2.7.0)}
 模拟软件\cite{mort2010}
-对每张\ac{skymap}进行模拟观测，积分时间为 \SI{6}{\hour}，
+对每张\ac{skymap}进行模拟观测，\ac{t-int}为 \SI{6}{\hour}，
 获得\ac{vis}数据.
 输入\ac{skymap}的中心被放置在
 (R.A., Dec.\@) = (\SI{0}{\degree}, \SI{-27}{\degree})，
@@ -1412,7 +1412,7 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 所以，在一次 \SI{6}{\hour} 的模拟观测过程中，
 输入\ac{skymap}的中心的\ac{hourangle}范围为 $[\SI{-3}{\hour}, \SI{3}{\hour}]$.
 
-因为银河系的\ac{rad-syn}和\ac{rad-ff}都是弥散型辐射，
+因为银河系的\ac{rad-syn}和\ac{rad-ff}的形态均呈弥散状，
 而且后文的分析中并不区分两者，所以我们将这两个成分的\ac{skymap}叠加之后
 再进行模拟观测.
 在干涉阵列的实际数据处理流程中，其中的一个重要的步骤是实时校准并扣除明亮点源，
@@ -1423,7 +1423,7 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 处理后的河外点源在 124、158 和 196 \si{MHz} 的亮温度的\ac{rms}值显著减小至约
 \num{22.5e4}、\num{9.81e4} 和 \num{4.75e4} \si{\mK}.
 
-模拟获得\ac{vis}数据后，接着再使用
+模拟获得\ac{vis}数据后，我们接着使用
 \href{https://sourceforge.net/p/wsclean}{\texttt{WSClean}}\footnote{%
   WSClean: \url{https://sourceforge.net/p/wsclean} (v2.6)}
 成像软件\cite{offringa2014}
@@ -1470,10 +1470,10 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 (joined-channel deconvolution) 技术 \cite{offringa2017}，
 将一个前景成分（如射电晕）在一个频带（如 \SIrange{154}{162}{\MHz}）
 内 51 个\ac{channel}的\ac{vis}数据作为一个整体处理，得到相应的\ac{imgcube}.
-由于 CLEAN 算法对 EoR 信号这种非常暗弱的弥散辐射处理效果有限，
+对于 EoR 信号，由于 CLEAN 算法对这种非常暗弱的弥散辐射处理效果有限，
 我们直接使用由 \texttt{WSClean} 生成的\ac{dirty-map}.
 尽管如此，因为 EoR 信号的\ac{skymap}中没有明亮的点状结构，
-所以\ac{dirty-map}的质量已经足够好了.
+所以\ac{dirty-map}的质量也足够好.
 这样，我们模拟得到了以下成分在 \numrange{120}{128}、\numrange{154}{162}
 和 \numrange{192}{200} \si{\MHz} 三个频带内由
 SKA1-Low \enquote{观测}得到的\ac{imgcube}：
