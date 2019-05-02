@@ -404,7 +404,7 @@ $\ac{coef-correlation}(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})$ 越接近于 1，
 \subsection{观测图像模拟}
 \label{sec:cdae-images}
 
-取 \SIrange{154}{162}{\MHz} 这一典型频带为例 \cite{datta2010}，
+取 \SIrange{154}{162}{\MHz} 这个典型频带为例 \cite{datta2010}，
 将其分成 $n_f = 101$ 个宽度为 \SI{80}{\kHz} 的频率\ac{channel}.
 相比 \autoref{sec:obs-simu}，
 我们将频率分辨率从 \SI{160}{\MHz} 提高到了 \SI{80}{\MHz}，
@@ -449,7 +449,7 @@ $\ac{coef-correlation}(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})$ 越接近于 1，
     的河外点源已被全部去除 \cite{liu2009ps}；
   \item 为了强调暗弱而且比较弥散的 EoR 信号，
     我们在使用 \texttt{WSClean} 成像时选择了自然权重 (natural weighting)，
-    同时将基线范围限制在 \numrange{30}{1000} 个波长；
+    同时将基线范围限制在 \numrange{30}{1000}$\,\lambda$；
   \item 为了得到最佳的图像质量，我们只切取中央 \SI{2 x 2}{\degree}
     的区域，对应的图像尺寸为 \num{360 x 360}.
 \end{itemize}
@@ -457,18 +457,17 @@ $\ac{coef-correlation}(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})$ 越接近于 1，
 EoR 信号 $C_{\R{eor}}^{(1)}$ 和前景辐射 $C_{\R{fg}}^{(1)}$.
 \autoref{fig:eor-fg-obsimg} 展示了两者在中心频率 \SI{158}{\MHz} 的模拟图像.
 
-为了突出显示波束效应对前景辐射的频谱的影响，我们随机地选取一个天空像素点为例，
+为了展示波束效应对前景辐射的频谱的影响，我们随机地选取一个天空像素点为例，
 然后对比有无波束效应的情况下前景辐射的频谱变化，如\autoref{fig:cdae-simdata} 所示，
 其中还显示了相应的差分频谱（即相邻两个频谱\ac{channel}的差值）以及 EoR 信号的频谱.
 可以看出，前景辐射的本征频谱是非常光滑的（上栏），
 但是在复杂的波束效应的影响下出现了许多小幅度、小尺度 ($<$\,\SI{1}{\MHz}) 的涨落（中栏），
-因此，频谱的光滑性受到了严重损坏.
+说明频谱的光滑性受到了严重损坏.
 尽管这些小尺度的涨落与 EoR 信号（下栏）具有一些相似的频谱特征，
-但两者之间仍然具有足够的可区分度，可以被 \ac{cdae} 发掘出来并用于 EoR 信号的分离.
+但两者之间仍然具有足够的可区分度，能够被 \ac{cdae} 发掘出来并用于 EoR 信号的分离.
 此外，\autoref{fig:cdae-simdata} 还显示出\enquote{观测}的前景辐射（中栏）
 的强度相比原来的理想情况（上栏）约小 2 个数量级，
-导致这个差异的主要原因是因为干涉阵列无法测量天空辐射的绝对强度，
-只能响应辐射的空间涨落 \cite{braun1985}.
+导致这个差异的主要原因是因为干涉阵列只有测量天空辐射的空间涨落 \cite{braun1985}.
 
 \begin{figure}[htp]
   \centering
@@ -495,10 +494,9 @@ EoR 信号 $C_{\R{eor}}^{(1)}$ 和前景辐射 $C_{\R{fg}}^{(1)}$.
   \label{fig:cdae-simdata}
 \end{figure}
 
-训练和评估 \ac{cdae} 需要三个\ac{ds}，
-分别为\acl{s-training}、\acl{s-validation} 和\acl{s-test}
-(\autoref{sec:train-eval})，
-如果只有一对\ac{imgcube}，那么\acl{s-test} \ac{s-test} 只能包含一小部分的像素点的数据，
+训练和评估 \ac{cdae} 需要\acl{s-training}、
+\acl{s-validation}和\acl{s-test}这三个\ac{ds} (\autoref{sec:train-eval}).
+如果只有一对\ac{imgcube}，那么\acl{s-test} \ac{s-test} 只能包含一小部分像素点的数据，
 而且这些像素点随机地分布在天空平面里.
 在 \ac{cdae} 的测试阶段 (\autoref{sec:cdae-results})，
 利用这样一个\acl{s-test} \ac{s-test} 重构得到的 EoR 信号无法构成完整的
@@ -514,7 +512,7 @@ $\left( C_{\R{eor}}^{(1)}, C_{\R{fg}}^{(1)} \right)$
 具体而言，我们以 (R.A., Dec.\@) = (\SI{3}{\degree}, \SI{-27}{\degree})
 为中心模拟了银河系弥散辐射（\ac{rad-syn}和\ac{rad-ff}）的\ac{skymap}；
 因为河外点源、射电晕以及 EoR 信号的空间分布几乎是各向同性的，
-所以我们将它们原来的\ac{skymap}平移 \SI{3}{\degree} 得到所需的新\ac{skymap}.
+所以我们将这几个成分原来的\ac{skymap}平移 \SI{3}{\degree} 得到所需的新\ac{skymap}.
 然后，遵循相同的模拟观测方法，我们得到了第二对\ac{imgcube}
 $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$.
 
@@ -522,7 +520,7 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$.
 要求极深度的观测以达到足够低的噪声水平.
 比如，SKA1-Low 计划筛选 5 个 EoR 天区，然后对每个天区观测约 \SI{1000}{\hour}，
 达到空前的约小于 \SI{1}{\mK} 的亮度灵敏度 [\autoref{eq:sigma-tb}]，
-从而实现 EoR 区域的直接成像观测 \cite{mellema2013,mellema2015,koopmans2015}.
+从而实现对 EoR 区域的直接成像观测 \cite{mellema2013,mellema2015,koopmans2015}.
 因此，我们没有在上述模拟中包含仪器的热噪声.
 
 %---------------------------------------------------------------------
