@@ -8,10 +8,10 @@
 
 为了能够从强烈的前景干扰中分离出微弱的 EoR 信号，
 传统的\ac{fg-rm}方法都依赖于一个关键的前提：
-前景干扰具有非常光滑的频谱，而 EoR 信号沿频率维度发生剧烈变化，
-两者具有显著不同的频谱结构，从而能够被有效地分离开 \cite{morales2010,chapman2016}.
+前景干扰的频谱非常光滑，而 EoR 信号沿频率维度发生剧烈变化.
+两者具有显著不同的频谱结构，从而能够被有效地分离 \cite{morales2010,chapman2016}.
 然而，在实际情况中，未分辨的或者未完全扣除的干扰源在干涉阵列的波束效应的影响下，
-会在频率维度产生震荡形式的辐射，破坏前景频谱的光滑性 \cite{liu2009ps}.
+会在频率维度产生快速变化的辐射起伏，破坏前景频谱的光滑性 \cite{liu2009ps}.
 这会显著削弱前景干扰与 EoR 信号的可分性，
 导致传统\ac{fg-rm}方法的效果大打折扣甚至失效，
 因此需要研发能够克服波束效应的 EoR 信号分离新算法.
@@ -26,7 +26,7 @@
   \includegraphics[width=\textwidth]{SKA1-low-psf}
   \bicaption[模拟的 SKA1-Low 综合波束]{%
     在 154、158 和 162 MHz 处模拟的 SKA1-Low \acs*{beam-synthesized}.
-    积分时间为 \SI{6}{\hour}.
+    \acs*{t-int}为 \SI{6}{\hour}.
   }{%
     The simulated synthesized beams of SKA1-Low at 154, 158, and 162 MHz.
     The integration time is \SI{6}{\hour}.
@@ -34,9 +34,9 @@
   \label{fig:ska-psf}
 \end{figure}
 
-一个干涉阵列拥有的\ac{baseline}的数目和长度均是有限的，
+一个干涉阵列拥有的\ac{baseline}数目和长度均是有限的，
 在观测中能实现的 $uv$ 覆盖也是有限而且不完备的 (\autoref{sec:uv-coverage})，
-因此，干涉阵列的\ac{beam-synthesized}的形状非常复杂.
+这导致干涉阵列的\ac{beam-synthesized}的形状非常复杂.
 如\autoref{fig:ska-psf} 所示，
 除了中间一个很窄的\ac{mainlobe}，\ac{beam-synthesized}还包含一系列\ac{sidelobe}.
 这些\ac{sidelobe}的数量非常多，相对幅度约为 \numrange{0.01}{0.1}\%，
@@ -48,9 +48,9 @@
 即 $\theta \propto \nu^{-1}$.
 因此，一个干扰源在视场中所产生的辐射的位置也随频率而变化.
 由于仪器的热噪声水平、成像的天区大小、CLEAN 的深度等因素的限制，
-视场中总是存在一批未分辨的以及未完全扣除而残留的干扰源.
+视场中总是存在一批未分辨的或者未完全扣除的干扰源.
 由这些干扰源的辐射综合而成的前景干扰，
-在频率维度将出现类似\ac{beam-synthesized}的\ac{sidelobe}形状的起伏.
+在频率维度将出现类似于\ac{beam-synthesized}的\ac{sidelobe}形状的起伏.
 这将破坏前景辐射的频谱光滑性，使得前景干扰具有类似 EoR 信号的小尺度频谱结构，
 导致传统\ac{fg-rm}方法无法有效地将两者区分开.
 另见 \citeay{liu2009ps} \S\,1.
