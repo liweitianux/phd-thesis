@@ -302,11 +302,11 @@ EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够
 一些模拟和观测研究指出，干涉阵列的频率\ac{channel}的校准存在约
 \numrange{0.1}{1}\% 的不确定性
 \cite{barry2016,beardsley2016,ewallWice2017}.
+为了评估这种频谱伪结构对\ac{ps}以及前景干扰的影响，
 我们对\ac{imgcube}的每一个\ac{slice}乘以一个服从平均值为 0、
 标准差为 σ 的正态分布的随机数，
-以此模拟实际观测中出现的频谱伪结构 \cite{chapman2016}；
-然后计算有无频谱伪结构的\ac{imgcube}的\ac{ps}并进行对比，
-从而评估频谱伪结构对\ac{ps}以及前景干扰的影响.
+以此模拟实际观测中出现的频谱伪结构 \cite{chapman2016}，
+然后计算有无频谱伪结构的\ac{imgcube}的\ac{ps}并进行对比.
 我们考虑如下两种边界情况：
 \begin{itemize}
   \item 频谱伪结构的幅度为 $A_{\R{arti}} = 0.1\%$，
@@ -353,20 +353,20 @@ EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够
 的情形下的二维功率比 $R_{\R{arti}}(\kperp, \klos)$，
 据此得到射电晕在三个频带内以及两种频谱伪结构幅度的情况下的二维功率比的中位数，
 结果如\autoref{fig:ps2d-ratio-crp} 所示.
-我们发现，频谱伪结构使射电晕的二维功率谱受到了严重破坏.
+我们发现，射电晕的二维功率谱受到了频谱伪结构的严重破坏.
 在 $\kperp \lesssim \SI{0.2}{\per\Mpc}$ 和
 $\klos \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 幅度为 $A_{\R{arti}} = 0.1\%$ 的频谱伪结构使射电晕在 \numrange{120}{128}、
 \numrange{154}{162} 和 \numrange{192}{200} \si{\MHz}
 三个频带内的功率分别增加了约 17、15 和 13 倍.
 当频谱伪结构的幅度为 $A_{\R{arti}} = 1\%$，即为前一种情况的 10 倍时，
-射电晕在相同尺度范围内的功率则为前一种情况的 100 倍，
-即在三个频带内的功率比 $R$ 分别约为 1700、1500 和 1300.
+射电晕在相同尺度范围内的功率比 $R$ 则为前一种情况的 100 倍，
+在三个频带内分别约为 1700、1500 和 1300.
 
 作为对比，我们对 EoR 信号的\ac{imgcube}引入了同样的频谱伪结构
 ($A_{\R{arti}} = 0.1\%$ 或 $1\%$)
 并计算了相应的二维功率比 $R_{\R{arti}}(\kperp, \klos)$.
-但是，我们发现 EoR 信号的二维功率谱几乎未受到频谱伪结构的影响，
+但是，我们发现 EoR 信号的二维功率谱几乎未受频谱伪结构的影响，
 即使频谱伪结构的幅度为 $A_{\R{arti}} = 1\%$.
 这主要是因为 EoR 信号在频率维度已经具有明显的小尺度起伏结构.
 
@@ -382,15 +382,6 @@ $\klos \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 \section{远旁瓣的影响}
 \label{sec:fscn}
 
-低频干涉阵列的波束形状非常复杂，除\ac{mainlobe}外还有一系列明显的\ac{sidelobe}
-\cite{noordam2004,wijnholds2010}，
-如\autoref{fig:ska-beams} 显示了 SKA1-Low 在 100 和 200 MHz 处模拟的站点波束.
-更多关于 SKA1-Low 的波束形状及其旁瓣的性质可见 \citeay{mort2017}.
-辐射源即使远离\ac{mainlobe}，也会通过\ac{sidelobe}在视场中产生类似噪声的干扰，
-这就是\emph{\acf{fscn}} \cite{smirnov2012}.
-更加重要的是，当观测的 $uv$ 覆盖达到饱和时，\ac{fscn} 便不再降低，
-因此，\ac{fscn} 可能会强于仪器的热噪声而成为制约成像质量的关键因素 \cite{mort2017}.
-
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{SKA1-low-beams}
@@ -404,7 +395,16 @@ $\klos \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
   \label{fig:ska-beams}
 \end{figure}
 
-为了研究位于\ac{sidelobe}中的射电晕所产生的 \ac{fscn}，
+低频干涉阵列的波束形状非常复杂，除\ac{mainlobe}外还有一系列明显的\ac{sidelobe}
+\cite{noordam2004,wijnholds2010}，
+如\autoref{fig:ska-beams} 显示了 SKA1-Low 在 100 和 200 MHz 处模拟的站点波束.
+更多关于 SKA1-Low 的波束形状及其影响的研究可见 \citeay{mort2017}.
+辐射源即使在视场之外，也会通过\ac{sidelobe}在视场中产生类似噪声的干扰，
+这就是\emph{\acf{fscn}} \cite{smirnov2012}.
+更加重要的是，当观测的 $uv$ 覆盖达到饱和时，\ac{fscn} 便不再降低，
+因此，\ac{fscn} 可能会强于仪器的热噪声而成为制约成像质量的关键因素之一 \cite{mort2017}.
+
+为了研究位于\ac{sidelobe}里的射电晕所产生的 \ac{fscn}，
 我们需要生成相应的天图，然后输入 \texttt{OSKAR} 软件开展模拟观测.
 \texttt{OSKAR} 利用了射电干涉仪测量方程 (measurement equation) \cite{smirnov2011}，
 实现了高仿真的\ac{beam-forming}，并且能够开展全天模拟 \cite{mort2010}.
@@ -444,20 +444,21 @@ $\klos \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 \autoref{fig:ps2d-fscn} 显示了射电晕 \ac{fscn}
 的二维功率谱 $\Delta^2_{\R{fscn}}(\kperp, \klos)$
 以及与 EoR 信号的二维功率比 $R_{\R{fscn}}(\kperp, \klos)$.
-我们发现，射电晕 \ac{fscn} 将对 EoR 信号产生的干扰；
+我们发现，射电晕 \ac{fscn} 对 EoR 信号产生的干扰非常严重：
 在 $\kperp \sim \SI{0.3}{\per\Mpc}$ 和 $\klos \sim \SI{1.0}{\per\Mpc}$
 的尺度范围内，射电晕 \ac{fscn} 的功率达到了 EoR 信号的约 20 倍.
-显然可见，\ac{fg-wedge}污染区域跨过原来的边界（白色虚线）向左上方增长了很多，
+显然可见，\ac{fg-wedge}污染区域越过原来的边界（白色虚线）向左上方增长了很多，
 极大地压缩了 EoR 窗口的大小.
-为了能够有效地避开 \ac{fscn} 的污染，我们被迫采用一个更加保守的 EoR 窗口边界，
-如图中白色实线所示的、由 $\Phi = \SI{90}{\degree}$ 确定的边界，
-但是将损失绝大部分的 EoR 信号.
+为了能够在二维功率谱上有效地避开 \ac{fscn} 的污染，
+我们被迫采用一个更加保守的 EoR 窗口边界，
+如图中白色实线所示、由 $\Phi = \SI{90}{\degree}$ 确定的边界，
+但是将损失绝大部分 (???\%) 的 EoR 信号.
 
 因此，严重的 \ac{fscn} 污染使得筛选 EoR 观测天区成为一个更加困难的任务，
 因为不仅在\ac{mainlobe}里，还有在\ac{sidelobe}里，
 原则上都不允许存在明亮的射电晕以及其他干扰源.
 否则需要在一个远远大于视场的天区里，准确识别、建模并扣除这些干扰源，
-如此将显著增加数据处理的难度 \cite{pober2013,pober2016}.
+如此将使数据处理的难度大大提高 \cite{pober2013,pober2016}.
 
 
 %=====================================================================
