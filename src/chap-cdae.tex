@@ -308,36 +308,37 @@ $\left(\left\{ \B{v}_{i}^{(l)} \right\};\, i = 1, 2, \cdots, m_l \right)$.
 还能作为一个\ac{regularizer}预防\ac{overfitting} \cite{geron2017}.
 
 为了确定 \ac{cdae} 的卷积层数目以及每个卷积层的\ac{filter}个数，
-我们构建了许多个包含不同数量的卷积层和\ac{filter}的 \ac{cdae}，
-然后评估这些 \ac{cdae} 的性能（详见 \autoref{sec:cdae-results}），
+我们构建了多个包含不同数量的卷积层和\ac{filter}的 \ac{cdae}，
+然后评估这些 \ac{cdae} 的性能（详见 \autoref{sec:cdae-results}）.
 最后，我们选取了一个性能足够好并且最简单的 \ac{cdae}，
 如\autoref{fig:cdae-network} 所示.
 这个 \ac{cdae} 由一个四层的\ac{encoder}和一个五层的\ac{decoder}组成，
 其中\ac{encoder}的四个卷积层分别包含 32、64、64 和 32 个\ac{filter}，
 \ac{decoder}的五个卷积层分别包含 32、64、64、32 和 1 个\ac{filter}.
 我们也测试了在 \ac{cdae} 中包含\ac{pooling}层和\ac{upsampling}层，
-但这些层对 \ac{cdae} 的性能影响可以忽略不计，
+但这些层对 \ac{cdae} 的性能影响可以忽略不计.
 因此，我们最终设计的 \ac{cdae} (\autoref{fig:cdae-network}) 完全由卷积层构成，
-也被称为\ac{fcn} \cite{long2015,springenberg2015}.
+这种网络也被称为\ac{fcn} \cite{long2015,springenberg2015}.
 
 %---------------------------------------------------------------------
 \subsection{训练和评估方法}
 \label{sec:train-eval}
 
-在一开始，\ac{cdae} 的全部参数（即所有层的\ac{filter}的权重和\ac{bias}）
-由 He 均匀初始器 (He uniform initializer)\cite{he2015} 初始化为随机值.
-为了训练这些参数以获得一个有效的 \ac{cdae}，需要以下三个\ac{ds} \cite{ripley1996}：
+首先，\ac{cdae} 的全部参数（即所有层的\ac{filter}的权重和\ac{bias}）
+由 He 均匀初始化器 (He uniform initializer)\cite{he2015} 设置为随机值.
+为了训练这些参数以获得一个有效的 \ac{cdae}，
+需要以下三个\ac{ds} \cite{ripley1996}：
 \begin{itemize}
-  \item \ac{s-training}:
+  \item \acl{s-training} \ac{s-training}:
     用于拟合 \ac{cdae} 的待训练参数；
-  \item \ac{s-validation}:
+  \item \acl{s-validation} \ac{s-validation}:
     一方面用于验证训练过程是否正常，比如没有出现\ac{overfitting}；
     另一方面用来约束 \ac{cdae} 的\ac{hyperparam}，
     比如层数和\ac{filter}的数目 (\autoref{sec:architecture})；
-  \item \ac{s-test}:
+  \item \acl{s-test} \ac{s-test}:
     仅仅在训练结束后用来评估 \ac{cdae} 的性能.
 \end{itemize}
-上述每一个\ac{ds}都包含许多的数据点
+上述每一个\ac{ds}都包含大量数据点
 $\left( \B{x}^{(i)}, \,\B{x}^{(i)}_{\R{eor}} \right)$，
 其中 $\B{x}^{(i)}_{\R{eor}}$ 是一个天空像素点 $i$ 的 EoR 信号的频谱，
 $\B{x}^{(i)} = \B{x}^{(i)}_{\R{eor}} + \B{x}^{(i)}_{\R{fg}}$
@@ -361,7 +362,7 @@ $\B{x}^{(i)} = \B{x}^{(i)}_{\R{eor}} + \B{x}^{(i)}_{\R{fg}}$
 可以计算\acl{loss} \ac{loss} 对任意一个参数 $p_i$ 的梯度
 $\partial \ac{loss} / \partial p_i$，
 然后据此更新这些参数，使得\acl{loss} \ac{loss} 逐渐减小，
-从而提高重构的 EoR 信号 $\B{r}^{(i)}_{\R{eor}}$ 的质量.
+从而提高重构的 EoR 信号 $\B{r}^{(i)}_{\R{eor}}$ 的准确度.
 随着训练\ac{epoch}的增长，原来一个随机的 \ac{cdae} 被逐渐塑造成一个专用网络，
 能够发掘输入数据中的有用特征并用来重构 EoR 信号.
 
