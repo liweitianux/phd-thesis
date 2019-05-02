@@ -10,15 +10,16 @@
 \section{评估方法}
 \label{sec:eval-method}
 
-利用\autoref{chap:simulation}模拟得到的射电晕、EoR 信号以及其他前景成分的
-SKA1-Low 观测图像，我们可以定量地评估射电晕将对 EoR 探测产生的影响.
-我们将分别针对\ac{fg-rm}和\ac{fg-avd}两类前景处理方法 (\autoref{sec:fg-methods})
+利用\autoref{chap:simulation}模拟得到的射电晕、
+EoR 信号以及其他前景成分的 SKA1-Low \enquote{观测}图像，
+我们可以定量地评估射电晕对 EoR 探测产生的影响，
+分别针对\ac{fg-rm}和\ac{fg-avd}两类前景处理方法 (\autoref{sec:fg-methods})
 进行评估.
-首先，我们计算一维\ac{ps}来对比射电晕和 EoR 信号在各个尺度 $k$ 的总体功率，
+首先，我们计算一维\ac{ps} $\ac{psD}(k)$ 来对比射电晕和 EoR 信号在各个尺度 $k$ 的功率，
 说明使用\ac{fg-rm}方法时将面临的射电晕的污染强度.
-其次，我们计算二维\ac{ps}，然后在 EoR 窗口 (\autoref{sec:eor-window})
-内比较射电晕和 EoR 信号的功率，
-据此评估射电晕的污染将会对使用\ac{fg-avd}方法产生多大程度的影响.
+其次，我们计算二维\ac{ps} $\ac{psD}(\kperp, \klos)$，
+然后在 EoR 窗口 (\autoref{sec:eor-window}) 内比较射电晕和 EoR 信号的功率，
+据此评估使用\ac{fg-avd}方法提取 EoR 信号时射电晕的污染程度.
 
 \begin{figure}[htp]
   \centering
@@ -59,16 +60,25 @@ $a_0 = \num{0.3635819}$,
 $a_1 = \num{0.4891775}$,
 $a_2 = \num{0.1365995}$,
 $a_3 = \num{0.0106411}$.
-\autoref{fig:ft-sidelobes} 显示了使用 Blackman--Nuttall \ac{f-window}
-之后得到的 Fourier 变换结果，可见高频 Fourier 成分的幅度被有效地抑制了.
+\autoref{fig:ft-sidelobes} 显示了使用 Blackman--Nuttall 
+\ac{f-window}之后得到的 Fourier 变换结果，
+可见高频 Fourier 成分的幅度被有效地抑制了.
 因此，我们对\autoref{chap:simulation}模拟得到的\ac{imgcube}沿频率方向施加
-Blackman--Nuttall \ac{f-window}然后再计算\ac{ps}
-\cite{trott2015,chapman2016}.
+Blackman--Nuttall \ac{f-window}，
+然后再进行 Fourier 变换以及计算\ac{ps} \cite{trott2015,chapman2016}.
 
 
 %=====================================================================
 \section{一维功率谱}
 \label{sec:ps1d}
+
+我们对上一章模拟得到的每一个成分在每一个频带里的\ac{imgcube}分别计算了
+一维\ac{ps} $\ac{psD}(k)$.
+对于射电晕，我们使用了全部 100 次模拟 (\autoref{sec:halo-maps}) 的结果
+来估算其一维功率谱的中位数和 68\% 的误差范围.
+具体而言，在一个频带里，射电晕的 100 次模拟会生成 100 个\ac{imgcube}，
+分别计算这 100 个\ac{imgcube}的一维功率谱，
+然后从所得的 100 个一维功率谱计算每个尺度 $k$ 处的中位数和相应的 68\% 误差范围.
 
 \begin{figure}[htp]
   \centering
@@ -78,7 +88,7 @@ Blackman--Nuttall \ac{f-window}然后再计算\ac{ps}
     河外点源（灰色点虚线）之间的一维功率谱 $\ac{psD}(k)$ 的对比.
     左栏、中栏、右栏分别表示 \numrange{120}{128}、\numrange{154}{162}
     和 \numrange{192}{200} \si{\MHz} 三个频带的结果.
-    对于射电晕，红色实线及其阴影区域分别表示从 100 次模拟结果中得到的
+    对于射电晕，红色实线及其阴影区域分别表示从 100 次模拟结果得到的
     中位数和 68\% 的误差范围.
   }{%
     Comparisons of the 1D dimensionless power spectra $\ac{psD}(k)$
@@ -95,32 +105,25 @@ Blackman--Nuttall \ac{f-window}然后再计算\ac{ps}
   \label{fig:ps1d-3bands}
 \end{figure}
 
-我们对上一章模拟得到的每一个成分在每一个频带里的\ac{imgcube}分别计算了
-一维\ac{ps} $\ac{psD}(k)$.
-对于射电晕，我们使用了全部 100 次模拟 (\autoref{sec:halo-maps}) 的结果
-来估算其一维功率谱的中位数和 68\% 的误差范围.
-具体而言，在一个频带里，射电晕的 100 次模拟会生成 100 个\ac{imgcube}，
-分别计算这 100 个\ac{imgcube}的一维功率谱，
-然后从所得的 100 个一维功率谱计算每个尺度 $k$ 处的中位数和相应的 68\% 误差范围.
 \autoref{fig:ps1d-3bands} 显示了各成分在三个频带内的
 一维功率谱 $\ac{psD}(k)$ 的对比.
-可见，在 $\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$ 尺度上，
+可见，在 $\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$ 尺度范围内，
 射电晕的典型功率（红色实线）在 \numrange{120}{128}、\numrange{154}{162} 和
 \numrange{192}{200} \si{\MHz} 频带内分别是 EoR 信号的功率的
 \num{e4}、\num{e3} 和 \num{e2.5} 倍.
-考虑到不同天区内射电晕的亮度和数目的显著涨落，
-在 68\% 的误差范围内（红色阴影区域），
+考虑到射电晕的亮度和数目在不同天区里会发生显著变化，
+因此在 68\% 的误差范围内（红色阴影区域），
 射电晕的功率能够变化约 \numrange{10}{100} 倍.
 
 对于另外两个前景成分，银河系前景在最大尺度 ($k \lesssim \SI{0.1}{\per\Mpc}$)
-上是最强的污染源，但随着尺度 $k$ 的减小，其功率也迅速减小.
+上是最强的污染源，但随着尺度的减小（对应于 $k$ 增大），其功率也迅速减小.
 在 $\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$
 的中小尺度范围，
-射电晕的典型功率将是银河系前景的功率的约 \numrange{10}{100} 倍.
+射电晕的典型功率比银河系前景的功率强约 \numrange{10}{100} 倍.
 河外点源除了在最大尺度上弱于银河系前景，在其他尺度上均是最强的污染源.
 
 以上这些结果清楚地说明射电晕是严重的 EoR 前景污染源，需要在前景扣除中被仔细处理.
-此外，射电晕还具有一定的形态结构，显著增加了对其准确建模和扣除的难度.
+此外，射电晕的形态还呈现一定程度的不规则结构，这显著增加了对其准确建模和扣除的难度.
 
 
 %=====================================================================
