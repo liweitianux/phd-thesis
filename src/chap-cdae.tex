@@ -535,7 +535,7 @@ $\B{x}^{(i)} = \B{x}^{(i)}_{\R{eor}} + \B{x}^{(i)}_{\R{fg}}$
 数据点的总数为 $N_S = \num{360x360 x 2} = \num{259200}$，
 这些数据点组成了训练和评估 \ac{cdae} 所需的\ac{ds}
 $S = \left\{ \left(\B{x}^{(i)}, \,\B{x}^{(i)}_{\R{eor}} \right) \right\}$.
-但是，\ac{cdae} 在使用该数据集 $S$ 时，
+但是，\ac{cdae} 在使用该数据集 $S$ 之前，
 需要分别对输入的总辐射 $X = \big\{ \B{x}^{(i)} \big\}$
 以及 EoR 信号 $X_{\R{eor}} = \big\{ \B{x}^{(i)}_{\R{eor}} \big\}$
 进行合适的预处理.
@@ -543,15 +543,16 @@ $S = \left\{ \left(\B{x}^{(i)}, \,\B{x}^{(i)}_{\R{eor}} \right) \right\}$.
 对于输入数据 $X = \big\{ \B{x}^{(i)} \big\}$，
 我们提出首先对信号 $\B{x}^{(i)}$ 进行 Fourier 变换.
 这样可以提高 EoR 信号与前景辐射之间的可分度，
-于是 \ac{cdae} 能够更容易、更好地学习两者之间的差异.
+于是 \ac{cdae} 能够更容易、更准确地学习两者之间的差异.
 （我们将在 \autoref{sec:why-ft} 讨论不使用 Fourier 变换预处理数据时所得到的结果.）
-由于信号 $\B{x}^{(i)}$ 的长度为 $n_f = 101$ 是有限的，
+由于信号 $\B{x}^{(i)}$ 的长度是有限的 ($n_f = 101$)，
 为了抑制信号的边界效应使 Fourier 变换产生显著的\ac{sidelobe}
-(\autoref{sec:eval-method})，
-我们在 Fourier 变换前对信号 $\B{x}^{(i)}$ 施加 Blackman--Nuttall \ac{f-window}
-\cite{chapman2016} [\autoref{eq:bn-window}].
+（参见 \autoref{sec:eval-method}），
+我们先对信号 $\B{x}^{(i)}$ 施加 Blackman--Nuttall \ac{f-window}
+\cite{chapman2016} [\autoref{eq:bn-window}]
+再进行 Fourier 变换.
 因为信号 $\B{x}^{(i)}$ 全部由实数组成，
-所以变换后的 Fourier 系数 $\hat{x}^{(i)}_{f}$ 具有以下对称关系：
+所以变换后的复 Fourier 系数 $\hat{x}^{(i)}_{f}$ 具有以下对称关系：
 \begin{equation}
   \hat{x}^{(i)}_{f} \equiv \hat{x}^{*(i)}_{-f} ,
 \end{equation}
@@ -560,18 +561,18 @@ $S = \left\{ \left(\B{x}^{(i)}, \,\B{x}^{(i)}_{\R{eor}} \right) \right\}$.
 于是，长度为 $n_f = 101$ 的信号 $\B{x}^{(i)}$ 变换为
 $n_c = 51$ 个复 Fourier 系数：
 \begin{equation}
-  \left( \hat{x}^{(i)}_f; \; f = 0, 1, \cdots, 50 \right) ,
+  \left( \hat{x}^{(i)}_f; \; f = 0, 1, \cdots, 50 \right) .
 \end{equation}
 其中，Fourier 频率 $f$ 最小的几个系数主要由频谱光滑的前景辐射贡献，
 因此可以通过排除这几个 Fourier 系数来抑制前景干扰.
 为了平衡前景辐射的抑制效果和 EoR 信号的损失程度，
-经过测试，我们选择排除 $n_{\R{ex}} = 6$ 个 Fourier 频率最小的系数，
+经过测试，我们选择去除 $n_{\R{ex}} = 6$ 个 Fourier 频率最小的系数，
 于是剩下的 45 个 Fourier 系数为：
 \begin{equation}
   \left( \hat{x}^{(i)}_f; \; f = 6, 7, \cdots, 50 \right) .
 \end{equation}
 因为 \ac{cdae} 只能处理实数，
-所以我们将这些复 Fourier 系数的实部和虚部分开，
+所以我们将这些复数的实部和虚部分开，
 设 $\hat{x}^{(i)}_f = a_f + \Ci\,b_f$，
 然后重新拼接成一个长度为 $n_d = 90$ 的实矢量：
 \begin{equation}
@@ -585,10 +586,10 @@ $n_c = 51$ 个复 Fourier 系数：
 进行 Fourier 变换，接着去除 $n_{\R{ex}}$ 个 Fourier 频率最小的系数，
 再将复 Fourier 系数的实部和虚部拼接成实矢量.
 后续的预处理步骤则与 $X$ 的预处理方法有所不同.
-计算数据的第 1 和第 99 \ac{percentile}，
+我们计算数据的第 1 和第 99 \ac{percentile}，
 然后将小于第 1 \ac{percentile}以及大于第 99 \ac{percentile}的元素截断，
 用来防止数据中可能存在的\ac{outlier}阻碍 \ac{cdae} 的训练.
-最后，将数据除以其最大绝对值，使其数值范围为 $[-1, 1]$.
+最后，将数据除以其最大绝对值，使其数值范围变为 $[-1, 1]$.
 这种处理方法允许我们在 \ac{cdae} 的输出层使用值域同样为 $[-1, 1]$
 的 \enquote{tanh} 函数作为\ac{f-activation} (\autoref{sec:architecture}).
 
