@@ -849,16 +849,16 @@ $N_{\R{val}}$ 是\acl{s-validation} \ac{s-validation} 包含的数据点数目.
 我们发现，\acl{loss-training} \ac{loss-training} 减小的速度更慢，
 大约经过 100 个\ac{epoch}才收敛.
 同时，从\acl{s-validation} \ac{s-validation}
-计算得到的\acl{loss-validation} \ac{loss-validation} 以及
-\acl{coef-correlation} \ac{coef-correlation}
-的曲线上均有许多小\ac{spike}，
+计算得到的损失 \ac{loss-validation} 
+以及\acl{coef-correlation} \ac{coef-correlation}
+的曲线上均有很多小\ac{spike}，
 表明 \ac{cdae} 的训练过程有一点不稳定.
 这种现象在 \autoref{sec:cdae-demo} 的演示以及\autoref{fig:cdae-train}
 中是没有的.
 此外，使用\acl{s-test} \ac{s-test} 来评估 \ac{cdae} 的性能可得，
 \ac{cdae} 重构的与输入的 EoR 信号之间的平均\acl{coef-correlation}仅有
 $\bar{\rho}_{\R{noft}} = \num{0.628 +- 0.167}$，
-显著差于 \autoref{sec:cdae-results} 的结果.
+显著差于使用了 Fourier 变换预处理数据所得的结果 (\autoref{sec:cdae-results}).
 
 \begin{figure}[htp]
   \centering
@@ -913,7 +913,7 @@ $\bar{\ac{coef-correlation}}_{\R{poly}} = \num{0.296 +- 0.121}$.
 对于天空每一个像素点的总辐射的频谱，首先运用基于 Morlet 小波函数的\ac{cwt}，
 于是前景辐射和 EoR 信号因为频谱特征不同而在小波空间中占据不同的区域.
 在小波空间中，可以更容易地识别那些主要源自前景辐射的小波系数并将其扣除，
-然后再逆变换回观测频率空间，便得到已扣除前景污染的 EoR 信号 \cite{gu2013}.
+然后再逆变换回到观测频率空间，便得到已扣除前景污染的 EoR 信号 \cite{gu2013}.
 使用相同的\ac{imgcube}
 $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$，
 我们通过调节\ac{cwt}法的参数以达到最佳的性能.
@@ -926,12 +926,12 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$，
 $\bar{\ac{coef-correlation}}_{\R{cwt}} = \num{0.198 +- 0.160}$.
 这个分离结果相比上述多项式拟合法的结果还要稍差一点，
 这与 \citeay{gu2013} 的对比结果不同.
-主要原因是我们模拟的\ac{imgcube}的频带更窄、频率分辨率更差，
-所以在使用\ac{cwt}时产生了更严重的边界效应.
+主要原因是我们模拟的\ac{imgcube}的频带较窄、频率分辨率较差，
+所以在使用\ac{cwt}时产生了较严重的边界效应.
 
 总之，干涉阵列的复杂波束效应使前景辐射的频谱产生了小尺度涨落，
 破坏了前景辐射的频谱光滑性 [参见\autoref{fig:cdae-simdata}(b)].
-于是，低阶多项式无法有效拟合前景辐射的频谱，
+于是，低阶多项式无法有效地拟合前景辐射的频谱，
 在小波空间中区分前景辐射和 EoR 信号也变得非常困难，
 因此上述两种传统的\ac{fg-rm}方法都难以对复杂的前景辐射建模并扣除，
 导致分离的 EoR 信号的准确度都比较低.
