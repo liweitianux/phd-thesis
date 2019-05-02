@@ -629,7 +629,7 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$
 \ac{batch-size} 取为 100.
 然后在\acl{s-training} \ac{s-training} 上训练 \ac{cdae}，
 直到\acl{loss-training} \ac{loss-training} 收敛为止.
-如\autoref{fig:cdae-train} 所示，训练过程持续了约 50 个\ac{epoch}.
+如\autoref{fig:cdae-train} 所示，训练过程持续了 50 个\ac{epoch}.
 
 \begin{figure}[htp]
   \centering
@@ -741,19 +741,17 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$，
 因此，在使用 \ac{s-test} 评估 \ac{cdae} 时我们能够获得
 重构 EoR 信号的完整\ac{imgcube}用来进行图像和功率谱的对比.
 以中心频率 \SI{158}{\MHz} 为例，如\autoref{fig:cdae-eor-img} 所示，
-相比输入的 EoR 图像，由 \ac{cdae} 重构的 EoR 图像中存在一些微弱的小尺度波纹结构，
+相比输入的 EoR 图像，由 \ac{cdae} 重构的 EoR 图像中存在一些微弱的小尺度波纹状结构，
 这些波纹的尺度约为 10 个像素点 ($\sim$\,\SI{200}{\arcsecond})，
 源自数据预处理 (\autoref{sec:preprocessing}) 时去除了 $n_{\R{ex}} = 6$
 个 Fourier 频率最小的系数.
 除此之外，两张图像具有几乎完全相同的空间结构和强度分布.
 
-另一方面，我们分别计算了输入的 EoR 信号和 \ac{cdae} 重构的 EoR 信号的二维\ac{ps}，
-结果如\autoref{fig:cdae-eor-ps} 所示.
-在重构 EoR 信号的二维\ac{ps} 上，上面提及的小尺度波纹结构在
+另一方面，我们分别计算了输入的 EoR 信号和 \ac{cdae} 重构的 EoR 信号的二维\ac{ps}
+$\ac{psD}(\kperp, \klos)$，结果如\autoref{fig:cdae-eor-ps} 所示.
+在重构 EoR 信号的二维\ac{ps}上，上面提及的小尺度波纹状结构在
 $\kperp \approx \SI{0.7}{\per\Mpc}$ 的尺度上贡献了额外的功率，形成了一条窄带.
 在数据所覆盖的其他尺度上，\ac{cdae} 很好地恢复了 EoR 信号的功率.
-此外，我们注意到两个二维\ac{ps}在 $\kperp \approx \SI{0.1}{\per\Mpc}$
-的地方均有一条隐约可见的线，源自于有限长度的信号在进行 Fourier 变换时所产生的边界效应.
 
 以上这些结果充分说明了训练好的 \ac{cdae} 能够有效地克服复杂的波束效应，
 从强烈的前景干扰中准确地重构 EoR 信号.
@@ -768,34 +766,7 @@ $\kperp \approx \SI{0.7}{\per\Mpc}$ 的尺度上贡献了额外的功率，形�
 \subsection{进一步验证}
 \label{sec:cdae-validation}
 
-\begin{figure}[htp]
-  \centering
-  \includegraphics[width=\textwidth]{occlusion-fgeor}
-  \bicaption[CDAE 对输入数据的灵敏度分布]{%
-    采用\acs*{occlusion}方法得到的 CDAE 对输入数据的灵敏度分布 $\B{s}$ （蓝线）.
-    左图红线显示了前景辐射的强度的\acs*{rms}值 $\B{y}_{\R{fg}}$；
-    右图绿线显示了 EoR 信号的强度的\acs*{rms}值 $\B{y}_{\R{eor}}$.
-    通过计算\acl*{coef-correlation} \ac*{coef-correlation}
-    可知灵敏度分布 $\B{s}$ 与 EoR 信号的相关性
-    [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{eor}}) = 0.742$]
-    显著大于与前景辐射的相关性
-    [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{fg}}) = 0.562$].
-  }{%
-    The CDAE's sensitivity distribution $\B{s}$ (blue lines in both panels)
-    obtained by applying the occlusion method.
-    We also plot the root-mean-square amplitudes of
-    the foreground emission $\B{y}_{\R{fg}}$ (red line in left panel)
-    and the EoR signal $\B{y}_{\R{eor}}$ (green line in right panel).
-    The sensitivity distribution $\B{s}$ is more correlated with
-    the EoR signal
-    [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{eor}}) = 0.742$]
-    than the foreground
-    [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{fg}}) = 0.562$].
-  }
-  \label{fig:occ-fgeor}
-\end{figure}
-
-为了进一步验证 \ac{cdae} 真正地从数据中发掘了 EoR 信号的有用特征，
+为了进一步验证 \ac{cdae} 是否真正地从数据中发掘了 EoR 信号的有用特征，
 我们采用\ac{occlusion}方法\cite{zeiler2014}
 来可视化 \ac{cdae} 对输入数据的灵敏度的分布情况.
 对\acl{s-validation} \ac{s-validation} 中的每一个输入信号 $\B{x}^{(i)}$，
@@ -833,6 +804,33 @@ $N_{\R{val}}$ 是\acl{s-validation} \ac{s-validation} 包含的数据点数目.
 这个结果表明，训练好的 \ac{cdae} 确实从输入数据中学到了
 能够帮助区分前景辐射的 EoR 信号的特征，
 因此，\ac{cdae} 对输入数据中\ac{snr}高的部分也更敏感.
+
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=\textwidth]{occlusion-fgeor}
+  \bicaption[CDAE 对输入数据的灵敏度分布]{%
+    采用\acs*{occlusion}方法得到的 CDAE 对输入数据的灵敏度分布 $\B{s}$ （蓝线）.
+    左图红线显示了前景辐射的强度的\acs*{rms}值 $\B{y}_{\R{fg}}$；
+    右图绿线显示了 EoR 信号的强度的\acs*{rms}值 $\B{y}_{\R{eor}}$.
+    通过计算\acl*{coef-correlation} \ac*{coef-correlation}
+    可知灵敏度分布 $\B{s}$ 与 EoR 信号的相关性
+    [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{eor}}) = 0.742$]
+    显著大于与前景辐射的相关性
+    [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{fg}}) = 0.562$].
+  }{%
+    The CDAE's sensitivity distribution $\B{s}$ (blue lines in both panels)
+    obtained by applying the occlusion method.
+    We also plot the root-mean-square amplitudes of
+    the foreground emission $\B{y}_{\R{fg}}$ (red line in left panel)
+    and the EoR signal $\B{y}_{\R{eor}}$ (green line in right panel).
+    The sensitivity distribution $\B{s}$ is more correlated with
+    the EoR signal
+    [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{eor}}) = 0.742$]
+    than the foreground
+    [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{fg}}) = 0.562$].
+  }
+  \label{fig:occ-fgeor}
+\end{figure}
 
 
 %=====================================================================
