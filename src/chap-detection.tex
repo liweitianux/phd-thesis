@@ -473,33 +473,33 @@ $\nu = \acs{freq21cm} / (1 + z)$，
 一个三维场 $T(\B{r}_{\perp}, r_{\parallel})$ 的 Fourier 变换表示为：
 \begin{equation}
   \label{eq:ft3d-k}
-  \tilde{T}(\B{k}_{\perp}, k_{\parallel}) =
+  \tilde{T}(\B{\ac{k-perp}}, \ac{k-los}) =
     \int T(\B{r}_{\perp}, r_{\parallel})
-    \exp[ -\Ci (\B{k}_{\perp} \cdot \B{r}_{\perp}
-      + k_{\parallel} r_{\parallel}) ]
-    \,\mathrm{d}^2\B{r}_{\perp} \,\D{r}_{\parallel} ,
+    \exp[ -\Ci (\B{\ac{k-perp}} \cdot \B{r}_{\perp}
+      + \ac{k-los} r_{\parallel}) ]
+    \,\mathrm{d}^2\B{r}_{\perp} \,\D{r_{\parallel}} ,
 \end{equation}
 其中 $(\B{r}_{\perp}, r_{\parallel})$ 分别表示
 垂直于视线方向和平行于视线方向的\acl{D-comoving}，
-$(\B{k}_{\perp}, k_{\parallel}) = 2\Cpi / (\B{r}_{\perp}, r_{\parallel})$
+$(\B{\ac{k-perp}}, \ac{k-los}) = 2\Cpi / (\B{r}_{\perp}, r_{\parallel})$
 分别表示 Fourier 空间中垂直于视线方向和平行于视线方向的\ac{wavenumber}.
 注意，对比\autoref{eq:ft3d}，上式的相位因子少了系数 $2\Cpi$.
 于是，相应的逆 Fourier 变换为：
 \begin{equation}
   T(\B{r}_{\perp}, r_{\parallel}) =
-    \frac{1}{(2\Cpi)^3} \int \tilde{T}(\B{k}_{\perp}, k_{\parallel})
-    \exp[ \Ci (\B{k}_{\perp} \cdot \B{r}_{\perp}
-      + k_{\parallel} r_{\parallel}) ]
-    \,\mathrm{d}^2\B{k}_{\perp} \,\D{k}_{\parallel} ,
+    \frac{1}{(2\Cpi)^3} \int \tilde{T}(\B{\ac{k-perp}}, \ac{k-los})
+    \exp[ \Ci (\B{\ac{k-perp}} \cdot \B{r}_{\perp}
+      + \ac{k-los} r_{\parallel}) ]
+    \,\mathrm{d}^2\B{\ac{k-perp}} \,\D{\ac{k-los}} ,
 \end{equation}
-三维功率谱 $P(\B{k}_{\perp}, k_{\parallel})$ 则由下式给出：
+三维功率谱 $P(\B{\ac{k-perp}}, \ac{k-los})$ 则由下式给出：
 \begin{equation}
   \label{eq:ps3d-k}
-  \langle \tilde{T}(\B{k}_{\perp}, k_{\parallel})
+  \langle \tilde{T}(\B{\ac{k-perp}}, \ac{k-los})
       \, \tilde{T}^*(\B{k}'_{\perp}, k'_{\parallel}) \rangle
-    \equiv (2\Cpi)^3 P(\B{k}_{\perp}, k_{\parallel})
-      \delta(\B{k}_{\perp} - \B{k}'_{\perp})
-      \delta(k_{\parallel} - k'_{\parallel}) .
+    \equiv (2\Cpi)^3 P(\B{\ac{k-perp}}, \ac{k-los})
+      \delta(\B{\ac{k-perp}} - \B{k}'_{\perp})
+      \delta(\ac{k-los} - k'_{\parallel}) .
 \end{equation}
 
 利用 \ac{21cmline}的观测频率、红移、\acl{D-comoving}之间的对应关系，可得：
@@ -517,9 +517,9 @@ $(\Delta r_{\parallel}, \Delta\nu) \to (r_{\parallel}, \nu)$
 替换后仍然成立.
 对比\autoref{eq:ft3d} 和\autoref{eq:ft3d-k}，可得：
 \begin{align}
-  \B{k}_{\perp} & = \frac{2\Cpi}{\acs{D-comoving}(z)} \B{u} ,
+  \B{\ac{k-perp}} & = \frac{2\Cpi}{\acs{D-comoving}(z)} \B{u} ,
   \label{eq:kperp-u}  \\
-  k_{\parallel} & =
+  \ac{k-los} & =
     \frac{2\Cpi \acs{freq21cm} \acs{H0}\acs{Ez}}{\acs{speed-light}
       (1+z)^2} \eta ,
   \label{eq:klos-eta}
@@ -527,21 +527,21 @@ $(\Delta r_{\parallel}, \Delta\nu) \to (r_{\parallel}, \nu)$
 据此，可知\autoref{eq:ps3d} 和\autoref{eq:ps3d-k} 给出的三维功率谱
 之间的转换关系为：
 \begin{equation}
-  P(\B{k}_{\perp}, k_{\parallel}) =
+  P(\B{\ac{k-perp}}, \ac{k-los}) =
     \frac{\acs{speed-light} (1+z)^2 D_{\!C}^2(z)}{
       \acs{freq21cm} \acs{H0} \acs{Ez}}
     P'(\B{u}, \eta) .
 \end{equation}
 更多细节可参考 \citeay{liu2014} 的附录 A.
 由\autoref{eq:ps3d-k} 给出的 EoR 信号的三维功率谱
-$P(\B{k}_{\perp}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}]，
+$P(\B{\ac{k-perp}}, \ac{k-los})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}]，
 实际研究中更常使用去量纲形式的功率谱 \cite{peacock1996}：
 \begin{equation}
   \label{eq:ps3d-k2}
-  \ac{psD}(\B{k}_{\perp}, k_{\parallel})
-    \equiv \frac{k^3}{2\Cpi^2} P(\B{k}_{\perp}, k_{\parallel}) ,
+  \ac{psD}(\B{\ac{k-perp}}, \ac{k-los})
+    \equiv \frac{k^3}{2\Cpi^2} P(\B{\ac{k-perp}}, \ac{k-los}) ,
 \end{equation}
-此形式的功率谱 $\ac{psD}(\B{k}_{\perp}, k_{\parallel})$
+此形式的功率谱 $\ac{psD}(\B{\ac{k-perp}}, \ac{k-los})$
 的单位变成 [\si{\mK\squared}].
 
 \begin{figure}[htp]
@@ -570,8 +570,9 @@ $P(\B{k}_{\perp}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}
 \cite{morales2004,mcQuinn2006}，
 如\autoref{fig:eor-fg-fourier} 左栏所示.
 因此，可以将三维功率谱 $\ac{psD}(\B{k})$ 在一系列球壳里进行平均，
-得到\emph{一维\ac{ps}} $\ac{psD}(k)$ \cite{morales2004,datta2010}，
-其中 $k = |\B{k}| = \sqrt{|\B{k}_{\perp}|^2 + k_{\parallel}^2}$ 为球壳的半径.
+得到\emph{一维\ac{ps}} $\ac{psD}(\ac{k})$ \cite{morales2004,datta2010}，
+其中 $\ac{k} = |\B{k}| = \sqrt{|\B{k}_{\perp}|^2 + k_{\parallel}^2}$ 
+为球壳的半径.
 通过这种方式，EoR 信号的信息被有效地压缩到少量 Fourier \ac{mode}里，
 极大地提高了每个\ac{mode}里 EoR 信号的\ac{snr}，
 从而大大降低了探测 EoR 信号的难度和所需的观测时间 \cite{datta2010}.
@@ -580,26 +581,26 @@ $P(\B{k}_{\perp}, k_{\parallel})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}
 尽管前景辐射的频谱是光滑的，但是具有非常复杂的空间结构
 （如银河系的子结构、形态各异的射电星系、星系团弥散辐射；详见 \autoref{sec:fg-intro}），
 因此，在三维功率谱中，前景辐射的功率将被较好地约束在频率维度
-($\eta$ 或 $k_{\parallel}$)，
-但却弥散在整个空间维度 ($\B{u}$ 或 $\B{k}_{\perp}$)，
+($\eta$ 或 \ac{k-los})，
+但却弥散在整个空间维度 ($\B{u}$ 或 $\B{\ac{k-perp}}$)，
 如\autoref{fig:eor-fg-fourier} 右栏所示.
 当简单地对三维功率谱按球壳平均时，
-前景辐射将出现在所有的 $k$ \ac{mode}里，淹没 EoR 信号.
+前景辐射将出现在所有的 \ac{k} \ac{mode}里，淹没 EoR 信号.
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.35\textwidth]{ps2d-annuli-diagram}
   \bicaption[计算二维功率谱的示意图]{%
-    计算二维功率谱 $\ac{psD}(k_{\perp}, k_{\parallel})$ 的示意图：
-    在三维功率谱 $\ac{psD}(\B{k}_{\perp}, k_{\parallel})$
-    的每一个 $k_{\parallel}$ 平面里，
-    按一系列圆环（半径为 $k_{\perp} = |\B{k}_{\perp}|$）将功率平均.
+    计算二维功率谱 $\ac{psD}(\ac{k-perp}, \ac{k-los})$ 的示意图：
+    在三维功率谱 $\ac{psD}(\B{\ac{k-perp}}, \ac{k-los})$
+    的每一个 \ac{k-los} 平面里，
+    按一系列圆环（半径为 $\ac{k-perp} = |\B{\ac{k-perp}}|$）将功率平均.
   }{%
     A diagram showing the calculation of the \ac{2d} power spectrum
-    $\ac{psD}(k_{\perp}, k_{\parallel})$:
-    in each $k_{\parallel}$ plane of the \ac{3d} power spectrum,
+    $\ac{psD}(\ac{k-perp}, \ac{k-los})$:
+    in each \ac{k-los} plane of the \ac{3d} power spectrum,
     average the powers in a series of annuli with radius of
-    $k_{\perp} = |\B{k}_{\perp}|$.
+    $\ac{k-perp} = |\B{\ac{k-perp}}|$.
     \\来源/Credit:
     \citeay{thyagarajan2013}.
   }
@@ -611,16 +612,17 @@ EoR 信号的\ac{imgcube} $I_{\R{eor}}(\B{\theta}, \nu)$
 但是对于前景的\ac{imgcube} $I_{\R{fg}}(\B{\theta}, \nu)$，
 频率维度 $\nu$ 表示前景源的辐射频谱（通常为连续谱），
 与两个空间维度 $\B{\theta}$ 完全不同，两者之间也是相互独立的.
-因此，一个更好的处理方法是保持三维功率谱 $\ac{psD}(\B{k}_{\perp}, k_{\parallel})$
-的频率维度 $k_{\parallel}$ 不变，只将两个空间维度 $\B{k}_{\perp}$ 压缩至一维.
+因此，一个更好的处理方法是保持三维功率谱 $\ac{psD}(\B{\ac{k-perp}}, \ac{k-los})$
+的频率维度 \ac{k-los} 不变，只将两个空间维度 $\B{\ac{k-perp}}$ 压缩至一维.
 具体而言：
 如\autoref{fig:ps2d-calculation} 所示，
-在三维功率谱的每一个 $k_{\parallel}$ 平面里，取一系列圆环将功率平均，
-得到\emph{二维功率谱} $\ac{psD}(k_{\perp}, k_{\parallel})$，
-其中 $k_{\perp} = |\B{k}_{\perp}|$ 是圆环的半径 \cite{datta2010,thyagarajan2013}.
+在三维功率谱的每一个 \ac{k-los} 平面里，取一系列圆环将功率平均，
+得到\emph{二维功率谱} $\ac{psD}(\ac{k-perp}, \ac{k-los})$，
+其中 $\ac{k-perp} = |\B{\ac{k-perp}}|$ 是圆环的半径 
+\cite{datta2010,thyagarajan2013}.
 
-在二维功率谱上，EoR 信号因具有不光滑的频谱而主要分布在 $k_{\parallel}$ 较大的区域，
-频谱光滑的前景则主要分布在 $k_{\parallel}$ 较小的区域.
+在二维功率谱上，EoR 信号因具有不光滑的频谱而主要分布在 \ac{k-los} 较大的区域，
+频谱光滑的前景则主要分布在 \ac{k-los} 较小的区域.
 因此，可以在二维功率谱上避开那些受前景严重污染的区域，
 在相对干净的区域开展 EoR 信号的探测和研究，
 这为克服强烈的前景干扰提供了一条非常有效的途径.
@@ -1118,9 +1120,9 @@ $\sim$\,27\% \cite{shaver1999}.
 
 %.......................................
 \item \emph{前景回避法}:
-在二维功率谱 $\ac{psD}(\kperp, \klos)$ 上，
-频谱光滑的前景干扰将主要分布在 \klos{} 较小的区域.
-尽管复杂的仪器效应和观测效应会导致前景污染被\enquote{泄漏}到 \klos{} \ac{mode}里，
+在二维功率谱 $\ac{psD}(\ac{k-perp}, \ac{k-los})$ 上，
+频谱光滑的前景干扰将主要分布在 \ac{k-los} 较小的区域.
+尽管复杂的仪器效应和观测效应会导致前景污染被\enquote{泄漏}到 \ac{k-los} \ac{mode}里，
 占据二维功率谱的右下方一个楔形区域，但是左上方的区域仍然几乎未受前景污染的影响，
 即 EoR 窗口（详见下文 \autoref{sec:eor-window}）.
 因此，\ac{fg-avd}法通过识别并避开二维功率谱上受到前景污染的区域，
@@ -1148,12 +1150,12 @@ $\sim$\,27\% \cite{shaver1999}.
 \section{EoR 窗口}
 \label{sec:eor-window}
 
-在二维功率谱 $\ac{psD}(\kperp, \klos)$ 上，
-频谱光滑的前景干扰原则上只分布在 \klos{} 较小的区域.
+在二维功率谱 $\ac{psD}(\ac{k-perp}, \ac{k-los})$ 上，
+频谱光滑的前景干扰原则上只分布在 \ac{k-los} 较小的区域.
 但是没有仪器是理想的，一些仪器效应和观测效应会将
-\kperp{} \ac{mode}里的功率\enquote{混合}到 \klos{} \ac{mode}里，
+\ac{k-perp} \ac{mode}里的功率\enquote{混合}到 \ac{k-los} \ac{mode}里，
 即\emph{\acf{mode-mixing}}效应，
-并且 \klos{} 受影响的范围与 \kperp{} 的大小成正相关，
+并且 \ac{k-los} 受影响的范围与 \ac{k-perp} 的大小成正相关，
 因此，前景污染将占据二维功率谱的右下方一个楔形区域，
 即\emph{\acf{fg-wedge}}，如\autoref{fig:eor-window} 所示.
 这个现象最早由 \citeay{datta2010} 基于模拟数据研究亮点源对 EoR 探测的影响时发现，
@@ -1166,25 +1168,25 @@ $\sim$\,27\% \cite{shaver1999}.
   \centering
   \includegraphics[width=0.9\textwidth]{EoR-window}
   \bicaption[EoR 窗口和前景楔形的示意图]{%
-    二维功率谱 $\ac{psD}(\kperp, \klos)$ 上的 EoR 窗口（左上方绿色区域）
+    二维功率谱 $\ac{psD}(\ac{k-perp}, \ac{k-los})$ 上的 EoR 窗口（左上方绿色区域）
     和前景楔形（右下方灰色区域）的示意图.
     望远镜所能测量的二维功率谱的边界为：
-    \kperp{} 的最小值和最大值分别由望远镜的视场大小和空间分辨率（对应于最长基线）决定、
-    \klos{} 的最小值和最大值分别取决于频率带宽和频率分辨率.
+    \ac{k-perp} 的最小值和最大值分别由望远镜的视场大小和空间分辨率（对应于最长基线）决定、
+    \ac{k-los} 的最小值和最大值分别取决于频率带宽和频率分辨率.
     图中三条粗线显示了不同前景\acs*{spillover}程度
     [由\autoref{eq:eor-window} 中的 $w$ 描述]
     时的 EoR 窗口边界.
   }{%
     An illustration of the EoR window (green region in the upper left)
     and the foreground wedge (gray region in the bottom right) in the
-    \ac{2d} power spectrum $\ac{psD}(\kperp, \klos)$.
+    \ac{2d} power spectrum $\ac{psD}(\ac{k-perp}, \ac{k-los})$.
     The boundaries of the \ac{2d} power spectrum that a telescope can
     measure are constrained by:
-    the minimum and maximum \kperp{} are determined by the field of view
+    the minimum and maximum \ac{k-perp} are determined by the field of view
     (FoV) and the spatial resolution (corresponding to the longest
     baseline), respectively;
     the observing bandwidth and spectral resolution limit the minimum
-    and maximum \klos, respectively.
+    and maximum \ac{k-los}, respectively.
     The bold lines show the EoR window boundaries corresponding to
     different foreground spillovers, described by the parameter $w$
     in Eq.~(\ref{eq:eor-window}).
@@ -1198,7 +1200,7 @@ $\sim$\,27\% \cite{shaver1999}.
   \label{eq:baseline-u-nu}
   u = \frac{b}{\lambda}
     = \frac{b \nu}{\acs{speed-light}}
-    \propto \kperp ,
+    \propto \ac{k-perp} ,
 \end{equation}
 其中 $b$ 为\ac{baseline}的长度，
 如\autoref{fig:chromatic-baselines} 所示.
@@ -1217,14 +1219,14 @@ $\sim$\,27\% \cite{shaver1999}.
   \bicaption[基线的\acs*{chromatic-effect}示意图]{%
     干涉阵列基线的\acs*{chromatic-effect}示意图.
     观测频率越高，同一条基线 $b$ 的空间分辨率越高，
-    即所测量的波数 ($u = b / \lambda \propto \kperp$) 越大.
+    即所测量的波数 ($u = b / \lambda \propto \ac{k-perp}$) 越大.
     同时，基线的长度越长，其空间分辨率的变化越显著，
     该基线的\acs*{chromatic-effect}也越明显（对应于图中的线越平）.
   }{%
     An illustration of the chromatic effect of the interferometer baselines.
     As the observing frequency increases, the spatial resolution of
     one baseline $b$ also improves, i.e., the wavenumber
-    ($u = b / \lambda \propto \kperp$) measured by the baseline
+    ($u = b / \lambda \propto \ac{k-perp}$) measured by the baseline
     increases.
     Meanwhile, the longer the baseline, the more significant the variation
     of its spatial resolution, i.e., its chromatic effect is more
@@ -1248,9 +1250,9 @@ $\sim$\,27\% \cite{shaver1999}.
 如\autoref{fig:chromatic-baselines} 中的背景条纹所示.
 易知，点源偏离视场中心越远，所产生的条纹的间隔越窄.
 
-尽管辐射源的亮度不随频率变化（即只有 \kperp{} \ac{mode}），
+尽管辐射源的亮度不随频率变化（即只有 \ac{k-perp} \ac{mode}），
 但是基线的\ac{chromatic-effect}导致观测的\ac{vis}数据将随频率涨落
-（即出现了 \klos{} \ac{mode}），所以称为\ac{mode-mixing}.
+（即出现了 \ac{k-los} \ac{mode}），所以称为\ac{mode-mixing}.
 再结合\autoref{eq:baseline-u-nu}，
 可知由\ac{mode-mixing}引起的涨落在频率维度的变化周期为 \cite{morales2012}：
 \begin{equation}
@@ -1262,15 +1264,16 @@ $\sim$\,27\% \cite{shaver1999}.
 根据\autoref{eq:kperp-u} 和\autoref{eq:klos-eta} 可得：
 \begin{align}
   t_{\nu} & = \frac{1}{\eta}
-    = \frac{2\Cpi \nu \ac{Hz}}{\ac{speed-light} (1+z)} \frac{1}{\klos} , \\
-  u & = \frac{\ac{D-comoving}(z)}{2\Cpi} \frac{1}{\kperp} ,
+    = \frac{2\Cpi \nu \ac{Hz}}{\ac{speed-light} (1+z)} 
+      \frac{1}{\ac{k-los}} , \\
+  u & = \frac{\ac{D-comoving}(z)}{2\Cpi} \frac{1}{\ac{k-perp}} ,
 \end{align}
 其中使用了 $\nu = \ac{freq21cm} / (1+z)$ 和 $\ac{Hz} = \ac{H0} \ac{Ez}$.
 将上式以及\autoref{eq:ps-t-u} 代入\autoref{eq:t-nu-u}，可得：
 \begin{equation}
   \label{eq:klos-kperp}
-  \klos = \frac{\ac{Hz} \ac{D-comoving}(z) \sin\theta}{
-    \ac{speed-light} (1+z)} \kperp .
+  \ac{k-los} = \frac{\ac{Hz} \ac{D-comoving}(z) \sin\theta}{
+    \ac{speed-light} (1+z)} \ac{k-perp} .
 \end{equation}
 
 \begin{figure}[htp]
@@ -1297,15 +1300,15 @@ $\sim$\,27\% \cite{shaver1999}.
 
 从上式可以清楚地看出，
 视场内每一个前景干扰源（如未准确扣除的点源）在二维功率谱上产生的污染分布在右下方的一条斜线上；
-\kperp{} 越大的\ac{mode}被混合到 \klos{} \ac{mode}的范围也越大，
+\ac{k-perp} 越大的\ac{mode}被混合到 \ac{k-los} \ac{mode}的范围也越大，
 于是形成\ac{fg-wedge}，
 如\autoref{fig:fg-wedge-fov} 所示.
 另一方面，随着前景干扰源距离视场中心越来越远，其产生的污染区域也逐渐向左上方移动.
 因此，视场内距离中心最远的干扰源（设该距离为 $\Phi$）确定了\ac{fg-wedge}的边界，
 而左上方未受前景污染的区域则称为\emph{EoR 窗口}，可表示为：
 \begin{equation}
-  \klos \ge \frac{\ac{Hz} \ac{D-comoving}(z) \sin\Phi}{
-    \ac{speed-light} (1+z)} \kperp ,
+  \ac{k-los} \ge \frac{\ac{Hz} \ac{D-comoving}(z) \sin\Phi}{
+    \ac{speed-light} (1+z)} \ac{k-perp} ,
 \end{equation}
 如\autoref{fig:fg-wedge-fov} 和\autoref{fig:eor-window} 所示.
 干涉阵列通常具有明显的\ac{sidelobe}，
@@ -1320,9 +1323,9 @@ $\sim$\,27\% \cite{shaver1999}.
 因此，\citeay{thyagarajan2013} 提出了如下改进的 EoR 窗口的边界表达式：
 \begin{equation}
   \label{eq:eor-window}
-  \klos \ge
+  \ac{k-los} \ge
     \frac{\ac{Hz} \ac{D-comoving}(z)}{\ac{speed-light} (1+z)}
-    \left[ \kperp \sin\Phi
+    \left[ \ac{k-perp} \sin\Phi
       + \frac{2\Cpi\ac{freq21cm} w}{(1+z) \ac{D-comoving}(z)
         \ac{bandwidth}} \right] ,
 \end{equation}

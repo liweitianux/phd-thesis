@@ -17,7 +17,7 @@ EoR 信号以及其他前景成分的 SKA1-Low \enquote{观测}图像，
 进行评估.
 首先，我们计算一维\ac{ps} $\ac{psD}(k)$ 来对比射电晕和 EoR 信号在各个尺度 $k$ 的功率，
 说明使用\ac{fg-rm}方法时将面临的射电晕的污染强度.
-其次，我们计算二维\ac{ps} $\ac{psD}(\kperp, \klos)$，
+其次，我们计算二维\ac{ps} $\ac{psD}(\ac{k-perp}, \ac{k-los})$，
 然后在 EoR 窗口 (\autoref{sec:eor-window}) 内比较射电晕和 EoR 信号的功率，
 据此评估使用\ac{fg-avd}方法提取 EoR 信号时射电晕的污染程度.
 
@@ -135,10 +135,10 @@ Blackman--Nuttall \ac{f-window}，
   \includegraphics[width=\textwidth]{ps2d-band158}
   \bicaption[%
     各成分在 \SIrange{154}{162}{\MHz} 频段的二维功率谱
-    $\ac{psD}(\kperp, \klos)$%
+    $\acs*{psD}(\acs*{k-perp}, \acs*{k-los})$%
   ]{%
     各成分在 \SIrange{154}{162}{\MHz} 频段的二维功率谱
-    $\ac{psD}(\kperp, \klos)$，
+    $\ac{psD}(\ac{k-perp}, \ac{k-los})$，
     从左上至右下分别为：
     \textbf{(a)} EoR 信号；
     \textbf{(b)} 射电晕（100 次模拟的中位数）；
@@ -148,7 +148,7 @@ Blackman--Nuttall \ac{f-window}，
     白色虚线显示了 EoR 窗口的边界.
   }{%
     The \SIrange{154}{162}{\MHz} 2D power spectra
-    $\ac{psD}(\kperp, \klos)$ of
+    $\ac{psD}(\ac{k-perp}, \ac{k-los})$ of
     \textbf{(a)} the EoR signal,
     \textbf{(b)} radio halos (median of the 100 simulation runs),
     \textbf{(c)} Galactic diffuse emission,
@@ -164,17 +164,17 @@ Blackman--Nuttall \ac{f-window}，
 
 以 \SIrange{154}{162}{\MHz} 频带为例，
 \autoref{fig:ps2d} 显示了 EoR 信号、射电晕、银河系弥散辐射以及河外点源的
-二维功率谱 $\ac{psD}(\kperp, \klos)$，
+二维功率谱 $\ac{psD}(\ac{k-perp}, \ac{k-los})$，
 其中射电晕的二维功率谱对应于 100 次模拟结果的中位数.
-从图中容易看出，EoR 信号的功率分散在大范围的 \klos{} \ac{mode}里，
+从图中容易看出，EoR 信号的功率分散在大范围的 \ac{k-los} \ac{mode}里，
 反映了 EoR 信号沿频率维度快速变化的特点；
-频谱光滑的前景成分则集中在 \klos{} 较小的区域
-($\klos \lesssim \SI{0.2}{\per\Mpc}$).
-在空间维度 (\kperp)，射电晕的功率主要出现在
-$\kperp \lesssim \SI{1}{\per\Mpc}$ 的范围，
-并且倾向于集中在 $\kperp \sim \SI{0.5}{\per\Mpc}$ 的中等尺度上.
-银河系弥散辐射的功率主导了 $\kperp \lesssim \SI{0.1}{\per\Mpc}$
-的大尺度区域，而河外点源的功率则占据了 $\kperp \gtrsim \SI{0.1}{\per\Mpc}$
+频谱光滑的前景成分则集中在 \ac{k-los} 较小的区域
+($\ac{k-los} \lesssim \SI{0.2}{\per\Mpc}$).
+在空间维度 (\ac{k-perp})，射电晕的功率主要出现在
+$\ac{k-perp} \lesssim \SI{1}{\per\Mpc}$ 的范围，
+并且倾向于集中在 $\ac{k-perp} \sim \SI{0.5}{\per\Mpc}$ 的中等尺度上.
+银河系弥散辐射的功率主导了 $\ac{k-perp} \lesssim \SI{0.1}{\per\Mpc}$
+的大尺度区域，而河外点源的功率则占据了 $\ac{k-perp} \gtrsim \SI{0.1}{\per\Mpc}$
 的中小尺度范围.
 这些结果与 \autoref{fig:ps1d-3bands}(b) 所展示的结果是相符的，
 也与诸多文献中的结果一致 \cite{datta2010,trott2015,barry2016,chapman2016}.
@@ -182,18 +182,18 @@ $\kperp \lesssim \SI{1}{\per\Mpc}$ 的范围，
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{ps2d-ratio-3bands}
-  \bicaption[射电晕和 EoR 信号的二维功率比 $R(\kperp, \klos)$]{%
+  \bicaption[射电晕和 EoR 信号的二维功率比 $R(\acs*{k-perp}, \acs*{k-los})$]{%
     射电晕和 EoR 信号在
     \textbf{(a)} \SIrange{120}{128}{\MHz}、
     \textbf{(b)} \SIrange{154}{162}{\MHz} 和
     \textbf{(c)} \SIrange{192}{200}{\MHz}
-    三个频带内的二维功率比 $R(\kperp, \klos)$.
+    三个频带内的二维功率比 $R(\ac{k-perp}, \ac{k-los})$.
     这里使用的射电晕二维功率谱对应于 100 次模拟结果的中位数.
     所有子图共用了对数\ac{colorbar}.
     白色虚线显示了 EoR 窗口的边界.
   }{%
-    The 2D power spectrum ratios $R(\kperp, \klos)$ of radio halos to the
-    EoR signal in the
+    The 2D power spectrum ratios $R(\ac{k-perp}, \ac{k-los})$ of 
+    radio halos to the EoR signal in the
     \textbf{(a)} \SIrange{120}{128}{\MHz},
     \textbf{(b)} \SIrange{154}{162}{\MHz}, and
     \textbf{(c)} \SIrange{192}{200}{\MHz} frequency bands.
@@ -206,22 +206,22 @@ $\kperp \lesssim \SI{1}{\per\Mpc}$ 的范围，
 \end{figure}
 
 为了更具体地显示射电晕对 EoR 信号的污染情况，
-我们将射电晕的二维功率谱 $\Delta^2_{\R{halo}}(\kperp, \klos)$
-除以 EoR 信号的二维功率谱 $\Delta^2_{\R{eor}}(\kperp, \klos)$，
+我们将射电晕的二维功率谱 $\Delta^2_{\R{halo}}(\ac{k-perp}, \ac{k-los})$
+除以 EoR 信号的二维功率谱 $\Delta^2_{\R{eor}}(\ac{k-perp}, \ac{k-los})$，
 得到两者的二维功率比：
 \begin{equation}
-  R(\kperp, \klos)
-    \equiv \frac{\Delta^2_{\R{halo}}(\kperp, \klos)}{
-      \Delta^2_{\R{eor}}(\kperp, \klos)} .
+  R(\ac{k-perp}, \ac{k-los})
+    \equiv \frac{\Delta^2_{\R{halo}}(\ac{k-perp}, \ac{k-los})}{
+      \Delta^2_{\R{eor}}(\ac{k-perp}, \ac{k-los})} .
 \end{equation}
 如\autoref{fig:ps2d-ratio} 所示，
 可见射电晕的污染区域形成一个明显的楔形 (\autoref{sec:eor-window}).
 我们发现，在 \SIrange{120}{128}{\MHz} 频带内，
-射电晕在 $\kperp \gtrsim \SI{0.1}{\per\Mpc}$ 的尺度范围内
+射电晕在 $\ac{k-perp} \gtrsim \SI{0.1}{\per\Mpc}$ 的尺度范围内
 对 EoR 信号产生了严重污染（两者的功率之比 $R \gtrsim 1$）.
 在 \numrange{154}{162} 和 \numrange{192}{200} \si{\MHz} 两个频带里，
-射电晕的主要污染范围分别为 $\kperp \gtrsim \SI{0.3}{\per\Mpc}$
-和 $\kperp \gtrsim \SI{0.5}{\per\Mpc}$.
+射电晕的主要污染范围分别为 $\ac{k-perp} \gtrsim \SI{0.3}{\per\Mpc}$
+和 $\ac{k-perp} \gtrsim \SI{0.5}{\per\Mpc}$.
 同时容易看出，射电晕在较低频率处 ($\sim$\,\SI{120}{\MHz})
 对 EoR 测量的污染程度明显比在较高频率处 ($\sim$\,\SI{200}{\MHz})
 的污染程度要强.
@@ -262,7 +262,8 @@ $\Phi_{196} = \SI{4.8}{\degree}$.
 和 \numrange{192}{200} \si{\MHz} 三个频带内，
 EoR 信号分别有约 55\%、54\% 和 40\% 的功率损失在避开的\ac{fg-wedge}之中.
 
-在以上定义的 EoR 窗口内，对射电晕与 EoR 信号的二维功率比 $R(\kperp, \klos)$ 进行平均，
+在以上定义的 EoR 窗口内，对射电晕与 EoR 信号的二维功率比 
+$R(\ac{k-perp}, \ac{k-los})$ 进行平均，
 得到一维功率比 $R_{\R{eorw}}(k)$，如\autoref{fig:ps1d-ratio} 所示.
 相比\autoref{fig:ps1d-3bands} 所示的未受 EoR 窗口约束的一维功率谱 $\ac{psD}(k)$，
 射电晕的污染在 EoR 窗口内被抑制了约 4 个数量级.
@@ -317,8 +318,11 @@ EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.75\textwidth]{ps2d-ratio-crp-3bands}
-  \bicaption[有无频谱伪结构时射电晕的二维功率比 $R_{\R{arti}}(\kperp, \klos)$]{%
-    有无频谱伪结构时射电晕的二维功率比 $R_{\R{arti}}(\kperp, \klos)$.
+  \bicaption[%
+	有无频谱伪结构时射电晕的二维功率比 
+	$R_{\R{arti}}(\acs*{k-perp}, \acs*{k-los})$%
+  ]{%
+    有无频谱伪结构时射电晕的二维功率比 $R_{\R{arti}}(\ac{k-perp}, \ac{k-los})$.
     上、中、下三行分别对应 \numrange{120}{128}、\numrange{154}{162} 和
     \numrange{192}{200} \si{\MHz} 三个频带；
     左、右两列分别显示了频谱伪结构幅度为 $A_{\R{arti}} = 0.1\%$
@@ -326,7 +330,7 @@ EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够
     白色虚线标识了 EoR 窗口的边界.
     所有子图共用了对数\ac{colorbar}.
   }{%
-    The 2D power spectrum ratios $R_{\R{arti}}(\kperp, \klos)$
+    The 2D power spectrum ratios $R_{\R{arti}}(\ac{k-perp}, \ac{k-los})$
     of radio halos with and without frequency artifacts.
     The upper, middle, and lower rows show the power spectrum ratios
     in the \numrange{120}{128}, \numrange{154}{162}, and
@@ -340,22 +344,23 @@ EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够
 \end{figure}
 
 给定一个\ac{imgcube}，我们计算在有频谱伪结构和无频谱伪结构情形下的二维功率谱，
-分别为 $\Delta^2_{\R{arti}}(\kperp, \klos)$ 和 $\Delta^2(\kperp, \klos)$，
+分别为 $\Delta^2_{\R{arti}}(\ac{k-perp}, \ac{k-los})$ 
+和 $\Delta^2(\ac{k-perp}, \ac{k-los})$，
 于是可得两者之比为：
 \begin{equation}
-  R_{\R{arti}}(\kperp, \klos)
-    \equiv \frac{\Delta^2_{\R{arti}}(\kperp, \klos)}{
-      \Delta^2(\kperp, \klos)} .
+  R_{\R{arti}}(\ac{k-perp}, \ac{k-los})
+    \equiv \frac{\Delta^2_{\R{arti}}(\ac{k-perp}, \ac{k-los})}{
+      \Delta^2(\ac{k-perp}, \ac{k-los})} .
 \end{equation}
 对于射电晕的 100 次模拟，我们计算了每一次模拟在 \numrange{120}{128}、
 \numrange{154}{162} 和 \numrange{192}{200} \si{\MHz} 三个频带内、
 频谱伪结构幅度为 $A_{\R{arti}} = 0.1\%$ 和 $A_{\R{arti}} = 1\%$
-的情形下的二维功率比 $R_{\R{arti}}(\kperp, \klos)$，
+的情形下的二维功率比 $R_{\R{arti}}(\ac{k-perp}, \ac{k-los})$，
 据此得到射电晕在三个频带内以及两种频谱伪结构幅度的情况下的二维功率比的中位数，
 结果如\autoref{fig:ps2d-ratio-crp} 所示.
 我们发现，射电晕的二维功率谱受到了频谱伪结构的严重破坏.
-在 $\kperp \lesssim \SI{0.2}{\per\Mpc}$ 和
-$\klos \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
+在 $\ac{k-perp} \lesssim \SI{0.2}{\per\Mpc}$ 和
+$\ac{k-los} \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 幅度为 $A_{\R{arti}} = 0.1\%$ 的频谱伪结构使射电晕在 \numrange{120}{128}、
 \numrange{154}{162} 和 \numrange{192}{200} \si{\MHz}
 三个频带内的功率分别增加了约 17、15 和 13 倍.
@@ -365,7 +370,7 @@ $\klos \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 
 作为对比，我们对 EoR 信号的\ac{imgcube}引入了同样的频谱伪结构
 ($A_{\R{arti}} = 0.1\%$ 或 $1\%$)
-并计算了相应的二维功率比 $R_{\R{arti}}(\kperp, \klos)$.
+并计算了相应的二维功率比 $R_{\R{arti}}(\ac{k-perp}, \ac{k-los})$.
 但是，我们发现 EoR 信号的二维功率谱几乎未受频谱伪结构的影响，
 即使频谱伪结构的幅度为 $A_{\R{arti}} = 1\%$.
 这主要是因为 EoR 信号在频率维度已经具有明显的小尺度起伏结构.
@@ -419,14 +424,16 @@ $\klos \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 得到视场中央 \SI{5 x 5}{\degree} 区域的\ac{dirty-map}.
 对频带内的所有频率\ac{channel}均如此处理，
 于是得到射电晕 \ac{fscn} 的\ac{imgcube}，
-最后计算其二维功率谱 $\Delta^2_{\R{fscn}}(\kperp, \klos)$.
+最后计算其二维功率谱 $\Delta^2_{\R{fscn}}(\ac{k-perp}, \ac{k-los})$.
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{ps2d-fscn}
   \bicaption[射电晕 FSCN 的二维功率谱及其与 EoR 信号的功率谱对比]{%
-    \emph{(a)} 射电晕 FSCN 的二维功率谱 $\Delta^2_{\R{fscn}}(\kperp, \klos)$；
-    \emph{(b)} 射电晕 FSCN 与 EoR 信号的二维功率比 $R_{\R{fscn}}(\kperp, \klos)$.
+    \emph{(a)} 射电晕 FSCN 的二维功率谱 
+      $\Delta^2_{\R{fscn}}(\ac{k-perp}, \ac{k-los})$；
+    \emph{(b)} 射电晕 FSCN 与 EoR 信号的二维功率比 
+      $R_{\R{fscn}}(\ac{k-perp}, \ac{k-los})$.
     白色虚线和实线分别标识了 $\Phi = \SI{6}{\degree}$ 和 \SI{90}{\degree}
     所对应的 EoR 窗口边界.
   }{%
@@ -442,10 +449,11 @@ $\klos \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 \end{figure}
 
 \autoref{fig:ps2d-fscn} 显示了射电晕 \ac{fscn}
-的二维功率谱 $\Delta^2_{\R{fscn}}(\kperp, \klos)$
-以及与 EoR 信号的二维功率比 $R_{\R{fscn}}(\kperp, \klos)$.
+的二维功率谱 $\Delta^2_{\R{fscn}}(\ac{k-perp}, \ac{k-los})$
+以及与 EoR 信号的二维功率比 $R_{\R{fscn}}(\ac{k-perp}, \ac{k-los})$.
 我们发现，射电晕 \ac{fscn} 对 EoR 信号产生的干扰非常严重：
-在 $\kperp \sim \SI{0.3}{\per\Mpc}$ 和 $\klos \sim \SI{1.0}{\per\Mpc}$
+在 $\ac{k-perp} \sim \SI{0.3}{\per\Mpc}$ 
+和 $\ac{k-los} \sim \SI{1.0}{\per\Mpc}$
 的尺度范围内，射电晕 \ac{fscn} 的功率达到了 EoR 信号的约 20 倍.
 显然可见，\ac{fg-wedge}污染区域越过原来的边界（白色虚线）向左上方增长了很多，
 极大地压缩了 EoR 窗口的大小.
