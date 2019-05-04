@@ -1,10 +1,53 @@
 %%
-%% Copyright (c) 2018 Weitian LI <liweitianux@sjtu.edu.cn>
+%% Copyright (c) 2019 Weitian LI <liweitianux@sjtu.edu.cn>
 %% Creative Commons BY 4.0
 %%
 
 \begin{summary}
 
-这里是全文总结内容.
+本文围绕 EoR 探测所面临的前景干扰问题，完成了以下四点工作：
+\begin{enumerate}
+\item
+为了改进低频射电天空中星系团射电晕的建模，
+我们首先根据扩展 Press--Schechter 理论模拟星系团的并合历史，
+然后利用\ac{turbreacc-model}来计算并合所产生的\ac{turbulence}对 \ac{icm}
+中的高能电子的再加速过程，
+从而实现了对射电晕的形成和演化过程的完整建模，
+并模拟生成了射电晕的\ac{skymap}.
+另外，我们还模拟了银河系的\ac{rad-syn}和\ac{rad-ff}、河外点源
+以及 EoR 信号的\ac{skymap}.
+
+\item
+我们采用了目前最新的 SKA1-Low 阵列布局开展模拟观测，
+得到上述各个成分在 \numrange{120}{128}、\numrange{154}{162}
+和 \numrange{192}{200} \si{\MHz} 三个频带内的\enquote{观测}\ac{imgcube}.
+这样，干涉阵列实际的仪器效应得以整合到模拟图像之中.
+
+\item
+利用上面获得的 SKA1-Low \enquote{观测}\ac{imgcube}，
+我们计算并对比了射电晕和 EoR 信号在三个频带内的一维和二维\ac{ps}.
+对比结果显示了射电晕的功率显著强于 EoR 信号的功率.
+即使在二维功率谱的 EoR 窗口内，射电晕所泄漏的污染仍然可能对
+EoR 信号的准确测量产生不可忽略的干扰.
+为了更加全面地评估射电晕对 EoR 探测的影响，
+我们还考虑了仪器的频谱伪结构以及远旁瓣的影响.
+这些结果进一步支持了射电晕是一个重要的前景干扰成分，
+需要在 EoR 观测中被认真地对待和有效地扣除.
+
+\item
+基于\ac{dl}方法，我们设计了一个包括 9 个卷积层的 \ac{cdae} 用来分离 EoR 信号.
+使用上面模拟的\enquote{观测}\ac{imgcube}，我们训练了 \ac{cdae} 并演示其性能.
+结果显示，训练好的 \ac{cdae} 能够准确地分离 EoR 信号，
+分离效果显著优于传统\ac{fg-rm}方法.
+这说明 \ac{cdae} 成功地克服了干涉阵列的波束效应对前景辐射频谱的影响，
+同时也展示了\ac{dl}方法的巨大潜力，将在未来 EoR 实验中发挥重要作用.
+\end{enumerate}
+
+在前景的高精度模拟方面，后续可开展的工作包括：
+改进星系团射电晕的形态结构建构；
+模拟和评估星系团的其他弥散射电辐射，比如\ac{rr}和\ac{rmh}.
+在 EoR 信号分离方面，后续可将 \ac{cdae} 适用到二维功率谱的处理；
+还可以研发\ac{fg-rm}和\ac{fg-avd}的混合方法，尽可能地抑制\ac{fg-wedge}的范围，
+扩大 EoR 窗口.
 
 \end{summary}
