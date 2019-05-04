@@ -86,7 +86,7 @@ Blackman--Nuttall \ac{f-window}，
   \bicaption[各成分在三个频带内的一维功率谱 $\ac{psD}(k)$ 对比]{%
     EoR 信号（绿色实线）、射电晕（红色实线）、银河系弥散辐射（灰色虚线）以及
     河外点源（灰色点虚线）之间的一维功率谱 $\ac{psD}(k)$ 的对比.
-    左栏、中栏、右栏分别表示 \numrange{120}{128}、\numrange{154}{162}
+    左栏、中栏、右栏分别表示 \numrange{120}{128}、\,\numrange{154}{162}
     和 \numrange{192}{200} \si{\MHz} 三个频带的结果.
     对于射电晕，红色实线及其阴影区域分别表示从 100 次模拟结果得到的
     中位数和 68\% 的误差范围.
@@ -108,9 +108,9 @@ Blackman--Nuttall \ac{f-window}，
 \autoref{fig:ps1d-3bands} 显示了各成分在三个频带内的
 一维功率谱 $\ac{psD}(k)$ 的对比.
 可见，在 $\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$ 尺度范围内，
-射电晕的典型功率（红色实线）在 \numrange{120}{128}、\numrange{154}{162} 和
-\numrange{192}{200} \si{\MHz} 频带内分别是 EoR 信号的功率的
-\num{e4}、\num{e3} 和 \num{e2.5} 倍.
+射电晕在 \numrange{120}{128}、\,\numrange{154}{162} 和
+\numrange{192}{200} \si{\MHz} 频带内的典型功率（红色实线）
+分别是 EoR 信号的功率的 \num{e4}、\,\num{e3} 和 \num{e2.5} 倍.
 考虑到射电晕的亮度和数目在不同天区里会发生显著变化，
 因此在 68\% 的误差范围内（红色阴影区域），
 射电晕的功率能够变化约 \numrange{10}{100} 倍.
@@ -251,14 +251,14 @@ $\ac{k-perp} \lesssim \SI{1}{\per\Mpc}$ 的范围，
 我们测试了多种不同的 ($w$, $\Phi$) 参数组合，
 最终选择了 $w = 3$ 以及 $\Phi = 1.5\,\ac{Fov}$，
 其中 \ac{Fov} 为\acl{Fov}；
-所以 $\Phi$ 在 \numrange{120}{128}、\numrange{154}{162}
+所以 $\Phi$ 在 \numrange{120}{128}、\,\numrange{154}{162}
 和 \numrange{192}{200} \si{\MHz} 三个频带的值分别为
-$\Phi_{124} = \SI{7.5}{\degree}$、
+$\Phi_{124} = \SI{7.5}{\degree}$、\,
 $\Phi_{158} = \SI{6.0}{\degree}$ 和
 $\Phi_{196} = \SI{4.8}{\degree}$.
 \autoref{fig:ps2d} 和\autoref{fig:ps2d-ratio} 显示了如此定义的 EoR 窗口边界，
 可见\ac{fg-wedge}的污染能够被很好地避开.
-但是，在 \numrange{120}{128}、\numrange{154}{162}
+但是，在 \numrange{120}{128}、\,\numrange{154}{162}
 和 \numrange{192}{200} \si{\MHz} 三个频带内，
 EoR 信号分别有约 45\%、46\% 和 60\% 的功率损失在避开的\ac{fg-wedge}之中.
 
@@ -268,15 +268,15 @@ $R(\ac{k-perp}, \ac{k-los})$ 进行平均，
 相比\autoref{fig:ps1d-3bands} 所示的未受 EoR 窗口约束的一维功率谱 $\ac{psD}(k)$，
 射电晕的污染在 EoR 窗口内被抑制了约 4 个数量级.
 比如，在 $k \sim \SI{1}{\per\Mpc}$ 尺度上，
-EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在 \numrange{120}{128}、
+EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在 \numrange{120}{128}、\,
 \numrange{154}{162} 和 \numrange{192}{200} \si{\MHz}
-三个频带的典型值（图中的实线）分别约为 45\%、6\% 和 2\%.
+三个频带的典型值（图中的实线）分别约为 45\%、\,6\% 和 2\%.
 这充分展示了 EoR 窗口和\ac{fg-avd}法是探测 EoR 信号的有力工具.
 尽管如此，由于射电晕的亮度和数目在不同天区里具有显著的涨落，
 在 68\% 的误差范围（图中的阴影区域）以及
 $\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$ 尺度范围内，
 EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够分别达到约
-\numrange{230}{800}\%、\numrange{18}{95}\% 和 \numrange{7}{40}\%，
+\numrange{230}{800}\%、\,\numrange{18}{95}\% 和 \numrange{7}{40}\%，
 说明射电晕泄漏到 EoR 窗口内的功率仍然可能是显著的，
 尤其是在较低频率 ($\sim$\,\SI{120}{\MHz}).
 
@@ -323,7 +323,7 @@ EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够
 	$R_{\R{arti}}(\acs*{k-perp}, \acs*{k-los})$%
   ]{%
     有无频谱伪结构时射电晕的二维功率比 $R_{\R{arti}}(\ac{k-perp}, \ac{k-los})$.
-    上、中、下三行分别对应 \numrange{120}{128}、\numrange{154}{162} 和
+    上、中、下三行分别对应 \numrange{120}{128}、\,\numrange{154}{162} 和
     \numrange{192}{200} \si{\MHz} 三个频带；
     左、右两列分别显示了频谱伪结构幅度为 $A_{\R{arti}} = 0.1\%$
     和 $A_{\R{arti}} = 1\%$ 的情况；
