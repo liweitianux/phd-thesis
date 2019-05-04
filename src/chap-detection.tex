@@ -1198,15 +1198,7 @@ MACS J0717.5$+$3745 \cite{vanWeeren2009}.
 \end{figure}
 
 引起\ac{mode-mixing}的主要原因是干涉阵列固有的\ac{chromatic-effect}，
-即同一条\ac{baseline}的空间分辨率随着频率 $\nu$ 的增大而提高 \cite{liu2014}:
-\begin{equation}
-  \label{eq:baseline-u-nu}
-  u = \frac{b}{\lambda}
-    = \frac{b \nu}{\acs{speed-light}}
-    \propto \ac{k-perp} ,
-\end{equation}
-其中 $b$ 为\ac{baseline}的长度，
-如\autoref{fig:chromatic-baselines} 所示.
+即同一条\ac{baseline}的空间分辨率随着频率的增大而提高 \cite{liu2014}.
 \ac{mode-mixing}还可能由其他多种因素引起，比如：
 干涉阵列的 \ac{psf} 随频率而变化 \cite{bowman2009,liu2009ps}、
 前景模型不精确（如点源的强度或位置有偏差） \cite{datta2010,morales2012}、
@@ -1239,25 +1231,30 @@ MACS J0717.5$+$3745 \cite{vanWeeren2009}.
 \end{figure}
 
 考虑一个距离视场中心角度为 $\theta$ 的平谱点源（即各频率上的亮度相同），
-可认为点源的坐标为 $(l, m) = (\sin\theta, 0)$.
-根据\autoref{eq:vis-uv}，该点源将在 $uv$ 平面产生一套条纹，可由下式描述：
+根据\autoref{eq:vis}，该点源将在 $uv$ 平面产生一套平行条纹，可由下式描述：
 \begin{equation}
-  \acs{Vis}(u,v) \propto \exp [-2\Cpi\Ci\, (ul+vm)]
+  \acs{Vis}(u,v)
+    \propto \exp (-2\Cpi\Ci\, \ac{v-baseline}\cdot\ac{v-direction} / \lambda)
     = \exp (-2\Cpi\Ci\, u \sin\theta) ,
 \end{equation}
-可知条纹的间隔（或周期）为：
+其中 $u = |\ac{v-baseline}|/\lambda$ 为基线 \ac{v-baseline}
+在频率 $\nu = \ac{speed-light}/\lambda$ 处所测量的\ac{wavenumber}
+($\ac{k-perp} \propto u$).
+由上式可知条纹的间隔（或周期）为：
 \begin{equation}
   \label{eq:ps-t-u}
   t_u = \frac{1}{\sin\theta} ,
 \end{equation}
 如\autoref{fig:chromatic-baselines} 中的背景条纹所示.
-易知，点源偏离视场中心越远，所产生的条纹的间隔越窄.
-
-尽管辐射源的亮度不随频率变化（即只有 \ac{k-perp} \ac{mode}），
-但是基线的\ac{chromatic-effect}导致观测的\ac{vis}数据将随频率涨落
-（即出现了 \ac{k-los} \ac{mode}），所以称为\ac{mode-mixing}.
-再结合\autoref{eq:baseline-u-nu}，
-可知由\ac{mode-mixing}引起的涨落在频率维度的变化周期为 \cite{morales2012}：
+点源偏离视场中心越远，所产生的条纹的间隔越窄.
+对于同一条基线，随着观测频率 $\nu$ 的增大，则所测量的\ac{wavenumber} $u$ 也越大，
+于是获得的\ac{vis}数据 $\ac{Vis}(u)$ 也随之变化，
+如\autoref{fig:chromatic-baselines} 中的斜线所示.
+因此，虽然辐射源的亮度不随频率变化（即只有 \ac{k-perp} \ac{mode}），
+但是基线的\ac{chromatic-effect}导致观测的\ac{vis}数据出现了随频率涨落
+（即产生了 \ac{k-los} \ac{mode}），所以称为\ac{mode-mixing}.
+结合\autoref{fig:chromatic-baselines}，
+可知由\ac{mode-mixing}引起的涨落在频率维度 $\nu$ 的变化周期为 \cite{morales2012}：
 \begin{equation}
   \label{eq:t-nu-u}
   t_{\nu} = \frac{\ac{speed-light}}{b} t_u
