@@ -34,6 +34,10 @@ dist: thesis.pdf
 	    $(SRCS) $(BIB) $(FIGURES) $(TEMPLATE) $(EXTRA)
 	@echo "Created distribution at: dist/thesis.$(ID).$(DATE).{pdf,tar.bz2}"
 
+optimize: thesis.pdf
+	qpdf --compress-streams=y --optimize-images \
+	    thesis.pdf thesis.optimized.pdf
+
 fix:
 	@echo "Trim trailing whitespace ..."
 	@for f in $(SRCS); do sed -i -E 's/\s+$$//' $$f; done
