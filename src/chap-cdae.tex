@@ -945,21 +945,13 @@ $\bar{\ac{coef-correlation}}_{\R{cwt}} = \num{0.198 +- 0.160}$.
 %=====================================================================
 \section{小结}
 
-The frequency-dependent beam effects of interferometers can cause
-rapid fluctuations along the frequency dimension,
-which damage the smoothness of the foreground spectra and prevent
-traditional foreground removal methods from uncovering the EoR signal.
-Given the difficulties in crafting practicable models to overcome the
-complicated beam effects, methods that can intelligently learn tailored
-models from the data seem more feasible and appealing.
-To this end, we have proposed a deep-learning-based method that uses
-a 9-layer CDAE to separate the EoR signal.
-The CDAE has been trained on the simulated SKA images and has achieved
-excellent performance.
-We conclude that the CDAE has outstanding ability to overcome the
-complicated beam effects and accurately separate the faint EoR signal,
-exhibiting the great potential of deep-learning-based methods
-to play an important role in the forthcoming EoR experiments.
+干涉阵列的波束效应会使前景辐射产生沿频率维度快速变化的起伏，
+导致前景的频谱光滑性被破坏，使得传统\ac{fg-rm}方法无法成功分离 EoR 信号.
+为了克服复杂的波束效应，我们基于\ac{dl}方法设计了一个由 9 个卷积层构成的 \ac{cdae}，
+并且使用\autoref{chap:simulation}模拟的 SKA1-Low \enquote{观测}图像
+来训练 \ac{cdae}，
+训练好的 \ac{cdae} 能够准确地分离 EoR 信号，分离效果显著优于传统\ac{fg-rm}方法.
+这也充分展示了\ac{dl}方法具有在未来 EoR 实验中发挥重要作用的巨大潜力.
 
 本章内容已发表于 \mnras{} (MNRAS) \cite{li.cdae}.
 
