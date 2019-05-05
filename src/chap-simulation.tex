@@ -71,9 +71,9 @@ SKA1-Low \enquote{观测}的图像.
 \section{星系团射电晕}
 \label{sec:simu-halos}
 
-截至目前，只有少量几个工作在研究 EoR 前景时考虑了\ac{gc}\ac{rh}
+目前只有少量几个工作在研究 EoR 前景时包含了\ac{gc}\ac{rh}
 \cite{diMatteo2004,gleser2008,jelic2008}，
-而且对\ac{rh}的建模过于简化，比如
+同时，这些工作对\ac{rh}的建模过于简化，比如
 直接使用在低流量端很不完备的 \SI{1.4}{\GHz} \ac{f-flux} \cite{gleser2008}、
 采用弥散很大的射电--X 射线标度关系 \cite{jelic2008}、
 假定相同的频谱指数和均匀的表面亮度分布 \cite{gleser2008,jelic2008}.
@@ -88,7 +88,7 @@ SKA1-Low \enquote{观测}的图像.
 首先根据扩展 Press--Schechter 理论
 模拟其并合历史 (\autoref{sec:merging-history})，
 然后运用\ac{turbreacc-model}来计算并合所产生的\ac{turbulence}对
-\ac{icm} 中高能电子的再加速过程 (\autoref{sec:halo-evo})，
+\ac{icm} 中的高能电子的再加速过程 (\autoref{sec:halo-evo})，
 获得高能电子的能谱以及\ac{rh}的频谱随时间的演化 (\autoref{sec:numerical})，
 从而得到所形成的\ac{rh}的性质 (\autoref{sec:halo-size})
 并生成相应的图像 (\autoref{sec:halo-maps}).
@@ -412,7 +412,7 @@ $\ac{e-electron} = \ac{mass-e} \ac{speed-light}^2$
 \subsubsection{剥离半径}
 
 当一个子团并入主团时，其外围区域的气体将被\ac{ram-pressure}剥离，
-即\emph{\acf{ram-pressure-strip}}效应 \cite{gunn1972}.
+这就是\emph{\acf{ram-pressure-strip}}效应 \cite{gunn1972}.
 对子团而言，距离自身的中心越远，则气体的流体静力学压强越小，
 \ac{ram-pressure-strip}的效果也就越显著.
 因此\emph{\acl{r-strip} (stripping radius)} \ac{r-strip} 定义为，
@@ -676,7 +676,7 @@ $\tau_{\R{loss}} = |\D{t}/\D{\ac{g}}|$.
 获得电子能谱随时间的演化，必须借助于数值算法.
 本工作采用了由 \citeay{chang1970} 提出的\ac{finite-diff-scheme}，
 同时采用\ac{no-flux}边界条件 \cite{park1996}.
-该算法的具体介绍可参见\autoref{app:fpsolver}.
+该算法的具体内容可参见\autoref{app:fpsolver}.
 
 在\ac{no-flux}边界条件下，电子可能在边界处出现不合理的堆积.
 因此需要在两个边界处分别设置一个\enquote{缓冲区}，
@@ -716,7 +716,7 @@ $\left( M^{(i)}_{\R{vir,m}}, M^{(i)}_{\R{vir,s}}, t^{(i)}_{\R{begin}} \right)$�
 能够引起有效的流湍加速（即认为并合是活跃的）的时间段为
 $\left[ t^{(i)}_{\R{begin}}, t^{(i)}_{\R{end}} \right]$，
 其中 $t^{(i)}_{\R{end}} = t^{(i)}_{\R{begin}}+\tau^{(i)}_{\R{turb}}$
-是此次并合变得不活跃的时间.
+是此次并合变得不活跃的时刻.
 在其他没有并合活动的时间段里，则只有初始湍流对电子的加速有一定程度的贡献
 [\autoref{eq:v-turb0}].
 然而，初始湍流很弱，所以加速效率很低，不足以平衡\ac{rad-syn}和逆 Compton 散射的能量损失.
@@ -865,7 +865,7 @@ $\theta$ 是电子与磁场 \ac{mag-field} 之间的\ac{pitch-angle}，
 据此，我们假定\acl{r-halo} \ac{r-halo} 满足以下\ac{scaling-relation}：
 \begin{equation}
   \label{eq:r-halo}
-  \ac{r-halo} = f_r \ac{R-turb}
+  \ac{r-halo} = f_r \,\ac{R-turb}
     \left( \frac{\ac{r-vir}}{r_{\R{vir,*}}} \right)^b ,
 \end{equation}
 其中
@@ -979,21 +979,21 @@ $P_{1400} \propto M_{500}^{3.70 \pm 0.56}$.
 为了考虑这个分布涨落，我们对每一种参数组合均重复模拟 500 次，
 由此估算模拟结果的均值和误差，并与上述两个观测结果进行对比.
 通过测试多种参数组合，我们最终选取如下一组参数：
-$\ac{f-injection} = 0.01\%$、
-$\ac{f-trans} = 15\%$、
-$\ac{f-cr} = 1.5\%$、
-$\ac{f-turb} = 1.5\%$ 以及
+$\ac{f-injection} = 0.01\%$,
+$\ac{f-trans} = 15\%$,
+$\ac{f-cr} = 1.5\%$,
+$\ac{f-turb} = 1.5\%$,
 $\ac{f-instability} = 0.1$.
 
 如\autoref{fig:halo-power} 所示，使用上述调节好的参数，
 模拟的射电晕给出的 $P_{1400}$--\ac{M-vir} \ac{scaling-relation}为：
 $P_{1400} \propto M_{\R{vir}}^{3.94 \pm 0.12}$.
-该\ac{scaling-relation}的斜率和截距与 \citeay{cassano2013}
-获得的观测结果都符合得很好.
+该\ac{scaling-relation}的斜率和截距均与 \citeay{cassano2013}
+获得的观测结果符合得很好.
 \autoref{fig:halos-simucomp} 显示了 \SI{1.4}{\GHz} \ac{f-flux}的对比结果，
 可见模拟的射电晕与观测的射电晕在高流量端是一致的.
 同时，本文模拟给出的 \SI{1.4}{\GHz} \ac{f-flux}还与
-\citeay{cassano2012} 的预测结果是匹配的.
+\citeay{cassano2012} 的预测结果相匹配.
 
 此外，\autoref{fig:halo-fraction} 显示了具有射电晕的星系团比例
 随星系团质量的变化.
@@ -1125,7 +1125,7 @@ $\left(0.85_{-0.54}^{+2.74}\right) \times 10^3$ \si{\mK}
 (R.A., Dec.\@) = (\SI{0}{\degree}, \SI{-27}{\degree}) \cite{beardsley2016}，
 该天区位于高银纬 ($b = \SI{-78.5}{\degree}$) 区域，
 而且几乎经过望远镜的\ac{zenith}，是一个理想的观测天区.
-这个天区对本工作所开展的模拟研究而言是一个合适的选择（另见 \autoref{sec:obs-simu}）.
+对本文所开展的模拟研究而言也是一个合适的选择（另见 \autoref{sec:obs-simu}）.
 因此，我们将以 (R.A., Dec.\@) = (\SI{0}{\degree}, \SI{-27}{\degree})
 为中心坐标模拟银河系弥散辐射的\ac{skymap}.
 
@@ -1134,7 +1134,7 @@ $\left(0.85_{-0.54}^{+2.74}\right) \times 10^3$ \si{\mK}
 
 银河系\ac{rad-syn}在低频波段的\ac{skymap}通过以
 Haslam \SI{408}{\MHz} 巡天图\cite{haslam1982} 为模板、
-按幂律形式外延得到 \cite{wang2010,bonaldi2015}：
+按幂律谱形式外延得到 \cite{wang2010,bonaldi2015}：
 \begin{equation}
   T_b^{\R{syn}}(\B{\hat{r}}, \nu)
     = T_b^{\R{haslam}}(\B{\hat{r}}) \left( \frac{\nu}{\SI{408}{\MHz}}
@@ -1150,11 +1150,11 @@ $\alpha_{\R{syn}}(\B{\hat{r}})$ 为该处的同步辐射谱指数.
   \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}}.
 与 Haslam 原图相比，新图具有更好的仪器校准以及更准确的河外点源扣除 \cite{remazeilles2015}.
 同步辐射的谱指数会随天空位置变化，
-\citeay{giardino2002} 综合了 Haslam \SI{408}{\MHz} 全天图、
+\citeay{giardino2002} 综合了 Haslam \SI{408}{\MHz} 全天图、\,
 \SI{1420}{\MHz} 北天图 \cite{reich1986}
 以及 \SI{2326}{\MHz} 南天图 \cite{jonas1998}，
 处理得到了的银河系同步辐射的谱指数全天分布图.
-本工作利用了该谱指数分布图来确定上式中的 $\alpha_{\R{syn}}(\B{\hat{r}})$.
+本文利用了该谱指数分布图来确定上式中的 $\alpha_{\R{syn}}(\B{\hat{r}})$.
 \autoref{fig:galactic-skymaps} 左栏显示了银河系\ac{rad-syn}在
 \SI{158}{\MHz} 的\ac{skymap}.
 \autoref{tab:tb-rms} 中列出了在三个频带的中心频率处的亮温度的\ac{rms}值.
@@ -1420,17 +1420,15 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 能够有效地提高图像的质量和\ac{dynamic-range}.
 据此，我们假定 \SI{158}{\MHz} 流量密度 $S_{158} > \SI{50}{\mJy}$ 的河外点源
 已从\ac{skymap}上移除 \cite{liu2009ps,pindor2011,mort2017}.
-处理后的河外点源在 124、\,158 和 196 \si{MHz} 的亮温度的\ac{rms}值显著减小至约
-\num{22.5e4}、\,\num{9.81e4} 和 \num{4.75e4} \si{\mK}.
 
-模拟获得\ac{vis}数据后，我们接着使用
+模拟获得\ac{vis}数据之后，我们接着使用
 \href{https://sourceforge.net/p/wsclean}{\texttt{WSClean}}\footnote{%
   WSClean: \url{https://sourceforge.net/p/wsclean} (v2.6)}
 成像软件\cite{offringa2014}
 生成相应的观测图像.
 该软件实现了 \ac{w-stack} CLEAN 成像算法，适用于低频大视场成像，
 已在 \ac{lofar} 和 \ac{mwa} 等项目中被广泛使用 \cite{offringa2014,offringa2017}.
-本工作采用了 Briggs 权重\cite{briggs1995}
+我们采用了 Briggs 权重\cite{briggs1995}
 并且设稳健参数 (robustness) 为 0，
 如此兼顾了成像的噪声水平和空间分辨率 \cite{briggs1995}.
 图像的边缘区域会因为 CLEAN 程度不足而质量较差，
@@ -1473,7 +1471,7 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 对于 EoR 信号，由于 CLEAN 算法对这种非常暗弱的弥散辐射处理效果有限，
 我们直接使用由 \texttt{WSClean} 生成的\ac{dirty-map}.
 尽管如此，因为 EoR 信号的\ac{skymap}中没有明亮的点状结构，
-所以\ac{dirty-map}的质量也足够好.
+所以\ac{dirty-map}的质量已经足够好.
 这样，我们模拟得到了以下成分在 \numrange{120}{128}、\,\numrange{154}{162}
 和 \numrange{192}{200} \si{\MHz} 三个频带内由
 SKA1-Low \enquote{观测}得到的\ac{imgcube}：

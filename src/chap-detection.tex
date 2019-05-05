@@ -9,7 +9,7 @@
 \label{chap:detection}
 
 
-\emph{\acf{eor}}是早期宇宙的一段缺乏足够了解的时期，
+再电离时期是早期宇宙的一段缺乏足够了解的时期，
 目前的理论研究以及有限的观测证据表明该时期从宇宙大爆炸之后约 \SI{300}{\Myr}
 持续到约 \SI{1}{\Gyr}，
 对应红移范围约为 \numrange{6}{15}
@@ -72,7 +72,7 @@ $\B{S}_p$ 和 $\B{S}_e$ 分别为质子和电子的\ac{spin}.
 的能量比 $F = 0$ 态更高 \cite{griffiths1982}.
 当氢原子从 $F = 1$ 态跃迁到 $F = 0$ 态时，
 将产生频率约为 $\nu = \SI{1420}{\MHz}$ 的辐射，
-对应的波长约为 $\lambda = \SI{21}{\cm}$，因此称为\emph{\acf{21cmline}}.
+对应的波长约为 $\lambda = \SI{21}{\cm}$，因此称为 \emph{\acf{21cmline}}.
 此跃迁过程亦称为\emph{\acf{sft}}，如\autoref{fig:hi-spinflip} 所示.
 对于 $F = 1$ 态（即上能级），磁量子数 $m$ 可取 $\big\{ -1, 0, 1 \big\}$，
 因此这个态的\ac{dod}为 3，称为\emph{\acf{triplet}}；
@@ -260,7 +260,7 @@ $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{e
     & = T_{\R{cmb}}(z=0)\,(1+z)  \\
     & = 2.73 \,(1+z) \quad [\si{\kelvin}] ,
 \end{align}
-类似地，宇宙膨胀的红移效应将中性氢 \ac{21cmline}红移至频率
+类似地，宇宙膨胀的红移效应将 \ac{21cmline}红移至频率
 $\nu = \acs{freq21cm}/(1+z)$，
 同时观测到的中性氢云的亮温度将为：
 \begin{equation}
@@ -269,7 +269,7 @@ $\nu = \acs{freq21cm}/(1+z)$，
 目前观测 \ac{21cmline}的策略是测量其相对于 \ac{cmb} 辐射的差异，
 即\emph{\acl{dT-b} (differential brightness temperature)}.
 综上，并结合\autoref{eq:21cm-optical-depth3}，
-得到待探测的 \emph{EoR 信号}的\acl{dT-b} \ac{dT-b} 为：
+得到待探测的 EoR 信号的\acl{dT-b} \ac{dT-b} 为：
 \begin{align}
   \acs{dT-b}(\nu)
     & = \frac{T_b(\acs{freq21cm})}{1 + z} - T_{\R{cmb}}(z=0)  \\
@@ -442,7 +442,7 @@ EoR 信号的整个演化过程可大致分为以下几个阶段 \cite{pritchard
 $\nu = \acs{freq21cm} / (1 + z)$，
 其中 \acs{freq21cm} 为 \ac{21cmline}的本征频率
 [\autoref{eq:hi-line-frequency}].
-据此，对于某一视线方向，通过在不同的频率测量 \ac{21cmline}，
+据此，对于某一视线方向，通过在不同频率处测量 \ac{21cmline}，
 便可以相应地重构出中性氢在该视线上的分布情况.
 对于一个天区，如果获得 \ac{21cmline}在一段频率内的图像 $I(\B{\theta},\nu)$，
 即\ac{imgcube}，便可以重构出中性氢的三维分布，
@@ -564,7 +564,7 @@ $P(\B{\ac{k-perp}}, \ac{k-los})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}]
   \label{fig:eor-fg-fourier}
 \end{figure}
 
-当将红移范围限制在一个较窄的片段（如 $\Delta z \sim 0.5$）时，
+当将红移范围限制在一个较窄的片段（如 $\Delta z \lesssim 0.5$）时，
 可以忽略宇宙演化并认为中性氢的分布是各向同性的.
 相应地，EoR 信号的三维功率谱 $\ac{psD}(\B{k})$ 则具有球对称分布
 \cite{morales2004,mcQuinn2006}，
@@ -713,10 +713,8 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 %.......................................
 \item
 \emph{人工源的\acl{rfi} (\ac{rfi}):}
-人类活动产生的无线电波已在地球上无处不在，
-对射电天文观测产生了严重的 \ac{rfi}.
-这些人工源主要有：\ac{am}和\ac{fm}广播、卫星通信、\ac{gps} 信号、
-对讲机、手机、移动通信基站、航空通信、雷达、等等.
+人类活动产生的无线电波已在地球上无处不在，对射电天文观测产生了严重的干扰.
+这些人工源主要有：\ac{am}和\ac{fm}广播、卫星通信、\ac{gps} 信号、对讲机、雷达、等等.
 虽然 EoR 探测设备通常建设在人烟稀少的射电宁静区域，
 但是仍不可避免也受到人工源的 \ac{rfi}，
 甚至由月亮以及太空碎片反射回来的无线电波都可能对 EoR 观测产生一定程度的影响
@@ -782,14 +780,14 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 %.......................................
 \item
 \emph{仪器效应:}
-当代的干涉阵列通常由成千上万根天线组成. 由于生产和安装过程的差异以及随环境和时间的变化，
+大型干涉阵列通常由成千上万根天线组成. 由于生产和安装过程的差异以及随环境和时间的变化，
 \ac{station}内每根天线的性能都不可能完全相同，
 导致所形成的\ac{beam-station}存在很多不确定因素，
 而且各个\ac{station}的波束也互不相同.
 对于采用数字\ac{beam-forming}技术的\ac{phased-array}而言，
-波束的形态更会随着所指方向而发生大幅变化
+波束的形状更会随着波束指向的变化而发生大幅改变
 \cite{smirnov2011iii,vanWeeren2016,jagannathan2017}.
-因此，如果未能充分地地校准\ac{beam-station}，那么后续其他仪器效应的校准、
+因此，如果未能充分地校准\ac{beam-station}，那么后续其他仪器效应的校准、
 亮点源的剥离 (peeling)、前景去除等任务都会受到严重影响 \cite{noordam2004,neben2016}.
 除了\ac{beam-station}的效应，还有一系列更复杂的仪器效应，比如：
 显著的旁瓣 \cite{thyagarajan2015,mort2017}、
@@ -828,7 +826,7 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难.
 
 \emph{银河系\acs{rad-syn} (Galactic synchrotron radiation)}
 是由弥散于银河系内的高能带电粒子在磁场中发生加速运动而产生的，
-是低频射电波段 ($\gtrsim$\,\SI{1}{\GHz}) 最明亮的前景成分
+是低频射电波段 ($\lesssim$\,\SI{1}{\GHz}) 最明亮的前景成分
 \cite{bernardi2009,ghosh2012}.
 在 \SI{150}{\MHz} 处，即使是高银纬辐射较弱的区域，
 银河系同步辐射亦占全部前景辐射的 $\sim$\,70\% \cite{shaver1999}.
@@ -976,8 +974,8 @@ $\sim$\,27\% \cite{shaver1999}.
 根据目前的观测证据和研究结果，可将河外点源大致分为两大类 \cite{padovani2016}：
 \begin{itemize}
   \item \emph{射电星系 (radio galaxy)}:
-    宿主通常为巨型椭圆星系 (elliptical galaxy)，
-    射电辐射结构远超出宿主星系本身的范围（如相对论性喷流），
+    宿主通常为巨型椭圆星系 (giant elliptical galaxy)，
+    射电辐射结构远超出宿主星系本身的范围（比如存在相对论性喷流），
     在 \SI{1.4}{\GHz} 处的射电功率 $\gtrsim$\,\SI{e22}{\watt\per\hertz}
     \cite{ledlow1996}.
     \citeay{fanaroff1974} 根据射电星系的功率和形态将其大致分为两小类：
@@ -1062,13 +1060,13 @@ MACS J0717.5$+$3745 \cite{vanWeeren2009}.
 形成上述大尺度\ac{src-extended}.
 电子的能量越高，由于同步辐射以及对 \ac{cmb} 光子的逆 Compton 散射而损失能量的速率越快，
 寿命也就越短.
-因此，相比高频波段 ($\gtrsim$\,\SI{1}{\GHz})，
+因此，相比中高频波段 ($\gtrsim$\,\SI{1}{\GHz})，
 \ac{icm} 展源在数百 MHz 的低频波段更容易形成，而且具有更长的寿命.
 以\ac{rh}为例，SKA1-Low 预计将发现约 2500 个 \cite{cassano2015}，
 远远超过目前已发现的总数（71 个已确认，另有 9 个候选；
 详见\autoref{app:halos} 中的\autoref{tab:halos}）.
 尽管 \ac{icm} 展源相比银河系辐射和河外明亮点源来说比较微弱，
-但考虑到该前景成分的尺度较大（若干角分）、形态结构复杂、数目较多等特点，
+但考虑到该前景成分的尺度较大（若干角分）、形态结构相对复杂、数目较多等特点，
 \ac{icm} 展源将在\ac{ps}的角分尺度上对 EoR 信号的测量产生严重干扰，
 是一个待仔细研究的重要前景成分 \cite{diMatteo2004,gleser2008}.
 
@@ -1248,10 +1246,10 @@ MACS J0717.5$+$3745 \cite{vanWeeren2009}.
 如\autoref{fig:chromatic-baselines} 中的背景条纹所示.
 点源偏离视场中心越远，所产生的条纹的间隔越窄.
 对于同一条基线，随着观测频率 $\nu$ 的增大，则所测量的\ac{wavenumber} $u$ 也越大，
-于是获得的\ac{vis}数据 $\ac{Vis}(u)$ 也随之变化，
+于是获得的\ac{vis}数据 $\ac{Vis}(u)$ 也随之发生变化，
 如\autoref{fig:chromatic-baselines} 中的斜线所示.
 因此，虽然辐射源的亮度不随频率变化（即只有 \ac{k-perp} \ac{mode}），
-但是基线的\ac{chromatic-effect}导致观测的\ac{vis}数据出现了随频率涨落
+但是基线的\ac{chromatic-effect}导致观测的\ac{vis}数据出现了随频率的涨落
 （即产生了 \ac{k-los} \ac{mode}），所以称为\ac{mode-mixing}.
 结合\autoref{fig:chromatic-baselines}，
 可知由\ac{mode-mixing}引起的涨落在频率维度 $\nu$ 的变化周期为 \cite{morales2012}：

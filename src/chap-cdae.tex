@@ -25,7 +25,7 @@
   \centering
   \includegraphics[width=\textwidth]{SKA1-low-psf}
   \bicaption[模拟的 SKA1-Low 综合波束]{%
-    在 154、158 和 162 MHz 处模拟的 SKA1-Low \acs*{beam-synthesized}.
+    在 154、\,158 和 162 MHz 处模拟的 SKA1-Low \acs*{beam-synthesized}.
     \acs*{t-int}为 \SI{6}{\hour}.
   }{%
     The simulated synthesized beams of SKA1-Low at 154, 158, and 162 MHz.
@@ -165,7 +165,7 @@ $\B{x}$、$\B{h}$ 和 $\B{r}$ 在本工作中均为一维矢量.
 同时训练\ac{ae}使得重构信号 $\B{r}$ 与输入信号 $\B{x}$
 之间的\acl{loss} $\ac{loss}(\B{r}, \,\B{x})$ 达到最小，
 则\ac{ae}所学习到的\ac{code}将能有效地表示输入信号.
-详见 \citeay{goodfellow2016}, 第 14 章.
+详见 \citeay{goodfellow2016} 第 14 章.
 
 \ac{ae}所学到的\ac{representation}的质量直接决定其性能.
 为了促使\ac{ae}学得一个更好的\ac{representation}，
@@ -467,7 +467,7 @@ EoR 信号 $C_{\R{eor}}^{(1)}$ 和前景辐射 $C_{\R{fg}}^{(1)}$.
 但两者之间仍然具有足够的可区分度，能够被 \ac{cdae} 发掘出来并用于 EoR 信号的分离.
 此外，\autoref{fig:cdae-simdata} 还显示出\enquote{观测}的前景辐射（中栏）
 的强度相比原来的理想情况（上栏）约小 2 个数量级，
-导致这个差异的主要原因是因为干涉阵列只有测量天空辐射的空间涨落 \cite{braun1985}.
+导致这个差异的主要原因是因为干涉阵列只能测量天空辐射的空间涨落 \cite{braun1985}.
 
 \begin{figure}[htp]
   \centering
@@ -879,7 +879,7 @@ $\bar{\rho}_{\R{noft}} = \num{0.628 +- 0.167}$，
 将 EoR 信号和前景辐射的频谱信号变换到 Fourier 空间后，
 EoR 信号主要分布在较大的 Fourier \ac{mode}里，
 而频谱光滑的前景辐射则比较集中在较小的 Fourier \ac{mode}里 \cite{parsons2012}，
-所以两者的可区分度提高了，从而能够更准确地被 \ac{cdae} 学习并分离.
+所以两者的可区分度提高了，从而能够更容易、更准确地被 \ac{cdae} 学习并分离.
 
 %---------------------------------------------------------------------
 \subsection{与传统方法的对比}
