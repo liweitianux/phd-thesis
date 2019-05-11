@@ -1,0 +1,98 @@
+%%
+%% Copyright (c) 2019 Weitian LI <liweitianux@sjtu.edu.cn>
+%% Creative Commons BY 4.0
+%%
+
+\documentclass{beamer}
+
+\usetheme{metropolis}
+\metroset{
+  progressbar=foot,
+}
+
+\setsansfont{Fira Sans Light}[
+  BoldFont={Fira Sans Medium}
+]
+\setmonofont{Fira Code Light}[
+  BoldFont={Fira Code Medium}
+]
+
+\usepackage{newtxsf}
+
+\usepackage{xeCJK}
+\setCJKsansfont{Source Han Sans SC Light}[
+  BoldFont={Source Han Sans SC Medium}
+]
+\xeCJKsetup{PunctStyle=kaiming}
+
+\usepackage{hyperref}
+\hypersetup{
+  pdfstartview={Fit}
+}
+
+% Suppress the navigation bar
+\beamertemplatenavigationsymbolsempty
+
+\AtBeginSection[]{
+  \begin{frame}{目~~录}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
+
+
+%=====================================================================
+
+\title[探测宇宙再电离时期]{%
+  射电晕对宇宙再电离探测的影响和\texorpdfstring{\\}{}%
+  基于深度学习的再电离信号分离新算法%
+}
+\author[李维天]{李维天 <\email{liweitianux@sjtu.edu.cn}>}
+\institute{%
+  物理与天文学院\\%
+  上海交通大学%
+}
+\date{2019 年 ?? 月 ?? 日}
+\subject{博士学位论文答辩}
+
+
+%=====================================================================
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{目~~录}
+  \tableofcontents
+\end{frame}
+
+%=====================================================================
+\section{绪~~论}
+
+\begin{frame}{Hi}
+Hello world! \textbf{Hello world!}
+
+测试 \textbf{测试}
+
+\texttt{code} \textbf{\texttt{code}}
+
+Math:
+$E = m c^2$.
+
+X$X$X|x$x$x|M$M$M.
+
+\end{frame}
+
+%=====================================================================
+\section{总~~结}
+
+\begin{frame}{总~~结}
+  全文总结...
+\end{frame}
+
+\begin{frame}[standout]
+  Thank you!
+\end{frame}
+
+\end{document}
