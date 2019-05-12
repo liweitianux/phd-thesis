@@ -6,12 +6,21 @@
 \documentclass{beamer}
 
 \usetheme{metropolis}
-\metroset{
-  progressbar=foot,
-}
+\metroset{progressbar=foot}
 
 \setbeamertemplate{section in toc}[sections numbered]
 \setbeamertemplate{frametitle continuation}{(\insertcontinuationcount)}
+
+% Solarized theme
+% Credit: https://ethanschoonover.com/solarized/
+\definecolor{SolBase02}{HTML}{073642}
+\definecolor{SolBase3}{HTML}{fdf6e3}
+\definecolor{SolOrange}{HTML}{cb4b16}
+\definecolor{SolGreen}{HTML}{859900}
+%
+\setbeamercolor{normal text}{fg=SolBase02, bg=SolBase3}
+\setbeamercolor{alerted text}{fg=SolOrange}
+\setbeamercolor{example text}{fg=SolGreen}
 
 \setsansfont{Fira Sans Light}[
   BoldFont={Fira Sans Medium}
