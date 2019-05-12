@@ -10,6 +10,9 @@
   progressbar=foot,
 }
 
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{frametitle continuation}{(\insertcontinuationcount)}
+
 \setsansfont{Fira Sans Light}[
   BoldFont={Fira Sans Medium}
 ]
@@ -30,16 +33,59 @@
   pdfstartview={Fit}
 }
 
-% Suppress the navigation bar
-\beamertemplatenavigationsymbolsempty
+\usepackage{appendixnumberbeamer}
+\usepackage{booktabs}
+\usepackage{csquotes}
 
-\AtBeginSection[]{
-  \begin{frame}{目~~录}
-    \tableofcontents[currentsection]
-  \end{frame}
+\usepackage{enumitem}
+%\setlist{nosep}
+\setlist*{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[itemize,1]{label=\ensuremath{\bullet}}
+
+\usepackage{xparse}
+% Credit: https://tex.stackexchange.com/a/376366
+\ExplSyntaxOn
+\NewDocumentCommand{\cspace}{O{1em}}{%
+  \tl_map_inline:nn {空} { \makebox[#1]{\phantom{##1}} }
+}
+\ExplSyntaxOff
+
+\usepackage{journalabbrv}
+
+% Fix the color of notes on the second screen
+% XXX: breaks 'standout'
+%\makeatletter
+%\def\beamer@framenotesbegin{%
+%  \usebeamercolor[fg]{normal text}%
+%  \gdef\beamer@noteitems{}%
+%  \gdef\beamer@notes{}%
+%}
+%\makeatother
+
+\usepackage[backend=biber]{biblatex}
+\AtBeginBibliography{
+  \linespread{1.1}
+  \small
+}
+\addbibresource{../references.bib}
+
+\graphicspath{
+  {./}
+  {figures/}
+  {../figures/}
+  {../figures/self/}
+  {../sjtuthesis/}
 }
 
+% Change 'emph' style to bold face
+\let\emph\relax  % there's no \RedeclareTextFontCommand
+\DeclareTextFontCommand{\emph}{\boldmath\bfseries}
+
 \newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
+\newcommand{\doi}[1]{\href{https://doi.org/#1}{\textsc{doi}:#1}}
+\newcommand{\ads}[1]{\href{http://adsabs.harvard.edu/abs/#1}{\textsc{ads}:#1}}
+\newcommand{\arxiv}[1]{\href{https://arixv.org/abs/#1}{\textsc{arXiv}:#1}}
 
 
 %=====================================================================
@@ -55,6 +101,11 @@
 }
 \date{2019 年 ?? 月 ?? 日}
 \subject{博士学位论文答辩}
+\titlegraphic{%
+  \includegraphics[height=0.75cm]{sjtubadge}%
+  \hspace{2mm}%
+  \includegraphics[height=0.75cm]{sjtulogo}%
+}
 
 
 %=====================================================================
@@ -63,17 +114,19 @@
 
 \maketitle
 
-\begin{frame}{目~~录}
-  \tableofcontents
+\begin{frame}{目\cspace{}录}
+  \tableofcontents[hideallsubsections]
 \end{frame}
 
 %=====================================================================
-\section{绪~~论}
+\section{绪论}
 
 \begin{frame}{Hi}
 Hello world! \textbf{Hello world!}
 
-测试 \textbf{测试}
+测试 \textbf{测试}\\
+空空空空空空空空\\
+空\cspace{}空\cspace[2em]{}空
 
 \texttt{code} \textbf{\texttt{code}}
 
@@ -84,15 +137,99 @@ X$X$X|x$x$x|M$M$M.
 
 \end{frame}
 
-%=====================================================================
-\section{总~~结}
+\begin{frame}{References}
+  Some references to showcase [allowframebreaks]
+  \cite{li.cdae,li.halo}
+\end{frame}
 
-\begin{frame}{总~~结}
-  全文总结...
+%=====================================================================
+\section{总结}
+
+\begin{frame}{结\cspace{}论}
+  结论...
+\end{frame}
+
+\begin{frame}{已发表论文}
+  \small
+  \begin{itemize}
+    \item
+      \textsc{\emph{Li, Weitian}; Xu, Haiguang; Ma, Zhixian; Zhu, Ruimin;
+      Hu, Dan; Zhu, Zhenghao; Gu, Junhua; Shan, Chenxi; Zhu, Jie;
+      Wu, Xiang-Ping}.
+      \enquote{\it Separating the EoR Signal with a Convolutional Denoising
+        Autoencoder: A Deep-learning-based Method,}
+      \href{http://adsabs.harvard.edu/abs/2019MNRAS.485.2628L}{%
+        2019, Monthly Notices of the Royal Astronomical Society,
+        \emph{485}, 2628}
+    \item
+      \textsc{\emph{Li, Weitian}; Xu, Haiguang; Ma, Zhixian; Hu, Dan;
+      Zhu, Zhenghao; Shan, Chenxi; Wang, Jingying; Gu, Junhua;
+      Zheng, Dongchao; Lian, Xiaoli; Zheng, Qian; Wang, Yu;
+      Zhu, Jie; Wu, Xiang-Ping}.
+      \enquote{\it Contribution of Radio Halos to the Foreground for
+        SKA EoR Experiments,}
+      2019, The Astrophysical Journal, 二审中
+    \item
+      合作论文 12 篇
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[standout]
-  Thank you!
+  \Huge 谢\cspace{}谢
+\end{frame}
+
+%=====================================================================
+\appendix
+
+\begin{frame}{Backup slides}
+  Backup slides
+\end{frame}
+
+\begin{frame}{Blocks}
+  Three different block environments are pre-defined and may be styled
+  with an optional background color.
+
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+
+    \column{0.5\textwidth}
+
+      \metroset{block=fill}
+
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Math}
+  \begin{equation}
+    e = \lim_{n\to \infty} \left(1 + \frac{1}{n}\right)^n
+  \end{equation}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{参考文献}
+  \printbibliography[heading=none]
 \end{frame}
 
 \end{document}
