@@ -72,7 +72,25 @@
 %}
 %\makeatother
 
-\usepackage[backend=biber]{biblatex}
+\usepackage[%
+  backend=biber,
+  style=numeric,
+  autocite=superscript,
+]{biblatex}
+%
+% Credit: https://tex.stackexchange.com/a/60923
+\DeclareCiteCommand{\cite}[\mkbibsuperscript]%
+  {\iffieldundef{prenote}
+     {}
+     {\BibliographyWarning{Ignoring prenote argument}}%
+   \iffieldundef{postnote}
+     {}
+     {\BibliographyWarning{Ignoring postnote argument}}}
+  {\usebibmacro{citeindex}%
+   \bibopenbracket\usebibmacro{cite}\bibclosebracket}
+  {\supercitedelim}
+  {}
+
 \AtBeginBibliography{
   \linespread{1.1}
   \small
