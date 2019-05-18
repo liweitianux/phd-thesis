@@ -52,6 +52,17 @@
 \setlist[1]{labelindent=\parindent}
 \setlist[itemize,1]{label=\ensuremath{\bullet}}
 
+\usepackage{caption}
+\captionsetup{%
+  figurename={图},
+  format=plain,
+  labelformat=simple,
+  labelsep=period,
+  justification=centering,
+  textfont={small},
+  labelfont={small,bf},
+}
+
 \usepackage{xparse}
 % Credit: https://tex.stackexchange.com/a/376366
 \ExplSyntaxOn
