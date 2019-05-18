@@ -71,6 +71,46 @@
 }
 \ExplSyntaxOff
 
+\usepackage{siunitx}
+% siunitx settings and new units
+\sisetup{
+  range-phrase=\text{--},
+  range-units=single,
+  product-units=repeat,
+  list-separator={, },
+  list-final-separator={, and },
+  separate-uncertainty=true,
+  detect-all,  % detecting fonts
+}
+%
+\DeclareSIUnit\arcsec{arcsec}
+\DeclareSIUnit\arcmin{arcmin}
+\DeclareSIUnit\cMpc{cMpc}  % comoving Mpc
+\DeclareSIUnit\cGpc{cGpc}  % comoving Gpc
+\DeclareSIUnit\deg{deg}
+\DeclareSIUnit\dyne{dyn}
+\DeclareSIUnit\erg{erg}
+\DeclareSIUnit\esu{esu}
+\DeclareSIUnit\franklin{Fr}
+\DeclareSIUnit\gauss{G}
+\DeclareSIUnit\hubble{\ensuremath{\mathit{h}}}
+\DeclareSIUnit\jansky{Jy}
+\DeclareSIUnit\lightyear{ly}
+\DeclareSIUnit\parsec{pc}
+\DeclareSIUnit\rayleigh{Rayleigh}
+\DeclareSIUnit\solarmass{\ensuremath{\mathrm{M}_{\odot}}}
+\DeclareSIUnit\statcoulomb{statC}
+\DeclareSIUnit\year{yr}
+%
+\DeclareSIUnit\kpc{\kilo\parsec}
+\DeclareSIUnit\mJy{\milli\jansky}
+\DeclareSIUnit\mK{\milli\kelvin}
+\DeclareSIUnit\Gpc{\giga\parsec}
+\DeclareSIUnit\Gyr{\giga\year}
+\DeclareSIUnit\Mpc{\mega\parsec}
+\DeclareSIUnit\Myr{\mega\year}
+\DeclareSIUnit\uG{\micro\gauss}
+
 \usepackage{journalabbrv}
 
 % Fix the color of notes on the second screen
