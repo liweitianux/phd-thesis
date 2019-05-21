@@ -96,7 +96,6 @@
 \newcommand{\ads}[1]{\href{http://adsabs.harvard.edu/abs/#1}{\textsc{ads}:#1}}
 \newcommand{\arxiv}[1]{\href{https://arixv.org/abs/#1}{\textsc{arXiv}:#1}}
 \newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
-\newcommand{\circled}[1]{{\large\textcircled{\small #1}}}
 \newcommand{\Cpi}{\symup{\pi}}  % constant pi
 \newcommand{\Ce}{\symup{e}}  % constant e
 \newcommand{\Ci}{\symup{i}}  % complex i
@@ -167,13 +166,6 @@
 \input{src/acronym.tex}
 \input{src/glossary.tex}
 
-% Help track changes
-% Credit: https://tex.stackexchange.com/a/49913
-\newcommand{\editone}[1]{{\leavevmode\color{cyan}#1}}
-\newcommand{\edittwo}[1]{{\leavevmode\color{magenta}#1}}
-%\renewcommand{\editone}[1]{{#1}}
-%\renewcommand{\edittwo}[1]{{#1}}
-
 \AtBeginBibliography{
   \linespread{1.1}
   \small
@@ -223,7 +215,7 @@
   convolutional denoising autoencoder
 }
 \englishauthor{\textbf{Wéitiān Lǐ}}
-\englishadvisor{Prof. \textbf{Hǎiguāng Xú}}
+\englishadvisor{Prof.~\textbf{Hǎiguāng Xú}}
 \englishinstitute{School of Physics and Astronomy}
 \englishschool{Shanghai Jiao Tong University}
 \englishlocation{Shanghai, China}
@@ -254,7 +246,7 @@
     \faCopyright{} 2018--2019 Wéitiān Lǐ,
     \ccLabel{by}{4.0},
     \githubLabel{liweitianux}{phd-thesis},
-    \faPencilAlt{} \today
+    \faEdit{} \today
   }
 }
 \AtEndDocument{%
