@@ -58,7 +58,7 @@
 \newcommand\coadvisor[1]{\def\sjtu@value@coadvisor{#1}}
 \newcommand\major[1]{\def\sjtu@value@major{#1}}
 \newcommand\submitdate[1]{\def\sjtu@value@submitdate{#1}}
-\newcommand\defenddate[1]{\def\sjtu@value@defenddate{#1}}
+\newcommand\defensedate[1]{\def\sjtu@value@defensedate{#1}}
 \newcommand\institute[1]{\def\sjtu@value@institute{#1}}
 \newcommand\chairman[1]{\def\sjtu@value@chairman{#1}}
 \renewcommand\title[1]{\def\sjtu@value@chinesetitle{#1}}
@@ -357,7 +357,7 @@
       \fi
     \fi
     \sjtu@label@major           & \underline{\makebox[150pt]{\sjtu@value@major}} \\
-    \sjtu@label@defenddate      & \underline{\makebox[150pt]{\sjtu@value@defenddate}}
+    \sjtu@label@defensedate      & \underline{\makebox[150pt]{\sjtu@value@defensedate}}
   \end{tabular}
   \end{center}
   \vskip \stretch{0.5}
