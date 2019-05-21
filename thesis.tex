@@ -153,6 +153,8 @@
 \DeclareSIUnit\Myr{\mega\year}
 \DeclareSIUnit\uG{\micro\gauss}
 
+\usepackage[en-US]{datetime2}
+
 \usepackage{journalabbrv}
 
 \usepackage{acro}  % acronyms, symbols, glossaries
@@ -181,6 +183,8 @@
 
 %=====================================================================
 
+\DTMsavedate{defensedate}{2019-05-19}  % TODO
+
 % 不得超过 36 字
 \title{%
   射电晕对宇宙再电离探测的影响和\texorpdfstring{\\}{}%
@@ -200,7 +204,10 @@
 \school{上海交通大学}
 \institute{物理与天文学院}
 \major{物理学}
-\defensedate{2019 年 mm 月 dd 日}
+\defensedate{%
+  \DTMfetchyear{defensedate} 年
+  \DTMfetchmonth{defensedate} 月
+  \DTMfetchday{defensedate} 日}
 
 \englishtitle{%
   Impacts of Radio Halos on EoR Detection and \\
@@ -221,7 +228,7 @@
 \englishschool{Shanghai Jiao Tong University}
 \englishlocation{Shanghai, China}
 \englishmajor{Physics}
-\englishdate{mmm dd, 2019}
+\englishdate{\DTMusedate{defensedate}}
 
 %---------------------------------------------------------------------
 % Copyright @ last page
