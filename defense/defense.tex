@@ -277,6 +277,242 @@
 
 
 %=====================================================================
+\section{射电天文学基础}
+
+%............
+\begin{frame}{射电天文学}
+  \alert{射电天文学}:
+  在射电波段对天体和宇宙开展研究的天文学分支.
+  \alert{射电窗口}的频率范围 $\sim$ \SI{10}{\MHz} -- \SI{1000}{\GHz}
+  （波长 $\sim$ \SI{0.3}{\mm} -- \SI{30}{\meter}）.
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{atmospheric-em-transmittance}
+    \caption{大气层的电磁辐射透射率. (来源: \citeay{condon2016})}
+  \end{figure}
+\end{frame}
+
+%............
+\begin{frame}{比强度和流量密度}
+  \begin{columns}
+    \column{0.6\textwidth}
+      \begin{alertblock}{比强度 (specific intensity)}
+        \smallskip
+        单位频率间隔内、沿着辐射传播方向上单位立体角穿过垂直于传播方向的单位面积
+        的辐射功率，即：
+        \begin{equation}
+          I_{\nu} \equiv
+            \frac{\D{P_{\nu}}}{(\cos\theta\,\D{\sigma})
+              \,\D{\nu} \,\D{\Omega}} \,,
+        \end{equation}
+        亦被称为\emph{谱亮度}，或简称\emph{强度}或\emph{亮度}.
+      \end{alertblock}
+
+      \begin{alertblock}{流量密度 (flux density)}
+        \smallskip
+        \begin{equation}
+          S_{\nu} \equiv
+            \int_{\R{source}} I_{\nu}(\theta,\phi) \cos\theta \,\D{\Omega} ,
+        \end{equation}
+        单位为 \si{\jansky}，
+        $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
+      \end{alertblock}
+
+    \column{0.4\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=0.9\columnwidth]{specific-intensity}
+        \caption{比强度 $I_{\nu}$ 测量示意图. (\citeay{condon2016})}
+      \end{figure}
+  \end{columns}
+\end{frame}
+
+%............
+\begin{frame}{辐射转移}
+  \begin{itemize}
+    \item 辐射在介质中传播时会经历吸收和发射，由\alert{辐射转移方程}描述:
+      \begin{equation}
+        \diff{I_{\nu}}{s} = -\kappa I_{\nu} + j_{\nu} ,
+      \end{equation}
+      其中 $\kappa$ 为吸收系数， $j_{\nu}$ 为发射系数.
+    \item \alert{光深}:
+      \begin{equation}
+        \tau \equiv
+          - \int_{s_{\R{out}}}^{s_{\R{in}}} \kappa(s') \,\D{s'} .
+      \end{equation}
+      当 $\tau \ll 1$ 时，称介质是\emph{光学薄}的；
+      当 $\tau \gg 1$ 时，则称介质是\emph{光学厚}的.
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{亮温度 $T_b$}
+  \begin{itemize}
+    \item \alert{黑体辐射}的频谱 $B_{\nu}(\nu, T)$ 只取决于其温度 $T$，
+      由 \alert{Planck 定律}给出:
+      \begin{equation}
+        B_{\nu}(\nu, T) =
+          \frac{2 h_p \nu^3}{c^2} \left[ \exp\left(
+            \frac{h_p \nu}{k_B T} \right) - 1 \right]^{-1} .
+      \end{equation}
+    \item 在射电波段有 $h_p \nu \ll k_B T$，于是有 \alert{Rayleigh--Jeans 近似}:
+      \begin{equation}
+        B_{\nu}(\nu, T) \approx \frac{2 \nu^2 k_B T}{c^2} .
+      \end{equation}
+      黑体的亮度 $B_{\nu}$ 与其温度 $T$ 严格成正比.
+    \item 一个辐射源的亮度 $I_{\nu}$ 可以很方便与使用\alert{亮温度}来描述:
+      \begin{equation}
+        T_b(\nu) \equiv \frac{I_{\nu} c^2}{2 k_B \nu^2} .
+      \end{equation}
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{干涉测量原理}
+  \begin{columns}
+    \column{0.4\textwidth}
+    二元准单色干涉仪观测一个点源，相关器的输出响应为:
+    \begin{align}
+      R & = \langle V_1(t) V_2(t) \rangle \\
+        & = \frac{1}{2} V^2 \cos (\omega \tau_g) ,
+    \end{align}
+    $\tau_g = \B{b} \cdot \hat{\B{s}}$ 为几何延迟，\\
+    $\B{b}$ 为基线矢量，\\
+    $\hat{\B{s}}$ 为辐射源的方向.
+
+    \column{0.6\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{interferometer}
+      \caption{二元准单色干涉仪示意图. (\citeay{condon2016})}
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+%............
+\begin{frame}{干涉测量原理}
+  \begin{itemize}
+    \item 一个展源 $I_{\nu}(\hat{\B{s}})$ 可当作一系列独立的点源处理，
+      于是干涉仪响应为:
+      \begin{equation}
+        R_c = \int I_{\nu}(\hat{\B{s}})
+          \cos (2\Cpi\, \B{b} \cdot \hat{\B{s}} / \lambda) \,\D{\Omega} .
+      \end{equation}
+    \item 上述 \enquote{cosine} 相关器只能测量 $I_{\nu}(\hat{\B{s}})$ 的偶成分.
+    \item 为测量 $I_{\nu}(\hat{\B{s}})$ 的奇成分，
+      还需要一个 \enquote{sine} 相关器，
+      可通过对其中一个天线的输出增加 $\Cpi/2$ 的相位延迟来实现，于是:
+      \begin{equation}
+        R_s = \int I_{\nu}(\hat{\B{s}})
+          \sin (2\Cpi\, \B{b} \cdot \hat{\B{s}} / \lambda) \,\D{\Omega} .
+      \end{equation}
+    \item \alert{复可见度 (complex visibility)} 定义为:
+      \begin{equation}
+        \mathcal{V}
+          \equiv R_c - \Ci R_s
+          = \int I_{\nu}(\hat{\B{s}})
+            \exp (- 2\Cpi\Ci\, \B{b} \cdot \hat{\B{s}} / \lambda)
+            \,\D{\Omega} .
+      \end{equation}
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{坐标系统}
+  \begin{columns}
+    \column{0.55\textwidth}
+    \begin{itemize}
+      \item $w$ 轴指向参考方向，通常为目标的中心； \\
+        $u$ 轴向东； \\
+        $v$ 轴向北.
+      \item 基线矢量: $\B{b} = (u,v,w) \,\lambda$.
+      \item 方向矢量: $\hat{\B{s}} = \left( l, m, \sqrt{1-l^2-m^2} \right)$，
+        其中 $l, m$ 分别为 $\hat{\B{s}}$ 对 $u, v$ 轴的投影长度.
+    \end{itemize}
+
+    \column{0.4\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{interferometer-coordsys}
+      \caption{干涉仪的 $(u,v,w)$ 直角坐标系. (\citeay{thompson2017})}
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+%............
+\begin{frame}{成像原理}
+  \begin{equation}
+    \mathcal{V}(u,v,w)
+      = \!\iint \!\frac{I_{\nu}(l,m)}{\sqrt{1-l^2-m^2}}
+      \exp \!\left[ -2\Cpi\Ci \!\left( ul+vm+w\sqrt{1-l^2-m^2} \right) \right]
+      \D{l}\,\D{m}
+  \end{equation}
+
+  \begin{itemize}
+    \item 注意，上式\alert{不是}二维 Fourier 变换.
+    \item 在以下两种常见的特殊情况下:
+      \begin{itemize}
+        \item 所有基线矢量共面，即有 $w = 0$；
+        \item 小视场成像，即满足 $\big| \Cpi w(l^2+m^2) \big| \ll 1$.
+      \end{itemize}
+      上式可近似成二维 Fourier 变换:
+      \begin{equation}
+        \mathcal{V}(u,v)
+          = \iint \frac{I_{\nu}(l,m)}{\sqrt{1-l^2-m^2}}
+            \exp [-2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m},
+      \end{equation}
+    \item 通过逆变换，可得目标的亮度分布 $I_{\nu}(l,m)$:
+      \begin{equation}
+        \frac{I_{\nu}(l,m)}{\sqrt{1-l^2-m^2}}
+          = \iint \mathcal{V}(u,v)
+            \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m}.
+      \end{equation}
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{$uv$ 覆盖}
+  \begin{itemize}
+    \item 基线 $\B{b} = (u,v,w) \,\lambda$ 每个时刻测量一对可见度数据: \\
+      $\mathcal{V}(u,v)$ 和 $\mathcal{V}(-u,-v)$.
+    \item \alert{$uv$ 覆盖}指 $uv$ 平面内被测量到的范围，
+      由\alert{采样函数} $S(u,v)$ 描述.
+    \item 对测量的可见度数据进行逆 Fourier 变换，
+      仅能得到目标的\alert{脏图 (dirty map)}:
+      \begin{equation}
+        \frac{I_{\nu}^D(l,m)}{\sqrt{1-l^2-m^2}}
+          = \iint \mathcal{V}(u,v) S(u,v)
+            \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m}.
+      \end{equation}
+    \item \alert{综合波束 (synthesized beam)}
+      或\alert{点扩散函数 (point spread function; PSF)}
+      是 $S(u,v)$ 的 Fourier 变换:
+      \begin{equation}
+        B(l,m) = \iint S(u,v) \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m}.
+      \end{equation}
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{成像过程的变换关系}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{imaging-relations}
+    \caption{%
+      (a) 真实图像；
+      (b) 综合波束；
+      (c) 脏图；
+      (d) 真实的可见度数据；
+      (e) 采样函数；
+      (f) 测量到的可见度数据.
+      (Dale E. Gary, Radio Astronomy)
+    }
+  \end{figure}
+\end{frame}
+
+
+%=====================================================================
 \section{总结}
 
 \begin{frame}{结\cspace{}论}
