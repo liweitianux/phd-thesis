@@ -29,7 +29,16 @@
   BoldFont={Fira Code Medium}
 ]
 
+\usepackage{bm}
 \usepackage{newtxsf}
+\newcommand{\R}[1]{\text{#1}}  % text math alphabets
+\newcommand{\Ce}{\R{e}}  % constant e
+\newcommand{\Ci}{\R{i}}  % constant i
+\newcommand{\Cpi}{\piup}  % upright 'pi', provided by 'newtxsf' package
+\newcommand{\B}[1]{\bm{\mathsf{#1}}}  % single-letter bold math
+\newcommand{\D}[1]{\R{d}#1}
+\newcommand{\diff}[2]{\frac{\D{#1}}{\D{#2}}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
 
 \usepackage{xeCJK}
 \setCJKsansfont{Source Han Sans SC Light}[
