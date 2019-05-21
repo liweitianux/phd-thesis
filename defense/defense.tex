@@ -207,11 +207,75 @@
   \tableofcontents[hideallsubsections]
 \end{frame}
 
+
 %=====================================================================
 \section{绪论}
 
-\begin{frame}{Hi}
-Hello world! \textbf{Hello world!}
+%............
+\begin{frame}{研究背景}
+  \begin{itemize}
+    \item 宇宙的中期历史仍然知之甚少，可细分为 \cite{koopmans2015}：
+      无知时期 ($z \sim \numrange{200}{1100}$)、
+      黑暗时期 ($z \sim \numrange{30}{200}$)、
+      黎明时期 ($z \sim \numrange{15}{30}$)、
+      再电离时期 (EoR; $z \sim \numrange{6}{15}$).
+    \item 中性氢 21\,cm 谱线 ($\sim$\,\SI{1420}{\MHz})
+      是探测 EoR 以及更早的黑暗时期的最直接而有效的探针.
+  \end{itemize}
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{universe-history}
+    \caption{宇宙的演化历史. (来源: BICEP2/CERN/NASA)}
+  \end{figure}
+\end{frame}
+
+%............
+\begin{frame}{研究背景}
+  \begin{itemize}
+    \item EoR 信号应出现在 $\sim$\,\SIrange{90}{200}{\MHz} 的低频射电波段.
+    \item 信号非常微弱，亮温度仅约几 mK 至十几 mK.
+    \item 强烈的前景干扰（比 EoR 信号强约 5 个数量级），多种前景干扰成分.
+    \item 仪器效应复杂、观测干扰显著、数据处理困难、等等.
+    \item 亟待深入理解前景干扰，构建准确的前景模型，
+      研发有效的前景处理和 EoR 信号提取算法，
+      才能保障 EoR 探测实验的成功.
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{研究内容}
+  \begin{alertblock}{1. 改进射电晕的建模以及评估其对 EoR 探测的影响}
+    \begin{itemize}
+      \item 星系团射电晕是一类典型的河外射电展源：
+        尺度较大（若干角分）、形态相对复杂、
+        数目较多（SKA 将发现约 2500 个 \cite{cassano2015}），
+        可能对 EoR 信号的探测产生显著干扰.
+      \item 相比银河系以及河外点源等前景成分，对射电晕的研究明显不足而且比较粗糙.
+      \item 基于\alert{湍流再加速模型}，模型星系团的形成与演化过程，
+        显著改进射电晕的低频射电天图的模拟.
+      \item 采用 \alert{SKA1-Low 阵列布局}，整合逼真的干涉阵列仪器效应.
+      \item 利用一维和二维功率谱，量化射电晕对 EoR 信号的干扰情况，
+        指导 EoR 实验的数据处理以及 EoR 信号分离算法的研发.
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+%............
+\begin{frame}{研究内容}
+  \begin{alertblock}{2. 基于深度学习研发 EoR 信号分离新算法}
+    \begin{itemize}
+      \item 传统的前景处理方法依赖于：前景辐射的频谱必须非常光滑.
+      \item 干涉阵列的波束存在频率依赖效应，导致前景辐射的频谱出现小尺度涨落，
+        光滑性受到损坏.
+      \item 波束形状非常复杂，难以为现有方法打造一个实际可用的波束模型.
+      \item 深度学习方法能从数据中学习知识并自适应地优化自身模型.
+      \item 基于深度学习方法研发 EoR 信号分离新算法更加可行、更具有吸收力.
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+
 
 测试 \textbf{测试}\\
 空空空空空空空空\\
