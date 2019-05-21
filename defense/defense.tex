@@ -135,6 +135,7 @@
 \usepackage[%
   backend=biber,
   style=numeric,
+  sorting=none,
   autocite=superscript,
 ]{biblatex}
 %
@@ -150,6 +151,7 @@
    \bibopenbracket\usebibmacro{cite}\bibclosebracket}
   {\supercitedelim}
   {}
+\newcommand{\citeay}[1]{\citeauthor{#1} \citeyear{#1} \parencite{#1}}
 
 \AtBeginBibliography{
   \linespread{1.1}
