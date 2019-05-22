@@ -522,6 +522,115 @@
 
 
 %=====================================================================
+\section{再电离时期的探测}
+
+%............
+\begin{frame}{中性氢 21\,cm 谱线}
+  \begin{columns}
+    \column{0.55\textwidth}
+    \begin{itemize}
+      \item 质子和电子均有 1/2 自旋.
+      \item 两个自旋的相互作用使氢原子的基态发生\alert{超精细分裂}.
+      \item 当电子的自旋发生翻转时，会产生/吸收频率约为 \SI{1420}{\MHz} 的光子，
+        波长约为 21\,cm，因此被称为 \alert{21\,cm 谱线}.
+    \end{itemize}
+
+    \column{0.45\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{hydrogen-spinflip}
+      \caption{氢原子的自旋翻转跃迁. \\
+        (来源: Tiltec, Wikipedia)}
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+%............
+\begin{frame}{EoR 信号}
+  \begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{21cm-radiative-transfer}
+    \caption{CMB 辐射穿过中性氢云的辐射转移示意图. (\citeay{zaroubi2013})}
+  \end{figure}
+
+  待探测的 \alert{EoR 信号}为中性氢云的辐射相对于 CMB 辐射的\alert{差异}:
+  \begin{equation}
+    \delta T_b(\nu) \approx
+      \frac{3 h_p c^3 A_{21}}{32\Cpi \nu_0^2 \,k_B}
+      \frac{\chi_{\R{HI}} n_{\R{HI}}}{
+        (1+z)^2 (\partial v_{\parallel} / \partial r_{\parallel})}
+      \left[ 1 - \frac{T_{\R{cmb}}(z)}{T_s} \right] ,
+  \end{equation}
+  其中 $A_{21}$ 为自发发射系数，
+  $\chi_{\R{HI}}$ 为氢原子的中性比例， \\
+  $n_{\R{HI}}$ 为中性氢的数密度，
+  $v$ 为中性氢云的自行速度， \\
+  $T_s$ 为中性氢云的自旋温度，
+  $T_{\R{cmb}}$ 为 CMB 辐射的亮温度.
+\end{frame}
+
+%............
+\begin{frame}{EoR 信号的演化}
+  \begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{eor-signal-evolution}
+    \caption{EoR 信号的平均强度的演化示意图. (\citeay{pritchard2012})}
+  \end{figure}
+\end{frame}
+
+%............
+\begin{frame}{功率谱}
+  \begin{columns}
+    \column{0.6\textwidth}
+    \begin{itemize}
+      \item EoR 信号的频率 $\nu$ 对应于中性氢的视向距离.
+      \item EoR 信号的\alert{图像立方} $I(\B{\theta}, \nu)$
+        对应于中性氢的三维空间分布.
+      \item 通过三维 Fourier 变换，可以从 $I(\B{\theta}, \nu)$
+        计算 EoR 信号的\alert{三维功率谱} $P(\B{k})$.
+      \item 按一系列球壳对 $P(\B{k})$ 压缩，可得\alert{一维功率谱} $P(k)$.
+      \item 按 $k_{\parallel}$ 平面内的一系列圆环压缩，
+        得到\alert{二维功率谱} $P(k_{\perp}, k_{\parallel})$.
+    \end{itemize}
+
+    \column{0.4\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{ps2d-annuli-diagram}
+      \caption{二维功率谱的计算示意图. (\citeay{thyagarajan2013})}
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+%............
+\begin{frame}{前景楔形}
+  \begin{itemize}
+    \item 同一条基线的空间分辨率随频率的增大而提高，
+      即所测量的波数正比于频率: $u = b/\lambda \propto \nu$.
+      称为\alert{色彩效应 (chromatic effect)}.
+    \item 基线越长，色彩效应越显著.
+    \item 将 $k_{\perp}$ 模式里的功率\enquote{混合}到 $k_{\parallel}$ 模式里，
+      导致\alert{前景楔形} \cite{morales2012}.
+  \end{itemize}
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{chromatic-baselines}
+    \caption{基线的色彩效应示意图.}
+  \end{figure}
+\end{frame}
+
+%............
+\begin{frame}{EoR 窗口}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{EoR-window}
+    \caption{EoR 窗口和前景楔形的示意图.}
+  \end{figure}
+\end{frame}
+
+
+%=====================================================================
 \section{总结}
 
 \begin{frame}{结\cspace{}论}
