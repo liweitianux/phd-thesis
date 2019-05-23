@@ -223,9 +223,6 @@
 % Set indent in English mode
 \ifsjtu@english\setlength{\parindent}{2\ccwd}\fi
 
-% Bullets in the item
-\renewcommand{\labelitemi}{\ensuremath{\bullet}}
-
 % Graphics path & file extension
 \graphicspath{{fig/}{figure/}{figures/}{logo/}{logos/}{graph/}{graphs/}}
 \DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.jpeg}
@@ -282,6 +279,8 @@
 \setlist{nosep}
 \setlist*{leftmargin=*} % 列表和段落头对齐
 \setlist[1]{labelindent=\parindent} % Only the level 1
+\setlist[itemize,1]{label=\ensuremath{\bullet}}
+\setlist[itemize,2]{label=\ensuremath{\square}}
 
 % Set listings/lstlistings
 \lstset{
