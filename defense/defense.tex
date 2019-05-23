@@ -11,6 +11,15 @@
 \setbeamertemplate{section in toc}[sections numbered]
 \setbeamertemplate{frametitle continuation}{(\insertcontinuationcount)}
 
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{itemize subitem}[triangle]
+% Suppress itemize indentation
+% Credit: https://tex.stackexchange.com/a/450317
+\settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
+\addtolength{\leftmargini}{\labelsep}
+\settowidth{\leftmarginii}{\usebeamertemplate{itemize subitem}}
+\addtolength{\leftmarginii}{\labelsep}
+
 % Solarized theme
 % Credit: https://ethanschoonover.com/solarized/
 \definecolor{SolBase02}{HTML}{073642}
@@ -54,12 +63,6 @@
 \usepackage{appendixnumberbeamer}
 \usepackage{booktabs}
 \usepackage{csquotes}
-
-\usepackage{enumitem}
-\setlist*{leftmargin=*}
-\setlist[1]{labelindent=\parindent}
-\setlist[itemize,1]{label=\ensuremath{\bullet}}
-\setlist[itemize,2]{label=\ensuremath{\square}}
 
 \usepackage{caption}
 \captionsetup{%
