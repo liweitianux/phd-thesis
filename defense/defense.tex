@@ -1079,6 +1079,53 @@
   \end{columns}
 \end{frame}
 
+%---------------------------------------------------------------------
+\subsection{干涉阵列的模拟观测}
+
+%............
+\begin{frame}{观测模拟}
+  \begin{itemize}
+    \item 采用目前最新的 SKA1-Low~阵列布局.
+    \item 使用 \texttt{OSKAR} 对每张天图进行模拟观测，积分时间 \SI{6}{\hour}.
+    \item 观测中心坐标为 (\SI{0}{\degree}, \SI{-27}{\degree})，
+      该点能够经过 SKA1-Low 的天顶.
+    \item 银河系的同步辐射和自由--自由辐射被叠加在一起.
+    \item 假定 \SI{158}{\MHz} 流量密度 $S_{158} > \SI{50}{\mJy}$
+      的点源已被移除.
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{成像}
+  \begin{itemize}
+    \item 使用 \texttt{WSClean} 从模拟的可见度数据生成\enquote{观测}图像.
+    \item 采用 Briggs 权重 \cite{briggs1995}，稳健参数设为 0；\\
+      兼顾噪声水平和空间分辨率.
+    \item 启用联合通道解卷积技术，保证 CLEAN 成分的频谱光滑性.
+    \item 只切取图像质量较好的中央区域.
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{图像立方}
+  \begin{itemize}
+    \item 频带: 120--128, 154--162, 192--200 MHz
+    \item 带宽: \SI{8}{\MHz}
+    \item 频率分辨率: \SI{160}{\kHz}
+    \item 天区大小: \SI{10 x 10}{\degree}
+    \item 图像大小: \num{1800 x 1800}
+    \item 像素大小: \SI{20}{\arcsec}
+    \item 模拟结果:
+      \begin{itemize}
+        \item EoR 信号
+        \item 射电晕（100 次模拟）
+        \item 银河系弥散辐射（包括同步辐射和自由–自由辐射）
+        \item 河外点源
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
 %=====================================================================
 \section{总结}
 
