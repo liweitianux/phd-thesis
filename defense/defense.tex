@@ -633,6 +633,343 @@
 
 
 %=====================================================================
+\section{低频射电天空的模拟}
+
+%---------------------------------------------------------------------
+\subsection{星系团射电晕}
+
+%............
+\begin{frame}{射电晕}
+  \begin{itemize}
+  \item 之前对射电晕的模拟研究不足，而且建模过于简化.
+  \item 本文显著地改进了射电晕的建模，充分考虑了射电晕的形成和演化过程:
+    \begin{enumerate}
+      \item 从 Press--Schechter (PS) 质量函数模拟星系团的质量和红移分布；
+      \item 根据扩展 PS 理论模拟每个星系团的并合历史；
+      \item 运用湍流再加速模型，计算并合湍流对高能电子的再加速过程；
+      \item 求解 Fokker--Planck (FP) 方程，得到高能电子能谱以及射电晕频谱
+        的时间演化；
+      \item 计算射电晕的性质并生成图像.
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{PS 质量函数}
+  \begin{columns}
+    \column{0.5\textwidth}
+    红移 $z$ 时每单位共动体积内质量范围 $[M,\, M+\D{M}]$ 的星系团数目:
+    \begin{multline}
+      n_{\R{cl}}(M,z) \,\D{M} =
+        \sqrt{\frac{2}{\Cpi}} \frac{\langle \rho_0 \rangle}{M}
+        \frac{\delta_c(z)}{\sigma^2(M)} \times \\
+        \left| \diff{\sigma(M)}{M} \right|
+        \exp\!\left[ -\frac{\delta_c^2(z)}{2\sigma^2(M)} \right]
+        \,\D{M} ,
+    \end{multline}
+    $\langle \rho_0 \rangle$ 是当前的宇宙平均密度，
+    $\delta_c(z)$ 是暗物质坍缩的临界密度，
+    $\sigma(M)$ 是平均质量为 $M$ 的球形区域里的密度涨落值.
+
+    \column{0.5\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{mass-z-dist}
+      \caption{星系团的红移和质量分布直方图}
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+%............
+\begin{frame}{并合历史}
+  \begin{columns}
+    \column{0.5\textwidth}
+    质量为 $M_2$ 的星系团在一个较早时刻 $t_1$ 具有一个质量范围为
+    $[M_1,\, M_1+\D{M_1}]$ 的前身的条件概率为:
+    \begin{multline}
+      \R{Pr}(M_1, t_1 \,|\, M_2, t_2) \,\D{M_1} = \\
+        \frac{1}{\sqrt{2\Cpi}} \frac{M_2}{M_1}
+        \frac{\delta_{c1} - \delta_{c2}}{(\sigma_1^2 - \sigma_2^2)^{3/2}}
+        \left| \diff{\sigma_1^2}{M_1} \right|
+        \times \\
+        \exp \!\left[ -\frac{(\delta_{c1} - \delta_{c2})^2}
+        {2(\sigma_1^2 - \sigma_2^2)} \right] \,\D{M_1} .
+    \end{multline}
+    利用 Monte Carlo 模拟构建星系团的成长历史，即\alert{并合树}.
+
+    \column{0.5\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{merging-history}
+      \caption{星系团并合树的模拟结果示例}
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+%............
+\begin{frame}{演化模型}
+  在湍流加速和能量损失的共同作用下，
+  电子能谱 $n_e(\gamma, t)$ 随时间的演化由 \alert{FP 方程}描述:
+  \begin{multline}
+    \pdiff{n_e(\gamma, t)}{t} =
+      \pdiff{}{\gamma} \left[ n_e(\gamma, t) \left(
+        \left| \diff{\gamma}{t} \right| -
+        \frac{2}{\gamma} D_{\gamma\gamma}(\gamma, t) \right) \right] + \\
+      \pdiff{}{\gamma} \left[
+      D_{\gamma\gamma} \pdiff{n_e(\gamma, t)}{\gamma} \right]
+      + Q_e(\gamma, t) ,
+  \end{multline}
+  $D_{\gamma\gamma}$ 描述湍流和电子的相对作用，\\
+  $|\R{d}\gamma / \R{d}t|$ 是电子的能量损失速率，\\
+  $Q_e$ 描述了电子的注入过程.
+\end{frame}
+
+%............
+\begin{frame}
+  \begin{alertblock}{电子注入过程}
+    \smallskip
+    \begin{itemize}
+      \item AGN 活动、恒星形成等过程持续地将初级电子注入 ICM.
+      \item 可以假定:
+        \begin{itemize}
+          \item 注入速率 $K_e$ 恒定；
+          \item 注入电子的能谱为幂律形式，谱指数为 $s$；
+          \item 注入电子的总能量密度与 ICM 热能密度 $\epsilon_{\R{th}}$
+            之比为 $\eta_e$.
+        \end{itemize}
+      \item 可得:
+        \begin{align}
+          Q_e(\gamma, t) & = K_e \gamma^{-s} , \\
+          K_e & = \frac{(s-2) \eta_e \epsilon_{\R{th}}}{
+            \epsilon_e \tau_{\R{cl}}} \gamma_{\R{min}}^{s-2} ,
+        \end{align}
+        其中 $\epsilon_e = m_e c^2$，
+        $\tau_{\R{cl}}$ 为星系团的年龄.
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+%............
+\begin{frame}
+  \begin{alertblock}{湍流加速}
+    \smallskip
+    \begin{itemize}
+      \item 湍流与 ICM 中的宇宙射线粒子发生作用而耗散能量，
+        于是初级电子获得能量被加速 \cite{brunetti2011}.
+      \item 该加速机制的扩散系数为 \cite{miniati2015}:
+        \begin{equation}
+          D_{\gamma\gamma} =
+            2 \gamma^2 \zeta k_L
+            \frac{\langle (\delta v_t)^2 \rangle^2}{\chi_{\R{cr}} c_s^3} ,
+        \end{equation}
+        $\zeta$ 为 ICM 等离子体的不稳定性，\\
+        $\chi_{\R{cr}}$ 为宇宙射线的能量密度与 ICM 热能密度之比，\\
+        $k_L = 2\Cpi / r_{\R{turb}}$ 为湍流注入尺度，
+        $c_s$ 为 ICM 中的声速.
+      \item $\langle (\delta v_t)^2 \rangle$ 为湍流的速度弥散:
+        \begin{equation}
+          \langle (\delta v_t)^2 \rangle =
+            \langle (\delta v_0)^2 \rangle +
+            \frac{2 \eta_t E_m}{M_{\R{turb}}} ,
+        \end{equation}
+        $\eta_t$ 为并合注入湍流的能量比例.
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+%............
+\begin{frame}
+  \begin{alertblock}{湍流加速}
+    \smallskip
+    \begin{itemize}
+      \item $E_m$ 为并合释放的能量:
+        \begin{equation}
+          E_m \simeq \bar{\rho}_m v_{\R{imp}}^2
+            \Cpi r_s^2 r_{\R{vir,m}} ,
+        \end{equation}
+        $\bar{\rho}_m$ 为主团的平均气体密度，
+        $v_{\R{imp}}$ 为并合的碰撞速度，\\
+        $r_s$ 为子团的剥离半径.
+      \item $r_{\R{turb}}$ 为湍流区域的半径:
+        \begin{equation}
+          r_{\R{turb}} \simeq r_s + r_{\R{c,m}}
+            = r_s + 0.1\,r_{\R{vir,m}} .
+        \end{equation}
+      \item $M_{\R{turb}}$ 为湍流区域内的气体质量:
+        \begin{equation}
+          M_{\R{turb}} =
+            \int_0^{r_{\R{turb}}} \! \rho(r) \,4\Cpi r^2 \,\D{r} ,
+        \end{equation}
+        $\rho(r)$ 为已并合星系团的气体密度轮廓，由 $\beta$ 模型描述.
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+%............
+\begin{frame}
+  \begin{alertblock}{能量损失}
+    \smallskip
+    \begin{itemize}
+      \item 与 CMB 光子发生逆 Compton 散射:
+        \begin{equation}
+          \left( \diff{\gamma}{t} \right)_{\R{IC}} =
+            \num{-4.32e-4} \,\gamma^2 (1+z)^4
+            \quad [\si{\per\Gyr}] .
+        \end{equation}
+      \item 同步辐射:
+        \begin{equation}
+          \left( \diff{\gamma}{t} \right)_{\R{syn}} =
+            \num{-4.10e-5} \,\gamma^2
+            \left( \frac{B}{\SI{1}{\uG}} \right)^2
+            \quad [\si{\per\Gyr}] .
+        \end{equation}
+      \item 与 ICM 热电子发生 Coulomb 碰撞:
+        \begin{multline}
+          \left( \diff{\gamma}{t} \right)_{\R{Coul}} =
+            \num{-3.79e4} \left( \frac{n_{\R{th}}}{\SI{1}{\per\cm\cubed}} \right)
+            \left[ 1 + \frac{1}{75} \ln \left(
+              \gamma\,\frac{\SI{1}{\per\cm\cubed}}{n_{\R{th}}} \right) \right]
+            \\ \quad [\si{\per\Gyr}] ,
+        \end{multline}
+        $n_{\R{th}}$ 为热电子数密度.
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+%............
+\begin{frame}{数值实现}
+  \begin{itemize}
+    \item 采用 \citeay{chang1970} 提出的有限差分法求解 FP 方程.
+    \item 初始电子能谱 $n_e(\gamma, t_0)$:
+      让积累的电子能谱 $\tilde{n}_e(\gamma) = Q_e(\gamma) \tau_0$
+      在无并合的情况下演化 \SI{1}{\Gyr}.
+    \item 每次并合的有效加速时间:
+      \begin{equation}
+        \tau_{\R{turb}} \simeq 2 r_{\R{turb}} / v_{\R{imp}} .
+      \end{equation}
+    \item 同步辐射发射率:
+      \begin{equation}
+        J_{\R{syn}}(\nu) =
+          \frac{\sqrt{3} \,e^3 B}{m_e c^2}
+          \!\int_{\gamma_{\R{min}}}^{\gamma_{\R{max}}}
+          \!\!\!\int_0^{\Cpi/2}
+          \! F_{\R{syn}} \!\left( \frac{\nu}{\nu_c} \right)
+          n_e(\gamma, t) \sin^2 \!\theta \,\D{\theta} \,\D{\gamma} ,
+      \end{equation}
+      $\theta$ 为电子的螺距角，
+      $\nu_c$ 为电子的临界频率，\\
+      $F_{\R{syn}}()$ 是同步辐射核函数.
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{识别和大小}
+  \begin{itemize}
+    \item 只有活跃的湍流加速，射电晕才能形成.
+    \item 判别射电晕在频率 $\nu$ 处存在的两点依据:
+      \begin{itemize}
+        \item 同步辐射发射率 $J_{\R{syn}}(\nu)$
+          是相应的\enquote{参考值} $J'_{\R{syn}}(\nu)$ 的至少 1000 倍；
+        \item 同步辐射在该频率处的谱指数 $\alpha_{\nu} \le 3$.
+      \end{itemize}
+
+    \item 射电晕的半径 $r_{\R{halo}}$ 随星系团的维里半径 $r_{\R{vir}}$
+      超线性地增大，据此假定:
+      \begin{equation}
+        r_{\R{halo}} = f_r R_{\R{turb}}
+          \left( \frac{r_{\R{vir}}}{r_{\R{vir,*}}} \right)^b ,
+      \end{equation}
+      $R_{\R{turb}}$ 是最大湍流区域的半径，\\
+      $r_{\R{vir,*}}$ 是质量为 \SI{e15}{\solarmass} 的参考星系团的维里半径.
+    \item 对比观测的标度关系 \cite{cassano2007}，
+      选取 $f_r = 0.7$ 和 $b = 1.8$.
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{spec-evo-example}
+    \caption{电子能谱和同步辐射频谱随时间的演化示例}
+  \end{figure}
+\end{frame}
+
+%............
+\begin{frame}{模型参数调节}
+  \begin{itemize}
+    \item 射电晕模型的 5 个待调节参数:
+      \begin{itemize}
+        \item $\eta_e$:
+          注入电子的总能量密度与 ICM 热能密度 $\epsilon_{\R{th}}$ 之比；
+        \item $\eta_t$:
+          并合释放的能量中转化为湍流能量的比例；
+        \item $\chi_{\R{cr}}$:
+          宇宙射线的能量密度与 ICM 热能密度 $\epsilon_{\R{th}}$ 之比；
+        \item $\chi_{\R{turb}}$:
+          初  始湍流的能量密度与 ICM 热能密度 $\epsilon_{\R{th}}$ 之比；
+        \item $\zeta$:
+          ICM 等离子体的不稳定性参数.
+      \end{itemize}
+    \item 对比观测结果:
+      \begin{itemize}
+        \item 射电晕 \SI{1.4}{\GHz} 功率 ($P_{1400}$)
+          与星系团质量 ($M_{\R{vir}}$) 的标度关系；
+        \item 射电晕 \SI{1.4}{\GHz} 流量函数.
+      \end{itemize}
+    \item 最终选取参数:
+      $\eta_e = 0.01\%$,
+      $\eta_t = 15\%$,
+      $\chi_{\R{cr}} = 1.5\%$,
+      $\chi_{\R{turb}} = 1.5\%$,
+      $\zeta = 0.1$.
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{建模结果}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{halo-power-mvir}
+      \caption{$P_{1400}$--$M_{\R{vir}}$ 标度关系的对比}
+    \end{figure}
+
+    \column{0.5\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{fluxfunc-simucomp}
+      \caption{\SI{1.4}{\GHz} 流量函数的对比}
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+%............
+\begin{frame}{图像生成}
+  \begin{itemize}
+    \item 射电晕在频率 $\nu$ 处的功率和流量密度:
+      \begin{align}
+        P_{\R{halo}}(\nu)
+          & = \frac{4\Cpi}{3} r^3_{\R{halo}} J_{\R{syn}}(\nu) , \\
+        S_{\R{halo}}(\nu)
+          & = \frac{(1+z_{\R{sim}}) P_{\R{halo}}[\nu (1+z_{\R{sim}})]}{
+            4\Cpi D^2_{\!L}(z_{\R{sim}})} ,
+      \end{align}
+      $D_{\!L}$ 是光度距离，因子 $(1+z_{\R{sim}})$ 为 $K$ 修正.
+    \item 采用指数型轮廓来描述射电晕的角向平均亮度分布:
+      \begin{equation}
+        I_{\nu}(\theta) = I_{\nu,0} \exp
+          \left( -\frac{3\theta}{\theta_{\R{halo}}} \right) ,
+      \end{equation}
+      $\theta = r / D_{\!A}(z_{\R{sim}})$ 为角半径，
+      $I_{\nu,0}$ 为中心亮度.
+    \item 利用 Rayleigh--Jeans 近似，得到亮温度分布图像.
+    \item 为了考虑亮射电晕在不同天区的显著涨落，重复模拟 100 次射电晕.
+  \end{itemize}
+\end{frame}
+
+%=====================================================================
 \section{总结}
 
 \begin{frame}{结\cspace{}论}
