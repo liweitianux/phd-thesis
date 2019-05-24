@@ -329,7 +329,7 @@ $\left\{\left( M_m^{(i)}, M_s^{(i)}, t_{\R{merger}}^{(i)} \right)\right\}$
 \end{equation}
 其中
 \ac{coef-diffusion} 是描述\ac{turbulence}和电子相对作用的\acl{coef-diffusion}，
-$|\R{d}\gamma / \R{d}t|$ 是电子的能量损失速率，
+$|\R{d}\ac{g} / \R{d}t|$ 是电子的能量损失速率，
 还有 \ac{e-inj} 描述了电子的注入过程.
 
 %.....................................................................
@@ -1136,13 +1136,13 @@ $\left(0.85_{-0.54}^{+2.74}\right) \times 10^3$ \si{\mK}
 Haslam \SI{408}{\MHz} 巡天图\cite{haslam1982} 为模板、
 按幂律谱形式外延得到 \cite{wang2010,bonaldi2015}：
 \begin{equation}
-  T_b^{\R{syn}}(\B{\hat{r}}, \nu)
-    = T_b^{\R{haslam}}(\B{\hat{r}}) \left( \frac{\nu}{\SI{408}{\MHz}}
-      \right)^{-\alpha_{\R{syn}}(\B{\hat{r}})} ,
+  T_b^{\R{syn}}(\hat{\B{r}}, \nu)
+    = T_b^{\R{haslam}}(\hat{\B{r}}) \left( \frac{\nu}{\SI{408}{\MHz}}
+      \right)^{-\alpha_{\R{syn}}(\hat{\B{r}})} ,
 \end{equation}
-其中 $T_b^{\R{haslam}}(\B{\hat{r}})$ 为银河系 $\B{\hat{r}}$ 处的
+其中 $T_b^{\R{haslam}}(\hat{\B{r}})$ 为银河系 $\hat{\B{r}}$ 处的
 \SI{408}{\MHz} 亮温度，
-$\alpha_{\R{syn}}(\B{\hat{r}})$ 为该处的同步辐射谱指数.
+$\alpha_{\R{syn}}(\hat{\B{r}})$ 为该处的同步辐射谱指数.
 
 本工作使用了由 \citeay{remazeilles2015} 重新处理的 Haslam \SI{408}{\MHz}
 全天图\footnote{%
@@ -1154,7 +1154,7 @@ $\alpha_{\R{syn}}(\B{\hat{r}})$ 为该处的同步辐射谱指数.
 \SI{1420}{\MHz} 北天图 \cite{reich1986}
 以及 \SI{2326}{\MHz} 南天图 \cite{jonas1998}，
 处理得到了的银河系同步辐射的谱指数全天分布图.
-本文利用了该谱指数分布图来确定上式中的 $\alpha_{\R{syn}}(\B{\hat{r}})$.
+本文利用了该谱指数分布图来确定上式中的 $\alpha_{\R{syn}}(\hat{\B{r}})$.
 \autoref{fig:galactic-skymaps} 左栏显示了银河系\ac{rad-syn}在
 \SI{158}{\MHz} 的\ac{skymap}.
 \autoref{tab:tb-rms} 中列出了在三个频带的中心频率处的亮温度的\ac{rms}值.
@@ -1187,24 +1187,24 @@ $\alpha_{\R{syn}}(\B{\hat{r}})$ 为该处的同步辐射谱指数.
 便可以获得所需的银河系\ac{rad-ff}的图像.
 
 由于 Hα 辐射易被尘埃吸收，而\ac{rad-ff}则几乎不受尘埃的影响，
-所以首先需要对观测到的 Hα 辐射 $I_{\R{Hα}}(\B{\hat{r}})$
+所以首先需要对观测到的 Hα 辐射 $I_{\R{Hα}}(\hat{\B{r}})$
 修正尘埃吸收 \cite{dickinson2003}：
 \begin{equation}
-  I_{\R{Hα}}^{\R{corr}}(\B{\hat{r}})
-    = I_{\R{Hα}}(\B{\hat{r}}) \times 10^{0.0185 f_d D(\B{\hat{r}})} ,
+  I_{\R{Hα}}^{\R{corr}}(\hat{\B{r}})
+    = I_{\R{Hα}}(\hat{\B{r}}) \times 10^{0.0185 f_d D(\hat{\B{r}})} ,
 \end{equation}
 其中
-$D(\B{\hat{r}})$ 是视线方向 $\B{\hat{r}}$ 上的尘埃\ac{column-density}，
+$D(\hat{\B{r}})$ 是视线方向 $\hat{\B{r}}$ 上的尘埃\ac{column-density}，
 以 [\si{\mega\jansky\per\steradian}] 为单位，
 $f_d$ 是尘埃在视线方向上的有效吸收比例.
-接着，\ac{rad-ff}在频率 $\nu$ 处的图像 $T_b^{\R{ff}}(\B{\hat{r}}, \nu)$
+接着，\ac{rad-ff}在频率 $\nu$ 处的图像 $T_b^{\R{ff}}(\hat{\B{r}}, \nu)$
 可由以下关系计算得到 \cite{dickinson2003}\footnote{%
   \citeay{dickinson2003} 的公式 (11) 中的 \enquote{$\times\num{e3}$} 是多余的.
 }：
 \begin{equation}
-  T_b^{\R{ff}}(\B{\hat{r}}, \nu)
+  T_b^{\R{ff}}(\hat{\B{r}}, \nu)
     = 38.86 \,\nu^{-2.1} 10^{(290/T_e)} \, T_e^{0.667} \,a(\nu, T_e)
-      \left[ \frac{I_{\R{Hα}}^{\R{corr}}(\B{\hat{r}})}{\si{\rayleigh}}
+      \left[ \frac{I_{\R{Hα}}^{\R{corr}}(\hat{\B{r}})}{\si{\rayleigh}}
       \right] \quad [\si{\kelvin}] ,
 \end{equation}
 其中
