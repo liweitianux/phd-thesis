@@ -10,6 +10,7 @@
 
 \setbeamertemplate{section in toc}[sections numbered]
 \setbeamertemplate{frametitle continuation}{(\insertcontinuationcount)}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
 
 \setbeamertemplate{itemize items}[circle]
 \setbeamertemplate{itemize subitem}[triangle]
@@ -156,8 +157,8 @@
 \newcommand{\citeay}[1]{\citeauthor{#1} \citeyear{#1} \parencite{#1}}
 
 \AtBeginBibliography{
-  \linespread{1.1}
-  \small
+  \linespread{1.0}
+  \footnotesize
 }
 \addbibresource{../references.bib}
 
