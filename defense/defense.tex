@@ -95,8 +95,58 @@
   labelsep=period,
   justification=centering,
   textfont={footnotesize},
-  labelfont={footnotesize,bf},
+  labelfont={footnotesize},
 }
+
+\usepackage{keyval}
+\usepackage{etoolbox}
+
+\makeatletter
+% Set the keys (arguments) for including a figure
+\newlength{\myfigure@width}
+\newlength{\myfigure@height}
+\newtoggle{myfigure@vertcap}
+\define@key{myfigure}{width}{\setlength\myfigure@width{#1}}
+\define@key{myfigure}{height}{\setlength\myfigure@height{#1}}
+\define@key{myfigure}{vertcap}[true]{\toggletrue{myfigure@vertcap}}
+%
+% Custom command to include a figure with a horizontal/vertical caption
+\NewDocumentCommand{\myfigure}{m m m}{
+  \setkeys{myfigure}{width=0pt, height=0pt, #1}
+  %
+  % Get the size that a figure is being rendered
+  % Credit: https://tex.stackexchange.com/a/3664
+  \newsavebox{\myfigure@box}
+  \ifdimequal{\myfigure@height}{0pt}{
+    \savebox{\myfigure@box}{%
+      \includegraphics[width=\myfigure@width]{#2}}
+  }{%
+    \savebox{\myfigure@box}{%
+      \includegraphics[height=\myfigure@height]{#2}}
+  }
+  \settowidth{\myfigure@width}{\usebox{\myfigure@box}}
+  \settoheight{\myfigure@height}{\usebox{\myfigure@box}}
+  %
+  \begin{figure}[!h]
+    \centering
+    \usebox{\myfigure@box}
+    \iftoggle{myfigure@vertcap}{%
+      \hspace{-0.5em}%
+      % Credit: https://tex.stackexchange.com/a/44433
+      \rotatebox{90}{%
+        \begin{minipage}{\myfigure@height}
+          \caption{#3}
+        \end{minipage}
+      }
+    }{%
+      \caption{#3}
+    }
+  \end{figure}
+  % Credit: https://tex.stackexchange.com/a/18174
+  \global\let\myfigure@box\relax
+}
+%
+\makeatother
 
 \usepackage{xparse}
 % Credit: https://tex.stackexchange.com/a/376366
