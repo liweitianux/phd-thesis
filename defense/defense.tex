@@ -9,6 +9,29 @@
 \metroset{progressbar=foot}
 
 \setbeamertemplate{section in toc}[sections numbered]
+% Numbered sections in section page
+% Credit: https://github.com/matze/mtheme/issues/271#issuecomment-292799444
+\makeatletter
+\setbeamertemplate{section page}{
+  \centering
+  \begin{minipage}{22em}
+    \raggedright
+    \usebeamercolor[fg]{section title}
+    \usebeamerfont{section title}
+    \thesection.~\insertsectionhead\\[-1ex]
+    \usebeamertemplate*{progress bar in section page}
+    \par
+    \ifx\insertsubsectionhead\@empty\else%
+      \usebeamercolor[fg]{subsection title}%
+      \usebeamerfont{subsection title}%
+      \thesection.\thesubsection.~\insertsubsectionhead
+    \fi
+  \end{minipage}
+  \par
+  \vspace{\baselineskip}
+}
+\makeatother
+
 \setbeamertemplate{frametitle continuation}{(\insertcontinuationcount)}
 \setbeamertemplate{bibliography item}{\insertbiblabel}
 
