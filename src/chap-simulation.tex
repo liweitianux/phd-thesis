@@ -1181,9 +1181,9 @@ $\alpha_{\R{syn}}(\hat{\B{r}})$ 为该处的同步辐射谱指数.
 \subsection{自由--自由辐射}
 \label{sec:simu-gff}
 
-银河系\ac{rad-ff}和 Hα 源自相同的辐射区域（如\ac{hii}区、\ac{wim}），
+银河系\ac{rad-ff}和 Hα 辐射源自相同的辐射区域（如\ac{hii}区、\ac{wim}），
 因此两者之间存在紧密的联系 \cite{dickinson2003}.
-利用该关系以及 Hα 巡天图 \cite{finkbeiner2003}，
+利用该关系以及 Hα 辐射巡天图 \cite{finkbeiner2003}，
 便可以获得所需的银河系\ac{rad-ff}的图像.
 
 由于 Hα 辐射易被尘埃吸收，而\ac{rad-ff}则几乎不受尘埃的影响，
@@ -1464,7 +1464,8 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 \end{figure}
 
 前景的频谱光滑性是区分前景污染和 EoR 信号的关键.
-为了保证这一点，我们利用了 \texttt{WSClean} 的联合\ac{channel}\ac{deconv}
+为了保证 CLEAN 成分的频谱光滑性，
+我们利用了 \texttt{WSClean} 的联合\ac{channel}\ac{deconv}
 (joined-channel deconvolution) 技术 \cite{offringa2017}，
 将一个前景成分（如射电晕）在一个频带（如 \SIrange{154}{162}{\MHz}）
 内 51 个\ac{channel}的\ac{vis}数据作为一个整体处理，得到相应的\ac{imgcube}.
@@ -1477,8 +1478,8 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 SKA1-Low \enquote{观测}得到的\ac{imgcube}：
 \begin{itemize}
   \item EoR 信号；
+  \item 射电晕（100 次模拟）；
   \item 银河系弥散辐射（包括\ac{rad-syn}和\ac{rad-ff}）；
-  \item 射电晕；
   \item 河外点源.
 \end{itemize}
 \autoref{fig:obsimg-all} 展示了各成分在 \SI{158}{\MHz} 的模拟观测图像.
