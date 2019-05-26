@@ -1215,6 +1215,141 @@
 
 
 %=====================================================================
+\section{射电晕对 EoR 探测的影响}
+
+%............
+\begin{frame}{一维功率谱}
+  \begin{itemize}
+    \item 在 $\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$ 尺度范围内，
+      射电晕在三个频带内的典型功率分别是 EoR 信号的功率的
+      \num{e4}、\num{e3}、\num{e2.5} 倍.
+    \item 在 68\% 的误差范围内，射电晕的功率可变化约 \numrange{10}{100} 倍.
+  \end{itemize}
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{ps1d-3bands}
+    \caption{各成分的一维功率谱对比}
+  \end{figure}
+\end{frame}
+
+%............
+\begin{frame}{二维功率谱}
+  \vspace{-1ex}
+  \myfigure{%
+    height=0.9\textheight,
+    %vertcap,
+  }{ps2d-band158}{%
+    各成分在 \SIrange{154}{162}{\MHz} 频带的二维功率谱对比
+  }
+\end{frame}
+
+%............
+\begin{frame}{二维功率谱之比}
+  \begin{itemize}
+    \item 射电晕的污染区域呈明显的楔形.
+    \item 射电晕在三个频带内的显著污染范围分别约为: \\
+      $k_{\perp} \gtrsim \SI{0.1}{\per\Mpc}$、
+      $k_{\perp} \gtrsim \SI{0.3}{\per\Mpc}$、
+      $k_{\perp} \gtrsim \SI{0.5}{\per\Mpc}$.
+    \item 射电晕在较低频率 ($\sim$\,\SI{120}{\MHz}) 的污染程度更强.
+  \end{itemize}
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{ps2d-ratio-3bands}
+    \caption{射电晕和 EoR 信号的二维功率谱之比}
+  \end{figure}
+\end{frame}
+
+%............
+\begin{frame}{EoR 窗口内的一维功率比}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item 选取合适的 EoR 窗口边界 (式~\ref{eq:eor-window}):
+        $w = 3$, $\Phi = 1.5$\,FoV.
+      \item 损失的 EoR 信号功率比例分别约为: 45\%、46\%、60\%.
+      \item 在 $\SI{0.5}{\per\Mpc} < k < \SI{1}{\per\Mpc}$ 尺度范围内，
+        EoR 窗口内的一维功率比在 68\% 的误差范围内分别达到约:
+        230--800\%、18--95\%、7-40\%.
+      \item 射电晕泄漏到 EoR 窗口内的功率仍然可能是显著的，
+        尤其在较低频率 ($\sim$\,\SI{120}{\MHz}).
+    \end{itemize}
+
+    \column{0.5\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{ps1d-ratio-3bands}
+      \caption{射电晕与 EoR 信号在 EoR 窗口内的一维功率比}
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+%............
+\begin{frame}{频谱伪结构的影响}
+  \begin{itemize}
+    \item 干涉阵列的频率通道的校准不确定性约为 0.1--1\%.
+    \item 频谱伪结构幅度为 $A_{\R{arti}} = 0.1\%$ 时，
+      射电晕在 $k_{\perp} \lesssim \SI{0.2}{\per\Mpc}$ 和
+      $k_{\parallel} \gtrsim \SI{0.3}{\per\Mpc}$
+      的功率分别增加约 17、15、13 倍.
+    \item 如果 $A_{\R{arti}} = 1\%$，功率分别增加约 1700、1500、1300 倍.
+  \end{itemize}
+
+  \vspace{-1ex}
+  \myfigure{%
+    height=0.65\textheight,
+    vertcap,
+  }{ps2d-ratio-crp-3bands}{%
+    有无频谱伪结构时射电晕的二维功率比
+  }
+\end{frame}
+
+%............
+\begin{frame}{远旁瓣的影响}
+  \begin{itemize}
+    \item 干涉阵列有一系列明显的旁瓣.
+    \item 远离视场的源仍然可以通过旁瓣在视场中产生干扰，\\
+      即\alert{远旁瓣致淆噪声 (FSCN)}.
+    \item 当 $uv$ 覆盖饱和时，FSCN 便不再降低，是成像质量的限制因素之一.
+  \end{itemize}
+
+  \myfigure{%
+    height=0.5\textheight,
+  }{SKA1-low-beams}{%
+    SKA1-Low 的站点波束
+  }
+\end{frame}
+
+%............
+\begin{frame}
+  \begin{itemize}
+    \item 模拟新的天图和观测图像:
+      射电晕覆盖了从角半径 \SI{10}{\degree} 至地平线的天空范围.
+    \item 射电晕 FSCN 的功率在 $k_{\perp} \sim \SI{0.3}{\per\Mpc}$ 和
+      $k_{\parallel} \sim \SI{1}{\per\Mpc}$ 的功率达到了 EoR 信号的约 20 倍.
+    \item 前景楔形污染向左上方大幅扩张，极大地压缩了 EoR 窗口.
+  \end{itemize}
+
+  \myfigure{%
+    height=0.65\textheight,
+  }{ps2d-fscn}{%
+    射电晕 FSCN 的二维功率谱及其与 EoR 信号的功率谱对比
+  }
+\end{frame}
+
+%............
+\begin{frame}{小结}
+  \begin{itemize}
+    \item 射电晕是一个重要的前景干扰成分.
+    \item 即使在 EoR 窗口内，射电晕的污染仍然不可忽略，尤其是在较低频率.
+    \item 干涉阵列的频谱伪结构和旁瓣进一步增强了射电晕对 EoR 信号的污染.
+  \end{itemize}
+\end{frame}
+
+
+%=====================================================================
 \section{总结}
 
 \begin{frame}{结\cspace{}论}
