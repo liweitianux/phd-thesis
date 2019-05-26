@@ -1339,6 +1339,232 @@
 
 
 %=====================================================================
+\section{基于深度学习的 EoR 信号分离新算法}
+
+%............
+\begin{frame}{波束的频率依赖效应}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item 干涉阵列的波束包含一系列旁瓣，旁瓣的位置随频率的增大而向中间移动.
+      \item 干扰源所产生的辐射的位置也随频率变化.
+      \item 考虑视场中某个位置，则干扰源的辐射沿频率维度出现小尺度涨落.
+      \item 前景辐射的频谱光滑性受损，导致传统前景扣除方法无法有效地分离 EoR 信号.
+    \end{itemize}
+
+    \column{0.5\textwidth}
+    \myfigure{%
+      width=\columnwidth,
+    }{cdae-simdata-example}{%
+      前景辐射和 EoR 信号的频谱示例
+    }
+  \end{columns}
+\end{frame}
+
+%............
+\begin{frame}{基于深度学习的新算法}
+  \begin{itemize}
+    \item 对波束效应进行手工建模几乎不可行.
+    \item 研发基于\alert{深度学习}的新算法更具有可行性和吸引力:
+      \begin{itemize}
+        \item 自适应地从数据中汲取信息用来优化自身模型；
+        \item 一旦训练好，使用过程非常高效；
+        \item 灵活性高，重新训练后可应用于其他望远镜.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{自编码器}
+  \begin{itemize}
+    \item 由\alert{编码器}和\alert{解码器}两部分组成:
+      \begin{itemize}
+        \item 编码器: 将输入 $\B{x}$ 映射成一个内部编码 $\B{h} = f(\B{x})$；
+        \item 解码器: 尝试从编码 $\B{h}$ 重构原输入信号，$\B{r} = g(\B{h})$.
+      \end{itemize}
+    \item 对编码 $\B{h}$ 施加约束，训练使得重构信号 $\B{r}$ 的损失
+      $L(\B{r}, \B{x})$ 最小.
+    \item 学得的编码能够有效地表示输入信号.
+    \item 常用于数据的降维和去噪.
+  \end{itemize}
+
+  \myfigure{width=\textwidth}{autoencoder}{自编码器的示意图}
+\end{frame}
+
+%............
+\begin{frame}{去噪自编码器}
+  \begin{itemize}
+    \item 基于\alert{去噪准则}的全新训练策略 \cite{vincent2008,vincent2010}:
+      \begin{enumerate}
+        \item 人为地损坏原始输入信号 $\B{x}$，比如加入噪声；
+        \item 输入受损信号 $\B{x}'$ 进行训练；
+        \item 使重构信号 $\B{r}$ 尽可能地恢复原始输入信号 $\B{x}$.
+      \end{enumerate}
+    \item 被迫去发掘原始输入信号 $\B{x}$ 中的关键特征.
+    \item 学得一个更好的表示，提升性能.
+    \item 如此训练的自编码器被称为\alert{去噪自编码器}.
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{卷积去噪自编码器 (CDAE)}
+  \begin{itemize}
+    \item 经典的自编码器使用\alert{全连接层}.
+      主要劣势:
+      \begin{itemize}
+        \item 参数多，训练困难，不利于构建很深的网络；
+        \item 特征是全局的，不利于描述局部特征.
+      \end{itemize}
+    \item 卷积神经网络 (CNN) 采用的\alert{卷积层}具有明显优势:
+      \begin{itemize}
+        \item 利用一组小尺寸过滤器，适合提取局部特征；
+        \item 参数数目少，容易训练；
+        \item 易于叠加多个卷积层，提升特征提取能力.
+      \end{itemize}
+    \item \alert{卷积去噪自编码器 (CDAE)}:
+      \begin{itemize}
+        \item 使用卷积层的去噪自编码器；
+        \item 拥有更强的特征提取能力，提升去噪能力.
+      \end{itemize}
+  \end{itemize}
+
+  \vspace{-1ex}
+  \myfigure{width=0.85\textwidth,vertcap}{cnn}{CNN 示意图}
+\end{frame}
+
+%............
+\begin{frame}{网络架构}
+  \begin{itemize}
+    \item 编码器: 4 层，分别包含 32、64、64、32 个过滤器；
+    \item 解码器: 5 层，分别包含 32、64、64、32、1 个过滤器；
+    \item 过滤器的尺寸为 3；
+    \item 输出层的激活函数为 \enquote{tanh}；
+    \item 其余层使用\enquote{指数线性单元}，
+      还使用\enquote{批标准化} (BN) 技术.
+  \end{itemize}
+  %
+  \myfigure{width=\textwidth}{cdae-network-crop}{CDAE 网络架构示意图}
+\end{frame}
+
+%............
+\begin{frame}{训练和评估方法}
+  \begin{itemize}
+    \item 三个数据集:
+      \begin{itemize}
+        \item \alert{训练集 $S_{\R{tr}}$}: 拟合待训练参数；
+        \item \alert{验证集 $S_{\R{val}}$}:
+          验证训练过程是否正常；约束 CDAE 的超参数；
+        \item \alert{测试集 $S_{\R{test}}$}:
+          仅在训练结束后用于评估 CDAE 的性能.
+      \end{itemize}
+    \item 损失 $L(\B{r}, \B{x})$ 由\alert{均方误差}量化:
+      \begin{equation}
+        L = \frac{1}{N_{\R{tr}}} \sum_{i=1}^{N_{\R{tr}}}
+            \left[ \B{r}_{\R{eor}}^{(i)} - \B{x}_{\R{eor}}^{(i)} \right]^T
+            \left[ \B{r}_{\R{eor}}^{(i)} - \B{x}_{\R{eor}}^{(i)} \right] .
+      \end{equation}
+    \item 评估指标采用\alert{相关系数}:
+      \begin{equation}
+        \xi(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})
+          = \frac{\sum_{j=1}^{n}(r_{\R{eor},j} - \bar{r}_{\R{eor}})
+              (x_{\R{eor},j} - \bar{x}_{\R{eor}})}{
+                \sqrt{\sum_{j=1}^{n}(r_{\R{eor},j} - \bar{r}_{\R{eor}})^2
+                \sum_{j=1}^{n}(x_{\R{eor},j} - \bar{x}_{\R{eor}})^2}
+            } .
+      \end{equation}
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{训练数据}
+  \begin{itemize}
+    \item 模拟两组\enquote{观测}图像立方:
+      EoR 信号 $C_{\R{eor}}$ 和前景辐射 $C_{\R{fg}}$.
+      \begin{itemize}
+        \item \SIrange{154}{162}{\MHz} 频带，频率分辨率 \SI{160}{\kHz}，
+          尺寸 \num{360 x 360}；
+        \item 形成数据集 $S = \left\{ \left(\B{x}^{(i)},
+          \,\B{x}^{(i)}_{\R{eor}} \right) \right\}$，
+          其中 $\B{x}^{(i)} = \B{x}^{(i)}_{\R{eor}} + \B{x}^{(i)}_{\R{fg}}$.
+      \end{itemize}
+    \item 预处理输入数据 $X = \big\{ \B{x}^{(i)} \big\}$
+      和输入 EoR 信号 $X_{\R{eor}} = \big\{ \B{x}^{(i)}_{\R{eor}} \big\}$.
+    \item 划分为三个数据集:
+      \begin{itemize}
+        \item $\left( C_{\R{eor}}^{(1)}, C_{\R{fg}}^{(1)} \right)$
+          按 80\% 和 20\% 划分为训练集 $S_{\R{tr}}$ 和验证集 $S_{\R{val}}$；
+        \item $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$
+          全部用于测试集 $S_{\R{test}}$.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{训练结果}
+  \begin{itemize}
+    \item 损失 $L_{\R{tr}}$ 和 $L_{\R{val}}$ 持续减小，
+      相关系数 $\xi_{\R{val}}$ 稳步增长；
+    \item 训练效果很好，无过拟合；
+    \item 利用测试集 $S_{\R{test}}$，
+      平均相关系数达 $\bar{\xi} = \num{0.929 +- 0.045}$.
+  \end{itemize}
+
+  \vspace{-1ex}
+  \myfigure{%
+    width=0.8\textwidth,
+  }{cdae-train}{CDAE 的训练过程和结果}
+\end{frame}
+
+%............
+\begin{frame}{EoR 信号分离效果}
+  \vspace{-1ex}
+  \myfigure{%
+    height=0.9\textheight,
+  }{cdae-eor-pix}{CDAE 重构的 EoR 信号的示例 ($\xi = 0.931$)}
+\end{frame}
+
+\begin{frame}
+  \vspace{1ex}
+  \begin{itemize}
+    \item 重构的 EoR 图像的空间结构与强度分布与输入几乎完全相同；
+    \item 小尺度波纹结构源自预处理时去除了低频 Fourier 系数.
+      \par\includegraphics[height=0.45\textheight]{cdae-eor-img-comp}
+    \item CDAE 很好地恢复了 EoR 信号在各尺度的功率.
+      \par\includegraphics[height=0.45\textheight]{cdae-eor-ps-comp}
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{与传统方法的对比}
+  \begin{itemize}
+    \item 传统的前景扣除法可分为\alert{参数化方法}和\alert{非参数化方法}.
+    \item 参数化方法:
+      \begin{itemize}
+        \item 使用一个参数化模型来拟合前景辐射；
+        \item 选取\alert{多项式拟合法}为代表；
+        \item 分离效果仅有: $\bar{\xi}_{\R{poly}} = \num{0.296 +- 0.121}$.
+      \end{itemize}
+    \item 非参数化方法:
+      \begin{itemize}
+        \item 利用前景辐射与 EoR 信号的频谱结构差异，但不假定一个特定的参数化模型；
+        \item 选取\alert{连续小波变换法}\cite{gu2013}为代表；
+        \item 分离效果仅达到: $\bar{\xi}_{\R{cwt}} = \num{0.198 +- 0.160}$.
+      \end{itemize}
+    \item 两种传统方法均难以对复杂的前景辐射建模并扣除.
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{小结}
+  \begin{itemize}
+    \item 波束效应会破坏前景频谱的光滑性，导致传统的前景扣除方法失效.
+    \item 基于深度学习方法设计了一个由 9 个卷积层构成的 CDAE，
+      经过训练后能够准确地分离 EoR 信号，效果显著优于传统方法.
+  \end{itemize}
+\end{frame}
+
+
+%=====================================================================
 \section{总结}
 
 \begin{frame}{结\cspace{}论}
