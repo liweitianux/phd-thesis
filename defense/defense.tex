@@ -679,7 +679,7 @@
 \end{frame}
 
 %............
-\begin{frame}{前景楔形}
+\begin{frame}{前景楔形和 EoR 窗口}
   \begin{itemize}
     \item 同一条基线的空间分辨率随频率的增大而提高，
       即所测量的波数正比于频率: $u = b/\lambda \propto \nu$.
@@ -689,20 +689,34 @@
       导致\alert{前景楔形} \cite{morales2012}.
   \end{itemize}
 
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.6\textwidth]{chromatic-baselines}
-    \caption{基线的色彩效应示意图.}
-  \end{figure}
+  \vspace{-1ex}
+  \myfigure{%
+    height=0.68\textheight,
+    vertcap,
+  }{chromatic-baselines}{%
+    基线的色彩效应示意图
+  }
 \end{frame}
 
 %............
-\begin{frame}{EoR 窗口}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{EoR-window}
-    \caption{EoR 窗口和前景楔形的示意图.}
-  \end{figure}
+\begin{frame}
+  \alert{EoR 窗口}边界 \cite{thyagarajan2013}:
+  \begin{equation}
+    \label{eq:eor-window}
+    k_{\parallel} \ge
+      \frac{H(z) D_{\!C}(z)}{c (1+z)}
+      \left[ k_{\perp} \sin\Phi
+        + \frac{2\Cpi \nu_0 w}{(1+z) D_{\!C}(z) B_f} \right] ,
+  \end{equation}
+  $D_{\!C}(z)$ 为共动距离，$B_f$ 为带宽，$w$ 描述前景漏失程度.
+
+  \vspace{-1ex}
+  \myfigure{%
+    height=0.8\textheight,
+    vertcap,
+  }{EoR-window}{%
+    EoR 窗口和前景楔形的示意图
+  }
 \end{frame}
 
 
