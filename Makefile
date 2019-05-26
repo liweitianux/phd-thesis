@@ -37,6 +37,7 @@ dist: thesis.pdf
 optimize: thesis.pdf
 	qpdf --compress-streams=y --optimize-images \
 	    thesis.pdf thesis.optimized.pdf
+	mv thesis.optimized.pdf thesis.pdf
 
 fix:
 	@echo "Trim trailing whitespace ..."
@@ -51,7 +52,7 @@ count:
 	    tr -d '\n\t ' | wc -m
 
 clean:
-	latexmk -C thesis
+	-latexmk -C thesis
 	rm -f $(SRCS:.tex=.aux) *.xdv *.bbl *.loa *.fls *.xml
 
 .PHONY: all clean count dist fix
