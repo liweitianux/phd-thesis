@@ -15,28 +15,28 @@
 %---------------------------------------------------------------------
 \subsection{简介和历史}
 
-我们对宇宙的几乎所有认识都来自于观测并研究所接收到的电磁辐射.
-在射电波段对天体和宇宙开展研究的天文学分支称为\emph{射电天文学 (radio astronomy)}.
+我们对宇宙的几乎所有认识都来自于观测并研究所接收到的电磁辐射。
+在射电波段对天体和宇宙开展研究的天文学分支称为\emph{射电天文学 (radio astronomy)}。
 对于地面上的射电望远镜，观测频率的下限 $\nu_{\R{min}} \sim \SI{10}{\MHz}$
 （即最长波长 $\lambda_{\R{max}} \sim \SI{30}{\meter}$），
 取决于\ac{ionosphere}的截断频率，
-低于该频率的电磁波将被\ac{ionosphere}反射而无法到达地面.
+低于该频率的电磁波将被\ac{ionosphere}反射而无法到达地面。
 观测频率的上限 $\nu_{\R{max}} \sim \SI{1000}{\GHz}$
 （即最短波长 $\lambda_{\R{min}} \sim \SI{0.3}{\mm}$），
 更高频率的电磁波将被\ac{troposphere}中的分子
-（主要是 $\mathrm{H_2 O}$ 和 $\mathrm{O_2}$）吸收.
-当然，大气层对电磁辐射的吸收情况会随时间以及地理位置而变化.
+（主要是 $\mathrm{H_2 O}$ 和 $\mathrm{O_2}$）吸收。
+当然，大气层对电磁辐射的吸收情况会随时间以及地理位置而变化。
 \autoref{fig:atmospheric-emt} 显示了大气层的
-电磁辐射\ac{transmittance}以及相应的射电观测窗口.
+电磁辐射\ac{transmittance}以及相应的射电观测窗口。
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{atmospheric-em-transmittance}
   \bicaption[大气层的电磁辐射透射率]{%
-    大气层的电磁辐射\acs*{transmittance}随波长 $\lambda$（即频率 $\nu$）的变化.
+    大气层的电磁辐射\acs*{transmittance}随波长 $\lambda$（即频率 $\nu$）的变化。
     除了光学窗口，大气层还有一个更加宽广的射电窗口，
     从 $\lambda \sim \SI{0.3}{\mm}$ ($\nu \sim \SI{1000}{\GHz}$)
-    延伸到 $\lambda \sim \SI{30}{\meter}$ ($\nu \sim \SI{10}{\MHz}$).
+    延伸到 $\lambda \sim \SI{30}{\meter}$ ($\nu \sim \SI{10}{\MHz}$)。
   }{%
     Electromagnetic transmittance of the Earth's atmosphere.
     In addition to the visible optical window, there is another
@@ -44,70 +44,70 @@
     $\lambda \sim \SI{0.3}{\mm}$ ($\nu \sim \SI{1000}{\GHz}$)
     to $\lambda \sim \SI{30}{\meter}$ ($\nu \sim \SI{10}{\MHz}$).
     \\来源/Credit:
-    \citeay{condon2016}, \S\,1.1.2.
+    \citeay{condon2016}, \S\,1.1.2
   }
   \label{fig:atmospheric-emt}
 \end{figure}
 
 首次发现源自地球之外的射电辐射是在 1932 年被 Bell 电话实验室的工程师
-Karl G. Jansky 意外得到的.
+Karl G. Jansky 意外得到的。
 上世纪 20 年代，Bell 电话公司基于 $\lambda \sim \SI{15}{\meter}$
-的短波传输建设了跨洋电话服务，但是发现通话受到了强烈的干扰，因此派 Jansky 去查明干扰来源.
+的短波传输建设了跨洋电话服务，但是发现通话受到了强烈的干扰，因此派 Jansky 去查明干扰来源。
 Jansky 建造了一个对方向敏感的可转动天线（如\autoref{fig:jansky-antenna} 所示）
-用来监测 \SI{20.5}{\MHz} ($\lambda \approx \SI{14.6}{\meter}$) 处的射电辐射.
-经过观测，他发现绝大部分的干扰源自暴风雨的闪电.
-此外，他还发现有一个较弱的不明噪声，其强度在每天发生周期性的变化.
-因此，Jansky 怀疑该噪声可能是太阳的射电辐射.
+用来监测 \SI{20.5}{\MHz} ($\lambda \approx \SI{14.6}{\meter}$) 处的射电辐射。
+经过观测，他发现绝大部分的干扰源自暴风雨的闪电。
+此外，他还发现有一个较弱的不明噪声，其强度在每天发生周期性的变化。
+因此，Jansky 怀疑该噪声可能是太阳的射电辐射。
 但是持续的观测显示这个不明噪声的准确周期为 \SI{23}{\hour}\,\SI{56}{\minute}，
-并不是恰好 \SI{24}{\hour}.
+并不是恰好 \SI{24}{\hour}。
 将此困惑与他的一个天文学家朋友 Albert M. Skellett 讨论后，
-Jansky 了解到该噪声来自太阳系之外，并进一步确认其来源是银河系中心 \cite{jansky1933}.
+Jansky 了解到该噪声来自太阳系之外，并进一步确认其来源是银河系中心 \cite{jansky1933}。
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.8\textwidth]{KarlJansky-antenna}
   \bicaption[Karl G. Jansky 和他的天线]{%
-    Karl G. Jansky 和他的天线.
-    该天线可转动，主要接收水平方向的辐射.
+    Karl G. Jansky 和他的天线。
+    该天线可转动，主要接收水平方向的辐射。
   }{%
     Karl G. Jansky and the antenna that discovered the cosmic radio emission.
     The antenna can rotate in azimuth and mainly receive horizontal
     emissions.
     \\来源/Credit:
-    \ac{nrao}/\ac{aui}/\ac{nsf}.
+    \ac{nrao}/\ac{aui}/\ac{nsf}
   }
   \label{fig:jansky-antenna}
 \end{figure}
 
 可惜的是，Jansky 的发现未能得到足够的关注和重视，
-他本人也被分配到其他项目而无法继续研究银河系的射电辐射.
+他本人也被分配到其他项目而无法继续研究银河系的射电辐射。
 但是幸运的是，另一位无线电工程师 Grote Reber 对 Jansky 的发现产生了极大兴趣，
 于是耗时数年在自家后院建造了世界第一台抛物面射电望远镜
-（如\autoref{fig:reber-telescope} 所示）.
-在 1938 年，Reber 用这台望远镜成功地在 \SI{160}{\MHz} 探测到了银河系的辐射.
+（如\autoref{fig:reber-telescope} 所示）。
+在 1938 年，Reber 用这台望远镜成功地在 \SI{160}{\MHz} 探测到了银河系的辐射。
 接着，他进一步开展了银河系的第一次射电巡天观测，
-并将结果发表于专业的天文学期刊 \apj \cite{reber1940}.
-自此，射电天文学登上了天文学的舞台.
+并将结果发表于专业的天文学期刊 \apj \cite{reber1940}。
+自此，射电天文学登上了天文学的舞台。
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.6\textwidth]{GroteReber-telescope}
   \bicaption[Grote Reber 的射电望远镜]{%
-    Grote Reber 在自家后院建造的射电望远镜，使用了直径约 \SI{10}{\meter} 的抛物面.
+    Grote Reber 在自家后院建造的射电望远镜，使用了直径约 \SI{10}{\meter} 的抛物面。
   }{%
     Grote Reber's backyard radio telescope using a parabolic reflector
     of diameter about \SI{10}{\meter}.
     \\来源/Credit:
-    \acs{nrao}/\acs{aui}/\acs{nsf}.
+    \acs{nrao}/\acs{aui}/\acs{nsf}
   }
   \label{fig:reber-telescope}
 \end{figure}
 
 在后续的几年里，尽管第二次世界大战阻碍了射电天文学的发展，
-但是极大地刺激了无线电技术和雷达设备的研发.
-这些方面的成果在战争结束后给射电天文学带去了长足的进步，开创了一系列新技术和新方法.
+但是极大地刺激了无线电技术和雷达设备的研发。
+这些方面的成果在战争结束后给射电天文学带去了长足的进步，开创了一系列新技术和新方法。
 其中最值得一提的是由 Martin Ryle 和 Antony Hewish 发明的\ac{as}技术 \cite{ryle1960}，
-使射电观测的角分辨率得到了空前的提高.
+使射电观测的角分辨率得到了空前的提高。
 
 自射电窗口被打开以来，射电天文学已取得了一系列激动人心的发现，
 其中代表性的发现主要有：
@@ -119,21 +119,21 @@ Jansky 了解到该噪声来自太阳系之外，并进一步确认其来源是�
 宇宙大爆炸的 \ac{cmb} \cite{penzias1965}、
 \ac{pulsar}和中子星 \cite{hewish1968}、
 星系中的\ac{dm} \cite{roberts1975}、
-\ac{gl-strong} \cite{walsh1979}.
+\ac{gl-strong} \cite{walsh1979}。
 总之，射电天文学揭开了宇宙的全新一面（如\autoref{fig:radio-sky} 所示），
-极大地拓展了我们对宇宙的认识，深刻地改变了我们对宇宙的理解.
+极大地拓展了我们对宇宙的认识，深刻地改变了我们对宇宙的理解。
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.8\textwidth]{nrao-radio-sky}
   \bicaption[与光学波段所见完全不同的射电天空]{%
     在 NRAO 台址的照片上方显示了由 NRAO 前 \SI{91}{\meter} 射电望远镜获得的
-    \SI{4.85}{\GHz} 射电天空图像.
+    \SI{4.85}{\GHz} 射电天空图像。
   }{%
     The \SI{4.85}{\GHz} radio sky made with the NRAO former \SI{91}{\meter}
     telescope is shown above an old photograph of the NRAO site.
     \\来源/Credit:
-    \acs{nrao}/\acs{aui}/\acs{nsf}.
+    \acs{nrao}/\acs{aui}/\acs{nsf}
   }
   \label{fig:radio-sky}
 \end{figure}
@@ -142,37 +142,37 @@ Jansky 了解到该噪声来自太阳系之外，并进一步确认其来源是�
 \subsection{机遇和挑战}
 
 尽管大气层的射电窗口允许低至 $\sim$\,\SI{10}{\MHz} 的观测，但由于各种技术和条件的限制，
-以往的射电观测和研究主要在 $\gtrsim$\,\SI{1}{\GHz} 的中高频波段.
+以往的射电观测和研究主要在 $\gtrsim$\,\SI{1}{\GHz} 的中高频波段。
 相比中高频波段，低频波段主要有以下几点优势：
 \begin{itemize}
-  \item 低频波段对应的辐射波长更长，受尘埃的影响更小，因此能够观测到星系更核心的区域.
+  \item 低频波段对应的辐射波长更长，受尘埃的影响更小，因此能够观测到星系更核心的区域。
   \item \ac{rad-syn}在低频波段更强且寿命更长，因此更利于探测\ac{gc}、
-    \ac{sc}甚至\ac{lsf}的弥散射电辐射 \cite{cassano2015,vazza2015,kale2016}.
+    \ac{sc}甚至\ac{lsf}的弥散射电辐射 \cite{cassano2015,vazza2015,kale2016}。
   \item 多种等离子体效应（如散射、色散、Faraday 旋转）的强度按 $\nu^{-2}$ 变化，
     因此在低频波段更适合研究星际电子密度、磁场分布、等等
-    \cite{johnston2015,roy2016,vanEck2017}.
+    \cite{johnston2015,roy2016,vanEck2017}。
   \item 源自宇宙再电离时期 (红移 $z \sim \numrange{6}{16}$)
     的\ac{hi} 21\,cm 信号历经红移后将出现在低频波段，因此不可避免地需要在
     此波段开展观测，探测该信号以研究宇宙早期的再电离过程
     \cite{mellema2013,mellema2015,koopmans2015}，
-    详见 \autoref{sec:eor-signal}.
+    详见 \autoref{sec:eor-signal}。
   \item 低频射电望远镜通常具有大视场，能够显著提高巡天速度，非常有利于搜寻
-    脉冲星、暂现源、等等 \cite{stappers2011,fender2015}.
+    脉冲星、暂现源、等等 \cite{stappers2011,fender2015}。
 \end{itemize}
 
-近十多年来，与低频射电相关的工程技术已取得长足的进步.
+近十多年来，与低频射电相关的工程技术已取得长足的进步。
 在射电天文学领域，低频射电波段也得到了重点关注，
 目前已建成一批工作在此波段的干涉阵列，
-主要包括 \ac{21cma}、\ac{gmrt}、\ac{mwa}、\ac{lofar}.
-此外还有若干正在积极建设的新型低频干涉阵列，比如 \ac{lwa}、\ac{hera}、\ac{ska}.
-可见，低频射电波段正在成为射电天文乃至整个天文领域的热点和前沿.
+主要包括 \ac{21cma}、\ac{gmrt}、\ac{mwa}、\ac{lofar}。
+此外还有若干正在积极建设的新型低频干涉阵列，比如 \ac{lwa}、\ac{hera}、\ac{ska}。
+可见，低频射电波段正在成为射电天文乃至整个天文领域的热点和前沿。
 
 当然，在低频波段开展观测也面临更大的挑战，
 比如强烈的人工源 \ac{rfi}、电离层的扰动、
 通常需要建设更大更复杂的干涉阵列、解决更复杂的仪器效应、
-研发更有效的数据处理方法（参见 \autoref{sec:det-difficulties}）.
+研发更有效的数据处理方法（参见 \autoref{sec:det-difficulties}）。
 尽管如此，可以肯定低频射电天文将成为射电天文领域的重要力量，
-并为整个天文学的发展作出举足轻重的贡献.
+并为整个天文学的发展作出举足轻重的贡献。
 
 
 %=====================================================================
@@ -186,18 +186,18 @@ Jansky 了解到该噪声来自太阳系之外，并进一步确认其来源是�
   \centering
   \includegraphics[width=0.3\textwidth]{specific-intensity}
   \bicaption[\acl*{I-nu} \acs*{I-nu} 的测量]{%
-    \acl*{I-nu} \acs*{I-nu} 的测量示意图.
+    \acl*{I-nu} \acs*{I-nu} 的测量示意图。
   }{%
     The specific intensity \acs*{I-nu} measured by a detector of area
     $\D{\sigma}$ to a source extending a solid angle of $\D{\Omega}$.
     \\来源/Credit:
-    \citeay{condon2016}, \S\,2.1.
+    \citeay{condon2016}, \S\,2.1
   }
   \label{fig:intensity}
 \end{figure}
 
 考虑一个面积为 $\D{\sigma}$ 的探测器，测量一个与其法线方向呈 $\theta$ 角度、
-所张立体角为 $\D{\Omega}$ 的辐射源，如\autoref{fig:intensity} 所示.
+所张立体角为 $\D{\Omega}$ 的辐射源，如\autoref{fig:intensity} 所示。
 若探测器在频率范围 $[\nu, \,\nu+\D{\nu}]$ 内接收到的功率为 $\D{P_{\nu}}$，
 则这个源的\emph{\acl{I-nu} (specific intensity)} \ac{I-nu} 定义为：
 \begin{equation}
@@ -205,19 +205,19 @@ Jansky 了解到该噪声来自太阳系之外，并进一步确认其来源是�
   \ac{I-nu} \equiv
     \frac{\D{P_{\nu}}}{(\cos\theta\,\D{\sigma}) \,\D{\nu} \,\D{\Omega}} \,,
 \end{equation}
-其 \ac{si} 单位是 [\si{\watt\per\square\meter\per\hertz\per\steradian}].
+其 \ac{si} 单位是 [\si{\watt\per\square\meter\per\hertz\per\steradian}]。
 \acl{I-nu} \ac{I-nu} 亦被称为\emph{\ac{spec-brightness}}，
-有时也被简称为\emph{强度}或\emph{亮度}.
+有时也被简称为\emph{强度}或\emph{亮度}。
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.6\textwidth]{flux-density}
   \bicaption[\acl*{S-nu} \acs*{S-nu} 的定义示意图]{%
-    \acl*{S-nu} \acs*{S-nu} 的定义示意图.
+    \acl*{S-nu} \acs*{S-nu} 的定义示意图。
   }{%
     An illustration of the definition of flux density \acs*{S-nu}.
     \\来源/Credit:
-    \citeay{condon2016}, \S\,2.1.
+    \citeay{condon2016}, \S\,2.1
   }
   \label{fig:flux-density}
 \end{figure}
@@ -230,13 +230,13 @@ Jansky 了解到该噪声来自太阳系之外，并进一步确认其来源是�
   \ac{S-nu} \equiv
     \int_{\R{source}} \ac{I-nu}(\theta,\phi) \cos\theta \,\D{\Omega} ,
 \end{equation}
-其 \ac{si} 单位是 [\si{\watt\per\square\meter\per\hertz}].
+其 \ac{si} 单位是 [\si{\watt\per\square\meter\per\hertz}]。
 实际中常用的单位是 \si{\jansky}，换算关系为
-$\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
+$\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$。
 
 一个辐射场的\emph{\acl{u-nu} (spectral energy density)}是指
 每单位体积的\ac{spec-energy}，具有 \ac{si} 单位
-[\si{\joule\per\cubic\meter\per\hertz}].
+[\si{\joule\per\cubic\meter\per\hertz}]。
 取辐射场中的一个体积元 $\D{V}$，对于来自某一方向的立体角元 $\D{\Omega}$
 的一束辐射 $\ac{I-nu}(\theta,\phi)$，
 可认为该体积元 $\D{V}$ 具有长度 $\D{s}$ 以及横截面积 $\D{\sigma}$，
@@ -247,7 +247,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
     = \acs{I-nu}(\theta,\phi) \,\D{\Omega}\,\D{\sigma}
       \left( \frac{\D{s}}{\acs{speed-light}} \right) ,
 \end{equation}
-其中 \acs{speed-light} 是\acl{speed-light}.
+其中 \acs{speed-light} 是\acl{speed-light}。
 所以，源自 $\D{\Omega}$ 方向的辐射 $\acs{I-nu}(\theta,\phi)$
 在体积元 $\D{V}$ 的位置贡献的\acl{u-nu}为：
 \begin{equation}
@@ -276,17 +276,17 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
   \centering
   \includegraphics[width=0.6\textwidth]{specific-intensity-conservation}
   \bicaption[\acl*{I-nu} \acs*{I-nu} 沿光线保持不变]{%
-    \acl*{I-nu} \acs*{I-nu} 在自由空间里沿光线保持不变.
+    \acl*{I-nu} \acs*{I-nu} 在自由空间里沿光线保持不变。
   }{%
     The specific intensity \acs*{I-nu} conserved along a ray in empty space.
     \\来源/Credit:
-    \citeay{condon2016}, \S\,2.1.
+    \citeay{condon2016}, \S\,2.1
   }
   \label{fig:intensity-conservation}
 \end{figure}
 
 在自由空间里，不存在吸收和发射，所以辐射的\acl*{I-nu} \acs*{I-nu} 保持不变，
-与传播的距离无关.
+与传播的距离无关。
 为说明这一点，考虑由源发射的一束光线，
 设 $\D{\sigma_1}$ 和 $\D{\sigma_2}$ 是光线上相距为 $r$ 的两个面元，
 如\autoref{fig:intensity-conservation} 所示，
@@ -321,10 +321,10 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
   \centering
   \includegraphics[width=0.6\textwidth]{radiative-transfer}
   \bicaption[辐射转移示意图]{%
-    辐射转移示意图.
+    辐射转移示意图。
     距离 $s$ 沿源向探测器的方向增长，介质的入端和出端的距离分别为
-    $s_{\R{in}}$ 和 $s_{\R{out}}$.
-    光深 $\tau$ 的增长方向与 $s$ 相反.
+    $s_{\R{in}}$ 和 $s_{\R{out}}$。
+    光深 $\tau$ 的增长方向与 $s$ 相反。
   }{%
     An illustration of the radiative transfer.
     The distance $s$ increases along the ray from the source to the detector.
@@ -332,20 +332,20 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
     medium are $s_{\R{in}}$ and $s_{\R{out}}$, respectively.
     The optical depth $\tau$ is measured in the opposite direction as $s$.
     \\来源/Credit:
-    \citeay{condon2016}, \S\,2.2.
+    \citeay{condon2016}, \S\,2.2
   }
   \label{fig:radiative-transfer}
 \end{figure}
 
 当传播空间中存在吸收和发射时（如\autoref{fig:radiative-transfer} 所示），
-辐射的\acl{I-nu} \acs{I-nu} 会发生改变，具体变化可由\emph{\acf{rt}}方程描述.
+辐射的\acl{I-nu} \acs{I-nu} 会发生改变，具体变化可由\emph{\acf{rt}}方程描述。
 首先考虑吸收情形，一个辐射光子通过介质中一个厚度为 $\D{s}$ 的薄层时被吸收的概率 $\D{p}$ 为：
 \begin{equation}
   \D{p} = \acs{coef-absorption} \,\D{s} ,
 \end{equation}
 其中 \acs{coef-absorption}
 为\emph{\acl{coef-absorption} (absorption coefficient)}，
-具有 \ac{si} 单位 [\si{\per\meter}].
+具有 \ac{si} 单位 [\si{\per\meter}]。
 于是，\acl{I-nu} \acs{I-nu} 在通过厚度 $\D{s}$ 的介质后的损失比例为：
 \begin{equation}
   \label{eq:rt-absorption}
@@ -371,7 +371,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
     - \int_{s_{\R{out}}}^{s_{\R{in}}} \acs{coef-absorption}(s') \,\D{s'} .
 \end{equation}
 注意，上式的积分方向与 $s$ 相反（参见\autoref{fig:radiative-transfer}），
-如此可使 $\tau > 0$ 并且与介质的观测深度成正相关.
+如此可使 $\tau > 0$ 并且与介质的观测深度成正相关。
 利用\acl{optical-depth} \acs{optical-depth}，
 可将\autoref{eq:intensity-loss1} 写成：
 \begin{equation}
@@ -380,23 +380,23 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
     \exp (-\acs{optical-depth}) .
 \end{equation}
 当 $\tau \ll 1$ 时，称介质是\emph{光学薄}的；
-当 $\tau \gg 1$ 时，则称介质是\emph{光学厚}的.
+当 $\tau \gg 1$ 时，则称介质是\emph{光学厚}的。
 
-另一方面，介质可能产生辐射使\acl{I-nu} \acs{I-nu} 增强.
+另一方面，介质可能产生辐射使\acl{I-nu} \acs{I-nu} 增强。
 考虑介质中的一个体积元 $\D{s}\,\D{\sigma}$，在频率范围 $[\nu, \,\nu+\D{\nu}]$ 内
 沿某一方向的立体角元 $\D{\Omega}$ 所发射的谱功率为：
 \begin{equation}
   \D{P_{\nu}} =
     \acs{coef-emission} \,\D{s}\,\D{\sigma}\,\D{\nu}\,\D{\Omega} ,
 \end{equation}
-其中 \acs{coef-emission} 为\emph{\acl{coef-emission} (emission coefficient)}.
+其中 \acs{coef-emission} 为\emph{\acl{coef-emission} (emission coefficient)}。
 当不存在吸收时，\acs{coef-emission} 可表示为：
 \begin{equation}
   \label{eq:coef-emission}
   \acs{coef-emission} = \diff{\acs{I-nu}}{s} .
 \end{equation}
 易知 \acs{coef-emission} 的 \ac{si} 单位为
-[\si{\watt\per\cubic\meter\per\hertz\per\steradian}].
+[\si{\watt\per\cubic\meter\per\hertz\per\steradian}]。
 综合上式和\autoref{eq:rt-absorption}，可得\emph{\ac{rt}方程}：
 \begin{equation}
   \label{eq:radiative-transfer}
@@ -408,18 +408,18 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 \subsection{Kirchhoff 定律}
 
 \emph{\acf{te}}，简称\emph{热平衡}，
-是指一个系统在没有外界影响的条件下，其各部分的宏观属性在长时间内不发生任何变化的状态.
-这是热力学的一个基本实验定律，是定义温度的基础.
+是指一个系统在没有外界影响的条件下，其各部分的宏观属性在长时间内不发生任何变化的状态。
+这是热力学的一个基本实验定律，是定义温度的基础。
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.5\textwidth]{Kirchhoff-law-experiment}
   \bicaption[推导 Kirchhoff 定律的思想实验]{%
-    推导 Kirchhoff 定律的思想实验.
+    推导 Kirchhoff 定律的思想实验。
   }{%
     A thought experiment to derive the Kirchhoff's law.
     \\来源/Credit:
-    \citeay{condon2016}, \S\,2.2.
+    \citeay{condon2016}, \S\,2.2
   }
   \label{fig:kirchhoff-experiment}
 \end{figure}
@@ -427,19 +427,19 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
 考虑如下思想实验：
 两个由不同材料制成、包含不同介质的空腔放在一起，
 中间由一个仅允许频率在 $[\nu, \,\nu+\D{\nu}]$ 之间的辐射通过的阀门连接，
-如\autoref{fig:kirchhoff-experiment} 所示.
+如\autoref{fig:kirchhoff-experiment} 所示。
 在\emph{完全热平衡}的情形下，即空腔中的介质和辐射场具有相同的温度，
 空腔产生的辐射与黑体辐射（详见后文 \autoref{sec:blackbody}）相同，
-完全由温度决定，而与其材质或者内部介质无关.
+完全由温度决定，而与其材质或者内部介质无关。
 当两个空腔在任意温度 $T$ 达到完全热平衡时，
 没有\emph{净}能量从一个空腔通过阀门进入到另一个空腔，
-否则损失能量的空腔将会冷却，另一个空腔将会升温，从而违背热力学第二定律.
+否则损失能量的空腔将会冷却，另一个空腔将会升温，从而违背热力学第二定律。
 由此可知：
 \begin{align}
   \diff{\acs{I-nu}}{s} & = 0 , \\
   \acs{I-nu} & = B_{\nu}(T) ,
 \end{align}
-其中 $B_{\nu}(T)$ 为空腔的辐射频谱.
+其中 $B_{\nu}(T)$ 为空腔的辐射频谱。
 于是辐射转移方程 [\autoref{eq:radiative-transfer}] 成为：
 \begin{equation}
   \diff{\acs{I-nu}}{s} = 0
@@ -450,20 +450,20 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
   \label{eq:kirchhoff-law}
   \frac{\acs{coef-emission}(T)}{\acs{coef-absorption}(T)} = B_{\nu}(T) ,
 \end{equation}
-上式对任意频率 $\nu$ 均成立.
-这就是完全热平衡系统的\emph{Kirchhoff 定律}.
+上式对任意频率 $\nu$ 均成立。
+这就是完全热平衡系统的\emph{Kirchhoff 定律}。
 
-完全热平衡只有在特殊的条件下才能实现.
+完全热平衡只有在特殊的条件下才能实现。
 对于一般的系统，产生发射或吸收的介质无法与辐射场达到热平衡，
-但如果介质本身是热平衡的，则称该系统处于\emph{\acf{lte}}状态.
+但如果介质本身是热平衡的，则称该系统处于\emph{\acf{lte}}状态。
 Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
-不过辐射场的\acl{I-nu} \ac{I-nu} 与 $B_{\nu}(T)$ 通常不相等.
+不过辐射场的\acl{I-nu} \ac{I-nu} 与 $B_{\nu}(T)$ 通常不相等。
 
 %---------------------------------------------------------------------
 \subsection{黑体辐射和亮温度}
 \label{sec:blackbody}
 
-\emph{黑体}是能够吸收全部入射辐射的理想物体.
+\emph{黑体}是能够吸收全部入射辐射的理想物体。
 处于热力学平衡态的黑体所发出的辐射称为\emph{黑体辐射}，其能谱分布只取决于黑体的温度，
 由 \emph{Planck 辐射定律}给出：
 \begin{equation}
@@ -474,7 +474,7 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
 其中 $B_{\nu}$ 是在频率 $\nu$ 处的谱亮度，
 \acs{hp} 是 \acl{hp}，
 \acs{kb} 是 \acl{kb}，
-\acs{speed-light} 是\acl{speed-light}.
+\acs{speed-light} 是\acl{speed-light}。
 
 在射电波段，$\acs{hp}\nu \ll \acs{kb}T$ 通常成立，因此上式可近似为：
 \begin{equation}
@@ -482,8 +482,8 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
   B_{\nu}(\nu, T)
     \approx \frac{2 \nu^2 \acs{kb} T}{\acs{speed-light}^2} .
 \end{equation}
-这就是 \emph{Rayleigh--Jeans 近似}.
-在该近似下，黑体的谱亮度 $B_{\nu}$ 与其温度 $T$ 严格成正比.
+这就是 \emph{Rayleigh--Jeans 近似}。
+在该近似下，黑体的谱亮度 $B_{\nu}$ 与其温度 $T$ 严格成正比。
 因此，一个源的亮度（即\acl{I-nu}） \ac{I-nu}
 可以很方便地使用\emph{\acl{T-b} (brightness temperature)} \ac{T-b} 来描述：
 \begin{equation}
@@ -491,12 +491,12 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
   \acs{T-b}(\nu)
     \equiv \frac{\acs{I-nu} \acs{speed-light}^2}{2 \,\acs{kb} \nu^2} .
 \end{equation}
-注意，对于一般的辐射源，其\acl{T-b} \ac{T-b} 会随频率 $\nu$ 发生改变.
+注意，对于一般的辐射源，其\acl{T-b} \ac{T-b} 会随频率 $\nu$ 发生改变。
 
 %---------------------------------------------------------------------
 \subsection{电阻的热噪声}
 
-一个温度为 $T$ 的电阻 (resistor)，因为内部的电子的随机热运动，所以会输出一个噪声.
+一个温度为 $T$ 的电阻 (resistor)，因为内部的电子的随机热运动，所以会输出一个噪声。
 这种噪声被称为 \emph{Johnson--Nyquist 噪声} \cite{johnson1928,nyquist1928}，
 其\ac{spec-power}由以下 \emph{Nyquist 近似}给出
 （详见 \citeay{condon2016}, \S\,2.5）：
@@ -504,8 +504,8 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
   \label{eq:nyquist-approx}
   P_{\nu} \approx \acs{kb} T .
 \end{equation}
-该式是 Rayleigh--Jeans 近似 [\autoref{eq:rj-approx}] 在电子学里的对应.
-类似地，该近似公式只适用于 $\acs{hp}\nu \ll \acs{kb}T$ 的经典范畴.
+该式是 Rayleigh--Jeans 近似 [\autoref{eq:rj-approx}] 在电子学里的对应。
+类似地，该近似公式只适用于 $\acs{hp}\nu \ll \acs{kb}T$ 的经典范畴。
 在考虑量子化修正后，严格的 \emph{Nyquist 公式}为：
 \begin{equation}
   \label{eq:nyquist}
@@ -519,15 +519,15 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
 \label{sec:spectral-line}
 
 \emph{\acf{spec-line}}是光谱上的窄（$\Delta\nu \ll \nu$）发射或吸收特征，
-源自原子或分子的能级跃迁.
+源自原子或分子的能级跃迁。
 当一个原子或分子从高能级 $E_2$ 跃迁至低能级 $E_1$ 时，会发射一个特定频率的光子，
-一群这样的光子便形成了一条\emph{发射线 (emission line)}.
+一群这样的光子便形成了一条\emph{发射线 (emission line)}。
 反过来，如果一个原子或分子从低能级 $E_1$ 跃迁至高能级 $E_2$，
-则会吸收一个特定频率的光子.
+则会吸收一个特定频率的光子。
 这些被吸收的光子通常来自背景的连续谱辐射，
-因此观测到的连续谱上将出现一条\emph{吸收线 (absorption line)}.
+因此观测到的连续谱上将出现一条\emph{吸收线 (absorption line)}。
 典型的谱线包括\ac{hii}的复合线、中性氢的 21\,cm 超精细结构谱线
-（详见 \autoref{sec:21cm-line}）.
+（详见 \autoref{sec:21cm-line}）。
 
 %---------------------------------------------------------------------
 \subsection{Einstein 系数}
@@ -539,7 +539,7 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
     原子与辐射场的三种相互作用过程：
     \emph{(a)} \acs*{em-spontaneous}；
     \emph{(b)} \acs*{em-stimulated}；
-    \emph{(c)} 吸收.
+    \emph{(c)} 吸收。
   }{%
     The three processes that an atom interacts with the radiation field:
     \emph{(a)} spontaneous emission;
@@ -555,20 +555,20 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
 \begin{enumerate}
 \item \emph{\acf{em-spontaneous}}:
   在没有外界光子的情况下，处在高能级 $E_2$ 的原子自发地跃迁到低能级 $E_1$
-  而发射光子的过程 [如\autoref{fig:atom-interactions}(a) 所示].
-  发射的光子的频率为 $\nu_0 = \Delta E / \acs{hp} = (E_2 - E_1) / \acs{hp}$.
+  而发射光子的过程 [如\autoref{fig:atom-interactions}(a) 所示]。
+  发射的光子的频率为 $\nu_0 = \Delta E / \acs{hp} = (E_2 - E_1) / \acs{hp}$。
   此类跃迁的速率正比与原子在高能级 $E_2$ 的布居数 $N_2$，即：
   \begin{equation}
     \label{eq:rate-em-spontaneous}
     \left( \diff{N_{21}}{t} \right)_{\R{sp}} = \ac{coef-A21} N_2 ,
   \end{equation}
-  其中 \ac{coef-A21} 为\acl{coef-A21}.
+  其中 \ac{coef-A21} 为\acl{coef-A21}。
 
 \item \emph{\acf{em-stimulated}}:
   在频率为 $\nu_0$ 的外界光子的激励下，处在高能级 $E_2$ 的原子向低能级 $E_1$
-  跃迁而发射光子的过程 [如\autoref{fig:atom-interactions}(b) 所示].
+  跃迁而发射光子的过程 [如\autoref{fig:atom-interactions}(b) 所示]。
   该过程产生的光子与入射光子具有相同的频率、相位、传播方向和偏振态等性质，
-  这就是\emph{\acf{laser}}的基本原理.
+  这就是\emph{\acf{laser}}的基本原理。
   这个过程的跃迁速率正比与原子在高能级 $E_2$ 的布居数 $N_2$
   以及辐射场的\acl{u-nu} $\acs{u-nu}(\nu_0)$，即：
   \begin{equation}
@@ -576,21 +576,21 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
     \left( \diff{N_{21}}{t} \right)_{\R{st}}
       = \ac{coef-B21} N_2 \, \acs{u-nu}(\nu_0) ,
   \end{equation}
-  其中 \ac{coef-B21} 为\acl{coef-B21}.
+  其中 \ac{coef-B21} 为\acl{coef-B21}。
 
 \item \emph{吸收}:
   处在低能级 $E_1$ 的原子吸收一个频率为 $\nu_0$ 的光子而跃迁到高能级 $E_2$ 的过程
-  [如\autoref{fig:atom-interactions}(c) 所示].
+  [如\autoref{fig:atom-interactions}(c) 所示]。
   类似地，该过程的跃迁速率正比与原子在低能级 $E_1$ 的布居数 $N_1$
   以及辐射场的\acl{u-nu} $\acs{u-nu}(\nu_0)$，即：
   \begin{equation}
     \label{eq:rate-absorption}
     \diff{N_{12}}{t} = \ac{coef-B12} N_1 \, \acs{u-nu}(\nu_0) ,
   \end{equation}
-  其中 \ac{coef-B12} 为\acl{coef-B12}.
+  其中 \ac{coef-B12} 为\acl{coef-B12}。
 \end{enumerate}
-以上三个公式中的比例系数 \ac{coef-A21}、\,\ac{coef-B21} 和 \ac{coef-B12}
-统称为\emph{Einstein 系数}.
+以上三个公式中的比例系数 \ac{coef-A21}、\ac{coef-B21} 和 \ac{coef-B12}
+统称为\emph{Einstein 系数}。
 
 考虑一个处于完全热平衡的原子系统，
 则能级 $E_1$ 和 $E_2$ 之间的三种跃迁过程应满足\emph{\acf{detailed-balance}}:
@@ -613,7 +613,7 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
     = \frac{g_2}{g_1} \exp\left( - \frac{\acs{hp} \nu_0}{\acs{kb} T} \right) ,
 \end{equation}
 其中 $T$ 为系统的温度，
-$g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}.
+$g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}。
 
 从\autoref{eq:detailed-balance2} 可解出辐射场的\acl{u-nu}：
 \begin{equation}
@@ -655,22 +655,22 @@ $g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}.
     \end{aligned}
   \right.
 \end{equation}
-这就是描述三个 Einstein 系数相互关联的\emph{\ac{detailed-balance}方程}.
-只要知道任何一个 Einstein 系数，就可以据此导出另外两个系数.
+这就是描述三个 Einstein 系数相互关联的\emph{\ac{detailed-balance}方程}。
+只要知道任何一个 Einstein 系数，就可以据此导出另外两个系数。
 
 %---------------------------------------------------------------------
 \subsection{辐射转移方程}
 
 在考虑辐射转移时，介质的性质由\acl{coef-emission} \acs{coef-emission}
-和\acl{coef-absorption} \acs{coef-absorption} 描述.
+和\acl{coef-absorption} \acs{coef-absorption} 描述。
 对于谱线的\ac{rt}问题，
-\acs{coef-emission} 和 \acs{coef-absorption} 均可使用 Einstein 系数表示出来.
+\acs{coef-emission} 和 \acs{coef-absorption} 均可使用 Einstein 系数表示出来。
 利用\ac{detailed-balance}方程 [\autoref{eq:detailed-balance}]，
 可进一步只使用\acl{coef-A21} \ac{coef-A21}
-来描述 \acs{coef-emission} 和 \acs{coef-absorption}.
+来描述 \acs{coef-emission} 和 \acs{coef-absorption}。
 
 考虑一个在能级 $E_1$ 和 $E_2$ 之间跃迁的热平衡系统，
-原子（或分子）在这两个能级上的布居数密度分别为 $N_1$ 和 $N_2$.
+原子（或分子）在这两个能级上的布居数密度分别为 $N_1$ 和 $N_2$。
 对于系统中的一个体积元 $\D{V} = \D{s}\,\D{\sigma}$，
 在时间 $\D{t}$、频率范围 $[\nu, \,\nu+\D{\nu}]$、
 沿某一方向的立体角元 $\D{\Omega}$ 内通过\ac{em-spontaneous}过程产生的能量为：
@@ -680,7 +680,7 @@ $g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}.
       \,\D{V}\,\D{t}\,\D{\nu} \left( \frac{\D{\Omega}}{4\Cpi} \right) ,
 \end{equation}
 其中 $\nu_0 = (E_2 - E_1) / \acs{hp}$ 为谱线的中心频率，
-$\phi(\nu)$ 为\acf{line-profile}.
+$\phi(\nu)$ 为\acf{line-profile}。
 类似地，体积元 $\D{V}$ 通过\ac{em-stimulated}过程产生的能量为：
 \begin{equation}
   \D{E_{\R{st}}(\nu)}
@@ -695,7 +695,7 @@ $\phi(\nu)$ 为\acf{line-profile}.
 \end{equation}
 其中
 $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
-为辐射场的\acl{u-nu} [参见\autoref{eq:spectral-energy-density-iso}].
+为辐射场的\acl{u-nu} [参见\autoref{eq:spectral-energy-density-iso}]。
 在热平衡的情形下，有
 \begin{equation}
   \D{E_{\R{sp}}(\nu)} + \D{E_{\R{st}}(\nu)} - \D{E_{\R{ab}}(\nu)}
@@ -736,9 +736,9 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
   \frac{\acs{coef-emission}}{\acs{coef-absorption}}
     = B_{\nu}(T)
     = \frac{2 \acs{hp} \nu_0^3}{\acs{speed-light}^2} \left[
-      \exp\left( \frac{\acs{hp} \nu_0}{\acs{kb} T} \right) - 1 \right]^{-1}.
+      \exp\left( \frac{\acs{hp} \nu_0}{\acs{kb} T} \right) - 1 \right]^{-1} ,
 \end{equation}
-其中使用了 Planck 辐射定律 [\autoref{eq:planck}].
+其中使用了 Planck 辐射定律 [\autoref{eq:planck}]。
 比较\autoref{eq:emission-absorption-ratio1}
 和\autoref{eq:emission-absorption-ratio2}，可得：
 \begin{equation}
@@ -747,7 +747,7 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
     = \frac{g_2}{g_1} \exp\left( -\frac{\acs{hp} \nu_0}{\acs{kb} T} \right) .
 \end{equation}
 这说明处于局部热平衡的系统的能级布居与完全热平衡的系统的情形
-[\autoref{eq:ratio-populations-te}] 相同.
+[\autoref{eq:ratio-populations-te}] 相同。
 利用\autoref{eq:coef-emission-einstein}、
 \autoref{eq:emission-absorption-ratio1}
 以及\autoref{eq:ratio-populations-lte}，
@@ -779,7 +779,7 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
       \exp\left( -\frac{\acs{hp} \nu_0}{\acs{kb} \acs{T-excitation}} \right) .
 \end{equation}
 该温度 \acs{T-excitation} 描述了两个能级的布居数 $N_2$ 和 $N_1$ 之比，
-由系统的辐射、\ac{coll-excitation}和\ac{coll-deexcitation} 三者之间的平衡决定.
+由系统的辐射、\ac{coll-excitation}和\ac{coll-deexcitation} 三者之间的平衡决定。
 
 在单位时间、单位体积内，如果碰撞引发 $N_1 C_{12}$ 次从低能级 $E_1$ 到高能级 $E_2$
 的激发以及 $N_2 C_{21}$ 次从 $E_2$ 到 $E_1$ 的退激，
@@ -802,7 +802,7 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
     = A_{21} \frac{g_2}{g_1} \left[ \exp\left(
         \frac{\acs{hp} \nu_0}{\acs{kb} T_b} \right) - 1 \right]^{-1} ,
 \end{equation}
-其中 $T_b$ 为辐射场的\acl{T-b}.
+其中 $T_b$ 为辐射场的\acl{T-b}。
 另外，利用\autoref{eq:ratio-populations-lte}
 和\autoref{eq:detailed-balance-collison2} 可得：
 \begin{equation}
@@ -810,7 +810,7 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
   C_{12} = \frac{g_2}{g_1} C_{21}
     \exp\left( - \frac{\acs{hp} \nu_0}{\acs{kb} \acs{T-kinetic}} \right) ,
 \end{equation}
-其中 \acs{T-kinetic} 为系统（通常为气体）的\acl{T-kinetic}.
+其中 \acs{T-kinetic} 为系统（通常为气体）的\acl{T-kinetic}。
 将\autoref{eq:tex-coefs-b}和\autoref{eq:tex-coefs-c}
 代入\autoref{eq:detailed-balance-collison1}，整理可得：
 \begin{equation}
@@ -840,35 +840,35 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 则\acl{T-excitation}趋近于辐射场的\acl{T-b} ($\acs{T-excitation} \to T_b$)；
 反之，如果碰撞占主导 ($A_{21} \ll C_{21}$)，
 则\acl{T-excitation}趋近于介质的\acl{T-kinetic}
-($\acs{T-excitation} \to \acs{T-kinetic}$).
+($\acs{T-excitation} \to \acs{T-kinetic}$)。
 
 
 %=====================================================================
 \section{天线基础}
 \label{sec:antenna}
 
-\emph{天线}可分为接收型（如射电望远镜）和发射型（如雷达）两类.
-前者接收外界的电磁波将其转换成电信号，后者则将输入的电信号转换成电磁波发射出去.
+\emph{天线}可分为接收型（如射电望远镜）和发射型（如雷达）两类。
+前者接收外界的电磁波将其转换成电信号，后者则将输入的电信号转换成电磁波发射出去。
 在种类繁多的天线中，\emph{短偶极天线}是其中最基本的一种，
-下文对其进行简要介绍，并以此天线为例介绍若干重要的天线概念.
+下文对其进行简要介绍，并以此天线为例介绍若干重要的天线概念。
 
 %---------------------------------------------------------------------
 \subsection{短偶极天线}
 
 \emph{短偶极天线}由两个总长度 $l$ 远小于波长 $\lambda$ 的导体组成，
-如\autoref{fig:short-dipole} 所示.
-当接上一个交流驱动电源后，导体内的电子会发生往复的加速运动，从而激发电磁波.
+如\autoref{fig:short-dipole} 所示。
+当接上一个交流驱动电源后，导体内的电子会发生往复的加速运动，从而激发电磁波。
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.5\textwidth]{short-dipole}
   \bicaption[短偶极天线示意图]{%
-    分析短偶极天线的辐射所采用的坐标系统.
+    分析短偶极天线的辐射所采用的坐标系统。
   }{%
     The coordinate system used to describe the radiation from a
     short dipole.
     \\来源/Credit:
-    \citeay{condon2016}, \S\,3.1.1.
+    \citeay{condon2016}, \S\,3.1.1
   }
   \label{fig:short-dipole}
 \end{figure}
@@ -882,7 +882,7 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 \end{equation}
 其中
 \acs{speed-light} 是\acl{speed-light}，
-$\theta$ 为 $r$ 与 $v$ 之间的夹角.
+$\theta$ 为 $r$ 与 $v$ 之间的夹角。
 天线的每一小段 $\D{z}$ 均会贡献一定的电场强度 $\D{E_{\perp}}$，
 由于 $l \ll \lambda$，因此产生的总电场强度为：
 \begin{equation}
@@ -890,14 +890,14 @@ $\theta$ 为 $r$ 与 $v$ 之间的夹角.
   E_{\perp} = \int_{-l/2}^{l/2}
     \frac{\dot{v} \sin\theta}{r \acs{speed-light}^2} \,\diff{q}{z}\D{z} .
 \end{equation}
-对于远场情形 ($r \gg l$)，$1/r$ 可视为常数而提出积分号.
+对于远场情形 ($r \gg l$)，$1/r$ 可视为常数而提出积分号。
 考虑一个正弦形式的驱动电流：
 \begin{equation}
   \label{eq:dipole-current}
   I = I_0 \Ce^{-\Ci \omega t} ,
 \end{equation}
 其中 $I_0$ 为电流峰值，
-于是 $\dot{v} = -\Ci \omega v$.
+于是 $\dot{v} = -\Ci \omega v$。
 导线中的电流可表示为：
 \begin{equation}
   \label{eq:wire-current}
@@ -928,17 +928,17 @@ $\theta$ 为 $r$ 与 $v$ 之间的夹角.
     \label{eq:dipole-efield}
 \end{align}
 \autoref{fig:dipole-radiation} 显示了一个无限短的偶极天线（即 Hertz 偶极子）
-的电场强度分布图.
+的电场强度分布图。
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.6\textwidth]{hertzian-dipole-radiation}
   \bicaption[Hertz 偶极子的电场强度分布图]{%
-    Hertz 偶极子的电场强度分布图.
+    Hertz 偶极子的电场强度分布图。
   }{%
     The electric field intensity radiated from a Hertzian dipole.
     \\来源/Credit:
-    nageljr, \url{https://www.deviantart.com/nageljr/art/The-Hertzian-Dipole-Antenna-542377463}, (2019-03-18), \ac{cc} BY.
+    nageljr, \url{https://www.deviantart.com/nageljr/art/The-Hertzian-Dipole-Antenna-542377463}, (2019-03-18), \ac{cc} BY
   }
   \label{fig:dipole-radiation}
 \end{figure}
@@ -946,7 +946,7 @@ $\theta$ 为 $r$ 与 $v$ 之间的夹角.
 %---------------------------------------------------------------------
 \subsection{功率方向图和增益}
 
-\emph{\acf{pp}} $P(\theta,\phi)$ 是指一个天线的辐射功率的角向分布.
+\emph{\acf{pp}} $P(\theta,\phi)$ 是指一个天线的辐射功率的角向分布。
 对于短偶极天线，由\autoref{eq:dipole-efield} 可得对时间平均的
 \emph{Poynting 流量}（即单位面积流过的功率）为：
 \begin{equation}
@@ -968,7 +968,7 @@ $\theta$ 为 $r$ 与 $v$ 之间的夹角.
     & = \sin^2\theta .
 \end{align}
 对于更一般的天线，其\ac{pp} $P(\theta,\phi)$
-将与两个空间方位角 $(\theta, \phi)$ 均相关.
+将与两个空间方位角 $(\theta, \phi)$ 均相关。
 
 \emph{\acf{gain}} $G(\theta,\phi)$ 定义为天线在方向 $(\theta, \phi)$
 的辐射功率 $P(\theta,\phi)$ 与一个总辐射功率相等但各向辐射同性的天线的辐射功率
@@ -978,7 +978,7 @@ $\overline{P}$ 之比，即：
   G(\theta,\phi) = \frac{P(\theta,\phi)}{\overline{P}}
     = \frac{4\Cpi P(\theta,\phi)}{\int P(\theta,\phi) \,\D{\Omega}} .
 \end{equation}
-可见，天线的\ac{gain}与其\ac{pp}只相差一个常数.
+可见，天线的\ac{gain}与其\ac{pp}只相差一个常数。
 
 %---------------------------------------------------------------------
 \subsection{主瓣}
@@ -986,25 +986,25 @@ $\overline{P}$ 之比，即：
 天线的\ac{pp} $P(\theta,\phi)$ 通常会在某个方向范围内具有
 比在其他方向明显更大的值，
 这个方向范围便称为天线的\emph{\acf{mainlobe}}，
-其余方向的辐射瓣则称为\emph{\acf{sidelobe}}，如\autoref{fig:lobes} 所示.
+其余方向的辐射瓣则称为\emph{\acf{sidelobe}}，如\autoref{fig:lobes} 所示。
 主瓣的立体角 $\Omega_{\R{MB}}$ 定义为：
 \begin{equation}
   \label{eq:omega-mb}
   \Omega_{\R{MB}} = \int_{\R{MB}} P_n(\theta,\phi) \,\D{\Omega} ,
 \end{equation}
-其中 $P_n(\theta,\phi)$ 为归一化的\ac{pp} [\autoref{eq:power-pattern}].
+其中 $P_n(\theta,\phi)$ 为归一化的\ac{pp} [\autoref{eq:power-pattern}]。
 主瓣的角度范围一般由\emph{\acf{hpbw}}描述，其定义为 $P(\theta,\phi)$
-下降至最大值的一半时主瓣的两点之间的角距离，亦如\autoref{fig:lobes} 所示.
+下降至最大值的一半时主瓣的两点之间的角距离，亦如\autoref{fig:lobes} 所示。
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.6\textwidth]{antenna-lobes}
   \bicaption[天线的主瓣及其宽度的示意图]{%
-    天线的主瓣及其\acl*{hpbw} (HPBW) 的示意图.
+    天线的主瓣及其\acl*{hpbw} (HPBW) 的示意图。
   }{%
     Diagram of an antenna's main lobe and its HPBW.
     \\来源/Credit:
-    \citeay{zuniga2009}.
+    \citeay{zuniga2009}
   }
   \label{fig:lobes}
 \end{figure}
@@ -1020,18 +1020,18 @@ $\overline{P}$ 之比，即：
   \label{eq:area-eff}
   \ac{area-eff} \equiv \frac{2 P_{\nu}}{S_{\nu}} ,
 \end{equation}
-式中的因子 \enquote{2} 是因为单个天线只能响应一个偏振方向.
+式中的因子 \enquote{2} 是因为单个天线只能响应一个偏振方向。
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.5\textwidth]{average-area-thought-exp}
   \bicaption[计算天线的平均接收面积的思想实验]{%
-    计算天线的平均接收面积 $\langle \ac*{area-eff} \rangle$ 的思想实验.
+    计算天线的平均接收面积 $\langle \ac*{area-eff} \rangle$ 的思想实验。
   }{%
     A thought experiment to calculate the average collection area
     $\langle \ac*{area-eff} \rangle$ of an antenna.
     \\来源/Credit:
-    \citeay{condon2016}, \S\,3.1.4.
+    \citeay{condon2016}, \S\,3.1.4
   }
   \label{fig:area-avg-exp}
 \end{figure}
@@ -1046,15 +1046,15 @@ $\overline{P}$ 之比，即：
 一个理想的无损天线和一个匹配的理想电阻，分别置于两个温度均为 $T$ 的空腔中并且达到热平衡；
 天线和电阻之间使用导线相连，两个空腔之间设有一个特殊的阀门，能够阻挡电磁波，
 但允许频率范围为 $[\nu, \,\nu+\D{\nu}]$ 的电流通过导线，
-如\autoref{fig:area-avg-exp} 所示.
+如\autoref{fig:area-avg-exp} 所示。
 因为整个系统处于热平衡状态，所以导线中没有\emph{净}能量流动，
-否则其中一个空腔将升温、另一个则冷却，违背热力学第二定律.
+否则其中一个空腔将升温、另一个则冷却，违背热力学第二定律。
 因此，天线接收各个方向的无偏振黑体辐射 $B_{\nu}(T)$ 所产生的\ac{spec-power}为：
 \begin{equation}
   P_{\nu,a} =
     \frac{1}{2} \int \ac{area-eff}(\theta,\phi) B_{\nu}(T) \,\D{\Omega} ,
 \end{equation}
-而且该\ac{spec-power}必须等于电阻的热噪声的\ac{spec-power} $P_{\nu,r}$.
+而且该\ac{spec-power}必须等于电阻的热噪声的\ac{spec-power} $P_{\nu,r}$。
 代入\autoref{eq:nyquist} 和\autoref{eq:planck}，可得
 \begin{equation}
   \acs{kb}T =
@@ -1064,7 +1064,7 @@ $\overline{P}$ 之比，即：
 于是，天线的平均接收面积 $\langle \ac{area-eff} \rangle$ 为：
 \begin{equation}
   \label{eq:area-avg}
-  \langle \ac{area-eff} \rangle = \frac{\lambda^2}{4\Cpi}.
+  \langle \ac{area-eff} \rangle = \frac{\lambda^2}{4\Cpi} .
 \end{equation}
 
 %---------------------------------------------------------------------
@@ -1072,8 +1072,8 @@ $\overline{P}$ 之比，即：
 
 一个被置于温度为 $T$ 的黑体辐射环境中的天线，
 输出的噪声将与温度为 $T$ 的电阻所产生的热噪声 [\autoref{eq:nyquist-approx}]
-相同（即具有相同的频谱）.
-因此，该电阻被称为天线的\emph{匹配电阻}.
+相同（即具有相同的频谱）。
+因此，该电阻被称为天线的\emph{匹配电阻}。
 据此，可定义\emph{\acl{T-antenna} (antenna temperature)} 为其匹配电阻的温度，即
 \begin{equation}
   \label{eq:t-ant}
@@ -1092,17 +1092,17 @@ $\overline{P}$ 之比，即：
 \label{sec:interferometry}
 
 根据衍射原理，望远镜的角分辨率为 $\theta \sim \lambda / D$，
-其中 $\lambda$ 为辐射信号的波长（对应于观测频率），$D$ 为望远镜的口径.
-与光学波段相比，射电信号的波长要长得多.
+其中 $\lambda$ 为辐射信号的波长（对应于观测频率），$D$ 为望远镜的口径。
+与光学波段相比，射电信号的波长要长得多。
 为了实现足够好的角分辨率，必须建造巨型的望远镜，
 比如 \SI{100}{\meter} 口径的 \ac{gbt}、
 \SI{305}{\meter} 口径的 Arecibo、
-\SI{500}{\meter} 口径的 \ac{fast}.
+\SI{500}{\meter} 口径的 \ac{fast}。
 然而，在数百 \si{\MHz} 的低频射电波段，望远镜的口径需达到惊人的 \SI{10}{\km} 左右
 才能在 \SI{100}{\MHz} 实现约 \SI{1}{\arcminute} 的角分辨率，
-这对于单口径望远镜而言显然是不现实的.
+这对于单口径望远镜而言显然是不现实的。
 因此，低频射电观测通常使用\emph{\ac{interferometry}}技术，
-通过联合一系列小望远镜开展相干测量并综合，获得高分辨率图像.
+通过联合一系列小望远镜开展相干测量并综合，获得高分辨率图像。
 
 %---------------------------------------------------------------------
 \subsection{二元准单色干涉仪}
@@ -1111,10 +1111,10 @@ $\overline{P}$ 之比，即：
   \centering
   \includegraphics[width=0.7\textwidth]{interferometer}
   \bicaption[二元准单色干涉仪]{%
-    二元准单色干涉仪的构成示意图.
+    二元准单色干涉仪的构成示意图。
     两个相同的天线相距 \ac*{v-baseline} 放置并指向位于 \ac*{v-direction} 方向的辐射源，
     接收的信号被放大后，再经过\acs*{correlator}的相乘（$\times$）
-    和时间平均（$\langle\;\rangle$），得到输出响应 $R$.
+    和时间平均（$\langle\;\rangle$），得到输出响应 $R$。
   }{%
     The components of a two-element quasi-monochromatic interferometer
     observing in a very narrow radio frequency band centered at
@@ -1125,33 +1125,33 @@ $\overline{P}$ 之比，即：
     multiplied ($\times$), and time averaged ($\langle\;\rangle$)
     by the correlator to yield the output response $R$.
     \\来源/Credit:
-    \citeay{condon2016}, \S\,3.7.1.
+    \citeay{condon2016}, \S\,3.7.1
   }
   \label{fig:interferometer}
 \end{figure}
 
 考虑一个最简单的二元准单色干涉仪（如\autoref{fig:interferometer} 所示），
-由两个相同的天线和\ac{correlator}构成，只测量频率为 $\nu$ 的准单色信号.
-由于辐射源非常遥远，其信号到达干涉仪时为平面波（忽略电离层扰动等影响）.
+由两个相同的天线和\ac{correlator}构成，只测量频率为 $\nu$ 的准单色信号。
+由于辐射源非常遥远，其信号到达干涉仪时为平面波（忽略电离层扰动等影响）。
 同一个波面被两个天线接收之间存在一个时间差，
 即为\emph{\acl{delay-geo} (geometric delay)} \ac{delay-geo}:
 \begin{equation}
   \acs{delay-geo} =
-    \frac{\ac{v-baseline} \cdot \ac{v-direction}}{\acs{speed-light}},
+    \frac{\ac{v-baseline} \cdot \ac{v-direction}}{\acs{speed-light}} ,
 \end{equation}
 其中 \acs{speed-light} 是\acl{speed-light}，
 \ac{v-baseline} 为两天线之间的\acl{v-baseline}（由天线 1 指向天线 2），
-\ac{v-direction} 为辐射源的\acl{v-direction}.
+\ac{v-direction} 为辐射源的\acl{v-direction}。
 两个天线接收信号后分别输出电压响应：
 \begin{equation}
   \left\{
     \begin{aligned}
-      V_1(t) &= V \cos [\omega (t - \acs{delay-geo})], \\
-      V_2(t) &= V \cos (\omega t),
+      V_1(t) &= V \cos [\omega (t - \acs{delay-geo})] , \\
+      V_2(t) &= V \cos (\omega t) ,
     \end{aligned}
   \right.
 \end{equation}
-其中 $\omega = 2\Cpi\nu$ 为角频率.
+其中 $\omega = 2\Cpi\nu$ 为角频率。
 然后，\emph{\ac{correlator}}将两个天线的响应相乘：
 \begin{align}
   V_1(t) V_2(t)
@@ -1163,13 +1163,13 @@ $\overline{P}$ 之比，即：
 \begin{equation}
   \label{eq:resp-corr}
   R = \langle V_1(t) V_2(t) \rangle
-    = \frac{1}{2} V^2 \cos (\omega \acs{delay-geo}).
+    = \frac{1}{2} V^2 \cos (\omega \acs{delay-geo}) .
 \end{equation}
 由于天线响应 $V_1$ 和 $V_2$ 正比于辐射源的亮度以及天线的\ac{gain}
 [参见\autoref{eq:gain}]，
 因此\ac{correlator}的响应 $R$ 正比于辐射源的流量密度 $S$
 以及 $\sqrt{A_1 A_2}$，其中 $A_1$ 和 $A_2$ 为两个天线的有效接收面积
-[参见\autoref{eq:area-avg}].
+[参见\autoref{eq:area-avg}]。
 
 当辐射源的方向 \ac{v-direction} 改变时（比如由于地球的自转），
 \acl{delay-geo} \acs{delay-geo} 也随之变化，
@@ -1178,26 +1178,27 @@ $\overline{P}$ 之比，即：
 其相位为：
 \begin{equation}
   \phi = \omega \acs{delay-geo}
-    = 2\Cpi \left( \frac{b \cos\theta}{\lambda} \right),
+    = 2\Cpi \left( \frac{b \cos\theta}{\lambda} \right) ,
 \end{equation}
 其中 $\theta$ 为\acl{v-direction} \ac{v-direction}
-和\acl{v-baseline} \ac{v-baseline} 之间的夹角.
+和\acl{v-baseline} \ac{v-baseline} 之间的夹角。
 于是有
 \begin{equation}
-  \diff{\phi}{\theta} = 2\Cpi \left( \frac{b \sin\theta}{\lambda} \right),
+  \diff{\phi}{\theta}
+    = 2\Cpi \left( \frac{b \sin\theta}{\lambda} \right) ,
 \end{equation}
 由此可知单个\ac{fringe}的宽度，
 即干涉仪的\emph{\acl{bw-synthesized} (synthesized beamwidth)}
 \acs{bw-synthesized} 为：
 \begin{equation}
   \label{eq:bw-synthesized}
-  \acs{bw-synthesized} = \frac{\lambda}{b \sin\theta},
+  \acs{bw-synthesized} = \frac{\lambda}{b \sin\theta} ,
 \end{equation}
-此参数描述了干涉仪的角分辨能力.
+此参数描述了干涉仪的角分辨能力。
 
 天线的\ac{pp}描述了其响应随方向的变化情况，也被称为干涉仪的\emph{\acf{beam-primary}}，
 将对输出 $R$ 产生调制，亦如\autoref{fig:interferometer} 所示，
-其中\ac{correlator}的响应\ac{fringe}的\ac{envelope}示意了\ac{beam-primary}的衰减情况.
+其中\ac{correlator}的响应\ac{fringe}的\ac{envelope}示意了\ac{beam-primary}的衰减情况。
 
 对于一个表面亮度分布为 $\acs{I-nu}(\ac{v-direction})$ 的\ac{src-extended}，
 由于不同位置产生的辐射互不相干，因此可以被当作一系列独立的点源处理，
@@ -1209,11 +1210,11 @@ $\overline{P}$ 之比，即：
       \,\D{\Omega}  \\
     & = \int \acs{I-nu}(\ac{v-direction}) \cos \left(
         2\Cpi\, \ac{v-baseline} \cdot \ac{v-direction} / \lambda \right)
-      \,\D{\Omega},
+      \,\D{\Omega} ,
     \label{eq:resp-cos}
 \end{align}
 其中下标 \enquote{$c$} 表示 \enquote{cosine} \ac{correlator}的输出，
-以区分下文将要介绍的 \enquote{sine} \ac{correlator}.
+以区分下文将要介绍的 \enquote{sine} \ac{correlator}。
 
 一个任意的亮度分布 $I$ 可分解为奇对称成分 $I_{\R{odd}}$
 与偶对称成分 $I_{\R{even}}$ 之和，
@@ -1227,7 +1228,7 @@ $\overline{P}$ 之比，即：
       \,\D{\Omega}  \\
     & = \int I_{\R{even}}(\ac{v-direction}) \cos \left(
         2\Cpi\, \ac{v-baseline} \cdot \ac{v-direction} / \lambda \right)
-      \,\D{\Omega}.
+      \,\D{\Omega} .
 \end{align}
 为了能够测量另一个奇对称成分 $I_{\R{odd}}$，
 则需要一个 \enquote{sine} \ac{correlator}，
@@ -1240,23 +1241,23 @@ $\overline{P}$ 之比，即：
       \,\D{\Omega}  \\
     & = \int I_{\R{odd}}(\ac{v-direction}) \sin \left(
         2\Cpi\, \ac{v-baseline} \cdot \ac{v-direction} / \lambda \right)
-      \,\D{\Omega}.
+      \,\D{\Omega} .
 \end{align}
-一对 cosine 和 sine \ac{correlator}的组合称为\ac{c-correlator}.
+一对 cosine 和 sine \ac{correlator}的组合称为\ac{c-correlator}。
 相应地，\emph{\acl{Vis} (complex visibility)}，简称\emph{\ac{vis}}，可定义为：
 \begin{align}
   \acs{Vis}
     & \equiv R_c - \Ci\, R_s  \\
     & = \int \ac{I-nu}(\ac{v-direction}) \exp
       (-2\Cpi\Ci\, \ac{v-baseline} \cdot \ac{v-direction} / \lambda)
-      \,\D{\Omega}.
+      \,\D{\Omega} .
     \label{eq:vis}
 \end{align}
 
 %---------------------------------------------------------------------
 \subsection{有限带宽}
 
-现在，将上述二元准单色干涉仪推广至测量有限带宽的信号.
+现在，将上述二元准单色干涉仪推广至测量有限带宽的信号。
 考虑一个中心频率为 $\nu_c$ 且宽度为 $\Delta\nu$ 的窄频带 ($\Delta\nu \gg \nu_c$)，
 可认为辐射源的亮度以及天线的响应在此频带内保持不变，
 于是可得干涉仪测量的\ac{vis} [\autoref{eq:vis}] 为：
@@ -1277,18 +1278,18 @@ $\overline{P}$ 之比，即：
   \sinc(x) =
     \begin{cases}
       \frac{\sin(\Cpi x)}{\Cpi x}, & \quad \text{if } x \neq 0, \\
-      1, & \quad \text{if } x = 0.
+      1, & \quad \text{if } x = 0 .
     \end{cases}
 \end{equation}
 因此，干涉仪测得的\ac{fringe}幅度减弱至原来的
-$\sinc(\Delta\nu\,\acs{delay-geo})$ 倍.
+$\sinc(\Delta\nu\,\acs{delay-geo})$ 倍。
 为了最小化这种损失，可以给前导天线的输出信号增加%
 \emph{\acl{delay-comp} (compensating delay)} \ac{delay-comp}，
 使其满足 $|\acs{delay-comp} - \acs{delay-geo}| \ll (\Delta\nu)^{-1}$，
-如\autoref{fig:interferometer-tau0} 所示.
-这样，两个天线的输出信号在到达\ac{correlator}时，其相位是同步的.
+如\autoref{fig:interferometer-tau0} 所示。
+这样，两个天线的输出信号在到达\ac{correlator}时，其相位是同步的。
 同时，满足 $\acs{delay-comp} = \acs{delay-geo}$ 的方向 $\ac{v-direction}_0$
-称为\emph{\acf{delay-center}}或\emph{\acf{phase-refpos}}.
+称为\emph{\acf{delay-center}}或\emph{\acf{phase-refpos}}。
 
 \begin{figure}[htp]
   \centering
@@ -1297,7 +1298,7 @@ $\sinc(\Delta\nu\,\acs{delay-geo})$ 倍.
     通过给前导天线（对应于图中的天线 2）增加\acl*{delay-comp}
     $\acs*{delay-comp} \approx \acs*{delay-geo}$，
     使两个天线的输出信号的相位在相关运算时保持同步，
-    从而最小化带宽效应对测量的影响.
+    从而最小化带宽效应对测量的影响。
   }{%
     By introducing the compensating delay
     $\acs*{delay-comp} \approx \acs*{delay-geo}$ in the signal path of the
@@ -1306,47 +1307,47 @@ $\sinc(\Delta\nu\,\acs{delay-geo})$ 倍.
     attenuation to the measured fringes caused by the finite bandwidth
     effect.
     \\来源/Credit:
-    \citeay{condon2016}, \S\,3.7.3.
+    \citeay{condon2016}, \S\,3.7.3
   }
   \label{fig:interferometer-tau0}
 \end{figure}
 
 \acl{delay-geo} \acs{delay-geo} 会随方向而变化，
 因此\acl{delay-comp} \acs{delay-comp} 只对特定方向 $\ac{v-direction}_0$
-（即\ac{delay-center}）是正好准确的.
+（即\ac{delay-center}）是正好准确的。
 偏离\ac{delay-center}的角度 $\Delta\theta$ 越大，
 \acl{delay-comp} \acs{delay-comp} 的修正效果就会越差，
-带宽带来的损失也就越大.
-这个效应被称为\emph{\acf{bw-smear}}，限制了有效的视场大小.
+带宽带来的损失也就越大。
+这个效应被称为\emph{\acf{bw-smear}}，限制了有效的视场大小。
 为了满足：
 \begin{equation}
   \Delta\nu \Delta\acs{delay-geo}
     \approx \Delta\nu \diff{\acs{delay-geo}}{\theta} \Delta\theta
     = \frac{b \sin\theta}{\acs{speed-light}} \Delta\nu \Delta\theta
-    \ll 1,
+    \ll 1 ,
 \end{equation}
 则要求：
 \begin{equation}
-  \Delta\theta \ll \frac{\nu \acs{bw-synthesized}}{\Delta\nu}.
+  \Delta\theta \ll \frac{\nu \acs{bw-synthesized}}{\Delta\nu} .
 \end{equation}
 另一个解决\ac{bw-smear}的方法是将一个宽频带划分为一系列足够窄（约几十 \si{\kHz}）
-的频率\ac{channel}，并且对每个\ac{channel}的信号独立地进行相关运算得到\ac{vis}.
+的频率\ac{channel}，并且对每个\ac{channel}的信号独立地进行相关运算得到\ac{vis}。
 
 类似地，如果\ac{correlator}的\ac{t-int} $\Delta t$ 过长，
 则辐射源的位置 \ac{v-direction} 会因地球自转而发生显著改变
 （可与 \acs{bw-synthesized} 相比拟），
-导致\acl{delay-comp} \acs{delay-comp} 的修正效果变差.
-这个效应被称为\emph{\acf{t-smear}}.
+导致\acl{delay-comp} \acs{delay-comp} 的修正效果变差。
+这个效应被称为\emph{\acf{t-smear}}。
 一个距离\ac{delay-center} $\Delta\theta$ 的目标的移动速度为
-$v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
+$v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度。
 为了最小化\ac{t-smear}的影响，\ac{correlator}的\ac{t-int} $\Delta t$ 需满足：
 \begin{equation}
-  v \Delta t = \omega_e \Delta\theta \Delta t \ll \theta_s,
+  v \Delta t = \omega_e \Delta\theta \Delta t \ll \theta_s ,
 \end{equation}
 即：
 \begin{equation}
   \label{eq:correlator-avgtime}
-  \Delta t \ll \frac{\theta_s}{\omega_e \Delta\theta}.
+  \Delta t \ll \frac{\theta_s}{\omega_e \Delta\theta} .
 \end{equation}
 
 %---------------------------------------------------------------------
@@ -1357,12 +1358,12 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
   \includegraphics[width=0.7\textwidth]{interferometer-coordsys}
   \bicaption[$(u,v,w)$ 坐标系]{%
     干涉仪的 $(u,v,w)$ 直角坐标系，其中 $w$ 轴指向参考方向 $\ac*{v-direction}_0$，
-    通常为目标的中心，$u$ 轴向东，$v$ 轴向北.
+    通常为目标的中心，$u$ 轴向东，$v$ 轴向北。
     \acl*{v-baseline}可表示为 $\ac*{v-baseline} = (u,v,w) \lambda$，
     目标的亮度分布则用\acs*{dc}描述，
     即 $\ac*{I-nu}(\ac*{v-direction}) = \ac*{I-nu}(l,m)$，
     其中 $l, m$ 分别为\acl*{v-direction} \ac*{v-direction}
-    对 $u, v$ 轴的投影长度.
+    对 $u, v$ 轴的投影长度。
   }{%
     The $(u,v,w)$ Cartesian coordinate system for interferometers,
     in which the $w$-axis points in the reference direction
@@ -1376,32 +1377,32 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
     i.e., the projected lengths of the direction vector \ac*{v-direction}
     against the $u$- and $v$-axes, respectively.
     \\来源/Credit:
-    \citeay{thompson2017}, \S\,3.1.
+    \citeay{thompson2017}, \S\,3.1
   }
   \label{fig:interferometer-coordsys}
 \end{figure}
 
 为了能够实际地运用\autoref{eq:vis} 从观测的\ac{vis}数据获得辐射源的亮度分布，
-需要定义一个坐标系.
+需要定义一个坐标系。
 如\autoref{fig:interferometer-coordsys} 所示的 $(u,v,w)$ 直角坐标系是最常用的，
 其中 $w$ 轴指向参考方向 $\ac{v-direction}_0$，
-通常为目标的中心，$u$ 轴向东，$v$ 轴向北.
+通常为目标的中心，$u$ 轴向东，$v$ 轴向北。
 于是，\acl{v-baseline}为 $\ac{v-baseline} = (u,v,w) \lambda$，
 \acl{v-direction}为 $\ac{v-direction} = \left( l, m, \sqrt{1-l^2-m^2} \right)$，
-其中 $l, m$ 分别为 \ac{v-direction} 对 $u, v$ 轴的投影长度，即\ac{dc}.
+其中 $l, m$ 分别为 \ac{v-direction} 对 $u, v$ 轴的投影长度，即\ac{dc}。
 再利用 $\D{\Omega} = \D{l}\,\D{m} \,\big/ \sqrt{1-l^2-m^2}$，
 可将\autoref{eq:vis} 表示为：
 \begin{equation}
   \label{eq:vis-uvw}
   \acs{Vis}(u,v,w) = \iint \frac{\ac{I-nu}(l,m)}{\sqrt{1-l^2-m^2}}
     \exp \left[ -2\Cpi\Ci \left( ul+vm+w\sqrt{1-l^2-m^2} \right) \right]
-    \,\D{l}\,\D{m}.
+    \,\D{l}\,\D{m} .
 \end{equation}
 注意，因为上式的相位因子中存在额外项 \enquote{$w \sqrt{1-l^2-m^2}$}，
-所以这\emph{不是}二维 Fourier 变换.
+所以这\emph{不是}二维 Fourier 变换。
 
 然而，在下述两种常见的特殊情况下，上式可变成二维 Fourier 变换，
-从而通过逆运算获得目标的亮度分布.
+从而通过逆运算获得目标的亮度分布。
 \begin{itemize}
 \item
 \emph{所有\acl{v-baseline}共面:}
@@ -1409,7 +1410,7 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 (1) 干涉阵列的天线只沿东西方向分布，如 \ac{wsrt}，尽管地球自转，
 所有\acl{v-baseline}均落在同一个垂直于地球自转轴的平面内；
 (2) 虽然干涉阵列的天线分布在一个二维平面，如 \ac{miteor}，
-但是采用\ac{snapshot}观测模式，即每次观测或成像的\ac{t-int}足够短.
+但是采用\ac{snapshot}观测模式，即每次观测或成像的\ac{t-int}足够短。
 在这两种情况下，可以选取合适的坐标系原点使得 $w = 0$，
 于是\autoref{eq:vis-uvw} 变成二维 Fourier 变换，
 通过逆变换可得目标的亮度分布 $\ac{I-nu}(l,m)$：
@@ -1417,7 +1418,7 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
   \label{eq:vis-inv1}
   \frac{\ac{I-nu}(l,m)}{\sqrt{1-l^2-m^2}}
     = \iint \acs{Vis}(u,v, w \equiv 0)
-      \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m}.
+      \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m} .
 \end{equation}
 
 %.......................................
@@ -1427,13 +1428,13 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
 则有：
 \begin{equation}
   w \sqrt{1-l^2-m^2}
-    \approx w \left[ 1 - \frac{l^2+m^2}{2} \right].
+    \approx w \left[ 1 - \frac{l^2+m^2}{2} \right] .
 \end{equation}
 于是\autoref{eq:vis-uvw} 成为：
 \begin{equation}
   \acs{Vis}(u,v,w) \approx \exp (-2\Cpi\Ci\,w) \iint
     \frac{\ac{I-nu}(l,m)}{\sqrt{1-l^2-m^2}}
-    \exp [-2\Cpi\Ci\, (ul+vm) -\Ci\Cpi w(l^2+m^2)] \,\D{l}\,\D{m}.
+    \exp [-2\Cpi\Ci\, (ul+vm) -\Ci\Cpi w(l^2+m^2)] \,\D{l}\,\D{m} .
 \end{equation}
 如果 $\big| \Cpi w(l^2+m^2) \big| \ll 1$，
 即有 $\exp [-\Ci\Cpi w(l^2+m^2)] \approx 1$，
@@ -1442,7 +1443,7 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
   \acs{Vis}(u,v)
     & \equiv \acs{Vis}(u,v,w) \exp (2\Cpi\Ci\,w)  \\
     & = \iint \frac{\ac{I-nu}(l,m)}{\sqrt{1-l^2-m^2}}
-    \exp [-2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m},
+    \exp [-2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m} ,
   \label{eq:vis-uv}
 \end{align}
 然后通过逆变换，便得到目标的亮度分布 $\ac{I-nu}(l,m)$：
@@ -1450,45 +1451,45 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度.
   \label{eq:vis-inv2}
   \frac{\ac{I-nu}(l,m)}{\sqrt{1-l^2-m^2}}
     = \iint \acs{Vis}(u,v)
-      \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m}.
+      \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m} .
 \end{equation}
 
 \end{itemize}
 
 上述第一种情况要求\acl{v-baseline} \ac{v-baseline} 全部在同一平面内，
 第二种情况要求\acl{v-direction} \ac{v-direction}
-在天球上的对应点全部在同一平面内，即视场足够小.
+在天球上的对应点全部在同一平面内，即视场足够小。
 从\autoref{eq:vis} 容易看出 \ac{v-baseline} 和 \ac{v-direction} 之间存在对称性，
-因此，这两种情况可理解为相同近似条件的不同表现形式 \cite{clark1999}.
+因此，这两种情况可理解为相同近似条件的不同表现形式 \cite{clark1999}。
 如果无法满足以上两种情况，比如大视场成像，则需要采用专门的成像方法
 \cite{cornwell1992,sault2007}，
 比如 \ac{w-proj}法 \cite{cornwell2008}、
 \ac{w-stack}法 \cite{humphreys2011}
 （将在 \autoref{sec:obs-simu} 使用的 \texttt{WSClean} 成像软件实现了该方法
-\cite{offringa2014,offringa2017}）.
+\cite{offringa2014,offringa2017}）。
 
 %---------------------------------------------------------------------
 \subsection{\texorpdfstring{$uv$}{uv} 覆盖}
 \label{sec:uv-coverage}
 
 设二元干涉仪的\acl{v-baseline}为 $\ac{v-baseline} = (u,v,w)\lambda$，
-在每个时刻，干涉仪测量 $uv$ 平面内位于 $(u,v)$ 和 $(-u,-v)$ 的一对\ac{vis}.
+在每个时刻，干涉仪测量 $uv$ 平面内位于 $(u,v)$ 和 $(-u,-v)$ 的一对\ac{vis}。
 随着地球的自转，\ac{v-baseline} 的各个分量逐渐变化，经过 \SI{24}{\hour}，
-该\ac{baseline}所测量的\ac{vis}数据在 $uv$ 平面内形成两个相互对称的椭圆.
+该\ac{baseline}所测量的\ac{vis}数据在 $uv$ 平面内形成两个相互对称的椭圆。
 一个包含 \ac{N-ant} 个天线的干涉阵列可形成
 $\ac{N-ant}(\ac{N-ant}-1)/2$ 条\ac{baseline}，
 每条\ac{baseline}都可以测量 $uv$ 平面内相应位置的\ac{vis}，
-于是显著地增加了 $uv$ 覆盖度，即 $uv$ 平面内被测量到的范围.
-\autoref{fig:uv-coverages} 展示了不同天线数目、不同\ac{t-int}的 $uv$ 覆盖.
+于是显著地增加了 $uv$ 覆盖度，即 $uv$ 平面内被测量到的范围。
+\autoref{fig:uv-coverages} 展示了不同天线数目、不同\ac{t-int}的 $uv$ 覆盖。
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{uv-coverages}
   \bicaption[$uv$ 覆盖样例]{%
-    $uv$ 覆盖样例.
-    \uline{从上往下:} 干涉阵列分别包含 2、\,5、\,10 和 50 个呈对数螺旋状分布的天线；
-    \uline{从左到右:} \ac{t-int}分别为 \SI{10}{\second}、\,\SI{2}{\hour}、
-    \,\SI{4}{\hour} 和 \SI{6}{\hour}.
+    $uv$ 覆盖样例。
+    \uline{从上往下:} 干涉阵列分别包含 2、5、10 和 50 个呈对数螺旋状分布的天线；
+    \uline{从左到右:} \ac{t-int}分别为 \SI{10}{\second}、\SI{2}{\hour}、
+    \SI{4}{\hour} 和 \SI{6}{\hour}。
   }{%
     Examples of $uv$ coverages.
     \emph{Top to bottom:} the interferometer includes 2, 5, 10, and 50
@@ -1496,7 +1497,7 @@ $\ac{N-ant}(\ac{N-ant}-1)/2$ 条\ac{baseline}，
     \emph{Left to right:} the integration time is \SI{10}{\second},
     \SI{2}{\hour}, \SI{4}{\hour}, and \SI{6}{\hour}, respectively.
     \\来源/Credit:
-    \citeay{avison2013}.
+    \citeay{avison2013}
   }
   \label{fig:uv-coverages}
 \end{figure}
@@ -1506,22 +1507,22 @@ $\ac{N-ant}(\ac{N-ant}-1)/2$ 条\ac{baseline}，
 具体覆盖情况可由\emph{\acf{f-sampling}}描述：
 \begin{equation}
   \label{eq:sf}
-  \acs{S-uv} = \sum_{k,t} \delta(u - u_{k,t}, v - v_{k,t}),
+  \acs{S-uv} = \sum_{k,t} \delta(u - u_{k,t}, v - v_{k,t}) ,
 \end{equation}
 其中 $u_{k,t}, v_{k,t}$ 为\ac{baseline} $\B{b}_k$
-在 $t$ 时刻在 $uv$ 平面内的分量.
-于是，干涉阵列实际测量的\ac{vis}数据为 $\acs{Vis}(u,v) \acs{S-uv}$.
+在 $t$ 时刻在 $uv$ 平面内的分量。
+于是，干涉阵列实际测量的\ac{vis}数据为 $\acs{Vis}(u,v) \acs{S-uv}$。
 由于无法获得目标亮度分布的全部信息，
 根据\autoref{eq:vis-inv2} 对测量的\ac{vis}数据进行逆 Fourier 变换
 仅能得到目标的\emph{\acf{dirty-map}} $I_{\nu}^D(l,m)$：
 \begin{equation}
   \label{eq:dirty-map}
   \frac{I_{\nu}^D(l,m)}{\sqrt{1-l^2-m^2}} = \iint
-    \acs{Vis}(u,v) \acs{S-uv} \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m}.
+    \acs{Vis}(u,v) \acs{S-uv} \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m} .
 \end{equation}
 利用\ac{conv-theorem}，可将上式表示为：
 \begin{equation}
-  I_{\nu}^D(l,m) = \ac{I-nu}(l,m) * B(l,m),
+  I_{\nu}^D(l,m) = \ac{I-nu}(l,m) * B(l,m) ,
 \end{equation}
 其中
 \begin{equation}
@@ -1529,24 +1530,24 @@ $\ac{N-ant}(\ac{N-ant}-1)/2$ 条\ac{baseline}，
   B(l,m) = \iint \acs{S-uv} \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m}
 \end{equation}
 是\ac{f-sampling} \acs{S-uv} 的 Fourier 变换，
-称为\emph{\acf{beam-synthesized}}或\emph{\acf{psf}}.
-\autoref{fig:imaging-relations} 展示了成像过程中的各种变换关系.
+称为\emph{\acf{beam-synthesized}}或\emph{\acf{psf}}。
+\autoref{fig:imaging-relations} 展示了成像过程中的各种变换关系。
 为了从\ac{dirty-map} $I_{\nu}^D(l,m)$ 尽可能地恢复目标的真实图像 $\ac{I-nu}(l,m)$，
 则需要使用复杂的非线性\ac{deconv}方法，
 比如 CLEAN 算法 \cite{hogbom1974,cornwell1999}、
-\ac{mem} \cite{narayan1986}.
+\ac{mem} \cite{narayan1986}。
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{imaging-relations}
   \bicaption[成像过程中的变换关系]{%
-    成像过程中的各种变换关系.
+    成像过程中的各种变换关系。
     \emph{(a)} 天空的真实图像；
     \emph{(b)} 干涉阵列的\acs*{beam-synthesized}，对应 (e) 的 Fourier 变换；
     \emph{(c)} 脏图，对应 (f) 的 Fourier 变换；
     \emph{(d)} \acs*{vis}的真实数据，对应 (a) 的 Fourier 变换；
     \emph{(e)} 干涉阵列的\acs*{f-sampling}；
-    \emph{(f)} 实际测量到的\acs*{vis}数据，为 (d) 和 (e) 乘积.
+    \emph{(f)} 实际测量到的\acs*{vis}数据，为 (d) 和 (e) 乘积。
   }{%
     The transform relations among the imaging process.
     \emph{(a)} The true sky map;
@@ -1560,7 +1561,7 @@ $\ac{N-ant}(\ac{N-ant}-1)/2$ 条\ac{baseline}，
     product of (d) and (e).
     \\来源/Credit:
     Dale E. Gary, Radio Astronomy, Lecture 6,
-    \url{https://web.njit.edu/~gary/728/Lecture6.html}, (2018-11-21).
+    \url{https://web.njit.edu/~gary/728/Lecture6.html}, (2018-11-21)
     [反转了颜色]
   }
   \label{fig:imaging-relations}
@@ -1569,13 +1570,13 @@ $\ac{N-ant}(\ac{N-ant}-1)/2$ 条\ac{baseline}，
 %---------------------------------------------------------------------
 \subsection{灵敏度}
 
-天线的输出信号会因为自身的热噪声而存在一定的误差.
+天线的输出信号会因为自身的热噪声而存在一定的误差。
 若天线的温度为 \ac{T-antenna} [\autoref{eq:t-ant}]，
 则天线每个时刻的测量值的\ac{rms}误差为
 $\sigma_1 \approx \sqrt{2} \ac{T-antenna}$
-（详见 \citeay{condon2016}, 附录 B.6）.
+（详见 \citeay{condon2016}, 附录 B.6）。
 设信号的带宽为 $\Delta\nu$，根据\emph{采样定理 (sampling theorem)}，
-在时间 $\tau$ 内应采样 $N \gtrsim 2 \Delta\nu \,\tau$ 个数据点.
+在时间 $\tau$ 内应采样 $N \gtrsim 2 \Delta\nu \,\tau$ 个数据点。
 于是，天线的测量值经过时间平均后的误差为：
 \begin{equation}
   \label{eq:radiometer}
@@ -1583,11 +1584,11 @@ $\sigma_1 \approx \sqrt{2} \ac{T-antenna}$
     = \frac{\sqrt{2} \ac{T-antenna}}{\sqrt{N}}
     \approx \frac{\ac{T-antenna}}{\sqrt{\Delta\nu \,\tau}} ,
 \end{equation}
-其中 $\tau$ 为\ac{t-int}.
-\ac{t-int}越长，测量值的误差就越小，观测所达到的灵敏度就越高.
+其中 $\tau$ 为\ac{t-int}。
+\ac{t-int}越长，测量值的误差就越小，观测所达到的灵敏度就越高。
 然而在实际情况中，多种系统误差会限制灵敏度的提高，
 比如天线和接收机的\ac{gain}变化、大气层辐射的不规则涨落、
-未分辨背景源所产生的\ac{confusion}、等等.
+未分辨背景源所产生的\ac{confusion}、等等。
 
 若一个点源的辐射使天线的温度 \ac{T-antenna} 升高了 $\Delta T$，
 则根据\autoref{eq:dt-source} 可测得该点源的流量密度为：
@@ -1602,7 +1603,7 @@ $\sigma_1 \approx \sqrt{2} \ac{T-antenna}$
     & = \frac{2\,\ac{kb} \ac{T-antenna}}{
       \ac{area-eff} \sqrt{\Delta\nu \,\tau}} .
 \end{align}
-此即单天线的\emph{点源灵敏度}.
+此即单天线的\emph{点源灵敏度}。
 
 对于由两个相同天线构成的二元干涉仪，其点源灵敏度为：
 \begin{equation}
@@ -1626,11 +1627,11 @@ $\sigma_1 \approx \sqrt{2} \ac{T-antenna}$
   \label{eq:sigma-tb}
   \sigma_b = \frac{\lambda^2}{2\,\ac{kb}} \frac{\sigma_S}{\Omega_s} ,
 \end{equation}
-其中 $\Omega_s$ 是干涉阵列的\ac{beam-synthesized}的立体角.
+其中 $\Omega_s$ 是干涉阵列的\ac{beam-synthesized}的立体角。
 相比单口径望远镜，干涉仪的基线长、角分辨率高，
-所以\ac{beam-synthesized}的立体角 $\Omega_s$ 非常小.
+所以\ac{beam-synthesized}的立体角 $\Omega_s$ 非常小。
 即使干涉阵列包含许多天线，但其亮度灵敏度 $\sigma_b$
-与单口径望远镜相比可能不具备明显的优势.
+与单口径望远镜相比可能不具备明显的优势。
 
 
 %% EOF

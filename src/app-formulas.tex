@@ -26,7 +26,7 @@
   \label{eq:rho-crit}
   \acs{rho-crit}(z) = \frac{3 H^2(z)}{8 \Cpi \acs{G}} ,
 \end{equation}
-其中 \acs{G} 是\acl{G}.
+其中 \acs{G} 是\acl{G}。
 
 位于红移 $z$ 处的星系团的\acf{r-vir}定义为该半径范围内星系团的平均密度
 是当时宇宙临界密度的 \acs{overdensity-vir} 倍，
@@ -67,7 +67,7 @@
     \mathlarger{\int_0^x} y^{3/2} (y^3 + 2)^{-3/2} \,\D{y} ,
 \end{equation}
 并且 $x_0 \equiv (2 \acs{Ol0} \big/ \acs{Om0})^{1/3}$,
-$x = x_0 \big/ (1+z)$.
+$x = x_0 \big/ (1+z)$。
 
 
 %=====================================================================
@@ -75,12 +75,12 @@ $x = x_0 \big/ (1+z)$.
 \label{sec:r-m-conv}
 
 实际情况中会经常用到星系团的 $r_{200}$ 和 $r_{500}$，分别定义为该半径范围内
-星系团的平均密度是当时宇宙临界密度的 200 和 500 倍.
-于是，$M_{200}$ 和 $M_{500}$ 分别为 $r_{200}$ 和 $r_{500}$ 之内的总质量.
+星系团的平均密度是当时宇宙临界密度的 200 和 500 倍。
+于是，$M_{200}$ 和 $M_{500}$ 分别为 $r_{200}$ 和 $r_{500}$ 之内的总质量。
 一般可认为 $r_{200} \simeq \acs{r-vir}$
 以及 $r_{500} \simeq 0.65 \, r_{200}$ \cite{ettori2009}，
 因此 $M_{200} \simeq \acs{M-vir}$，
-而 $M_{200}$ 和 $M_{500}$ 之间的换算可参考下述方法.
+而 $M_{200}$ 和 $M_{500}$ 之间的换算可参考下述方法。
 
 假定星系团的密度分布符合 \ac{nfw} 模型\cite{navarro1997}：
 \begin{equation}
@@ -88,23 +88,23 @@ $x = x_0 \big/ (1+z)$.
   \rho(r) = \frac{\rho_s}{
     (r / r_s) (1 + r / r_s)^2} \,,
 \end{equation}
-其中 $\rho_s$ 是密度参数，$r_s$ 是标度半径 (scale radius).
+其中 $\rho_s$ 是密度参数，$r_s$ 是标度半径 (scale radius)。
 于是半径 $r = s \,\acs{r-vir}$ 之内的总质量可表示为\cite{lokas2001}：
 \begin{equation}
   \label{eq:mass-r}
   M(< s \,\acs{r-vir}) = \acs{M-vir}
     \frac{\ln(1 + c s) - c s / (1 + c s)}{\ln(1 + c) - c / (1 + c)} ,
 \end{equation}
-其中 $c = \acs{r-vir} / r_s$ 为聚集参数 (concentration parameter).
+其中 $c = \acs{r-vir} / r_s$ 为聚集参数 (concentration parameter)。
 \citeay{duffy2008} 通过数值模拟研究得出该参数与质量存在如下关系：
 \begin{equation}
   \label{eq:mass-c}
   c = A \left( \frac{M_{200}}{M_{\R{pivot}}} \right)^B (1+z)^C ,
 \end{equation}
 其中 $M_{\R{pivot}} = \SI{2e12}{\per\hubble\solarmass}$,
-$A = 5.71$, $B = -0.084$, 以及 $C = 0.47$.
+$A = 5.71$, $B = -0.084$, 以及 $C = 0.47$。
 利用上述两式便可由 $M_{200}$ 换算得到 $M_{500}$；
-反过来并利用迭代法，亦可由 $M_{500}$ 导出 $M_{200}$.
+反过来并利用迭代法，亦可由 $M_{500}$ 导出 $M_{200}$。
 
 
 %=====================================================================
@@ -119,15 +119,15 @@ $A = 5.71$, $B = -0.084$, 以及 $C = 0.47$.
       \!\frac{\D{z'}}{(1+z')\sqrt{1 + z' (3+3z'+z'^2) \acs{Om0}}}
       \nonumber \\
     & = \frac{2}{3 \acs{H0} \sqrt{1-\acs{Om0}}} \sinh^{-1}
-      \!\left( \sqrt{\frac{\Omega_m^{-1} - 1}{(1+z)^3}} \right).
+      \!\left( \sqrt{\frac{\Omega_m^{-1} - 1}{(1+z)^3}} \right) .
 \end{align}
 
 两个相邻物体之间的\emph{\acl{D-comoving} (comoving distance)}
 $\delta\acs{D-comoving}$ 定义为，
 当两者随 Hubble 流共同运动时，该距离 $\delta\acs{D-comoving}$ 保持不变
-\cite{hogg1999}.
+\cite{hogg1999}。
 所以，$\delta\acs{D-comoving}$ 等于这两个物体之间的
-固有距离 (proper distance) 乘以 $(1+z)$.
+固有距离 (proper distance) 乘以 $(1+z)$。
 因此，一个位于红移 $z$ 的物体的（视向）\acl{D-comoving}
 $\acs{D-comoving}(z)$ 为 \cite{hogg1999}：
 \begin{equation}
@@ -136,11 +136,11 @@ $\acs{D-comoving}(z)$ 为 \cite{hogg1999}：
     = \int_0^z \delta\acs{D-comoving}(z')\,\D{z'}
     = D_{\!H} \int_0^z \frac{\D{z'}}{E(z')} .
 \end{equation}
-其中 $D_{\!H} \equiv c / H_0$ 为 Hubble 距离.
+其中 $D_{\!H} \equiv c / H_0$ 为 Hubble 距离。
 在平直宇宙中，\acf{D-comoving-t} 与视向\acl{D-comoving}相等，即
 \begin{equation}
   \label{eq:distance-comoving-t}
-  \acs{D-comoving-t}(z) = \acs{D-comoving}(z),
+  \acs{D-comoving-t}(z) = \acs{D-comoving}(z) ,
     \quad \text{for } \Omega_k = 0 .
 \end{equation}
 
@@ -151,14 +151,15 @@ $\acs{D-comoving}(z)$ 为 \cite{hogg1999}：
     \sqrt{\frac{L_{\R{bolo}}}{4\Cpi S_{\R{bolo}}}} ,
 \end{equation}
 其中 $L_{\R{bolo}}$ 是该物体的本征热光度 (bolometric luminosity)，
-$S_{\R{bolo}}$ 是测得的热流量 (bolometric flux).
-这里的 $L_{\R{bolo}}$ 和 $S_{\R{bolo}}$ 都是对全频段的积分值.
+$S_{\R{bolo}}$ 是测得的热流量 (bolometric flux)。
+这里的 $L_{\R{bolo}}$ 和 $S_{\R{bolo}}$ 都是对全频段的积分值。
 
 一个物体的\emph{\acf{D-angular}}
-定义为该物体的物理横向尺寸与其对观测者的张角（以 \si{radian} 为单位）之比.
+定义为该物体的物理横向尺寸与其对观测者的张角（以 \si{radian} 为单位）之比。
 需要注意的是，由于宇宙膨胀的原因，该距离并\emph{不}随红移单调递增，
-即相同物理尺寸的物体位于更高红移（如 $z \gtrsim 1$）处时反而看起来更大 \cite{hogg1999}.
-参见\autoref{fig:distance-measures}，其中对比了多种宇宙距离测量随红移的变化.
+即相同物理尺寸的物体位于更高红移（如 $z \gtrsim 1$）处时反而看起来更大
+\cite{hogg1999}。
+参见\autoref{fig:distance-measures}，其中对比了多种宇宙距离测量随红移的变化。
 
 \begin{figure}[htp]
   \centering
@@ -167,7 +168,7 @@ $S_{\R{bolo}}$ 是测得的热流量 (bolometric flux).
     \acl*{D-comoving} $\acs*{D-comoving}(z)$、
     \acl*{D-angular} $\acs*{D-angular}(z)$
     和\acl*{D-luminosity} $\acs*{D-luminosity}(z)$
-    三种宇宙距离测量从红移 $z = \num{e-3}$ 至 $z = \num{e3}$ 的变化情况.
+    三种宇宙距离测量从红移 $z = \num{e-3}$ 至 $z = \num{e3}$ 的变化情况。
   }{%
     A comparison among the comoving distance $\acs*{D-comoving}(z)$,
     angular diameter distance $\acs*{D-angular}(z)$, and
