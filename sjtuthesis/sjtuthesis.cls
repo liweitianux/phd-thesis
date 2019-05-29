@@ -123,6 +123,7 @@
 \RequirePackage{siunitx}
 \RequirePackage{relsize}
 \RequirePackage[nottoc]{tocbibind}
+\RequirePackage[titles]{tocloft}
 
 % Delay the execution of \hypersetup at \begin{document}.
 % NOTE: Should be set before hyperref uses it.
@@ -156,6 +157,10 @@
 
 \setcounter{secnumdepth}{4}  % 章节编号深度 (part 对应 -1)
 \setcounter{tocdepth}{2}     % 目录深度 (part 对应 -1)
+
+% Increase numbering width (requires 'tocloft')
+\setlength\cftfignumwidth{3em}
+\setlength\cfttabnumwidth{3em}
 
 % A new column type
 \newcolumntype{d}[1]{D{.}{.}{#1}}% or D{.}{,}{#1} or D{.}{\cdot}{#1}
