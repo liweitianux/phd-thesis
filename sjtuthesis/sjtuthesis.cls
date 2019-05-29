@@ -126,10 +126,7 @@
 % Delay the execution of \hypersetup at \begin{document}.
 % NOTE: Should be set before hyperref uses it.
 \AtBeginDocument{
-  \hypersetup{
-    unicode,
-    bookmarksnumbered,
-    bookmarksdepth=subsubsection,
+  \hypersetup{%
     breaklinks,
     colorlinks,
     urlcolor=blue,
@@ -145,6 +142,12 @@
 }
 \RequirePackage{hyperref}
 
+\RequirePackage[
+  open,
+  openlevel=2,
+  numbered,
+  depth=subsubsection,
+]{bookmark}
 
 %==========
 % Segment 2. Define general-purpose LaTeX commands.
