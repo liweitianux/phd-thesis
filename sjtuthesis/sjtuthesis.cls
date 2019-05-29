@@ -83,21 +83,21 @@
 %==========
 
 \RequirePackage{etoolbox}
-\RequirePackage[
+\RequirePackage[%
   centering,
   a4paper,
   body={16cm,22cm},
 ]{geometry}
 \RequirePackage{fontspec}
 \RequirePackage{mathtools, amsthm, amssymb}
-\RequirePackage[
+\RequirePackage[%
   math-style=TeX,
   bold-style=TeX,
   sans-style=upright,
 ]{unicode-math}
 \RequirePackage{fancyhdr}
 \RequirePackage{pageslts}
-\RequirePackage{metalogo, doc}
+\RequirePackage{metalogo}
 \RequirePackage{array}
 \RequirePackage{dcolumn}
 \RequirePackage{multirow}
@@ -109,7 +109,10 @@
 \RequirePackage[list=off]{bicaption}
 \RequirePackage{subcaption}
 \RequirePackage{csquotes}
-\RequirePackage[backend=biber, style=gb7714-2015]{biblatex}
+\RequirePackage[%
+  backend=biber,
+  style=gb7714-2015,
+]{biblatex}
 \RequirePackage{xcolor}
 \RequirePackage{wasysym}
 \RequirePackage{listings}
@@ -270,7 +273,6 @@
 \AtBeginDocument{%
   \renewcommand{\theequation}{\thechapter--\arabic{equation}}
   \renewcommand{\thefigure}{\thechapter--\arabic{figure}}
-  \renewcommand\p@subfigure{\thefigure}
   \renewcommand{\thetable}{\thechapter--\arabic{table}}
   \renewcommand{\thelstlisting}{\thechapter--\arabic{lstlisting}}
 }
