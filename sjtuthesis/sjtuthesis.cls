@@ -122,6 +122,7 @@
 \RequirePackage{calc}
 \RequirePackage{siunitx}
 \RequirePackage{relsize}
+\RequirePackage[nottoc]{tocbibind}
 
 % Delay the execution of \hypersetup at \begin{document}.
 % NOTE: Should be set before hyperref uses it.
