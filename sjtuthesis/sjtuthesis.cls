@@ -336,6 +336,7 @@
 %
 \newcommand\makechinesetitle{%
   \cleardoublepage
+  \pdfbookmark[0]{\sjtu@titlepage}{titlepage}
   \thispagestyle{empty}
   \begin{center}
   {\zihao{-3}\sjtu@label@statement}
@@ -372,6 +373,7 @@
 %
 \newcommand\makeenglishtitle{%
   \cleardoublepage
+  \pdfbookmark[0]{Title page}{englishtitlepage}
   \thispagestyle{empty}
   \begin{center}
       {\normalfont\zihao{4} \sjtu@label@englishstatement}
@@ -410,6 +412,7 @@
 %
 \newcommand\makechinesetitle@bachelor{%
   \cleardoublepage
+  \pdfbookmark[0]{\sjtu@titlepage}{titlepage}
   \thispagestyle{empty}
   \begin{center}
     \vspace*{20pt} \vskip 7pt
@@ -450,7 +453,6 @@
 }
 
 \renewcommand\maketitle{%
-  \pdfbookmark[0]{\sjtu@titlepage}{titlepage}
   \ifsjtu@bachelor
     \makechinesetitle@bachelor
   \else
