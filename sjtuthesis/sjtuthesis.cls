@@ -3,7 +3,7 @@
 %%==================================================
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{sjtuthesis}[2019/03/19 v0.14 SJTU Thesis Template]
+\ProvidesClass{sjtuthesis}[2019/05/29 v0.15 SJTU Thesis Template]
 
 \newif\ifsjtu@english\sjtu@englishfalse
 \newif\ifsjtu@bachelor\sjtu@bachelorfalse
