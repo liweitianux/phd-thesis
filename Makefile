@@ -39,12 +39,6 @@ optimize: thesis.pdf
 	    thesis.pdf thesis.optimized.pdf
 	mv thesis.optimized.pdf thesis.pdf
 
-fix:
-	@echo "Trim trailing whitespace ..."
-	@for f in $(SRCS); do sed -i -E 's/\s+$$//' $$f; done
-	@echo "Change period style ..."
-	@for f in $(SRCS); do sed -i -E -e 's/。$$/./' -e 's/。/. /' $$f; done
-
 count:
 	@echo -n "Chinese character count: "
 	@pdftotext thesis.pdf - | \
