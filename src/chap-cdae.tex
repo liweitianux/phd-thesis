@@ -152,7 +152,7 @@
   \label{fig:autoencoder}
 \end{figure}
 
-\emph{\ac{ae}}由\ac{encoder}和\ac{decoder}两部分组成，
+\ac{ae}由\ac{encoder}和\ac{decoder}两部分组成，
 其中\ac{encoder}将输入信号 $\B{x}$ 映射成一个内部\ac{code} $\B{h}$，
 可表示为 $\B{h} = f(\B{x})$；
 \ac{decoder}则尝试从\ac{code} $\B{h}$ 重构原输入信号，
@@ -177,7 +177,7 @@ $\B{x}$、$\B{h}$ 和 $\B{r}$ 在本工作中均为一维矢量。
 即最小化\acl{loss} $\ac{loss}(\B{r}, \,\B{x})$。
 这个\ac{denoising}过程迫使\ac{ae}去发掘原始输入信号 $\B{x}$
 中那些对重构起关键作用的稳健特征。
-使用该\ac{denoising}准则训练的\ac{ae}被称为\emph{\ac{dae}}。
+使用该\ac{denoising}准则训练的\ac{ae}被称为\ac{dae}。
 
 \begin{figure}[htp]
   \centering
@@ -487,22 +487,22 @@ EoR 信号 $C_{\R{eor}}^{(1)}$ 和前景辐射 $C_{\R{fg}}^{(1)}$。
   \includegraphics[width=0.84\textwidth]{cdae-simdata-example}
   \bicaption[前景辐射和 EoR 信号的频谱示例]{%
     随机取一个天空像素点为例，得到的前景辐射和 EoR 信号的频谱。
-    \uline{（上栏）}
+    （\uline{上栏}）
     理想的（即没有波束效应）前景辐射频谱（蓝线）以及相应的差分频谱（红线）。
-    \uline{（中栏）}
+    （\uline{中栏}）
     仪器\enquote{观测}的（即包含波束效应）前景辐射频谱（蓝线）以及相应的差分频谱（红线）。
-    \uline{（下栏）}
+    （\uline{下栏}）
     EoR 信号的频谱（绿线）。
   }{%
     Example spectra of the foreground emission and the EoR signal for one
     random sky pixel.
-    \emph{(Upper)} The ideal (i.e., without beam effects) foreground
+    (\uline{Upper}) The ideal (i.e., without beam effects) foreground
     spectrum (blue line) and the corresponding differential spectrum
     (red line).
-    \emph{(Middle)} The \enquote{observed} (i.e., with beam effects)
+    (\uline{Middle}) The \enquote{observed} (i.e., with beam effects)
     foreground spectrum (blue line) and the corresponding
     differential spectrum (red line).
-    \emph{(Lower)} The EoR signal spectrum (green line).
+    (\uline{Lower}) The EoR signal spectrum (green line).
   }
   \label{fig:cdae-simdata}
 \end{figure}
@@ -669,7 +669,7 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$
   \bicaption[CDAE 重构的 EoR 信号的示例]{%
     以\acl*{s-test} \ac*{s-test} 中一个随机像素点为例，
     展示了 CDAE 重构的和输入的 EoR 信号之间的对比。
-    \uline{（上栏）}
+    （\uline{上栏}）
     输入的 EoR 信号 $\B{x}_{\R{eor}}$ （绿色实线）
     和 CDAE 重构的 EoR 信号 $\B{r}_{\R{eor}}$ （蓝色虚线）
     在 Fourier 空间的对比。
@@ -677,14 +677,14 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$
     图中的灰线表示输入的总辐射信号 $\B{x} = \B{x}_{\R{fg}} + \B{x}_{\R{eor}}$，
     品红阴影线标记的区域表示在 \autoref{sec:preprocessing}
     预处理过程中排除的 Fourier 系数。
-    \uline{（下栏）}
+    （\uline{下栏}）
     输入的 EoR 信号 $\B{x}_{\R{eor}}$ （绿色实线）
     和 CDAE 重构的 EoR 信号 $\B{r}_{\R{eor}}$ （蓝色虚线）
     变换回观测频率空间的对比。
   }{%
     An example of the EoR signal reconstructed by the trained CDAE for
     one random pixel in the test set \ac*{s-test}.
-    \emph{(Upper)}
+    (\uline{Upper})
     The input EoR signal $\B{x}_{\R{eor}}$ (solid green line) and
     the reconstructed EoR signal $\B{r}_{\R{eor}}$ (dashed blue line)
     in the Fourier domain.
@@ -694,7 +694,7 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$
     $\B{x} = \B{x}_{\R{fg}} + \B{x}_{\R{eor}}$.
     The magenta hatched region marks the excised Fourier coefficients
     in data preprocessing (\autoref{sec:preprocessing}).
-    \emph{(Lower)}
+    (\uline{Lower})
     The input EoR signal $\B{x}_{\R{eor}}$ (solid green line) and
     the reconstructed EoR signal $\B{r}_{\R{eor}}$ (dashed blue line)
     transformed back to the observing frequency domain.
