@@ -6,10 +6,8 @@
 \chapter{补充公式}
 \label{app:formulas}
 
-%=====================================================================
-\section{结构形成}
 
-在本文所采用的\emph{平直 \lcdm 宇宙}中，\acl{Ez} \acs{Ez} 为 \cite{hogg1999}：
+在本文所采用的平直 \lcdm 宇宙中，\acl{Ez} \acs{Ez} 为 \cite{hogg1999}：
 \begin{align}
   \label{eq:Ez}
   \acs{Ez}
@@ -28,6 +26,10 @@
 \end{equation}
 其中 \acs{G} 是\acl{G}。
 
+
+%=====================================================================
+\section{维里半径和维里质量}
+
 位于红移 $z$ 处的星系团的\acf{r-vir}定义为该半径范围内星系团的平均密度
 是当时宇宙临界密度的 \acs{overdensity-vir} 倍，
 由下式给出：
@@ -42,36 +44,19 @@
 \begin{equation}
   \label{eq:delta-vir}
   \acs{overdensity-vir}(z)
-    = 18\Cpi^2 + 82 [\acs{Om0}(z) - 1] - 39 [\acs{Om0}(z) - 1]^2 ,
+    = 18\Cpi^2 + 82 [\Omega_f(z) - 1] - 39 [\Omega_f(z) - 1]^2 ,
 \end{equation}
-其中 $\acs{Om0}(z)$ 是红移为 $z$ 时的宇宙物质密度参数：
+其中 $\Omega_f(z)$ 是红移为 $z$ 时的宇宙物质密度参数：
 \begin{equation}
-  \label{eq:omega-m-z}
-  \acs{Om0}(z) = \frac{(1+z)^3}{E^2(z)} \acs{Om0} .
+  \label{eq:omega-f}
+  \Omega_f(z) = \frac{(1+z)^3}{E^2(z)} \acs{Om0} .
 \end{equation}
-
-在 \ac{cdm} 模型中，暗物质塌缩形成暗物质晕的\acl{delta-crit}
-(critical linear overdensity)
-随红移的变化关系可表示为 \cite{kitayama1996,randall2002}：
-\begin{equation}
-  \label{eq:delta-crit}
-  \acs{delta-crit} = \frac{D(z=0)}{D(z)}
-    \frac{3 (12\Cpi)^{2/3}}{20}
-    \left[1 + 0.0123 \log_{10} \acs{Om0}(z) \right] ,
-\end{equation}
-其中 $D(z)$ 是增长因子 (growth factor)，可由下述公式计算
-[参见 \citeay{peebles1980}, 式~(13.6)]：
-\begin{equation}
-  \label{eq:growth-factor}
-  D(x) = \frac{(x^3 + 2)^{1/2}}{x^{3/2}}
-    \mathlarger{\int_0^x} y^{3/2} (y^3 + 2)^{-3/2} \,\D{y} ,
-\end{equation}
-并且 $x_0 \equiv (2 \acs{Ol0} \big/ \acs{Om0})^{1/3}$,
-$x = x_0 \big/ (1+z)$。
 
 
 %=====================================================================
-\section{半径和质量换算}
+\section{%
+  \texorpdfstring{$r_{200}$}{r200} 与 \texorpdfstring{$r_{500}$}{r500} 以及
+  \texorpdfstring{$M_{200}$}{M200} 与 \texorpdfstring{$M_{500}$}{M500} 的换算}
 \label{sec:r-m-conv}
 
 实际情况中会经常用到星系团的 $r_{200}$ 和 $r_{500}$，分别定义为该半径范围内
@@ -108,9 +93,32 @@ $A = 5.71$, $B = -0.084$, 以及 $C = 0.47$。
 
 
 %=====================================================================
-\section{时间和距离}
+\section{暗物质塌缩的临界密度}
 
-在红移 $z$ 时的\emph{宇宙年龄}具有如下解析计算形式
+在 \ac{cdm} 模型中，暗物质塌缩形成暗物质晕的\acl{delta-crit}
+(critical linear overdensity)
+随红移的变化关系可表示为 \cite{kitayama1996,randall2002}：
+\begin{equation}
+  \label{eq:delta-crit}
+  \acs{delta-crit} = \frac{D(z=0)}{D(z)}
+    \frac{3 (12\Cpi)^{2/3}}{20}
+    \left[1 + 0.0123 \log_{10} \Omega_f(z) \right] ,
+\end{equation}
+其中 $D(z)$ 是增长因子 (growth factor)，可由下述公式计算
+[参见 \citeay{peebles1980}, 式~(13.6)]：
+\begin{equation}
+  \label{eq:growth-factor}
+  D(x) = \frac{(x^3 + 2)^{1/2}}{x^{3/2}}
+    \mathlarger{\int_0^x} y^{3/2} (y^3 + 2)^{-3/2} \,\D{y} ,
+\end{equation}
+并且 $x_0 \equiv (2 \acs{Ol0} \big/ \acs{Om0})^{1/3}$,
+$x = x_0 \big/ (1+z)$。
+
+
+%=====================================================================
+\section{宇宙年龄与红移的关系}
+
+在平直宇宙学模型中，宇宙在红移 $z$ 时的年龄 $t$ 具有如下解析计算形式
 [参见 \citeay{thomas2000}, 式~(18)]：
 \begin{align}
   \label{eq:universe-age}
@@ -122,7 +130,11 @@ $A = 5.71$, $B = -0.084$, 以及 $C = 0.47$。
       \!\left( \sqrt{\frac{\Omega_m^{-1} - 1}{(1+z)^3}} \right) .
 \end{align}
 
-两个相邻物体之间的\emph{\acl{D-comoving} (comoving distance)}
+
+%=====================================================================
+\section{共动距离、光度距离和⻆直径距离}
+
+两个相邻物体之间的\acl{D-comoving} (comoving distance)
 $\delta\acs{D-comoving}$ 定义为，
 当两者随 Hubble 流共同运动时，该距离 $\delta\acs{D-comoving}$ 保持不变
 \cite{hogg1999}。
@@ -144,7 +156,7 @@ $\acs{D-comoving}(z)$ 为 \cite{hogg1999}：
     \quad \text{for } \Omega_k = 0 .
 \end{equation}
 
-一个物体的\emph{\acf{D-luminosity}}由以下关系定义：
+一个物体的\acf{D-luminosity}由以下关系定义：
 \begin{equation}
   \label{eq:dl-def}
   \acs{D-luminosity} \equiv
@@ -154,7 +166,7 @@ $\acs{D-comoving}(z)$ 为 \cite{hogg1999}：
 $S_{\R{bolo}}$ 是测得的热流量 (bolometric flux)。
 这里的 $L_{\R{bolo}}$ 和 $S_{\R{bolo}}$ 都是对全频段的积分值。
 
-一个物体的\emph{\acf{D-angular}}
+一个物体的\acf{D-angular}
 定义为该物体的物理横向尺寸与其对观测者的张角（以 \si{radian} 为单位）之比。
 需要注意的是，由于宇宙膨胀的原因，该距离并\emph{不}随红移单调递增，
 即相同物理尺寸的物体位于更高红移（如 $z \gtrsim 1$）处时反而看起来更大
@@ -164,7 +176,7 @@ $S_{\R{bolo}}$ 是测得的热流量 (bolometric flux)。
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.8\textwidth]{distances-comparison}
-  \bicaption[三种宇宙距离测量随红移的变化]{%
+  \bicaption[共动距离、光度距离和⻆直径距离随红移的变化]{%
     \acl*{D-comoving} $\acs*{D-comoving}(z)$、
     \acl*{D-angular} $\acs*{D-angular}(z)$
     和\acl*{D-luminosity} $\acs*{D-luminosity}(z)$
