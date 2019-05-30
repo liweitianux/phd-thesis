@@ -299,11 +299,22 @@ $\B{v}_{j}^{(l-1)}$ 为前一层的输出，
 $\left(\left\{ \B{v}_{i}^{(l)} \right\};\, i = 1, 2, \cdots, m_l \right)$。
 
 我们遵循\ac{dl}的推荐做法\cite{geron2017,suganuma2018} 来设计 \ac{cdae} 的架构。
-具体而言，所有卷积层的\ac{filter}的尺寸为 3，
-并且使用\ac{elu}作为\ac{f-activation} $\phi^{(l)}(\cdot)$ \cite{clevert2016}，
-除了最后一层（即\ac{ae}的输出层）的\ac{f-activation}为\ac{f-tanh} \enquote{tanh}
-（参见 \autoref{sec:preprocessing}）。
-此外，除了最后的输出层，其他层均使用了\ac{batch-norm}技术 \cite{ioffe2015}。
+所有卷积层的\ac{filter}的尺寸均为 3。
+最后一个卷积层（即\ac{ae}的输出层）使用的\ac{f-activation}为\ac{f-tanh}：
+\begin{equation}
+  \tanh(x) = \frac{\Ce^x - \Ce^{-x}}{\Ce^x + \Ce^{-x}} ,
+\end{equation}
+便于数据的预处理（参见 \autoref{sec:preprocessing}）。
+其他卷积层使用的\ac{f-activation}则为\ac{elu}\cite{clevert2016}：
+\begin{equation}
+  \text{ELU}(x) =
+    \begin{dcases*}
+      x , \quad & if $x > 0$ , \\
+      \alpha_{\R{elu}} (\Ce^x - 1) , \quad & if $x < 0$ ,
+    \end{dcases*}
+\end{equation}
+其中 $\alpha_{\R{elu}}$ 为负饱和值，本文使用其默认值 $\alpha_{\R{elu}} = 1$。
+同时，除输出层之外的卷积层还使用了\ac{batch-norm}技术 \cite{ioffe2015}。
 该技术不仅可以加快训练速度，提高模型的准确率，
 还能作为一个\ac{regularizer}预防\ac{overfitting} \cite{geron2017}。
 
