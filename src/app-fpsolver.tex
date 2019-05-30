@@ -7,7 +7,7 @@
 \label{app:fpsolver}
 
 在\ac{mfluid}中，带电粒子可与其中的\ac{turbulence}发生随机散射
-而通过\emph{二阶 Fermi 加速}机制获得能量\cite{fermi1949,fermi1954,davis1956}，
+而通过二阶 Fermi 加速机制获得能量\cite{fermi1949,fermi1954,davis1956}，
 该过程可由 Fokker--Planck 方程描述
 \cite{schlickeiser1989,eilek1991,schlickeiser2002}。
 当加速区域是均匀的且远大于散射的\ac{mfp}时，Fokker--Planck 方程可被简化到只
@@ -35,7 +35,7 @@ $B(x)$、$C(x)$、$T(x)$ 和 $Q(x)$ 分别描述了粒子的
 
 
 %=====================================================================
-\section{数值算法}
+\section{数值算法描述}
 
 采用一个包含 $M+1$ 个点的网格对 $x$ 离散化：$x_m (m = 0, 1, \cdots, M)$。
 在网格单元中点处，$x$ 的值定义为：
@@ -64,7 +64,7 @@ $B(x)$、$C(x)$、$T(x)$ 和 $Q(x)$ 分别描述了粒子的
   \label{eq:fp-f}
   F(x,t) = B(x) u(x,t) + C(x) \pdiff{u(x,t)}{x} .
 \end{equation}
-于是\emph{\ac{no-flux}边界条件}可写为 \cite{park1995}：
+于是\ac{no-flux}边界条件可写为 \cite{park1995}：
 \begin{equation}
   \label{eq:no-flux}
   F(x_0, t) = F(x_M, t) = 0 .
@@ -170,12 +170,14 @@ $B(x)$、$C(x)$、$T(x)$ 和 $Q(x)$ 分别描述了粒子的
 
 
 %=====================================================================
-\section{算法测试}
+\section{求解程序的测试}
 
-为了检测算法的实现是否正确，可将其应用于几种已知解析解的情况\cite{park1996,donnert2014}。
-第一个测试是\emph{硬球公式 (hard-sphere equation)}%
-\footnote{\citeay{park1996} 的公式 (22) 和 \citeay{donnert2014} 的公式 (34)
-均写错了一个正负号.}：
+我们使用 Python 编程语言实现了以上数值算法，为了测试求解程序是否正确，
+我们将其应用于几种已知解析解的情况\cite{park1996,donnert2014}。
+第一个测试是硬球公式 (hard-sphere equation) \footnote{%
+  \citeay{park1996} 的公式 (22) 和 \citeay{donnert2014} 的公式 (34)
+  均写错了一个正负号。
+}：
 \begin{equation}
   \label{eq:fp-test1}
   \pdiff{u}{t} = \pdiff{}{x} \left[ x^2 \pdiff{u}{x} + (1-x) u \right]
@@ -205,13 +207,13 @@ $\Theta(t)$ 为 Heaviside 阶跃函数 (step function)。
 时间步长固定为 $\Delta t = \num{e-3}$，
 求解以上三个测试，结果如\autoref{fig:fp-test12} 和\autoref{fig:fp-test3} 所示。
 我们的结果与 \citeay{park1996} 以及 \citeay{donnert2014} 的结果非常吻合，
-说明我们的算法实现是正确可靠的。
+说明我们的求解程序正确地实现了上一节描述的算法。
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{fp-test12}
-  \bicaption[Fokker--Planck 方程算法测试 (1 \& 2)]{%
-    Fokker--Planck 方程算法测试 1 和 2。
+  \bicaption[Fokker--Planck 方程求解程序的测试 (1 \& 2)]{%
+    Fokker--Planck 方程求解程序的测试 1 和 2。
     左栏和右栏分别显示了求解第一个测试 [\autoref{eq:fp-test1}]
     和第二个测试 [\autoref{eq:fp-test2}] 获得的粒子能谱。
   }{%
@@ -227,8 +229,8 @@ $\Theta(t)$ 为 Heaviside 阶跃函数 (step function)。
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.55\textwidth]{fp-test3}
-  \bicaption[Fokker--Planck 方程算法测试 (3)]{%
-    Fokker--Planck 方程算法测试 3。
+  \bicaption[Fokker--Planck 方程求解程序的测试 (3)]{%
+    Fokker--Planck 方程求解程序的测试 3。
     求解第三个测试 [\autoref{eq:fp-test3}] 获得的粒子能谱。
     注意 $t = 30$ 对应的能谱已乘了 \num{e11} 以更好地显示。
   }{%
