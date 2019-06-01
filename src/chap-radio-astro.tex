@@ -856,8 +856,8 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 %---------------------------------------------------------------------
 \subsection{短偶极天线}
 
-短偶极天线由两个总长度 $l$ 远小于波长 $\lambda$ 的导体组成，
-如\autoref{fig:short-dipole} 所示。
+短偶极天线由两个总长度 $l$ 远小于波长 $\lambda$ 的导体组成
+（\autoref{fig:short-dipole}）。
 当接上一个交流驱动电源后，导体内的电子会发生往复的加速运动，从而激发电磁波。
 
 \begin{figure}[htp]
@@ -929,7 +929,7 @@ $\theta$ 为 $r$ 与 $v$ 之间的夹角。
     \label{eq:dipole-efield}
 \end{align}
 \autoref{fig:dipole-radiation} 显示了一个无限短的偶极天线（即 Hertz 偶极子）
-的电场强度分布图。
+的瞬时电场强度分布图。
 
 \begin{figure}[htp]
   \centering
@@ -974,10 +974,10 @@ Poynting 流量（即单位面积流过的功率）为：
 
 \acf{gain} $G(\theta,\phi)$ 定义为天线在方向 $(\theta, \phi)$
 的辐射功率 $P(\theta,\phi)$ 与一个总辐射功率相等但各向辐射同性的天线的辐射功率
-$\overline{P}$ 之比，即：
+$\bar{P}$ 之比，即：
 \begin{equation}
   \label{eq:gain}
-  G(\theta,\phi) = \frac{P(\theta,\phi)}{\overline{P}}
+  G(\theta,\phi) = \frac{P(\theta,\phi)}{\bar{P}}
     = \frac{4\Cpi P(\theta,\phi)}{\int P(\theta,\phi) \,\D{\Omega}} .
 \end{equation}
 可见，天线的\ac{gain}与其\ac{pp}只相差一个常数。
@@ -1100,7 +1100,7 @@ $\overline{P}$ 之比，即：
 比如 \SI{100}{\meter} 口径的 \ac{gbt}、
 \SI{305}{\meter} 口径的 Arecibo、
 \SI{500}{\meter} 口径的 \ac{fast}。
-然而，在数百 \si{\MHz} 的低频射电波段，望远镜的口径需达到惊人的 \SI{10}{\km} 左右
+然而在数百 \si{\MHz} 的低频射电波段，望远镜的口径需达到惊人的 \SI{10}{\km} 左右
 才能在 \SI{100}{\MHz} 实现约 \SI{1}{\arcminute} 的角分辨率，
 这对于单口径望远镜而言显然是不现实的。
 因此，低频射电观测通常使用\ac{interferometry}技术，
@@ -1259,7 +1259,7 @@ $\overline{P}$ 之比，即：
 %---------------------------------------------------------------------
 \subsection{有限带宽}
 
-现在，将上述二元准单色干涉仪推广至测量有限带宽的信号。
+将上述二元准单色干涉仪推广至测量有限带宽的信号。
 考虑一个中心频率为 $\nu_c$ 且宽度为 $\Delta\nu$ 的窄频带 ($\Delta\nu \gg \nu_c$)，
 可认为辐射源的亮度以及天线的响应在此频带内保持不变，
 于是可得干涉仪测量的\ac{vis} [\autoref{eq:vis}] 为：
@@ -1274,18 +1274,18 @@ $\overline{P}$ 之比，即：
       \exp (-2\Cpi\Ci\, \nu_c\acs{delay-geo}) \,\D{\Omega},
   \label{eq:vis-bw}
 \end{align}
-其中 $\sinc(\cdot)$ 为归一化 sinc 函数，定义如下：
+其中归一化 $\sinc$ 函数的定义如下：
 \begin{equation}
   \label{eq:sinc}
   \sinc(x) =
-    \begin{cases}
-      \frac{\sin(\Cpi x)}{\Cpi x}, & \quad \text{if } x \neq 0, \\
-      1, & \quad \text{if } x = 0 .
-    \end{cases}
+    \begin{dcases*}
+      \frac{\sin(\Cpi x)}{\Cpi x}, \quad & if $x \neq 0$ , \\
+      1, \quad & if $x = 0$ .
+    \end{dcases*}
 \end{equation}
-因此，干涉仪测得的\ac{fringe}幅度减弱至原来的
+因此干涉仪测得的\ac{fringe}幅度减弱至原来的
 $\sinc(\Delta\nu\,\acs{delay-geo})$ 倍。
-为了最小化这种损失，可以给前导天线的输出信号增加\acl{delay-comp}
+为了尽可能地减小这种损失，可以给前导天线的输出信号增加\acl{delay-comp}
 (compensating delay) \ac{delay-comp}，
 使其满足 $|\acs{delay-comp} - \acs{delay-geo}| \ll (\Delta\nu)^{-1}$，
 如\autoref{fig:interferometer-tau0} 所示。
@@ -1619,7 +1619,7 @@ $\sigma_1 \approx \sqrt{2} \ac{T-antenna}$
 \begin{equation}
   \label{eq:sigma-ps}
   \sigma_S
-    = \frac{2\,\ac{kb} T_s}{
+    = \frac{2\,\ac{kb} \ac{T-antenna}}{
         \ac{area-eff} \sqrt{\ac{N-ant}(\ac{N-ant}-1) \Delta\nu \,\tau}} .
 \end{equation}
 
@@ -1634,7 +1634,7 @@ $\sigma_1 \approx \sqrt{2} \ac{T-antenna}$
 相比单口径望远镜，干涉仪的基线长、角分辨率高，
 所以\ac{beam-synthesized}的立体角 $\Omega_s$ 非常小。
 即使干涉阵列包含许多天线，但其亮度灵敏度 $\sigma_b$
-与单口径望远镜相比可能不具备明显的优势。
+与单口径望远镜相比并不具备优势。
 
 
 %% EOF
