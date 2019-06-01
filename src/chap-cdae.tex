@@ -24,12 +24,12 @@
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{SKA1-low-psf}
-  \bicaption[模拟的 SKA1-Low 综合波束]{%
-    在 154、158 和 162 MHz 处模拟的 SKA1-Low \acs*{beam-synthesized}。
-    \acs*{t-int}为 \SI{6}{\hour}。
+  \bicaption[SKA1-Low 在 154、158 和 162 MHz 处的模拟综合波束]{%
+    SKA1-Low 在 154、158 和 162 MHz 处的模拟综合波束，
+    积分时间为 \SI{6}{\hour}。
   }{%
-    The simulated synthesized beams of SKA1-Low at 154, 158, and 162 MHz.
-    The integration time is \SI{6}{\hour}.
+    The simulated synthesized beams of SKA1-Low at 154, 158, and 162 MHz
+    with an integration time of \SI{6}{\hour}.
   }
   \label{fig:ska-psf}
 \end{figure}
@@ -79,7 +79,7 @@
   \centering
   \includegraphics[width=\textwidth]{ml-vs-dl}
   \bicaption[机器学习和深度学习之间的主要区别]{%
-    机器学习和深度学习之间的主要区别。
+    机器学习和深度学习之间的主要区别：
     深度学习拥有\acs*{fx}的能力，而不必手工设计需要从数据中提取的特征。
   }{%
     The main difference between machine learning and deep learning.
@@ -140,8 +140,8 @@
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.8\textwidth]{autoencoder}
-  \bicaption[自编码器的示意图]{%
-    \acs*{ae}的示意图。
+  \bicaption{%
+    \acs*{ae}示意图
   }{%
     Diagram of an autoencoder.
     \\来源/Credit:
@@ -182,8 +182,8 @@ $\B{x}$、$\B{h}$ 和 $\B{r}$ 在本工作中均为一维矢量。
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.6\textwidth]{autoencoder-fc}
-  \bicaption[使用全连接层的经典自编码器的示意图]{%
-    使用\acs*{layer-fc}的经典\acs*{ae}的示意图。
+  \bicaption[使用全连接层的经典自编码器示意图]{%
+    使用\acs*{layer-fc}的经典\acs*{ae}示意图。
     \acs*{layer-fc}的每个\acs*{neuron}都与上一层的所有的\acs*{neuron}相连。
   }{%
     Diagram of a classic autoencoder that uses fully connected layers.
@@ -200,8 +200,8 @@ $\B{x}$、$\B{h}$ 和 $\B{r}$ 在本工作中均为一维矢量。
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{cnn}
-  \bicaption[卷积神经网络的示意图]{%
-    卷积神经网络的示意图，一般包括多个卷积层，
+  \bicaption[卷积神经网络示意图]{%
+    卷积神经网络示意图，一般包括多个卷积层，
     每个卷积层由一组小尺寸\acs*{filter}构成，
     每个\acs*{filter}在数据的所有位置共享其参数。
   }{%
@@ -256,8 +256,8 @@ $\B{x}$、$\B{h}$ 和 $\B{r}$ 在本工作中均为一维矢量。
     \begin{minipage}{0.99\textheight}
       \centering
       \includegraphics[width=\linewidth]{cdae-network-crop}
-      \bicaption[CDAE 网络架构示意图]{%
-        本文所提出的 CDAE 网络架构示意图，
+      \bicaption[本文提出的 CDAE 网络架构]{%
+        本文提出的 CDAE 网络架构，
         由一个四层的\acs*{encoder}和一个五层的\acs*{decoder}组成。
         黄色和蓝色方框分别表示\acs*{encoder}和\acs*{decoder}输出的\acs*{fv} (FV)，
         方框下方的数字表示相应的卷积层所包含\acs*{filter}的数目。
@@ -666,7 +666,7 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.9\textwidth]{cdae-eor-pix}
-  \bicaption[CDAE 重构的 EoR 信号的示例]{%
+  \bicaption[CDAE 重构的和输入的 EoR 信号对比示例]{%
     以\acl*{s-test} \ac*{s-test} 中一个随机像素点为例，
     展示了 CDAE 重构的和输入的 EoR 信号之间的对比。
     （\uline{上栏}）
@@ -821,8 +821,8 @@ $N_{\R{val}}$ 是\acl{s-validation} \ac{s-validation} 包含的数据点数目�
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{occlusion-fgeor}
-  \bicaption[CDAE 对输入数据的灵敏度分布]{%
-    采用\acs*{occlusion}方法得到的 CDAE 对输入数据的灵敏度分布 $\B{s}$ （蓝线）。
+  \bicaption[CDAE 对输入数据的敏感度分布]{%
+    采用\acs*{occlusion}方法得到的 CDAE 对输入数据的敏感度分布 $\B{s}$ （蓝线）。
     左图红线显示了前景辐射的强度的\acs*{rms}值 $\B{y}_{\R{fg}}$；
     右图绿线显示了 EoR 信号的强度的\acs*{rms}值 $\B{y}_{\R{eor}}$。
     通过计算\acl*{coef-correlation} \ac*{coef-correlation}
@@ -876,7 +876,7 @@ $\bar{\rho}_{\R{noft}} = \num{0.628 +- 0.167}$，
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{cdae-train-noft}
-  \bicaption[在未使用 Fourier 变换预处理的数据集上训练 CDAE 得到的结果]{%
+  \bicaption[在未使用 Fourier 变换预处理的数据集上训练 CDAE 的结果]{%
     CDAE 的训练过程和结果。
     与\autoref{fig:cdae-train} 类似，
     但是所用\acs*{ds}在预处理过程中没有运用 Fourier 变换。
