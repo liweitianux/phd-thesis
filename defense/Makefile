@@ -4,7 +4,7 @@ defense.pdf: defense.tex
 	env TEXINPUTS=.:texmf:../texmf: latexmk -xelatex defense
 
 optimize: defense.pdf
-	qpdf --compress-streams=y --optimize-images \
+	qpdf --linearize --compress-streams=y --optimize-images \
 	    defense.pdf defense.optimized.pdf
 	mv defense.optimized.pdf defense.pdf
 

@@ -35,7 +35,7 @@ dist: thesis.pdf
 	@echo "Created distribution at: dist/thesis.$(ID).$(DATE).{pdf,tar.bz2}"
 
 optimize: thesis.pdf
-	qpdf --compress-streams=y --optimize-images \
+	qpdf --linearize --compress-streams=y --optimize-images \
 	    thesis.pdf thesis.optimized.pdf
 	mv thesis.optimized.pdf thesis.pdf
 
