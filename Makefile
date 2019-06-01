@@ -39,6 +39,22 @@ optimize: thesis.pdf
 	    thesis.pdf thesis.optimized.pdf
 	mv thesis.optimized.pdf thesis.pdf
 
+compress: thesis.pdf
+	rm -f thesis.compressed.pdf
+	gs  -dQUIET -dNOPAUSE -dBATCH -dSAFER \
+	    -sDEVICE=pdfwrite \
+	    -dPDFSETTINGS=/ebook \
+	    -dPrinted=false \
+	    -dEmbedAllFonts=true \
+	    -dSubsetFonts=true \
+	    -dFastWebView=true \
+	    -dColorImageDownsampleType=/Bicubic \
+	    -dGrayImageDownsampleType=/Bicubic \
+	    -dColorImageResolution=200 \
+	    -dGrayImageResolution=200 \
+	    -sOutputFile=thesis.compressed.pdf \
+	    thesis.pdf
+
 count:
 	@echo -n "Chinese character count: "
 	@pdftotext thesis.pdf - | \
