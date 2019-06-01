@@ -3,7 +3,7 @@
 %% Creative Commons BY 4.0
 %%
 
-\chapter{基于深度学习的再电离信号分离新算法}
+\chapter{基于深度学习的 EoR 信号分离算法}
 \label{chap:cdae}
 
 为了能够从强烈的前景干扰中分离出微弱的 EoR 信号，
@@ -134,7 +134,7 @@
 但是 EoR 信号、前景辐射以及望远镜的波束效应都是稳定或近似稳定的。
 
 %---------------------------------------------------------------------
-\subsection{卷积去噪自编码器}
+\subsection{CDAE 的原理和优势}
 \label{sec:cdae}
 
 \begin{figure}[htp]
@@ -246,7 +246,7 @@ $\B{x}$、$\B{h}$ 和 $\B{r}$ 在本工作中均为一维矢量。
 以期实现两者的准确分离。
 
 %---------------------------------------------------------------------
-\subsection{网络架构}
+\subsection{网络架构的设计}
 \label{sec:architecture}
 
 \begin{figure}[htp]
@@ -414,7 +414,7 @@ $\ac{coef-correlation}(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})$ 越接近于 1，
 最后进一步验证 \ac{cdae} 的学习能力和效果 (\autoref{sec:cdae-validation})。
 
 %---------------------------------------------------------------------
-\subsection{观测图像模拟}
+\subsection{训练数据的模拟}
 \label{sec:cdae-images}
 
 取 \SIrange{154}{162}{\MHz} 这个典型频带为例 \cite{datta2010}，
@@ -537,7 +537,7 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$。
 因此，我们没有在上述模拟中包含仪器的热噪声。
 
 %---------------------------------------------------------------------
-\subsection{数据预处理}
+\subsection{数据的预处理}
 \label{sec:preprocessing}
 
 按照天空像素点将 \autoref{sec:cdae-images} 模拟得到的\ac{imgcube}重新组织，
@@ -560,7 +560,7 @@ $S = \left\{ \left(\B{x}^{(i)}, \,\B{x}^{(i)}_{\R{eor}} \right) \right\}$。
 （我们将在 \autoref{sec:why-ft} 讨论不使用 Fourier 变换预处理数据时所得到的结果.）
 由于信号 $\B{x}^{(i)}$ 的长度是有限的 ($n_f = 101$)，
 为了抑制信号的边界效应使 Fourier 变换产生显著的\ac{sidelobe}
-（参见 \autoref{sec:eval-method}），
+（参见 \autoref{sec:window}），
 我们先对信号 $\B{x}^{(i)}$ 施加 Blackman--Nuttall \ac{f-window}
 \cite{chapman2016} [\autoref{eq:bn-window}]
 再进行 Fourier 变换。
@@ -607,7 +607,7 @@ $n_c = 51$ 个复 Fourier 系数：
 的 \enquote{tanh} 函数作为\ac{f-activation} (\autoref{sec:architecture})。
 
 %---------------------------------------------------------------------
-\subsection{训练和结果}
+\subsection{CDAE 的训练和结果}
 \label{sec:cdae-results}
 
 从第一对\ac{imgcube}
@@ -776,7 +776,7 @@ $\ac{k-perp} \approx \SI{0.7}{\per\Mpc}$ 的尺度上贡献了额外的功率，
 \cite{domingos2012}。
 
 %---------------------------------------------------------------------
-\subsection{进一步验证}
+\subsection{CDAE 有效性的验证}
 \label{sec:cdae-validation}
 
 为了进一步验证 \ac{cdae} 是否真正地从数据中发掘了 EoR 信号的有用特征，

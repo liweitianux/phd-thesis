@@ -81,7 +81,7 @@ Enrico Fermi 最早在 1949 年提出\ac{mfluid}中的带电粒子
 下文将详细介绍\ac{rh}的建模方法和结果。
 
 %---------------------------------------------------------------------
-\subsection{质量函数}
+\subsection{星系团的质量和红移分布}
 \label{sec:mass-function}
 
 现在普遍认为，宇宙目前的结构是由极早期的微小密度扰动发展而来的 \cite{peebles1980}。
@@ -154,7 +154,7 @@ $M_8$ 是半径为 \SI{8}{\per\hubble\Mpc} 的球形区域里的质量：
 \end{figure}
 
 %---------------------------------------------------------------------
-\subsection{并合历史}
+\subsection{星系团并合树的模拟}
 \label{sec:merging-history}
 
 上述 Press--Schechter 质量函数只给出了在不同红移处宇宙中的\ac{gc}的质量分布，
@@ -269,7 +269,7 @@ $\left\{\left( M_m^{(i)}, M_s^{(i)}, t_{\R{merger}}^{(i)} \right)\right\}$
 \end{figure}
 
 %---------------------------------------------------------------------
-\subsection{演化模型}
+\subsection{高能电子的演化模型}
 \label{sec:halo-evo}
 
 根据\ac{turbreacc-model}，星系团 \ac{icm} 里充满一群非热的\ac{e-primary}，
@@ -301,7 +301,7 @@ $|\R{d}\ac{g} / \R{d}t|$ 是电子的能量损失速率，
 还有 \ac{e-inj} 描述了电子的注入过程。
 
 %.....................................................................
-\subsubsection{热成分的性质}
+\subsubsection{ICM 热成分的性质}
 
 对于星系团 \ac{icm} 的热成分，其中的热电子的数密度 (number density) \ac{n-th} 为：
 \begin{equation}
@@ -339,7 +339,7 @@ $\ac{mol-weight-m} \simeq 0.6$ 是 \ac{icm} 的\acl{mol-weight-m}
 是从星系团外围区域 ($\gtrsim \ac{r-vir}$) 流入的气体的温度 \cite{fujita2003}。
 
 %.....................................................................
-\subsubsection{电子注入过程}
+\subsubsection{初级电子注入过程}
 
 在星系团及其成员星系中持续发生着 \ac{agn} 活动、恒星形成等过程，
 不断地将\ac{e-primary}注入到 \ac{icm} 之中。
@@ -377,7 +377,7 @@ $\ac{e-electron} = \ac{mass-e} \ac{speed-light}^2$
 \end{equation}
 
 %.....................................................................
-\subsubsection{剥离半径}
+\subsubsection{子团的剥离半径}
 
 当一个子团并入主团时，其外围区域的气体将被\ac{ram-pressure}剥离，
 即\acf{ram-pressure-strip}效应 \cite{gunn1972}。
@@ -448,7 +448,7 @@ $\ac{r-core-s} = 0.1 \,\ac{r-vir-s}$，
 \end{align}
 
 %.....................................................................
-\subsubsection{湍流加速}
+\subsubsection{高能电子的湍流再加速过程}
 
 在星系团 \ac{icm} 中，\ac{turbulence}与热成分粒子以及\ac{cr}等非热成分粒子
 之间的相互作用非常复杂。
@@ -559,7 +559,7 @@ $\ac{r-core-m} = 0.1 \,\ac{r-vir-m}$ 是主团的\acl{r-core}，
 因此产生的湍流也要弱很多。
 
 %.....................................................................
-\subsubsection{能量损失过程}
+\subsubsection{高能电子的能量损失过程}
 
 在\ac{gc} \ac{icm} 中，高能电子可通过多种机制损失能量 \cite{sarazin1999}，
 本文考虑了其中三种主要的机制。
@@ -637,7 +637,7 @@ $\tau_{\R{loss}} = |\D{t}/\D{\ac{g}}|$。
 能够随着\ac{gc}的成长而积累在 \ac{icm} 之中 \cite{sarazin1999}。
 
 %---------------------------------------------------------------------
-\subsection{数值实现}
+\subsection{数值计算方法}
 \label{sec:numerical}
 
 为了求解 Fokker--Planck 方程 [\autoref{eq:fokkerplanck}]
@@ -791,7 +791,7 @@ $\theta$ 是电子与磁场 \ac{mag-field} 之间的\ac{pitch-angle}，
 高能端的电子迅速地损失能量而衰减，\ac{rh}也很快地消失，特别是在中高频段。
 
 %---------------------------------------------------------------------
-\subsection{识别和大小}
+\subsection{射电晕的识别和半径}
 \label{sec:halo-size}
 
 从上一节的示例可知，如果 \ac{icm} 中没有活跃的湍流加速，
@@ -861,7 +861,7 @@ $\acs{D-luminosity}(z_{\R{sim}})$ 是\ac{rh}的\acl{D-luminosity}，
 因子 $(1 + z_{\R{sim}})$ 用于考虑 $K$ 修正 \cite{hogg1999}。
 
 %---------------------------------------------------------------------
-\subsection{模型参数和结果}
+\subsection{模型参数调节和模拟结果}
 \label{sec:halo-results}
 
 我们构建的\ac{rh}模型主要包含以下 5 个待调节的参数：
@@ -988,7 +988,7 @@ $P_{1400} \propto M_{\R{vir}}^{3.94 \pm 0.12}$。
 \end{figure}
 
 %---------------------------------------------------------------------
-\subsection{图像生成}
+\subsection{射电晕天图生成}
 \label{sec:halo-maps}
 
 获得射电晕的半径 \ac{r-halo} [\autoref{eq:r-halo}]
@@ -1085,7 +1085,7 @@ $\left(0.85_{-0.54}^{+2.74}\right) \times 10^3$ \si{\mK}
 
 
 %=====================================================================
-\section{银河系}
+\section{银河系弥散辐射}
 \label{sec:simu-galactic}
 
 在低频波段，银河系的弥散辐射主要包括\ac{rad-syn}和\ac{rad-ff}。
@@ -1301,7 +1301,7 @@ $T_e$ 是辐射区域的电子温度（以 \si{\kelvin} 为单位），
 
 
 %=====================================================================
-\section{干涉阵列的模拟观测}
+\section{SKA1-Low 观测图像的模拟}
 \label{sec:obs-simu}
 
 干涉阵列的复杂仪器效应是制约 EoR 探测的一个重要因素

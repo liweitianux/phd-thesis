@@ -3,12 +3,8 @@
 %% Creative Commons BY 4.0
 %%
 
-\chapter{射电晕对宇宙再电离探测的影响}
+\chapter{射电晕辐射对 EoR 信号探测的影响}
 \label{chap:halo}
-
-%=====================================================================
-\section{评估方法}
-\label{sec:eval-method}
 
 利用\autoref{chap:simulation}模拟得到的射电晕、
 EoR 信号以及其他前景成分的 SKA1-Low \enquote{观测}图像，
@@ -20,6 +16,11 @@ EoR 信号以及其他前景成分的 SKA1-Low \enquote{观测}图像，
 其次，我们计算二维\ac{ps} $\ac{psD}(\ac{k-perp}, \ac{k-los})$，
 然后在 EoR 窗口 (\autoref{sec:eor-window}) 内比较射电晕和 EoR 信号的功率，
 据此评估使用\ac{fg-avd}方法提取 EoR 信号时射电晕的污染程度。
+
+
+%=====================================================================
+\section{频率维度的加窗处理}
+\label{sec:window}
 
 \begin{figure}[htp]
   \centering
@@ -69,7 +70,7 @@ Blackman--Nuttall \ac{f-window}，
 
 
 %=====================================================================
-\section{一维功率谱}
+\section{一维功率谱的对比}
 \label{sec:ps1d}
 
 我们对上一章模拟得到的每一个成分在每一个频带里的\ac{imgcube}分别计算了
@@ -127,7 +128,7 @@ Blackman--Nuttall \ac{f-window}，
 
 
 %=====================================================================
-\section{二维功率谱}
+\section{二维功率谱以及 EoR 窗口的对比}
 \label{sec:ps2d}
 
 \begin{figure}[htp]
@@ -377,7 +378,7 @@ $\ac{k-los} \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 
 
 %=====================================================================
-\section{远旁瓣的影响}
+\section{旁瓣内射电晕辐射的影响}
 \label{sec:fscn}
 
 \begin{figure}[htp]
