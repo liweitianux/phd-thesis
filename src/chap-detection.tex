@@ -1274,33 +1274,10 @@ MACS J0717.5$+$3745 \cite{vanWeeren2009}。
     \ac{speed-light} (1+z)} \ac{k-perp} .
 \end{equation}
 
-\begin{figure}[htp]
-  \centering
-  \includegraphics[width=0.7\textwidth]{foreground-wedge-fov}
-  \bicaption[前景楔形和EoR 窗口的边界示意图]{%
-    \acs*{fg-wedge}和EoR 窗口的边界示意图。
-    距离视场中心越远的前景干扰源产生的污染区域越靠近左上方，
-    因此望远镜的视场大小确定了\acs*{fg-wedge}的边界，
-    左上方未受前景污染的区域则称为\enquote{EoR 窗口}。
-  }{%
-    The boundary between the foreground wedge and the EoR window.
-    When the distance of a foreground souce from the field center increases,
-    its contamination in the \ac{2d} power spectrum moves toward
-    the upper-left regions.
-    Therefore, the telescope's field of view determines the boundary of the
-    foreground wedge, while the upper-left region that almost free from
-    the foreground contamination is called the \enquote{EoR window}.
-    \\来源/Credit:
-    \citeay{morales2012}
-  }
-  \label{fig:fg-wedge-fov}
-\end{figure}
-
 从上式可以清楚地看出，
 视场内每一个前景干扰源（如未准确扣除的点源）在二维功率谱上产生的污染分布在右下方的一条斜线上；
 \ac{k-perp} 越大的\ac{mode}被混合到 \ac{k-los} \ac{mode}的范围也越大，
-于是形成\ac{fg-wedge}，
-如\autoref{fig:fg-wedge-fov} 所示。
+于是形成\ac{fg-wedge}。
 另一方面，随着前景干扰源距离视场中心越来越远，其产生的污染区域也逐渐向左上方移动。
 因此，视场内距离中心最远的干扰源（设该距离为 $\Phi$）确定了\ac{fg-wedge}的边界，
 而左上方未受前景污染的区域则称为 \enquote{EoR 窗口}，可表示为：
@@ -1308,7 +1285,7 @@ MACS J0717.5$+$3745 \cite{vanWeeren2009}。
   \ac{k-los} \ge \frac{\ac{Hz} \ac{D-comoving}(z) \sin\Phi}{
     \ac{speed-light} (1+z)} \ac{k-perp} ,
 \end{equation}
-如\autoref{fig:fg-wedge-fov} 和\autoref{fig:eor-window} 所示。
+如\autoref{fig:eor-window} 所示。
 干涉阵列通常具有明显的\ac{sidelobe}，
 因此\ac{fg-wedge}的具体范围（如 $\Phi$ 的大小）
 与\ac{sidelobe}的行为密切相关。
