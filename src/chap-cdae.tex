@@ -155,14 +155,14 @@
 \ac{ae}由\ac{encoder}和\ac{decoder}两部分组成，
 其中\ac{encoder}将输入信号 $\B{x}$ 映射成一个内部\ac{code} $\B{h}$，
 可表示为 $\B{h} = f(\B{x})$；
-\ac{decoder}则尝试从\ac{code} $\B{h}$ 重构原输入信号，
+\ac{decoder}则尝试从\ac{code} $\B{h}$ 重建原输入信号，
 可表示为 $\B{r} = g(\B{h})$；
 如\autoref{fig:autoencoder} 所示。
 因为我们将在频率维度对天空像素点逐个进行 EoR 信号的分离，
 所以，输入信号 $\B{x}$ 表示一个天空像素点的频谱，
 $\B{x}$、$\B{h}$ 和 $\B{r}$ 在本工作中均为一维矢量。
 通过对\ac{code} $\B{h}$ 施加一定的约束（如限制其维度或稀疏性），
-同时训练\ac{ae}使得重构信号 $\B{r}$ 与输入信号 $\B{x}$
+同时训练\ac{ae}使得重建信号 $\B{r}$ 与输入信号 $\B{x}$
 之间的\acl{loss} $\ac{loss}(\B{r}, \,\B{x})$ 达到最小，
 则\ac{ae}所学习到的\ac{code}将能有效地表示输入信号。
 详见 \citeay{goodfellow2016} 第 14 章。
@@ -173,10 +173,10 @@ $\B{x}$、$\B{h}$ 和 $\B{r}$ 在本工作中均为一维矢量。
 基于\enquote{\ac{denoising}准则}提出了一种全新的训练策略：
 首先人为地损坏（比如加入噪声）原始输入信号 $\B{x}$，
 得到受损信号 $\B{x}'$ 并输入\ac{ae}进行训练，
-使其重构信号 $\B{r}$ 尽可能地恢复原始输入信号 $\B{x}$，
+使其重建信号 $\B{r}$ 尽可能地恢复原始输入信号 $\B{x}$，
 即最小化\acl{loss} $\ac{loss}(\B{r}, \,\B{x})$。
 这个\ac{denoising}过程迫使\ac{ae}去发掘原始输入信号 $\B{x}$
-中那些对重构起关键作用的稳健特征。
+中那些对重建起关键作用的稳健特征。
 使用该\ac{denoising}准则训练的\ac{ae}被称为\ac{dae}。
 
 \begin{figure}[htp]
@@ -241,9 +241,9 @@ $\B{x}$、$\B{h}$ 和 $\B{r}$ 在本工作中均为一维矢量。
 \ac{cdae} 是使用了多个卷积层而非\ac{layer-fc}的\ac{dae}，
 因此拥有和 \ac{cnn} 一样强大的\ac{fx}能力。
 如此一来，\ac{cdae} 有能力从输入数据中学习一个更好的\ac{representation}，
-从而拥有更强的\ac{denoising}能力，能够重构即使严重受损的信号 \cite{du2017}。
+从而拥有更强的\ac{denoising}能力，能够重建即使严重受损的信号 \cite{du2017}。
 所以，\ac{cdae} 非常适合用来发掘 EoR 信号和前景辐射之间的复杂区别，
-进而实现两者的准确分离。
+以期实现两者的准确分离。
 
 %---------------------------------------------------------------------
 \subsection{网络架构}
@@ -359,8 +359,8 @@ $\B{x}^{(i)} = \B{x}^{(i)}_{\R{eor}} + \B{x}^{(i)}_{\R{fg}}$
 
 在每一个训练\ac{epoch}，将总辐射 $\B{x}^{(i)}$ 输入 \ac{cdae}，
 经过一系列卷积层 [\autoref{eq:conv}]
-后得到重构的 EoR 信号 $\B{r}^{(i)}_{\R{eor}}$。
-该重构信号 $\B{r}^{(i)}_{\R{eor}}$ 与输入的 EoR 信号 $\B{x}^{(i)}_{\R{eor}}$
+后得到重建的 EoR 信号 $\B{r}^{(i)}_{\R{eor}}$。
+该重建信号 $\B{r}^{(i)}_{\R{eor}}$ 与输入的 EoR 信号 $\B{x}^{(i)}_{\R{eor}}$
 之间的差异就是 \ac{cdae} 的\acl{loss} \ac{loss}，
 可利用\ac{mse}将其量化为：
 \begin{equation}
@@ -375,14 +375,14 @@ $\B{x}^{(i)} = \B{x}^{(i)}_{\R{eor}} + \B{x}^{(i)}_{\R{fg}}$
 可以计算\acl{loss} \ac{loss} 对任意一个参数 $p_i$ 的梯度
 $\partial \ac{loss} / \partial p_i$，
 然后据此更新这些参数，使得\acl{loss} \ac{loss} 逐渐减小，
-从而提高重构的 EoR 信号 $\B{r}^{(i)}_{\R{eor}}$ 的准确度。
+从而提高重建信号 $\B{r}^{(i)}_{\R{eor}}$ 的准确度。
 随着训练\ac{epoch}的增长，原来一个随机的 \ac{cdae} 被逐渐塑造成一个专用网络，
-能够发掘输入数据中的有用特征并用来重构 EoR 信号。
+能够发掘输入数据中的有用特征并用来重建 EoR 信号。
 
 为了定量评估已训练好的 \ac{cdae} 的性能，
 我们采用 Pearson \acl{coef-correlation} (correlation coefficient)
 \cite{harker2009,chapman2013}
-来计算由 \ac{cdae} 重构的 EoR 信号 $\B{r}_{\R{eor}}$ 与输入 EoR 信号
+来计算由 \ac{cdae} 重建的 EoR 信号 $\B{r}_{\R{eor}}$ 与输入 EoR 信号
 $\B{x}_{\R{eor}}$ 之间的相似程度：
 \begin{equation}
   \label{eq:corrcoef}
@@ -399,7 +399,7 @@ $\B{r}_{\R{eor}}$ 和 $\B{x}_{\R{eor}}$ 的平均值，
 $n$ 是信号的长度。
 \acl{coef-correlation}
 $\ac{coef-correlation}(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})$ 越接近于 1，
-则表示重构的 EoR 信号越准确，\ac{cdae} 的性能也就越好。
+则表示重建的 EoR 信号越准确，\ac{cdae} 的性能也就越好。
 
 
 %=====================================================================
@@ -512,7 +512,7 @@ EoR 信号 $C_{\R{eor}}^{(1)}$ 和前景辐射 $C_{\R{fg}}^{(1)}$。
 如果只有一对\ac{imgcube}，那么\acl{s-test} \ac{s-test} 只能包含一小部分像素点的数据，
 而且这些像素点随机地分布在天空平面里。
 在 \ac{cdae} 的测试阶段 (\autoref{sec:cdae-results})，
-利用这样一个\acl{s-test} \ac{s-test} 重构得到的 EoR 信号无法构成完整的
+利用这样一个\acl{s-test} \ac{s-test} 重建得到的 EoR 信号无法构成完整的
 （甚至局部完整的）\ac{imgcube}，
 从而无法通过图像和\ac{ps}直观地展示 \ac{cdae} 分离 EoR 信号的效果。
 因此，为\acl{s-test} \ac{s-test} 再额外模拟一对\ac{imgcube}能够解决上述问题。
@@ -624,7 +624,7 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$
 预处理得到的数据全部作为\acl{s-test} \ac{s-test}，
 即包含 \num{129600} 个数据点。
 使用完整的\ac{imgcube}作为\acl{s-test}允许我们在测试 \ac{cdae}
-的性能时能够获得重构 EoR 信号的完整图像。
+的性能时能够获得重建 EoR 信号的完整图像。
 
 我们使用了 \href{https://keras.io}{\texttt{Keras}}\footnote{%
   Keras: \url{https://keras.io} (v2.2.4)}
@@ -666,12 +666,12 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.9\textwidth]{cdae-eor-pix}
-  \bicaption[CDAE 重构的和输入的 EoR 信号对比示例]{%
+  \bicaption[CDAE 重建的和输入的 EoR 信号对比示例]{%
     以\acl*{s-test} \ac*{s-test} 中一个随机像素点为例，
-    展示了 CDAE 重构的和输入的 EoR 信号之间的对比。
+    展示了 CDAE 重建的和输入的 EoR 信号之间的对比。
     （\uline{上栏}）
     输入的 EoR 信号 $\B{x}_{\R{eor}}$ （绿色实线）
-    和 CDAE 重构的 EoR 信号 $\B{r}_{\R{eor}}$ （蓝色虚线）
+    和 CDAE 重建的 EoR 信号 $\B{r}_{\R{eor}}$ （蓝色虚线）
     在 Fourier 空间的对比。
     两个信号之间的\acl*{coef-correlation}为 $\ac*{coef-correlation} = 0.931$。
     图中的灰线表示输入的总辐射信号 $\B{x} = \B{x}_{\R{fg}} + \B{x}_{\R{eor}}$，
@@ -679,7 +679,7 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$
     预处理过程中排除的 Fourier 系数。
     （\uline{下栏}）
     输入的 EoR 信号 $\B{x}_{\R{eor}}$ （绿色实线）
-    和 CDAE 重构的 EoR 信号 $\B{r}_{\R{eor}}$ （蓝色虚线）
+    和 CDAE 重建的 EoR 信号 $\B{r}_{\R{eor}}$ （蓝色虚线）
     变换回观测频率空间的对比。
   }{%
     An example of the EoR signal reconstructed by the trained CDAE for
@@ -710,19 +710,19 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$
 同时\acl{coef-correlation} \ac{coef-correlation} 稳步增长，
 说明 \ac{cdae} 的训练效果很好而且没有出现\ac{overfitting}。
 训练完成后，我们使用\acl{s-test} \ac{s-test} 来评估 \ac{cdae} 的性能，
-可得 \ac{cdae} 重构的 EoR 信号与输入的 EoR 信号之间的
+可得 \ac{cdae} 重建的 EoR 信号与输入的 EoR 信号之间的
 平均\acl{coef-correlation}达到了
 $\bar{\xi}_{\R{cdae}} = \num{0.929 +- 0.045}$。
 这个结果说明了训练好的 \ac{cdae} 在 EoR 信号的分离问题上取得了出色的成绩。
 以\acl*{s-test} \ac*{s-test} 中一个随机像素点为例，
-\autoref{fig:cdae-eor-pix} 展示了 CDAE 重构的和输入的 EoR 信号之间的对比
+\autoref{fig:cdae-eor-pix} 展示了 CDAE 重建的和输入的 EoR 信号之间的对比
 ($\ac{coef-correlation} = 0.931$)。
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{cdae-eor-img-comp}
-  \bicaption[输入的 EoR 图像和 CDAE 重构的 EoR 图像的对比]{%
-    输入的 EoR 图像（左栏）和 CDAE 重构的 EoR 图像（右栏）
+  \bicaption[输入的 EoR 图像和 CDAE 重建的 EoR 图像的对比]{%
+    输入的 EoR 图像（左栏）和 CDAE 重建的 EoR 图像（右栏）
     在中心频率 \SI{158}{\MHz} 处的对比。
     图像的尺寸均为 \num{360 x 360}，并且使用了相同的\ac{colorbar}，
     幅度因 CDAE 训练的需要已被标准化 (\autoref{sec:preprocessing})。
@@ -740,8 +740,8 @@ $\bar{\xi}_{\R{cdae}} = \num{0.929 +- 0.045}$。
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{cdae-eor-ps-comp}
-  \bicaption[输入的 EoR 信号和 CDAE 重构的 EoR 信号之间的二维功率谱对比]{%
-    输入的 EoR 信号（左栏）和 CDAE 重构的 EoR 信号（右栏）之间的二维功率谱对比。
+  \bicaption[输入的 EoR 信号和 CDAE 重建的 EoR 信号之间的二维功率谱对比]{%
+    输入的 EoR 信号（左栏）和 CDAE 重建的 EoR 信号（右栏）之间的二维功率谱对比。
   }{%
     Comparison of two-dimensional power spectra between the input
     (left panel) and reconstructed (right panel) EoR signals.
@@ -752,22 +752,22 @@ $\bar{\xi}_{\R{cdae}} = \num{0.929 +- 0.045}$。
 由于\acl{s-test} \ac{s-test} 源自一对完整的\ac{imgcube}
 $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$，
 因此，在使用 \ac{s-test} 评估 \ac{cdae} 时我们能够获得
-重构 EoR 信号的完整\ac{imgcube}用来进行图像和功率谱的对比。
+重建 EoR 信号的完整\ac{imgcube}用来进行图像和功率谱的对比。
 以中心频率 \SI{158}{\MHz} 为例，如\autoref{fig:cdae-eor-img} 所示，
-相比输入的 EoR 图像，由 \ac{cdae} 重构的 EoR 图像中存在一些微弱的小尺度波纹状结构，
+相比输入的 EoR 图像，由 \ac{cdae} 重建的 EoR 图像中存在一些微弱的小尺度波纹状结构，
 这些波纹的尺度约为 10 个像素点 ($\sim$\,\SI{200}{\arcsecond})，
 源自数据预处理 (\autoref{sec:preprocessing}) 时去除了 $n_{\R{ex}} = 6$
 个 Fourier 频率最小的系数。
 除此之外，两张图像具有几乎完全相同的空间结构和强度分布。
 
-另一方面，我们分别计算了输入的 EoR 信号和 \ac{cdae} 重构的 EoR 信号的二维\ac{ps}
+另一方面，我们分别计算了输入的 EoR 信号和 \ac{cdae} 重建的 EoR 信号的二维\ac{ps}
 $\ac{psD}(\ac{k-perp}, \ac{k-los})$，结果如\autoref{fig:cdae-eor-ps} 所示。
-在重构 EoR 信号的二维\ac{ps}上，上面提及的小尺度波纹状结构在
+在重建 EoR 信号的二维\ac{ps}上，上面提及的小尺度波纹状结构在
 $\ac{k-perp} \approx \SI{0.7}{\per\Mpc}$ 的尺度上贡献了额外的功率，形成了一条窄带。
 在数据所覆盖的其他尺度上，\ac{cdae} 很好地恢复了 EoR 信号的功率。
 
 以上这些结果充分说明了训练好的 \ac{cdae} 能够有效地克服复杂的波束效应，
-从强烈的前景干扰中准确地重构 EoR 信号。
+从强烈的前景干扰中准确地重建 EoR 信号。
 \ac{cdae} 的优秀性能主要归功于堆叠多个卷积层所实现的强大的\ac{fx}能力，
 这种堆叠式架构让每一层专注于提取相对简单的特征，
 然后这些特征逐层地结合形成精细、抽象的高层次特征 \cite{leCun2015}。
@@ -781,14 +781,14 @@ $\ac{k-perp} \approx \SI{0.7}{\per\Mpc}$ 的尺度上贡献了额外的功率，
 
 为了进一步验证 \ac{cdae} 是否真正地从数据中发掘了 EoR 信号的有用特征，
 我们采用\ac{occlusion}方法\cite{zeiler2014}
-来可视化 \ac{cdae} 对输入数据的灵敏度的分布情况。
+来可视化 \ac{cdae} 对输入数据的敏感度的分布情况。
 对\acl{s-validation} \ac{s-validation} 中的每一个输入信号 $\B{x}^{(i)}$，
 遮挡其中连续的 3 个元素，记所得被遮挡的信号为 $\tilde{\B{x}}^{(i)}$，
-然后输入训练好的 \ac{cdae}，得到重构的 EoR 信号 $\tilde{\B{r}}^{(i)}_{\R{eor}}$。
+然后输入训练好的 \ac{cdae}，得到重建的 EoR 信号 $\tilde{\B{r}}^{(i)}_{\R{eor}}$。
 如果输入信号 $\B{x}^{(i)}$ 没有被遮挡，
-则 \ac{cdae} 重构的 EoR 信号为 $\B{r}^{(i)}_{\R{eor}}$。
-对比在有无遮挡的两种情况下所重构的 EoR 信号的准确度，
-于是可定义 \ac{cdae} 对输入数据被遮挡部分的灵敏度 $s$ 为：
+则 \ac{cdae} 重建的 EoR 信号为 $\B{r}^{(i)}_{\R{eor}}$。
+对比在有无遮挡的两种情况下所重建的 EoR 信号的准确度，
+于是可定义 \ac{cdae} 对输入数据被遮挡部分的敏感度 $s$ 为：
 \begin{equation}
   \label{eq:perf-loss}
   s = \frac{1}{N_{\R{val}}} \sum_{i=1}^{N_{\R{val}}} \left[
@@ -802,15 +802,15 @@ $\ac{k-perp} \approx \SI{0.7}{\per\Mpc}$ 的尺度上贡献了额外的功率，
 \end{equation}
 其中 $\B{x}^{(i)}_{\R{eor}}$ 为输入的 EoR 信号，
 $N_{\R{val}}$ 是\acl{s-validation} \ac{s-validation} 包含的数据点数目。
-灵敏度 $s$ 越大，说明被遮挡的部分数据对 \ac{cdae} 的性能影响越强，
+敏感度 $s$ 越大，说明被遮挡的部分数据对 \ac{cdae} 的性能影响越强，
 也就说明 \ac{cdae} 从该部分数据学到的特征越重要。
 
-通过每次遮挡输入数据的不同部分并计算相应的灵敏度 $s$，
-可以得到 \ac{cdae} 对输入数据各个部分的灵敏度分布 $\B{s}$，
+通过每次遮挡输入数据的不同部分并计算相应的敏感度 $s$，
+可以得到 \ac{cdae} 对输入数据各个部分的敏感度分布 $\B{s}$，
 如\autoref{fig:occ-fgeor} 所示。
 图中还画出了前景辐射的强度的\acs*{rms}值 $\B{y}_{\R{fg}}$
 以及 EoR 信号的强度的\acs*{rms}值 $\B{y}_{\R{eor}}$。
-我们发现 \ac{cdae} 的灵敏度分布 $\B{s}$ 与 EoR 信号 $\B{y}_{\R{eor}}$
+我们发现 \ac{cdae} 的敏感度分布 $\B{s}$ 与 EoR 信号 $\B{y}_{\R{eor}}$
 之间的相关性为 $\ac*{coef-correlation}(\B{s}, \B{y}_{\R{eor}}) = 0.742$，
 显著高于与前景辐射 $\B{y}_{\R{fg}}$ 的相关性
 [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{fg}}) = 0.562$]。
@@ -826,7 +826,7 @@ $N_{\R{val}}$ 是\acl{s-validation} \ac{s-validation} 包含的数据点数目�
     左图红线显示了前景辐射的强度的\acs*{rms}值 $\B{y}_{\R{fg}}$；
     右图绿线显示了 EoR 信号的强度的\acs*{rms}值 $\B{y}_{\R{eor}}$。
     通过计算\acl*{coef-correlation} \ac*{coef-correlation}
-    可知灵敏度分布 $\B{s}$ 与 EoR 信号的相关性
+    可知敏感度分布 $\B{s}$ 与 EoR 信号的相关性
     [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{eor}}) = 0.742$]
     显著大于与前景辐射的相关性
     [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{fg}}) = 0.562$]。
@@ -869,7 +869,7 @@ $N_{\R{val}}$ 是\acl{s-validation} \ac{s-validation} 包含的数据点数目�
 这种现象在 \autoref{sec:cdae-demo} 的演示以及\autoref{fig:cdae-train}
 中是没有的。
 此外，使用\acl{s-test} \ac{s-test} 来评估 \ac{cdae} 的性能可得，
-\ac{cdae} 重构的与输入的 EoR 信号之间的平均\acl{coef-correlation}仅有
+\ac{cdae} 重建的与输入的 EoR 信号之间的平均\acl{coef-correlation}仅有
 $\bar{\rho}_{\R{noft}} = \num{0.628 +- 0.167}$，
 显著差于使用了 Fourier 变换预处理数据所得的结果 (\autoref{sec:cdae-results})。
 

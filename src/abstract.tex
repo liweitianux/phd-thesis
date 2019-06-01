@@ -58,7 +58,7 @@
 为了解决这个问题，我们基于\acs*{dl}方法设计了一个包含 9 个卷积层的\acf*{cdae}
 用来分离 EoR 信号。
 使用模拟的 SKA1-Low 图像训练 CDAE，
-发现由 CDAE 重构的 EoR 信号与输入的 EoR 信号之间具有\acl*{coef-correlation}
+发现由 CDAE 重建的 EoR 信号与输入的 EoR 信号之间具有\acl*{coef-correlation}
 $\bar{\ac*{coef-correlation}}_{\R{cdae}} = \num{0.929 +- 0.045}$，
 即 \acs*{cdae} 准确地分离出了 EoR 信号。
 与此相比，传统的多项式拟合法和\acs*{cwt}法在分离 EoR 信号时并不成功，仅达到了
