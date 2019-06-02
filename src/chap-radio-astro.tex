@@ -25,9 +25,9 @@
 （即最短波长 $\lambda_{\R{min}} \sim \SI{0.3}{\mm}$），
 更高频率的电磁波将被\ac{troposphere}中的分子
 （主要是 $\mathrm{H_2 O}$ 和 $\mathrm{O_2}$）吸收。
-当然，大气层对电磁辐射的吸收情况会随时间以及地理位置而变化。
-\autoref{fig:atmospheric-emt} 显示了大气层的
-电磁辐射\ac{transmittance}以及相应的射电观测窗口。
+大气层对电磁辐射的吸收情况还会随时间以及地理位置而变化。
+\autoref{fig:atmospheric-emt} 显示了大气层
+电磁辐射\ac{transmittance}随波长的变化情况以及射电观测窗口。
 
 \begin{figure}[htp]
   \centering
@@ -57,7 +57,7 @@ Jansky 建造了一个对方向敏感的可转动天线（如\autoref{fig:jansky
 用来监测 \SI{20.5}{\MHz} ($\lambda \approx \SI{14.6}{\meter}$) 处的射电辐射。
 经过观测，他发现绝大部分的干扰源自暴风雨的闪电。
 此外，他还发现有一个较弱的不明噪声，其强度在每天发生周期性的变化。
-因此，Jansky 怀疑该噪声可能是太阳的射电辐射。
+因此 Jansky 怀疑该噪声可能是太阳的射电辐射。
 但是持续的观测显示这个不明噪声的准确周期为 \SI{23}{\hour}\,\SI{56}{\minute}，
 并不是恰好 \SI{24}{\hour}。
 将此困惑与他的一个天文学家朋友 Albert M. Skellett 讨论后，
@@ -80,14 +80,14 @@ Jansky 了解到该噪声来自太阳系之外，并进一步确认其来源是�
   \label{fig:jansky-antenna}
 \end{figure}
 
-可惜的是，Jansky 的发现未能得到足够的关注和重视，
+然而 Jansky 的发现未能得到足够的关注和重视，
 他本人也被分配到其他项目而无法继续研究银河系的射电辐射。
-但是幸运的是，另一位无线电工程师 Grote Reber 对 Jansky 的发现产生了极大兴趣，
+另一位无线电工程师 Grote Reber 恰好对 Jansky 的发现产生了极大兴趣，
 于是耗时数年在自家后院建造了世界第一台抛物面射电望远镜
-（如\autoref{fig:reber-telescope} 所示）。
-在 1938 年，Reber 用这台望远镜成功地在 \SI{160}{\MHz} 探测到了银河系的辐射。
-接着，他进一步开展了银河系的第一次射电巡天观测，
-并将结果发表于专业的天文学期刊 \apj \cite{reber1940}。
+（\autoref{fig:reber-telescope}），
+并在 1938 年成功地在 \SI{160}{\MHz} 探测到了银河系的射电辐射。
+Reber 接着进一步开展了银河系的第一次射电巡天观测，并将结果发表于专业的天文学期刊
+\textit{The Astrophysical Journal} \cite{reber1940}。
 自此，射电天文学登上了天文学的舞台。
 
 \begin{figure}[htp]
@@ -105,16 +105,16 @@ Jansky 了解到该噪声来自太阳系之外，并进一步确认其来源是�
 \end{figure}
 
 在后续的几年里，尽管第二次世界大战阻碍了射电天文学的发展，
-但是极大地刺激了无线电技术和雷达设备的研发。
+但是刺激了无线电技术和雷达设备的研发。
 这些方面的成果在战争结束后给射电天文学带去了长足的进步，开创了一系列新技术和新方法。
 其中最值得一提的是由 Martin Ryle 和 Antony Hewish 发明的\ac{as}技术 \cite{ryle1960}，
 使射电观测的角分辨率得到了空前的提高。
 
 自射电窗口被打开以来，射电天文学已取得了一系列激动人心的发现，
-其中代表性的发现主要有：
+其中代表性的发现包括：
 银河系和其他多种天体的非热 (non-thermal) 辐射 \cite{reber1940}、
 由超大质量黑洞驱动的射电星系\cite{baade1954}
-和\ac{quasar}\cite{hazard1963,schmidt1963}及其演化、
+和\ac{quasar}\cite{hazard1963,schmidt1963}、
 冷\ac{ism}的热辐射谱线、
 星际分子的\ac{maser} \cite{weaver1965}、
 宇宙大爆炸的 \ac{cmb} \cite{penzias1965}、
@@ -122,7 +122,7 @@ Jansky 了解到该噪声来自太阳系之外，并进一步确认其来源是�
 星系中的\ac{dm} \cite{roberts1975}、
 \ac{gl-strong} \cite{walsh1979}。
 总之，射电天文学揭开了宇宙的全新一面（如\autoref{fig:radio-sky} 所示），
-极大地拓展了我们对宇宙的认识，深刻地改变了我们对宇宙的理解。
+拓展了我们对宇宙的认识，深刻地改变了我们对宇宙的理解。
 
 \begin{figure}[htp]
   \centering
@@ -152,7 +152,7 @@ Jansky 了解到该噪声来自太阳系之外，并进一步确认其来源是�
   \item 多种等离子体效应（如散射、色散、Faraday 旋转）的强度按 $\nu^{-2}$ 变化，
     因此在低频波段更适合研究星际电子密度、磁场分布、等等
     \cite{johnston2015,roy2016,vanEck2017}。
-  \item 源自宇宙再电离时期 (红移 $z \sim \numrange{6}{16}$)
+  \item 源自 EoR (红移 $z \sim \numrange{6}{16}$)
     的\ac{hi} 21\,cm 信号历经红移后将出现在低频波段，因此不可避免地需要在
     此波段开展观测，探测该信号以研究宇宙早期的再电离过程
     \cite{mellema2013,mellema2015,koopmans2015}，
@@ -168,12 +168,12 @@ Jansky 了解到该噪声来自太阳系之外，并进一步确认其来源是�
 此外还有若干正在积极建设的新型低频干涉阵列，比如 \ac{lwa}、\ac{hera}、\ac{ska}。
 可见，低频射电波段正在成为射电天文乃至整个天文领域的热点和前沿。
 
-当然，在低频波段开展观测也面临更大的挑战，
+另一方面，在低频波段开展观测也面临更大的挑战，
 比如强烈的人工源 \ac{rfi}、电离层的扰动、
 通常需要建设更大更复杂的干涉阵列、解决更复杂的仪器效应、
 研发更有效的数据处理方法（参见 \autoref{sec:det-difficulties}）。
 尽管如此，可以肯定低频射电天文将成为射电天文领域的重要力量，
-并为整个天文学的发展作出举足轻重的贡献。
+并为整个天文学的发展作出贡献。
 
 
 %=====================================================================
@@ -223,7 +223,7 @@ Jansky 了解到该噪声来自太阳系之外，并进一步确认其来源是�
   \label{fig:flux-density}
 \end{figure}
 
-一个\ac{src-discrete}所张的立体角是确定的，如\autoref{fig:flux-density} 所示，
+一个\ac{src-discrete}所张的立体角是确定的（如\autoref{fig:flux-density} 所示），
 因此探测器单位投影面积上接收到的\ac{spec-power}即为
 这个源的\acl{S-nu} (flux density) \ac{S-nu}:
 \begin{equation}
@@ -232,7 +232,7 @@ Jansky 了解到该噪声来自太阳系之外，并进一步确认其来源是�
     \int_{\R{source}} \ac{I-nu}(\theta,\phi) \cos\theta \,\D{\Omega} ,
 \end{equation}
 其 \ac{si} 单位是 [\si{\watt\per\square\meter\per\hertz}]。
-实际中常用的单位是 \si{\jansky}，换算关系为
+实际中常用单位 [\si{\jansky}]，换算关系为
 $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$。
 
 一个辐射场的\acl{u-nu} (spectral energy density) 是指
@@ -286,8 +286,8 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$。
   \label{fig:intensity-conservation}
 \end{figure}
 
-在自由空间里，不存在吸收和发射，所以辐射的\acl*{I-nu} \acs*{I-nu} 保持不变，
-与传播的距离无关。
+辐射在不存在吸收和发射的自由空间里传播时强度保持不变，
+即辐射的\acl*{I-nu} \acs*{I-nu} 与传播距离无关。
 为说明这一点，考虑由源发射的一束光线，
 设 $\D{\sigma_1}$ 和 $\D{\sigma_2}$ 是光线上相距为 $r$ 的两个面元，
 如\autoref{fig:intensity-conservation} 所示，
@@ -464,7 +464,7 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
 \subsection{黑体辐射和亮温度}
 \label{sec:blackbody}
 
-黑体是能够吸收全部入射辐射的理想物体。
+黑体是一个能够吸收全部入射辐射而不产生任何反射或透射的理想化物体。
 处于热力学平衡态的黑体所发出的辐射称为黑体辐射，其能谱分布只取决于黑体的温度，
 由 Planck 辐射定律给出：
 \begin{equation}
@@ -492,13 +492,13 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
   \acs{T-b}(\nu)
     \equiv \frac{\acs{I-nu} \acs{speed-light}^2}{2 \,\acs{kb} \nu^2} .
 \end{equation}
-注意，对于一般的辐射源，其\acl{T-b} \ac{T-b} 会随频率 $\nu$ 发生改变。
+对于一般的辐射源，其\acl{T-b} \ac{T-b} 会随频率 $\nu$ 发生改变。
 
 %---------------------------------------------------------------------
 \subsection{电阻的热噪声}
 
-一个温度为 $T$ 的电阻 (resistor)，因为内部的电子的随机热运动，所以会输出一个噪声。
-这种噪声被称为 Johnson--Nyquist 噪声 \cite{johnson1928,nyquist1928}，
+一个温度为 $T$ 的电阻 (resistor) 会因为内部电子的随机热运动而产生一个噪声，
+称为 Johnson--Nyquist 噪声 \cite{johnson1928,nyquist1928}，
 其\ac{spec-power}由以下 Nyquist 近似给出
 （详见 \citeay{condon2016}, \S\,2.5）：
 \begin{equation}
@@ -551,13 +551,13 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
 \end{figure}
 
 原子发射和吸收电磁辐射的量子理论是 Niels Bohr 在 1913 年提出的 \cite{bohr1913}，
-接着在 1916 年，Albert Einstein 提出了原子与辐射场的三种相互作用过程
+接着 Albert Einstein 在 1916 年提出了原子与辐射场的三种相互作用过程
 \cite{einstein1916}，分别为：
 \begin{enumerate}
 \item \emph{\acf{em-spontaneous}}:
   在没有外界光子的情况下，处在高能级 $E_2$ 的原子自发地跃迁到低能级 $E_1$
   而发射光子的过程 [如\autoref{fig:atom-interactions}(a) 所示]。
-  发射的光子的频率为 $\nu_0 = \Delta E / \acs{hp} = (E_2 - E_1) / \acs{hp}$。
+  发射光子的频率为 $\nu_0 = \Delta E / \acs{hp} = (E_2 - E_1) / \acs{hp}$。
   此类跃迁的速率正比与原子在高能级 $E_2$ 的布居数 $N_2$，即：
   \begin{equation}
     \label{eq:rate-em-spontaneous}
@@ -1014,7 +1014,7 @@ $\bar{P}$ 之比，即：
 %---------------------------------------------------------------------
 \subsection{有效接收面积}
 
-当一个天线测量一个流量密度为 $S_{\nu}$ 的非偏振源时，
+当一个天线测量一个流量密度为 $S_{\nu}$ 的无偏振源时，
 若输出的谱功率为 $P_{\nu}$，
 则该天线的\acl{area-eff} (effective collecting area) \ac{area-eff}
 定义为：
@@ -1075,8 +1075,8 @@ $\bar{P}$ 之比，即：
 一个被置于温度为 $T$ 的黑体辐射环境中的天线，
 输出的噪声将与温度为 $T$ 的电阻所产生的热噪声 [\autoref{eq:nyquist-approx}]
 相同（即具有相同的频谱）。
-因此，该电阻被称为天线的匹配电阻。
-据此，可定义\acl{T-antenna} (antenna temperature) 为其匹配电阻的温度，即
+该电阻被称为天线的匹配电阻，
+据此可定义\acl{T-antenna} (antenna temperature) 为其匹配电阻的温度：
 \begin{equation}
   \label{eq:t-ant}
   \acs{T-antenna} \equiv \frac{P_{\nu}}{\acs{kb}} .
@@ -1289,8 +1289,8 @@ $\sinc(\Delta\nu\,\acs{delay-geo})$ 倍。
 (compensating delay) \ac{delay-comp}，
 使其满足 $|\acs{delay-comp} - \acs{delay-geo}| \ll (\Delta\nu)^{-1}$，
 如\autoref{fig:interferometer-tau0} 所示。
-这样，两个天线的输出信号在到达\ac{correlator}时，其相位是同步的。
-同时，满足 $\acs{delay-comp} = \acs{delay-geo}$ 的方向 $\ac{v-direction}_0$
+于是，两个天线的输出信号在到达\ac{correlator}时具有同步的相位。
+满足 $\acs{delay-comp} = \acs{delay-geo}$ 的方向 $\ac{v-direction}_0$
 称为\acf{delay-center}或\acf{phase-refpos}。
 
 \begin{figure}[htp]
@@ -1388,8 +1388,8 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度。
 为了能够实际地运用\autoref{eq:vis} 从观测的\ac{vis}数据获得辐射源的亮度分布，
 需要定义一个坐标系。
 如\autoref{fig:interferometer-coordsys} 所示的 $(u,v,w)$ 直角坐标系是最常用的，
-其中 $w$ 轴指向参考方向 $\ac{v-direction}_0$，
-通常为目标的中心，$u$ 轴向东，$v$ 轴向北。
+其中 $w$ 轴指向参考方向 $\ac{v-direction}_0$（通常为目标的中心），
+$u$ 轴向东，$v$ 轴向北。
 于是，\acl{v-baseline}为 $\ac{v-baseline} = (u,v,w) \lambda$，
 \acl{v-direction}为 $\ac{v-direction} = \left( l, m, \sqrt{1-l^2-m^2} \right)$，
 其中 $l, m$ 分别为 \ac{v-direction} 对 $u, v$ 轴的投影长度，即\ac{dc}。
@@ -1401,11 +1401,11 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度。
     \exp \left[ -2\Cpi\Ci \left( ul+vm+w\sqrt{1-l^2-m^2} \right) \right]
     \,\D{l}\,\D{m} .
 \end{equation}
-注意，因为上式的相位因子中存在额外项 \enquote{$w \sqrt{1-l^2-m^2}$}，
+注意，因为上式的相位因子存在额外项 \enquote{$w \sqrt{1-l^2-m^2}$}，
 所以这\emph{不是}二维 Fourier 变换。
 
-然而，在下述两种常见的特殊情况下，上式可变成二维 Fourier 变换，
-从而通过逆运算获得目标的亮度分布。
+但是在下述两种常见的特殊情况下，上式可变成二维 Fourier 变换，
+从而通过逆运算可以获得目标的亮度分布。
 \begin{itemize}
 \item
 \emph{所有\acl{v-baseline}共面:}
@@ -1569,6 +1569,11 @@ $\ac{N-ant}(\ac{N-ant}-1)/2$ 条\ac{baseline}，
   }
   \label{fig:imaging-relations}
 \end{figure}
+
+%---------------------------------------------------------------------
+%\subsection{CLEAN 算法和洁图}
+%
+% TODO...
 
 %---------------------------------------------------------------------
 \subsection{点源灵敏度和亮度灵敏度}
