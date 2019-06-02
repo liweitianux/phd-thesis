@@ -6,11 +6,15 @@
 \chapter{基于深度学习的 EoR 信号分离算法}
 \label{chap:cdae}
 
+利用\autoref{chap:simulation}改进的前景模型以及模拟的 SKA1-Low 观测图像，
+本章进一步研究了干涉阵列波束效应对前景辐射频谱光滑性的影响，
+并且研发有效的 EoR 信号分离算法。
+
 为了能够从强烈的前景干扰中分离出微弱的 EoR 信号，
 传统的\ac{fg-rm}方法都依赖于一个关键的前提：
-前景干扰的频谱非常光滑，而 EoR 信号沿频率维度发生剧烈变化。
+前景干扰的频谱非常光滑，而 EoR 信号沿频率维度发生剧烈变化；
 两者具有显著不同的频谱结构，从而能够被有效地分离 \cite{morales2010,chapman2016}。
-然而，在实际情况中，未分辨的或者未完全扣除的干扰源在干涉阵列的波束效应的影响下，
+然而在实际情况中，未分辨的或者未完全扣除的干扰源在干涉阵列的波束效应的影响下，
 会在频率维度产生快速变化的辐射起伏，破坏前景频谱的光滑性 \cite{liu2009ps}。
 这会显著削弱前景干扰与 EoR 信号的可分性，
 导致传统\ac{fg-rm}方法的效果大打折扣甚至失效，
@@ -242,7 +246,7 @@ $\B{x}$、$\B{h}$ 和 $\B{r}$ 在本工作中均为一维矢量。
 因此拥有和 \ac{cnn} 一样强大的\ac{fx}能力。
 如此一来，\ac{cdae} 有能力从输入数据中学习一个更好的\ac{representation}，
 从而拥有更强的\ac{denoising}能力，能够重建即使严重受损的信号 \cite{du2017}。
-所以，\ac{cdae} 非常适合用来发掘 EoR 信号和前景辐射之间的复杂区别，
+所以 \ac{cdae} 非常适合用来发掘 EoR 信号和前景辐射之间的复杂区别，
 以期实现两者的准确分离。
 
 %---------------------------------------------------------------------
@@ -294,10 +298,10 @@ $\left(\left\{ k_{i}^{(l)} \right\};\, i = 1, 2, \cdots, m_l \right)$，
 其中
 $W_i^{(l)}$ 和 $b_i^{(l)}$ 分别是\ac{filter} $k_{i}^{(l)}$
 的权重和\ac{bias}参数，
-$\phi^{(l)}(\cdot)$ 是当前第 $l$ 层的\ac{f-activation}，
+$\phi^{(l)}()$ 是当前第 $l$ 层的\ac{f-activation}，
 $\B{v}_{j}^{(l-1)}$ 为前一层的输出，
 \enquote{$*$} 表示卷积运算。
-于是，第 $l$ 层的输出为该层所有\ac{filter}的\ac{fv}所构成的集合
+于是第 $l$ 层的输出为该层所有\ac{filter}的\ac{fv}所构成的集合
 $\left(\left\{ \B{v}_{i}^{(l)} \right\};\, i = 1, 2, \cdots, m_l \right)$。
 
 我们遵循\ac{dl}的推荐做法\cite{geron2017,suganuma2018} 来设计 \ac{cdae} 的架构。
@@ -451,8 +455,7 @@ $\ac{coef-correlation}(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})$ 越接近于 1，
 \end{figure}
 
 为了在模拟的\ac{skymap}中整合实际的波束效应，
-我们按照 \autoref{sec:obs-simu} 所述方法对\ac{skymap}开展模拟观测，
-获得了 SKA1-Low 的\enquote{观测}图像。
+我们按照 \autoref{sec:obs-simu} 所述方法模拟了\ac{skymap}的 SKA1-Low 观测图像。
 不过，我们根据这里的具体需求对 \autoref{sec:obs-simu} 的模拟方法进行了若干微调，
 具体如下：
 \begin{itemize}
@@ -604,7 +607,7 @@ $n_c = 51$ 个复 Fourier 系数：
 用来防止数据中可能存在的\ac{outlier}阻碍 \ac{cdae} 的训练。
 最后，将数据除以其最大绝对值，使其数值范围变为 $[-1, 1]$。
 这种处理方法允许我们在 \ac{cdae} 的输出层使用值域同样为 $[-1, 1]$
-的 \enquote{tanh} 函数作为\ac{f-activation} (\autoref{sec:architecture})。
+的 tanh 函数作为\ac{f-activation} (\autoref{sec:architecture})。
 
 %---------------------------------------------------------------------
 \subsection{CDAE 的训练和结果}
@@ -961,12 +964,11 @@ $\bar{\ac{coef-correlation}}_{\R{cwt}} = \num{0.198 +- 0.160}$。
 干涉阵列的波束效应会使前景辐射产生沿频率维度快速变化的起伏，
 导致前景的频谱光滑性被破坏，使得传统\ac{fg-rm}方法无法成功分离 EoR 信号。
 为了克服复杂的波束效应，我们基于\ac{dl}方法设计了一个由 9 个卷积层构成的 \ac{cdae}，
-并且使用\autoref{chap:simulation}模拟的 SKA1-Low \enquote{观测}图像
-来训练 \ac{cdae}，
+并且使用\autoref{chap:simulation}模拟的 SKA1-Low 观测图像来训练 \ac{cdae}，
 训练好的 \ac{cdae} 能够准确地分离 EoR 信号，分离效果显著优于传统\ac{fg-rm}方法。
 这也充分展示了\ac{dl}方法具有在未来 EoR 实验中发挥重要作用的巨大潜力。
 
-本章内容已发表于 \mnras{} (MNRAS) \cite{li.cdae}。
+本章内容已发表于 \textit{\mnras} \cite{li.cdae}。
 
 
 %% EOF

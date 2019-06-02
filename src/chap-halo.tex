@@ -7,10 +7,9 @@
 \label{chap:halo}
 
 利用\autoref{chap:simulation}模拟得到的射电晕、
-EoR 信号以及其他前景成分的 SKA1-Low \enquote{观测}图像，
-我们可以定量地评估射电晕对 EoR 探测产生的影响，
-分别针对\ac{fg-rm}和\ac{fg-avd}两类前景处理方法 (\autoref{sec:fg-methods})
-进行评估。
+EoR 信号以及其他前景成分的 SKA1-Low 观测图像，
+我们可以分别针对\ac{fg-rm}和\ac{fg-avd}两类前景处理方法 (\autoref{sec:fg-methods})
+评估射电晕辐射对 EoR 信号探测的影响。
 首先，我们计算一维\ac{ps} $\ac{psD}(k)$ 来对比射电晕和 EoR 信号在各个尺度 $k$ 的功率，
 说明使用\ac{fg-rm}方法时将面临的射电晕的污染强度。
 其次，我们计算二维\ac{ps} $\ac{psD}(\ac{k-perp}, \ac{k-los})$，
@@ -256,7 +255,7 @@ $\Phi_{158} = \SI{6.0}{\degree}$ 和
 $\Phi_{196} = \SI{4.8}{\degree}$。
 \autoref{fig:ps2d} 和\autoref{fig:ps2d-ratio} 显示了如此定义的 EoR 窗口边界，
 可见\ac{fg-wedge}的污染能够被很好地避开。
-但是，在 \numrange{120}{128}、\numrange{154}{162}
+但是在 \numrange{120}{128}、\numrange{154}{162}
 和 \numrange{192}{200} \si{\MHz} 三个频带内，
 EoR 信号分别有约 45\%、46\% 和 60\% 的功率损失在避开的\ac{fg-wedge}之中。
 
@@ -291,10 +290,8 @@ EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够
 \section{频谱伪结构的影响}
 \label{sec:freq-artifacts}
 
-\autoref{sec:obs-simu} 模拟了理想情况下的射电干涉观测，
-但是，实际观测所面临的情况要复杂得多，
-比如，仪器的校准存在不确定性、电离层的扰动、复杂的数据处理；
-参见 \autoref{sec:det-difficulties}。
+射电干涉观测的实际情况要比 \autoref{sec:obs-simu} 所模拟的理想情况要复杂得多，
+比如不理想的仪器校准，电离层的扰动（参见 \autoref{sec:det-difficulties}）。
 这些复杂的仪器效应和观测效应会导致\ac{imgcube}的频谱出现伪结构，
 破坏前景辐射的频谱光谱性，从而阻碍 EoR 信号的有效分离。
 
@@ -350,7 +347,7 @@ EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够
 对于射电晕的 100 次模拟，我们计算了每一次模拟在 \numrange{120}{128}、
 \numrange{154}{162} 和 \numrange{192}{200} \si{\MHz} 三个频带内、
 频谱伪结构幅度为 $A_{\R{arti}} = 0.1\%$ 和 $A_{\R{arti}} = 1\%$
-的情形下的二维功率比 $R_{\R{arti}}(\ac{k-perp}, \ac{k-los})$，
+情形下的二维功率比 $R_{\R{arti}}(\ac{k-perp}, \ac{k-los})$，
 据此得到射电晕在三个频带内以及两种频谱伪结构幅度的情况下的二维功率比的中位数，
 结果如\autoref{fig:ps2d-ratio-crp} 所示。
 我们发现，射电晕的二维功率谱受到了频谱伪结构的严重破坏。
@@ -374,7 +371,7 @@ $\ac{k-los} \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 也会使射电晕的干扰显著增强，特别是在关键的 EoR 窗口内。
 这说明 EoR 探测实验需要对仪器进行非常严格的校准，
 以获得非常准确的频谱响应 \cite{barry2016}。
-同时，这些结果也进一步支持射电晕对 EoR 探测而言是一个严重的前景干扰成分。
+这些结果也进一步支持射电晕对 EoR 探测而言是一个严重的前景干扰成分。
 
 
 %=====================================================================
@@ -395,13 +392,12 @@ $\ac{k-los} \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 \end{figure}
 
 低频干涉阵列的波束形状非常复杂，除\ac{mainlobe}外还有一系列明显的\ac{sidelobe}
-\cite{noordam2004,wijnholds2010}，
-如\autoref{fig:ska-beams} 显示了 SKA1-Low 在 100 和 200 MHz 处模拟的站点波束。
-更多关于 SKA1-Low 的波束形状及其影响的研究可见 \citeay{mort2017}。
+\cite{noordam2004,wijnholds2010}（\autoref{fig:ska-beams}），
+更多关于 SKA1-Low 的波束形状及其影响的研究可参见 \citeay{mort2017}。
 辐射源即使远在视场之外，也会通过\ac{sidelobe}在视场中产生类似噪声的干扰，
 这就是\acf{fscn} \cite{smirnov2012}。
 更加重要的是，当观测的 $uv$ 覆盖达到饱和时，\ac{fscn} 便不再降低，
-因此，\ac{fscn} 可能会强于仪器的热噪声而成为制约成像质量的关键因素之一 \cite{mort2017}。
+因此 \ac{fscn} 可能会超过仪器热噪声而成为制约成像质量的关键因素之一 \cite{mort2017}。
 
 为了研究位于\ac{sidelobe}里的射电晕所产生的 \ac{fscn}，
 我们需要生成相应的天图，然后输入 \texttt{OSKAR} 软件开展模拟观测。
@@ -457,26 +453,26 @@ $\ac{k-los} \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 但是将损失绝大部分 ($\sim$\,96\%) 的 EoR 信号。
 
 因此，严重的 \ac{fscn} 污染使得筛选 EoR 观测天区成为一个更加困难的任务，
-因为不仅在\ac{mainlobe}里，还有在\ac{sidelobe}里，
-原则上都不允许存在明亮的射电晕以及其他干扰源。
-否则需要在一个远远大于视场的天区里，准确识别、建模并扣除这些干扰源，
+这是因为在原则上不仅在\ac{mainlobe}里，还有在\ac{sidelobe}里，
+都不允许出现明亮的射电晕以及其他干扰源。
+否则需要在一个远远大于视场的天区里准确识别、建模并扣除这些干扰源，
 如此将使数据处理的难度大大提高 \cite{pober2013,pober2016}。
 
 
 %=====================================================================
 \section{小结}
 
-利用\autoref{chap:simulation}模拟的 SKA1-Low \enquote{观测}图像，
+利用\autoref{chap:simulation}模拟的 SKA1-Low 观测图像，
 我们对比了射电晕、EoR 信号以及其他前景成分的一维\ac{ps}和二维\ac{ps}，
 充分说明了射电晕是一个重要的前景干扰成分。
 即便采用\ac{fg-avd}方法在二维\ac{ps}上避开强烈的前景污染区域，
 射电晕在 EoR 窗口内所产生的污染仍然能对 EoR 信号的测量产生不可忽略的影响，
 尤其是在 $\sim$\,\SI{120}{\MHz} 较低频率。
 此外，我们还考虑了仪器的频谱伪结构对射电晕的功率谱的影响，
-以及位于远\ac{sidelobe}里的射电晕对 EoR 探测的影响。
+以及位于\ac{sidelobe}里的射电晕辐射对 EoR 信号探测的影响。
 这些结果进一步说明了射电晕作为前景成分的重要性。
 
-本章内容已发表于 \apj{} (ApJ) \cite{li.halo}。
+本章内容已发表于 \textit{The Astrophysical Journal} \cite{li.halo}。
 
 
 %% EOF
