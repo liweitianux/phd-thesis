@@ -9,16 +9,16 @@
 \label{chap:detection}
 
 
-再电离时期是早期宇宙的一段缺乏足够了解的时期，
+EoR 是早期宇宙的一段缺乏足够了解的时期，
 目前的理论研究以及有限的观测证据表明该时期从宇宙大爆炸之后约 \SI{300}{\Myr}
-持续到约 \SI{1}{\Gyr}，
+延续到约 \SI{1}{\Gyr}，
 对应红移范围约为 \numrange{6}{15}
 （参见 \citeay{koopmans2015} 及其所引文献）。
-充分探明并理解该时期，是进一步揭示更早的\ac{cd}和\ac{da}（$z > 15$）、
+充分探明并理解 EoR，是进一步揭示更早的宇宙\ac{da}（$z > 15$）、
 建立完整的宇宙演化图景的关键环节。
 在低频射电波段（$\sim$\,\SIrange{50}{200}{\MHz}）
-探测源自再电离时期的 21\,cm 信号（即 EoR 信号）
-是目前研究该时期的最直接而有效的办法 \cite{madau1997,tozzi2000,furlanetto2006}。
+探测源自 EoR 的中性氢 \ac{21cmline}是目前研究该时期的最直接和有效的办法
+\cite{madau1997,tozzi2000,furlanetto2006}。
 
 
 %=====================================================================
@@ -64,8 +64,11 @@ $\B{S}_p$ 和 $\B{S}_e$ 分别为质子和电子的\ac{spin}。
 
 因为质子和电子的自旋发生相互作用，所以氢原子的\ac{ground-state}
 发生\ac{hyperfine-splitting}而变成两个态：
-(1) 质子的\ac{spin} $\B{S}_p$ 和电子的\ac{spin} $\B{S}_e$ 平行，总角动量 $F = 1$;
-(2) $\B{S}_p$ 和 $\B{S}_e$ 反平行，总角动量 $F = 0$。
+\begin{itemize}
+  \item 质子的\ac{spin} $\B{S}_p$ 和电子的\ac{spin} $\B{S}_e$ 平行，
+    总角动量 $F = 1$;
+  \item $\B{S}_p$ 和 $\B{S}_e$ 反平行，总角动量 $F = 0$。
+\end{itemize}
 想像两个共中心的载流线圈，系统的稳定状态（即能量最低）为两个线圈的电流方向相同，
 即两个载流线圈的磁矩平行。
 将此应用于上述两个态，可知 $F = 1$ 态（即质子和电子的\ac{spin}反平行、磁矩平行）
@@ -111,8 +114,8 @@ $\B{S}_p$ 和 $\B{S}_e$ 分别为质子和电子的\ac{spin}。
 因此中性氢的超精细结构的能级布居将由碰撞决定。
 
 由\autoref{eq:t-excitation-def}可知，\acl{T-excitation}描述了能级的相对布居。
-鉴于 \ac{21cmline}源自中性氢的\ac{sft}，在此情况下，
-\acl{T-excitation}亦被称为\acl{T-spin} (spin temperature) \ac{T-spin}，
+因为 \ac{21cmline}源自中性氢的\ac{sft}，
+所以\acl{T-excitation}也被称为\acl{T-spin} (spin temperature) \ac{T-spin}，
 描述了氢原子自旋态（即\ac{singlet}和\ac{triplet}）的相对布居 \cite{field1958}：
 \begin{equation}
   \frac{N_2}{N_1} = \frac{g_2}{g_1}
@@ -187,7 +190,7 @@ $\Delta v \sim s \acs{Hz}$，
 \end{equation}
 其中 $(\partial v_{\parallel} / \partial r_{\parallel})$ 是\ac{v-proper}
 沿视线方向的梯度。
-此外，中性氢云的\acl{optical-depth} 通常满足
+此外，中性氢云的\acl{optical-depth}通常满足
 $\acs{optical-depth}_{\nu0} \ll 1$
 \cite{madau1997,furlanetto2006,pritchard2010mn}。
 
@@ -285,7 +288,7 @@ $\nu = \acs{freq21cm}/(1+z)$，
     \label{eq:eor-signal1}
 \end{align}
 
-由于再电离时期的红移较大 ($z \gtrsim 6$)，
+由于 EoR 阶段的红移较大 ($z \gtrsim 6$)，
 因此 Hubble 常数 [\autoref{eq:hubble-z}] 可近似为：
 \begin{equation}
   \acs{Hz} = \acs{H0} \sqrt{\acs{Om0} (1+z)^3 + \acs{Ol0}}
@@ -390,19 +393,19 @@ EoR 信号的整个演化过程可大致分为以下几个阶段 \cite{pritchard
     所以 EoR 信号在此阶段表现为吸收信号 ($\delta\overline{T}_b < 0$)。
 
   \item $z_* \lesssim z \lesssim 40$:
-    （$z_*$ 对应第一代天体形成的时刻.）
+    （$z_*$ 对应第一代天体形成的时刻）
     气体密度随着宇宙膨胀而显著降低，导致碰撞耦合不如 \ac{cmb} 辐射的耦合有效，
     因此有 $\acs{T-spin} = T_{\R{cmb}}$，所以此阶段无可探测的 EoR 信号。
 
   \item $z_{\alpha} \lesssim z \lesssim z_*$:
-    （$z_{\alpha}$ 对应 Lyα 光子的耦合达到饱和的时刻.）
+    （$z_{\alpha}$ 对应 Lyα 光子的耦合达到饱和的时刻）
     第一代天体开始形成，辐射 Lyα 光子和 X 射线，
     从而将 \acs{T-spin} 与冷气体的温度耦合到一起，
     即 $\acs{T-spin} \sim \acs{T-kinetic} < T_{\R{cmb}}$，
     因此该阶段可探测到 EoR 吸收信号 ($\delta\overline{T}_b < 0$)。
 
   \item $z_h \lesssim z \lesssim z_{\alpha}$:
-    （$z_h$ 对应气体被加热至与 $T_{\R{cmb}}$ 相同温度的时刻.）
+    （$z_h$ 对应气体被加热至与 $T_{\R{cmb}}$ 相同温度的时刻）
     随着星系和宇宙大尺度结构的形成，气体逐渐被加热，
     对 \acs{T-spin} 的影响也越来越显著。
     在气体温度 $\acs{T-kinetic} \sim \acs{T-spin} < T_{\R{cmb}}$
@@ -666,8 +669,8 @@ EoR 信号的\ac{imgcube} $I_{\R{eor}}(\B{\theta}, \nu)$
 \section{EoR 探测的主要困难}
 \label{sec:det-difficulties}
 
-EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难。
-这些困难可主要分为以下几个方面：
+EoR 探测实验，尤其是采用低频干涉阵列，面临着一系列困难。
+这些困难主要分为以下几个方面：
 \begin{itemize}
 \item
 \emph{前景干扰:}
@@ -697,7 +700,7 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难。
   \centering
   \includegraphics[width=0.7\textwidth]{eor-foregrounds}
   \bicaption[主要前景成分及其强度示意图]{%
-    主要前景成分以及强度示意图。
+    主要前景成分以及强度示意图，
     图中的数值代表在 \SI{120}{\MHz} 处的\acs*{rms}值。
   }{%
     A diagram showing the major foreground components contaminating
@@ -714,7 +717,7 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难。
 \item
 \emph{人工源的\acl{rfi} (\ac{rfi}):}
 人类活动产生的无线电波已在地球上无处不在，对射电天文观测产生了严重的干扰。
-这些人工源主要有：\ac{am}和\ac{fm}广播、卫星通信、\ac{gps} 信号、对讲机、雷达、等等。
+这些人工源主要包括：\ac{am}和\ac{fm}广播、卫星电视、卫星通信、\ac{gps} 信号、对讲机、雷达。
 虽然 EoR 探测设备通常建设在人烟稀少的射电宁静区域，
 但是仍不可避免也受到人工源的 \ac{rfi}，
 甚至由月亮以及太空碎片反射回来的无线电波都可能对 EoR 观测产生一定程度的影响
@@ -730,12 +733,15 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难。
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.7\textwidth]{RFI-MWA}
-  \bicaption{%
-    MWA 各子频带的\acs*{vis}数据被标记为 \acs*{rfi} 的比例
+  \bicaption[MWA 各子频带的\acs*{vis}数据被标记为 RFI 的比例]{%
+    MWA 各子频带的\acs*{vis}数据被标记为 \acs*{rfi} 的比例，
+    主要的人工源为 ORBCOMM 卫星通信、调频 (FM) 广播和卫星电视。
   }{%
     The \acs*{rfi} occupancy, calculated as the percentage of
     visibilities that are detected as \acs*{rfi} by the flagger,
     per sub-band for the MWA.
+    The major RFI sources are ORBCOMM satellite communications,
+    FM radio, and digital TV.
     \\来源/Credit:
     \citeay{offringa2015}
   }
@@ -752,7 +758,7 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难。
 电离层的气体非常稀薄，因此被太阳辐射电离的气体分子所产生的自由电子
 在复合前可以短暂地自由运动，形成等离子体，从而影响电磁波的传播。
 在 $<$\,\SI{300}{\MHz} 的低频波段，电离层主要对电磁波产生折射、
-传播延迟、Faraday 旋转等影响，导致望远镜的观测数据出现相位和幅度误差
+传播延迟、Faraday 旋转等影响，导致望远镜的观测数据出现相位和幅度失真
 \cite{intema2009,thompson2017}。
 由于主要受太阳活动的影响，电离层的状态会随时间和位置而发生剧烈变化，
 因此对干涉阵列各个天线产生的干扰程度也存在差异并且时刻发生变化。
@@ -779,8 +785,9 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难。
 %.......................................
 \item
 \emph{仪器效应:}
-大型干涉阵列通常由成千上万根天线组成. 由于生产和安装过程的差异以及随环境和时间的变化，
-\ac{station}内每根天线的性能都不可能完全相同，
+大型干涉阵列通常由成千上万根天线组成，
+由于生产和安装过程的差异以及随环境和时间的变化，
+\ac{station}内每根天线的性能不可能完全相同，
 导致所形成的\ac{beam-station}存在很多不确定因素，
 而且各个\ac{station}的波束也互不相同。
 对于采用数字\ac{beam-forming}技术的\ac{phased-array}而言，
@@ -789,7 +796,7 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难。
 因此，如果未能充分地校准\ac{beam-station}，那么后续其他仪器效应的校准、
 亮点源的剥离 (peeling)、\ac{fg-rm}等任务都会受到严重影响
 \cite{noordam2004,neben2016}。
-除了\ac{beam-station}的效应，还有一系列更复杂的仪器效应，比如：
+干涉阵列还有其他多种复杂的仪器效应，比如
 显著的旁瓣 \cite{thyagarajan2015,mort2017}、
 天线响应随频率的变化 \cite{bernardi2015,trott2017}、
 波束的频率依赖效应 \cite{liu2009ps,datta2010,morales2012}
@@ -808,7 +815,7 @@ EoR 探测实验，尤其是采用干涉阵列，面临着一系列困难。
 如何对原始数据进行实时的相关和校准？
 如何传输、分发和存储海量观测数据？
 如何实现高效的数字\ac{beam-forming}和多波束技术？
-如何处理海量数据实现大视场高动态范围成像？
+如何处理海量数据实现大视场、高动态范围成像？
 缓解或解决这些问题，不仅依赖于更快更高效的计算资源 \cite{magro2014,vermij2017}，
 建设新型的数据中心 \cite{chrysostomou2018}，
 还需要研发新算法以及编写新软件，优化数据处理流程，充分利用大规模并行计算资源
@@ -876,12 +883,12 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}。
 我们对这些细节的了解程度远远不够 \cite{ali2016}。
 
 另一方面，银河系同步辐射具有一定的偏振 \cite{bernardi2009,jelic2014,gehlot2018}。
-偏振的辐射通过磁场时，其偏振面会发生旋转，即 Faraday 旋转效应 \cite{rybicki1979}，
+偏振辐射通过磁场时，其偏振面会发生旋转，即 Faraday 旋转效应 \cite{rybicki1979}，
 而且旋转量依赖于辐射频率。
 因此天线接收到的某一偏振成分（如 Stokes $Q$ 或 $U$ 分量）的强度变化也依赖于频率，
-使得其频谱可能变得不光滑。
-同时，仪器因其固有的限制而无法完全隔离各偏振成分的测量，
-因此会有少量 ($\sim$\,1\%) 偏振辐射\enquote{漏泄}到总辐射强度里，
+可能使辐射的频谱光滑性遭到损坏。
+同时，仪器由于固有的限制而无法完全隔离各偏振成分的测量，
+因此会有少量 ($\sim$\,1\%) 偏振辐射漏泄到总辐射强度里，
 从而对前景频谱的光滑性产生破坏，阻碍前景的准确扣除
 \cite{jelic2010,alonso2014,nunhokee2017,gehlot2018,spinelli2018}。
 
@@ -929,7 +936,7 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}。
 另一种追踪\ac{rad-ff}的方法是利用\ac{rrl}。
 因为\ac{rrl}不受尘埃吸收的影响，所以该方法可以顺利也用于银盘附近区域，
 给出可靠的\ac{rad-ff} \cite{alves2010,alves2012}。
-与前面的方法相结合，可以获得银河系\ac{rad-ff}的完整全天图。
+与前一种方法相结合，可以获得银河系\ac{rad-ff}的完整全天图。
 
 尽管银河系\ac{rad-ff}的强度远弱于同步辐射成分，
 比如在 \SI{150}{\MHz} 处仅贡献了总前景辐射的 $\sim$\,1\% \cite{shaver1999}，
@@ -1087,17 +1094,17 @@ MACS J0717.5$+$3745 \cite{vanWeeren2009}。
 \section{前景识别与分离方法}
 \label{sec:fg-methods}
 
-微弱的 EoR 信号被强烈的前景干扰所淹没是 EoR 探测实验所面临的最主要困难之一。
-如何有效地解决这个前景污染难题，是成功探测 EoR 信号的关键。
-尽管前景污染的强度高达 EoR 信号的 \numrange{4}{5} 个数量级，
-但是幸运的是，各前景成分的频谱在本质上是光滑的，
-而 EoR 信号的频谱反映了在宇宙不同红移处（即频率）中性氢的分布情况
+微弱的 EoR 信号被强烈的前景干扰所淹没是 EoR 探测实验所面临的最主要困难之一，
+准确地识别并分离前景干扰是成功探测 EoR 信号的关键。
+尽管前景污染的强度高达待测 EoR 信号的 \numrange{4}{5} 个数量级，
+但是幸运的是各前景成分的频谱在本质上是光滑的；
+而 EoR 信号的频谱反映了中性氢在宇宙不同红移处（即频率）的分布情况
 \cite{diMatteo2002,oh2003,gnedin2004}，
-所以会随频率剧烈震荡。
+所以会随频率发生显著变化，呈锯齿状不光滑结构。
 利用这个关键区别，原则上可以将 EoR 信号从强烈的前景污染中分离出来。
 
-近十余年来，已有一批方法被提出来用于尝试从前景污染中分离 EoR 信号。
-根据处理前景的策略，可将这些方法大致分为两大类 \cite{chapman2015,chapman2016}：
+目前已有一批方法被提出来用于尝试从前景污染中分离 EoR 信号。
+根据前景处理的策略，可将这些方法大致分为两大类 \cite{chapman2015,chapman2016}：
 \begin{itemize}
 \item \emph{前景扣除法}:
 在图像空间或 $uv$ 空间（即 Fourier 空间），
@@ -1135,14 +1142,14 @@ MACS J0717.5$+$3745 \cite{vanWeeren2009}。
 
 上述两类方法均有各自的优缺点。
 \ac{fg-rm}法的优点是能够保留 EoR 信号的全部信息，
-但缺点是可能无法准确扣除前景污染或者将部分 EoR 信号误认为前景而扣除，
+但缺点是可能无法准确扣除前景污染或者将部分尺度较大的 EoR 信号误认为前景而扣除，
 导致结果出现一定的偏差。
 \ac{fg-avd}法的优点是可以有效地避免前景污染对 EoR 探测结果产生的可能偏差，
 而主要缺点便是损失了 EoR 信号在 EoR 窗口之外的信息，
 牺牲了仪器的灵敏度和利用效率 \cite{pober2014}。
-可进一步参见 \citeay{chapman2016} 及其所引文献。
+这两类前景处理方法的进一步对比评估可参见 \citeay{chapman2016} 及其所引文献。
 
-当然，这两类前景处理方法并不冲突，在实际中可以结合使用，
+这两类前景处理方法并不冲突，在实际情况中可以结合使用，
 比如先在图像空间或 $uv$ 空间扣除明显的前景污染，
 再利用\ac{fg-avd}法在二维功率谱上提取 EoR 信号 \cite{datta2010}。
 
@@ -1153,11 +1160,11 @@ MACS J0717.5$+$3745 \cite{vanWeeren2009}。
 
 在二维功率谱 $\ac{psD}(\ac{k-perp}, \ac{k-los})$ 上，
 频谱光滑的前景干扰原则上只分布在 \ac{k-los} 较小的区域。
-但是没有仪器是理想的，一些仪器效应和观测效应会将
+但是干涉阵列的仪器效应和观测效应会将
 \ac{k-perp} \ac{mode}里的功率\enquote{混合}到 \ac{k-los} \ac{mode}里，
 即\acf{mode-mixing}效应，
 并且 \ac{k-los} 受影响的范围与 \ac{k-perp} 的大小成正相关，
-因此，前景污染将占据二维功率谱的右下方一个楔形区域，
+因此前景污染将占据二维功率谱的右下方一个楔形区域，
 即\acf{fg-wedge}，如\autoref{fig:eor-window} 所示。
 这个现象最早由 \citeay{datta2010} 基于模拟数据研究亮点源对 EoR 探测的影响时发现，
 目前已被多个实际观测证实
@@ -1287,15 +1294,15 @@ MACS J0717.5$+$3745 \cite{vanWeeren2009}。
 \end{equation}
 如\autoref{fig:eor-window} 所示。
 干涉阵列通常具有明显的\ac{sidelobe}，
-因此\ac{fg-wedge}的具体范围（如 $\Phi$ 的大小）
-与\ac{sidelobe}的行为密切相关。
+因此\ac{fg-wedge}的具体范围与\ac{sidelobe}的行为密切相关。
 
 在实际情况中，计算二维功率谱时只使用一个较窄的频带
-(带宽 $\ac{bandwidth} \lesssim \SI{10}{\MHz}$) 以避免宇宙演化的影响，
+（带宽 $\ac{bandwidth} \lesssim \SI{10}{\MHz}$）以避免宇宙演化的影响
+\cite{wyithe2004,thyagarajan2013}，
 所以计算过程中对频率维度进行 Fourier 变换时存在一定的边界效应。
-另外，望远镜的频率响应也存在一些结构 \cite{deLeraAcedo2017,trott2017}。
+另外，干涉阵列的频率响应也存在一些结构 \cite{deLeraAcedo2017,trott2017}。
 这些因素将导致额外的前景\ac{spillover}，使得\ac{fg-wedge}变大，
-因此，\citeay{thyagarajan2013} 提出了如下改进的 EoR 窗口的边界表达式：
+因此 \citeay{thyagarajan2013} 提出了如下改进的 EoR 窗口的边界表达式：
 \begin{equation}
   \label{eq:eor-window}
   \ac{k-los} \ge
@@ -1314,13 +1321,12 @@ $w$ 描述了前景\ac{spillover}的程度。
 
 我们首先介绍了\ac{hi} \ac{21cmline}的物理机制
 以及使用 \ac{21cmline}开展 EoR 探测的基本原理。
-然而，EoR 信号被淹没在强烈的前景干扰之中。
-于是，我们介绍了银河系的\ac{rad-syn}和\ac{rad-ff}、河外点源以及河外展源
-这四种主要的前景成分，
-然后概述了目前的前景处理方法，包括\ac{fg-rm}和\ac{fg-avd}两大类。
+EoR 信号被淹没在强烈的前景干扰之中，
+主要包括银河系的\ac{rad-syn}和\ac{rad-ff}、河外点源以及河外展源。
+接着我们概述了目前的前景识别与分离方法，可大致分为\ac{fg-rm}和\ac{fg-avd}两大类。
 \ac{fg-avd}方法依赖于二维\ac{ps}上的 EoR 窗口，
-为此，我们基于干涉阵列的\ac{chromatic-effect}%
-简要解释了\ac{fg-wedge}和 EoR 窗口的形成原因。
+于是我们基于干涉阵列的\ac{chromatic-effect}简要解释了\ac{fg-wedge}和
+EoR 窗口的形成原因。
 本章内容是本文后续研究的基础。
 
 
