@@ -254,7 +254,7 @@
   物理与天文学院\\%
   上海交通大学%
 }
-\date{\small 2019 年 6 月 4 日}  % TODO
+\date{\small 2019 年 6 月 6 日}  % TODO
 \subject{博士学位论文答辩}
 \titlegraphic{%
   \includegraphics[height=0.75cm]{sjtubadge}%
@@ -1215,9 +1215,9 @@
     \item 由\alert{编码器}和\alert{解码器}两部分组成:
       \begin{itemize}
         \item 编码器: 将输入 $\B{x}$ 映射成一个内部编码 $\B{h} = f(\B{x})$；
-        \item 解码器: 尝试从编码 $\B{h}$ 重构原输入信号，$\B{r} = g(\B{h})$.
+        \item 解码器: 尝试从编码 $\B{h}$ 重建原输入信号，$\B{r} = g(\B{h})$.
       \end{itemize}
-    \item 对编码 $\B{h}$ 施加约束，训练使得重构信号 $\B{r}$ 的损失
+    \item 对编码 $\B{h}$ 施加约束，训练使得重建信号 $\B{r}$ 的损失
       $L(\B{r}, \B{x})$ 最小.
     \item 学得的编码能够有效地表示输入信号.
     \item 常用于数据的降维和去噪.
@@ -1233,7 +1233,7 @@
       \begin{enumerate}
         \item 人为地损坏原始输入信号 $\B{x}$，比如加入噪声；
         \item 输入受损信号 $\B{x}'$ 进行训练；
-        \item 使重构信号 $\B{r}$ 尽可能地恢复原始输入信号 $\B{x}$.
+        \item 使重建信号 $\B{r}$ 尽可能地恢复原始输入信号 $\B{x}$.
       \end{enumerate}
     \item 被迫去发掘原始输入信号 $\B{x}$ 中的关键特征.
     \item 学得一个更好的表示，提升性能.
@@ -1355,13 +1355,13 @@
   \vspace{-1ex}
   \myfigure{%
     height=0.9\textheight,
-  }{cdae-eor-pix}{CDAE 重构的 EoR 信号的示例 ($\xi = 0.931$)}
+  }{cdae-eor-pix}{CDAE 重建的 EoR 信号的示例 ($\xi = 0.931$)}
 \end{frame}
 
 \begin{frame}
   \vspace{1ex}
   \begin{itemize}
-    \item 重构的 EoR 图像的空间结构与强度分布与输入几乎完全相同；
+    \item 重建的 EoR 图像的空间结构与强度分布与输入几乎完全相同；
     \item 小尺度波纹结构源自预处理时去除了低频 Fourier 系数.
       \par\includegraphics[height=0.44\textheight]{cdae-eor-img-comp}
     \item CDAE 很好地恢复了 EoR 信号在各尺度的功率.
@@ -1477,7 +1477,7 @@
 \begin{frame}{干涉测量原理}
   \begin{columns}
     \column{0.4\textwidth}
-    二元准单色干涉仪观测一个点源，相关器的输出响应为:
+    二元单色干涉仪观测一个点源，相关器的输出响应为:
     \begin{align}
       R & = \langle V_1(t) V_2(t) \rangle \\
         & = \frac{1}{2} V^2 \cos (\omega \tau_g) ,
@@ -1490,7 +1490,7 @@
     \begin{figure}
       \centering
       \includegraphics[width=\columnwidth]{interferometer}
-      \caption{二元准单色干涉仪示意图 (\citeay{condon2016})}
+      \caption{二元单色干涉仪示意图 (\citeay{condon2016})}
     \end{figure}
   \end{columns}
 \end{frame}
