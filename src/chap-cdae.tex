@@ -22,7 +22,7 @@
 
 
 %=====================================================================
-\section{波束的频率依赖效应}
+\section{干涉阵列波束的频率依赖效应}
 \label{sec:beam-effect}
 
 \begin{figure}[htp]
@@ -310,12 +310,12 @@ $\left(\left\{ \B{v}_{i}^{(l)} \right\};\, i = 1, 2, \cdots, m_l \right)$。
 \begin{equation}
   \tanh(x) = \frac{\Ce^x - \Ce^{-x}}{\Ce^x + \Ce^{-x}} ,
 \end{equation}
-便于数据的预处理（参见 \autoref{sec:preprocessing}）。
+以方便数据的预处理（参见 \autoref{sec:preprocessing}）。
 其他卷积层使用的\ac{f-activation}则为\ac{elu}\cite{clevert2016}：
 \begin{equation}
   \text{ELU}(x) =
     \begin{dcases*}
-      x , \quad & if $x > 0$ , \\
+      x , \quad & if $x \le 0$ , \\
       \alpha_{\R{elu}} (\Ce^x - 1) , \quad & if $x < 0$ ,
     \end{dcases*}
 \end{equation}
@@ -374,7 +374,7 @@ $\B{x}^{(i)} = \B{x}^{(i)}_{\R{eor}} + \B{x}^{(i)}_{\R{fg}}$
     \left[ \B{r}_{\R{eor}}^{(i)} - \B{x}_{\R{eor}}^{(i)} \right] ,
 \end{equation}
 其中 $N_{\R{tr}}$ 是\acl{s-training} \ac{s-training} 所包含数据点的数目，
-\enquote{$T$} 表示\ac{transpose}算符。
+\enquote{$T$} 表示转置算符。
 运用\ac{backprop}方法\cite{rumelhart1986,leCun1998bp}，
 可以计算\acl{loss} \ac{loss} 对任意一个参数 $p_i$ 的梯度
 $\partial \ac{loss} / \partial p_i$，
@@ -533,7 +533,7 @@ $\left( C_{\R{eor}}^{(1)}, C_{\R{fg}}^{(1)} \right)$
 $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$。
 
 鉴于我们的新算法是针对 EoR \ac{tomography}而设计的，
-要求极深度的观测以达到足够低的噪声水平。
+要求非常深度的观测以达到足够低的噪声水平。
 比如，SKA1-Low 计划筛选 5 个 EoR 天区，然后对每个天区观测约 \SI{1000}{\hour}，
 达到空前的约小于 \SI{1}{\mK} 的亮度灵敏度 [\autoref{eq:sigma-tb}]，
 从而实现对 EoR 区域的直接成像观测 \cite{mellema2013,mellema2015,koopmans2015}。

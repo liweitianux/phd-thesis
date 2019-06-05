@@ -1184,19 +1184,18 @@ $\bar{P}$ 之比，即：
 \end{equation}
 其中 $\theta$ 为\acl{v-direction} \ac{v-direction}
 和\acl{v-baseline} \ac{v-baseline} 之间的夹角。
-于是有
+根据
 \begin{equation}
   \diff{\phi}{\theta}
     = 2\Cpi \left( \frac{b \sin\theta}{\lambda} \right) ,
 \end{equation}
-由此可知单个\ac{fringe}的宽度，
-即干涉仪的\acl{bw-synthesized} (synthesized beamwidth)
-\acs{bw-synthesized} 为：
+可知单个\ac{fringe}的宽度 \acs{bw-synthesized} 为：
 \begin{equation}
   \label{eq:bw-synthesized}
   \acs{bw-synthesized} = \frac{\lambda}{b \sin\theta} ,
 \end{equation}
-此参数描述了干涉仪的角分辨能力。
+此参数称为干涉仪的\acl{bw-synthesized} (synthesized beamwidth)，
+描述了干涉仪的角分辨能力。
 
 天线的\ac{pp}描述了其响应随方向的变化情况，也被称为干涉仪的\acf{beam-primary}，
 将对输出 $R$ 产生调制，亦如\autoref{fig:interferometer} 所示，
@@ -1527,14 +1526,14 @@ $\ac{N-ant}(\ac{N-ant}-1)/2$ 条\ac{baseline}，
 \begin{equation}
   I_{\nu}^D(l,m) = \ac{I-nu}(l,m) * B(l,m) ,
 \end{equation}
-其中
+其中 \enquote{$*$} 表示卷积算符，
+$B(l, m)$ 是\ac{f-sampling} \acs{S-uv} 的 Fourier 变换：
 \begin{equation}
   \label{eq:syn-beam}
-  B(l,m) = \iint \acs{S-uv} \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m}
+  B(l,m) = \iint \acs{S-uv} \exp [2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m} ,
 \end{equation}
-是\ac{f-sampling} \acs{S-uv} 的 Fourier 变换，
 称为\acf{beam-synthesized}或\acf{psf}。
-\autoref{fig:imaging-relations} 展示了成像过程中的各种变换关系。
+\autoref{fig:imaging-relations} 展示了成像过程中的主要变换关系。
 为了从\ac{dirty-map} $I_{\nu}^D(l,m)$ 尽可能地恢复目标的真实图像 $\ac{I-nu}(l,m)$，
 则需要使用复杂的非线性\ac{deconv}方法，
 比如 CLEAN 算法 \cite{hogbom1974,cornwell1999}、
@@ -1545,23 +1544,22 @@ $\ac{N-ant}(\ac{N-ant}-1)/2$ 条\ac{baseline}，
   \includegraphics[width=\textwidth]{imaging-relations}
   \bicaption[干涉成像过程中的变换关系]{%
     干涉成像过程中的变换关系。
-    \emph{(a)} 天空的真实图像；
-    \emph{(b)} 干涉阵列的\acs*{beam-synthesized}，对应 (e) 的 Fourier 变换；
-    \emph{(c)} 脏图，对应 (f) 的 Fourier 变换；
-    \emph{(d)} \acs*{vis}的真实数据，对应 (a) 的 Fourier 变换；
-    \emph{(e)} 干涉阵列的\acs*{f-sampling}；
-    \emph{(f)} 实际测量到的\acs*{vis}数据，为 (d) 和 (e) 乘积。
+    \emph{(a)} 真实天图；
+    \emph{(b)} \acs*{beam-synthesized}；
+    \emph{(c)} 脏图；
+    \emph{(d)} 真实的\acs*{vis}数据；
+    \emph{(e)} \acs*{f-sampling}；
+    \emph{(f)} 实际测量的\acs*{vis}数据。
+    每列的两张图像互为 Fourier 变换。
   }{%
     The transform relations among the imaging process.
-    \emph{(a)} The true sky map;
-    \emph{(b)} The synthesized beam of the interferometer, which is the
-    Fourier Transform of (e);
-    \emph{(c)} The dirty map, which is the Fourier Transform of (f);
-    \emph{(d)} The true visibility data, which are the Fourier Transform
-    of (a);
-    \emph{(e)} The sampling function of the interferometer;
-    \emph{(f)} The actually measured visibility data, which are the
-    product of (d) and (e).
+    \emph{(a)} True sky map;
+    \emph{(b)} Synthesized beam;
+    \emph{(c)} Dirty map;
+    \emph{(d)} True visibility data;
+    \emph{(e)} Sampling function;
+    \emph{(f)} Actually measured visibility data.
+    The two images in each column are the Fourier transform of each other.
     \\来源/Credit:
     Dale E. Gary, Radio Astronomy, Lecture 6,
     \url{https://web.njit.edu/~gary/728/Lecture6.html}, (2018-11-21)

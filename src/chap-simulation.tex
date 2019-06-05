@@ -860,10 +860,10 @@ $\acs{D-luminosity}(z_{\R{sim}})$ 是\ac{rh}的\acl{D-luminosity}，
 因子 $(1 + z_{\R{sim}})$ 用于考虑 $K$ 修正 \cite{hogg1999}。
 
 %---------------------------------------------------------------------
-\subsection{模型参数调节和模拟结果}
+\subsection{模型参数约束和模拟结果}
 \label{sec:halo-results}
 
-我们构建的\ac{rh}模型主要包含以下 5 个待调节的参数：
+我们构建的\ac{rh}模型主要包含以下 5 个待约束的参数：
 \begin{enumerate}
   \item \ac{f-injection}:
     注入电子的总能量密度与 \ac{icm} 热能密度 \ac{e-th} 之比；
@@ -1339,29 +1339,27 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=0.508\textwidth]{SKA1low-config-outside}%
+  \includegraphics[width=0.491\textwidth]{SKA1low-config-central}%
   \hfill%
-  \includegraphics[width=0.491\textwidth]{SKA1low-config-central}
+  \includegraphics[width=0.508\textwidth]{SKA1low-config-outside}
   \bicaption[SKA1-Low 阵列的站点布局图]{%
     （\uline{左栏}）
-    中央区域 (半径 $R \le \SI{1700}{\meter}$) 之外的站点布局，
-    由分布在 3 条螺旋线上的 36 个站点团 (station cluster) 构成，
-    每个站点团包括 6 个站点。
-    （\uline{右栏}）
-    中央区域内的站点布局，
-    包括核心区域 (半径 $R \le \SI{500}{\meter}$) 内随机分布的 224 个站点，
+    中央区域 (半径 $R \le \SI{1700}{\meter}$) 的站点布局，
+    包括 224 个随机分布在核心区域 ($R \le \SI{500}{\meter}$) 的站点，
     以及 12 个分布在核心区域之外的站点团。
+    （\uline{右栏}）
+    中央区域之外的站点布局，
+    由分布在 3 条螺旋线上的 36 个站点团构成。
   }{%
     (\uline{Left})
-    The layout configuration of stations outside the central area
-    (radius $R \le \SI{1700}{\meter}$).
-    There are 36 station clusters, each of which consists of 6 stations,
-    placing on 3 spiral arms.
-    (\uline{Right})
-    The layout configuration of stations in the central area,
+    The layout configuration of stations in the central area
+    (radius $R \le \SI{1700}{\meter}$),
     including the 224 randomly distributed stations in the core area
-    (radius $R \le \SI{500}{\meter}$) and another 12 station clusters
+    ($R \le \SI{500}{\meter}$) and another 12 station clusters
     outside the core area.
+    (\uline{Right})
+    The layout configuration of stations outside the central area,
+    which are arranged as 36 station clusters on 3 spiral arms.
     \\来源/Credit:
     \citeay{dewdney2016ska}
   }
@@ -1369,7 +1367,7 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 \end{figure}
 
 %---------------------------------------------------------------------
-\subsection{模拟观测和成像}
+\subsection{模拟可见度数据和成像}
 
 每一个宽 \SI{8}{\MHz} 的频带被分为 51 个频率\ac{channel}，
 对应的频率分辨率为 \SI{160}{\kHz}。
