@@ -224,7 +224,8 @@
    \bibopenbracket\usebibmacro{cite}\bibclosebracket}
   {\supercitedelim}
   {}
-\newcommand{\citeay}[1]{\citeauthor{#1} \citeyear{#1} \parencite{#1}}
+%\newcommand{\citeay}[1]{\citeauthor{#1} \citeyear{#1} \parencite{#1}}
+\newcommand{\citeay}[1]{\citeauthor{#1} \citeyear{#1}}
 
 \AtBeginBibliography{
   \linespread{1.0}
@@ -257,7 +258,7 @@
   EoR 信号分离算法的研究%
 }
 \author{%
-  答辩人：李维天 \\
+  答辩人：李维天\texorpdfstring{\\}{ / }
   导师：徐海光~教授
 }
 \institute{%
@@ -288,133 +289,346 @@
 \section{研究背景和内容}
 
 %............
-\begin{frame}{研究背景和意义}
+\begin{frame}{什么是 EoR ？}
   \begin{itemize}
     \item \alert{再电离时期 (EoR)}：大爆炸之后约 \numrange{3}{10} 亿年，
-      红移约 \numrange{6}{15}，\\
-      有待深入理解的一个重要时期
-    \item \alert{中性氢 21\,cm 谱线} ($\sim$\,\SI{1420}{\MHz})：
-      EoR 最直接有效的探针
-    \item EoR 信号将出现在 $\sim$\,\SIrange{90}{200}{\MHz}
-      的\alert{低频射电波段}
+      红移约 \numrange{6}{15}
+    \item \alert{重要意义}：第一代恒星和星系、宇宙早期结构、完整宇宙演化图景
+    \item 亟待深入理解的一个重要时期
   \end{itemize}
 
   \vspace{-1ex}
-  \myfigure{%
-    width=0.95\textwidth,
-  }{universe-history}{宇宙演化历史 (来源: BICEP2/CERN/NASA)}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.95\textwidth]{universe-history}
+  \end{figure}
 \end{frame}
 
 %............
-\begin{frame}{前景干扰难题}
+\begin{frame}{如何探测 EoR ？}
+  \begin{columns}
+    \column{0.7\textwidth}
   \begin{itemize}
-    \item EoR 信号非常微弱，但\alert{多种前景干扰}非常强烈
-    \item 亟待深入理解前景干扰，构建准确的前景模型，
+    \item \alert{中性氢 21\,cm 谱线}：EoR 最直接有效的探针
+    \item 氢原子自旋翻转跃迁，本征频率 $\sim$\,\SI{1420}{\MHz}
+    \item EoR 信号将出现在 $\sim$\,\SIrange{90}{200}{\MHz}
+      的\alert{低频射电波段}
+  \end{itemize}
+  
+    \column{0.3\textwidth}
+    \includegraphics[width=\columnwidth]{hydrogen-spinflip}
+  \end{columns}
+  
+  \vspace{-1ex}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.95\textwidth]{eor-signal-evolution}
+  \end{figure}
+\end{frame}
+
+%............
+\begin{frame}{前景干扰：EoR 探测主要困难之一}
+  \begin{itemize}
+    \item EoR 信号非常微弱
+    \item \alert{多种前景干扰}，比待测信号强 $\sim$\,4--5 个数量级
+    \item \alert{对策}：深入理解前景干扰，构建准确的前景模型，
       研发有效的前景处理和 EoR 信号分离算法
   \end{itemize}
 
   \vspace{-1ex}
-  \myfigure{%
-    width=0.7\textwidth,
-  }{eor-foregrounds}{主要前景成分示意图 (\citeay{zaroubi2013})}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{eor-foregrounds}
+  \end{figure}
 \end{frame}
 
 %............
-\begin{frame}{研究内容和目标}
+\begin{frame}{本文研究内容}
   \begin{alertblock}{1. 射电晕辐射建模的改进以及对 EoR 探测影响的评估}
     \begin{itemize}
-      \item \alert{星系团射电晕}：常见的河外射电展源，
-        尺度较大，形态相对复杂，数目较多；
-        已有研究不多，且比较粗糙
-      \item 基于\alert{湍流再加速模型}，构建射电晕的形成与演化模型，
-        显著改进射电晕低频射电天图的模拟
-      \item 采用最新 \alert{SKA1-Low 阵列布局}，整合逼真的干涉阵列仪器效应
-      \item 利用一维和二维功率谱，评估射电晕辐射对 EoR 信号探测的影响，
-        指导 EoR 实验的数据处理以及信号分离算法的研发
+      \item 星系团射电晕：常见的射电展源，
+        尺度较大，形态相对复杂，数目较多
+      \item 已有研究不多，且比较粗糙，值得深入探讨
+      \item 课题组研究星系团的丰富经验
     \end{itemize}
   \end{alertblock}
-\end{frame}
-
-%............
-\begin{frame}{研究内容和目标}
   \begin{alertblock}{2. 研发 EoR 信号分离算法}
     \begin{itemize}
-      \item 波束形状随频率变化，导致原本光滑的前景频谱出现小尺度涨落，破坏频谱光滑性
-      \item 波束形状非常复杂，难以手工建模
-      \item 深度学习方法将是一条可能的解决问题的途径
-      \item 基于深度学习研发 EoR 信号分离算法，克服波束效应对频谱光滑性的影响
+      \item 利用上述改进的前景模型，研究仪器波束效应对 EoR 信号分离的影响
+      \item 基于深度学习研发 EoR 信号分离算法，克服波束效应的影响
     \end{itemize}
   \end{alertblock}
 \end{frame}
 
 
 %=====================================================================
-\section{EoR 信号的原理和探测方法}
+\section{低频射电天空的模拟}
+
+\begin{frame}
+  \begin{block}{本节提纲}
+  \begin{enumerate}
+    \item 星系团射电晕的天图模拟
+    \item 其他前景成分的天图模拟
+    \item EoR 信号天图模拟
+    \item SKA1-Low 观测图像的模拟
+  \end{enumerate}
+  \end{block}
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{星系团射电晕}
 
 %............
-\begin{frame}{中性氢 21\texorpdfstring{\,}{ }cm 谱线}
-  \begin{columns}
-    \column{0.55\textwidth}
+\begin{frame}{2.1 星系团射电晕的天图模拟}
+  \begin{alertblock}{本工作的贡献}
     \begin{itemize}
-      \item 质子和电子均有 1/2 自旋
-      \item 两个自旋的相互作用使氢原子的基态发生\alert{超精细分裂}
-      \item 当电子的自旋发生翻转时，会产生/吸收频率约为 \SI{1420}{\MHz} 的光子，
-        波长约为 21\,cm，因此称为 \alert{21\,cm 谱线}
+      \item 基于湍流再加速模型，显著改进了射电晕的低频射电辐射的建模
+      \item 编写并公开了射电晕模拟软件：
+        \href{https://github.com/liweitianux/fg21sim}{FG21sim}
+    \end{itemize}
+  \end{alertblock}
+  \begin{alertblock}{建模主要步骤}
+    \begin{enumerate}
+      \item 模拟星系团的质量和红移分布
+      \item 模拟星系团的并合树
+      \item 计算高能电子能谱的时间演化
+      \item 计算射电晕的性质并生成图像
+    \end{enumerate}
+  \end{alertblock}
+\end{frame}
+
+%............
+\begin{frame}[t]
+  \begin{alertblock}{(1) 星系团的质量和红移分布}
+  \end{alertblock}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item Press--Schechter (PS) 理论：
+        任意红移时刻星系团的质量分布
+      \item 从 PS 质量函数随机生成 $(M, z)$ 样本
     \end{itemize}
 
-    \column{0.45\textwidth}
+    \column{0.5\textwidth}
     \begin{figure}
       \centering
-      \includegraphics[width=\columnwidth]{hydrogen-spinflip}
-      \caption{氢原子的自旋翻转跃迁\\(来源: Tiltec, Wikipedia)}
+      \includegraphics[width=\columnwidth]{mass-z-dist}
     \end{figure}
   \end{columns}
 \end{frame}
 
 %............
-\begin{frame}{EoR 信号的亮温度}
-  \begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{21cm-radiative-transfer}
-    \caption{CMB 辐射穿过中性氢云的辐射转移示意图 (\citeay{zaroubi2013})}
-  \end{figure}
+\begin{frame}[t]
+  \begin{alertblock}{(2) 星系团并合树的模拟}
+  \end{alertblock}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item 扩展 PS 理论：星系团的前身质量的条件概率分布
+      \item Monte Carlo 模拟并合树
+    \end{itemize}
 
-  待探测的 \alert{EoR 信号}为中性氢云的辐射相对于 CMB 辐射的\alert{差异}:
-  \begin{equation}
-    \delta T_b(\nu) \approx
-      \frac{3 h_p c^3 A_{21}}{32\Cpi \nu_0^2 \,k_B}
-      \frac{\chi_{\R{HI}} n_{\R{HI}}}{
-        (1+z)^2 (\partial v_{\parallel} / \partial r_{\parallel})}
-      \left[ 1 - \frac{T_{\R{cmb}}(z)}{T_s} \right] ,
-  \end{equation}
-  其中 $A_{21}$ 为自发发射系数，
-  $\chi_{\R{HI}}$ 为氢原子的中性比例， \\
-  $n_{\R{HI}}$ 为数密度，$v$ 为自行速度，$T_s$ 为自旋温度，\\
-  $T_{\R{cmb}}$ 为 CMB 辐射亮温度
+    \column{0.5\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{merging-history}
+    \end{figure}
+  \end{columns}
 \end{frame}
 
 %............
-\begin{frame}{EoR 信号随红移的演化}
-  \begin{equation}
-    \delta T_b(\nu) \propto
-      \chi_{\R{HI}} n_{\R{HI}}
-      \left[ 1 - \frac{T_{\R{cmb}}(z)}{T_s} \right]
-  \end{equation}
+\begin{frame}[t]
+  \begin{alertblock}{(3) 高能电子的演化模型}
+    \begin{itemize}
+      \item 电子注入过程
+      \item 并合湍流再加速过程
+      \item 能量损失过程
+    \end{itemize}
+    数值求解 Fokker--Planck 方程：
+  \begin{multline}
+    \pdiff{n_e(\gamma, t)}{t} =
+      \pdiff{}{\gamma} \left[ n_e(\gamma, t) \left(
+        \left| \diff{\gamma}{t} \right| -
+        \frac{2}{\gamma} D_{\gamma\gamma}(\gamma, t) \right) \right] + \\
+      \pdiff{}{\gamma} \left[
+      D_{\gamma\gamma} \pdiff{n_e(\gamma, t)}{\gamma} \right]
+      + Q_e(\gamma, t)
+  \end{multline}
+  \end{alertblock}
+\end{frame}
+
+%............
+\begin{frame}[t]
+  \begin{block}{主并合湍流再加速示例 (\SIrange{10.3}{11.8}{\Gyr})}
+  \end{block}
+  \vspace{-1.5ex}
   \begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{eor-signal-evolution}
-    \caption{EoR 信号的平均强度的演化示意图 (\citeay{pritchard2012})}
+    \centering\footnotesize
+    \hspace{2.5em} 电子能谱 \hspace{9em} 辐射频谱 \\
+    \includegraphics[width=0.8\textwidth]{spec-evo-example} \\
+    \hspace{2.5em} 同步辐射发射率 \hspace{7em} 同步辐射谱指数
   \end{figure}
 \end{frame}
 
 %............
-\begin{frame}{一维和二维功率谱的计算}
+\begin{frame}[t]
+  \begin{alertblock}{(4) 射电晕天图生成}
+  \end{alertblock}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{table}
+      \centering
+      \begin{tabular}{cc}
+        \toprule
+        参数 & 取值 \\
+        \midrule
+        频带 & 120--128\,MHz \\
+            & 154--162\,MHz \\
+            & 192--200\,MHz \\
+        带宽 & \SI{8}{\MHz} \\
+        频率分辨率 & \SI{160}{\kHz} \\
+        天区大小 & \SI{10 x 10}{\degree} \\
+        图像大小 & \num{1800 x 1800} \\
+        像素大小 & \SI{20}{\arcsecond} \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+
+    \column{0.5\textwidth}
+    \begin{figure}
+      \centering\footnotesize
+      \includegraphics[width=\columnwidth]{skymap-halos-f158}
+      射电晕 \SI{158}{\MHz} 天图
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{其他前景成分}
+
+%............
+\begin{frame}{2.2 其他前景成分的天图模拟}
+  \begin{alertblock}{银河系同步辐射}
+    \vspace{1ex}
+    以 Haslam \SI{408}{\MHz} 全天图为模板，按幂律形式向低频外延
+  \end{alertblock}
+  \begin{alertblock}{银河系自由--自由辐射}
+    \vspace{1ex}
+    从 Hα 辐射导出，修正了尘埃吸收
+  \end{alertblock}
+  \begin{alertblock}{河外点源}
+    \begin{itemize}
+      \item 继承自我们之前的一项工作：\citeay{wang2010}
+      \item 模拟了 4 类点源：
+        (1) 恒星形成星系、
+        (2) 射电宁静 AGN、
+        (3) FR I 型和 II 型 AGN、
+        (4) GHz 倒转谱和致密陡谱 AGN
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+%............
+\begin{frame}[c]
+  \begin{columns}
+    \column{0.34\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{skymap-gsyn-f158}
+      银河系同步辐射\\\SI{158}{\MHz} 天图
+    \end{figure}
+    
+    \column{0.34\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{skymap-gff-f158}
+      银河系自由--自由辐射\\\SI{158}{\MHz} 天图
+    \end{figure}
+    
+    \column{0.34\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{skymap-ptrsrc-f158}
+      河外点源\\\SI{158}{\MHz} 天图
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{EoR 信号}
+
+%............
+\begin{frame}{2.3 EoR 信号天图模拟}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item 使用了 \enquote{Evolution of 21\,cm Structure} (EOS)
+        项目公开的 EoR 模拟数据
+      \item 提取所需红移（即频率）处的图像切片，平铺和缩放，
+        与前景天图的大小和分辨率一致
+    \end{itemize}
+
+    \column{0.5\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{skymap-eor-f158}
+      EoR 信号 \SI{158}{\MHz} 天图
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{SKA1-Low 观测图像的模拟}
+
+%............
+\begin{frame}{2.4 SKA1-Low 观测图像的模拟}
+  \begin{enumerate}
+    \item 采用目前最新的 \alert{SKA1-Low 阵列布局}
+    \item 使用 \texttt{OSKAR} 模拟天图的\alert{可见度数据}
+    \item 使用 \texttt{WSClean} 从可见度数据生成图像
+  \end{enumerate}
+
+  \begin{alertblock}{本工作的贡献}
+    \begin{itemize}
+      \item 将仪器效应整合到了模拟和分析流程之中
+      \item 构建了更逼真的前景模型
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+
+%=====================================================================
+\section{射电晕辐射对 EoR 信号探测的影响}
+
+\begin{frame}
+  \begin{block}{本节提纲}
+  \begin{enumerate}
+    \item 为什么使用功率谱？
+    \item 一维功率谱的结果
+    \item 二维功率谱的结果
+    \item 频谱伪结构对射电晕辐射的影响
+    \item 旁瓣内射电晕辐射对 EoR 探测的影响
+  \end{enumerate}
+  \end{block}
+\end{frame}
+
+\begin{frame}{3.1 为什么使用功率谱？}
+  \begin{itemize}
+    \item 对灵敏度、空间分辨率要求较低
+    \item 一维和二维功率谱压缩了 EoR 信号，提高了信噪比
+    \item 分析 EoR 信号和前景干扰的最常用工具
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}[t]
+  \begin{alertblock}{一维和二维功率谱的计算}
+  \end{alertblock}
   \begin{columns}
     \column{0.6\textwidth}
     \begin{itemize}
-      \item EoR 信号的\alert{图像立方} $I(\B{\theta}, \nu)$
-        对应于中性氢的三维空间分布
-      \item 三维 Fourier 变换，计算 EoR 信号的\alert{三维功率谱} $P(\B{k})$
+      \item \alert{图像立方} $I(\B{\theta}, \nu)$，
+        三维 Fourier 变换，得到\alert{三维功率谱} $P(\B{k})$
       \item 按球壳对 $P(\B{k})$ 平均，得到\alert{一维功率谱} $P(k)$
       \item 按 $k_{\parallel}$ 平面内的圆环平均，
         得到\alert{二维功率谱} $P(k_{\perp}, k_{\parallel})$
@@ -424,528 +638,67 @@
     \begin{figure}
       \centering
       \includegraphics[width=\columnwidth]{ps2d-annuli-diagram}
-      \caption{二维功率谱的计算示意图\\(\citeay{thyagarajan2013})}
     \end{figure}
   \end{columns}
 \end{frame}
 
 %............
-\begin{frame}{EoR 窗口和前景楔形}
-  \alert{EoR 窗口}边界 \cite{thyagarajan2013}:
-  \begin{equation}
-    \label{eq:eor-window}
-    k_{\parallel} \ge
-      \frac{H(z) D_{\!C}(z)}{c (1+z)}
-      \left[ k_{\perp} \sin\Phi
-        + \frac{2\Cpi \nu_0 \psi}{(1+z) D_{\!C}(z) B_f} \right] ,
-  \end{equation}
-  $D_{\!C}(z)$ 为共动距离，$B_f$ 为带宽，$\psi$ 描述前景漏失程度.
-
-  \vspace{-2ex}
-  \myfigure{%
-    height=0.68\textheight,
-    vertcap,
-  }{EoR-window}{%
-    EoR 窗口和前景楔形示意图
-  }
-\end{frame}
-
-
-%=====================================================================
-\section{低频射电天空的模拟}
-
-%---------------------------------------------------------------------
-\subsection{星系团射电晕}
-
-%............
-\begin{frame}{星系团射电晕}
-  \begin{enumerate}
-    \item 从 Press--Schechter (PS) 质量函数模拟星系团的质量和红移分布
-    \item 根据扩展 PS 理论模拟星系团的并合树
-    \item 运用湍流再加速模型，计算并合湍流对高能电子的再加速过程
-    \item 求解 Fokker--Planck (FP) 方程，得到高能电子能谱以及射电晕频谱
-    \item 计算射电晕的性质并生成图像
-  \end{enumerate}
-\end{frame}
-
-%............
-\begin{frame}{星系团的质量和红移分布}
-  \begin{columns}
-    \column{0.5\textwidth}
-    红移 $z$ 时每单位共动体积内质量范围 $[M,\, M+\D{M}]$ 的星系团数目:
-    \begin{multline}
-      n_{\R{cl}}(M,z) \,\D{M} =
-        \sqrt{\frac{2}{\Cpi}} \frac{\langle \rho_0 \rangle}{M}
-        \frac{\delta_c(z)}{\sigma^2(M)} \times \\
-        \left| \diff{\sigma(M)}{M} \right|
-        \exp\!\left[ -\frac{\delta_c^2(z)}{2\sigma^2(M)} \right]
-        \,\D{M} ,
-    \end{multline}
-    $\langle \rho_0 \rangle$ 是当前的宇宙平均密度，
-    $\delta_c(z)$ 是暗物质坍缩的临界密度，
-    $\sigma(M)$ 是平均质量为 $M$ 的球形区域里的密度涨落值.
-
-    \column{0.5\textwidth}
-    \begin{figure}
-      \centering
-      \includegraphics[width=\columnwidth]{mass-z-dist}
-      \caption{星系团的红移和质量分布直方图}
-    \end{figure}
-  \end{columns}
-\end{frame}
-
-%............
-\begin{frame}{星系团并合树的模拟}
-  \begin{columns}
-    \column{0.5\textwidth}
-    质量为 $M_2$ 的星系团在一个较早时刻 $t_1$ 具有一个质量范围为
-    $[M_1,\, M_1+\D{M_1}]$ 的前身的条件概率为:
-    \begin{multline}
-      \R{Pr}(M_1, t_1 \,|\, M_2, t_2) \,\D{M_1} = \\
-        \frac{1}{\sqrt{2\Cpi}} \frac{M_2}{M_1}
-        \frac{\delta_{c1} - \delta_{c2}}{(\sigma_1^2 - \sigma_2^2)^{3/2}}
-        \left| \diff{\sigma_1^2}{M_1} \right|
-        \times \\
-        \exp \!\left[ -\frac{(\delta_{c1} - \delta_{c2})^2}
-        {2(\sigma_1^2 - \sigma_2^2)} \right] \,\D{M_1} .
-    \end{multline}
-    利用 Monte Carlo 模拟构建星系团\alert{并合树}.
-
-    \column{0.5\textwidth}
-    \begin{figure}
-      \centering
-      \includegraphics[width=\columnwidth]{merging-history}
-      \caption{星系团并合树的模拟结果示例}
-    \end{figure}
-  \end{columns}
-\end{frame}
-
-%............
-\begin{frame}{高能电子的演化模型}
-  在\alert{湍流再加速}和\alert{能量损失}的共同作用下，
-  电子能谱 $n_e(\gamma, t)$ 随时间的演化由 \alert{FP 方程}描述:
-  \begin{multline}
-    \pdiff{n_e(\gamma, t)}{t} =
-      \pdiff{}{\gamma} \left[ n_e(\gamma, t) \left(
-        \left| \diff{\gamma}{t} \right| -
-        \frac{2}{\gamma} D_{\gamma\gamma}(\gamma, t) \right) \right] + \\
-      \pdiff{}{\gamma} \left[
-      D_{\gamma\gamma} \pdiff{n_e(\gamma, t)}{\gamma} \right]
-      + Q_e(\gamma, t) ,
-  \end{multline}
-  $D_{\gamma\gamma}$ 是描述湍流和电子相互作用的扩散系数，\\
-  $|\R{d}\gamma / \R{d}t|$ 是能量损失速率，\\
-  $Q_e$ 描述初级电子注入过程.
-\end{frame}
-
-%............
-\begin{frame}
-  \begin{alertblock}{初级电子注入过程}
-    \smallskip
-    \begin{itemize}
-      \item AGN 活动、恒星形成等过程持续地将初级电子注入 ICM
-      \item 假定：
-        \begin{itemize}
-          \item 注入速率 $K_e$ 恒定
-          \item 注入电子的能谱为幂律形式，谱指数为 $s$
-          \item 注入电子的总能量密度与 ICM 热能密度 $\epsilon_{\R{th}}$
-            之比为 $\eta_e$
-        \end{itemize}
-      \item 可得：
-        \begin{align}
-          Q_e(\gamma, t) & = K_e \gamma^{-s} , \\
-          K_e & = \frac{(s-2) \eta_e \epsilon_{\R{th}}}{
-            \epsilon_e \tau_{\R{cl}}} \gamma_{\R{min}}^{s-2} ,
-        \end{align}
-        其中 $\epsilon_e = m_e c^2$，
-        $\tau_{\R{cl}}$ 为星系团年龄
-    \end{itemize}
+\begin{frame}[t]
+  \begin{alertblock}{EoR 窗口和前景楔形}
   \end{alertblock}
-\end{frame}
-
-%............
-\begin{frame}
-  \vspace{1ex}
-  \begin{alertblock}{湍流再加速过程}
-    \smallskip
-    \begin{itemize}
-      \item 湍流与 ICM 中的宇宙射线粒子发生作用而耗散能量，
-        使初级电子获得能量而加速 \cite{brunetti2011}
-      \item 该加速机制的扩散系数为 \cite{miniati2015}：
-        \begin{equation}
-          D_{\gamma\gamma} =
-            2 \gamma^2 \zeta k_L
-            \frac{\langle (\delta v_t)^2 \rangle^2}{\chi_{\R{cr}} c_s^3} ,
-        \end{equation}
-        $\zeta$ 为 ICM 等离子体的不稳定性，\\
-        $\chi_{\R{cr}}$ 为宇宙射线的能量密度与 ICM 热能密度之比，\\
-        $k_L = 2\Cpi / r_{\R{turb}}$ 为湍流注入尺度，
-        $c_s$ 为声速
-      \item $\langle (\delta v_t)^2 \rangle$ 为湍流的速度弥散：
-        \begin{equation}
-          \langle (\delta v_t)^2 \rangle =
-            \langle (\delta v_0)^2 \rangle +
-            \frac{2 \eta_t E_m}{M_{\R{turb}}} ,
-        \end{equation}
-        $\eta_t$ 为并合注入湍流的能量比例
-    \end{itemize}
-  \end{alertblock}
-\end{frame}
-
-\begin{frame}
-  \vspace{1ex}
-  \begin{alertblock}{湍流再加速过程}
-    \smallskip
-    \begin{itemize}
-      \item $E_m$ 为并合释放的能量：
-        \begin{equation}
-          E_m \simeq \bar{\rho}_m v_{\R{imp}}^2
-            \Cpi r_s^2 r_{\R{vir,m}} ,
-        \end{equation}
-        $\bar{\rho}_m$ 为主团的平均气体密度，
-        $v_{\R{imp}}$ 为并合的碰撞速度，\\
-        $r_s$ 为子团的剥离半径
-      \item $r_{\R{turb}}$ 为湍流区域的半径：
-        \begin{equation}
-          r_{\R{turb}} \simeq r_s + r_{\R{c,m}}
-            = r_s + 0.1\,r_{\R{vir,m}} .
-        \end{equation}
-      \item $M_{\R{turb}}$ 为湍流区域内的气体质量：
-        \begin{equation}
-          M_{\R{turb}} =
-            \int_0^{r_{\R{turb}}} \! \rho(r) \,4\Cpi r^2 \,\D{r} ,
-        \end{equation}
-        $\rho(r)$ 为气体密度轮廓，由 β 模型描述
-    \end{itemize}
-  \end{alertblock}
-\end{frame}
-
-%............
-\begin{frame}
-  \vspace{1ex}
-  \begin{alertblock}{能量损失过程}
-    \smallskip
-    \begin{itemize}
-      \item 与 CMB 光子发生逆 Compton 散射:
-        \begin{equation}
-          \left( \diff{\gamma}{t} \right)_{\R{IC}} =
-            \num{-4.32e-4} \,\gamma^2 (1+z)^4
-            \quad [\si{\per\Gyr}]
-        \end{equation}
-      \item 产生同步辐射:
-        \begin{equation}
-          \left( \diff{\gamma}{t} \right)_{\R{syn}} =
-            \num{-4.10e-5} \,\gamma^2
-            \left( \frac{B}{\SI{1}{\uG}} \right)^2
-            \quad [\si{\per\Gyr}]
-        \end{equation}
-      \item 与 ICM 热电子发生 Coulomb 碰撞:
-        \begin{multline}
-          \left( \diff{\gamma}{t} \right)_{\R{Coul}} =
-            \num{-3.79e4} \left( \frac{n_{\R{th}}}{\SI{1}{\per\cm\cubed}} \right)
-            \left[ 1 + \frac{1}{75} \ln \left(
-              \gamma\,\frac{\SI{1}{\per\cm\cubed}}{n_{\R{th}}} \right) \right]
-            \\ \quad [\si{\per\Gyr}]
-        \end{multline}
-        $n_{\R{th}}$ 为热电子数密度
-    \end{itemize}
-  \end{alertblock}
-\end{frame}
-
-%............
-\begin{frame}{射电晕的识别和半径}
-  \begin{itemize}
-    \item 射电晕在频率 $\nu$ 处存在的判据：
-      \begin{itemize}
-        \item 同步辐射发射率 $J_{\R{syn}}(\nu)$
-          是相应\enquote{参考值} $J'_{\R{syn}}(\nu)$ 的至少 1000 倍
-        \item 同步辐射在该频率处的谱指数 $\alpha_{\nu} \le 3$
-      \end{itemize}
-
-    \item 射电晕半径 $r_{\R{halo}}$ 随星系团维里半径 $r_{\R{vir}}$
-      超线性地增大 \cite{cassano2007}，据此假定:
-      \begin{equation}
-        r_{\R{halo}} = f_r R_{\R{turb}}
-          \left( \frac{r_{\R{vir}}}{r_{\R{vir,*}}} \right)^b
-      \end{equation}
-      $R_{\R{turb}}$ 是最大湍流区域的半径，\\
-      $r_{\R{vir,*}}$ 是质量为 \SI{e15}{\solarmass} 的参考星系团的维里半径
-    \item 对比观测结果 \cite{cassano2007}，
-      选取 $f_r = 0.7$ 和 $b = 1.8$
-  \end{itemize}
-\end{frame}
-
-%............
-\begin{frame}
+  仪器的色彩效应 $\rightarrow$ 
+  $k_{\perp}$ 模式的功率混合到 $k_{\parallel}$ 模式里 $\rightarrow$
+  前景楔形
   \begin{figure}
-    \centering\footnotesize
-    电子能谱 \hspace{8em} 辐射频谱 \\
-    \includegraphics[width=0.88\textwidth]{spec-evo-example} \\
-    同步辐射发射率 \hspace{6em} 同步辐射谱指数
-    \caption{电子能谱和同步辐射频谱随时间的演化示例}
+    \centering
+    \includegraphics[height=0.75\textheight]{EoR-window}
   \end{figure}
 \end{frame}
 
 %............
-\begin{frame}{模型参数的约束}
-  \begin{itemize}
-    \item 射电晕模型的 5 个待约束参数：
-      \begin{itemize}
-        \item $\eta_e$:
-          注入电子的总能量密度与 ICM 热能密度 $\epsilon_{\R{th}}$ 之比
-        \item $\eta_t$:
-          并合释放的能量中转化为湍流能量的比例
-        \item $\chi_{\R{cr}}$:
-          宇宙射线的能量密度与 ICM 热能密度 $\epsilon_{\R{th}}$ 之比
-        \item $\chi_{\R{turb}}$:
-          初  始湍流的能量密度与 ICM 热能密度 $\epsilon_{\R{th}}$ 之比
-        \item $\zeta$:
-          ICM 等离子体的不稳定性
-      \end{itemize}
-    \item 对比观测结果：
-      \begin{itemize}
-        \item 射电晕 \SI{1.4}{\GHz} 功率 ($P_{1400}$)
-          与星系团质量 ($M_{\R{vir}}$) 的标度关系
-        \item 射电晕 \SI{1.4}{\GHz} 流量函数
-      \end{itemize}
-    \item 最终选取参数：\\
-      $\eta_e = 0.01\%$,
-      $\eta_t = 15\%$,
-      $\chi_{\R{cr}} = 1.5\%$,
-      $\chi_{\R{turb}} = 1.5\%$,
-      $\zeta = 0.1$.
-  \end{itemize}
-\end{frame}
-
-%............
-\begin{frame}{射电晕模拟结果}
-  \begin{columns}
-    \column{0.5\textwidth}
-    \begin{figure}
-      \centering
-      \includegraphics[width=\columnwidth]{halo-power-mvir}
-      \caption{$P_{1400}$--$M_{\R{vir}}$ 标度关系的对比}
-    \end{figure}
-
-    \column{0.5\textwidth}
-    \begin{figure}
-      \centering
-      \includegraphics[width=\columnwidth]{fluxfunc-simucomp}
-      \caption{\SI{1.4}{\GHz} 流量函数的对比}
-    \end{figure}
-  \end{columns}
-\end{frame}
-
-%............
-\begin{frame}{射电晕天图生成}
-  \begin{itemize}
-    \item 射电晕在频率 $\nu$ 处的功率和流量密度：
-      \begin{align}
-        P_{\R{halo}}(\nu)
-          & = \frac{4\Cpi}{3} r^3_{\R{halo}} J_{\R{syn}}(\nu) , \\
-        S_{\R{halo}}(\nu)
-          & = \frac{(1+z_{\R{sim}}) P_{\R{halo}}[\nu (1+z_{\R{sim}})]}{
-            4\Cpi D^2_{\!L}(z_{\R{sim}})} ,
-      \end{align}
-      $D_{\!L}$ 是光度距离，因子 $(1+z_{\R{sim}})$ 为 $K$ 修正
-    \item 射电晕的角向平均亮度分布：
-      \begin{equation}
-        I_{\nu}(\theta) = I_{\nu,0} \exp
-          \left( -\frac{3\theta}{\theta_{\R{halo}}} \right) ,
-      \end{equation}
-      $\theta = r / D_{\!A}(z_{\R{sim}})$ 为角半径，
-      $I_{\nu,0}$ 为中心亮度
-    \item 利用 Rayleigh--Jeans 近似，表示为亮温度分布
-  \end{itemize}
-\end{frame}
-
-%---------------------------------------------------------------------
-\subsection{其他前景成分}
-
-%............
-\begin{frame}{银河系同步辐射}
-  \begin{itemize}
-    \item 以 Haslam \SI{408}{\MHz} 全天图\cite{haslam1982} 为模板，
-      按幂律形式向低频外延：
-      \begin{equation}
-        T_b^{\R{syn}}(\hat{\B{r}}, \nu)
-          = T_b^{\R{haslam}}(\hat{\B{r}})
-            \left( \frac{\nu}{\SI{408}{\MHz}}
-            \right)^{-\alpha_{\R{syn}}(\hat{\B{r}})}
-      \end{equation}
-    \item $T_b^{\R{haslam}}(\hat{\B{r}})$
-      为银河系 $\hat{\B{r}}$ 处的 \SI{408}{\MHz} 亮温度；\\
-      使用 \citeay{remazeilles2015} 重新处理的全天图
-    \item $\alpha_{\R{syn}}(\hat{\B{r}})$ 为同步辐射谱指数；\\
-      使用 \citeay{giardino2002} 提供的谱指数全天分布图
-  \end{itemize}
-\end{frame}
-
-%............
-\begin{frame}{银河系自由--自由辐射}
-  \begin{itemize}
-    \item 自由–自由辐射和 Hα 辐射联系紧密
-    \item Hα 辐射易被尘埃吸收，需要修正：
-      \begin{equation}
-        I_{\R{Hα}}^{\R{corr}}(\hat{\B{r}})
-          = I_{\R{Hα}}(\hat{\B{r}}) \times
-            10^{0.0185 \, f_d \, D(\hat{\B{r}})} ,
-      \end{equation}
-      $D(\hat{\B{r}})$ 是尘埃柱密度分布图 \cite{schlegel1998}，\\
-      $f_d$ 是尘埃在视线方向上的有效吸收比例
-    \item 在频率 $\nu$ 处的自由--自由辐射：
-      \begin{equation}
-        T_b^{\R{ff}}(\hat{\B{r}}, \nu)
-          = 38.86 \,\nu^{-2.1} 10^{(290/T_e)} \, T_e^{0.667} \,a(\nu, T_e)
-            \left[ \frac{I_{\R{Hα}}^{\R{corr}}(\hat{\B{r}})}{\si{\rayleigh}}
-            \right] \quad [\si{\kelvin}]
-      \end{equation}
-    \item $a(\nu, T_e)$ 是光深的修正因子：
-      \begin{equation}
-        a(\nu, T_e) =
-          0.183 \,\nu^{0.1} T_e^{-0.15}
-          \left[ 3.91 - \ln \nu + 1.5 \ln T_e \right]
-      \end{equation}
-    \item 本文取 $f_d = 0.33$ 和 $T_e = \SI{7000}{\kelvin}$
-      \cite{dickinson2003}
-  \end{itemize}
-\end{frame}
-
-%............
-\begin{frame}{河外点源}
-  \begin{itemize}
-    \item 继承自我们之前的一项工作：\citeay{wang2010}
-    \item 模拟了下述 4 类点源：
-      \begin{enumerate}
-        \item 恒星形成星系
-        \item 射电宁静 AGN
-        \item FR I 型和 II 型 AGN
-        \item GHz 倒转谱和致密陡谱 AGN
-      \end{enumerate}
-    \item 第 1--3 类点源的模拟使用了 \citeay{wilman2008} 针对 SKA 的模拟结果
-    \item 第 4 类点源的模拟使用了相应的光度函数和频谱模型
-  \end{itemize}
-\end{frame}
-
-%............
-\begin{frame}[c]{}
-  \hfill
-  \rotatebox{90}{射电晕}
-  \includegraphics[height=0.55\textheight]{skymap-halos-f158}
-  \hspace{1em}
-  \includegraphics[height=0.55\textheight]{skymap-ptrsrc-f158}
-  \rotatebox{90}{河外点源}
-  \hfill \\
-  \hfill
-  \rotatebox{90}{银河系同步辐射}
-  \includegraphics[height=0.55\textheight]{skymap-gsyn-f158}
-  \hspace{1em}
-  \includegraphics[height=0.55\textheight]{skymap-gff-f158}
-  \rotatebox{90}{银河系自由--自由辐射}
-  \hfill
-\end{frame}
-
-%---------------------------------------------------------------------
-\subsection{EoR 信号}
-
-%............
-\begin{frame}{EoR 信号}
-  \begin{columns}
-    \column{0.5\textwidth}
-    \begin{itemize}
-      \item 使用了 \enquote{Evolution of 21\,cm Structure} (EOS)
-        项目公开的 EoR 模拟数据
-      \item 从推荐的光锥图像立方提取所需红移（即频率）处的图像切片
-      \item 经过平铺和缩放处理，与前景天图的大小和分辨率一致
-    \end{itemize}
-
-    \column{0.5\textwidth}
-    \begin{figure}
-      \centering
-      \includegraphics[width=\columnwidth]{skymap-eor-f158}
-      \caption{EoR 信号在 \SI{158}{\MHz} 的天图}
-    \end{figure}
-  \end{columns}
-\end{frame}
-
-%---------------------------------------------------------------------
-\subsection{SKA1-Low 观测图像的模拟}
-
-%............
-\begin{frame}{SKA1-Low 观测图像的模拟}
-  \begin{itemize}
-    \item 采用目前最新的 \alert{SKA1-Low 阵列布局}
-    \item 使用 \texttt{OSKAR} 模拟天图的\alert{可见度数据}
-    \item 使用 \texttt{WSClean} 从可见度数据生成图像
-    \item 采用 Briggs 权重 \cite{briggs1995} 并设稳健参数为 0，
-      兼顾噪声水平和空间分辨率
-    \item 切取质量最好的中央区域图像
-  \end{itemize}
-\end{frame}
-
-%............
-\begin{frame}{模拟的图像立方}
-  \begin{itemize}
-    \item 频带: 120--128, 154--162, 192--200 MHz
-    \item 带宽: \SI{8}{\MHz}
-    \item 频率分辨率: \SI{160}{\kHz}
-    \item 频率通道数: 51
-    \item 天区大小: \SI{10 x 10}{\degree}
-    \item 图像大小: \num{1800 x 1800}
-    \item 像素大小: \SI{20}{\arcsecond}
-    \item 模拟结果:
-      \begin{itemize}
-        \item EoR 信号
-        \item 射电晕
-        \item 银河系弥散辐射（同步辐射 $+$ 自由--自由辐射）
-        \item 河外点源
-      \end{itemize}
-  \end{itemize}
-\end{frame}
-
-
-%=====================================================================
-\section{射电晕辐射对 EoR 信号探测的影响}
-
-%............
-\begin{frame}{一维功率谱的对比}
-  在 $\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$ 尺度范围内，
+\begin{frame}{3.2 一维功率谱的结果}
+  在 \SI{1.2}{\arcminute}--\SI{24}{\arcminute} 
+  ($k \sim \SIrange{0.1}{2}{\per\Mpc}$) 尺度上，
   射电晕辐射在三个频带内的典型功率分别约为 EoR 信号的
   10\,000、1000、300 倍
 
   \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{ps1d-3bands}
-    \caption{各成分的一维功率谱对比}
   \end{figure}
 \end{frame}
 
 %............
-\begin{frame}{二维功率比的对比}
+\begin{frame}{3.3 二维功率谱的结果}
   \begin{itemize}
-    \item 明显的楔形污染区域
-    \item 射电晕辐射在三个频带内的显著污染范围分别约为：\\
-      $k_{\perp} \gtrsim \SI{0.1}{\per\Mpc}$、
-      $k_{\perp} \gtrsim \SI{0.3}{\per\Mpc}$、
+    \item 射电晕辐射与 EoR 信号的\alert{二维功率谱之比}
+    \item 射电晕辐射在三个频带内的显著污染尺度分别约为：\\
+      $k_{\perp} \gtrsim \SI{0.1}{\per\Mpc}$ 
+      ($\lesssim \SI{24}{\arcminute}$)、
+      $k_{\perp} \gtrsim \SI{0.3}{\per\Mpc}$ 
+      ($\lesssim \SI{8.0}{\arcminute}$)、
       $k_{\perp} \gtrsim \SI{0.5}{\per\Mpc}$
+      ($\lesssim \SI{4.8}{\arcminute}$)
     \item 射电晕辐射在较低频率 ($\sim$\,\SI{120}{\MHz}) 的污染更严重
   \end{itemize}
 
   \begin{figure}
-    \centering
+    \centering\footnotesize
     \includegraphics[width=\textwidth]{ps2d-ratio-3bands}
-    \caption{射电晕和 EoR 信号的二维功率比}
+    射电晕和 EoR 信号的二维功率比
   \end{figure}
 \end{frame}
 
 %............
-\begin{frame}{EoR 窗口内的一维功率比}
+\begin{frame}[t]
+  \begin{alertblock}{EoR 窗口内一维功率比的结果}
+  \end{alertblock}
   \begin{columns}
     \column{0.5\textwidth}
     \begin{itemize}
-      \item 选取合适的 EoR 窗口避开前景污染，但分别损失约 45\%、46\%、60\% 的信号
-      \item 在 $\SI{0.5}{\per\Mpc} < k < \SI{1}{\per\Mpc}$ 尺度范围，
-        EoR 窗口内的一维功率比在 68\% 误差范围内分别达到约：
+      \item 在 \SI{2.4}{\arcminute}--\SI{4.8}{\arcminute}
+        ($k \sim \SIrange{0.5}{1}{\per\Mpc}$) 尺度范围，
+        EoR 窗口内的一维功率比能够达到约：
         230--800\%、18--95\%、7-40\%
       \item 射电晕泄漏到 EoR 窗口的污染不可忽略，尤其在较低频率
     \end{itemize}
@@ -954,66 +707,67 @@
     \begin{figure}
       \centering
       \includegraphics[width=\columnwidth]{ps1d-ratio-3bands}
-      \caption{射电晕与 EoR 信号在 EoR 窗口内的一维功率比}
     \end{figure}
   \end{columns}
 \end{frame}
 
 %............
-\begin{frame}{频谱伪结构的影响}
+\begin{frame}{3.4 频谱伪结构对射电晕辐射的影响}
   \begin{itemize}
     \item 干涉阵列的频率响应约有 0.1--1\% 的校准不确定度
     \item 频谱伪结构幅度为 $A_{\R{arti}} = 0.1\%$ 时，
       射电晕辐射在 EoR 窗口内部分尺度的功率分别增加约 17、15、13 倍
     \item 如果 $A_{\R{arti}} = 1\%$，功率分别增加约 1700、1500、1300 倍
   \end{itemize}
-
-  \vspace{-1ex}
-  \myfigure{%
-    height=0.65\textheight,
-    vertcap,
-  }{ps2d-ratio-crp-3bands}{%
-    有无频谱伪结构时射电晕的二维功率比
-  }
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.65\textheight]{ps2d-ratio-crp-3bands}
+  \end{figure}
 \end{frame}
 
 %............
-\begin{frame}{旁瓣内射电晕辐射的影响}
+\begin{frame}{3.5 旁瓣内射电晕辐射对 EoR 探测的影响}
   \begin{itemize}
     \item \alert{远旁瓣致淆噪声 (FSCN)}：场外源通过旁瓣在视场中产生干扰
     \item 模拟新射电晕图像：覆盖从角半径 \SI{10}{\degree} 至地平线
-    \item 前景楔形污染向左上方大幅扩张，显著压缩 EoR 窗口
-    \item 射电晕 FSCN 在 $k_{\perp} \sim \SI{0.3}{\per\Mpc}$ 和
-      $k_{\parallel} \sim \SI{1}{\per\Mpc}$ 的功率达到 EoR 信号的约 20 倍
+    \item 射电晕 FSCN 在 EoR 窗口内的功率可达 EoR 信号约 20 倍
   \end{itemize}
-  \vspace{-1ex}
-  \myfigure{%
-    height=0.6\textheight,
-    vertcap,
-  }{ps2d-fscn}{%
-    射电晕 FSCN 的二维功率谱及其与 EoR 信号的对比
-  }
-\end{frame}
-
-%............
-\begin{frame}{小结}
-  \begin{itemize}
-    \item 射电晕是一个重要的前景干扰成分，需要认真对待
-    \item 即使在 EoR 窗口内，射电晕辐射的污染仍然不可忽略，尤其是在较低频率
-    \item 干涉阵列的频谱伪结构和旁瓣进一步增强了射电晕辐射对 EoR 探测的干扰
-  \end{itemize}
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.6\textheight]{ps2d-fscn}
+  \end{figure}
 \end{frame}
 
 
 %=====================================================================
 \section{基于深度学习的 EoR 信号分离算法}
 
+\begin{frame}
+  \begin{block}{本节提纲}
+  \begin{enumerate}
+    \item EoR 信号分离原则
+    \item 基于深度学习的新算法
+    \item 新算法的演示
+  \end{enumerate}
+  \end{block}
+\end{frame}
+
 %............
-\begin{frame}{干涉阵列波束的频率依赖效应}
+\begin{frame}{4.1 EoR 信号分离原则}
+  \begin{itemize}
+    \item EoR 信号沿频率方法剧烈变化
+    \item 前景辐射的频谱在本质上非常光滑
+    \item 利用两者的频谱结构差异，可以有效地分离 EoR 信号
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+  \begin{alertblock}{波束效应对频谱光滑性的影响}
+  \end{alertblock}
   \begin{columns}
     \column{0.5\textwidth}
     \begin{itemize}
-      \item 旁瓣位置随频率增大而向中间移动
+      \item 旁瓣位置随频率增大而向中间移动 ($\theta \propto 1/\nu$)
       \item 干扰源的辐射分布随频率变化
       \item 考虑视场中一个位置，频率维度出现小尺度涨落
       \item 前景辐射的频谱光滑性受损，导致传统前景扣除方法失效
@@ -1029,25 +783,29 @@
 \end{frame}
 
 %............
-\begin{frame}{基于深度学习的新算法}
+\begin{frame}{4.2 基于深度学习的新算法}
   \begin{itemize}
-    \item 对波束效应进行手工建模几乎不可行
+    \item 对波束效应进行解析建模几乎不可行
     \item \alert{深度学习}是一条可能的途径：
       \begin{itemize}
         \item 从数据中学习特征并自适应地优化模型
         \item 一旦训练好，使用过程非常高效
         \item 灵活性高，易扩展用于其他望远镜
       \end{itemize}
+    \item \alert{卷积去噪自编码器 (CDAE)} 是其中一种值得尝试的方法
   \end{itemize}
   %
   \vspace{-1ex}
-  \myfigure{%
-    height=0.58\textheight,
-  }{SKA1-low-psf}{SKA1-Low 在 154、158、162 MHz 处的模拟综合波束}
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.54\textheight]{SKA1-low-psf}
+  \end{figure}
 \end{frame}
 
 %............
-\begin{frame}{自编码器和去噪自编码器}
+\begin{frame}[t]
+  \begin{alertblock}{自编码器和去噪自编码器}
+  \end{alertblock}
   \begin{center}
     \includegraphics[width=0.8\textwidth]{autoencoder}
   \end{center}
@@ -1072,14 +830,15 @@
 \end{frame}
 
 %............
-\begin{frame}{卷积去噪自编码器 (CDAE)}
+\begin{frame}[t]
+  \begin{alertblock}{卷积去噪自编码器}
+  \end{alertblock}
   \begin{center}
     \includegraphics[width=0.8\textwidth]{cnn}
   \end{center}
   \vspace{-1ex}
   \begin{itemize}
-    \item 经典的自编码器使用\alert{全连接层}
-    \item 卷积神经网络 (CNN) 采用的\alert{卷积层}具有明显优势：
+    \item 卷积神经网络采用的\alert{卷积层}相比\alert{全连接层}具有优势：
       \begin{itemize}
         \item 利用一组小尺寸过滤器，适合提取局部特征
         \item 参数数目少，容易训练
@@ -1096,7 +855,9 @@
 \end{frame}
 
 %............
-\begin{frame}{CDAE 网络架构}
+\begin{frame}[t]
+  \begin{alertblock}{CDAE 网络架构}
+  \end{alertblock}
   \begin{itemize}
     \item 编码器：4 层，分别包含 32、64、64、32 个过滤器
     \item 解码器：5 层，分别包含 32、64、64、32、1 个过滤器
@@ -1109,7 +870,9 @@
 \end{frame}
 
 %............
-\begin{frame}{训练和评估方法}
+\begin{frame}[t]
+  \begin{alertblock}{训练和评估方法}
+  \end{alertblock}
   \begin{itemize}
     \item 三个数据集：
       \begin{itemize}
@@ -1136,7 +899,9 @@
 \end{frame}
 
 %............
-\begin{frame}{训练数据的模拟和处理}
+\begin{frame}{4.3 新算法的演示}
+  \begin{alertblock}{训练数据的模拟和处理}
+  \end{alertblock}
   \begin{itemize}
     \item 模拟两组 SKA1-Low 图像立方：
       EoR 信号 $C_{\R{eor}}$ 和前景辐射 $C_{\R{fg}}$
@@ -1158,7 +923,9 @@
 \end{frame}
 
 %............
-\begin{frame}{训练结果和 EoR 信号分离效果}
+\begin{frame}[t]
+  \begin{alertblock}{训练结果和 EoR 信号分离效果}
+  \end{alertblock}
   \begin{columns}
     \column{0.5\textwidth}
     \begin{itemize}
@@ -1184,40 +951,35 @@
   \begin{itemize}
     \item 重建图像的空间结构与强度分布与输入几乎完全相同 \\
       （小尺度波纹结构源自预处理时去除了低频 Fourier 系数）
-      \\[1ex]
+      \begin{figure}
+      \centering
       \includegraphics[height=0.42\textheight]{cdae-eor-img-comp}
+      \end{figure}
     \item CDAE 很好地恢复了 EoR 信号在各尺度的功率
-      \\[1ex]
+      \begin{figure}
+      \centering
       \includegraphics[height=0.42\textheight]{cdae-eor-ps-comp}
+      \end{figure}
   \end{itemize}
 \end{frame}
 
 %............
-\begin{frame}{与传统方法的对比}
-  \begin{itemize}
-    \item \alert{参数化方法}：
-      \begin{itemize}
-        \item 使用一个参数化模型来拟合前景辐射
-        \item 选取\alert{多项式拟合法}为代表
-        \item 分离效果仅有: $\bar{\xi}_{\R{poly}} = \num{0.296 +- 0.121}$
-      \end{itemize}
-    \item \alert{非参数化方法}：
-      \begin{itemize}
-        \item 利用前景和 EoR 信号的频谱差异，但不假定特定的参数化模型
-        \item 选取\alert{连续小波变换法}\cite{gu2013}为代表
-        \item 分离效果仅达到: $\bar{\xi}_{\R{cwt}} = \num{0.198 +- 0.160}$
-      \end{itemize}
-    \item 均难以对复杂的前景辐射建模并正确扣除
-  \end{itemize}
-\end{frame}
-
-%............
-\begin{frame}{小结}
-  \begin{itemize}
-    \item 波束效应会破坏前景频谱的光滑性，导致传统前景扣除方法失效
-    \item 基于深度学习方法设计了一个 CDAE，
-      经过训练后能够准确地分离 EoR 信号，效果显著优于传统方法
-  \end{itemize}
+\begin{frame}[t]
+  \begin{alertblock}{与传统方法的对比}
+  \end{alertblock}
+  \begin{table}
+    \centering
+    \begin{tabular}{cc}
+      \toprule
+      方法 & 分离效果 ($\bar{\xi}$) \\
+      \midrule
+      CDAE & \num{0.929 +- 0.045} \\
+      \midrule
+      多项式拟合法 & \num{0.296 +- 0.121} \\
+      连续小波变换法 & \num{0.198 +- 0.160} \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
 \end{frame}
 
 
@@ -1261,7 +1023,7 @@
 \end{frame}
 
 \begin{frame}[standout]
-  \Huge 请各位老师批评指正
+  \huge 请各位老师批评指正，谢谢！
 \end{frame}
 
 
@@ -1271,6 +1033,8 @@
 \begin{frame}[standout]
   Backup slides
 \end{frame}
+
+\subsection{射电天文学}
 
 %............
 \begin{frame}{射电天文学}
@@ -1284,6 +1048,8 @@
     \caption{大气层的电磁辐射透射率 (来源: \citeay{condon2016})}
   \end{figure}
 \end{frame}
+
+\subsection{基本概念}
 
 %............
 \begin{frame}{比强度和流量密度}
@@ -1359,6 +1125,8 @@
       当 $\tau \gg 1$ 时，则称介质是\emph{光学厚}的.
   \end{itemize}
 \end{frame}
+
+\subsection{干涉测量原理}
 
 %............
 \begin{frame}{干涉测量的基本原理}
@@ -1501,6 +1269,66 @@
   \end{center}
 \end{frame}
 
+\subsection{EoR 信号原理}
+
+%............
+\begin{frame}{中性氢 21\texorpdfstring{\,}{ }cm 谱线}
+  \begin{columns}
+    \column{0.55\textwidth}
+    \begin{itemize}
+      \item 质子和电子均有 1/2 自旋
+      \item 两个自旋的相互作用使氢原子的基态发生\alert{超精细分裂}
+      \item 当电子的自旋发生翻转时，会产生/吸收频率约为 \SI{1420}{\MHz} 的光子，
+        波长约为 21\,cm，因此称为 \alert{21\,cm 谱线}
+    \end{itemize}
+
+    \column{0.45\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{hydrogen-spinflip}
+      \caption{氢原子的自旋翻转跃迁\\(来源: Tiltec, Wikipedia)}
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+%............
+\begin{frame}{EoR 信号的亮温度}
+  \begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{21cm-radiative-transfer}
+    \caption{CMB 辐射穿过中性氢云的辐射转移示意图 (\citeay{zaroubi2013})}
+  \end{figure}
+
+  待探测的 \alert{EoR 信号}为中性氢云的辐射相对于 CMB 辐射的\alert{差异}:
+  \begin{equation}
+    \delta T_b(\nu) \approx
+      \frac{3 h_p c^3 A_{21}}{32\Cpi \nu_0^2 \,k_B}
+      \frac{\chi_{\R{HI}} n_{\R{HI}}}{
+        (1+z)^2 (\partial v_{\parallel} / \partial r_{\parallel})}
+      \left[ 1 - \frac{T_{\R{cmb}}(z)}{T_s} \right] ,
+  \end{equation}
+  其中 $A_{21}$ 为自发发射系数，
+  $\chi_{\R{HI}}$ 为氢原子的中性比例， \\
+  $n_{\R{HI}}$ 为数密度，$v$ 为自行速度，$T_s$ 为自旋温度，\\
+  $T_{\R{cmb}}$ 为 CMB 辐射亮温度
+\end{frame}
+
+%............
+\begin{frame}{EoR 信号随红移的演化}
+  \begin{equation}
+    \delta T_b(\nu) \propto
+      \chi_{\R{HI}} n_{\R{HI}}
+      \left[ 1 - \frac{T_{\R{cmb}}(z)}{T_s} \right]
+  \end{equation}
+  \begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{eor-signal-evolution}
+    \caption{EoR 信号的平均强度的演化示意图 (\citeay{pritchard2012})}
+  \end{figure}
+\end{frame}
+
+\subsection{模式混合}
+
 %............
 \begin{frame}{模式混合和前景楔形}
   \begin{itemize}
@@ -1509,7 +1337,7 @@
       即所测量的波数正比于频率: $u = b/\lambda \propto \nu$
     \item 基线越长，色彩效应越显著
     \item 将 $k_{\perp}$ 模式里的功率\alert{混合}到 $k_{\parallel}$ 模式里，
-      导致\alert{前景楔形} \cite{morales2012}
+      导致\alert{前景楔形}
   \end{itemize}
 
   \vspace{-1ex}
@@ -1521,13 +1349,221 @@
   }
 \end{frame}
 
+\subsection{射电晕建模}
+
+%............
+\begin{frame}{星系团的质量和红移分布}
+  \begin{columns}
+    \column{0.5\textwidth}
+    红移 $z$ 时每单位共动体积内质量范围 $[M,\, M+\D{M}]$ 的星系团数目:
+    \begin{multline}
+      n_{\R{cl}}(M,z) \,\D{M} =
+        \sqrt{\frac{2}{\Cpi}} \frac{\langle \rho_0 \rangle}{M}
+        \frac{\delta_c(z)}{\sigma^2(M)} \times \\
+        \left| \diff{\sigma(M)}{M} \right|
+        \exp\!\left[ -\frac{\delta_c^2(z)}{2\sigma^2(M)} \right]
+        \,\D{M} ,
+    \end{multline}
+    $\langle \rho_0 \rangle$ 是当前的宇宙平均密度，
+    $\delta_c(z)$ 是暗物质坍缩的临界密度，
+    $\sigma(M)$ 是平均质量为 $M$ 的球形区域里的密度涨落值.
+
+    \column{0.5\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{mass-z-dist}
+      \caption{星系团的质量和红移分布直方图}
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+%............
+\begin{frame}{星系团并合树的模拟}
+  \begin{columns}
+    \column{0.5\textwidth}
+    质量为 $M_2$ 的星系团在一个较早时刻 $t_1$ 具有一个质量范围为
+    $[M_1,\, M_1+\D{M_1}]$ 的前身的条件概率为:
+    \begin{multline}
+      \R{Pr}(M_1, t_1 \,|\, M_2, t_2) \,\D{M_1} = \\
+        \frac{1}{\sqrt{2\Cpi}} \frac{M_2}{M_1}
+        \frac{\delta_{c1} - \delta_{c2}}{(\sigma_1^2 - \sigma_2^2)^{3/2}}
+        \left| \diff{\sigma_1^2}{M_1} \right|
+        \times \\
+        \exp \!\left[ -\frac{(\delta_{c1} - \delta_{c2})^2}
+        {2(\sigma_1^2 - \sigma_2^2)} \right] \,\D{M_1} .
+    \end{multline}
+    利用 Monte Carlo 模拟构建星系团\alert{并合树}.
+
+    \column{0.5\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{merging-history}
+      \caption{星系团并合树的模拟结果示例}
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+%............
+\begin{frame}{高能电子的演化模型}
+  在\alert{湍流再加速}和\alert{能量损失}的共同作用下，
+  电子能谱 $n_e(\gamma, t)$ 随时间的演化由 \alert{FP 方程}描述:
+  \begin{multline}
+    \pdiff{n_e(\gamma, t)}{t} =
+      \pdiff{}{\gamma} \left[ n_e(\gamma, t) \left(
+        \left| \diff{\gamma}{t} \right| -
+        \frac{2}{\gamma} D_{\gamma\gamma}(\gamma, t) \right) \right] + \\
+      \pdiff{}{\gamma} \left[
+      D_{\gamma\gamma} \pdiff{n_e(\gamma, t)}{\gamma} \right]
+      + Q_e(\gamma, t) ,
+  \end{multline}
+  $D_{\gamma\gamma}$ 是描述湍流和电子相互作用的扩散系数，\\
+  $|\R{d}\gamma / \R{d}t|$ 是能量损失速率，\\
+  $Q_e$ 描述初级电子注入过程.
+\end{frame}
+
+%............
+\begin{frame}
+  \begin{alertblock}{初级电子注入过程}
+    \smallskip
+    \begin{itemize}
+      \item AGN 活动、恒星形成等过程持续地将初级电子注入 ICM
+      \item 假定：
+        \begin{itemize}
+          \item 注入速率 $K_e$ 恒定
+          \item 注入电子的能谱为幂律形式，谱指数为 $s$
+          \item 注入电子的总能量密度与 ICM 热能密度 $\epsilon_{\R{th}}$
+            之比为 $\eta_e$
+        \end{itemize}
+      \item 可得：
+        \begin{align}
+          Q_e(\gamma, t) & = K_e \gamma^{-s} , \\
+          K_e & = \frac{(s-2) \eta_e \epsilon_{\R{th}}}{
+            \epsilon_e \tau_{\R{cl}}} \gamma_{\R{min}}^{s-2} ,
+        \end{align}
+        其中 $\epsilon_e = m_e c^2$，
+        $\tau_{\R{cl}}$ 为星系团年龄
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+%............
+\begin{frame}
+  \vspace{1ex}
+  \begin{alertblock}{湍流再加速过程}
+    \smallskip
+    \begin{itemize}
+      \item 湍流与 ICM 中的宇宙射线粒子发生作用而耗散能量，
+        使初级电子获得能量而加速
+      \item 该加速机制的扩散系数为：
+        \begin{equation}
+          D_{\gamma\gamma} =
+            2 \gamma^2 \zeta k_L
+            \frac{\langle (\delta v_t)^2 \rangle^2}{\chi_{\R{cr}} c_s^3} ,
+        \end{equation}
+        $\zeta$ 为 ICM 等离子体的不稳定性，\\
+        $\chi_{\R{cr}}$ 为宇宙射线的能量密度与 ICM 热能密度之比，\\
+        $k_L = 2\Cpi / r_{\R{turb}}$ 为湍流注入尺度，
+        $c_s$ 为声速
+      \item $\langle (\delta v_t)^2 \rangle$ 为湍流的速度弥散：
+        \begin{equation}
+          \langle (\delta v_t)^2 \rangle =
+            \langle (\delta v_0)^2 \rangle +
+            \frac{2 \eta_t E_m}{M_{\R{turb}}} ,
+        \end{equation}
+        $\eta_t$ 为并合注入湍流的能量比例
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}
+  \vspace{1ex}
+  \begin{alertblock}{湍流再加速过程}
+    \smallskip
+    \begin{itemize}
+      \item $E_m$ 为并合释放的能量：
+        \begin{equation}
+          E_m \simeq \bar{\rho}_m v_{\R{imp}}^2
+            \Cpi r_s^2 r_{\R{vir,m}} ,
+        \end{equation}
+        $\bar{\rho}_m$ 为主团的平均气体密度，
+        $v_{\R{imp}}$ 为并合的碰撞速度，\\
+        $r_s$ 为子团的剥离半径
+      \item $r_{\R{turb}}$ 为湍流区域的半径：
+        \begin{equation}
+          r_{\R{turb}} \simeq r_s + r_{\R{c,m}}
+            = r_s + 0.1\,r_{\R{vir,m}} .
+        \end{equation}
+      \item $M_{\R{turb}}$ 为湍流区域内的气体质量：
+        \begin{equation}
+          M_{\R{turb}} =
+            \int_0^{r_{\R{turb}}} \! \rho(r) \,4\Cpi r^2 \,\D{r} ,
+        \end{equation}
+        $\rho(r)$ 为气体密度轮廓，由 β 模型描述
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+%............
+\begin{frame}
+  \vspace{1ex}
+  \begin{alertblock}{能量损失过程}
+    \smallskip
+    \begin{itemize}
+      \item 与 CMB 光子发生逆 Compton 散射:
+        \begin{equation}
+          \left( \diff{\gamma}{t} \right)_{\R{IC}} =
+            \num{-4.32e-4} \,\gamma^2 (1+z)^4
+            \quad [\si{\per\Gyr}]
+        \end{equation}
+      \item 产生同步辐射:
+        \begin{equation}
+          \left( \diff{\gamma}{t} \right)_{\R{syn}} =
+            \num{-4.10e-5} \,\gamma^2
+            \left( \frac{B}{\SI{1}{\uG}} \right)^2
+            \quad [\si{\per\Gyr}]
+        \end{equation}
+      \item 与 ICM 热电子发生 Coulomb 碰撞:
+        \begin{multline}
+          \left( \diff{\gamma}{t} \right)_{\R{Coul}} =
+            \num{-3.79e4} \left( \frac{n_{\R{th}}}{\SI{1}{\per\cm\cubed}} \right)
+            \left[ 1 + \frac{1}{75} \ln \left(
+              \gamma\,\frac{\SI{1}{\per\cm\cubed}}{n_{\R{th}}} \right) \right]
+            \\ \quad [\si{\per\Gyr}]
+        \end{multline}
+        $n_{\R{th}}$ 为热电子数密度
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+%............
+\begin{frame}{射电晕的识别和半径}
+  \begin{itemize}
+    \item 射电晕在频率 $\nu$ 处存在的判据：
+      \begin{itemize}
+        \item 同步辐射发射率 $J_{\R{syn}}(\nu)$
+          是相应\enquote{参考值} $J'_{\R{syn}}(\nu)$ 的至少 1000 倍
+        \item 同步辐射在该频率处的谱指数 $\alpha_{\nu} \le 3$
+      \end{itemize}
+
+    \item 射电晕半径 $r_{\R{halo}}$ 随星系团维里半径 $r_{\R{vir}}$
+      超线性地增大，据此假定:
+      \begin{equation}
+        r_{\R{halo}} = f_r R_{\R{turb}}
+          \left( \frac{r_{\R{vir}}}{r_{\R{vir,*}}} \right)^b
+      \end{equation}
+      $R_{\R{turb}}$ 是最大湍流区域的半径，\\
+      $r_{\R{vir,*}}$ 是质量为 \SI{e15}{\solarmass} 的参考星系团的维里半径
+    \item 对比观测结果，选取 $f_r = 0.7$ 和 $b = 1.8$
+  \end{itemize}
+\end{frame}
+
 %............
 \begin{frame}{数值计算方法}
   \begin{itemize}
     \item 采用 \citeay{chang1970} 提出的有限差分法求解 FP 方程
     \item 初始电子能谱 $n_e(\gamma, t_0)$：
       让积累的电子能谱 $\tilde{n}_e(\gamma) = Q_e(\gamma) \tau_0$
-      在无并合的情况下演化 \SI{1}{\Gyr} \cite{brunetti2007}
+      在无并合的情况下演化 \SI{1}{\Gyr}
     \item 每次并合的有效加速时间：
       \begin{equation}
         \tau_{\R{turb}} \simeq 2 r_{\R{turb}} / v_{\R{imp}}
@@ -1548,6 +1584,147 @@
 \end{frame}
 
 %............
+\begin{frame}{模型参数的约束}
+  \begin{itemize}
+    \item 射电晕模型的 5 个待约束参数：
+      \begin{itemize}
+        \item $\eta_e$:
+          注入电子的总能量密度与 ICM 热能密度 $\epsilon_{\R{th}}$ 之比
+        \item $\eta_t$:
+          并合释放的能量中转化为湍流能量的比例
+        \item $\chi_{\R{cr}}$:
+          宇宙射线的能量密度与 ICM 热能密度 $\epsilon_{\R{th}}$ 之比
+        \item $\chi_{\R{turb}}$:
+          初  始湍流的能量密度与 ICM 热能密度 $\epsilon_{\R{th}}$ 之比
+        \item $\zeta$:
+          ICM 等离子体的不稳定性
+      \end{itemize}
+    \item 对比观测结果：
+      \begin{itemize}
+        \item 射电晕 \SI{1.4}{\GHz} 功率 ($P_{1400}$)
+          与星系团质量 ($M_{\R{vir}}$) 的标度关系
+        \item 射电晕 \SI{1.4}{\GHz} 流量函数
+      \end{itemize}
+    \item 最终选取参数：\\
+      $\eta_e = 0.01\%$,
+      $\eta_t = 15\%$,
+      $\chi_{\R{cr}} = 1.5\%$,
+      $\chi_{\R{turb}} = 1.5\%$,
+      $\zeta = 0.1$.
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{射电晕模拟结果}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{halo-power-mvir}
+      \caption{$P_{1400}$--$M_{\R{vir}}$ 标度关系的对比}
+    \end{figure}
+
+    \column{0.5\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\columnwidth]{fluxfunc-simucomp}
+      \caption{\SI{1.4}{\GHz} 流量函数的对比}
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+%............
+\begin{frame}{射电晕天图生成}
+  \begin{itemize}
+    \item 射电晕在频率 $\nu$ 处的功率和流量密度：
+      \begin{align}
+        P_{\R{halo}}(\nu)
+          & = \frac{4\Cpi}{3} r^3_{\R{halo}} J_{\R{syn}}(\nu) , \\
+        S_{\R{halo}}(\nu)
+          & = \frac{(1+z_{\R{sim}}) P_{\R{halo}}[\nu (1+z_{\R{sim}})]}{
+            4\Cpi D^2_{\!L}(z_{\R{sim}})} ,
+      \end{align}
+      $D_{\!L}$ 是光度距离，因子 $(1+z_{\R{sim}})$ 为 $K$ 修正
+    \item 射电晕的角向平均亮度分布：
+      \begin{equation}
+        I_{\nu}(\theta) = I_{\nu,0} \exp
+          \left( -\frac{3\theta}{\theta_{\R{halo}}} \right) ,
+      \end{equation}
+      $\theta = r / D_{\!A}(z_{\R{sim}})$ 为角半径，
+      $I_{\nu,0}$ 为中心亮度
+    \item 利用 Rayleigh--Jeans 近似，表示为亮温度分布
+  \end{itemize}
+\end{frame}
+
+\subsection{其他前景成分}
+
+%............
+\begin{frame}{银河系同步辐射}
+  \begin{itemize}
+    \item 以 Haslam \SI{408}{\MHz} 全天图为模板，
+      按幂律形式向低频外延：
+      \begin{equation}
+        T_b^{\R{syn}}(\hat{\B{r}}, \nu)
+          = T_b^{\R{haslam}}(\hat{\B{r}})
+            \left( \frac{\nu}{\SI{408}{\MHz}}
+            \right)^{-\alpha_{\R{syn}}(\hat{\B{r}})}
+      \end{equation}
+    \item $T_b^{\R{haslam}}(\hat{\B{r}})$
+      为银河系 $\hat{\B{r}}$ 处的 \SI{408}{\MHz} 亮温度；\\
+      使用 \citeay{remazeilles2015} 重新处理的全天图
+    \item $\alpha_{\R{syn}}(\hat{\B{r}})$ 为同步辐射谱指数；\\
+      使用 \citeay{giardino2002} 提供的谱指数全天分布图
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{银河系自由--自由辐射}
+  \begin{itemize}
+    \item 自由–自由辐射和 Hα 辐射联系紧密
+    \item Hα 辐射易被尘埃吸收，需要修正：
+      \begin{equation}
+        I_{\R{Hα}}^{\R{corr}}(\hat{\B{r}})
+          = I_{\R{Hα}}(\hat{\B{r}}) \times
+            10^{0.0185 \, f_d \, D(\hat{\B{r}})} ,
+      \end{equation}
+      $D(\hat{\B{r}})$ 是尘埃柱密度分布图，\\
+      $f_d$ 是尘埃在视线方向上的有效吸收比例
+    \item 在频率 $\nu$ 处的自由--自由辐射：
+      \begin{equation}
+        T_b^{\R{ff}}(\hat{\B{r}}, \nu)
+          = 38.86 \,\nu^{-2.1} 10^{(290/T_e)} \, T_e^{0.667} \,a(\nu, T_e)
+            \left[ \frac{I_{\R{Hα}}^{\R{corr}}(\hat{\B{r}})}{\si{\rayleigh}}
+            \right] \quad [\si{\kelvin}]
+      \end{equation}
+    \item $a(\nu, T_e)$ 是光深的修正因子：
+      \begin{equation}
+        a(\nu, T_e) =
+          0.183 \,\nu^{0.1} T_e^{-0.15}
+          \left[ 3.91 - \ln \nu + 1.5 \ln T_e \right]
+      \end{equation}
+    \item 本文取 $f_d = 0.33$ 和 $T_e = \SI{7000}{\kelvin}$
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}{河外点源}
+  \begin{itemize}
+    \item 继承自我们之前的一项工作：\citeay{wang2010}
+    \item 模拟了下述 4 类点源：
+      \begin{enumerate}
+        \item 恒星形成星系
+        \item 射电宁静 AGN
+        \item FR I 型和 II 型 AGN
+        \item GHz 倒转谱和致密陡谱 AGN
+      \end{enumerate}
+    \item 第 1--3 类点源的模拟使用了 \citeay{wilman2008} 针对 SKA 的模拟结果
+    \item 第 4 类点源的模拟使用了相应的光度函数和频谱模型
+  \end{itemize}
+\end{frame}
+
+\subsection{频率维度的加窗处理}
+
+%............
 \begin{frame}{频率维度的加窗处理}
   \myfigure{%
     width=\textwidth,
@@ -1556,6 +1733,8 @@
     输入信号为 $y = (x / 158)^{-2}$.
   }
 \end{frame}
+
+\subsection{SKA1-Low 阵列布局}
 
 %............
 \begin{frame}{SKA1-Low~阵列布局}
