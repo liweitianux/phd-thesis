@@ -206,26 +206,8 @@
 
 \usepackage[%
   backend=biber,
-  citestyle=numeric-comp,
-  style=numeric,
-  sorting=none,
-  autocite=superscript,
+  style=authoryear-comp,
 ]{biblatex}
-%
-% Credit: https://tex.stackexchange.com/a/60923
-\DeclareCiteCommand{\cite}[\mkbibsuperscript]%
-  {\iffieldundef{prenote}
-     {}
-     {\BibliographyWarning{Ignoring prenote argument}}%
-   \iffieldundef{postnote}
-     {}
-     {\BibliographyWarning{Ignoring postnote argument}}}
-  {\usebibmacro{citeindex}%
-   \bibopenbracket\usebibmacro{cite}\bibclosebracket}
-  {\supercitedelim}
-  {}
-%\newcommand{\citeay}[1]{\citeauthor{#1} \citeyear{#1} \parencite{#1}}
-\newcommand{\citeay}[1]{\citeauthor{#1} \citeyear{#1}}
 
 \AtBeginBibliography{
   \linespread{1.0}
