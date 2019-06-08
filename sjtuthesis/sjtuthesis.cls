@@ -369,7 +369,7 @@
       \fi
     \fi
     \sjtu@label@major           & \underline{\makebox[150pt]{\sjtu@value@major}} \\
-    \sjtu@label@defensedate      & \underline{\makebox[150pt]{\sjtu@value@defensedate}}
+    \sjtu@label@defensedate     & \underline{\makebox[150pt]{\sjtu@value@defensedate}}
   \end{tabular}
   \end{center}
   \vskip \stretch{0.5}
@@ -475,12 +475,15 @@
   \pdfbookmark[0]{\sjtu@label@originality}{originality}
   \thispagestyle{empty}
   \begin{center}
-    {\bfseries\zihao{3} \sjtu@value@school}
+    \bfseries\zihao{3}
+    \sjtu@value@school
     \vskip 10pt
-    {\bfseries\zihao{3} \sjtu@label@originality}
+    \sjtu@label@originality
   \end{center}
   \vskip 10pt
-  {\par\zihao{-4}\sjtu@label@originalityContent\par}
+  \par
+  {\zihao{-4} \sjtu@label@originalityContent}
+  \par
   \vskip 60pt
   \hfill\sjtu@label@authorsign\rule{11em}{0.5pt}
   \vskip 15pt
@@ -495,12 +498,15 @@
   \pdfbookmark[0]{\sjtu@label@authorization}{authorization}
   \thispagestyle{empty}
   \begin{center}
-    {\bfseries\zihao{3} \sjtu@value@school}
+    \bfseries\zihao{3}
+    \sjtu@value@school
     \vskip 10pt
-    {\bfseries\zihao{3} \sjtu@label@authorization}
+    \sjtu@label@authorization
   \end{center}
   \vskip 10pt
-  {\par\zihao{-4}\sjtu@label@authorizationContent\par}
+  \par
+  {\zihao{-4} \sjtu@label@authorizationContent}
+  \par
   \vskip 60pt
   \sjtu@label@authorsign\rule{11em}{0.5pt} \hfill
   \sjtu@label@advisorsign\rule{11em}{0.5pt}
