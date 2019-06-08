@@ -3,7 +3,7 @@
 %%==================================================
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{sjtuthesis}[2019/05/29 v0.15 SJTU Thesis Template]
+\ProvidesClass{sjtuthesis}[2019/06/08 v0.16 SJTU Thesis Template]
 
 \newif\ifsjtu@english\sjtu@englishfalse
 \newif\ifsjtu@bachelor\sjtu@bachelorfalse
@@ -38,7 +38,7 @@
   \fi
 \fi
 \PassOptionsToPackage{no-math}{fontspec}
-\LoadClass[a4paper,UTF8]{ctexbook}
+\LoadClass[UTF8]{ctexbook}
 
 
 %==========
@@ -82,12 +82,13 @@
 % Segment 1. Import LaTeX packages.
 %==========
 
+\if@twoside
+  \PassOptionsToPackage{twoside,left=30mm,body={155mm,220mm}}{geometry}
+\else
+  \PassOptionsToPackage{centering,body={160mm,220mm}}{geometry}
+\fi
+\RequirePackage[a4paper]{geometry}
 \RequirePackage{etoolbox}
-\RequirePackage[%
-  centering,
-  a4paper,
-  body={16cm,22cm},
-]{geometry}
 \RequirePackage{fontspec}
 \RequirePackage{mathtools, amsthm, amssymb}
 \RequirePackage[%
