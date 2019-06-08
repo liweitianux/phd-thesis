@@ -3,7 +3,7 @@
 %%==================================================
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{sjtuthesis}[2019/06/08 v0.16 SJTU Thesis Template]
+\ProvidesClass{sjtuthesis}[2019/06/08 v0.17 SJTU Thesis Template]
 
 \newif\ifsjtu@english\sjtu@englishfalse
 \newif\ifsjtu@bachelor\sjtu@bachelorfalse
@@ -485,9 +485,9 @@
   {\zihao{-4} \sjtu@label@originalityContent}
   \par
   \vskip 60pt
-  \hfill\sjtu@label@authorsign\rule{11em}{0.5pt}
+  \hfill\sjtu@label@authorsign\rule{\widthof{\sjtu@label@dateinput}}{0.5pt}
   \vskip 15pt
-  \hfill\sjtu@label@originalityDate
+  \hfill\sjtu@label@date\sjtu@label@dateinput
   \cleardoublepage
 }
 
@@ -508,11 +508,15 @@
   {\zihao{-4} \sjtu@label@authorizationContent}
   \par
   \vskip 60pt
-  \sjtu@label@authorsign\rule{11em}{0.5pt} \hfill
-  \sjtu@label@advisorsign\rule{11em}{0.5pt}
+  \noindent%
+  \sjtu@label@authorsign\rule{\widthof{\sjtu@label@dateinput}}{0.5pt} \hfill
+  \sjtu@label@advisorsign\rule{\widthof{\sjtu@label@dateinput}}{0.5pt}
   \vskip 15pt
-  \noindent\makebox[5em]{}\sjtu@label@originalityDate \hfill
-  \makebox[3em]{}\sjtu@label@originalityDate
+  \noindent%
+  \makebox[\widthof{\sjtu@label@authorsign}][r]{\sjtu@label@date}%
+    \sjtu@label@dateinput \hfill
+  \makebox[\widthof{\sjtu@label@advisorsign}][r]{\sjtu@label@date}%
+    \sjtu@label@dateinput
   \cleardoublepage
 }
 
