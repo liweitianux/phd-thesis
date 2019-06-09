@@ -134,29 +134,31 @@ $T_* \equiv \acs{hp} \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$。
 \begin{equation}
   \acs{coef-absorption}
     = \frac{3 \acs{hp} \acs{speed-light}^2}{32\Cpi \nu_0}
-      \frac{A_{21} n_{\R{HI}}}{\acs{kb} \acs{T-spin}} \phi(\nu) ,
+      \frac{A_{21} \acs{n-hi}}{\acs{kb} \acs{T-spin}} \phi(\nu) ,
 \end{equation}
-其中 $n_{\R{HI}} = N_1 + N_2 = 4 N_1$ 为数密度。
+其中 $\acs{n-hi} = N_1 + N_2 = 4 N_1$ 为\acl{n-hi}。
 
 设一团均匀的中性氢云位于红移 $z$ 处，沿视线方向的长度为 $s$，
-中性氢的数密度为 $n_{\R{HI}}$，
+中性氢的数密度为 \ac{n-hi}，
 则其\acl{optical-depth} [\autoref{eq:optical-depth}] 为：
 \begin{align}
   \acs{optical-depth}_{\nu_0}
     & = \int_{\R{cloud}} \acs{coef-absorption}(s') \,\D{s'}  \\
     & = \frac{3 \acs{hp} \acs{speed-light}^2}{32\Cpi \nu_0}
       \frac{A_{21}}{\acs{kb} \acs{T-spin}} \phi(\nu)
-      \int_{\R{cloud}} n_{\R{HI}}(s') \,\D{s'}  \\
+      \int_{\R{cloud}} \acs{n-hi}(s') \,\D{s'}  \\
     & = \frac{3 \acs{hp} \acs{speed-light}^2}{32\Cpi \nu_0}
-      \frac{A_{21}}{\acs{kb} \acs{T-spin}} N_{\R{HI}} \phi(\nu) ,
+      \frac{A_{21}}{\acs{kb} \acs{T-spin}} \acs{N-hi} \phi(\nu) ,
   \label{eq:21cm-optical-depth1}
 \end{align}
-其中 $N_{\R{HI}}$ 为中性氢的\ac{column-density}，可进一步写成：
+其中 \acs{N-hi} 为\acl{N-hi}，可进一步写成：
 \begin{equation}
   \label{eq:column-density}
-  N_{\R{HI}} = s \, n_{\R{HI}} \acs{hi-fraction} ,
+  \acs{N-hi} = s \, \acs{n-h} \acs{hi-fraction} ,
 \end{equation}
-其中 \acs{hi-fraction} 为\acl{hi-fraction} (neutral fraction of hydrogen)。
+其中
+\acs{n-h} 为\acl{n-h}，
+\acs{hi-fraction} 为\acl{hi-fraction} (neutral fraction of hydrogen)。
 
 一般而言，\ac{line-profile}与自然展宽 (natural broadening)、
 热展宽 (thermal broadening)、压力展宽 (pressue broadening)、
@@ -176,7 +178,7 @@ $\Delta v \sim s \acs{Hz}$，
   \acs{optical-depth}_{\nu_0}
     \approx \frac{3 \acs{hp} \acs{speed-light}^3}{32\Cpi \nu_0^2}
       \frac{A_{21}}{\acs{kb} \acs{T-spin}}
-      \frac{\acs{hi-fraction} n_{\R{HI}}}{\acs{Hz}} .
+      \frac{\acs{hi-fraction} \acs{n-h}}{\acs{Hz}} .
 \end{equation}
 如果需要考虑中性氢云的\ac{v-peculiar}，则其\acl{optical-depth}应为
 \cite{bharadwaj2005,furlanetto2006,pritchard2012}：
@@ -185,7 +187,7 @@ $\Delta v \sim s \acs{Hz}$，
   \acs{optical-depth}_{\nu_0}
     \approx \frac{3 \acs{hp} \acs{speed-light}^3}{32\Cpi \nu_0^2}
       \frac{A_{21}}{\acs{kb} \acs{T-spin}}
-      \frac{\acs{hi-fraction} n_{\R{HI}}}{
+      \frac{\acs{hi-fraction} \acs{n-h}}{
         (1+z) (\partial v_{\parallel} / \partial r_{\parallel})} ,
 \end{equation}
 其中 $(\partial v_{\parallel} / \partial r_{\parallel})$ 是\ac{v-proper}
@@ -282,7 +284,7 @@ $\nu = \acs{freq21cm}/(1+z)$，
       \acs{optical-depth}_{\nu_0}  \\
     & \approx \frac{3 \acs{hp} \acs{speed-light}^3 A_{21}}{
       32\Cpi \nu_0^2 \,\acs{kb}}
-      \frac{\acs{hi-fraction} n_{\R{HI}}}{
+      \frac{\acs{hi-fraction} \acs{n-h}}{
         (1+z)^2 (\partial v_{\parallel} / \partial r_{\parallel})}
       \left[ 1 - \frac{T_{\R{cmb}}(z)}{\acs{T-spin}} \right] .
     \label{eq:eor-signal1}
@@ -302,12 +304,12 @@ $\nu = \acs{freq21cm}/(1+z)$，
 再利用当地的重子物质\ac{overdensity}，即
 \begin{equation}
   1 + \delta_b = \frac{\rho_b}{\overline{\rho}_b}
-    \approx \frac{n_{\R{HI}} \acs{mass-p}}{\acs{Ob0}(z) \acs{rho-crit}(z)} ,
+    \approx \frac{\acs{n-h} \acs{mass-p}}{\acs{Ob0}(z) \acs{rho-crit}(z)} ,
 \end{equation}
 其中 $\acs{rho-crit}(z)$ 为\acl{rho-crit} [\autoref{eq:rho-crit}]，
-可将中性氢的数密度 $n_{\R{HI}}$ 表示为：
+可将\acl{n-h} \acs{n-h} 表示为：
 \begin{align}
-  n_{\R{HI}}
+  \acs{n-h}
     & \approx \frac{1+\delta_b}{\acs{mass-p}} \frac{\acs{Ob0}}{\acs{Om0}}
       \frac{3 H^2(z)}{8 \Cpi \acs{G}}  \\
     & \approx \frac{3 \acs{H0}}{8\Cpi\acs{mass-p}\acs{G}}
