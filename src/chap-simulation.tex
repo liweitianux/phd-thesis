@@ -281,7 +281,7 @@ $\left\{\left( M_m^{(i)}, M_s^{(i)}, t_{\R{merger}}^{(i)} \right)\right\}$
 主要包括产生\ac{rad-syn}，与 \ac{cmb} 光子发生逆 Compton 散射，
 以及与 \ac{icm} 中的离子发生 Coulomb 碰撞。
 
-对于一群能量分布各向同性的电子，在上述加速和能量损失的共同作用下，
+对于一群能量分布各向同性的高能电子，在上述湍流再加速和能量损失的共同作用下，
 其能谱 \ac{n-e} 随时间的演化由以下 Fokker--Planck 方程描述
 \cite{eilek1991,schlickeiser2002}：
 \begin{equation}
@@ -295,9 +295,20 @@ $\left\{\left( M_m^{(i)}, M_s^{(i)}, t_{\R{merger}}^{(i)} \right)\right\}$
     + \ac{e-inj}(\ac{g}, t) ,
 \end{equation}
 其中
-\ac{coef-diffusion} 是描述\ac{turbulence}和电子相对作用的\acl{coef-diffusion}，
+\ac{g} 是电子的 \acl{g}，
+\ac{coef-diffusion} 是描述\ac{turbulence}和电子相互作用的\acl{coef-diffusion}，
 $|\R{d}\ac{g} / \R{d}t|$ 是电子的能量损失速率，
 还有 \ac{e-inj} 描述了电子的注入过程。
+除了本文使用的 \acl{g} \ac{g}，
+另一种常见做法是采用\acl{p} \ac{p} 来描述电子能谱 \cite{cassano2005,donnert2014}，
+两者之间的关系为：
+\begin{equation}
+  \ac{p} = \ac{g} \ac{mass-e} v
+    = \sqrt{\ac{g}^2 - 1} \; \ac{mass-e} \ac{speed-light} .
+\end{equation}
+对于高能电子有 $\ac{g} \gg 1$，
+于是 $\ac{p} \approx \ac{g} \ac{mass-e} \ac{speed-light}$，
+说明两种表示方法是等价的。
 
 %.....................................................................
 \subsubsection{ICM 热成分的性质}
