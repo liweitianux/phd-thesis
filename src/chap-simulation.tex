@@ -544,7 +544,10 @@ $E_m$ 是子团在并合过程中释放的能量，
       \,\frac{r_s^2 v_{\R{imp}}^2}{\ac{M-turb}} .
 \end{equation}
 
-最后还需要估算\acl{r-turb} \ac{r-turb}，我们假定了以下关系：
+最后还需要估算\acl{r-turb} \ac{r-turb}。
+前人的数值模拟研究显示，并合能够在半径约为 \numrange{0.1}{0.3}$\,r_{\R{vir,m}}$
+的范围内产生显著的湍流 \cite{vazza2011,vazza2012,miniati2015ss}。
+因此我们假定 \ac{r-turb} 由以下关系给出：
 \begin{equation}
   \label{eq:r-turb}
   \ac{r-turb} \simeq \ac{r-strip} + \ac{r-core-m} ,
@@ -556,11 +559,7 @@ $\ac{r-core-m} = 0.1 \,\ac{r-vir-m}$ 是主团的\acl{r-core}，
 \acl{r-strip} \ac{r-strip} 约为 $\numrange{1}{2} \,\ac{r-core-m}$；
 对于\ac{m-minor} ($\ac{M-vir-m} / \ac{M-vir-s} \sim \numrange{3}{10}$)，
 则有 $\ac{r-strip} < \ac{r-core-m}$。
-前人的数值模拟研究显示，并合能够在半径约为 $\numrange{0.1}{0.3} \,r_{\R{vir,m}}$
-的范围内产生显著的湍流 \cite{vazza2011,vazza2012,miniati2015ss}。
-因此，我们计算的\acl{r-turb} \ac{r-turb} [\autoref{eq:r-turb}]
-能够与这些模拟结果符合得比较好。
-\autoref{eq:r-turb} 还显示，
+上述计算 \ac{r-turb} 的关系式还显示，
 \ac{m-minor}亦能在一个半径 $\gtrsim \ac{r-core-m}$ 的较大区域内产生湍流，
 因为落入的子团会引起主团中央区域的气体\ac{sloshing}，从而产生较大范围的湍流
 \cite{vazza2012}。
