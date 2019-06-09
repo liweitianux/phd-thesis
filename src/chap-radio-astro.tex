@@ -1256,7 +1256,7 @@ $\bar{P}$ 之比，即：
 \end{align}
 
 %---------------------------------------------------------------------
-\subsection{有限带宽和积分时间的影响}
+\subsection{有限带宽和平均时间的影响}
 
 将上述二元单色干涉仪推广至测量有限带宽的信号。
 考虑一个中心频率为 $\nu_c$ 且宽度为 $\Delta\nu$ 的窄频带 ($\Delta\nu \gg \nu_c$)，
@@ -1334,14 +1334,14 @@ $\sinc(\Delta\nu\,\acs{delay-geo})$ 倍。
 另一个解决\ac{bw-smear}的方法是将一个宽频带划分为一系列足够窄（约几十 \si{\kHz}）
 的频率\ac{channel}，并且对每个\ac{channel}的信号独立地进行相关运算得到\ac{vis}。
 
-类似地，如果\ac{correlator}的\ac{t-int} $\Delta t$ 过长，
+类似地，如果\ac{correlator}的\ac{t-avg} $\Delta t$ 过长，
 则辐射源的位置 \ac{v-direction} 会因地球自转而发生显著改变
 （可与 \acs{bw-synthesized} 相比拟），
 导致\acl{delay-comp} \acs{delay-comp} 的修正效果变差。
 这个效应被称为\acf{t-smear}。
 一个距离\ac{delay-center} $\Delta\theta$ 的目标的移动速度为
 $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度。
-为了最小化\ac{t-smear}的影响，\ac{correlator}的\ac{t-int} $\Delta t$ 需满足：
+为了最小化\ac{t-smear}的影响，\ac{correlator}的\ac{t-avg} $\Delta t$ 需满足：
 \begin{equation}
   v \Delta t = \omega_e \Delta\theta \Delta t \ll \theta_s ,
 \end{equation}
