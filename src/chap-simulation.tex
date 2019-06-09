@@ -572,36 +572,60 @@ $\ac{r-core-m} = 0.1 \,\ac{r-vir-m}$ 是主团的\acl{r-core}，
 
 在\ac{gc} \ac{icm} 中，高能电子可通过多种机制损失能量 \cite{sarazin1999}，
 本文考虑了其中三种主要的机制。
-第一种能量损失机制为高能电子与 \ac{cmb} 光子发生逆 Compton 散射，
-对应的能量损失速率为：
-\begin{equation}
+第一种能量损失机制为高能电子与 \ac{cmb} 光子发生逆 Compton 散射。
+在这个过程中，高能电子与 \ac{cmb} 光子碰撞而将一部分能量传递给后者，
+能够使其成为硬 X 射线甚至 γ 射线光子 \cite{rybicki1979}。
+高能电子通过这个过程损失能量的速率为 \cite{sarazin1999}：
+\begin{align}
   \label{eq:eloss-ic}
-  \left( \diff{\ac{g}}{t} \right)_{\R{IC}} =
-    \num{-4.32e-4} \,\ac{g}^2 (1+z)^4
-    \quad [\si{\per\Gyr}] .
+  \left( \diff{\ac{g}}{t} \right)_{\R{IC}}
+    & = \frac{4}{3} \frac{\ac{cs-thomson}}{\ac{mass-e} \ac{speed-light}}
+        \ac{g}^2 \ac{e-cmb} \\
+    & = \num{-4.32e-4} \,\ac{g}^2 (1+z)^4 \quad [\si{\per\Gyr}] ,
+\end{align}
+其中
+\ac{cs-thomson} 是 \acl{cs-thomson}：
+\begin{equation}
+  \ac{cs-thomson} \equiv \frac{8\Cpi}{3}
+      \left( \frac{e^2}{\ac{mass-e} \ac{speed-light}^2} \right)^2
+    \approx \SI{6.65e-25}{\cm\squared} ,
 \end{equation}
+以及 $\ac{e-cmb} \propto (1+z)^4$ 是 \acl{e-cmb}。
 
 第二，由于 \ac{icm} 中存在强度约 \si{\uG} 的磁场 \cite{govoni2004,ryu2008}，
-因此高能电子将产生\ac{rad-syn}而损失能量，该过程的能量损失速率为：
-\begin{equation}
+因此高能电子将产生\ac{rad-syn}而损失能量 \cite{rybicki1979}，
+该过程的能量损失速率为 \cite{sarazin1999}：
+\begin{align}
   \label{eq:eloss-syn}
-  \left( \diff{\ac{g}}{t} \right)_{\R{syn}} =
-    \num{-4.10e-5} \,\ac{g}^2
-    \left( \frac{\ac{mag-field}}{\SI{1}{\uG}} \right)^2
-    \quad [\si{\per\Gyr}] ,
-\end{equation}
-其中 \ac{mag-field} 是磁场强度，
-并且假定 \ac{icm} 中的磁场强度是均匀的。
-为了估算 \ac{mag-field} 的大小，可以利用一个常用的假设：
-磁场与\ac{cr}达到能量\ac{equipartition} \cite{beck2005}，
+  \left( \diff{\ac{g}}{t} \right)_{\R{syn}}
+    & = \frac{4}{3} \frac{\ac{cs-thomson}}{\ac{mass-e} \ac{speed-light}}
+        \ac{g}^2 \ac{e-magfield} \\
+    & = \num{-4.10e-5} \,\ac{g}^2
+        \left( \frac{\ac{mag-field}}{\SI{1}{\uG}} \right)^2
+        \quad [\si{\per\Gyr}] ,
+\end{align}
+其中 $\ac{e-magfield} = \ac{mag-field}^2 / (8\Cpi)$ 是\acl{e-magfield}，
+\ac{mag-field} 是磁场强度。
+假定 \ac{icm} 中的磁场强度 \ac{mag-field} 是均匀的，
+为了进一步估算 \ac{mag-field} 的大小，
+可以假定磁场与\ac{cr}达到能量\ac{equipartition} \cite{beck2005}，
 即两者的能量密度相等：
 \begin{equation}
-  \epsilon_B = \frac{\ac{mag-field}^2}{8\Cpi}
-    \simeq \epsilon_{\R{cr}} = \ac{f-cr}\,\ac{e-th} .
+  \ac{e-magfield} \simeq \epsilon_{\R{cr}} = \ac{f-cr}\,\ac{e-th} .
 \end{equation}
 
-第三，高能电子与 \ac{icm} 中的热电子发生 Coulomb 碰撞而损失能量，
-对应的能量损失速率为：
+对比上述两种能量损失过程，可得：
+\begin{equation}
+  \frac{(\D{\ac{g}}/\D{t})_{\R{IC}}}{(\D{\ac{g}}/\D{t})_{\R{syn}}}
+    = \frac{\ac{e-cmb}}{\ac{e-magfield}}
+    \approx 10.54 \,(1+z)^4
+      \left( \frac{\ac{mag-field}}{\SI{1}{\uG}} \right)^{-2} ,
+\end{equation}
+所以在磁场强度不是很强 ($\ac{mag-field} \sim \SI{1}{\uG}$) 的情况下，
+逆 Compton 散射过程的能量损失速率远大于同步辐射过程。
+
+第三，高能电子与 \ac{icm} 中的热电子发生 Coulomb 碰撞而损失能量 \cite{rephaeli1979}，
+对应的能量损失速率为 \cite{sarazin1999}：
 \begin{equation}
   \label{eq:eloss-coul}
   \left( \diff{\ac{g}}{t} \right)_{\R{Coul}} =
@@ -611,6 +635,9 @@ $\ac{r-core-m} = 0.1 \,\ac{r-vir-m}$ 是主团的\acl{r-core}，
     \quad [\si{\per\Gyr}] ,
 \end{equation}
 其中 \ac{n-th} 为热电子的数密度 [参见\autoref{eq:n-th}]。
+在 \ac{icm} 中除了热电子还有各种离子，此处只考虑电子与电子之间的碰撞的原因是：
+电子与离子的质量差异很大，因此两者通过碰撞传递能量的效率很低，
+相比电子与电子的碰撞过程可以忽略。
 
 \begin{figure}[htp]
   \centering
