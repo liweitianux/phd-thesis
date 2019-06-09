@@ -1477,10 +1477,10 @@ $u$ 轴向东，$v$ 轴向北。
 设二元干涉仪的\acl{v-baseline}为 $\ac{v-baseline} = (u,v,w)\lambda$，
 在每个时刻，干涉仪测量 $uv$ 平面内位于 $(u,v)$ 和 $(-u,-v)$ 的一对\ac{vis}。
 随着地球的自转，\ac{v-baseline} 的各个分量逐渐变化，经过 \SI{24}{\hour}，
-该\ac{baseline}所测量的\ac{vis}数据在 $uv$ 平面内形成两个相互对称的椭圆。
+该基线所测量的\ac{vis}数据在 $uv$ 平面内形成两个相互对称的椭圆。
 一个包含 \ac{N-ant} 个天线的干涉阵列可形成
-$\ac{N-ant}(\ac{N-ant}-1)/2$ 条\ac{baseline}，
-每条\ac{baseline}都可以测量 $uv$ 平面内相应位置的\ac{vis}，
+$\ac{N-ant}(\ac{N-ant}-1)/2$ 条基线，
+每条基线都可以测量 $uv$ 平面内相应位置的\ac{vis}，
 于是显著地增加了 $uv$ 覆盖度，即 $uv$ 平面内被测量到的范围。
 \autoref{fig:uv-coverages} 展示了不同天线数目、不同\ac{t-int}的 $uv$ 覆盖。
 
@@ -1504,15 +1504,14 @@ $\ac{N-ant}(\ac{N-ant}-1)/2$ 条\ac{baseline}，
   \label{fig:uv-coverages}
 \end{figure}
 
-因为干涉阵列的天线数目是有限的，\ac{baseline}的长度范围也是有限的，
+因为干涉阵列的天线数目是有限的，基线的长度范围也是有限的，
 所以在实际观测中 $uv$ 平面不可能被完全覆盖，
 具体覆盖情况可由\acf{f-sampling}描述：
 \begin{equation}
   \label{eq:sf}
   \acs{S-uv} = \sum_{k,t} \delta(u - u_{k,t}, v - v_{k,t}) ,
 \end{equation}
-其中 $u_{k,t}, v_{k,t}$ 为\ac{baseline} $\B{b}_k$
-在 $t$ 时刻在 $uv$ 平面内的分量。
+其中 $u_{k,t}, v_{k,t}$ 为基线 $\B{b}_k$ 在 $t$ 时刻在 $uv$ 平面内的分量。
 于是，干涉阵列实际测量的\ac{vis}数据为 $\acs{Vis}(u,v) \acs{S-uv}$。
 由于无法获得目标亮度分布的全部信息，
 根据\autoref{eq:vis-inv2} 对测量的\ac{vis}数据进行逆 Fourier 变换
