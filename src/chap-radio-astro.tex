@@ -1433,14 +1433,14 @@ $u$ 轴向东，$v$ 轴向北。
     \approx w \left[ 1 - \frac{l^2+m^2}{2} \right] .
 \end{equation}
 于是\autoref{eq:vis-uvw} 成为：
-\begin{equation}
-  \acs{Vis}(u,v,w) \approx \exp (-2\Cpi\Ci\,w) \iint
-    \frac{\ac{I-nu}(l,m)}{\sqrt{1-l^2-m^2}}
+\begin{multline}
+  \acs{Vis}(u,v,w) \approx \exp (-2\Cpi\Ci\,w) \\
+    \times \iint\! \frac{\ac{I-nu}(l,m)}{\sqrt{1-l^2-m^2}}
     \exp [-2\Cpi\Ci\, (ul+vm) -\Ci\Cpi w(l^2+m^2)] \,\D{l}\,\D{m} .
-\end{equation}
+\end{multline}
 如果 $\big| \Cpi w(l^2+m^2) \big| \ll 1$，
 即有 $\exp [-\Ci\Cpi w(l^2+m^2)] \approx 1$，
-则上式变成二维 Fourier 变换，于是可得：
+则上式变成二维 Fourier 变换，即：
 \begin{align}
   \acs{Vis}(u,v)
     & \equiv \acs{Vis}(u,v,w) \exp (2\Cpi\Ci\,w)  \\
@@ -1448,7 +1448,7 @@ $u$ 轴向东，$v$ 轴向北。
     \exp [-2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m} ,
   \label{eq:vis-uv}
 \end{align}
-然后通过逆变换，便得到目标的亮度分布 $\ac{I-nu}(l,m)$：
+然后通过逆 Fourier 变换，便得到目标的亮度分布 $\ac{I-nu}(l,m)$：
 \begin{equation}
   \label{eq:vis-inv2}
   \frac{\ac{I-nu}(l,m)}{\sqrt{1-l^2-m^2}}
