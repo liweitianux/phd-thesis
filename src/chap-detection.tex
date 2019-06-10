@@ -42,8 +42,8 @@ EoR 是早期宇宙的一段缺乏足够了解的时期，
 $\ac{magneton-n} = \ac{e}\,\ac{h-bar} / (2 \ac{mass-p})$ 为\acl{magneton-n}，
 $\ac{magneton-b} = \ac{e}\,\ac{h-bar} / (2 \ac{mass-e})$ 为 \acl{magneton-b}，
 \ac{mass-p} 和 \ac{mass-e} 分别是质子和电子的质量，
-$g_p$ 和 $g_e$ 分别为质子和电子的 $g$ 因子，
-$\B{S}_p$ 和 $\B{S}_e$ 分别为质子和电子的\ac{spin}。
+$g_p$ 和 $g_e$ 分别为两者的 $g$ 因子，
+$\B{S}_p$ 和 $\B{S}_e$ 分别为两者的\ac{spin}。
 电子带负电，所以磁矩方向与其自旋方向相反。
 
 \begin{figure}[htp]
@@ -56,7 +56,7 @@ $\B{S}_p$ 和 $\B{S}_e$ 分别为质子和电子的\ac{spin}。
     hyperfine levels of the ground state, emitting the 21\,cm line.
     \\来源/Credit:
     Tiltec,
-    \url{https://en.wikipedia.org/wiki/File:Hydrogen-SpinFlip.svg},
+    \url{https://en.wikipedia.org/wiki/File:Hydrogen-SpinFlip.svg}, \\
     (2019-03-31), 公有领域
   }
   \label{fig:hi-spinflip}
@@ -100,7 +100,7 @@ $\B{S}_p$ 和 $\B{S}_e$ 分别为质子和电子的\ac{spin}。
 %---------------------------------------------------------------------
 \subsection{EoR 信号的亮温度}
 
-中性氢的 \ac{21cmline}的跃迁概率非常低，其\acl{coef-A21} \ac{coef-A21} 为：
+中性氢的 \ac{21cmline}的跃迁概率非常低，其\acl{coef-A21}为：
 \begin{equation}
   \ac{coef-A21} =
     \SI[separate-uncertainty=false]{2.86888(7)e-15}{\per\second} .
@@ -621,13 +621,14 @@ EoR 信号的\ac{imgcube} $I_{\R{eor}}(\B{\theta}, \nu)$
 频率维度 $\nu$ 表示前景源的辐射频谱（通常为连续谱），
 与两个空间维度 $\B{\theta}$ 完全不同，两者之间也是相互独立的。
 因此，一个更好的处理方法是保持三维功率谱 $\ac{psD}(\B{\ac{k-perp}}, \ac{k-los})$
-的频率维度 \ac{k-los} 不变，只将两个空间维度 $\B{\ac{k-perp}}$ 压缩至一维。
+的频率维度 \ac{k-los} 不变，只将两个空间维度 $\B{\ac{k-perp}}$ 压缩至一维
+\cite{datta2010}。
 具体而言：
 如\autoref{fig:ps2d-calculation} 所示，
 在三维功率谱的每一个 \ac{k-los} 平面里，取一系列圆环将功率平均，
 得到二维功率谱 $\ac{psD}(\ac{k-perp}, \ac{k-los})$，
 其中 $\ac{k-perp} = |\B{\ac{k-perp}}|$ 是圆环的半径
-\cite{datta2010,thyagarajan2013}。
+\cite{thyagarajan2013}。
 
 在二维功率谱上，EoR 信号因具有不光滑的频谱而主要分布在 \ac{k-los} 较大的区域，
 频谱光滑的前景则主要分布在 \ac{k-los} 较小的区域。
@@ -703,7 +704,7 @@ EoR 探测实验，尤其是采用低频干涉阵列，面临着一系列困难�
 
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=0.7\textwidth]{eor-foregrounds}
+  \includegraphics[width=0.8\textwidth]{eor-foregrounds}
   \bicaption[主要前景成分及其强度示意图]{%
     主要前景成分以及强度示意图，
     图中的数值代表在 \SI{120}{\MHz} 处的\acs*{rms}值。
@@ -713,7 +714,7 @@ EoR 探测实验，尤其是采用低频干涉阵列，面临着一系列困难�
     The numbers in the figure represent the root-mean-square values
     at \SI{120}{\MHz}.
     \\来源/Credit:
-    \citeay{zaroubi2013}, \S\,5.5
+    \citeay{zaroubi2013}, \S\,5.5 [修改了标注]
   }
   \label{fig:eor-foregrounds}
 \end{figure}
@@ -737,7 +738,7 @@ EoR 探测实验，尤其是采用低频干涉阵列，面临着一系列困难�
 
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=0.7\textwidth]{RFI-MWA}
+  \includegraphics[width=0.8\textwidth]{RFI-MWA}
   \bicaption[MWA 各子频带的\acs*{vis}数据被标记为 RFI 的比例]{%
     MWA 各子频带的\acs*{vis}数据被标记为 \acs*{rfi} 的比例，
     主要的人工源为 ORBCOMM 卫星通信、调频 (FM) 广播和卫星电视。
@@ -756,7 +757,7 @@ EoR 探测实验，尤其是采用低频干涉阵列，面临着一系列困难�
 %.......................................
 \item
 \emph{电离层扰动:}
-\acf{ionosphere}是地球大气层顶部被太阳辐射电离的部分，
+\ac{ionosphere}是地球大气层顶部被太阳辐射电离的部分，
 从约 \SI{60}{\km} 延伸至约 \SI{1000}{\km} 的高空，
 覆盖了大气层的部分\ac{mesosphere}、\ac{thermosphere}以及\ac{exosphere}，
 如\autoref{fig:ionosphere} 所示。
@@ -998,7 +999,7 @@ $\sim$\,27\% \cite{shaver1999}。
     将要介绍的\enquote{展源}区分开来。
 
   \item \emph{\ac{src-compact}}:
-    没有明显的射电辐射结构，呈致密点状。
+    没有明显可见的射电辐射结构，呈致密点状。
     根据射电辐射的来源，可主要分为
     恒星形成星系 (star-forming galaxy) \cite{condon1992}
     和\ac{agn} \cite{urry1995,antonucci1993,padovani2017}。
@@ -1099,11 +1100,11 @@ MACS J0717.5$+$3745 \cite{vanWeeren2009}。
 \section{前景识别与分离方法}
 \label{sec:fg-methods}
 
-微弱的 EoR 信号被强烈的前景干扰所淹没是 EoR 探测实验所面临的最主要困难之一，
+EoR 探测实验所面临的最主要困难之一便是微弱的 EoR 信号被强烈的前景干扰所淹没。
 准确地识别并分离前景干扰是成功探测 EoR 信号的关键。
 尽管前景污染的强度高达待测 EoR 信号的 \numrange{4}{5} 个数量级，
 但是幸运的是各前景成分的频谱在本质上是光滑的；
-而 EoR 信号的频谱反映了中性氢在宇宙不同红移处（即频率）的分布情况
+而 EoR 信号的频谱表示中性氢在宇宙不同红移（即频率）处的分布状态
 \cite{diMatteo2002,oh2003,gnedin2004}，
 所以会随频率发生显著变化，呈锯齿状不光滑结构。
 利用这个关键区别，原则上可以将 EoR 信号从强烈的前景污染中分离出来。
@@ -1294,7 +1295,7 @@ MACS J0717.5$+$3745 \cite{vanWeeren2009}。
 \ac{k-perp} 越大的\ac{mode}被混合到 \ac{k-los} \ac{mode}的范围也越大，
 于是形成\ac{fg-wedge}。
 另一方面，随着前景干扰源距离视场中心越来越远，其产生的污染区域也逐渐向左上方移动。
-因此，视场内距离中心最远的干扰源（设该距离为 $\Phi$）确定了\ac{fg-wedge}的边界，
+因此视场内距离中心最远的干扰源（设该距离为 $\Phi$）确定了\ac{fg-wedge}的边界，
 而左上方未受前景污染的区域则称为 \enquote{EoR 窗口}，可表示为：
 \begin{equation}
   \ac{k-los} \ge \frac{\ac{Hz} \ac{D-comoving}(z) \sin\Phi}{
@@ -1308,8 +1309,8 @@ MACS J0717.5$+$3745 \cite{vanWeeren2009}。
 （带宽 $\ac{bandwidth} \lesssim \SI{10}{\MHz}$）以避免宇宙演化的影响
 \cite{wyithe2004,thyagarajan2013}，
 所以计算过程中对频率维度进行 Fourier 变换时存在一定的边界效应。
-另外，干涉阵列的频率响应也存在一些结构 \cite{deLeraAcedo2017,trott2017}。
-这些因素将导致额外的前景\ac{spillover}，使得\ac{fg-wedge}变大，
+另外，干涉阵列的频率响应可能存在一些不光滑的结构 \cite{deLeraAcedo2017,trott2017}。
+这些因素将导致额外的前景\ac{spillover}，扩大\ac{fg-wedge}区域，
 因此 \citeay{thyagarajan2013} 提出了如下改进的 EoR 窗口的边界表达式：
 \begin{equation}
   \label{eq:eor-window}
