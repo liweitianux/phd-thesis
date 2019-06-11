@@ -860,10 +860,10 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 下文对其进行简要介绍，并以此天线为例介绍若干重要的天线概念。
 
 %---------------------------------------------------------------------
-\subsection{短偶极天线}
+\subsection{短偶极天线的辐射场}
 
 短偶极天线由两个总长度 $l$ 远小于波长 $\lambda$ 的导体组成
-（\autoref{fig:short-dipole}）。
+（\autoref{fig:short-dipole} 所示）。
 当接上一个交流驱动电源后，导体内的电子会发生往复的加速运动，从而激发电磁波。
 
 \begin{figure}[htp]
@@ -934,7 +934,7 @@ $\theta$ 为 $r$ 与 $v$ 之间的夹角。
       \frac{I_0 l}{\lambda} \Ce^{-\Ci\omega t} .
     \label{eq:dipole-efield}
 \end{align}
-\autoref{fig:dipole-radiation} 显示了一个无限短的偶极天线（即 Hertz 偶极子）
+\autoref{fig:dipole-radiation} 显示了一个无限短偶极天线（即 Hertz 偶极子）
 的瞬时电场强度分布图。
 
 \begin{figure}[htp]
@@ -964,7 +964,7 @@ Poynting 流量（即单位面积流过的功率）为：
     = \frac{\Cpi}{8\,\acs{speed-light}}
       \left( \frac{I_0 l}{\lambda} \right)^2 \frac{\sin^2\theta}{r^2} .
 \end{equation}
-于是，该天线的\ac{pp} $P(\theta,\phi)$ 为：
+于是该天线的\ac{pp} $P(\theta,\phi)$ 为：
 \begin{equation}
   P(\theta,\phi) = \langle S \rangle.
 \end{equation}
@@ -987,6 +987,17 @@ $\bar{P}$ 之比，即：
     = \frac{4\Cpi P(\theta,\phi)}{\int P(\theta,\phi) \,\D{\Omega}} .
 \end{equation}
 可见，天线的\ac{gain}与其\ac{pp}只相差一个常数。
+对于一个理想的天线，全天平均的增益为：
+\begin{equation}
+  \label{eq:gain-avg}
+  \langle G \rangle
+    \equiv \frac{1}{4\Cpi} \int G(\theta,\phi) \,\D{\Omega}
+    = 1 .
+\end{equation}
+在实际应用中，\ac{gain} $G$ 通常使用 [\si{\decibel}] 为单位：
+\begin{equation}
+    G_{\si{\decibel}} \equiv 10 \log_{10} G .
+\end{equation}
 
 %---------------------------------------------------------------------
 \subsection{主瓣及其\acl*{hpbw}}
@@ -1001,8 +1012,10 @@ $\bar{P}$ 之比，即：
   \Omega_{\R{MB}} = \int_{\R{MB}} P_n(\theta,\phi) \,\D{\Omega} ,
 \end{equation}
 其中 $P_n(\theta,\phi)$ 为归一化的\ac{pp} [\autoref{eq:power-pattern}]。
-主瓣的角度范围一般由\acf{hpbw}描述，其定义为 $P(\theta,\phi)$
-下降至最大值的一半时主瓣的两点之间的角距离，亦如\autoref{fig:lobes} 所示。
+主瓣的角度范围一般由\acf{hpbw}描述，定义为 $P(\theta,\phi)$
+下降至最大值的一半时主瓣的两点之间的角距离（\autoref{fig:lobes}）。
+若天线的辐射越具有方向性，则天线的\ac{gain} $G$ 越大，
+主瓣的立体角 $\Omega_{\R{MB}}$ 越小，\ac{hpbw} 也越小。
 
 \begin{figure}[htp]
   \centering
@@ -1020,8 +1033,8 @@ $\bar{P}$ 之比，即：
 %---------------------------------------------------------------------
 \subsection{有效接收面积}
 
-当一个天线测量一个流量密度为 $S_{\nu}$ 的无偏振源时，
-若输出的谱功率为 $P_{\nu}$，
+在测量一个流量密度为 $S_{\nu}$ 的无偏振源时，
+若天线输出的谱功率为 $P_{\nu}$，
 则该天线的\acl{area-eff} (effective collecting area) \ac{area-eff}
 定义为：
 \begin{equation}
@@ -1044,14 +1057,14 @@ $\bar{P}$ 之比，即：
   \label{fig:area-avg-exp}
 \end{figure}
 
-一个天线的平均接收面积定义为：
+天线的平均接收面积定义为：
 \begin{equation}
   \label{eq:area-avg1}
   \langle \ac{area-eff} \rangle
     \equiv \frac{1}{4\Cpi} \int \ac{area-eff}(\theta,\phi) \,\D{\Omega} .
 \end{equation}
 为计算该面积，可借助这样一个思想实验：
-一个理想的无损天线和一个匹配的理想电阻，分别置于两个温度均为 $T$ 的空腔中并且达到热平衡；
+一个理想的天线和一个理想的电阻，分别置于两个温度均为 $T$ 的空腔中并且达到热平衡；
 天线和电阻之间使用导线相连，两个空腔之间设有一个特殊的阀门，能够阻挡电磁波，
 但允许频率范围为 $[\nu, \,\nu+\D{\nu}]$ 的电流通过导线，
 如\autoref{fig:area-avg-exp} 所示。
@@ -1067,31 +1080,59 @@ $\bar{P}$ 之比，即：
 \begin{equation}
   \acs{kb}T =
     \frac{2\,\acs{kb}T}{2\lambda^2}
-      \int \ac{area-eff}(\theta,\phi) \,\D{\Omega} .
+      \int \ac{area-eff}(\theta,\phi) \,\D{\Omega} ,
 \end{equation}
-于是，天线的平均接收面积 $\langle \ac{area-eff} \rangle$ 为：
+其中 $\lambda = \ac{speed-light} / \nu$ 为辐射的波长。
+于是天线的平均接收面积 $\langle \ac{area-eff} \rangle$ 为：
 \begin{equation}
   \label{eq:area-avg}
-  \langle \ac{area-eff} \rangle = \frac{\lambda^2}{4\Cpi} .
+  \langle \ac{area-eff} \rangle = \frac{\lambda^2}{4\Cpi} ,
 \end{equation}
+因此不同形状、大小的理想天线均具有相同的平均接收面积。
+由\ac{reciprocity-theorem}可知，同一个天线的发射\ac{pp}和接收\ac{pp}相同，即：
+\begin{equation}
+  G(\theta,\phi) \propto A_e(\theta,\phi) .
+\end{equation}
+结合\autoref{eq:area-avg} 和\autoref{eq:gain-avg}
+可得天线在某个方向的\acl{area-eff}为：
+\begin{equation}
+  \ac{area-eff}(\theta,\phi) = \frac{\lambda^2 G(\theta,\phi)}{4\Cpi} .
+\end{equation}
+若天线的\acl{area-eff} $\ac{area-eff}(\theta,\phi)$ 越大，
+则天线在此方向的\ac{gain} $G(\theta,\phi)$ 也越大，
+于是天线的\ac{directivity}越强，对其他方向的灵敏度越低。
 
 %---------------------------------------------------------------------
 \subsection{天线温度}
 
 一个被置于温度为 $T$ 的黑体辐射环境中的天线，
 输出的噪声将与温度为 $T$ 的电阻所产生的热噪声 [\autoref{eq:nyquist-approx}]
-相同（即具有相同的频谱）。
-该电阻被称为天线的匹配电阻，
-据此可定义\acl{T-antenna} (antenna temperature) 为其匹配电阻的温度：
+相同（即具有相同的频谱），该电阻被称为天线的匹配电阻。
+若天线的输出谱功率为 $P_{\nu}$，则其匹配电阻的温度为
+$T_r = P_{\nu} / \acs{kb}$，
+于是定义\acl{T-antenna} (antenna temperature) 为其匹配电阻的温度，即：
 \begin{equation}
   \label{eq:t-ant}
-  \acs{T-antenna} \equiv \frac{P_{\nu}}{\acs{kb}} .
+  \acs{T-antenna} \equiv T_r = \frac{P_{\nu}}{\acs{kb}} .
 \end{equation}
+\acl{T-antenna} \ac{T-antenna} 与天线的物理温度没有必然联系，
+仅作为天线测量值的一个方便表示。
+这个概念被广泛使用的原因主要有：
+\begin{itemize}
+  \item $\acs{T-antenna} = \SI{1}{\kelvin}$ 对应的谱功率为
+    $P_{\nu} = \SI{1.38e-23}{\watt\per\hertz}$，
+    是一个实用的小量，便于表示实际测量结果；
+  \item 天线系统通常使用不同温度的电阻（称为负载）来进行校准，
+    因此\acl{T-antenna}能够自然地表示校准结果；
+  \item 接收机的噪声也使用 [\si{\kelvin}] 为单位，
+    因此采用\acl{T-antenna}来描述信号强度能够简化信号和噪声的比较。
+\end{itemize}
+
 设天线的有效接收面积为 \ac{area-eff} [\autoref{eq:area-eff}]，
 则一个流量密度为 $S_{\nu}$ 的无偏振辐射源将使天线的温度 \acs{T-antenna} 上升：
 \begin{equation}
   \label{eq:dt-source}
-  \Delta T = \frac{\ac{area-eff} S_{\nu}}{2\,\acs{kb}} .
+  \Delta\acs{T-antenna} = \frac{\ac{area-eff} S_{\nu}}{2\,\acs{kb}} .
 \end{equation}
 
 
