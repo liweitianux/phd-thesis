@@ -1140,8 +1140,8 @@ $T_r = P_{\nu} / \acs{kb}$，
 \section{射电干涉测量的基本原理}
 \label{sec:interferometry}
 
-根据衍射原理，望远镜的角分辨率为 $\theta \sim \lambda / D$，
-其中 $\lambda$ 为辐射信号的波长（对应于观测频率），$D$ 为望远镜的口径。
+根据衍射原理，望远镜的角分辨率约为 $\theta \sim \lambda / D$，
+其中 $\lambda$ 为信号的波长（对应于观测频率），$D$ 为望远镜的口径。
 与光学波段相比，射电信号的波长要长得多。
 为了实现足够好的角分辨率，必须建造巨型的望远镜，
 比如 \SI{100}{\meter} 口径的 \ac{gbt}、
@@ -1182,7 +1182,7 @@ $T_r = P_{\nu} / \acs{kb}$，
 考虑一个最简单的二元单色干涉仪（如\autoref{fig:interferometer} 所示），
 由两个相同的天线和\ac{correlator}构成，只测量频率为 $\nu$ 的单色信号。
 由于辐射源非常遥远，其信号到达干涉仪时为平面波（忽略电离层扰动等影响）。
-同一个波面被两个天线接收之间存在一个时间差，
+同一个波面被两个天线接收的时刻之间存在一定的差异，
 即为\acl{delay-geo} (geometric delay) \ac{delay-geo}:
 \begin{equation}
   \acs{delay-geo} =
@@ -1191,7 +1191,7 @@ $T_r = P_{\nu} / \acs{kb}$，
 其中 \acs{speed-light} 是\acl{speed-light}，
 \ac{v-baseline} 为两天线之间的\acl{v-baseline}（由天线 1 指向天线 2），
 \ac{v-direction} 为辐射源的\acl{v-direction}。
-两个天线接收信号后分别输出电压响应：
+两个天线接收信号后输出的电压响应分别为：
 \begin{equation}
   \left\{
     \begin{aligned}
@@ -1201,7 +1201,7 @@ $T_r = P_{\nu} / \acs{kb}$，
   \right.
 \end{equation}
 其中 $\omega = 2\Cpi\nu$ 为角频率。
-然后，\ac{correlator}将两个天线的响应相乘：
+\ac{correlator}然后将两个天线的响应相乘：
 \begin{align}
   V_1(t) V_2(t)
     &= V^2 \cos [\omega (t - \acs{delay-geo})] \cos (\omega t) \\
@@ -1214,10 +1214,10 @@ $T_r = P_{\nu} / \acs{kb}$，
   R = \langle V_1(t) V_2(t) \rangle
     = \frac{1}{2} V^2 \cos (\omega \acs{delay-geo}) .
 \end{equation}
-由于天线响应 $V_1$ 和 $V_2$ 正比于辐射源的亮度以及天线的\ac{gain}
+由于天线响应 $V_1$ 和 $V_2$ 正比于辐射源的亮度和天线的\ac{gain}
 [参见\autoref{eq:gain}]，
 因此\ac{correlator}的响应 $R$ 正比于辐射源的流量密度 $S$
-以及 $\sqrt{A_1 A_2}$，其中 $A_1$ 和 $A_2$ 为两个天线的有效接收面积
+和 $\sqrt{A_1 A_2}$，其中 $A_1$ 和 $A_2$ 为两个天线的有效接收面积
 [参见\autoref{eq:area-avg}]。
 
 当辐射源的方向 \ac{v-direction} 改变时（比如由于地球的自转），
@@ -1244,13 +1244,13 @@ $T_r = P_{\nu} / \acs{kb}$，
 此参数称为干涉仪的\acl{bw-synthesized} (synthesized beamwidth)，
 描述了干涉仪的角分辨能力。
 
-天线的\ac{pp}描述了其响应随方向的变化情况，也被称为干涉仪的\acf{beam-primary}，
+天线的\ac{pp}描述了天线响应随方向的变化情况，也被称为干涉仪的\acf{beam-primary}，
 将对输出 $R$ 产生调制，亦如\autoref{fig:interferometer} 所示，
 其中\ac{correlator}的响应\ac{fringe}的\ac{envelope}示意了\ac{beam-primary}的衰减情况。
 
 对于一个表面亮度分布为 $\acs{I-nu}(\ac{v-direction})$ 的\ac{src-extended}，
 由于不同位置产生的辐射互不相干，因此可以被当作一系列独立的点源处理，
-于是上述二元单色干涉仪的输出响应为：
+于是上述二元单色干涉仪观测这个\ac{src-extended}的输出响应为：
 \begin{align}
   R_c & = \int \acs{I-nu}(\ac{v-direction})
       \cos \left( \omega \ac{v-baseline} \cdot \ac{v-direction} /
@@ -1266,8 +1266,8 @@ $T_r = P_{\nu} / \acs{kb}$，
 
 一个任意的亮度分布 $I$ 可分解为奇对称成分 $I_{\R{odd}}$
 与偶对称成分 $I_{\R{even}}$ 之和，
-然而\autoref{eq:resp-cos} 描述的 cosine \ac{correlator}只能测量其中的
-偶对称成分 $I_{\R{even}}$，即：
+但是\autoref{eq:resp-cos} 描述的 cosine \ac{correlator}只能测量其中的
+偶对称成分 $I_{\R{even}}$，因为：
 \begin{align}
   R_c & = \int \left[ I_{\R{odd}}(\ac{v-direction}) +
         I_{\R{even}}(\ac{v-direction}) \right]
@@ -1292,7 +1292,7 @@ $T_r = P_{\nu} / \acs{kb}$，
       \,\D{\Omega} .
 \end{align}
 一对 cosine 和 sine \ac{correlator}的组合称为\ac{c-correlator}。
-相应地，\acl{Vis} (complex visibility)，简称\ac{vis}，可定义为：
+因此\acl{Vis} (complex visibility)，简称\ac{vis}，可定义为：
 \begin{align}
   \acs{Vis}
     & \equiv R_c - \Ci\, R_s  \\
@@ -1305,9 +1305,9 @@ $T_r = P_{\nu} / \acs{kb}$，
 %---------------------------------------------------------------------
 \subsection{有限带宽和平均时间的影响}
 
-将上述二元单色干涉仪推广至测量有限带宽的信号。
+将上述二元单色干涉仪推广至有限带宽信号的测量。
 考虑一个中心频率为 $\nu_c$ 且宽度为 $\Delta\nu$ 的窄频带 ($\Delta\nu \gg \nu_c$)，
-可认为辐射源的亮度以及天线的响应在此频带内保持不变，
+可认为辐射源的亮度和天线的响应在此频带内保持不变，
 于是可得干涉仪测量的\ac{vis} [\autoref{eq:vis}] 为：
 \begin{align}
   \acs{Vis}
@@ -1316,26 +1316,28 @@ $T_r = P_{\nu} / \acs{kb}$，
         I(\ac{v-direction}, \nu) \exp (-2\Cpi\Ci\, \nu\acs{delay-geo})
       \right] \,\D{\Omega} \\
     & \approx \int \ac{I-nu}(\ac{v-direction})
-      \sinc (\Delta\nu\,\acs{delay-geo})
+      \sinc_{\Cpi} (\Delta\nu\,\acs{delay-geo})
       \exp (-2\Cpi\Ci\, \nu_c\acs{delay-geo}) \,\D{\Omega},
   \label{eq:vis-bw}
 \end{align}
-其中归一化 $\sinc$ 函数的定义如下：
+其中归一化 $\sinc_{\Cpi}$ 函数的定义如下：
 \begin{equation}
   \label{eq:sinc}
-  \sinc(x) =
+  \sinc_{\Cpi}(x) =
     \begin{dcases*}
-      \frac{\sin(\Cpi x)}{\Cpi x}, \quad & if $x \neq 0$ , \\
-      1, \quad & if $x = 0$ .
+      \frac{\sin(\Cpi x)}{\Cpi x}, \quad & if $x \neq 0$, \\
+      1, \quad & if $x = 0$.
     \end{dcases*}
 \end{equation}
-因此干涉仪测得的\ac{fringe}幅度减弱至原来的
-$\sinc(\Delta\nu\,\acs{delay-geo})$ 倍。
-为了尽可能地减小这种损失，可以给前导天线的输出信号增加\acl{delay-comp}
-(compensating delay) \ac{delay-comp}，
+因此对于带宽为 $\Delta\nu$ 的非单色信号，
+干涉仪测得的\ac{fringe}幅度减弱至原来的
+$\sinc_{\Cpi}(\Delta\nu\,\acs{delay-geo})$ 倍。
+为了尽可能地减小这种损失，可以给\enquote{前导}天线
+（即先接收到信号的天线）的输出信号增加\acl{delay-comp}
+(compensating delay) \ac{delay-comp}
+（如\autoref{fig:interferometer-tau0} 所示），
 使其满足 $|\acs{delay-comp} - \acs{delay-geo}| \ll (\Delta\nu)^{-1}$，
-如\autoref{fig:interferometer-tau0} 所示。
-于是，两个天线的输出信号在到达\ac{correlator}时具有同步的相位。
+于是两个天线的输出响应到达\ac{correlator}时具有同步的相位。
 满足 $\acs{delay-comp} = \acs{delay-geo}$ 的方向 $\ac{v-direction}_0$
 称为\acf{delay-center}或\acf{phase-refpos}。
 
@@ -1360,12 +1362,12 @@ $\sinc(\Delta\nu\,\acs{delay-geo})$ 倍。
   \label{fig:interferometer-tau0}
 \end{figure}
 
-\acl{delay-geo} \acs{delay-geo} 会随方向而变化，
-因此\acl{delay-comp} \acs{delay-comp} 只对特定方向 $\ac{v-direction}_0$
-（即\ac{delay-center}）是正好准确的。
+因为\acl{delay-geo} \acs{delay-geo} 会随方向 $\ac{v-direction}$ 而变化，
+所以\acl{delay-comp} \acs{delay-comp} 只对特定方向 $\ac{v-direction}_0$
+（即\ac{delay-center}）是恰好准确的。
 偏离\ac{delay-center}的角度 $\Delta\theta$ 越大，
-\acl{delay-comp} \acs{delay-comp} 的修正效果就会越差，
-带宽带来的损失也就越大。
+\acl{delay-comp} \acs{delay-comp} 的修正效果就越差，
+带宽效应产生的影响也就越严重。
 这个效应被称为\acf{bw-smear}，限制了有效的视场大小。
 为了满足：
 \begin{equation}
@@ -1374,12 +1376,12 @@ $\sinc(\Delta\nu\,\acs{delay-geo})$ 倍。
     = \frac{b \sin\theta}{\acs{speed-light}} \Delta\nu \Delta\theta
     \ll 1 ,
 \end{equation}
-则要求：
+则要求视场半径满足：
 \begin{equation}
   \Delta\theta \ll \frac{\nu \acs{bw-synthesized}}{\Delta\nu} .
 \end{equation}
 另一个解决\ac{bw-smear}的方法是将一个宽频带划分为一系列足够窄（约几十 \si{\kHz}）
-的频率\ac{channel}，并且对每个\ac{channel}的信号独立地进行相关运算得到\ac{vis}。
+的频率\ac{channel}，然后对每个\ac{channel}的信号独立地进行相关运算得到\ac{vis}。
 
 类似地，如果\ac{correlator}的\ac{t-avg} $\Delta t$ 过长，
 则辐射源的位置 \ac{v-direction} 会因地球自转而发生显著改变
@@ -1432,15 +1434,15 @@ $v = \omega_e \Delta\theta$，其中 $\omega_e$ 为地球自转的角速度。
 \end{figure}
 
 为了能够实际地运用\autoref{eq:vis} 从观测的\ac{vis}数据获得辐射源的亮度分布，
-需要定义一个坐标系。
+需要定义一个合适的坐标系。
 如\autoref{fig:interferometer-coordsys} 所示的 $(u,v,w)$ 直角坐标系是最常用的，
 其中 $w$ 轴指向参考方向 $\ac{v-direction}_0$（通常为目标的中心），
 $u$ 轴向东，$v$ 轴向北。
-于是，\acl{v-baseline}为 $\ac{v-baseline} = (u,v,w) \lambda$，
+于是\acl{v-baseline}为 $\ac{v-baseline} = (u,v,w) \lambda$，
 \acl{v-direction}为 $\ac{v-direction} = \left( l, m, \sqrt{1-l^2-m^2} \right)$，
-其中 $l, m$ 分别为 \ac{v-direction} 对 $u, v$ 轴的投影长度，即\ac{dc}。
+其中 $l$ 和 $m$ 分别为 \ac{v-direction} 对 $u$ 轴和 $v$ 轴的投影长度，即\ac{dc}。
 再利用 $\D{\Omega} = \D{l}\,\D{m} \,\big/ \sqrt{1-l^2-m^2}$，
-可将\autoref{eq:vis} 表示为：
+干涉仪测量的\ac{vis} [\autoref{eq:vis}] 便可表示为：
 \begin{equation}
   \label{eq:vis-uvw}
   \acs{Vis}(u,v,w) = \iint \frac{\ac{I-nu}(l,m)}{\sqrt{1-l^2-m^2}}
@@ -1449,13 +1451,12 @@ $u$ 轴向东，$v$ 轴向北。
 \end{equation}
 注意，因为上式的相位因子存在额外项 \enquote{$w \sqrt{1-l^2-m^2}$}，
 所以这\emph{不是}二维 Fourier 变换。
-
 但是在下述两种常见的特殊情况下，上式可变成二维 Fourier 变换，
-从而通过逆运算可以获得目标的亮度分布。
+从而可以通过逆 Fourier 变换获得目标的亮度分布 $\ac{I-nu}(l,m)$。
 \begin{itemize}
 \item
 \emph{所有\acl{v-baseline}共面:}
-这可进一步分为两种情形：
+这里可以进一步分为两种情形：
 (1) 干涉阵列的天线只沿东西方向分布，如 \ac{wsrt} \cite{hogbom1974wsrt}，
 尽管地球自转，所有\acl{v-baseline}均落在同一个垂直于地球自转轴的平面内；
 (2) 虽然干涉阵列的天线分布在一个二维平面，如 \ac{miteor} \cite{zheng2014}，
@@ -1473,8 +1474,8 @@ $u$ 轴向东，$v$ 轴向北。
 %.......................................
 \item
 \emph{小视场成像:}
-对于任何干涉阵列，如果只考虑以参考方向 $\ac{v-direction}_0$ 为中心的一个足够小的区域，
-则有：
+对于任何干涉阵列，如果只观测以参考方向 $\ac{v-direction}_0$
+为中心的一个足够小的视场区域，则有：
 \begin{equation}
   w \sqrt{1-l^2-m^2}
     \approx w \left[ 1 - \frac{l^2+m^2}{2} \right] .
@@ -1509,10 +1510,10 @@ $u$ 轴向东，$v$ 轴向北。
 第二种情况要求\acl{v-direction} \ac{v-direction}
 在天球上的对应点全部在同一平面内，即视场足够小。
 从\autoref{eq:vis} 容易看出 \ac{v-baseline} 和 \ac{v-direction} 之间存在对称性，
-因此，这两种情况可理解为相同近似条件的不同表现形式 \cite{clark1999}。
-如果无法满足以上两种情况，比如大视场成像，则需要采用专门的成像方法
-\cite{cornwell1992,sault2007}，
-比如 \ac{w-proj}法 \cite{cornwell2008}、
+因此这两种情况可理解为相同近似条件的不同表现形式 \cite{clark1999}。
+如果无法满足以上两种情况（比如呈三维空间分布的干涉阵列的大视场成像），
+则需要采用专门的成像方法 \cite{cornwell1992,sault2007}，
+例如 \ac{w-proj}法 \cite{cornwell2008}、
 \ac{w-stack}法 \cite{humphreys2011}
 （将在 \autoref{sec:obs-simu} 使用的 \texttt{WSClean} 成像软件实现了该方法
 \cite{offringa2014,offringa2017}）。
@@ -1522,9 +1523,9 @@ $u$ 轴向东，$v$ 轴向北。
 \label{sec:uv-coverage}
 
 设二元干涉仪的\acl{v-baseline}为 $\ac{v-baseline} = (u,v,w)\lambda$，
-在每个时刻，干涉仪测量 $uv$ 平面内位于 $(u,v)$ 和 $(-u,-v)$ 的一对\ac{vis}。
-随着地球的自转，\ac{v-baseline} 的各个分量逐渐变化，经过 \SI{24}{\hour}，
-该基线所测量的\ac{vis}数据在 $uv$ 平面内形成两个相互对称的椭圆。
+干涉仪在每个时刻测量 $uv$ 平面内位于 $(u,v)$ 和 $(-u,-v)$ 的一对\ac{vis}。
+\ac{v-baseline} 的各个分量随地球自转而逐渐变化，
+于是该基线在 \SI{24}{\hour} 内测量的\ac{vis}数据在 $uv$ 平面内形成两个相互对称的椭圆。
 一个包含 \ac{N-ant} 个天线的干涉阵列可形成
 $\ac{N-ant}(\ac{N-ant}-1)/2$ 条基线，
 每条基线都可以测量 $uv$ 平面内相应位置的\ac{vis}，
@@ -1558,7 +1559,7 @@ $\ac{N-ant}(\ac{N-ant}-1)/2$ 条基线，
   \label{eq:sf}
   \acs{S-uv} = \sum_{k,t} \delta(u - u_{k,t}, v - v_{k,t}) ,
 \end{equation}
-其中 $u_{k,t}, v_{k,t}$ 为基线 $\B{b}_k$ 在 $t$ 时刻在 $uv$ 平面内的分量。
+其中 $u_{k,t}$ 和 $v_{k,t}$ 为时刻 $t$ 时基线 $\B{b}_k$ 在 $uv$ 平面内的分量。
 于是，干涉阵列实际测量的\ac{vis}数据为 $\acs{Vis}(u,v) \acs{S-uv}$。
 由于无法获得目标亮度分布的全部信息，
 根据\autoref{eq:vis-inv2} 对测量的\ac{vis}数据进行逆 Fourier 变换
@@ -1623,13 +1624,13 @@ $B(l, m)$ 是\ac{f-sampling} \acs{S-uv} 的 Fourier 变换：
 \subsection{点源灵敏度和亮度灵敏度}
 
 天线的输出信号会因为自身的热噪声而存在一定的误差。
-若天线的温度为 \ac{T-antenna} [\autoref{eq:t-ant}]，
-则天线每个时刻的测量值的\ac{rms}误差为
+若天线的温度为 \ac{T-antenna} [参见\autoref{eq:t-ant}]，
+则每个时刻天线的测量值的\ac{rms}误差为
 $\sigma_1 \approx \sqrt{2} \ac{T-antenna}$
 （详见 \citeay{condon2016}, 附录 B.6）。
 设信号的带宽为 $\Delta\nu$，根据采样定理 (sampling theorem)，
 在时间 $\tau$ 内应采样 $N \gtrsim 2 \Delta\nu \,\tau$ 个数据点。
-于是，天线的测量值经过时间平均后的误差为：
+于是天线的测量值经过时间平均后的误差为：
 \begin{equation}
   \label{eq:radiometer}
   \sigma_{\tau}
@@ -1642,18 +1643,19 @@ $\sigma_1 \approx \sqrt{2} \ac{T-antenna}$
 比如天线和接收机的\ac{gain}变化、大气层辐射的不规则涨落、
 未分辨背景源所产生的\ac{confusion}、等等。
 
-若一个点源的辐射使天线的温度 \ac{T-antenna} 升高了 $\Delta T$，
+若一个无偏振点源的辐射使天线的温度 \ac{T-antenna} 升高了 $\Delta\ac{T-antenna}$，
 则根据\autoref{eq:dt-source} 可测得该点源的流量密度为：
 \begin{equation}
-  S_{\nu} = \frac{2\,\ac{kb} \Delta T}{\ac{area-eff}} ,
+  S_{\nu} = \frac{2\,\ac{kb} \Delta\ac{T-antenna}}{\ac{area-eff}} ,
 \end{equation}
 相应的测量误差为：
 \begin{align}
   \sigma_S
-    & = \frac{2\,\ac{kb}}{\ac{area-eff}} \sigma(\ac{T-antenna} + \Delta T) \\
+    & = \frac{2\,\ac{kb}}{\ac{area-eff}}
+        \sigma(\ac{T-antenna} + \Delta\ac{T-antenna}) \\
     & \approx \frac{2\,\ac{kb}}{\ac{area-eff}} \sigma(\ac{T-antenna}) \\
     & = \frac{2\,\ac{kb} \ac{T-antenna}}{
-      \ac{area-eff} \sqrt{\Delta\nu \,\tau}} .
+      \ac{area-eff} \sqrt{\Delta\nu \,\tau}} ,
 \end{align}
 此即单天线的点源灵敏度。
 
