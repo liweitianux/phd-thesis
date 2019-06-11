@@ -253,7 +253,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$。
       \left( \frac{\D{s}}{\acs{speed-light}} \right) ,
 \end{equation}
 其中 \acs{speed-light} 是\acl{speed-light}。
-所以，源自 $\D{\Omega}$ 方向的辐射 $\acs{I-nu}(\theta,\phi)$
+所以源自 $\D{\Omega}$ 方向的辐射 $\acs{I-nu}(\theta,\phi)$
 在体积元 $\D{V}$ 的位置贡献的\acl{u-nu}为：
 \begin{equation}
   \D{\acs{u-nu}}
@@ -293,14 +293,14 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$。
 辐射在不存在吸收和发射的自由空间里传播时强度保持不变，
 即辐射的\acl*{I-nu} \acs*{I-nu} 与传播距离无关。
 为说明这一点，考虑由源发射的一束光线，
-设 $\D{\sigma_1}$ 和 $\D{\sigma_2}$ 是光线上相距为 $r$ 的两个面元，
-如\autoref{fig:intensity-conservation} 所示，
+设 $\D{\sigma_1}$ 和 $\D{\sigma_2}$ 是光线上相距为 $r$ 的两个面元
+（如\autoref{fig:intensity-conservation} 所示），
 则两个面元相互所张的立体角分别为：
 \begin{align}
   \D{\Omega_1} & = \frac{\cos\theta_2 \,\D{\sigma_2}}{r^2} , \\
   \D{\Omega_2} & = \frac{\cos\theta_1 \,\D{\sigma_1}}{r^2} .
 \end{align}
-于是，在频率范围 $[\nu, \,\nu+\D{\nu}]$ 以及立体角 $\D{\Omega_1}$ 之内
+于是可知在频率范围 $[\nu, \,\nu+\D{\nu}]$ 以及立体角 $\D{\Omega_1}$ 之内
 流过面元 $\D{\sigma_1}$ 的功率为：
 \begin{align}
   \D{P_1} & = (\acs{I-nu})_1 \cos\theta_1
@@ -351,7 +351,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$。
 其中 \acs{coef-absorption}
 为\acl{coef-absorption} (absorption coefficient)，
 具有 \ac{si} 单位 [\si{\per\meter}]。
-于是，\acl{I-nu} \acs{I-nu} 在通过厚度 $\D{s}$ 的介质后的损失比例为：
+于是\acl{I-nu} \acs{I-nu} 在通过厚度 $\D{s}$ 的介质后的损失比例为：
 \begin{equation}
   \label{eq:rt-absorption}
   \frac{\D{\acs{I-nu}}}{\acs{I-nu}} = - \acs{coef-absorption} \,\D{s} .
@@ -387,22 +387,21 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$。
 当 $\tau \ll 1$ 时，称介质是光学薄的；
 当 $\tau \gg 1$ 时，则称介质是光学厚的。
 
-另一方面，介质可能产生辐射使\acl{I-nu} \acs{I-nu} 增强。
+另一方面，介质可能产生辐射而增大\acl{I-nu} \acs{I-nu}。
 考虑介质中的一个体积元 $\D{s}\,\D{\sigma}$，在频率范围 $[\nu, \,\nu+\D{\nu}]$ 内
 沿某一方向的立体角元 $\D{\Omega}$ 所发射的谱功率为：
 \begin{equation}
   \D{P_{\nu}} =
     \acs{coef-emission} \,\D{s}\,\D{\sigma}\,\D{\nu}\,\D{\Omega} ,
 \end{equation}
-其中 \acs{coef-emission} 为\acl{coef-emission} (emission coefficient)。
-当不存在吸收时，\acs{coef-emission} 可表示为：
+其中 \acs{coef-emission} 为\acl{coef-emission} (emission coefficient)，
+在不存在吸收的情况下可表示为：
 \begin{equation}
   \label{eq:coef-emission}
-  \acs{coef-emission} = \diff{\acs{I-nu}}{s} .
+  \acs{coef-emission} = \diff{\acs{I-nu}}{s} ,
 \end{equation}
-易知 \acs{coef-emission} 的 \ac{si} 单位为
-[\si{\watt\per\cubic\meter\per\hertz\per\steradian}]。
-综合上式和\autoref{eq:rt-absorption}，可得\ac{rt}方程：
+具有 \ac{si} 单位 [\si{\watt\per\cubic\meter\per\hertz\per\steradian}]。
+综合上式和\autoref{eq:rt-absorption}，可得完整的\ac{rt}方程为：
 \begin{equation}
   \label{eq:radiative-transfer}
   \diff{\acs{I-nu}}{s} =
@@ -443,6 +442,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$。
 \begin{align}
   \diff{\acs{I-nu}}{s} & = 0 , \\
   \acs{I-nu} & = B_{\nu}(T) ,
+  \label{eq:kirchhoff-I-B}
 \end{align}
 其中 $B_{\nu}(T)$ 为空腔的辐射频谱。
 于是辐射转移方程 [\autoref{eq:radiative-transfer}] 成为：
@@ -458,11 +458,12 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$。
 上式对任意频率 $\nu$ 均成立。
 这就是完全热平衡系统的 Kirchhoff 定律。
 
-完全热平衡只有在特殊的条件下才能实现。
-对于一般的系统，产生发射或吸收的介质无法与辐射场达到热平衡，
-但如果介质本身是热平衡的，则称该系统处于\acf{lte}状态。
-Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
-不过辐射场的\acl{I-nu} \ac{I-nu} 与 $B_{\nu}(T)$ 通常不相等。
+完全热平衡状态只有在特殊的条件下才能实现；
+对于一般的系统，介质无法与辐射场达到热平衡。
+尽管如此，如果介质本身是热平衡的，则称该系统处于\acf{lte}状态。
+对于这类\acf{lte}系统，Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 同样适用，
+但是辐射场的\acl{I-nu} \ac{I-nu} 与介质的辐射频谱 $B_{\nu}(T)$ 通常不相等
+（即\autoref{eq:kirchhoff-I-B} 不成立）。
 
 %---------------------------------------------------------------------
 \subsection{黑体辐射和亮温度}
@@ -509,7 +510,7 @@ Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 对此类系统同样适用，
   \label{eq:nyquist-approx}
   P_{\nu} \approx \acs{kb} T .
 \end{equation}
-该式是 Rayleigh--Jeans 近似 [\autoref{eq:rj-approx}] 在电子学里的对应。
+该式是 Rayleigh--Jeans 近似 [\autoref{eq:rj-approx}] 在电子学中的对应。
 类似地，该近似公式只适用于 $\acs{hp}\nu \ll \acs{kb}T$ 的经典范畴。
 在考虑量子化修正后，严格的 Nyquist 公式为：
 \begin{equation}
