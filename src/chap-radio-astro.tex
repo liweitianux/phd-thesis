@@ -563,7 +563,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$。
   在没有外界光子的情况下，处在高能级 $E_2$ 的原子自发地跃迁到低能级 $E_1$
   而发射光子的过程 [如\autoref{fig:atom-interactions}(a) 所示]。
   发射光子的频率为 $\nu_0 = \Delta E / \acs{hp} = (E_2 - E_1) / \acs{hp}$。
-  此类跃迁的速率正比与原子在高能级 $E_2$ 的布居数 $N_2$，即：
+  此类跃迁的速率正比于原子在高能级 $E_2$ 的布居数 $N_2$，即：
   \begin{equation}
     \label{eq:rate-em-spontaneous}
     \left( \diff{N_{21}}{t} \right)_{\R{sp}} = \ac{coef-A21} N_2 ,
@@ -575,7 +575,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$。
   跃迁而发射光子的过程 [如\autoref{fig:atom-interactions}(b) 所示]。
   该过程产生的光子与入射光子具有相同的频率、相位、传播方向和偏振态等性质，
   这就是\acf{laser}的基本原理。
-  这个过程的跃迁速率正比与原子在高能级 $E_2$ 的布居数 $N_2$
+  这个过程的跃迁速率正比于原子在高能级 $E_2$ 的布居数 $N_2$
   以及辐射场的\acl{u-nu} $\acs{u-nu}(\nu_0)$，即：
   \begin{equation}
     \label{eq:rate-em-stimulated}
@@ -587,7 +587,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$。
 \item \emph{吸收}:
   处在低能级 $E_1$ 的原子吸收一个频率为 $\nu_0$ 的光子而跃迁到高能级 $E_2$ 的过程
   [如\autoref{fig:atom-interactions}(c) 所示]。
-  类似地，该过程的跃迁速率正比与原子在低能级 $E_1$ 的布居数 $N_1$
+  类似地，该过程的跃迁速率正比于原子在低能级 $E_1$ 的布居数 $N_1$
   以及辐射场的\acl{u-nu} $\acs{u-nu}(\nu_0)$，即：
   \begin{equation}
     \label{eq:rate-absorption}
@@ -599,7 +599,7 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$。
 统称为 Einstein 系数。
 
 考虑一个处于完全热平衡的原子系统，
-则能级 $E_1$ 和 $E_2$ 之间的三种跃迁过程应满足\acf{detailed-balance}:
+则能级 $E_1$ 和 $E_2$ 之间的三种跃迁过程应满足\acf{detailed-balance}条件：
 \begin{equation}
   \label{eq:detailed-balance1}
   \left( \diff{N_{21}}{t} \right)_{\R{sp}}
@@ -611,14 +611,14 @@ $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$。
   A_{21} N_2 + B_{21} N_2 \, \acs{u-nu}(\nu_0)
     = B_{12} N_1 \, \acs{u-nu}(\nu_0) .
 \end{equation}
-同时，原子在两个能级上的布居服从 Boltzmann 分布：
+同时，原子在两个能级上的布居数服从 Boltzmann 分布：
 \begin{equation}
   \label{eq:ratio-populations-te}
   \frac{N_2}{N_1}
     = \frac{g_2}{g_1} \exp\left( - \frac{E_2-E_1}{\acs{kb} T} \right)
     = \frac{g_2}{g_1} \exp\left( - \frac{\acs{hp} \nu_0}{\acs{kb} T} \right) ,
 \end{equation}
-其中 $T$ 为系统的温度，
+其中 $T$ 为系统的热力学温度，
 $g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}。
 
 从\autoref{eq:detailed-balance2} 可解出辐射场的\acl{u-nu}：
@@ -672,8 +672,7 @@ $g_1$ 和 $g_2$ 分别为能级 $E_1$ 和 $E_2$ 的\acf{dod}。
 对于谱线的\ac{rt}问题，
 \acs{coef-emission} 和 \acs{coef-absorption} 均可使用 Einstein 系数表示出来。
 利用\ac{detailed-balance}方程 [\autoref{eq:detailed-balance}]，
-可进一步只使用\acl{coef-A21} \ac{coef-A21}
-来描述 \acs{coef-emission} 和 \acs{coef-absorption}。
+可进一步只使用\acl{coef-A21} \ac{coef-A21} 来表示这两个系数。
 
 考虑一个在能级 $E_1$ 和 $E_2$ 之间跃迁的热平衡系统，
 原子（或分子）在这两个能级上的布居数密度分别为 $N_1$ 和 $N_2$。
@@ -772,7 +771,7 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 \end{align}
 
 %---------------------------------------------------------------------
-\subsection{激发温度}
+\subsection{能级相对布居和激发温度}
 
 即使一个二能级系统未处于局部热平衡状态，
 仍然可以使用下式定义其\acl{T-excitation} (excitation temperature)
@@ -788,14 +787,14 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
 由系统的辐射、\ac{coll-excitation}和\ac{coll-deexcitation} 三者之间的平衡决定。
 
 在单位时间、单位体积内，如果碰撞引发 $N_1 C_{12}$ 次从低能级 $E_1$ 到高能级 $E_2$
-的激发以及 $N_2 C_{21}$ 次从 $E_2$ 到 $E_1$ 的退激，
-则\autoref{eq:detailed-balance2} 成为：
+的激发和 $N_2 C_{21}$ 次从 $E_2$ 到 $E_1$ 的退激，
+则系统的平衡条件成为：
 \begin{equation}
   \label{eq:detailed-balance-collison1}
   N_2 [A_{21} + B_{21} \,\acs{u-nu}(\nu_0) + C_{21}]
     = N_1 [B_{12} \,\acs{u-nu}(\nu_0) + C_{12}] ,
 \end{equation}
-并且\ac{detailed-balance}要求：
+根据\ac{detailed-balance}条件 [\autoref{eq:detailed-balance2}] 可知：
 \begin{equation}
   \label{eq:detailed-balance-collison2}
   N_1 C_{12} = N_2 C_{21} .
@@ -809,7 +808,7 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
         \frac{\acs{hp} \nu_0}{\acs{kb} T_b} \right) - 1 \right]^{-1} ,
 \end{equation}
 其中 $T_b$ 为辐射场的\acl{T-b}。
-另外，利用\autoref{eq:ratio-populations-lte}
+再利用\autoref{eq:ratio-populations-lte}
 和\autoref{eq:detailed-balance-collison2} 可得：
 \begin{equation}
   \label{eq:tex-coefs-c}
@@ -817,7 +816,7 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
     \exp\left( - \frac{\acs{hp} \nu_0}{\acs{kb} \acs{T-kinetic}} \right) ,
 \end{equation}
 其中 \acs{T-kinetic} 为系统（通常为气体）的\acl{T-kinetic}。
-将\autoref{eq:tex-coefs-b}和\autoref{eq:tex-coefs-c}
+将\autoref{eq:tex-coefs-b} 和\autoref{eq:tex-coefs-c}
 代入\autoref{eq:detailed-balance-collison1}，整理可得：
 \begin{equation}
   \frac{N_2\,g_1}{N_1\,g_2} =
@@ -829,7 +828,9 @@ $\acs{u-nu} = 4\Cpi\,\acs{I-nu} / \acs{speed-light}$
      + C_{21} \left[ \exp\left( \frac{\acs{hp} \nu_0}{\acs{kb} T_b}
        \right) - 1 \right]} .
 \end{equation}
-最后，将上式代入\autoref{eq:t-excitation-def}，得到：
+最后将上式代入\autoref{eq:t-excitation-def}，
+得到\acl{T-excitation} \acs{T-excitation} 与 \acs{T-b} 和 \acs{T-kinetic}
+之间的关系为：
 \begin{equation}
   \label{eq:t-excitation}
   \exp\left(- \frac{\acs{hp} \nu_0}{\acs{kb} \acs{T-excitation}} \right) =
