@@ -1563,7 +1563,7 @@ $\ac{N-ant}(\ac{N-ant}-1)/2$ 条基线，
 于是，干涉阵列实际测量的\ac{vis}数据为 $\acs{Vis}(u,v) \acs{S-uv}$。
 由于无法获得目标亮度分布的全部信息，
 根据\autoref{eq:vis-inv2} 对测量的\ac{vis}数据进行逆 Fourier 变换
-仅能得到目标的\acf{dirty-map} $I_{\nu}^D(l,m)$：
+仅能得到目标的\acf{map-dirty} $I_{\nu}^D(l,m)$：
 \begin{equation}
   \label{eq:dirty-map}
   \frac{I_{\nu}^D(l,m)}{\sqrt{1-l^2-m^2}} = \iint
@@ -1581,7 +1581,7 @@ $B(l, m)$ 是\ac{f-sampling} \acs{S-uv} 的 Fourier 变换：
 \end{equation}
 称为\acf{beam-synthesized}或\acf{psf}。
 \autoref{fig:imaging-relations} 展示了成像过程中的主要变换关系。
-为了从\ac{dirty-map} $I_{\nu}^D(l,m)$ 尽可能地恢复目标的真实图像 $\ac{I-nu}(l,m)$，
+为了从\ac{map-dirty} $I_{\nu}^D(l,m)$ 尽可能地恢复目标的真实图像 $\ac{I-nu}(l,m)$，
 则需要使用复杂的非线性\ac{deconv}方法，
 比如 CLEAN 算法 \cite{hogbom1974,cornwell1999}、
 \ac{mem} \cite{narayan1986}。

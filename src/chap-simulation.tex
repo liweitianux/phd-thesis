@@ -1476,9 +1476,9 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 将一个前景成分（如射电晕）在一个频带（如 \SIrange{154}{162}{\MHz}）
 内 51 个\ac{channel}的\ac{vis}数据作为一个整体处理，得到相应的\ac{imgcube}。
 对于 EoR 信号，由于 CLEAN 算法对这种非常暗弱的弥散辐射处理效果有限，
-我们直接使用由 \texttt{WSClean} 生成的\ac{dirty-map}。
+我们直接使用由 \texttt{WSClean} 生成的\ac{map-dirty}。
 尽管如此，因为 EoR 信号的\ac{skymap}中没有明亮的点状结构，
-所以\ac{dirty-map}的质量已经足够好。
+所以\ac{map-dirty}的质量已经足够好。
 这样，我们模拟得到了以下成分在 \numrange{120}{128}、\numrange{154}{162}
 和 \numrange{192}{200} \si{\MHz} 三个频带内由
 SKA1-Low \enquote{观测}得到的\ac{imgcube}：
