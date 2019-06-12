@@ -117,6 +117,12 @@
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\sinc}{sinc}
 
+% Credit: https://tex.stackexchange.com/a/124746
+\DeclareFontFamily{U}{wncy}{}
+\DeclareFontShape{U}{wncy}{m}{n}{<->wncyr10}{}
+\DeclareSymbolFont{mcy}{U}{wncy}{m}{n}
+\DeclareMathSymbol{\Sha}{\mathord}{mcy}{"58} 
+
 % siunitx settings and new units
 \sisetup{
   range-phrase=\text{--},
