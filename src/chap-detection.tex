@@ -122,7 +122,7 @@ $\B{S}_p$ 和 $\B{S}_e$ 分别为两者的\ac{spin}。
 其中
 $g_1 = 1$ 和 $g_2 = 3$ 分别为两个能级的\ac{dod}，
 $T_* \equiv \acs{hp} \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$。
-在实际的天体物理应用中，均有 $\acs{T-spin} \gg T_*$，因此：
+在实际的天体物理应用中均有 $\acs{T-spin} \gg T_*$，因此：
 \begin{equation}
   \frac{N_2}{N_1} = \frac{g_2}{g_1} = 3 .
 \end{equation}
@@ -157,10 +157,10 @@ $T_* \equiv \acs{hp} \nu_0 / \acs{kb} \approx \SI{68.2}{\mK}$。
 \acs{n-h} 为\acl{n-h}，
 \acs{hi-fraction} 为\acl{hi-fraction} (neutral fraction of hydrogen)。
 
-一般而言，\ac{line-profile}与自然展宽 (natural broadening)、
+\ac{line-profile}与自然展宽 (natural broadening)、
 热展宽 (thermal broadening)、压力展宽 (pressue broadening)、
 体运动展宽 (bulk motion broadening) 等多种因素相关。
-但是对于 \ac{21cmline}，最重要的展宽因素是宇宙膨胀引起的 Doppler 展宽。
+但是对于 \ac{21cmline} 而言，最重要的展宽因素是宇宙膨胀引起的 Doppler 展宽。
 根据 Hubble 定律，线性尺度为 $s$ 的中性氢云的速度弥散约为
 $\Delta v \sim s \acs{Hz}$，
 于是\ac{line-profile}可近似为 \cite{furlanetto2006,morales2010}：
@@ -212,8 +212,8 @@ $\acs{optical-depth}_{\nu0} \ll 1$
   \label{fig:21cm-cmb-rt}
 \end{figure}
 
-在实际观测中，需要考虑 \ac{cmb} 辐射穿过中性氢云的转移过程，
-如\autoref{fig:21cm-cmb-rt} 所示。
+在实际观测中，需要考虑 \ac{cmb} 辐射穿过中性氢云的转移过程
+（如\autoref{fig:21cm-cmb-rt} 所示）。
 考虑一团处于热平衡状态、\acl{T-spin}为 \acs{T-spin}、位于红移 $z$ 处的中性氢云，
 结合 Kirchhoff 定律 [\autoref{eq:kirchhoff-law}] 可得\ac{rt}方程为：
 \begin{equation}
@@ -249,7 +249,7 @@ $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{e
 \end{equation}
 其中 $\acs{T-b}(\tau'=\tau_{\nu_0}) = T_{\R{cmb}}(z)$
 为辐射入射中性氢云时的亮温度，
-于是获得从中性氢云出射 ($\tau = 0$) 的辐射亮温度 $\acs{T-b}(\nu_0)$ 为：
+于是获得从中性氢云出射 ($\tau = 0$) 的辐射亮温度为：
 \begin{equation}
   \acs{T-b}(\nu_0)
     = \acs{T-spin} (1 - \Ce^{-\tau_{\nu_0}})
@@ -262,15 +262,14 @@ $B_{\nu}(\acs{T-spin})$ 是温度为 \acs{T-spin} 的黑体辐射谱 [\autoref{e
     & = T_{\R{cmb}}(z=0)\,(1+z)  \\
     & = 2.73 \,(1+z) \quad [\si{\kelvin}] ,
 \end{align}
-类似地，宇宙膨胀的红移效应将 \ac{21cmline}红移至频率
-$\nu = \acs{freq21cm}/(1+z)$，
+类似地，宇宙膨胀效应将 \ac{21cmline}红移至频率 $\nu = \acs{freq21cm}/(1+z)$，
 同时观测到的中性氢云的亮温度将为：
 \begin{equation}
   T_b^{\R{obs}}(\nu) = \frac{T_b(\acs{freq21cm})}{1 + z} .
 \end{equation}
 目前观测 \ac{21cmline}的策略是测量其相对于 \ac{cmb} 辐射的差异，
 即\acl{dT-b} (differential brightness temperature)。
-综上，并结合\autoref{eq:21cm-optical-depth3}，
+综上并结合\autoref{eq:21cm-optical-depth3}，
 得到待探测的 EoR 信号的\acl{dT-b} \ac{dT-b} 为：
 \begin{align}
   \acs{dT-b}(\nu)
@@ -300,7 +299,7 @@ $\nu = \acs{freq21cm}/(1+z)$，
 \end{equation}
 再利用当地的重子物质\ac{overdensity}，即
 \begin{equation}
-  1 + \delta_b = \frac{\rho_b}{\overline{\rho}_b}
+  1 + \delta_b = \frac{\rho_b}{\bar{\rho}_b}
     \approx \frac{\acs{n-h} \acs{mass-p}}{\acs{Ob0}(z) \acs{rho-crit}(z)} ,
 \end{equation}
 其中 $\acs{rho-crit}(z)$ 为\acl{rho-crit} [\autoref{eq:rho-crit}]，
@@ -488,8 +487,8 @@ $\nu = \acs{freq21cm} / (1 + z)$，
 垂直于视线方向和平行于视线方向的\acl{D-comoving}，
 $(\B{\ac{k-perp}}, \ac{k-los}) = 2\Cpi / (\B{r}_{\perp}, r_{\parallel})$
 分别表示 Fourier 空间中垂直于视线方向和平行于视线方向的\ac{wavenumber}。
-注意，对比\autoref{eq:ft3d}，上式的相位因子少了系数 $2\Cpi$。
-于是，相应的逆 Fourier 变换为：
+对比\autoref{eq:ft3d}，上式的相位因子少了系数 $2\Cpi$，
+于是相应的逆 Fourier 变换为：
 \begin{equation}
   T(\B{r}_{\perp}, r_{\parallel}) =
     \frac{1}{(2\Cpi)^3} \int \tilde{T}(\B{\ac{k-perp}}, \ac{k-los})
@@ -507,7 +506,7 @@ $(\B{\ac{k-perp}}, \ac{k-los}) = 2\Cpi / (\B{r}_{\perp}, r_{\parallel})$
       \delta(\ac{k-los} - k'_{\parallel}) .
 \end{equation}
 
-利用 \ac{21cmline}的观测频率、红移、\acl{D-comoving}之间的对应关系，可得：
+利用 \ac{21cmline}的观测频率、红移、\acl{D-comoving}之间的转换关系，可得：
 \begin{align}
   \B{r}_{\perp} & = \acs{D-comoving}(z) \,\B{\theta} , \\
   \Delta r_{\parallel}
@@ -538,9 +537,11 @@ $(\Delta r_{\parallel}, \Delta\nu) \to (r_{\parallel}, \nu)$
     P'(\B{u}, \eta) .
 \end{equation}
 更多细节可参考 \citeay{liu2014} 的附录 A。
-由\autoref{eq:ps3d-k} 给出的 EoR 信号的三维功率谱
-$P(\B{\ac{k-perp}}, \ac{k-los})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}]，
-实际研究中更常使用去量纲形式的功率谱 \cite{peacock1996}：
+
+EoR \ac{tomography}将获得 EoR 信号的亮温度分布图像，常用单位是 [\si{\mK}]，
+因此由\autoref{eq:ps3d-k} 给出的 EoR 信号的三维功率谱
+$P(\B{\ac{k-perp}}, \ac{k-los})$ 以 [\si{\mK\squared\Mpc\cubed}] 为单位。
+在实际研究中更常使用去量纲形式的功率谱 \cite{peacock1996}：
 \begin{equation}
   \label{eq:ps3d-k2}
   \ac{psD}(\B{\ac{k-perp}}, \ac{k-los})
@@ -570,11 +571,11 @@ $P(\B{\ac{k-perp}}, \ac{k-los})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}]
 \end{figure}
 
 当将红移范围限制在一个较窄的片段（如 $\Delta z \lesssim 0.5$）时，
-可以忽略宇宙演化并认为中性氢的分布是各向同性的。
-相应地，EoR 信号的三维功率谱 $\ac{psD}(\B{k})$ 则具有球对称分布
+可以忽略宇宙演化并认为中性氢的分布是各向同性的，
+因此 EoR 信号的三维功率谱 $\ac{psD}(\B{k})$ 也具有球对称分布
 \cite{morales2004,mcQuinn2006}，
 如\autoref{fig:eor-fg-fourier} 左栏所示。
-因此，可以将三维功率谱 $\ac{psD}(\B{k})$ 在一系列球壳里进行平均，
+于是可以将三维功率谱 $\ac{psD}(\B{k})$ 在一系列球壳里进行平均，
 得到一维\ac{ps} $\ac{psD}(\ac{k})$ \cite{morales2004,datta2010}，
 其中 $\ac{k} = |\B{k}| = \sqrt{|\B{k}_{\perp}|^2 + k_{\parallel}^2}$
 为球壳的半径。
@@ -582,15 +583,17 @@ $P(\B{\ac{k-perp}}, \ac{k-los})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}]
 极大地提高了每个\ac{mode}里 EoR 信号的\ac{snr}，
 从而大大降低了探测 EoR 信号的难度和所需的观测时间 \cite{datta2010}。
 
-然而，实际观测中存在目前无法完全扣除的前景干扰。
+然而，在实际观测中存在目前无法完全扣除的前景干扰。
 尽管前景辐射的频谱是光滑的，但是具有非常复杂的空间结构
-（如银河系的子结构、形态各异的射电星系、星系团弥散辐射；详见 \autoref{sec:fg-intro}），
-因此，在三维功率谱中，前景辐射的功率将被较好地约束在频率维度
+（如银河系的子结构、形态各异的射电星系和星系团弥散辐射；
+详见 \autoref{sec:fg-intro}），
+因此在三维功率谱中，前景辐射的功率将被较好地约束在频率维度
 ($\eta$ 或 \ac{k-los})，
 但却弥散在整个空间维度 ($\B{u}$ 或 $\B{\ac{k-perp}}$)，
 如\autoref{fig:eor-fg-fourier} 右栏所示。
-当简单地对三维功率谱按球壳平均时，
-前景辐射将出现在所有的 \ac{k} \ac{mode}里，淹没 EoR 信号。
+如果简单地对三维功率谱按球壳平均，
+那么前景辐射将出现在所有的 \ac{k} \ac{mode}里，
+严重阻碍 EoR 信号的识别与分离。
 
 \begin{figure}[htp]
   \centering
@@ -614,7 +617,7 @@ $P(\B{\ac{k-perp}}, \ac{k-los})$ 的常用单位是 [\si{\mK\squared\Mpc\cubed}]
 
 EoR 信号的\ac{imgcube} $I_{\R{eor}}(\B{\theta}, \nu)$
 的三个维度在本质上是相同的，均映射为中性氢的空间坐标。
-但是对于前景的\ac{imgcube} $I_{\R{fg}}(\B{\theta}, \nu)$，
+但是对于前景辐射的\ac{imgcube} $I_{\R{fg}}(\B{\theta}, \nu)$，
 频率维度 $\nu$ 表示前景源的辐射频谱（通常为连续谱），
 与两个空间维度 $\B{\theta}$ 完全不同，两者之间也是相互独立的。
 因此，一个更好的处理方法是保持三维功率谱 $\ac{psD}(\B{\ac{k-perp}}, \ac{k-los})$
@@ -692,7 +695,7 @@ EoR 探测实验，尤其是采用低频干涉阵列，面临着一系列困难�
 \cite{jelic2014,asad2015,asad2016,asad2018,gehlot2018}。
 如何处理强烈的前景干扰并成功提取 EoR 信号，
 是目前 EoR 探测领域的一个关键任务，
-不仅需要系统深入地理解各个前景成分的特征
+不仅需要深入地理解各个前景成分的特征
 \cite{jelic2008,jelic2010,wang2010,liu2012,offringa2016,
   carroll2016,murray2017,procopio2017,spinelli2018}，
 还需要研发有效的前景扣除与信号分离算法
@@ -722,16 +725,16 @@ EoR 探测实验，尤其是采用低频干涉阵列，面临着一系列困难�
 人类活动产生的无线电波已在地球上无处不在，对射电天文观测产生了严重的干扰。
 这些人工源主要包括：\ac{am}和\ac{fm}广播、卫星电视、卫星通信、\ac{gps} 信号、对讲机、雷达。
 虽然 EoR 探测设备通常建设在人烟稀少的射电宁静区域，
-但是仍不可避免也受到人工源的 \ac{rfi}，
+但是仍不可避免地受到人工源的 \ac{rfi}，
 甚至由月亮以及太空碎片反射回来的无线电波都可能对 EoR 观测产生一定程度的影响
 \cite{mcKinley2013,tingay2013rfi}。
-如\autoref{fig:rfi-mwa} 所示的是 MWA 在其各子频带的\ac{vis}数据
+如\autoref{fig:rfi-mwa} 所示的是 MWA 各子频带的\ac{vis}数据
 被标记为 \ac{rfi} 的比例，
-其中突显了\ac{fm}广播、卫星通信以及数字电视等干扰源对 EoR 探测所造成的影响。
+其中突显了\ac{fm}广播、卫星通信以及数字电视等人工源对 EoR 探测的影响。
 \ac{rfi} 的强度通常会高出天空信号的若干个数量级，并且会实时发生变化 \cite{bentum2011}。
 目前常用的一种办法是识别并屏蔽存在明显 \ac{rfi} 的时间和频率片段
 \cite{fridman2001,offringa2010,offringa2012,prasad2012,akeret2017}，
-但是残留的干扰可能会对前景处理以及 EoR 信号的测量均产生严重影响 \cite{offringa2015}。
+但是残留的干扰可能会对前景处理以及 EoR 信号的测量产生严重影响 \cite{offringa2015}。
 
 \begin{figure}[htp]
   \centering
@@ -788,7 +791,7 @@ EoR 探测实验，尤其是采用低频干涉阵列，面临着一系列困难�
 %.......................................
 \item
 \emph{仪器效应:}
-大型干涉阵列通常由成千上万根天线组成，
+大型干涉阵列通常由成千上万根天线组成；
 由于生产和安装过程的差异以及随环境和时间的变化，
 \ac{station}内每根天线的性能不可能完全相同，
 导致所形成的\ac{beam-station}存在很多不确定因素，
@@ -838,13 +841,12 @@ EoR 探测实验，尤其是采用低频干涉阵列，面临着一系列困难�
 是由弥散于银河系内的高能带电粒子在磁场中发生加速运动而产生的，
 是低频射电波段 ($\lesssim$\,\SI{1}{\GHz}) 最明亮的前景成分
 \cite{bernardi2009,ghosh2012}。
-在 \SI{150}{\MHz} 处，即使是高银纬辐射较弱的区域，
+在 \SI{150}{\MHz} 处，即使是在高银纬辐射较弱的区域，
 银河系同步辐射亦占全部前景辐射的 $\sim$\,70\% \cite{shaver1999}。
 \autoref{fig:galactic-syn} 上栏显示了由 \citeay{remazeilles2015}
 重新处理的 Haslam \SI{408}{\MHz} 巡天图 \cite{haslam1982}，
 可见银河系同步辐射具有明显的大尺度（约在度以上）子结构，
 这将在\ac{ps}的大尺度区域对 EoR 信号产生严重污染。
-
 银河系同步辐射的频谱近似为幂律形式，但谱指数随天空区域而变化，
 如\autoref{fig:galactic-syn} 下栏所示。
 在高银纬区域，\SIrange{100}{200}{\MHz} 范围内的平均谱指数
@@ -878,21 +880,22 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}。
 在低频射电波段对银河系同步辐射的观测和研究仍然非常有限，
 目前仅对少数几个天区开展了深入观测和研究
 \cite{bernardi2009,ghosh2012,iacobelli2013,choudhuri2017}，
-基于大规模巡天的研究更是匮乏。
+基于大规模巡天的研究更加匮乏。
 由于磁场强度的涨落、高能带电粒子的密度涨落、\ac{ism}的湍流等因素的影响
 \cite{waelkens2009,lazarian2012syn,iacobelli2013}，
-银河系同步辐射应具有更复杂的小尺度（角分及亚角分）结构。
-但是受限于目前的观测数据（Haslam \SI{408}{\MHz} 全天图的分辨率约为 \SI{0.85}{\degree}），
+银河系同步辐射在原则上应该拥有更复杂的小尺度（角分及亚角分）结构。
+但是受限于目前的观测数据
+（比如 Haslam \SI{408}{\MHz} 全天图的分辨率约为 \SI{0.85}{\degree}），
 我们对这些细节的了解程度远远不够 \cite{ali2016}。
 
 另一方面，银河系同步辐射具有一定的偏振 \cite{bernardi2009,jelic2014,gehlot2018}。
 偏振辐射通过磁场时，其偏振面会发生旋转，即 Faraday 旋转效应 \cite{rybicki1979}，
 而且旋转量依赖于辐射频率。
 因此天线接收到的某一偏振成分（如 Stokes $Q$ 或 $U$ 分量）的强度变化也依赖于频率，
-可能使辐射的频谱光滑性遭到损坏。
+这种效应能够损坏前景辐射的频谱光滑性。
 同时，仪器由于固有的限制而无法完全隔离各偏振成分的测量，
 因此会有少量 ($\sim$\,1\%) 偏振辐射漏泄到总辐射强度里，
-从而对前景频谱的光滑性产生破坏，阻碍前景的准确扣除
+从而对前景频谱的光滑性产生破坏，阻碍前景干扰的准确识别与扣除
 \cite{jelic2010,alonso2014,nunhokee2017,gehlot2018,spinelli2018}。
 
 %---------------------------------------------------------------------
@@ -908,11 +911,11 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}。
 在低频射电波段，除了银盘附近区域，
 银河系\ac{rad-ff}被淹没在\ac{rad-syn}之中而无法被直接观测到，
 所以我们对该辐射成分的了解非常有限。
-目前已掌握的有关银河系\ac{rad-ff}的信息主要源自 Hα 巡天 \cite{finkbeiner2003}，
+目前已掌握的有关银河系\ac{rad-ff}的信息主要源自 Hα 巡天 \cite{finkbeiner2003}。
 因为产生\ac{rad-ff}的电离区域同时也会产生 Hα 辐射，
 而且两种辐射的强度之间存在紧密关联，
 因此可以利用 Hα 辐射来有效地追踪\ac{rad-ff} \cite{smoot1998,dickinson2003}。
-不过 Hα 辐射容易被尘埃吸收，因此需要首先利用尘埃分布图\cite{schlegel1998}
+因为 Hα 辐射容易被尘埃吸收，所以需要首先利用尘埃分布图\cite{schlegel1998}
 对 Hα 辐射进行修正，然后再推导\ac{rad-ff} \cite{dickinson2003}，
 如\autoref{fig:galactic-ff} 显示了利用该方法（详见 \autoref{sec:simu-gff}）
 得到的银河系\ac{rad-ff}在 \SI{150}{\MHz} 的全天图。
@@ -936,8 +939,8 @@ $\acs{spec-index}_{\R{syn}} \sim \num{2.5 +- 0.1}$ \cite{rogers2008}。
   \label{fig:galactic-ff}
 \end{figure}
 
-另一种追踪\ac{rad-ff}的方法是利用\ac{rrl}。
-因为\ac{rrl}不受尘埃吸收的影响，所以该方法可以顺利也用于银盘附近区域，
+另一种追踪\ac{rad-ff}的方法是利用\ac{hii}的\ac{rrl}。
+因为\ac{rrl}受尘埃吸收的影响很小，所以该方法可以顺利地用于银盘附近区域，
 给出可靠的\ac{rad-ff} \cite{alves2010,alves2012}。
 与前一种方法相结合，可以获得银河系\ac{rad-ff}的完整全天图。
 
@@ -989,8 +992,8 @@ $\sim$\,27\% \cite{shaver1999}。
     在 \SI{1.4}{\GHz} 处的射电功率 $\gtrsim$\,\SI{e22}{\watt\per\hertz}
     \cite{ledlow1996}。
     \citeay{fanaroff1974} 根据射电星系的功率和形态将其大致分为两小类：
-    (1) \ac{fr} II 型：功率较强，具有射电瓣 (lobe) 以及显眼的\ac{hotspot}；
-    (2) \ac{fr} I 型：功率较弱，具有相对弥散的射电羽 (plume)。
+    (1) \ac{fr} I 型：功率较弱，具有相对弥散的射电羽 (plume)；
+    (2) \ac{fr} II 型：功率较强，具有射电瓣 (lobe) 以及显眼的\ac{hotspot}。
     由此可见，很多点源其实具有复杂的形态结构，所以\enquote{点源}这一称法并不准确，
     主要是为了与下文 (\autoref{sec:eg-extended})
     将要介绍的\enquote{展源}区分开来。
@@ -1026,14 +1029,14 @@ $\sim$\,27\% \cite{shaver1999}。
 \cite{feretti2012,kale2016}：
 \begin{itemize}
   \item \emph{\acf{rh}}:
-    位于星系团的中央区域，尺度达 \si{\Mpc} 量级，形态比较规则，目前只发现于并合星系团中。
-    如\autoref{fig:diffuse-emission} 左栏所示。
+    位于星系团的中央区域，尺度达 \si{\Mpc} 量级，形态相对规则，
+    目前只发现于并合星系团中（如\autoref{fig:diffuse-emission} 左栏所示）。
   \item \emph{\acf{rmh}}:
-    位于弛豫冷核星系团的中央区域，通常围绕中央射电星系，尺度为数百 \si{\kpc}，形态比较规则。
-    如\autoref{fig:diffuse-emission} 中栏所示。
+    位于弛豫冷核星系团的中央区域，通常围绕中央射电星系，尺度为数百 \si{\kpc}，
+    形态比较规则（如\autoref{fig:diffuse-emission} 中栏所示）。
   \item \emph{\acf{rr}}:
-    位于星系团的外围区域，尺度亦达 \si{\Mpc} 量级，呈长条不规则形态，辐射具有较强的偏振；
-    在并合星系团和弛豫星系团均有发现，在若干星系团中成对出现。
+    位于星系团的外围区域，尺度亦达 \si{\Mpc} 量级，呈长条不规则形态，
+    辐射具有较强的偏振；在并合星系团和弛豫星系团均有发现，在若干星系团中成对出现。
     \autoref{fig:diffuse-emission} 右栏展示了一个双\ac{rr}的情形。
 \end{itemize}
 此外，在一些星系团中同时观测到了\ac{rh}和\ac{rr}，比如
@@ -1146,7 +1149,7 @@ EoR 探测实验所面临的最主要困难之一便是微弱的 EoR 信号被�
 上述两类方法均有各自的优缺点。
 \ac{fg-rm}法的优点是能够保留 EoR 信号的全部信息，
 但缺点是可能无法准确扣除前景污染或者将部分尺度较大的 EoR 信号误认为前景而扣除，
-导致结果出现一定的偏差。
+导致结果出现一定程度的偏差。
 \ac{fg-avd}法的优点是可以有效地避免前景污染对 EoR 探测结果产生的可能偏差，
 而主要缺点便是损失了 EoR 信号在 EoR 窗口之外的信息，
 牺牲了仪器的灵敏度和利用效率 \cite{pober2014}。
@@ -1162,7 +1165,7 @@ EoR 探测实验所面临的最主要困难之一便是微弱的 EoR 信号被�
 \label{sec:eor-window}
 
 在二维功率谱 $\ac{psD}(\ac{k-perp}, \ac{k-los})$ 上，
-频谱光滑的前景干扰原则上只分布在 \ac{k-los} 较小的区域。
+频谱光滑的前景干扰在原则上只分布在 \ac{k-los} 较小的区域。
 但是干涉阵列的仪器效应和观测效应会将
 \ac{k-perp} \ac{mode}里的功率\enquote{混合}到 \ac{k-los} \ac{mode}里，
 即\acf{mode-mixing}效应，
