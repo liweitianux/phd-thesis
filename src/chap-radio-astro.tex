@@ -1746,6 +1746,122 @@ $u_{\R{max}}$ 和 $v_{\R{max}}$：
 \end{figure}
 
 %---------------------------------------------------------------------
+\subsection{CLEAN 算法和洁图}
+\label{sec:clean}
+
+因为无法获得目标亮度分布的全部信息，即 $uv$ 平面覆盖不完备，
+得到的\ac{map-dirty}存在非常明显的仪器旁瓣等干扰结构，与真实\ac{skymap}差异显著
+（如\autoref{fig:imaging-relations} 和\autoref{fig:imaging-weighting} 所示），
+不适合直接用于科学分析。
+为了得到质量更佳的图像，一方面可以通过开展额外观测来改进 $uv$ 平面的覆盖度，
+另一方面可以利用先验知识对 $uv$ 平面未被覆盖的区域进行插值，称为\ac{deconv}过程
+\cite{cornwell1999}。
+
+在射电天文学中，由 \citeauthor{hogbom1974} 在 \citeyear{hogbom1974}
+提出的 CLEAN 算法 \cite{hogbom1974} 是使用最为广泛的\ac{deconv}算法。
+CLEAN 算法假定目标源可以表示成一系列点源，具体内容如下：
+\begin{itemize}
+  \item \emph{输入}：
+    \begin{itemize}
+      \item \ac{map-dirty} $I^D$
+      \item \ac{beam-synthesized} $B$
+    \end{itemize}
+  \item \emph{参数}：
+    \begin{itemize}
+      \item \ac{loop-gain} $g$：通常取 0.1
+      \item 最大迭代次数 $n$
+      \item CLEAN 阈值 $s$
+    \end{itemize}
+  \item \emph{初始化}：
+    \begin{itemize}
+      \item CLEAN 成分集合 $L$：空
+      \item \ac{map-residual} $I^r$：等于\ac{map-dirty} $I^D$
+    \end{itemize}
+  \item \emph{迭代过程}：
+    \begin{enumerate}
+      \item 在\ac{map-residual} $I^r$ 中寻找绝对强度最大的点，
+        得到峰值点的位置 $p$ 和强度 $A$；
+      \item 在峰值点 $p$，从 $I^r$ 减去 $g A B$，
+        得到更新的\ac{map-residual}，即：
+        $I^r \gets I^r - g A B$；
+      \item 将峰值点的信息（$p$ 和 $A$）添加到集合 $L$；
+      \item 判断是否满足下述停止条件，如果满足，结束迭代并输出结果，
+        否则跳转至第 1 步继续下一轮迭代。
+        \begin{itemize}
+          \item 当前迭代次数 $i \le n$；
+          \item $I^r$ 的峰值点强度 $|A| < s$。
+        \end{itemize}
+    \end{enumerate}
+  \item \emph{输出}：
+    \begin{enumerate}
+      \item 使用椭圆高斯模型拟合\ac{beam-synthesized} $B$ 的主瓣，
+        所得结果称为\ac{beam-clean} $B^C$；
+      \item 从 CLEAN 成分集合 $L$ 生成\ac{map-model} $I^m$；
+      \item 最后输出的\ac{map-clean} $I^C = I^m * B^C + I^r$，
+        其中 $I^r$ 为迭代结束时的\ac{map-residual}。
+    \end{enumerate}
+\end{itemize}
+\autoref{fig:imaging-clean} 展示了 CLEAN 过程中的各种图像。
+
+\begin{figure}[htp]
+  \centering
+  \begin{minipage}{0.33\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imaging-true} \\
+    (a) True map
+  \end{minipage}%
+  \begin{minipage}{0.33\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imaging-dirty} \\
+    (b) Dirty map
+  \end{minipage}%
+  \begin{minipage}{0.33\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imaging-model} \\
+    (c) Model map
+  \end{minipage}%
+  \\[0.5ex]
+  \begin{minipage}{0.33\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imaging-residual} \\
+    (d) Residual map
+  \end{minipage}%
+  \begin{minipage}{0.33\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imaging-clean} \\
+    (e) Clean map
+  \end{minipage}%
+  \bicaption[从脏图得到洁图的 CLEAN 算法示例]{%
+    从脏图得到洁图的 CLEAN 算法示例。
+    \emph{(a)} 真实的天图 $I$；
+    \emph{(b)} 脏图 $I^D$；
+    \emph{(c)} CLEAN 得到的模型图 $I^m$，图中的点表示算法找到的 CLEAN 成分；
+    \emph{(d)} CLEAN 迭代结束时的残差图 $I^r$；
+    \emph{(e)} 洁图 $I^C$，图中左下角的蓝点表示洁波束 $B^C$ 的大小。
+  }{%
+    An illustration of the CLEAN algorithm that derives the clean map
+    from the dirty map.
+    \emph{(a)} True sky map $I$;
+    \emph{(b)} Dirty map $I^D$;
+    \emph{(c)} Model map $I^m$ created from all the found CLEAN compoments;
+    \emph{(d)} Residual map $I^r$ when the CLEAN iteration process finished;
+    \emph{(e)} Clean map $I^C$ with the blue blob in the bottom-left
+    corner indicating the size of the clean beam $B^C$.
+    \\来源/Credit:
+    David J. Wilner, 2016, Imaging and Deconvolution,
+    15th Synthesis Imaging Workshop,
+    \url{https://science.nrao.edu/science/meetings/2016/15th-synthesis-imaging-workshop/}
+  }
+  \label{fig:imaging-clean}
+\end{figure}
+
+尽管 CLEAN 算法假定真实的辐射分布由一系列点源构成，
+该算法处理展源的效果也相当好。
+除了上面详细介绍的经典 Högbom 算法 \cite{hogbom1974}，
+CLEAN 算法还有多个变种，其中最重要的两种是 Clark 算法 \cite{clark1980}
+和 Cotton--Schwab 算法 \cite{schwab1984}。
+
+%---------------------------------------------------------------------
 \subsection{点源灵敏度和亮度灵敏度}
 
 天线的输出信号会因为自身的热噪声而存在一定的误差。
