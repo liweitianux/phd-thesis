@@ -385,46 +385,50 @@ EoR 信号的整个演化过程可大致分为以下几个阶段 \cite{pritchard
     所以此阶段没有可探测的 EoR 信号 ($\delta\overline{T}_b = 0$)。
 
   \item $40 \lesssim z \lesssim 200$:
-    气体绝热冷却从而有 $\acs{T-kinetic} < T_{\R{cmb}}$，
-    但气体中的碰撞仍然足够有效，
+    气体因宇宙膨胀而绝热冷却，温度急剧下降 [$\acs{T-kinetic} \propto (1+z)^2$]，
+    从而低于辐射的温度，即 $\acs{T-kinetic} < T_{\R{cmb}}$。
+    碰撞在这个阶段仍然足够有效，
     因此 $\acs{T-spin} = \acs{T-kinetic} < T_{\R{cmb}}$，
     所以 EoR 信号在此阶段表现为吸收信号 ($\delta\overline{T}_b < 0$)。
 
   \item $z_* \lesssim z \lesssim 40$:
     （$z_*$ 对应第一代天体形成的时刻）
     气体密度随着宇宙膨胀而显著降低，碰撞耦合也显著减弱，
-    于是 \acs{T-spin} 重新与 \ac{cmb} 辐射的耦合到一起，
+    于是 \acs{T-spin} 与 \ac{cmb} 辐射的耦合到一起，
     即 $\acs{T-spin} = T_{\R{cmb}}$，所以 EoR 信号在此阶段消失了。
 
   \item $z_{\alpha} \lesssim z \lesssim z_*$:
     （$z_{\alpha}$ 对应 Lyα 光子的耦合达到饱和的时刻）
-    第一代天体开始形成，辐射 Lyα 光子和 X 射线，
-    从而将 \acs{T-spin} 与冷气体的温度耦合到一起，
-    即 $\acs{T-spin} \sim \acs{T-kinetic} < T_{\R{cmb}}$，
+    第一代天体开始逐渐形成并辐射 Lyα 光子和软 X 射线，
+    Lyα 光子通过 Wouthuysen--Field 效应能够有效地将 \acs{T-spin}
+    与气体温度耦合到一起，即 $\acs{T-spin} \sim \acs{T-kinetic}$。
+    在这个阶段，第一代天体的辐射对气体的加热还不显著，
+    即 $\acs{T-kinetic} < T_{\R{cmb}}$。
     因此该阶段可探测到强烈的 EoR 吸收信号 ($\delta\overline{T}_b < 0$)。
 
   \item $z_h \lesssim z \lesssim z_{\alpha}$:
-    （$z_h$ 对应气体被加热至与 $T_{\R{cmb}}$ 相同温度的时刻）
-    随着星系和宇宙大尺度结构的形成，气体逐渐被加热，
-    对 \acs{T-spin} 的影响也越来越显著。
-    在气体温度 $\acs{T-kinetic} \sim \acs{T-spin} < T_{\R{cmb}}$
-    的这一阶段，可继续探测到 EoR 吸收信号 ($\delta\overline{T}_b < 0$)，
+    （$z_h$ 对应气体被加热至与 \ac{cmb} 辐射的温度相同的时刻）
+    随着天体的大量形成，气体受这些天体的辐射加热也越来越显著，
+    气体温度 \acs{T-kinetic} 也逐渐升高。
+    直到 $z_h$ 时刻，气体被加热至与 \ac{cmb} 辐射达到相同的温度。
+    因此，在这个阶段可以继续探测到 EoR 吸收信号 ($\delta\overline{T}_b < 0$)，
     但强度逐渐减弱。
 
   \item $z_t \lesssim z \lesssim z_h$:
-    随着气体被进一步加热，$\acs{T-kinetic} \sim \acs{T-spin} > T_{\R{cmb}}$，
+    随着气体被进一步加热，气体温度将超过 \ac{cmb} 辐射的温度
+    （$\acs{T-kinetic} > T_{\R{cmb}}$），
     于是 EoR 信号从上一阶段的吸收信号转变为发射信号 
     ($\delta\overline{T}_b > 0$)，且强度逐渐增加。
-    直到 $z_t$ 时刻，气体的温度已经足够高
+    直到 $z_t$ 时刻，气体温度已经足够高
     ($\acs{T-kinetic} \sim \acs{T-spin} \gg T_{\R{cmb}}$)，
     EoR 信号的强度达到饱和。
 
   \item $z_r \lesssim z \lesssim z_t$:
-    在此阶段，气体的温度 ($\acs{T-kinetic} \sim \acs{T-spin} \gg T_{\R{cmb}}$)
+    在此阶段，气体温度 ($\acs{T-kinetic} \sim \acs{T-spin} \gg T_{\R{cmb}}$)
     对 EoR 信号的影响已变得不重要，
     因此 EoR 信号的强度将主要取决于\acl{hi-fraction} \acs{hi-fraction}。
-    随着再电离的进行，\acs{hi-fraction} 逐渐变小，EoR 信号的强度也随之减小，
-    直到 $z_r$ 时再电离结束。
+    随着再电离的进行，\acs{hi-fraction} 逐渐变小，EoR 信号的强度也随之减小；
+    直到 $z_r$ 再电离结束时刻，EoR 信号也随之消失。
 
   \item $z \lesssim z_r$:
     再电离结束后，残留的 21\,cm 信号主要源自一些塌缩的中性氢岛，比如\ac{dla}。
