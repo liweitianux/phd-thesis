@@ -37,8 +37,9 @@ $B(x)$、$C(x)$、$T(x)$ 和 $Q(x)$ 分别描述了粒子的
 %=====================================================================
 \section{数值算法描述}
 
-采用一个包含 $M+1$ 个点的网格对 $x$ 离散化：$x_m (m = 0, 1, \cdots, M)$。
-在网格单元中点处，$x$ 的值定义为：
+采用一个包含 $M+1$ 个\ac{cell}的\ac{grid}对 $x$ 离散化：
+$x_m (m = 0, 1, \cdots, M)$。
+在\ac{cell}的中点处，$x$ 的值定义为：
 \begin{equation}
   \label{eq:x-mid}
   x_{m+1/2} = (x_m + x_{m+1}) \big/ 2 ,
@@ -203,7 +204,8 @@ $\Theta(t)$ 为 Heaviside 阶跃函数 (step function)。
 \end{equation}
 此例用于测试算法的时间演化准确度。
 
-我们选取了对数网格，将 $x \in [\num{e-4}, \num{e4}]$ 划分为 $M=200$ 个单元，
+我们选取了对数\ac{grid}，
+将 $x \in [\num{e-4}, \num{e4}]$ 划分为 $M = 200$ 个\ac{cell}，
 时间步长固定为 $\Delta t = \num{e-3}$，
 求解以上三个测试，结果如\autoref{fig:fp-test12} 和\autoref{fig:fp-test3} 所示。
 我们的结果与 \citeay{park1996} 以及 \citeay{donnert2014} 的结果非常吻合，
