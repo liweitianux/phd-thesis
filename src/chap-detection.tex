@@ -473,7 +473,17 @@ $\nu = \acs{freq21cm} / (1 + z)$，
   \langle \tilde{I}(\B{u}, \eta) \, \tilde{I}^*(\B{u}', \eta') \rangle
     \equiv P'(\B{u}, \eta) \delta(\B{u}-\B{u}') \delta(\eta-\eta') ,
 \end{equation}
-其中 \enquote{$*$} 表示\ac{conjugate}算符。
+式中的上标 \enquote{$*$} 表示\ac{conjugate}算符。
+
+上述三维 Fourier 变换采用了三维直角坐标系，即要求输入图像 $I(\B{\theta})$
+为二维平面（或者能够近似为二维平面）。
+大视场是低频干涉阵列的重要优势之一，
+比如 MWA 在 \SI{150}{\MHz} 的视场大小达到约 \SI{25}{\degree} \cite{tingay2013}。
+当输入图像所对应的天区较大时，严格的做法需要采用球面 Fourier 变换 \cite{liu2016sph}，
+但是这样大大增加了功率谱计算和分析的复杂性，显著削弱方法的实用性。
+因此，目前的通用作法是直接将输入图像近似为二维平面处理。
+如果输入图像对应的天区过大，则需要先将图像分割为多个小区域，
+然后将每个小区域分别近似为二维平面进行处理。
 
 宇宙学研究需要使用\ac{comoving-frame}，
 而且采用的 Fourier 约定也与射电干涉成像所采用的约定不同。
