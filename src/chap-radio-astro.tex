@@ -1616,9 +1616,134 @@ $B(l, m)$ 是\ac{f-sampling} \acs{S-uv} 的 Fourier 变换：
 \end{figure}
 
 %---------------------------------------------------------------------
-%\subsection{CLEAN 算法和洁图}
-%
-% TODO...
+\subsection{栅格化和加权方法}
+
+干涉成像过程涉及大量的 Fourier 变换，因此严重依赖于\ac{fft}算法，
+该算法的计算复杂度为 $\mathcal{O}(N \log N)$，其中 $N$ 为数据点数目，
+远远低于离散 Fourier 变换 $\mathcal{O}(N^2)$ 的计算复杂度，尤其当 $N$ 很大的时候。
+\ac{fft} 算法要求数据分布在均匀的\ac{grid}上，
+因此需要对观测的\ac{vis}数据 [\autoref{eq:vis-measured}] 进行\ac{gridding}，即：
+\begin{equation}
+  \acs{Vis}^{G}(u,v)
+    = \frac{1}{\Delta u \Delta v}
+      \Sha\!\left( \frac{u}{\Delta u}, \frac{v}{\Delta v} \right)
+      \acs{Vis}^{m}(u,v) ,
+\end{equation}
+其中
+$\Sha()$ 为 Shah 函数（亦称 Dirac 梳状函数）：
+\begin{equation}
+  \Sha(x, y) = \sum_{i,j=-\infty}^{\infty} \delta(x-i, y-j) ,
+\end{equation}
+$\Delta u$ 和 $\Delta v$ 为 $uv$ \ac{grid}的\ac{cell}大小。
+
+干涉阵列能够测量的最小 $u$、$v$ 由其最短基线 $b_{\R{min}}$ 决定：
+\begin{equation}
+  u_{\R{min}} \approx v_{\R{min}} \approx b_{\R{min}}/\lambda .
+\end{equation}
+根据信号处理领域的\ac{sampling-theorem}，
+为了避免数据因\ac{gridding}而出现失真，\ac{grid}的\ac{cell}大小应满足：
+\begin{equation}
+  \Delta u \approx \Delta v
+    \lesssim \frac{u_{\R{min}}}{2} \approx \frac{v_{\R{min}}}{2}
+    \approx \frac{b_{\R{min}}}{2 \lambda} .
+\end{equation}
+另一方面，干涉阵列的最长基线 $b_{\R{max}}$ 决定了能够测量的
+$u_{\R{max}}$ 和 $v_{\R{max}}$：
+\begin{equation}
+  u_{\R{max}} \approx v_{\R{max}} \approx b_{\R{max}}/\lambda .
+\end{equation}
+因此\ac{gridding}之后的 $uv$ 平面的每边\ac{cell}数目为：
+\begin{equation}
+  N_u \approx N_v \gtrsim \frac{2 b_{\R{max}}}{b_{\R{min}}} .
+\end{equation}
+
+干涉阵列的短基线主要测量目标辐射的大尺度分布情况（对应于 $u$、$v$ 较小的\ac{vis}数据），
+长基线则主要探测目标辐射的小尺度结构（对应于 $u$、$v$ 较大的\ac{vis}数据）。
+根据研究对象和目标的不同，需要从同一份观测数据处理得到不同性质的图像，
+比如，研究点源形态时要求图像的空间分辨率高，探测展源时则要求图像的噪声水平低。
+因此在成像过程中需要对\ac{vis}数据相应地加权，即：
+\begin{equation}
+  \acs{Vis}^{w}(u,v) = \acs{Vis}^{G}(u,v) W(u,v) ,
+\end{equation}
+其中 $W(u,v)$ 为\ac{f-weighting}。
+常用的加权方法有以下三种：
+\begin{itemize}
+  \item \emph{自然权重}：
+    每个\ac{cell}的权重 $W_n(u_i, v_j)$ 为该\ac{cell}所包含的数据点个数
+    $N(u_i, v_j)$。
+    假定一个\ac{cell}内的数据服从正态分布，则该\ac{cell}的数据方差为：
+    $\sigma^2(u_i, v_j) \simeq 1/N(u_i, v_j)$。
+    因此，采用自然权重使每个\ac{cell}的权重反比于\ac{cell}的方差，即：
+    \begin{equation}
+      W_n(u_i, v_j) = N(u_i, v_j) \simeq \frac{1}{\sigma^2(u_i, v_j)} ,
+    \end{equation}
+    如此所得的图像具有最低的噪声水平，适合用于探测暗弱展源。
+    因为 $uv$ 平面中心区域的覆盖通常远好于外围区域，
+    所以自然权重会使短基线得到的权重大于长基线，
+    于是图像的空间分辨率较差，并且旁瓣较明显。
+  
+  \item \emph{均匀权重}：
+    每个\ac{cell}的权重 $W_u(u_i, v_j)$ 反比于该\ac{cell}所包含的数据点个数
+    $N(u_i, v_j)$，即：
+    \begin{equation}
+      W_u(u_i, v_j) = \frac{1}{N(u_i, v_j)} .
+    \end{equation}
+    这种加权方法使长基线得到更大的权重，使 $uv$ 平面的覆盖更均匀，
+    所以生成的图像的空间分辨率较好，旁瓣较弱，但是增大了图像中的噪声。
+  
+  \item \emph{Briggs 权重}：
+    亦称稳健 (robust) 权重，是均匀权重和自然权重的折衷，
+    通过调节稳健参数来控制两种加权方法的作用程度 \cite{briggs1995}。
+    稳健参数的典型取值范围为 $[-1, 1]$；
+    参数值越小，加权效果越接近均匀权重，参数值越大，则越接近自然权重。
+    但是，取稳健参数为 -1 或 1 并不等效于使用均匀或自然权重。
+\end{itemize}
+\autoref{fig:imaging-weighting} 对比了上述三种加权方法的成像效果。
+
+\begin{figure}[htp]
+  \begin{minipage}{0.33\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{weighting-natural} \\
+    (a) Natural
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}{0.33\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{weighting-uniform} \\
+    (b) Uniform
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}{0.33\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{weighting-robust} \\
+    (c) Briggs
+  \end{minipage}
+  \bicaption[自然权重、均匀权重和 Briggs 权重的成像效果对比]{%
+    自然权重、均匀权重和 Briggs 权重的成像效果对比。
+    \emph{(a)} 自然权重：
+      空间分辨率为 \SI{0.59 x 0.50}{\arcsecond}，噪声水平为 1.0\,Jy/beam；
+    \emph{(b)} 均匀权重：
+      空间分辨率为 \SI{0.35 x 0.30}{\arcsecond}，噪声水平为 2.1\,Jy/beam；
+    \emph{(c)} Briggs 权重（稳健参数为 0）：
+      空间分辨率为 \SI{0.40 x 0.34}{\arcsecond}，噪声水平为 1.3\,Jy/beam。
+  }{%
+    A comparison of imaging results among different weighting methods.
+    \emph{(a)} Natural weighting:
+      the angular resolution is \SI{0.59 x 0.50}{\arcsecond}
+      and the noise level is 1.0\,Jy/beam;
+    \emph{(b)} Natural weighting:
+      the angular resolution is \SI{0.35 x 0.30}{\arcsecond}
+      and the noise level is 2.1\,Jy/beam;
+    \emph{(c)} Natural weighting:
+      the angular resolution is \SI{0.40 x 0.34}{\arcsecond}
+      and the noise level is 1.3\,Jy/beam.
+    \\来源/Credit:
+    David J. Wilner, 2016, Imaging and Deconvolution,
+    15th Synthesis Imaging Workshop,
+    \url{https://science.nrao.edu/science/meetings/2016/15th-synthesis-imaging-workshop/}
+  }
+  \label{fig:imaging-weighting}
+\end{figure}
 
 %---------------------------------------------------------------------
 \subsection{点源灵敏度和亮度灵敏度}
