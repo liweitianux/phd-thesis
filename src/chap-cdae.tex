@@ -8,7 +8,7 @@
 
 利用\autoref{chap:simulation}改进的前景模型以及模拟的 SKA1-Low 观测图像，
 本章进一步研究了干涉阵列波束效应对前景辐射频谱光滑性的影响，
-并且研发有效的 EoR 信号分离算法。
+同时研发有效的 EoR 信号分离算法。
 
 为了能够从强烈的前景干扰中分离出微弱的 EoR 信号，
 传统的\ac{fg-rm}方法都依赖于一个关键的前提：
@@ -39,22 +39,22 @@
 \end{figure}
 
 一个干涉阵列拥有的基线数目和长度均是有限的，
-在观测中能实现的 $uv$ 覆盖也是有限而且不完备的 (\autoref{sec:uv-coverage})，
-这导致干涉阵列的\ac{beam-synthesized}的形状非常复杂。
+在观测中能达到的 $uv$ 覆盖也是有限而且不完备的 (\autoref{sec:uv-coverage})，
+导致干涉阵列\ac{beam-synthesized}的形状非常复杂。
 如\autoref{fig:ska-psf} 所示，
 除了中间一个很窄的\ac{mainlobe}，\ac{beam-synthesized}还包含一系列\ac{sidelobe}。
 这些\ac{sidelobe}的数量非常多，相对幅度约为 \numrange{0.01}{0.1}\%，
 一直延伸到远超出视场的位置。
 另见 \citeay{liu2009ps} 的图 1 和图 3。
 
-另一方面，\ac{beam-synthesized}的形状还依赖于观测频率。
-\ac{sidelobe}的位置 $\theta$ 会随着频率 $\nu$ 的增大而向中间移动，
-即 $\theta \propto \nu^{-1}$。
-因此，一个干扰源在视场中所产生的辐射的位置也随频率而变化。
-由于仪器的热噪声水平、成像的天区大小、CLEAN 的深度等因素的限制，
+另一方面，波束的形状还依赖于观测频率，
+\ac{sidelobe}的位置 $\theta$ 会随着频率 $\nu$ 的增大而向中间移动
+($\theta \propto \nu^{-1}$)。
+因此，一个干扰源在视场中的辐射分布也随频率而变化。
+由于仪器的热噪声水平、成像天区的大小、CLEAN 阈值等因素的限制，
 视场中总是存在一批未分辨的或者未完全扣除的干扰源。
 由这些干扰源的辐射综合而成的前景干扰，
-在频率维度将出现类似于\ac{beam-synthesized}的\ac{sidelobe}形状的起伏。
+在频率维度将出现类似于波束\ac{sidelobe}形状的起伏结构。
 这将破坏前景辐射的频谱光滑性，使得前景干扰具有类似 EoR 信号的小尺度频谱结构，
 导致传统\ac{fg-rm}方法无法有效地将两者区分开。
 另见 \citeay{liu2009ps} 的第 1 节。
@@ -63,18 +63,18 @@
 %=====================================================================
 \section{基于深度学习的新算法}
 
-鉴于\ac{beam-synthesized}的形状非常复杂，并且随频率和位置而变化，
+鉴于干涉阵列的波束形状非常复杂，并且随频率和位置而变化，
 即使付出昂贵的计算代价，
 为传统\ac{fg-rm}方法手工打造一个用于克服上述波束效应的模型仍然非常困难
 \cite{lochner2015}。
 此外，SKA1-Low 等大型干涉阵列的海量数据的处理已经成为一个重要的瓶颈
 \cite{norris2011,dolensky2016,chrysostomou2018}，
 所以采用传统\ac{fg-rm}方法并建模克服波束效应在实际应用中几乎不可行。
-与传统方法相比，\ac{dl}方法具有这几个关键优势：
+与传统方法相比，\ac{dl}方法具有以下几个关键优势：
 \begin{itemize}
   \item 能够自适应地从数据中汲取信息用来优化自身模型；
-  \item 一旦训练好模型，使用该模型则变得非常高效；
-  \item 灵活性高，只需要使用合适的数据重新训练，便可以将方法运用于其他望远镜。
+  \item 一旦训练好模型，使用过程则变得非常高效；
+  \item 网络架构灵活，易于扩展，便于重新训练并用于处理其他望远镜的数据。
 \end{itemize}
 因此，基于\ac{dl}研发能够克服波束效应的 EoR 信号分离算法更具有可行性和吸引力
 \cite{herbel2018,vafaeiSadr2019}。
@@ -425,14 +425,13 @@ $\ac{coef-correlation}(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})$ 越接近于 1，
 
 
 %=====================================================================
-\section{新算法的演示}
+\section{新算法的效果演示和评估}
 \label{sec:cdae-demo}
 
-为了演示和评估基于\ac{dl}的新算法
-（即我们在 \autoref{sec:architecture} 设计的 \ac{cdae}）的性能，
-我们首先针对 SKA1-Low 模拟得到\enquote{观测}图像 (\autoref{sec:cdae-images})，
-然后对模拟图像进行预处理，生成 \ac{cdae} 所需的\ac{ds} (\autoref{sec:preprocessing})，
-接着训练 \ac{cdae} 并评估其性能 (\autoref{sec:cdae-results})，
+为了演示和评估 \ac{cdae} 分离 EoR 信号的效果，
+首先模拟 EoR 信号和前景辐射的\ac{imgcube}作为训练数据 (\autoref{sec:cdae-images})，
+接着预处理训练数据，生成训练所需的三个\ac{ds} (\autoref{sec:preprocessing})，
+然后训练 \ac{cdae} 并评估其性能 (\autoref{sec:cdae-results})，
 最后进一步验证 \ac{cdae} 的学习能力和效果 (\autoref{sec:cdae-validation})。
 
 %---------------------------------------------------------------------
