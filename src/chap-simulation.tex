@@ -157,11 +157,21 @@ $M_8$ 是半径为 \SI{8}{\per\hubble\Mpc} 的球形区域里的质量：
 \label{sec:merging-history}
 
 上述 Press--Schechter 质量函数只给出了在不同红移处宇宙中的\ac{gc}的质量分布，
-没有提供单个星系团的形成历史。
-这个问题由 \citeay{lacey1993} 通过拓展 Press--Schechter 理论而给出了一个解决方案。
+没有提供单个星系团的形成历史的信息。
+扩展 Press--Schechter 理论 \cite{bond1991,lacey1993} 对这个问题给出了一个解决方案。
 给定一个星系团，扩展 Press--Schechter 理论描述了其\ac{progenitor}的质量分布规律，
-然后利用 Monte Carlo 模拟便可构建出该星系团的成长历史，即\acf{m-tree}
-\cite{lacey1993,randall2002}。
+然后利用 Monte Carlo 模拟构建该星系团的成长历史，即\acf{m-tree}
+\cite{lacey1993,randall2002,zhang2008,zentner2007}。
+基于扩展 Press--Schechter 理论，
+已有多种 Monte Carlo 算法被提出来用于构建\ac{m-tree} \cite{zhang2008}，
+由 \citeay{lacey1993} (LC93) 提出的算法是其中最简洁、最常用的一种，
+因此本文采用该算法来模拟星系团的\ac{m-tree}。
+LC93 算法假定 \cite{lacey1993}：
+(1) 所有并合都是二叉的，即每次并合都是两个\ac{progenitor}星系团合并成一个；
+(2) 合并后的星系团的质量为两个\ac{progenitor}星系团之和。
+尽管 LC93 算法给出的模拟结果会高估并合次数，尤其在追溯时间较长的情况下
+（详见 \citeay{zhang2008}），但是该算法对于本文的射电晕建模已经足够，
+因此我们仍然采用简洁的 LC93 算法，而暂不考虑其他更准确但更复杂的算法。
 
 设一个星系团在 $t_1$ 时刻的质量为 $M_1$，经过一次成长步骤（并合或\ac{accretion}）后，
 其质量在 $t_2$ ($> t_1$) 时刻增长为 $M_2$。
