@@ -52,8 +52,7 @@
 在此基础之上，我们采用了一种半解析方法来考虑\ac{rh}的形成和演化过程，
 进一步显著改进了\ac{rh}的低频射电辐射特征的建模。
 对于一个\ac{gc}，
-首先根据扩展 Press--Schechter 理论
-模拟其并合历史 (\autoref{sec:merging-history})，
+首先根据扩展 \ac{PS} 理论模拟其并合历史 (\autoref{sec:merging-history})，
 然后运用\ac{turbreacc-model}来计算并合所产生的\ac{turbulence}对
 \ac{icm} 中的高能电子的再加速过程 (\autoref{sec:halo-evo})，
 获得高能电子能谱以及射电辐射频谱随时间的演化 (\autoref{sec:numerical})，
@@ -95,8 +94,7 @@ Enrico Fermi 最早在 1949 年提出\ac{mfluid}中的带电粒子
 根据该模型，暗物质坍缩形成暗物质晕，然后重子物质被暗物质晕的引力\ac{accretion}，
 在晕中沉积并演化为星系、星系团等结构。
 利用这个模型，\citeay{press1974} 从密度扰动的随机统计性质推导出了暗物质晕
-（即星系、星系团等结构）的数目随质量的分布及其时间演化，
-即 Press--Schechter 质量函数。
+（即星系、星系团等结构）的数目随质量的分布及其时间演化，即 \ac{PS} 质量函数。
 在红移 $z$ 处，每单位\ac{V-comoving}内质量范围为 $[M,\, M+\R{d}M]$
 的\ac{gc}的数目 \ac{n-cl} 为：
 \begin{equation}
@@ -130,7 +128,7 @@ $M_8$ 是半径为 \SI{8}{\per\hubble\Mpc} 的球形区域里的质量：
 
 设星系团的质量下限为 $M_{\R{min}} = \SI{2e14}{\solarmass}$
 以及红移上限为 $z_{\R{max}} = 4$，
-于是由 Press--Schechter 质量函数 [\autoref{eq:ps-mass-func}]
+于是由 \ac{PS} 质量函数 [\autoref{eq:ps-mass-func}]
 可计算出 \SI{10 x 10}{\degree} 的天区内的星系团总数为 504，
 以及相应的质量和红移分布（如\autoref{fig:m-z-dist} 所示）。
 接着对质量和红移分布随机采样，得到一系列 $(M_{\R{sim}}, z_{\R{sim}})$ 对，
@@ -158,13 +156,13 @@ $M_8$ 是半径为 \SI{8}{\per\hubble\Mpc} 的球形区域里的质量：
 \subsection{星系团并合树的模拟}
 \label{sec:merging-history}
 
-上述 Press--Schechter 质量函数只给出了在不同红移处宇宙中的\ac{gc}的质量分布，
+上述 \ac{PS} 质量函数只给出了在不同红移处宇宙中的\ac{gc}的质量分布，
 没有提供单个星系团的形成历史的信息。
-扩展 Press--Schechter 理论 \cite{bond1991,lacey1993} 对这个问题给出了一个解决方案。
-给定一个星系团，扩展 Press--Schechter 理论描述了其\ac{progenitor}的质量分布规律，
+扩展 \ac{PS} 理论 \cite{bond1991,lacey1993} 对这个问题给出了一个解决方案。
+给定一个星系团，扩展 \ac{PS} 理论描述了其\ac{progenitor}的质量分布规律，
 然后利用 Monte Carlo 模拟构建该星系团的成长历史，即\acf{m-tree}
 \cite{lacey1993,randall2002,zhang2008,zentner2007}。
-基于扩展 Press--Schechter 理论，
+基于扩展 \ac{PS} 理论，
 已有多种 Monte Carlo 算法被提出来用于构建\ac{m-tree} \cite{zhang2008}，
 由 \citeay{lacey1993} (LC93) 提出的算法是其中最简洁、最常用的一种，
 因此本文采用该算法来模拟星系团的\ac{m-tree}。
@@ -177,7 +175,7 @@ LC93 算法假定 \cite{lacey1993}：
 
 设一个星系团在 $t_1$ 时刻的质量为 $M_1$，经过一次成长步骤（并合或\ac{accretion}）后，
 其质量在 $t_2$ ($> t_1$) 时刻增长为 $M_2$。
-给定 $M_2$ 和 $t_2$，扩展 Press--Schechter 理论给出了该星系团在一个较早时刻 $t_1$
+给定 $M_2$ 和 $t_2$，扩展 \ac{PS} 理论给出了该星系团在一个较早时刻 $t_1$
 具有一个质量范围为 $[M_1,\, M_1+\D{M_1}]$ 的\ac{progenitor}的\ac{pr-cond}为
 \cite{lacey1993,randall2002}：
 \begin{equation}
@@ -1513,7 +1511,7 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 %=====================================================================
 \section{小结}
 
-基于 Press--Schechter 理论以及\ac{turbreacc-model}，
+基于 \ac{PS} 理论以及\ac{turbreacc-model}，
 我们针对星系团射电晕构建了一个更完善、更物理的模型，
 并据此模拟了射电晕的低频射电\ac{skymap}。
 此外，我们还模拟了银河系\ac{rad-syn}和\ac{rad-ff}、河外点源、
