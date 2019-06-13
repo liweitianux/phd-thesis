@@ -79,6 +79,9 @@
 因此，基于\ac{dl}研发能够克服波束效应的 EoR 信号分离算法更具有可行性和吸引力
 \cite{herbel2018,vafaeiSadr2019}。
 
+%---------------------------------------------------------------------
+\subsection{深度学习简介}
+
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{ml-vs-dl}
@@ -117,28 +120,43 @@
 极大地拓展了\ac{ai}的应用范围。
 \autoref{fig:ml-dl} 示意了\ac{ml}和\ac{dl}之间的主要区别。
 
-近十多年以来，\ac{dl}发展迅猛，已经被应用到计算机视觉 (computer vision)、
-语音识别 (speech recognition)、自然语言处理 (natural language processing)
-等诸多领域，并取得了一系列突破性成果，
-详见 \citeay{leCun2015} 综述文。
 \ac{dl}算法包括多种\ac{nn} \cite{bengio2009,leCun2015,schmidhuber2015}，
-比如\ac{cnn}、\ac{rnn}、\ac{ae}、\ac{res-nn}。
-其中，\ac{ae}能够以无监督 (unsupervised) 的方式学习得到
+主要包括：\ac{cnn}、\ac{dbn}、\ac{rnn}、\ac{ae}、\ac{res-nn}。
+\ac{dl}中的\enquote{深度}是指\ac{nn}的层数，
+一般认为深度\ac{nn}的\acs{layer-hidden}（即输入层与输出层之间的层）数目应大于 2。
+通过利用多个\ac{layer-hidden}，\ac{dl}算法可以将数据特征分为多个层次进行学习，
+提高了网络的表达能力和特征提取能力 \cite{bengio2013rl}。
+
+近十多年以来，借助于计算机等硬件性能的显著提升，尤其是高性能 \ac{gpu} 的广泛应用，
+再结合互联网上的海量数据，\ac{dl}发展迅猛，已经被应用到计算机视觉 (computer vision)、
+语音识别 (speech recognition)、自然语言处理 (natural language processing)
+等诸多领域，并取得了一系列突破性成果，详见 \citeay{leCun2015} 综述文。
+
+%---------------------------------------------------------------------
+\subsection{为什么采用 CDAE ？}
+
+对于 EoR 信号分离问题，可以将前景辐射当作强噪声对待，
+于是该问题转化为 EoR 信号的\ac{denoising}问题：
+通过将总辐射信号（即 EoR 信号与前景辐射之和）中的噪声（即前景辐射）去除，
+得到其中的信号（即 EoR 信号），实现 EoR 信号与前景辐射的分离。
+
+在多种\ac{dl}算法中，\ac{ae}是最常用于数据\ac{denoising}的算法之一。
+\ac{ae}能够以无监督 (unsupervised) 的方式学习得到
 输入数据的有效\ac{representation} \cite{bourlard1988}，
 因此经常被用于数据的\ac{dim-reduction}\cite{hinton2006,wang2014}
 和\ac{denoising}\cite{xie2012,lu2013,bengio2013}。
-在\ac{ae}的诸多变种中，\ac{cdae}尤其擅长于发掘数据中的抽象、细微的特征 \cite{du2017}，
+在\ac{ae}的诸多变种中，\ac{cdae}综合了\ac{dae}的\ac{denoising}能力以及
+\ac{cnn} 的特征提取能力，尤其擅长于发掘数据中的抽象、细微的特征 \cite{du2017}，
 并且已经被成功地应用于微弱\ac{gw}信号的\ac{denoising}\cite{shen2017}、
 单声道音源的分离\cite{grais2017}、等等。
-
 这些应用说明了 \ac{cdae} 具有从高度时变 (temporal-variable)
-的数据中提取微弱信号的出色能力，
-因此，值得尝试将 \ac{cdae} 应用于 EoR 信号的分离。
+的数据中提取微弱信号的出色能力，契合 EoR 信号分离问题的需求。
 尽管待分离的 EoR 信号的\ac{snr}较上述应用的情况更低，
-但是 EoR 信号、前景辐射以及望远镜的波束效应都是稳定或近似稳定的。
+但是 EoR 信号、前景辐射以及干涉阵列的波束效应都是稳定或近似稳定的，
+因此，值得尝试将 \ac{cdae} 应用于 EoR 信号的分离。
 
 %---------------------------------------------------------------------
-\subsection{CDAE 的原理和优势}
+\subsection{CDAE 的结构和原理}
 \label{sec:cdae}
 
 \begin{figure}[htp]
