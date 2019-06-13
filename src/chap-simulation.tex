@@ -9,27 +9,32 @@
 \label{chap:simulation}
 
 为了能够评估射电晕辐射对 EoR 信号探测的影响以及研发 EoR 信号分离算法，
-首先需要进行低频射电天空的高精度模拟，包括 EoR 信号以及各种主要前景成分。
-以我们之前的工作\cite{wang2010,wang2013}为基础，
-我们开发了
+首先需要进行低频射电天空的高精度模拟，包括 EoR 信号和各种主要的前景成分。
+我们以之前的工作\cite{wang2010,wang2013}为基础，开发了
 \href{https://github.com/liweitianux/fg21sim}{\texttt{FG21sim}}\footnote{%
   FG21sim: \url{https://github.com/liweitianux/fg21sim}}
 软件用来模拟主要的前景成分，
 具体包括银河系的\ac{rad-syn}和\ac{rad-ff}、河外点源、以及星系团射电晕。
-参考前人的相关研究 \cite{liu2009ps,datta2010,chapman2012,sims2016}，
+本工作与以往的 EoR 前景建模工作相比拥有两方面的优势：
+一方面，针对星系团射电晕构建了一个更完善、更物理的模型，实现对其形成与演化过程的完整建模。
+另一方面，将 SKA1-Low 阵列的仪器效应整合到模拟图像中，获得更逼真的低频射电天空模型。
+
+参考文献中相关的 EoR 前景研究 \cite{liu2009ps,datta2010,chapman2012,sims2016}，
 我们选取了三个常用的频带，分别为 \numrange{120}{128}、
-\numrange{154}{162} 和 \numrange{192}{200} \si{\MHz}。
+\numrange{154}{162} 和 \numrange{192}{200} \si{\MHz}，
+代表了 EoR 信号的主要频率范围。
 频带的宽度取为 \SI{8}{\MHz}，这是为了限制宇宙的演化效应，
 从而简化\ac{ps}的计算 (\autoref{sec:ps}) \cite{wyithe2004,thyagarajan2013}。
 考虑到 SKA1-Low 在 \SI{120}{\MHz} 的视场大小 $\ac{Fov} \sim \SI{5}{\degree}$，
 我们将模拟的天区大小设为 \SI{10 x 10}{\degree}。
-此外，模拟的图像大小为 \num{1800 x 1800}，即像素大小为 \SI{20}{\arcsecond}。
+模拟的图像大小取为 \num{1800 x 1800}，即像素大小为 \SI{20}{\arcsecond}。
 
-本章首先重点阐述对星系团射电晕的建模及其结果 (\autoref{sec:simu-halos})，
-接着介绍银河系 (\autoref{sec:simu-galactic})
+本章首先重点阐述对星系团射电晕的低频射电辐射特征的建模及其结果
+(\autoref{sec:simu-halos})，
+接着介绍银河系弥散辐射 (\autoref{sec:simu-galactic})
 和河外点源 (\autoref{sec:simu-eg-point}) 的模拟方法，
 然后描述如何生成 EoR 信号的天图 (\autoref{sec:simu-eor})，
-最后一节 (\autoref{sec:obs-simu}) 说明如何模拟得到 SKA1-Low 观测图像。
+最后一节 (\autoref{sec:obs-simu}) 说明如何模拟各成分的 SKA1-Low 观测图像。
 通过将射电晕与其他前景成分（如银河系、河外点源）进行对比，
 可以从另一个角度反映射电晕作为前景污染源的重要性。
 
@@ -46,7 +51,7 @@
 假定相同的频谱指数和均匀的表面亮度分布 \cite{gleser2008,jelic2008}。
 
 为了能够充分地评估\ac{rh}辐射对 EoR 信号探测的具体影响，
-改进\ac{rh}辐射的建模并获得更加逼真的\ac{rh}图像和频谱信息非常必要。
+改进\ac{rh}的建模并获得更加逼真的\ac{rh}图像和频谱信息非常必要。
 为此，我们之前的一项工作\cite{wang2010}考虑了高能电子的能量损失过程，
 改进了\ac{rh}频谱特征的模拟。
 在此基础之上，我们采用了一种半解析方法来考虑\ac{rh}的形成和演化过程，
