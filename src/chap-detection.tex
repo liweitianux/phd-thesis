@@ -658,13 +658,9 @@ EoR 信号的\ac{imgcube} $I_{\R{eor}}(\B{\theta}, \nu)$
 \label{sec:det-methods}
 
 目前探测 EoR 信号的方法主要有以下三种，由易到难分别为：
-\begin{enumerate}
-  \item 测量全天总功率；
-  \item 测量功率谱，不经过成像而直接从\ac{vis}数据计算功率谱；
-  \item 直接获取再电离区域的图像，即 EoR \ac{tomography}。
-\end{enumerate}
-
-第一种方法仅测量 EoR 信号的全天总功率随红移（即观测频率）的变化，
+\begin{itemize}
+\item \emph{EoR 信号全天总功率测量}：
+测量 EoR 信号的全天总功率随红移（即观测频率）的变化，
 所得结果可以用于推断宇宙的电离过程，帮助检验和约束再电离模型
 \cite{pritchard2012,liu2016}。
 该方法相对简单易行，通常采用小型专用设备，一般只包含单个或少量天线。
@@ -675,14 +671,41 @@ EoR 信号的\ac{imgcube} $I_{\R{eor}}(\B{\theta}, \nu)$
 位于墨西哥的 \ac{sci-hi} \cite{voytek2014}
 以及位于印度的 \ac{saras} \cite{singh2018}。
 值得一提的是，\acs{edges} 在 2018 年初报导称
-发现全天平均的辐射信号在 \SI{78}{\MHz}附近存在吸收，
+发现全天平均的辐射信号在 \SI{78}{\MHz} 附近存在吸收，
 该吸收特征的位置大致符合早期恒星所引发的 21\,cm 信号，
 但强度是目前理论预测值的两倍以上 \cite{bowman2018}。
 
-后两种方法则进一步测量 EoR 信号的统计分布规律甚至三维图像，能够提供更加全面丰富
-的信息用于系统性地研究\acl{eor}。
-尽管这两种测量方法更加强大有效，但需要高灵敏度的大型低频干涉阵列，
-而且目前仅有 SKA1-Low 将拥有足够高的灵敏度实现对再电离区域的直接成像观测。
+\item \emph{EoR 信号功率谱测量}：
+测量 EoR 信号的一维或二维\ac{ps}，获得 EoR 信号的统计分布规律，
+相比上一种方法能够为 EoR 研究提供更加丰富的信息，
+但需要借助高灵敏度的低频干涉阵列，
+比如 \ac{mwa}、\ac{lofar}、\ac{hera}。
+EoR 信号的\ac{ps}可以直接从干涉阵列测量的\ac{vis}数据计算得到，
+而不需要经过成像 \citeay{morales2019}。
+目前已有多种方法被提出来用于从\ac{vis}数据估算功率谱，
+这些方法可大致分为以下两类 \cite{morales2019}：
+\begin{itemize}
+  \item 图像功率谱方法：
+    综合所有基线的测量数据，构成 $(u,v,\nu)$ 数据立方，
+    然后沿频率维度 $\nu$ 进行 Fourier 变换，处理得到功率谱
+    \cite{dillon2015,trott2016,beardsley2017,barry2019}。
+  \item \ac{delay-spec}方法：
+    首先对每条基线的测量数据沿频率维度进行 Fourier 变换，
+    得到的结果称为\ac{delay-spec}，
+    然后再将所有基线的\ac{delay-spec}综合，处理得到功率谱
+    \cite{parsons2012,vedantham2012,ali2015}。
+\end{itemize}
+关于这两类功率谱分析方法的详细讨论可参见 \citeay{morales2019}。
+
+\item \emph{EoR \ac{tomography}}：
+直接对 EoR 区域进行成像观测，得到 EoR 区域的三维图像。
+该方法能够获得有关 EoR 最全面的信息，但是需要极高灵敏度的大型低频干涉阵列，
+目前仅有 SKA1-Low 将拥有足够高的灵敏度。
+事实上，EoR 成像是 SKA1-Low 的最关键科学目标 \cite{braun2014ska}。
+SKA1-Low 计划筛选 5 个射电尽可能宁静的 EoR 天区，
+然后对每个天区观测约 \SI{1000}{\hour}，
+实现对 EoR 区域的直接成像观测 \cite{mellema2013,mellema2015,koopmans2015}。
+\end{itemize}
 
 
 %=====================================================================
