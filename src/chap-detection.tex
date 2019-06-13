@@ -481,7 +481,7 @@ $\nu = \acs{freq21cm} / (1 + z)$，
 比如 MWA 在 \SI{150}{\MHz} 的视场大小达到约 \SI{25}{\degree} \cite{tingay2013}。
 当输入图像所对应的天区较大时，严格的做法需要采用球面 Fourier 变换 \cite{liu2016sph}，
 但是这样大大增加了功率谱计算和分析的复杂性，显著削弱方法的实用性。
-因此，目前的通用作法是直接将输入图像近似为二维平面处理。
+因此，目前的主流做法是直接将输入图像近似为二维平面处理。
 如果输入图像对应的天区过大，则需要先将图像分割为多个小区域，
 然后将每个小区域分别近似为二维平面进行处理。
 
@@ -528,8 +528,8 @@ $(\B{\ac{k-perp}}, \ac{k-los}) = 2\Cpi / (\B{r}_{\perp}, r_{\parallel})$
       \frac{(1+z)^2}{\acs{Ez}} \Delta \nu ,
 \end{align}
 其中 $\acs{D-comoving}(z)$ 为\acl{D-comoving}
-[\autoref{eq:distance-comoving}]，
-\acs{Ez} 为\acl{Ez} [\autoref{eq:Ez}]。
+[参见\autoref{eq:distance-comoving}]，
+\acs{Ez} 为\acl{Ez} [参见\autoref{eq:Ez}]。
 可选取合适的坐标系原点，使得上式经过
 $(\Delta r_{\parallel}, \Delta\nu) \to (r_{\parallel}, \nu)$
 替换后仍然成立。
@@ -554,7 +554,7 @@ $(\Delta r_{\parallel}, \Delta\nu) \to (r_{\parallel}, \nu)$
 
 EoR \ac{tomography}将获得 EoR 信号的亮温度分布图像，常用单位是 [\si{\mK}]，
 因此由\autoref{eq:ps3d-k} 给出的 EoR 信号的三维功率谱
-$P(\B{\ac{k-perp}}, \ac{k-los})$ 以 [\si{\mK\squared\Mpc\cubed}] 为单位。
+$P(\B{\ac{k-perp}}, \ac{k-los})$ 将以 [\si{\mK\squared\Mpc\cubed}] 为单位。
 在实际研究中更常使用去量纲形式的功率谱 \cite{peacock1996}：
 \begin{equation}
   \label{eq:ps3d-k2}
@@ -713,7 +713,7 @@ SKA1-Low 计划筛选 5 个射电尽可能宁静的 EoR 天区，
 \label{sec:det-difficulties}
 
 EoR 探测实验，尤其是采用低频干涉阵列，面临着一系列困难。
-这些困难主要分为以下几个方面：
+这些困难主要分为以下五个方面：
 \begin{itemize}
 \item
 \emph{前景干扰:}
@@ -1192,7 +1192,7 @@ EoR 探测实验所面临的最主要困难之一便是微弱的 EoR 信号被�
 牺牲了仪器的灵敏度和利用效率 \cite{pober2014}。
 这两类前景处理方法的进一步对比评估可参见 \citeay{chapman2016} 及其所引文献。
 
-这两类前景处理方法并不冲突，在实际情况中可以结合使用，
+这两类前景处理方法并不冲突，在实际情况中可以结合使用 \cite{kerrigan2018}，
 比如先在图像空间或 $uv$ 空间扣除明显的前景污染，
 再利用\ac{fg-avd}法在二维功率谱上提取 EoR 信号 \cite{datta2010}。
 
