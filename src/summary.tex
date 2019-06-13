@@ -5,7 +5,9 @@
 
 \begin{summary}
 
-本文围绕 EoR 探测所面临的前景干扰问题，完成了以下三点工作：
+在低频射电波段探测 EoR 信号是目前研究该时期的最直接和有效的办法，
+但是 EoR 探测面临诸多挑战，其中一个关键困难便是强烈的前景干扰。
+本文借助 SKA1-Low 干涉阵列，围绕 EoR 探测所面临的前景干扰问题，完成了以下三点工作：
 \begin{enumerate}
 \item
 (a) 为了改进低频射电天空中星系团射电晕的建模，
@@ -42,12 +44,39 @@
 同时也反映了\ac{dl}方法在未来 EoR 实验中的潜在重要作用。
 \end{enumerate}
 
-% TODO...
-在前景的高精度模拟方面，后续可开展的工作包括：
-改进星系团射电晕的形态结构建构；
-模拟和评估星系团的其他弥散射电辐射，比如\ac{rr}和\ac{rmh}。
-在 EoR 信号分离方面，后续可将 \ac{cdae} 适用到二维功率谱的处理；
-还可以研发\ac{fg-rm}和\ac{fg-avd}的混合方法，尽可能地抑制\ac{fg-wedge}的范围，
-扩大 EoR 窗口。
+%---------------------------------------------------------------------
+
+随着 \ac{mwa} 二期 \cite{wayth2018} 升级完成并开展观测，
+以及 SKA1-Low 开始加速建设，解决 EoR 探测的前景干扰问题的需求也越来越迫切。
+基于在本工作中积累的技术和经验，我们认为后续可开展的工作主要有：
+\begin{itemize}
+\item 前景辐射建模的改进：
+  \begin{itemize}
+    \item 改进射电晕形态结构的模拟，生成形态更逼真的射电晕图像；
+    \item 增加对星系团其他弥散射电辐射的模拟，比如\ac{rr}和\ac{rmh}；
+    \item 将流体动力学模拟与本文构建的射电晕模型结合起来，
+      比如先进行流体动力学模拟（甚至宇宙学模拟）获得星系团的成长过程，
+      然后利用本文的射电晕模型计算射电辐射；
+    \item 使用\ac{delay-spec}方法\cite{parsons2012}来计算\ac{ps}，
+      不经过成像步骤，然后评估前景辐射的干扰情况；
+    \item 深入挖掘低频射电巡天数据，主要包括：
+      \ac{mwa} 的 \ac{gleam}\cite{wayth2015,hurleyWalker2017}
+      和 \ac{gleam-x}\cite{hurleyWalker2017prop}，
+      \ac{lofar} 的 \ac{lotss}\cite{shimwell2017,shimwell2019}，
+      \ac{gmrt} 的 \ac{tgss}\cite{intema2017}。
+  \end{itemize}
+
+\item EoR 信号分离算法的研发：
+  \begin{itemize}
+    \item 将本文设计的 \ac{cdae} 适用到二维\ac{ps}的处理，
+      因为二维\ac{ps}是目前广泛使用的 EoR 探测方法，更接近实际应用；
+    \item 除了 \ac{cdae}，尝试将其他\ac{dl}算法用于 EoR 信号分离问题，
+      比如\ac{res-nn} \cite{he2016}；
+    \item 图像的相邻像素点存在一定的联系（如属于同一个源），
+      研发能够利用图像的空间关联信息的 EoR 信号分离算法；
+    \item 研发\ac{fg-rm}和\ac{fg-avd}的混合方法 \cite{kerrigan2018}，
+      能够尽可能地抑制\ac{fg-wedge}的范围，扩大 EoR 窗口。
+  \end{itemize}
+\end{itemize}
 
 \end{summary}
