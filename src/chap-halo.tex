@@ -8,13 +8,14 @@
 
 利用\autoref{chap:simulation}模拟得到的射电晕、
 EoR 信号以及其他前景成分的 SKA1-Low 观测图像，
-我们可以分别针对\ac{fg-rm}和\ac{fg-avd}两类前景处理方法 (\autoref{sec:fg-methods})
+可以分别针对\ac{fg-rm}和\ac{fg-avd}两类前景处理方法 (\autoref{sec:fg-methods})
 评估射电晕辐射对 EoR 信号探测的影响。
-首先，我们计算一维\ac{ps} $\ac{psD}(k)$ 来对比射电晕和 EoR 信号在各个尺度 $k$ 的功率，
-说明使用\ac{fg-rm}方法时将面临的射电晕的污染强度。
+首先，我们计算一维\ac{ps} $\ac{psD}(k)$ 来对比射电晕辐射和
+EoR 信号在各个尺度 $k$ 的功率，
+说明使用\ac{fg-rm}方法时将面临的射电晕辐射的污染强度。
 其次，我们计算二维\ac{ps} $\ac{psD}(\ac{k-perp}, \ac{k-los})$，
-然后在 EoR 窗口 (\autoref{sec:eor-window}) 内比较射电晕和 EoR 信号的功率，
-据此评估使用\ac{fg-avd}方法提取 EoR 信号时射电晕的污染程度。
+然后在 EoR 窗口 (\autoref{sec:eor-window}) 内比较射电晕辐射和 EoR 信号的功率，
+据此评估使用\ac{fg-avd}方法提取 EoR 信号时射电晕辐射的干扰程度。
 
 
 %=====================================================================
@@ -41,12 +42,12 @@ EoR 信号以及其他前景成分的 SKA1-Low 观测图像，
 \end{figure}
 
 考虑一个有限宽的频带，信号（如前景辐射）将在频带的两端出现跃变，
-这种边界效应会导致 Fourier 变换的结果具有显著的\ac{sidelobe}。
+这种边界效应会导致 Fourier 变换的结果出现显著的\ac{sidelobe}。
 即使输入信号非常平滑，Fourier 变换后也会出现一系列幅度较大的高频 Fourier 成分
 （亦称为\ac{sidelobe}），如\autoref{fig:ft-sidelobes} 所示。
 为了抑制边界效应所产生的\ac{sidelobe}，可以先对信号加窗，然后再进行 Fourier 变换。
 一个常用的选择是 Blackman--Nuttall \ac{f-window}，
-该\ac{f-window}具有良好的\ac{sidelobe}性质 \cite{nuttall1981}：
+该\ac{f-window}具有良好的\ac{sidelobe}抑制效果 \cite{nuttall1981}：
 \begin{equation}
   \label{eq:bn-window}
   w[n] = a_0 - a_1 \cos\left(\frac{2\Cpi n}{N}\right)
@@ -74,11 +75,11 @@ Blackman--Nuttall \ac{f-window}，
 
 我们对上一章模拟得到的每一个成分在每一个频带里的\ac{imgcube}分别计算了
 一维\ac{ps} $\ac{psD}(k)$。
-对于射电晕，我们使用了全部 100 次模拟 (\autoref{sec:halo-maps}) 的结果
-来估算其一维功率谱的中位数和 68\% 的误差范围。
+对于射电晕，我们使用了 100 次模拟 (\autoref{sec:halo-maps}) 的全部结果
+来估算其一维功率谱的中位数和 68\% 误差范围。
 具体而言，在一个频带里，射电晕的 100 次模拟会生成 100 个\ac{imgcube}，
 分别计算这 100 个\ac{imgcube}的一维功率谱，
-然后从所得的 100 个一维功率谱计算每个尺度 $k$ 处的中位数和相应的 68\% 误差范围。
+然后从所得的 100 个一维功率谱计算每个尺度 ($k$) 处的中位数和 68\% 误差范围。
 
 \begin{figure}[htp]
   \centering
@@ -89,7 +90,7 @@ Blackman--Nuttall \ac{f-window}，
     左栏、中栏、右栏分别表示 \numrange{120}{128}、\numrange{154}{162}
     和 \numrange{192}{200} \si{\MHz} 三个频带的结果。
     对于射电晕，红色实线及其阴影区域分别表示从 100 次模拟结果得到的
-    中位数和 68\% 的误差范围。
+    中位数和 68\% 误差范围。
   }{%
     Comparisons of the 1D dimensionless power spectra $\ac{psD}(k)$
     among the EoR signal (solid green line), radio halos (solid red line),
@@ -110,9 +111,9 @@ Blackman--Nuttall \ac{f-window}，
 可见，在 $\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$ 尺度范围内，
 射电晕在 \numrange{120}{128}、\numrange{154}{162} 和
 \numrange{192}{200} \si{\MHz} 频带内的典型功率（红色实线）
-分别是 EoR 信号的功率的 \num{e4}、\num{e3} 和 \num{e2.5} 倍。
+分别约为 EoR 信号功率的 \num{10000}、1000 和 300 倍。
 考虑到射电晕的亮度和数目在不同天区里会发生显著变化，
-因此在 68\% 的误差范围内（红色阴影区域），
+因此在 68\% 误差范围内（红色阴影区域），
 射电晕的功率能够变化约 \numrange{10}{100} 倍。
 
 对于另外两个前景成分，银河系前景在最大尺度 ($k \lesssim \SI{0.1}{\per\Mpc}$)
@@ -122,8 +123,8 @@ Blackman--Nuttall \ac{f-window}，
 射电晕的典型功率比银河系前景的功率强约 \numrange{10}{100} 倍。
 河外点源除了在最大尺度上弱于银河系前景，在其他尺度上均是最强的污染源。
 
-以上这些结果清楚地说明射电晕是严重的 EoR 前景污染源，需要在前景扣除中被仔细处理。
-此外，射电晕的形态还呈现一定程度的不规则结构，这显著增加了对其准确建模和扣除的难度。
+以上这些结果清楚地说明射电晕是严重的 EoR 前景污染源，需要在前景扣除中仔细处理。
+此外，射电晕的形态还呈现一定程度的不规则结构，这显著增加了对其进行准确建模和扣除的难度。
 
 
 %=====================================================================
@@ -167,13 +168,13 @@ Blackman--Nuttall \ac{f-window}，
 反映了 EoR 信号沿频率维度快速变化的特点；
 频谱光滑的前景成分则集中在 \ac{k-los} 较小的区域
 ($\ac{k-los} \lesssim \SI{0.2}{\per\Mpc}$)。
-在空间维度 (\ac{k-perp})，射电晕的功率主要出现在
+在空间维度 (\ac{k-perp})，射电晕辐射的功率主要出现在
 $\ac{k-perp} \lesssim \SI{1}{\per\Mpc}$ 的范围，
 并且倾向于集中在 $\ac{k-perp} \sim \SI{0.5}{\per\Mpc}$ 的中等尺度上。
 银河系弥散辐射的功率主导了 $\ac{k-perp} \lesssim \SI{0.1}{\per\Mpc}$
-的大尺度区域，而河外点源的功率则占据了 $\ac{k-perp} \gtrsim \SI{0.1}{\per\Mpc}$
-的中小尺度范围。
-这些结果与 \autoref{fig:ps1d-3bands}(b) 所展示的结果是相符的，
+的大尺度区域，而河外点源辐射的功率则占据了
+$\ac{k-perp} \gtrsim \SI{0.1}{\per\Mpc}$ 的中小尺度范围。
+这些结果与 \autoref{fig:ps1d-3bands}(b) 所展示的结果相符，
 也与诸多文献中的结果一致 \cite{datta2010,trott2015,barry2016,chapman2016}。
 
 \begin{figure}[htp]
@@ -202,8 +203,8 @@ $\ac{k-perp} \lesssim \SI{1}{\per\Mpc}$ 的范围，
   \label{fig:ps2d-ratio}
 \end{figure}
 
-为了更具体地显示射电晕对 EoR 信号的污染情况，
-我们将射电晕的二维功率谱 $\Delta^2_{\R{halo}}(\ac{k-perp}, \ac{k-los})$
+为了更具体地显示射电晕辐射对 EoR 信号探测的污染情况，
+我们将射电晕辐射的二维功率谱 $\Delta^2_{\R{halo}}(\ac{k-perp}, \ac{k-los})$
 除以 EoR 信号的二维功率谱 $\Delta^2_{\R{eor}}(\ac{k-perp}, \ac{k-los})$，
 得到两者的二维功率比：
 \begin{equation}
@@ -212,14 +213,14 @@ $\ac{k-perp} \lesssim \SI{1}{\per\Mpc}$ 的范围，
       \Delta^2_{\R{eor}}(\ac{k-perp}, \ac{k-los})} .
 \end{equation}
 如\autoref{fig:ps2d-ratio} 所示，
-可见射电晕的污染区域形成一个明显的楔形 (\autoref{sec:eor-window})。
+可见射电晕辐射的污染区域形成一个明显的楔形 (\autoref{sec:eor-window})。
 我们发现，在 \SIrange{120}{128}{\MHz} 频带内，
-射电晕在 $\ac{k-perp} \gtrsim \SI{0.1}{\per\Mpc}$ 的尺度范围内
-对 EoR 信号产生了严重污染（两者的功率之比 $R \gtrsim 1$）。
+射电晕辐射在 $\ac{k-perp} \gtrsim \SI{0.1}{\per\Mpc}$ 的尺度范围内
+对 EoR 信号探测产生了严重污染（两者的功率之比 $R \gtrsim 1$）。
 在 \numrange{154}{162} 和 \numrange{192}{200} \si{\MHz} 两个频带里，
 射电晕的主要污染范围分别为 $\ac{k-perp} \gtrsim \SI{0.3}{\per\Mpc}$
 和 $\ac{k-perp} \gtrsim \SI{0.5}{\per\Mpc}$。
-同时容易看出，射电晕在较低频率处 ($\sim$\,\SI{120}{\MHz})
+同时容易看出，射电晕辐射在较低频率处 ($\sim$\,\SI{120}{\MHz})
 对 EoR 测量的污染程度明显比在较高频率处 ($\sim$\,\SI{200}{\MHz})
 的污染程度要强。
 \autoref{fig:ps1d-3bands} 也显示了与此一致的结果。
@@ -239,7 +240,7 @@ $\ac{k-perp} \lesssim \SI{1}{\per\Mpc}$ 的范围，
   \label{fig:ps1d-ratio}
 \end{figure}
 
-考虑到射电晕的污染主要集中在二维功率谱右下方的楔形区域内
+考虑到射电晕辐射的污染主要集中在二维功率谱右下方的楔形区域内
 （如\autoref{fig:ps2d-ratio} 所示），
 因此可以选定一个合适的边界将其排除，
 于是便可以在左上方的 EoR 窗口内提取 EoR 信号，
@@ -259,18 +260,18 @@ $\Phi_{196} = \SI{4.8}{\degree}$。
 和 \numrange{192}{200} \si{\MHz} 三个频带内，
 EoR 信号分别有约 45\%、46\% 和 60\% 的功率损失在避开的\ac{fg-wedge}之中。
 
-在以上定义的 EoR 窗口内，对射电晕与 EoR 信号的二维功率比
+在以上定义的 EoR 窗口内，对射电晕辐射与 EoR 信号的二维功率比
 $R(\ac{k-perp}, \ac{k-los})$ 进行平均，
 得到一维功率比 $R_{\R{eorw}}(k)$，如\autoref{fig:ps1d-ratio} 所示。
 相比\autoref{fig:ps1d-3bands} 所示的未受 EoR 窗口约束的一维功率谱 $\ac{psD}(k)$，
-射电晕的污染在 EoR 窗口内被抑制了约 4 个数量级。
+射电晕辐射的污染在 EoR 窗口内被抑制了约 4 个数量级。
 比如，在 $k \sim \SI{1}{\per\Mpc}$ 尺度上，
 EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在 \numrange{120}{128}、
 \numrange{154}{162} 和 \numrange{192}{200} \si{\MHz}
 三个频带的典型值（图中的实线）分别约为 45\%、6\% 和 2\%。
 这充分展示了 EoR 窗口和\ac{fg-avd}法是探测 EoR 信号的有力工具。
 尽管如此，由于射电晕的亮度和数目在不同天区里具有显著的涨落，
-在 68\% 的误差范围（图中的阴影区域）以及
+在 68\% 误差范围（图中的阴影区域）以及
 $\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$ 尺度范围内，
 EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够分别达到约
 \numrange{230}{800}\%、\numrange{18}{95}\% 和 \numrange{7}{40}\%，
@@ -279,10 +280,10 @@ EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够
 
 基于本节和上一节 (\autoref{sec:ps1d}) 的结果，
 我们认为射电晕是 EoR 信号探测的一个重要前景干扰成分。
-即使在已避开严重污染的 EoR 窗口内，射电晕所产生的污染仍然能够
+即使在已避开严重污染的 EoR 窗口内，射电晕辐射所产生的污染仍然能够
 对 EoR 信号的准确测量产生不可忽略的干扰，尤其是在 $\sim$\,\SI{120}{\MHz} 的较低频率。
 为了获得一个尽可能干净、同时也尽可能大的 EoR 窗口，
-深入理解、建模并扣除射电晕以及其他前景干扰成分是非常必要的。
+必须深入理解、建模并扣除射电晕以及其他前景干扰成分。
 同时还需要联合使用\ac{fg-rm}和\ac{fg-avd}两类方法，改进 EoR 信号探测手段。
 
 
@@ -290,20 +291,20 @@ EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够
 \section{频谱伪结构的影响}
 \label{sec:freq-artifacts}
 
-射电干涉观测的实际情况要比 \autoref{sec:obs-simu} 所模拟的理想情况要复杂得多，
-比如不理想的仪器校准，电离层的扰动（参见 \autoref{sec:det-difficulties}）。
+射电干涉观测的实际情况比 \autoref{sec:obs-simu} 所模拟的理想情况要复杂得多，
+比如面临不理想的仪器校准，电离层的扰动（参见 \autoref{sec:det-difficulties}）。
 这些复杂的仪器效应和观测效应会导致\ac{imgcube}的频谱出现伪结构，
 破坏前景辐射的频谱光谱性，从而阻碍 EoR 信号的有效分离。
 
-一些模拟和观测研究指出，干涉阵列的频率\ac{channel}的校准存在约
+一些模拟和观测研究指出，干涉阵列频率\ac{channel}的校准存在约
 \numrange{0.1}{1}\% 的不确定性
 \cite{barry2016,beardsley2016,ewallWice2017}。
 为了评估这种频谱伪结构对\ac{ps}以及前景干扰的影响，
-我们对\ac{imgcube}的每一个\ac{slice}乘以一个服从平均值为 0、
-标准差为 σ 的正态分布的随机数，
+我们对\ac{imgcube}的每一个\ac{slice}乘以
+一个从平均值为 0、标准差为 σ 的正态分布生成的随机数，
 以此模拟实际观测中出现的频谱伪结构 \cite{chapman2016}，
 然后计算有无频谱伪结构的\ac{imgcube}的\ac{ps}并进行对比。
-我们考虑如下两种边界情况：
+本文考虑如下两种边界情况：
 \begin{itemize}
   \item 频谱伪结构的幅度为 $A_{\R{arti}} = 0.1\%$，
     对应于正态分布的标准差为 $σ = 0.001$；
@@ -335,7 +336,7 @@ EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够
   \label{fig:ps2d-ratio-crp}
 \end{figure}
 
-给定一个\ac{imgcube}，我们计算在有频谱伪结构和无频谱伪结构情形下的二维功率谱，
+给定一个\ac{imgcube}，计算在有频谱伪结构和无频谱伪结构情形下的二维功率谱，
 分别为 $\Delta^2_{\R{arti}}(\ac{k-perp}, \ac{k-los})$
 和 $\Delta^2(\ac{k-perp}, \ac{k-los})$，
 于是可得两者之比为：
@@ -348,9 +349,9 @@ EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够
 \numrange{154}{162} 和 \numrange{192}{200} \si{\MHz} 三个频带内、
 频谱伪结构幅度为 $A_{\R{arti}} = 0.1\%$ 和 $A_{\R{arti}} = 1\%$
 情形下的二维功率比 $R_{\R{arti}}(\ac{k-perp}, \ac{k-los})$，
-据此得到射电晕在三个频带内以及两种频谱伪结构幅度的情况下的二维功率比的中位数，
+得到了射电晕辐射在三个频带内以及两种频谱伪结构幅度的情况下的二维功率比的中位数，
 结果如\autoref{fig:ps2d-ratio-crp} 所示。
-我们发现，射电晕的二维功率谱受到了频谱伪结构的严重破坏。
+我们发现，射电晕辐射的二维功率谱受到了频谱伪结构的严重破坏。
 在 $\ac{k-perp} \lesssim \SI{0.2}{\per\Mpc}$ 和
 $\ac{k-los} \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 幅度为 $A_{\R{arti}} = 0.1\%$ 的频谱伪结构使射电晕在 \numrange{120}{128}、
@@ -362,13 +363,13 @@ $\ac{k-los} \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 
 作为对比，我们对 EoR 信号的\ac{imgcube}引入了同样的频谱伪结构
 ($A_{\R{arti}} = 0.1\%$ 或 $1\%$)
-并计算了相应的二维功率比 $R_{\R{arti}}(\ac{k-perp}, \ac{k-los})$。
-但是，我们发现 EoR 信号的二维功率谱几乎未受频谱伪结构的影响，
+并计算了相应的二维功率比 $R_{\R{arti}}(\ac{k-perp}, \ac{k-los})$，
+但是发现 EoR 信号的二维功率谱几乎未受频谱伪结构的影响，
 即使频谱伪结构的幅度为 $A_{\R{arti}} = 1\%$。
 这主要是因为 EoR 信号在频率维度已经具有明显的小尺度起伏结构。
 
-因此，即使是非常微小（幅度约为 $\sim$\,0.1\%）的频谱伪结构
-也会使射电晕的干扰显著增强，特别是在关键的 EoR 窗口内。
+由上述结果可知，即便是非常微小（幅度约为 $\sim$\,0.1\%）的频谱伪结构
+也会使射电晕辐射的干扰显著增强，特别是在关键的 EoR 窗口内。
 这说明 EoR 探测实验需要对仪器进行非常严格的校准，
 以获得非常准确的频谱响应 \cite{barry2016}。
 这些结果也进一步支持射电晕对 EoR 探测而言是一个严重的前景干扰成分。
@@ -395,12 +396,12 @@ $\ac{k-los} \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 \cite{noordam2004,wijnholds2010}（\autoref{fig:ska-beams}），
 更多关于 SKA1-Low 的波束形状及其影响的研究可参见 \citeay{mort2017}。
 辐射源即使远在视场之外，也会通过\ac{sidelobe}在视场中产生类似噪声的干扰，
-这就是\acf{fscn} \cite{smirnov2012}。
+即\acf{fscn} \cite{smirnov2012}。
 更加重要的是，当观测的 $uv$ 覆盖达到饱和时，\ac{fscn} 便不再降低，
 因此 \ac{fscn} 可能会超过仪器热噪声而成为制约成像质量的关键因素之一 \cite{mort2017}。
 
-为了研究位于\ac{sidelobe}里的射电晕所产生的 \ac{fscn}，
-我们需要生成相应的天图，然后输入 \texttt{OSKAR} 软件开展模拟观测。
+为了研究\ac{sidelobe}内的射电晕所产生的 \ac{fscn}，
+我们需要生成相应的天图并模拟包含仪器效应的 SKA1-Low 观测图像。
 \texttt{OSKAR} 利用了射电干涉仪测量方程 (measurement equation) \cite{smirnov2011}，
 实现了高仿真的\ac{beam-forming}，并且能够开展全天模拟 \cite{mort2010}。
 我们取 \SIrange{154}{162}{\MHz} 频带为例，
@@ -412,6 +413,8 @@ $\ac{k-los} \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 然后，使用 \texttt{OSKAR} 和 \texttt{WSClean} 软件按
 \autoref{sec:obs-simu} 所述方法进行模拟观测并成像，
 得到视场中央 \SI{5 x 5}{\degree} 区域的\ac{map-dirty}。
+因为视场（即\ac{mainlobe}）内没有辐射源，没有必要、也无法进行 CLEAN，
+所以直接从\ac{vis}数据生成\ac{map-dirty}即可。
 对频带内的所有频率\ac{channel}均如此处理，
 于是得到射电晕 \ac{fscn} 的\ac{imgcube}，
 最后计算其二维功率谱 $\Delta^2_{\R{fscn}}(\ac{k-perp}, \ac{k-los})$。
@@ -463,13 +466,13 @@ $\ac{k-los} \gtrsim \SI{0.3}{\per\Mpc}$ 尺度范围内，
 \section{小结}
 
 利用\autoref{chap:simulation}模拟的 SKA1-Low 观测图像，
-我们对比了射电晕、EoR 信号以及其他前景成分的一维\ac{ps}和二维\ac{ps}，
+我们对比了射电晕、EoR 信号以及其他前景成分的一维和二维\ac{ps}，
 充分说明了射电晕是一个重要的前景干扰成分。
 即便采用\ac{fg-avd}方法在二维\ac{ps}上避开强烈的前景污染区域，
-射电晕在 EoR 窗口内所产生的污染仍然能对 EoR 信号的测量产生不可忽略的影响，
+射电晕辐射在 EoR 窗口内所产生的污染仍然能对 EoR 信号的测量产生不可忽略的影响，
 尤其是在 $\sim$\,\SI{120}{\MHz} 较低频率。
 此外，我们还考虑了仪器的频谱伪结构对射电晕的功率谱的影响，
-以及位于\ac{sidelobe}里的射电晕辐射对 EoR 信号探测的影响。
+以及\ac{sidelobe}内的射电晕辐射对 EoR 信号探测的影响。
 这些结果进一步说明了射电晕作为前景成分的重要性。
 
 本章内容已发表于 \textit{The Astrophysical Journal} \cite{li.halo}。
