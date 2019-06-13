@@ -45,37 +45,37 @@
 采用弥散很大的射电--X 射线标度关系 \cite{jelic2008}、
 假定相同的频谱指数和均匀的表面亮度分布 \cite{gleser2008,jelic2008}。
 
-为了更加充分地评估\ac{rh}辐射对 EoR 信号探测的具体影响，
-有必要努力改进\ac{rh}辐射的建模，获得更加逼真的\ac{rh}图像和频谱信息。
+为了能够充分地评估\ac{rh}辐射对 EoR 信号探测的具体影响，
+改进\ac{rh}辐射的建模并获得更加逼真的\ac{rh}图像和频谱信息非常必要。
 为此，我们之前的一项工作\cite{wang2010}考虑了高能电子的能量损失过程，
 改进了\ac{rh}频谱特征的模拟。
-在此基础上，我们采用了一种半解析方法来考虑\ac{rh}的形成和演化过程，
+在此基础之上，我们采用了一种半解析方法来考虑\ac{rh}的形成和演化过程，
 进一步显著改进了\ac{rh}的低频射电辐射特征的建模。
 对于一个\ac{gc}，
 首先根据扩展 Press--Schechter 理论
 模拟其并合历史 (\autoref{sec:merging-history})，
 然后运用\ac{turbreacc-model}来计算并合所产生的\ac{turbulence}对
 \ac{icm} 中的高能电子的再加速过程 (\autoref{sec:halo-evo})，
-获得高能电子的能谱以及\ac{rh}的频谱随时间的演化 (\autoref{sec:numerical})，
-从而得到所形成的\ac{rh}的性质 (\autoref{sec:halo-size})
+获得高能电子能谱以及射电辐射频谱随时间的演化 (\autoref{sec:numerical})，
+进而确定所形成的\ac{rh}的性质 (\autoref{sec:halo-size})
 并生成相应的图像 (\autoref{sec:halo-maps})。
 
 Enrico Fermi 最早在 1949 年提出\ac{mfluid}中的带电粒子
 可与其中的\ac{turbulence}发生随机散射而获得能量，
-并用来解释高能\ac{cr}的起源 \cite{fermi1949,fermi1954,davis1956}，
+并用此来解释高能\ac{cr}的起源 \cite{fermi1949,fermi1954,davis1956}。
 这个加速机制被称为二阶 Fermi 加速。
-\ac{gc} \ac{icm} 主要包含 $\gtrsim$\,\SI{1}{\keV} 的高温等离子气体，
-同时还存在约 \si{\uG} 的磁场 \cite{govoni2004,ryu2008}，所以是一个\ac{mfluid}。
+\ac{gc} \ac{icm} 主要由 $\gtrsim$\,\SI{1}{\keV} 的高温等离子气体构成，
+但同时还存在约 \si{\uG} 的磁场 \cite{govoni2004,ryu2008}，所以是一个\ac{mfluid}。
 为了解释\ac{rh}的性质（如尺度达 $\sim\si{Mpc}$、只在并合星系团中发现）和形成机制，
 \citeay{brunetti2001} 和 \citeay{petrosian2001}
 率先将二阶 Fermi 加速机制应用于\ac{gc} \ac{icm}，
 认为并合会产生大规模的\ac{turbulence}，
-就地加速 \ac{icm} 中的相对论性电子，
-从而产生弥散的同步辐射，形成大尺度的\ac{rh}。
+就地加速 \ac{icm} 中的\ac{e-primary}至极高的能量，
+从而产生强烈的同步辐射，形成大尺度弥散\ac{rh}。
 这就是\ac{turbreacc-model}。
 该模型在诸多后续研究中得到了充分的发展和改进
 \cite{fujita2003,brunetti2004,cassano2005,brunetti2007,brunetti2011}，
-是目前解释\ac{rh}的主流模型，
+是目前解释\ac{rh}的形成与演化的主流模型，
 详见 \citeay{brunetti2014} 综述文。
 下文将详细介绍\ac{rh}的建模方法和结果。
 
@@ -86,7 +86,7 @@ Enrico Fermi 最早在 1949 年提出\ac{mfluid}中的带电粒子
 现在普遍认为，宇宙目前的结构是由极早期的微小密度扰动发展而来的 \cite{peebles1980}。
 根据\acf{cdm} 模型，\ac{cdm} 粒子的速度弥散很小，因此有利于先形成小尺度结构；
 然后在引力和宇宙膨胀的共同作用下，逐步形成尺度越来越大的结构
-\cite{davis1985,bond1991,lacey1993}。
+\cite{davis1985,bond1991}。
 这就是\acf{hier-clustering}模型。
 
 当密度扰动进入非线性增长阶段，计算变得非常复杂而主要依赖于数值模拟。
@@ -96,7 +96,7 @@ Enrico Fermi 最早在 1949 年提出\ac{mfluid}中的带电粒子
 在晕中沉积并演化为星系、星系团等结构。
 利用这个模型，\citeay{press1974} 从密度扰动的随机统计性质推导出了暗物质晕
 （即星系、星系团等结构）的数目随质量的分布及其时间演化，
-即 Press-Schechter 质量函数。
+即 Press--Schechter 质量函数。
 在红移 $z$ 处，每单位\ac{V-comoving}内质量范围为 $[M,\, M+\R{d}M]$
 的\ac{gc}的数目 \ac{n-cl} 为：
 \begin{equation}
@@ -134,7 +134,9 @@ $M_8$ 是半径为 \SI{8}{\per\hubble\Mpc} 的球形区域里的质量：
 可计算出 \SI{10 x 10}{\degree} 的天区内的星系团总数为 504，
 以及相应的质量和红移分布（如\autoref{fig:m-z-dist} 所示）。
 接着对质量和红移分布随机采样，得到一系列 $(M_{\R{sim}}, z_{\R{sim}})$ 对，
-于是构建成所需的星系团样本。
+于是构建成该天区的星系团样本。
+对于本文研究的天区大小，星系团的\ac{clustering-effect}可以忽略，
+所以星系团均匀随机地分布在天区内。
 
 \begin{figure}[htp]
   \centering
@@ -202,11 +204,11 @@ $\delta_{ci} \equiv \delta_c(t_i)$，$\sigma_i \equiv \sigma(M_i)$，
 其中
 $\Delta\psi = \sigma_1^2 - \sigma_2^2$，
 $\Delta\omega = \delta_{c1} - \delta_{c2}$。
-注意，$\psi$ 随 $M$ 的增大而单调递减，$\omega$ 随 $t$ 的增大而单调递减。
+注意，$\psi$ 随 $M$ 的增大而单调递减，$\omega$ 也随 $t$ 的增大而单调递减。
 
-对于 \autoref{sec:mass-function} 样本中的每一个星系团，为了模拟其\ac{m-tree}，
-我们从\enquote{当前的}质量 $M_{\R{sim}}$ 和红移 $z_{\R{sim}}$ 出发，
-运用 Monte Carlo 方法逐步追溯其成长历史，时间步长为 $\Delta\omega$。
+为了模拟一个星系团的\ac{m-tree}，
+从该星系团的\enquote{当前}质量 $M_{\R{sim}}$ 和红移 $z_{\R{sim}}$ 出发，
+运用 Monte Carlo 方法逐步追溯其成长历史，追溯的时间步长为 $\Delta\omega$。
 为了能够分辨质量变化为 $\Delta M_c$ ($\ll M_2$) 的并合，
 时间步长 $\Delta\omega$ 应满足 \cite{lacey1993}：
 \begin{equation}
@@ -218,7 +220,7 @@ $\Delta\omega = \delta_{c1} - \delta_{c2}$。
 $\Delta\omega = (\Delta\omega)_{\R{max}} \big/ 2$。
 
 在追溯的每一步，当时间步长 $\Delta\omega$ 确定后，
-则并入星系团的质量（由 $\Delta\psi$ 描述）的\ac{cdf}为：
+则星系团的质量变化量（由 $\Delta\psi$ 描述）的\ac{cdf}为：
 \begin{align}
   F_{\Delta\psi}(<\!\Delta\psi, \Delta\omega)
     & = \int_0^{\Delta\psi} \R{Pr}(\Delta\psi', \Delta\omega)
@@ -243,7 +245,7 @@ $\Delta\omega = (\Delta\omega)_{\R{max}} \big/ 2$。
 而且\ac{rh}的寿命较短，比如在 \SI{1.4}{\GHz} 的典型寿命
 $\tau_{\R{halo}} \lesssim \SI{1}{\Gyr}$ \cite{brunetti2009,cassano2016}。
 因此我们取 $\Delta M_c = \SI{e13}{\solarmass}$ \cite{cassano2005}，
-并且只针对主团从\enquote{当前}时刻 $t_{\R{sim}}$ （对应于 $z_{\R{sim}}$）
+并且只针对主团从其\enquote{当前}时刻 $t_{\R{sim}}$ （对应于 $z_{\R{sim}}$）
 追溯 $t_{\R{back}} = \SI{3}{\Gyr}$。
 于是我们获得了每个星系团的并合历史
 $\left\{\left( M_m^{(i)}, M_s^{(i)}, t_{\R{merger}}^{(i)} \right)\right\}$
@@ -252,8 +254,8 @@ $\left\{\left( M_m^{(i)}, M_s^{(i)}, t_{\R{merger}}^{(i)} \right)\right\}$
 星系团的并合历史（即\ac{m-tree}）是随机模拟的。
 以一个质量为 \SI{e15}{\solarmass} 的星系团为例，重复模拟其\ac{m-tree} 30 次，
 得到的 30 颗\ac{m-tree}互不相同，如\autoref{fig:merging-history} 上栏所示。
-同时，该图下栏显示了从 \autoref{sec:mass-function} 样本中随机挑选的 30 个星系团
-的\ac{m-tree}，其中每个星系团只随机生成了一颗\ac{m-tree}。
+同时，该图下栏显示了从 \autoref{sec:mass-function} 构建中样本中随机挑选的
+30 个星系团的\ac{m-tree}，其中每个星系团只随机生成了一颗\ac{m-tree}。
 
 \begin{figure}[htp]
   \centering
@@ -281,15 +283,15 @@ $\left\{\left( M_m^{(i)}, M_s^{(i)}, t_{\R{merger}}^{(i)} \right)\right\}$
 \subsection{高能电子的演化模型}
 \label{sec:halo-evo}
 
-根据\ac{turbreacc-model}，星系团 \ac{icm} 里充满一群非热的\ac{e-primary}，
-这些电子可在多种过程中产生并被注入到 \ac{icm} 中，比如 \ac{agn} 活动、恒星形成，
+根据\ac{turbreacc-model}，星系团 \ac{icm} 中充满一群非热的\ac{e-primary}，
+这些电子可在多种过程中产生并被注入 \ac{icm}，
+这些过程主要包括 \ac{agn} 活动、恒星形成，
 详见 \citeay{blasi2007} 和 \citeay{brunetti2014} 综述文。
 当星系团经历\ac{m-major}时，整个 \ac{icm} 中都将产生剧烈的\ac{turbulence}，
 就地加速\ac{e-primary}至极高的能量 (\acl{g} $\ac{g} > \num{e3}$)，
 从而形成弥散的\ac{rh}。
-在另一方面，多种机制会使这些高能电子损失能量 \cite{sarazin1999}，
-主要包括产生\ac{rad-syn}，与 \ac{cmb} 光子发生逆 Compton 散射，
-以及与 \ac{icm} 中的离子发生 Coulomb 碰撞。
+另一方面，多种机制会使这些高能电子损失能量 \cite{sarazin1999}，
+主要包括\ac{rad-syn}、逆 Compton 散射和 Coulomb 碰撞。
 
 对于一群能量分布各向同性的高能电子，在上述湍流再加速和能量损失的共同作用下，
 其能谱 \ac{n-e} 随时间的演化由以下 Fokker--Planck 方程描述
@@ -360,8 +362,8 @@ $\ac{mol-weight-m} \simeq 0.6$ 是 \ac{icm} 的\acl{mol-weight-m}
 %.....................................................................
 \subsubsection{初级电子注入过程}
 
-在星系团及其成员星系中持续发生着 \ac{agn} 活动、恒星形成等过程，
-不断地将\ac{e-primary}注入到 \ac{icm} 之中。
+在星系团的成员星系中持续发生着 \ac{agn} 活动、恒星形成等过程，
+不断地将\ac{e-primary}注入 \ac{icm}。
 因此可以假定\ac{e-primary}的注入速率 \ac{e-inj-rate} 是恒定的
 \cite{cassano2005,donnert2014}，
 同时还可假定注入电子的能谱为幂律形式 \cite{sarazin1999}，
@@ -403,7 +405,7 @@ $\ac{e-electron} = \ac{mass-e} \ac{speed-light}^2$
 对子团而言，距离自身的中心越远，则气体的流体静力学压强越小，
 \ac{ram-pressure-strip}的效果也就越显著。
 因此\acl{r-strip} (stripping radius) \ac{r-strip} 定义为，
-该半径处子团受到的\ac{ram-pressure}与自由气体的流体静力学压强达到平衡
+该半径处子团受到的\ac{ram-pressure}与自身气体的流体静力学压强达到平衡
 \cite{cassano2005}，即：
 \begin{equation}
   \label{eq:rs-eqp}
@@ -417,8 +419,8 @@ $\bar{\rho}_m = \ac{mol-weight-m} \ac{mass-u} \ac{n-th-m}$
 \ac{v-imp} 是主团和子团之间的\acl{v-imp}，
 $\ac{rho-s}(r)$ 和 \ac{T-cl-s} 分别是子团的气体密度轮廓和 \ac{icm} 平均温度。
 
-两个质量分别为 \ac{M-vir-m} 和 \ac{M-vir-s} 的星系团
-从相距 $d_0$ 的地方以零初速度开始并合，
+质量分别为 \ac{M-vir-m} 和 \ac{M-vir-s} 的主团和子团，
+从相距足够远 ($d_0$) 的地方以零初速度开始并合，
 则两者的\acl{v-imp} \ac{v-imp} 为 \cite{sarazin2002,cassano2005}：
 \begin{equation}
   \label{eq:v-imp}
@@ -428,14 +430,14 @@ $\ac{rho-s}(r)$ 和 \ac{T-cl-s} 分别是子团的气体密度轮廓和 \ac{icm}
 \end{equation}
 其中
 \ac{r-vir-m} 为\acl{r-vir-m}，
-$\eta_v$ 为初始距离参数，由下式给出：
+$\eta_v$ 为初始距离参数：
 \begin{equation}
   \eta_v
     = \frac{d_0}{\ac{r-vir-m}}
     \simeq 4 \left( 1 + \frac{\ac{M-vir-s}}{\ac{M-vir-m}} \right)^{1/3} .
 \end{equation}
 
-星系团的气体密度轮廓可以很好地由 β 模型 \cite{cavaliere1976} 来描述：
+星系团的气体密度轮廓可以很好地由 β 模型 \cite{cavaliere1976} 描述：
 \begin{equation}
   \label{eq:beta-model}
   \rho(r)
@@ -456,7 +458,7 @@ $\rho(0)$ 为中心处的气体密度，
 \end{equation}
 其中
 $\ac{r-core-s} = 0.1 \,\ac{r-vir-s}$，
-以及 $\ac{rho-s}(0)$ 由子团的气体质量确定：
+同时 $\ac{rho-s}(0)$ 由子团的气体质量确定：
 \begin{align}
   \ac{M-gas-s}
     & = \ac{f-gas} \ac{M-vir-s}
@@ -478,7 +480,7 @@ $\ac{r-core-s} = 0.1 \,\ac{r-vir-s}$，
 在多种由\ac{turbulence}引起的粒子加速机制中，最重要的一种机制是\acf{ttd}，
 即\ac{turbulence}通过与 \ac{icm} 中的\ac{cr}等相对论性粒子发生相互作用而耗散能量，
 从而将能量传递给电子使其加速
-（参考 \citeay{brunetti2007} 和 \citeay{brunetti2011} 及其所引文献）。
+（详见 \citeay{brunetti2007} 和 \citeay{brunetti2011} 及其所引文献）。
 该加速机制给出\autoref{eq:fokkerplanck}
 中的\acl{coef-diffusion} \ac{coef-diffusion} 为
 \cite{miniati2015,pinzke2017}：
@@ -495,7 +497,7 @@ $\ac{k-turb-inj} \simeq 2\Cpi / \ac{r-turb}$
 是\acl{k-turb-inj} (injection scale)，
 同时 \ac{r-turb} 是\acl{r-turb}，
 \ac{v-turb} 是\acl{v-turb} (velocity dispersion)，
-以及 \ac{speed-sound} 为 \ac{icm} 中的声速，由下式给出：
+以及 \ac{speed-sound} 为 \ac{icm} 中的声速：
 \begin{equation}
   \ac{speed-sound}
     = \sqrt{\frac{\ac{adiabatic-index} \ac{kb} \ac{T-cl}}{
@@ -508,7 +510,7 @@ $\ac{k-turb-inj} \simeq 2\Cpi / \ac{r-turb}$
 中产生\ac{turbulence} \cite{vazza2011}。
 \citeay{vazza2011} 发现在弛豫星系团的中央区域，
 \ac{turbulence}的能量与 \ac{icm} 热能之比可达 $\lesssim\,$5\%。
-因此，在并合开始前\ac{turbulence}具有初始的速度弥散 \ac{v-turb0}：
+因此在并合开始前，\ac{turbulence}具有初始的速度弥散 \ac{v-turb0}：
 \begin{equation}
   \label{eq:v-turb0}
   \ac{v-turb0}
@@ -517,8 +519,8 @@ $\ac{k-turb-inj} \simeq 2\Cpi / \ac{r-turb}$
 \end{equation}
 其中
 \ac{f-turb} 是初始湍流的能量密度与 \ac{icm} 热能密度 \ac{e-th} 之比。
-并合会贡献一部分能量到\ac{turbulence}中，
-使得\ac{turbulence}的速度弥散 \ac{v-turb} 显著增大，于是有：
+并合将贡献一部分能量给\ac{turbulence}，
+使\ac{turbulence}的速度弥散 \ac{v-turb} 显著增大，于是有：
 \begin{align}
   \label{eq:energy-turb}
   E_{\R{turb}}
@@ -529,14 +531,14 @@ $\ac{k-turb-inj} \simeq 2\Cpi / \ac{r-turb}$
 \acuse{M-turb,f-trans}
 其中
 $E_m$ 是子团在并合过程中释放的能量，
-\ac{f-trans} 是并合注入湍流的能量比例，
+\ac{f-trans} 是\acl{f-trans}，
 以及 \ac{M-turb} 是半径为 \ac{r-turb} 的湍流区域内的气体质量，由下式给出：
 \begin{equation}
   \ac{M-turb} = \int_0^{\ac{r-turb}} \! \rho(r) \,4\Cpi r^2 \,\D{r} ,
 \end{equation}
 其中 $\rho(r)$ 是已并合星系团的气体密度轮廓，同样由 β 模型描述
 [参见\autoref{eq:beta-model}]。
-并合释放的能量 $E_m$ 可以近似为落入子团所做的功 \cite{fujita2003,cassano2005}：
+并合释放的能量 $E_m$ 可以近似为子团在并合过程所做的功 \cite{fujita2003,cassano2005}：
 \begin{equation}
   \label{eq:energy-inj}
   E_m \simeq \bar{\rho}_m v_{\R{imp}}^2 V_{\R{turb}} ,
@@ -652,13 +654,13 @@ $\ac{r-core-m} = 0.1 \,\ac{r-vir-m}$ 是主团的\acl{r-core}，
   \centering
   \includegraphics[width=0.7\textwidth]{energy-loss-timescale}
   \bicaption[逆 Compton 散射、同步辐射和 Coulomb 碰撞的能量损失时标对比]{%
-    高能电子在 ICM 中的三种主要能量损失机制的时标 $\tau_{\R{loss}}$ 对比，
+    高能电子在 ICM 中的三种主要能量损失机制的时标对比，
     包括逆 Compton 散射（红色实线）、同步辐射（蓝色虚线）和 Coulomb 碰撞（紫色点线）。
     使用的参数为：
     $\acs{n-th} = \SI{e-4}{\per\cubic\cm}$、
     $\acs{mag-field} = \SI{1}{\uG}$ 和 $z = 0.3$。
   }{%
-    The comparison of timescale $\tau_{\R{loss}}$ among the three
+    The comparison of timescale among the three
     major energy loss mechanisms for electrons in the ICM,
     including the inverse Compton scattering (solid red line),
     synchrotron radiation (dashed blue line), and Coulomb collison
@@ -697,9 +699,10 @@ $\tau_{\R{loss}} = |\D{t}/\D{\ac{g}}|$。
 $[\ac{g}_{\R{min}}, \,\ac{g}_{\R{buf1}}]$ 和
 $[\ac{g}_{\R{buf2}}, \,\ac{g}_{\R{max}}]$。
 在求解过程中，利用缓冲区外 ($\ac{g}_{\R{buf1}} < \ac{g} < \ac{g}_{\R{buf2}}$)
-的有效能谱，按幂律形式外延并替换缓冲区内的能谱 \cite{borovsky1986,donnert2014}。
+的有效能谱，按幂律形式外延并替换缓冲区内的能谱 \cite{borovsky1986,donnert2014}，
+从而消除电子在边界处的不合理堆积。
 本文选取了 $\ac{g}_{\R{min}} = 1$ 和 $\ac{g}_{\R{max}} = \num{e6}$，
-并采用对数\ac{grid} 将 \ac{g} 划分为 256 个\ac{cell}，
+并采用对数\ac{grid}将 \ac{g} 划分为 256 个\ac{cell}，
 其中两个缓冲区均占据 10 个\ac{cell}。
 
 求解 Fokker--Planck 方程还需要知道初始电子能谱 $n_e(\ac{g}, t_0)$。
@@ -714,8 +717,8 @@ $\ac{v-turb} \equiv \ac{v-turb0}$，
 让电子能谱 $\tilde{n}_e(\ac{g})$ 演化 \SI{1}{\Gyr}，
 于是获得初始电子能谱 $n_e(\ac{g}, t_0)$ 的一个合理近似 \cite{brunetti2007}。
 
-尽管一次并合的全部过程可能持续约 \SIrange{2}{3}{\Gyr} \cite{tormen2004,cassano2016}，
-但是并合能够产生足够强的\ac{turbulence}以有效地加速电子的时间却比较短
+尽管一次并合的完整过程可能持续约 \SIrange{2}{3}{\Gyr} \cite{tormen2004,cassano2016}，
+但是在此过程中并合能够产生足够强的\ac{turbulence}以有效地加速电子的时间却比较短
 ($\lesssim$\,\SI{1}{\Gyr})。
 这段有效加速时长 \ac{tau-turb} 可估算为 \cite{miniati2015}：
 \begin{equation}
@@ -730,12 +733,12 @@ t^{(i)}_{\R{begin}} \right)$，
 $\left[ t^{(i)}_{\R{begin}},\, t^{(i)}_{\R{end}} \right]$，
 其中 $t^{(i)}_{\R{end}} = t^{(i)}_{\R{begin}}+\tau^{(i)}_{\R{turb}}$
 是此次并合变得不活跃的时刻。
-在其他没有并合活动的时间段里，则只有初始湍流对电子的加速有一定程度的贡献
+在没有并合活动的其他时间段里，则只有初始湍流对电子的加速有一定程度的贡献
 [\autoref{eq:v-turb0}]。
-然而初始湍流很弱，所以加速效率很低，不足以平衡\ac{rad-syn}和逆 Compton 散射的能量损失。
+然而初始湍流较弱，所以加速效率很低，不足以平衡\ac{rad-syn}和逆 Compton 散射的能量损失。
 
-对于一个经历多次并合的\ac{gc}，每次并合所产生的湍流区域大小 (\ac{r-turb}) 是不同的。
-为了考虑这个变化，首先确定最大湍流区域的半径 \ac{R-turb}，
+对于一个经历多次并合的\ac{gc}，每次并合所产生的湍流区域大小是不同的。
+为了考虑这个变化，首先确定最大湍流区域的半径 (\ac{R-turb})，
 然后在计算具有较小湍流区域 ($\ac{r-turb} < \ac{R-turb}$) 的并合的加速过程时，
 将加速后的电子能谱相应地稀释到半径为 \ac{R-turb} 的球形区域里。
 具体而言，对于一次有效加速时间段为
@@ -745,7 +748,7 @@ $\left[ t^{(i)}_{\R{begin}}, t^{(i)}_{\R{end}} \right]$、
 $n_e^{\R{diff}}(\ac{g}) =
 n_e\!\left(\ac{g}, t^{(i)}_{\R{end}}\right) -
 n_e\!\left(\ac{g}, t^{(i)}_{\R{begin}}\right)$，
-按如下体积比例稀释：
+按以下体积比例稀释：
 \begin{equation}
   \label{eq:ratio-v}
   R_{\R{vol}} = \left[ \frac{r^{(i)}_{\R{turb}}}{\ac{R-turb}} \right]^3 .
@@ -830,9 +833,9 @@ $\theta$ 是电子与磁场 \ac{mag-field} 之间的\ac{pitch-angle}，
 时与一个质量为 \SI{6e14}{\solarmass} 的子团开始并合。
 该并合的有效加速时长约为 $\tau_{\R{turb}} \simeq \SI{0.67}{\Gyr}$，
 使电子被加速到极高能量 ($\gamma \gtrsim \num{e4}$)，
-形成在中高频段 ($> \si{\GHz}$) 可见的\ac{rh}。
+形成在中高频波段 ($> \si{\GHz}$) 可见的\ac{rh}。
 然而，当并合变得不活跃时 ($t > \SI{10.9}{\Gyr}$)，
-高能端的电子迅速地损失能量而衰减，\ac{rh}也很快地消失，特别是在中高频段。
+高能端的电子迅速地损失能量而衰减，\ac{rh}也很快地消失，特别是在中高频波段。
 
 %---------------------------------------------------------------------
 \subsection{射电晕的识别和半径}
@@ -851,7 +854,7 @@ $\theta$ 是电子与磁场 \ac{mag-field} 之间的\ac{pitch-angle}，
     $n'_e(\ac{g}, t_{\R{sim}})$ 确定，
     后者的计算方法与 \autoref{sec:numerical} 中计算初始电子能谱
     $n_e(\ac{g}, t_0)$ 的方法类似，
-    即在没有并合引起的湍流加速的情况下求解 Fokker--Planck 方程而得到。
+    即在没有并合引起的湍流加速的情况下求解 Fokker--Planck 方程得到。
 
   \item 同步辐射在频率 $\nu$ 处谱指数满足 $\alpha_{\nu} \le 3$。
 \end{enumerate}
@@ -861,17 +864,17 @@ $\theta$ 是电子与磁场 \ac{mag-field} 之间的\ac{pitch-angle}，
 在 \SI{158}{\MHz} 处的存在时间段约为 \SIrange{10.5}{11.3}{\Gyr}。
 同时，\ac{rh}的同步辐射频谱在 \SI{1.4}{\GHz} 和 \SI{158}{\MHz}
 的谱指数分别达到了约 2.1 和 1.0。
-这些结果显示，\ac{rh}在低频波段 ($\lesssim$\,\SI{200}{\MHz}) 更容易形成，
-并且拥有更长的寿命。
+这些结果显示，\ac{rh}在低频波段更容易形成，并且拥有更长的寿命。
 因此，在低频波段也更容易发现更多的\ac{rh}。
 此外，上述示例给出的 \SI{1.4}{\GHz} 谱指数 ($\alpha_{1400} \sim 2.1$)
 比通常的观测结果\cite{feretti2012}偏大一些，
-这是因为本文直接在一个频率 $\nu$ 附近计算该频率处的谱指数 $\alpha_{\nu}$，
+这是因为本文直接在某个频率 $\nu$ 的附近计算该频率处的谱指数 $\alpha_{\nu}$，
 而观测给出的谱指数 $\alpha_{\nu_1}^{\nu_2}$ 通常从两个相隔较远的频率
-($\nu_1$ 和 $\nu_2$) 的观测数据得出，比如 0.3 和 1.4 GHz \cite{feretti2012}。
+($\nu_1$ 和 $\nu_2$) 的观测数据得出，
+比如 $\nu_1 = \SI{0.3}{\GHz}$ 和 $\nu_2 = \SI{1.4}{GHz}$ \cite{feretti2012}。
 
 判别一个\ac{rh}存在后，接着需要确定其大小。
-之前的研究已显示\acl{r-halo} \ac{r-halo}
+之前的研究结果已显示\acl{r-halo} \ac{r-halo}
 会随\ac{gc}的\acl{r-vir} \ac{r-vir} 超线性地增大 \cite{cassano2007,basu2012}，
 这可能是由于高能电子和磁场的径向分布特征造成的 \cite{dolag2002}。
 据此，我们假定\acl{r-halo} \ac{r-halo} 满足以下\ac{scaling-relation}：
@@ -905,10 +908,10 @@ $\acs{D-luminosity}(z_{\R{sim}})$ 是\ac{rh}的\acl{D-luminosity}，
 因子 $(1 + z_{\R{sim}})$ 用于考虑 $K$ 修正 \cite{hogg1999}。
 
 %---------------------------------------------------------------------
-\subsection{模型参数约束和模拟结果}
+\subsection{模型参数调节和模拟结果}
 \label{sec:halo-results}
 
-我们构建的\ac{rh}模型主要包含以下 5 个待约束的参数：
+我们构建的\ac{rh}模型主要包含以下 5 个待调节的参数：
 \begin{enumerate}
   \item \ac{f-injection}:
     注入电子的总能量密度与 \ac{icm} 热能密度 \ac{e-th} 之比；
@@ -956,7 +959,7 @@ $P_{1400} \propto M_{500}^{3.70 \pm 0.56}$。
 另一个对比则利用全天积分的 \SI{1.4}{\GHz} \ac{f-flux}。
 为此，我们搜集了截至 2018 年 1 月已观测到的 80 个\ac{rh}，
 其中 71 个已确认，另外 9 个为候选，
-详见\autoref{app:halos} 中的\autoref{tab:halos}。
+详见\autoref{app:halos} 的\autoref{tab:halos}。
 考虑到目前观测到的\ac{rh}远远不够完备，尤其是在低流量端，
 因此在对比时只要求模拟得到的\ac{f-flux}与观测结果在高流量端达到一致。
 
@@ -985,12 +988,12 @@ $P_{1400} \propto M_{500}^{3.70 \pm 0.56}$。
 
 根据上述 $P_{1400}$--\ac{M-vir} \ac{scaling-relation}可知，
 亮射电晕主要位于大质量 ($\gtrsim$\,\SI{e15}{\solarmass}) 星系团中。
-在一片 \SI{10 x 10}{\degree} 的天区里，
-大质量星系团有显著的涨落 (\autoref{sec:mass-function})，
+在一块 \SI{10 x 10}{\degree} 的天区中，
+大质量星系团存在显著的涨落 (\autoref{sec:mass-function})，
 因此亮射电晕也会出现明显的涨落。
 为了考虑这个分布涨落，我们对每一种参数组合均重复模拟 500 次，
 由此估算模拟结果的均值和误差，并与上述两个观测结果进行对比。
-通过测试多种参数组合，我们最终选取如下一组参数：
+通过测试多种参数组合，我们最终选取了如下参数组合：
 $\ac{f-injection} = 0.01\%$,
 $\ac{f-trans} = 15\%$,
 $\ac{f-cr} = 1.5\%$,
@@ -1005,7 +1008,7 @@ $P_{1400} \propto M_{\R{vir}}^{3.94 \pm 0.12}$。
 \autoref{fig:halos-simucomp} 显示了 \SI{1.4}{\GHz} \ac{f-flux}的对比结果，
 可见模拟的射电晕与观测的射电晕在高流量端是一致的。
 同时，本文模拟给出的 \SI{1.4}{\GHz} \ac{f-flux}还与
-\citeay{cassano2012} 的预测结果相匹配。
+\citeay{cassano2012} 的预测结果相互匹配。
 
 \autoref{fig:halo-fraction} 显示了具有射电晕的星系团比例
 随星系团质量的变化。
@@ -1013,7 +1016,8 @@ $P_{1400} \propto M_{\R{vir}}^{3.94 \pm 0.12}$。
 同时，星系团中存在一个在低频波段（如 \SI{158}{\MHz}）可见的射电晕的概率
 也显著高于存在一个在高频波段（如 \SI{1.4}{\GHz}）可见的射电晕。
 因此，在低频波段 ($\sim$\,\SIrange{100}{200}{\MHz}) 将能观测到
-成千上万个射电晕，远远多于目前发现的数目 \cite{cassano2012,cassano2015}。
+成千上万个射电晕，远远多于目前发现的数目 \cite{cassano2012,cassano2015}，
+更适合开展射电晕的系统性观测与研究 \cite{kale2016}。
 
 \begin{figure}[htp]
   \centering
@@ -1035,9 +1039,8 @@ $P_{1400} \propto M_{\R{vir}}^{3.94 \pm 0.12}$。
 \subsection{射电晕天图生成}
 \label{sec:halo-maps}
 
-获得射电晕的半径 \ac{r-halo} [\autoref{eq:r-halo}]
-和流量密度 $\ac{S-halo}(\nu)$ [\autoref{eq:halo-flux}] 后，
-为了生成图像，我们假定射电晕是圆形的，
+获得射电晕的半径 \ac{r-halo} 和流量密度 $\ac{S-halo}(\nu)$ 后，
+为了生成图像，我们假定射电晕为圆形，
 并采用以下指数型轮廓来描述其角向平均的亮度分布 \cite{murgia2009}：
 \begin{equation}
   \label{eq:halo-profile}
@@ -1049,7 +1052,7 @@ $\theta = r / \acs{D-angular}(z_{\R{sim}})$ 是距离射电晕中心的角半径
 (angular radius)，
 并且 $\ac{D-angular}(z_{\R{sim}})$ 是射电晕的\acl{D-angular}；
 $\theta_{\R{halo}} = \ac{r-halo} / \acs{D-angular}(z_{\R{sim}})$。
-还有 $I_{\nu,0}$ 为中心亮度，由射电晕的流量密度 $\ac{S-halo}(\nu)$ 确定：
+中心亮度 $I_{\nu,0}$ 由射电晕的流量密度 $\ac{S-halo}(\nu)$ 确定：
 \begin{align}
   \ac{S-halo}(\nu)
     & = \int_0^{\theta_{\R{halo}}} \ac{I-nu}(\theta) \,\D{\theta} \\
@@ -1061,11 +1064,11 @@ $\theta_{\R{halo}} = \ac{r-halo} / \acs{D-angular}(z_{\R{sim}})$。
   I_{\nu,0} = \frac{9 \ac{S-halo}(\nu)}{2\Cpi \theta^2_{\R{halo}}} .
 \end{equation}
 最后利用 Rayleigh--Jeans 近似 [\autoref{eq:rj-approx}]，
-便可以得到\ac{rh}的亮温度 $\acs{T-b}(\nu)$ 的分布图像。
+将亮度 $\ac{I-nu}$ 转换为亮温度 $\acs{T-b}(\nu)$，得到\ac{rh}的亮温度分布图像。
 
 如 \autoref{sec:halo-results} 所述，
 为了考虑亮射电晕数目的显著涨落，从而使\autoref{chap:halo}的评估结果更具代表性，
-我们重复模拟了 100 次射电晕，并将全部 100 次的模拟数据用于后续分析。
+我们重复模拟了 100 次射电晕，并将 100 次模拟的全部数据用于后续分析。
 基于这 100 次模拟，射电晕的亮温度\ac{rms}值的中位数以及 68\% 的误差\footnote{%
   68\% 的误差根据第 16 和第 84 \ac{percentile}得到。
   对于弥散很大的数据，如此计算的误差比标准差更稳健。
@@ -1084,7 +1087,7 @@ $\left(0.85_{-0.54}^{+2.74}\right) \times 10^3$ \si{\mK}
   \centering
   \includegraphics[width=0.8\textwidth]{skymap-halos-f158}
   \bicaption[射电晕在 \SI{158}{\MHz} 的模拟天图示例]{%
-    射电晕在 \SI{158}{\MHz} 的模拟天图示例，为 100 次模拟中的一次典型情况。
+    射电晕在 \SI{158}{\MHz} 的模拟天图示例，取自 100 次模拟中的一次典型情况。
     天区的大小为 \SI{10 x 10}{\degree}，
     \ac{colorbar}的单位是 \si{\kelvin}。
   }{%
@@ -1133,17 +1136,20 @@ $\left(0.85_{-0.54}^{+2.74}\right) \times 10^3$ \si{\mK}
 \label{sec:simu-galactic}
 
 在低频射电波段，银河系的弥散辐射主要包括\ac{rad-syn}和\ac{rad-ff}。
-本节将介绍如何模拟这两种辐射成分的\ac{skymap}。
+本节将介绍这两种辐射成分的\ac{skymap}模拟。
 
-银河系辐射会随天空位置发生显著变化，越靠近银盘辐射越强，
+银河系辐射会随天空位置的改变而发生显著变化，越靠近银盘辐射越强，
 因此 EoR 实验将挑选高银纬天区开展观测。
-考虑到 SKA1-Low 将建设在 \ac{mwa} (\ang{26;42;12}\,S, \ang{116;40;16}\,E)
-的旁边，同时 \ac{mwa} 目前正在研究的 EoR0 天区位于
-(R.A., Dec.\@) = (\SI{0}{\degree}, \SI{-27}{\degree}) \cite{beardsley2016}。
-EoR0 天区位于高银纬 ($b = \SI{-78.5}{\degree}$) 区域，
-而且几乎经过 SKA1-Low 的\ac{zenith}，是一个理想的观测天区，
+同时
+
+\ac{mwa} 目前正在研究的 EoR0 天区位于
+(R.A., Dec.\@) = (\SI{0}{\degree}, \SI{-27}{\degree}) \cite{beardsley2016}，
+是一块高银纬天区 ($b = \SI{-78.5}{\degree}$)。
+考虑到 SKA1-Low 将建设在 \ac{mwa}
+（地理坐标：\ang{26;42;12}\,S、\ang{116;40;16}\,E）的旁边，
+EoR0 天区能几乎经过 SKA1-Low 的\ac{zenith}，是一个理想的观测天区，
 对本文所开展的模拟研究而言也是一个合适的选择（另见 \autoref{sec:obs-simu}）。
-因此，我们将以 (R.A., Dec.\@) = (\SI{0}{\degree}, \SI{-27}{\degree})
+因此，本文将以 (R.A., Dec.\@) = (\SI{0}{\degree}, \SI{-27}{\degree})
 为中心坐标模拟银河系弥散辐射的\ac{skymap}。
 
 %---------------------------------------------------------------------
@@ -1165,16 +1171,19 @@ $\alpha_{\R{syn}}(\hat{\B{r}})$ 为该处的同步辐射谱指数。
 全天图\footnote{%
   重新处理的 Haslam \SI{408}{\MHz} 全天图：
   \url{http://www.jb.man.ac.uk/research/cosmos/haslam_map/}}。
-与 Haslam 原图相比，新图具有更好的仪器校准以及更准确的河外点源扣除 \cite{remazeilles2015}。
+与 Haslam 原图相比，新图具有更好的仪器校准以及更准确的河外点源扣除
+\cite{remazeilles2015}
+（另见 \autoref{sec:fg-intro} 的\autoref{fig:galactic-syn} 上栏）。
 同步辐射的谱指数会随天空位置变化，
 \citeay{giardino2002} 综合了 Haslam \SI{408}{\MHz} 全天图、
 \SI{1420}{\MHz} 北天图 \cite{reich1986}
 以及 \SI{2326}{\MHz} 南天图 \cite{jonas1998}，
-处理得到了的银河系同步辐射的谱指数全天分布图。
+处理得到了的银河系同步辐射的谱指数全天分布图
+（另见 \autoref{sec:fg-intro} 的\autoref{fig:galactic-syn} 下栏）。
 本文利用了该谱指数分布图来确定上式中的 $\alpha_{\R{syn}}(\hat{\B{r}})$。
 \autoref{fig:galactic-skymaps} 左栏显示了银河系\ac{rad-syn}在
 \SI{158}{\MHz} 的\ac{skymap}。
-\autoref{tab:tb-rms} 中列出了在三个频带的中心频率处的亮温度\ac{rms}值。
+\autoref{tab:tb-rms} 中列出了该前景成分在三个频带的中心频率处的亮温度\ac{rms}值。
 
 \begin{figure}[htp]
   \centering
@@ -1239,7 +1248,8 @@ $T_e$ 是辐射区域的电子温度（以 \si{\kelvin} 为单位），
 本文采用 $f_d = 0.33$ 和 $T_e = \SI{7000}{\kelvin}$。
 再利用 \citeay{finkbeiner2003} 提供的 Hα 辐射全天图
 以及来自 \citeay{schlegel1998} 的全天尘埃分布图，
-便可获得银河系\ac{rad-ff}在低频波段的\ac{skymap}。
+便可获得银河系\ac{rad-ff}在低频波段的\ac{skymap}
+（另见 \autoref{sec:fg-intro} 的\autoref{fig:galactic-ff}）。
 \autoref{fig:galactic-skymaps} 右栏显示了银河系\ac{rad-ff}在
 \SI{158}{\MHz} 的\ac{skymap}。
 \autoref{tab:tb-rms} 中列出了该前景成分在三个频带的中心频率处的亮温度\ac{rms}值。
@@ -1265,21 +1275,21 @@ $T_e$ 是辐射区域的电子温度（以 \si{\kelvin} 为单位），
 \end{figure}
 
 本文对河外点源的模拟继承自我们之前的一项工作\cite{wang2010}，
-其中模拟了以下四类点源 \cite{snellen2000,wilman2008,wang2010}：
+其中模拟了以下四类点源：
 \begin{enumerate}
-  \item 恒星形成星系，
+  \item 恒星形成星系 \cite{condon1992}，
     包括普通晚型星系 (normal late-type galaxy) 和星暴星系 (starburst galaxy)；
-  \item 射电宁静 (radio-quiet) \ac{agn}；
-  \item \ac{fr} I 型和 II 型 \ac{agn}；
+  \item 射电宁静 (radio-quiet) \ac{agn} \cite{sandage1965,wilson1995}；
+  \item \ac{fr} I 型和 II 型 \ac{agn} \cite{fanaroff1974}；
   \item GHz 倒转谱 (GHz-peaked spectrum)
-    和致密陡谱 (compact steep-spectrum) \ac{agn}。
+    和致密陡谱 (compact steep-spectrum) \ac{agn} \cite{snellen2000}。
 \end{enumerate}
 上述第 1--3 类点源的模拟使用了 \citeay{wilman2008} 针对 SKA 模拟的点源结果；
 第 4 类点源的模拟则利用了相应的\ac{f-luminosity}和频谱模型
 \cite{oDea1998,snellen1998,fanti2001}。
 具体模拟方法可参考 \citeay{wang2010} 和 \citeay{wilman2008} 及其所引文献。
 \autoref{fig:ptrsrc-skymap} 显示了模拟的河外点源在 \SI{158}{\MHz} 的\ac{skymap}。
-在三个频带的中心频率处的亮温度\ac{rms}值罗列在\autoref{tab:tb-rms} 中。
+该前景成分在三个频带的中心频率处的亮温度\ac{rms}值罗列在\autoref{tab:tb-rms} 中。
 
 
 %=====================================================================
@@ -1320,14 +1330,14 @@ $T_e$ 是辐射区域的电子温度（以 \si{\kelvin} 为单位），
 开展了宇宙再电离过程的高精度模拟，
 模拟盒子的边长为 \SI{1.6}{\Gpc} 并划分为 1024 个\ac{cell}，
 红移范围从 86.5 至 5.0 \cite{mesinger2016}。
-\autoref{fig:eor-tbrms} 显示了 EoR 信号在 \SIrange{120}{200}{\MHz}
-(即 $z = \numrange{6.1}{10.8}$) 的亮温度的\acs*{rms}值。
+\autoref{fig:eor-tbrms} 显示了模拟的 EoR 信号在 \SIrange{120}{200}{\MHz}
+(即 $z = \numrange{6.1}{10.8}$) 的亮温度\ac{rms}值。
 
 利用该项目推荐的 \enquote{faint galaxies} 情形的\ac{lightcone} \ac{imgcube}，
 我们提取所需红移（对应于所需的频率）处的图像\ac{slice}，
 然后经过适当的平铺和缩放，使其图像大小为 \num{1800 x 1800}
 以及天区覆盖为 \SI{10 x 10}{\degree}，即与前文的前景\ac{skymap}一致。
-\autoref{tab:tb-rms} 中罗列了 EoR 信号在三个频带的中心频率处的亮温度的\ac{rms}值。
+\autoref{tab:tb-rms} 中罗列了 EoR 信号在三个频带的中心频率处的亮温度\ac{rms}值。
 \autoref{fig:eor-skymap} 显示了 EoR 信号在 \SI{158}{\MHz} 的\ac{skymap}。
 
 \begin{figure}[htp]
@@ -1354,18 +1364,19 @@ $T_e$ 是辐射区域的电子温度（以 \si{\kelvin} 为单位），
 （参见 \autoref{sec:det-difficulties}），
 同时还会影响前景干扰的行为，比如导致二维功率谱上的\ac{fg-wedge}污染区域
 （参见 \autoref{sec:eor-window}）。
-为了有效地评估射电晕对 EoR 探测的具体干扰情况，
-在模拟图像中整合干涉阵列的仪器效应是非常必要的。
+为了有效地评估射电晕辐射对 EoR 信号探测的具体干扰情况，
+在模拟图像中整合干涉阵列的仪器效应非常必要。
 为此，本文采用了目前最新的 SKA1-Low 阵列布局\footnote{\raggedright%
   SKA1-Low 阵列布局坐标:
   \url{https://astronomers.skatelescope.org/wp-content/uploads/2016/09/SKA-TEL-SKO-0000422_02_SKA1_LowConfigurationCoordinates-1.pdf}
   （发布日期： 2016 年 5 月 31 日）}，
 对前文模拟得到的\ac{skymap}进行模拟观测，
-获得整合了逼真的仪器效应的射电图像。
+获得了包含仪器效应的 SKA1-Low 观测图像。
 
 %---------------------------------------------------------------------
 \subsection{SKA1-Low 阵列布局}
 
+根据目前最新的 SKA1-Low 阵列布局方案，
 SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根天线，
 合计 \num{131072} 根天线。
 每个站点呈直径 \SI{35}{\meter} 的圆形区域，
@@ -1379,7 +1390,7 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
     形成长达 $\sim$\,\SI{65}{\km} 的基线。
 \end{itemize}
 \autoref{fig:ska1low-config} 显示了 SKA1-Low 的站点布局。
-利用这种布局方式，一方面核心区域的大量短基线能够提供非常高灵敏度的 EoR 测量，
+利用这种布局方案，一方面核心区域的大量短基线能够提供非常高灵敏度的 EoR 测量，
 另一方面，长基线提供的高分辨率能够获得精确的前景模型，有利于 EoR 探测的前景扣除。
 
 \begin{figure}[htp]
@@ -1419,9 +1430,8 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 在每一个频率\ac{channel}，首先模拟各个成分（包括前景辐射和 EoR 信号）的\ac{skymap}，
 然后使用 \href{https://github.com/OxfordSKA/OSKAR}{\texttt{OSKAR}}\footnote{%
   OSKAR: \url{https://github.com/OxfordSKA/OSKAR} (v2.7.0)}
-模拟软件\cite{mort2010}
-对每张\ac{skymap}进行模拟观测，\ac{t-int}为 \SI{6}{\hour}，
-获得\ac{vis}数据。
+软件\cite{mort2010}
+模拟每张\ac{skymap}的\ac{vis}数据，\ac{t-int}为 \SI{6}{\hour}。
 输入\ac{skymap}的中心被放置在
 (R.A., Dec.\@) = (\SI{0}{\degree}, \SI{-27}{\degree})，
 因为该点能够经过 SKA1-Low 的\ac{zenith}，
@@ -1432,9 +1442,9 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 因为银河系的\ac{rad-syn}和\ac{rad-ff}的形态均呈弥散状，
 而且后续分析并不区分两者，所以我们将这两个成分的\ac{skymap}叠加之后
 再进行模拟观测。
-在干涉阵列的实际数据处理流程中，其中的一个重要的步骤是实时校准并扣除明亮点源，
+在干涉阵列的实际数据处理流程中，其中一个重要的步骤是实时校准并扣除明亮点源，
 即\ac{src-peeling} \cite{noordam2004,mitchell2008,intema2009}，
-能够有效地提高图像的质量和\ac{dynamic-range}。
+这个步骤能够有效地提高图像的质量和\ac{dynamic-range}。
 据此，我们假定 \SI{158}{\MHz} 流量密度 $S_{158} > \SI{50}{\mJy}$ 的河外点源
 已从\ac{skymap}上移除 \cite{liu2009ps,pindor2011,mort2017}。
 
@@ -1445,11 +1455,11 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 生成相应的观测图像。
 该软件实现了 \ac{w-stack} CLEAN 成像算法，适用于低频大视场成像，
 已在 \ac{lofar} 和 \ac{mwa} 等项目中被广泛使用 \cite{offringa2014,offringa2017}。
-通过采用了 Briggs 权重\cite{briggs1995}
+通过采用 Briggs 权重\cite{briggs1995}
 并且设稳健参数 (robustness) 为 0，
-实现兼顾成像的噪声水平和空间分辨率的需求 \cite{briggs1995}。
+兼顾了成像的噪声水平和空间分辨率的需求 \cite{briggs1995}。
 图像的边缘区域会因为 CLEAN 程度不足而质量较差，
-因此只切取图像质量较好的中央区域用于后文的分析。
+因此只切取质量较好的中央区域图像用于后文的分析。
 考虑到望远镜的\acl{Fov}反比于观测频率 ($\ac{Fov} \propto \nu^{-1}$)，
 图像的切取大小在 \numrange{120}{128}、\numrange{154}{162} 和
 \numrange{192}{200} \si{\MHz} 三个频带内分别为
@@ -1490,15 +1500,14 @@ SKA1-Low 干涉阵列由 512 个\ac{station}组成，每个站点包含 256 根�
 尽管如此，因为 EoR 信号的\ac{skymap}中没有明亮的点状结构，
 所以\ac{map-dirty}的质量已经足够好。
 这样，我们模拟得到了以下成分在 \numrange{120}{128}、\numrange{154}{162}
-和 \numrange{192}{200} \si{\MHz} 三个频带内由
-SKA1-Low \enquote{观测}得到的\ac{imgcube}：
+和 \numrange{192}{200} \si{\MHz} 三个频带内的 SKA1-Low 观测\ac{imgcube}：
 \begin{itemize}
   \item EoR 信号；
   \item 射电晕（100 次模拟）；
   \item 银河系弥散辐射（包括\ac{rad-syn}和\ac{rad-ff}）；
   \item 河外点源。
 \end{itemize}
-\autoref{fig:obsimg-all} 展示了各成分在 \SI{158}{\MHz} 的模拟观测图像。
+\autoref{fig:obsimg-all} 展示了这四个成分在 \SI{158}{\MHz} 的模拟观测图像。
 
 
 %=====================================================================
