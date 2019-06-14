@@ -258,12 +258,11 @@
     \faEdit{} \today
   }
 }
+\reviewornot{}{
 \AtEndDocument{%
-  \label{doc:lastpage}
-  %\ifodd\pageref{doc:lastpage}
-    \newpage\mbox{}
-    \thispagestyle{lastpage}
-  %\fi
+  \newpage\mbox{}
+  \thispagestyle{lastpage}
+}
 }
 
 
