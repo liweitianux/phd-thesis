@@ -15,6 +15,8 @@ EXTRA:=		$(wildcard texmf/*) \
 ID:=		lwt
 DATE:=		$(shell date +'%Y%m%d')
 
+DPI?=		200
+
 all: thesis.pdf
 
 thesis.pdf: $(SRCS) $(BIB) $(FIGURES) $(TEMPLATE)
@@ -34,12 +36,12 @@ dist: thesis.pdf
 	    $(SRCS) $(BIB) $(FIGURES) $(TEMPLATE) $(EXTRA)
 	@echo "Created distribution at: dist/thesis.$(ID).$(DATE).{pdf,tar.bz2}"
 
-optimize: thesis.pdf
+optimize:
 	qpdf --linearize --compress-streams=y --optimize-images \
 	    thesis.pdf thesis.optimized.pdf
 	mv thesis.optimized.pdf thesis.pdf
 
-compress: thesis.pdf
+compress:
 	rm -f thesis.compressed.pdf
 	gs  -dQUIET -dNOPAUSE -dBATCH -dSAFER \
 	    -sDEVICE=pdfwrite \
@@ -50,8 +52,8 @@ compress: thesis.pdf
 	    -dFastWebView=true \
 	    -dColorImageDownsampleType=/Bicubic \
 	    -dGrayImageDownsampleType=/Bicubic \
-	    -dColorImageResolution=200 \
-	    -dGrayImageResolution=200 \
+	    -dColorImageResolution=$(DPI) \
+	    -dGrayImageResolution=$(DPI) \
 	    -sOutputFile=thesis.compressed.pdf \
 	    thesis.pdf
 
