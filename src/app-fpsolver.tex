@@ -207,40 +207,39 @@ $\Theta(t)$ 为 Heaviside 阶跃函数 (step function)。
 我们选取了对数\ac{grid}，
 将 $x \in [\num{e-4}, \num{e4}]$ 划分为 $M = 200$ 个\ac{cell}，
 时间步长固定为 $\Delta t = \num{e-3}$，
-求解以上三个测试，结果如\autoref{fig:fp-test12} 和\autoref{fig:fp-test3} 所示。
+求解以上三个测试，结果如\autoref{fig:fp-tests} 所示。
 我们的结果与 \citeay{park1996} 以及 \citeay{donnert2014} 的结果非常吻合，
 说明我们的求解程序正确地实现了上一节描述的算法。
 
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=\textwidth]{fp-test12}
-  \bicaption[Fokker--Planck 方程求解程序的测试 (1 \& 2)]{%
-    Fokker--Planck 方程求解程序的测试 1 和 2。
-    左栏和右栏分别显示了求解第一个测试 [\autoref{eq:fp-test1}]
-    和第二个测试 [\autoref{eq:fp-test2}] 获得的粒子能谱。
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    (a) Test 1 \\
+    \includegraphics[width=\linewidth]{fp-test1}
+  \end{minipage}%
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    (b) Test 2 \\
+    \includegraphics[width=\linewidth]{fp-test2}
+  \end{minipage}%
+  \\[0.5ex]
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    (c) Test 3 \\
+    \includegraphics[width=\linewidth]{fp-test3}
+  \end{minipage}
+  \bicaption[FP 方程求解程序的三个测试]{%
+    FP 方程求解程序的三个测试，显示了针对三个测试求解得到的不同时刻的粒子能谱。
+    对于第三个测试，$t = 30$ 对应的能谱乘以了 \num{e11} 以便更清楚地显示。
   }{%
-    Testing of the implementation of the Fokker--Planck equation
-    solver.
-    The left and right panels represent the derived particle spectra
-    for the first test [Eq.~\ref{eq:fp-test1}] and
-    the second test [Eq.~\ref{eq:fp-test2}], respectively.
+    The three cases for testing the implementation of the FP equation solver,
+    showing the derived particle spectra at difference times for the
+    three tests.
+    Note that the spectrum at $t = 30$ of the third test has been
+    multiplied by \num{e11} for clearer visualization.
   }
-  \label{fig:fp-test12}
-\end{figure}
-
-\begin{figure}[htp]
-  \centering
-  \includegraphics[width=0.55\textwidth]{fp-test3}
-  \bicaption[Fokker--Planck 方程求解程序的测试 (3)]{%
-    Fokker--Planck 方程求解程序的测试 3。
-    求解第三个测试 [\autoref{eq:fp-test3}] 获得的粒子能谱。
-    注意 $t = 30$ 对应的能谱已乘了 \num{e11} 以更好地显示。
-  }{%
-    The derived particle spectra for the third test [Eq.~\ref{eq:fp-test2}].
-    Note that the spectrum of $t = 30$ has been multiplied by \num{e11}
-    for clarity.
-  }
-  \label{fig:fp-test3}
+  \label{fig:fp-tests}
 \end{figure}
 
 
