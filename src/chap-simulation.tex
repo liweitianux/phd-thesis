@@ -297,7 +297,7 @@ $\left\{\left( M_m^{(i)}, M_s^{(i)}, t_{\R{merger}}^{(i)} \right)\right\}$
 主要包括\ac{rad-syn}、逆 Compton 散射和 Coulomb 碰撞。
 
 对于一群能量分布各向同性的高能电子，在上述湍流再加速和能量损失的共同作用下，
-其能谱 \ac{n-e} 随时间的演化由以下 Fokker--Planck 方程描述
+其能谱 \ac{n-e} 随时间的演化由以下 \ac{fp} 方程描述
 \cite{eilek1991,schlickeiser2002}：
 \begin{equation}
   \label{eq:fokkerplanck}
@@ -690,8 +690,8 @@ $\tau_{\R{loss}} = |\D{t}/\D{\ac{g}}|$。
 \subsection{数值计算方法}
 \label{sec:numerical}
 
-为了求解 Fokker--Planck 方程 [\autoref{eq:fokkerplanck}]
-获得电子能谱随时间的演化，必须借助于数值算法。
+为了求解 \ac{fp} 方程 [\autoref{eq:fokkerplanck}] 获得电子能谱随时间的演化，
+必须借助于数值算法。
 本工作采用了由 \citeay{chang1970} 提出的\ac{finite-diff-scheme}，
 同时采用\ac{no-flux}边界条件 \cite{park1996}。
 该算法的具体内容和实现方法可参见\autoref{app:fpsolver}。
@@ -708,7 +708,7 @@ $[\ac{g}_{\R{buf2}}, \,\ac{g}_{\R{max}}]$。
 并采用对数\ac{grid}将 \ac{g} 划分为 256 个\ac{cell}，
 其中两个缓冲区均占据 10 个\ac{cell}。
 
-求解 Fokker--Planck 方程还需要知道初始电子能谱 $n_e(\ac{g}, t_0)$。
+求解 \ac{fp} 方程还需要知道初始电子能谱 $n_e(\ac{g}, t_0)$。
 为此，首先假定 \ac{icm} 中积累的电子能谱为：
 \begin{equation}
   \tilde{n}_e(\ac{g}) = Q_e(\ac{g}) \,\tau_0 ,
@@ -846,7 +846,7 @@ $\theta$ 是电子与磁场 \ac{mag-field} 之间的\ac{pitch-angle}，
 
 从上一节的示例可知，如果 \ac{icm} 中没有活跃的湍流加速，
 \ac{rh}要么无法形成要么会迅速消失。
-通过求解 Fokker--Planck 方程 [\autoref{eq:fokkerplanck}]
+通过求解 \ac{fp} 方程 [\autoref{eq:fokkerplanck}]
 并得到对应\ac{gc}\enquote{当前}时刻的高能电子能谱 $n_e(\ac{g}, t_{\R{sim}})$ 后，
 还需要判别\ac{rh}在频率 $\nu$ 处是否确实存在。
 为此，本工作采用以下两点判据：
@@ -857,7 +857,7 @@ $\theta$ 是电子与磁场 \ac{mag-field} 之间的\ac{pitch-angle}，
     $n'_e(\ac{g}, t_{\R{sim}})$ 确定，
     后者的计算方法与 \autoref{sec:numerical} 中计算初始电子能谱
     $n_e(\ac{g}, t_0)$ 的方法类似，
-    即在没有并合引起的湍流加速的情况下求解 Fokker--Planck 方程得到。
+    即在没有并合引起的湍流加速的情况下求解 \ac{fp} 方程得到。
 
   \item 同步辐射在频率 $\nu$ 处谱指数满足 $\alpha_{\nu} \le 3$。
 \end{enumerate}
