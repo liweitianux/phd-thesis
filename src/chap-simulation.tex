@@ -474,23 +474,37 @@ $\ac{r-core-s} = 0.1 \,\ac{r-vir-s}$，
 %.....................................................................
 \subsubsection{高能电子的湍流再加速过程}
 
-在星系团 \ac{icm} 中，\ac{turbulence}与热成分粒子以及\ac{cr}等非热成分粒子
-之间的相互作用非常复杂。
-我们目前对这些相互作用的具体细节及其微观物理机制的理解程度仍然非常有限，
-详见 \citeay{lazarian2012}、\citeay{petrosian2012}、
-\citeay{brunetti2014} 等综述文。
-
-在多种由\ac{turbulence}引起的粒子加速机制中，最重要的一种机制是\acf{ttd}，
-即\ac{turbulence}通过与 \ac{icm} 中的\ac{cr}等相对论性粒子发生相互作用而耗散能量，
-从而将能量传递给电子使其加速
-（详见 \citeay{brunetti2007} 和 \citeay{brunetti2011} 及其所引文献）。
-该加速机制给出\autoref{eq:fokkerplanck}
+星系团 \ac{icm} 是一个等离子体，同时也是一个\ac{mfluid}。
+\ac{turbulence}和等离子体的不稳定性 \cite{schekochihin2005}
+会扰动磁场而产生多种不同形式的波，其中最主要的两种波分别为 \cite{cho2003}：
+\begin{itemize}
+  \item Alfvén 波：
+    沿磁场方向传播的\ac{wave-trans}，因\ac{mfluid}在垂直于磁场方向上受到扰动时而产生；
+  \item \ac{wave-ms}：
+    由磁场压力和等离子体的热压力共同作用而产生的\ac{wave-long}。
+    当两个压力的相位同步时，产生快\ac{wave-ms}，能够在\ac{mfluid}中沿各个方向较快地传播；
+    当两个压力的相位不同步时，则产生慢\ac{wave-ms}，主要沿磁场方向传播，且速度较慢。
+\end{itemize}
+其中与高能电子的再加速过程联系最为紧密的是快\ac{wave-ms}
+\cite{brunetti2007,brunetti2011mhd}。
+并合产生的大规模\ac{turbulence}在大尺度 (\ac{k-turb-inj}) 将能量注入快\ac{wave-ms}，
+所产生的大尺度快\ac{wave-ms}与 \ac{icm} 的热成分粒子以及\ac{cr}粒子碰撞而衰减，
+逐渐将能量传递到较小尺度。
+当尺度减小至一定程度 ($k_{\R{coll}}$) 时，快\ac{wave-ms}与 \ac{icm}
+粒子的碰撞便不再有效，于是通过加热 \ac{icm} 以及加速\ac{cr}粒子而耗散所携带的能量
+\cite{brunetti2007,brunetti2011}。
+在多种由快\ac{wave-ms}引起的粒子加速机制中，最重要的一种机制是\ac{ttd}，
+即粒子的\ac{t-transit}与波的周期相等而产生共振，于是粒子从波获得能量而被加速，
+而波因损失能量而被阻尼。
+详见 \citeay{brunetti2007} 和 \citeay{brunetti2011} 及其所引文献。
+该加速机制给出 \ac{fp} 方程 [\autoref{eq:fokkerplanck}]
 中的\acl{coef-diffusion} \ac{coef-diffusion} 为
 \cite{miniati2015,pinzke2017}：
 \begin{equation}
+  \label{eq:coef-diffusion}
   \ac{coef-diffusion}
     = 2\,\ac{g}^2 \ac{f-instability} \,\ac{k-turb-inj}
-      \frac{\ac{v-turb}^2}{\ac{f-cr} \,c_s^3} ,
+      \frac{\langle (\delta v_t)^2 \rangle^2}{\ac{f-cr} \, c_s^3} ,
 \end{equation}
 其中
 \ac{f-instability} 是描述 \ac{icm} 等离子体的不稳定性的参数，
@@ -508,6 +522,27 @@ $\ac{k-turb-inj} \simeq 2\Cpi / \ac{r-turb}$
 \end{equation}
 其中 \ac{adiabatic-index} 是气体的\acl{adiabatic-index} (adiabatic index)。
 对于理想的单原子气体，$\ac{adiabatic-index} = 5/3$。
+
+首先定性地分析\autoref{eq:coef-diffusion}
+的\acl{coef-diffusion} \ac{coef-diffusion}：
+\begin{equation}
+  \ac{coef-diffusion} \propto
+    \ac{f-instability} \,\ac{k-turb-inj} \,\ac{f-cr}^{-1}
+    \mathcal{M}_t^3 \sqrt{\langle (\delta v_t)^2 \rangle} ,
+\end{equation}
+其中 $\mathcal{M}_t$ 为湍流的 Mach 数。
+\begin{itemize}
+  \item \ac{f-instability} 越大，则快\ac{wave-ms}与 \ac{icm} 粒子的碰撞越频繁越有效，
+    能量耗散速率越快，\ac{coef-diffusion} 也就越大；
+  \item \ac{k-turb-inj} 越大，则快\ac{wave-ms}从大尺度 \ac{k-turb-inj}
+    衰减至小尺度 $k_{\R{coll}}$ 的周期越短，因此能量耗散速率越快，
+    \ac{coef-diffusion} 也就越大；
+  \item \ac{f-cr} 增大，则快\ac{wave-ms}与\ac{cr}粒子的碰撞变得不有效的尺度减小
+    （即 $k_{\R{coll}}$ 变大），于是波的衰减周期变长，因此能量耗散速率减慢，
+    \ac{coef-diffusion} 也就减小；
+  \item \ac{turbulence}越激烈，\ac{turbulence}的速度弥散 \ac{v-turb} 越大，
+    对应的 Mach 数 ($\mathcal{M}_t$) 也越大，于是 \ac{coef-diffusion} 也就越大。
+\end{itemize}
 
 除并合之外，\ac{agn} 喷流、\ac{galactic-wind}等过程也会在 \ac{icm}
 中产生\ac{turbulence} \cite{vazza2011}。
