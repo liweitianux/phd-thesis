@@ -3,7 +3,7 @@
 %%==================================================
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{sjtuthesis}[2019/06/08 v0.17 SJTU Thesis Template]
+\ProvidesClass{sjtuthesis}[2019/07/20 v0.18 SJTU Thesis Template]
 
 \newif\ifsjtu@english\sjtu@englishfalse
 \newif\ifsjtu@bachelor\sjtu@bachelorfalse
@@ -346,33 +346,35 @@
   \pdfbookmark[0]{\sjtu@titlepage}{titlepage}
   \thispagestyle{empty}
   \begin{center}
-  {\zihao{-3}\sjtu@label@statement}
-  \vskip\stretch{1}
-  {\bfseries\zihao{3}\sjtu@value@chinesetitle}
-  \vskip\stretch{1}
-  \def\tabcolsep{1pt}
-  \def\arraystretch{1.5}
-  \begin{tabular}{>{\begin{CJKfilltwosides}{4\ccwd}\bfseries}r<{\end{CJKfilltwosides}}l}
-    \ifsjtu@review
-      \sjtu@label@author        & \underline{\makebox[150pt]{}} \\
-      \sjtu@label@studentnumber & \underline{\makebox[150pt]{}} \\
-      \sjtu@label@advisor       & \underline{\makebox[150pt]{}} \\
-      \ifx\sjtu@value@coadvisor\undefined\else
-        \sjtu@label@coadvisor   & \underline{\makebox[150pt]{}} \\
-      \fi
-    \else
-      \sjtu@label@author        & \underline{\makebox[150pt]{\sjtu@value@author}} \\
-      \sjtu@label@studentnumber & \underline{\makebox[150pt]{\sjtu@value@studentnumber}} \\
-      \sjtu@label@advisor       & \underline{\makebox[150pt]{\sjtu@value@advisor}} \\
-      \ifx\sjtu@value@coadvisor\undefined\else
-        \sjtu@label@coadvisor   & \underline{\makebox[150pt]{\sjtu@value@coadvisor}} \\
-      \fi
-    \fi
-    \sjtu@label@major           & \underline{\makebox[150pt]{\sjtu@value@major}} \\
-    \sjtu@label@defensedate     & \underline{\makebox[150pt]{\sjtu@value@defensedate}}
-  \end{tabular}
+    \vspace*{14mm}
+    {\zihao{-2}\sjtu@label@statement}
+    \vskip\stretch{5}
+    {\zihao{2}\bfseries \sjtu@value@chinesetitle \vskip 1pt}
+    \vskip\stretch{5}
+    {\zihao{4}
+      \def\tabcolsep{1pt}
+      \def\arraystretch{1.5}
+      \begin{tabular}{>{\begin{CJKfilltwosides}[t]{6.5\ccwd}\bfseries}r<{\end{CJKfilltwosides}}@{: }l}
+        \ifsjtu@review
+          \sjtu@label@author        & \underline{\makebox[10\ccwd]{}} \\
+          \sjtu@label@studentnumber & \underline{\makebox[10\ccwd]{}} \\
+          \sjtu@label@advisor       & \underline{\makebox[10\ccwd]{}} \\
+          \ifx\sjtu@value@coadvisor\undefined\else
+            \sjtu@label@coadvisor   & \underline{\makebox[10\ccwd]{}} \\
+          \fi
+        \else
+          \sjtu@label@author        & \underline{\makebox[10\ccwd]{\sjtu@value@author}} \\
+          \sjtu@label@studentnumber & \underline{\makebox[10\ccwd]{\sjtu@value@studentnumber}} \\
+          \sjtu@label@advisor       & \underline{\makebox[10\ccwd]{\sjtu@value@advisor}} \\
+          \ifx\sjtu@value@coadvisor\undefined\else
+            \sjtu@label@coadvisor   & \underline{\makebox[10\ccwd]{\sjtu@value@coadvisor}} \\
+          \fi
+        \fi
+        \sjtu@label@major           & \underline{\makebox[10\ccwd]{\sjtu@value@major}} \\
+        \sjtu@label@defensedate     & \underline{\makebox[10\ccwd]{\sjtu@value@defensedate}}
+      \end{tabular}}
+    \vskip 9mm
   \end{center}
-  \vskip \stretch{0.5}
   \cleardoublepage
 }
 
@@ -383,35 +385,38 @@
   \pdfbookmark[0]{Title page}{englishtitlepage}
   \thispagestyle{empty}
   \begin{center}
-      {\normalfont\zihao{4} \sjtu@label@englishstatement}
-      \vspace{20pt} \vskip\stretch{1}
-      {\bfseries\Large\sjtu@value@englishtitle \vskip 1pt}
-      \vskip \stretch{1}
+    \vspace*{10mm}
+    {\zihao{4} \sjtu@label@englishstatement \vskip 1pt}
+    \vskip\stretch{4}
+    {\zihao{-2}\bfseries \sjtu@value@englishtitle \vskip 1pt}
+    \vskip\stretch{5}
+    {\zihao{4}
     \ifsjtu@review
-      \vskip \stretch{1}
+      \vskip\stretch{1}
       \vskip 3pt
-      \vskip \stretch{2}
+      \vskip\stretch{2}
     \else
-      {\normalfont\zihao{4}\sjtu@value@englishauthor}
-      \vskip \stretch{1}
-      {\normalfont\zihao{4}\sjtu@label@englishadvisor}
+      \sjtu@value@englishauthor
+      \vskip\stretch{1}
+      \sjtu@label@englishadvisor
       \vskip 2pt
-      {\normalfont\zihao{4}\sjtu@value@englishadvisor}
+      \sjtu@value@englishadvisor
       \vskip 5pt
       \ifx\sjtu@value@englishcoadvisor\undefined\else
-        {\normalfont\zihao{4}\sjtu@label@englishcoadvisor}
+        \sjtu@label@englishcoadvisor
         \vskip 2pt
-        {\normalfont\zihao{4}\sjtu@value@englishcoadvisor}
-        \vskip \stretch{2}
+        \sjtu@value@englishcoadvisor
       \fi
+      \vskip\stretch{2}
     \fi
     \vskip 20pt
-    {\normalfont
-      \sjtu@value@englishinstitute \\
-      \sjtu@value@englishschool \\
-      \sjtu@value@englishlocation \vskip 20pt
-      \sjtu@value@englishdate}
+    \sjtu@value@englishinstitute \\
+    \sjtu@value@englishschool \\
+    \sjtu@value@englishlocation
+    \vskip 20pt
+    \sjtu@value@englishdate}
   \end{center}
+  \vskip 9mm
   \cleardoublepage
 }
 
