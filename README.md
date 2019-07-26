@@ -3,19 +3,19 @@
 
 标题 | Title
 ------------
-* 射电晕对宇宙再电离探测的影响和基于深度学习的再电离信号分离新算法
-* Impacts of Radio Halos on EoR Detection and a Novel Deep-Learning-Based
-  Method to Separate the EoR Signal
+* SKA EoR 探测实验的射电晕前景建模以及 EoR 信号分离算法的研究
+* A Study of Foreground Modeling of Radio Halos and
+  EoR Signal Separation Method for the SKA EoR Experiment
 
 作者 | Author
 -------------
 * 李维天
-* Wéitiān Lǐ
+* Weitian Li
 
 导师 | Advisor
 --------------
 * 徐海光
-* Hǎiguāng Xú
+* Haiguang Xu
 
 专业 | Major
 ------------
