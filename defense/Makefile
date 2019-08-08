@@ -1,6 +1,6 @@
 all: defense.pdf
 
-defense.pdf: defense.tex
+defense.pdf: defense.tex preamble.tex
 	env TEXINPUTS=.:texmf:../texmf: latexmk -xelatex defense
 
 optimize: defense.pdf

@@ -1,0 +1,233 @@
+%%
+%% Copyright (c) 2019 Weitian LI <liweitianux@sjtu.edu.cn>
+%% Creative Commons BY 4.0
+%%
+
+\usetheme{metropolis}
+\metroset{progressbar=foot}
+
+\setbeamertemplate{section in toc}[sections numbered]
+% Numbered sections in section page
+% Credit: https://github.com/matze/mtheme/issues/271#issuecomment-292799444
+\makeatletter
+\setbeamertemplate{section page}{
+  \centering
+  \begin{minipage}{25em}
+    \raggedright
+    \usebeamercolor[fg]{section title}
+    \usebeamerfont{section title}
+    \thesection.~\insertsectionhead\\[-1ex]
+    \usebeamertemplate*{progress bar in section page}
+    \par
+    \ifx\insertsubsectionhead\@empty\else%
+      \usebeamercolor[fg]{subsection title}%
+      \usebeamerfont{subsection title}%
+      \thesection.\thesubsection.~\insertsubsectionhead
+    \fi
+  \end{minipage}
+  \par
+  \vspace{\baselineskip}
+}
+\makeatother
+
+\setbeamertemplate{frametitle continuation}{(\insertcontinuationcount)}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{itemize subitem}[triangle]
+% Suppress itemize indentation
+% Credit: https://tex.stackexchange.com/a/450317
+\settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
+\addtolength{\leftmargini}{\labelsep}
+\settowidth{\leftmarginii}{\usebeamertemplate{itemize subitem}}
+\addtolength{\leftmarginii}{\labelsep}
+
+%\usepackage{pgfpages}
+%\setbeameroption{hide notes}  % only slides
+%\setbeameroption{show only notes}  % only notes
+%\setbeameroption{show notes on second screen=right}  % both
+
+% Solarized theme
+% Credit: https://ethanschoonover.com/solarized/
+\definecolor{SolBase02}{HTML}{073642}
+\definecolor{SolBase3}{HTML}{fdf6e3}
+\definecolor{SolOrange}{HTML}{cb4b16}
+\definecolor{SolGreen}{HTML}{859900}
+%
+\setbeamercolor{normal text}{fg=SolBase02, bg=SolBase3}
+%\setbeamercolor{normal text}{bg=white}  % for print
+\setbeamercolor{alerted text}{fg=SolOrange}
+\setbeamercolor{example text}{fg=SolGreen}
+
+\setsansfont{Fira Sans Light}[
+  BoldFont={Fira Sans Medium}
+]
+\setmonofont{Fira Code Light}[
+  BoldFont={Fira Code Medium}
+]
+
+\usepackage{bm}
+\usepackage{newtxsf}
+\newcommand{\R}[1]{\text{#1}}  % text math alphabets
+\newcommand{\Ce}{\R{e}}  % constant e
+\newcommand{\Ci}{\R{i}}  % constant i
+\newcommand{\Cpi}{\piup}  % upright 'pi', provided by 'newtxsf' package
+\newcommand{\B}[1]{\bm{\mathsf{#1}}}  % single-letter bold math
+\newcommand{\D}[1]{\R{d}#1}
+\newcommand{\diff}[2]{\frac{\D{#1}}{\D{#2}}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+
+\usepackage{xeCJK}
+\setCJKsansfont{Source Han Sans SC Light}[
+  BoldFont={Source Han Sans SC Medium}
+]
+
+\usepackage{hyperref}
+\hypersetup{
+  pdfstartview={Fit}
+}
+
+\usepackage{appendixnumberbeamer}
+\usepackage{booktabs}
+\usepackage{csquotes}
+
+\usepackage{caption}
+\captionsetup{%
+  figurename={图},
+  format=plain,
+  labelformat=simple,
+  labelsep=period,
+  justification=centering,
+  textfont={footnotesize},
+  labelfont={footnotesize},
+}
+
+\usepackage{keyval}
+\usepackage{etoolbox}
+
+\makeatletter
+% Set the keys (arguments) for including a figure
+\newlength{\myfigure@width}
+\newlength{\myfigure@height}
+\newtoggle{myfigure@vertcap}
+\define@key{myfigure}{width}{\setlength\myfigure@width{#1}}
+\define@key{myfigure}{height}{\setlength\myfigure@height{#1}}
+\define@key{myfigure}{vertcap}[true]{\toggletrue{myfigure@vertcap}}
+%
+% Custom command to include a figure with a horizontal/vertical caption
+\NewDocumentCommand{\myfigure}{m m m}{
+  \setkeys{myfigure}{width=0pt, height=0pt, #1}
+  %
+  % Get the size that a figure is being rendered
+  % Credit: https://tex.stackexchange.com/a/3664
+  \newsavebox{\myfigure@box}
+  \ifdimequal{\myfigure@height}{0pt}{
+    \savebox{\myfigure@box}{%
+      \includegraphics[width=\myfigure@width]{#2}}
+  }{%
+    \savebox{\myfigure@box}{%
+      \includegraphics[height=\myfigure@height]{#2}}
+  }
+  \settowidth{\myfigure@width}{\usebox{\myfigure@box}}
+  \settoheight{\myfigure@height}{\usebox{\myfigure@box}}
+  %
+  \begin{figure}[!h]
+    \centering
+    \usebox{\myfigure@box}
+    \iftoggle{myfigure@vertcap}{%
+      \hspace{-0.5em}%
+      % Credit: https://tex.stackexchange.com/a/44433
+      \rotatebox{90}{%
+        \begin{minipage}{\myfigure@height}
+          \caption{#3}
+        \end{minipage}
+      }
+    }{%
+      \caption{#3}
+    }
+  \end{figure}
+  % Credit: https://tex.stackexchange.com/a/18174
+  \global\let\myfigure@box\relax
+}
+%
+\makeatother
+
+\usepackage{xparse}
+% Credit: https://tex.stackexchange.com/a/376366
+\ExplSyntaxOn
+\NewDocumentCommand{\cspace}{O{1em}}{%
+  \tl_map_inline:nn {空} { \makebox[#1]{\phantom{##1}} }
+}
+\ExplSyntaxOff
+
+\usepackage{siunitx}
+% siunitx settings and new units
+\sisetup{
+  range-phrase=\text{--},
+  range-units=single,
+  product-units=repeat,
+  list-separator={, },
+  list-final-separator={, and },
+  separate-uncertainty=true,
+  detect-all,  % detecting fonts
+}
+%
+\DeclareSIUnit\arcsec{arcsec}
+\DeclareSIUnit\arcmin{arcmin}
+\DeclareSIUnit\cMpc{cMpc}  % comoving Mpc
+\DeclareSIUnit\cGpc{cGpc}  % comoving Gpc
+\DeclareSIUnit\deg{deg}
+\DeclareSIUnit\dyne{dyn}
+\DeclareSIUnit\erg{erg}
+\DeclareSIUnit\esu{esu}
+\DeclareSIUnit\franklin{Fr}
+\DeclareSIUnit\gauss{G}
+\DeclareSIUnit\hubble{\ensuremath{\mathit{h}}}
+\DeclareSIUnit\jansky{Jy}
+\DeclareSIUnit\lightyear{ly}
+\DeclareSIUnit\parsec{pc}
+\DeclareSIUnit\rayleigh{Rayleigh}
+\DeclareSIUnit\solarmass{\ensuremath{\text{M}_{\odot}}}
+\DeclareSIUnit\statcoulomb{statC}
+\DeclareSIUnit\year{yr}
+%
+\DeclareSIUnit\kpc{\kilo\parsec}
+\DeclareSIUnit\mJy{\milli\jansky}
+\DeclareSIUnit\mK{\milli\kelvin}
+\DeclareSIUnit\Gpc{\giga\parsec}
+\DeclareSIUnit\Gyr{\giga\year}
+\DeclareSIUnit\Mpc{\mega\parsec}
+\DeclareSIUnit\Myr{\mega\year}
+\DeclareSIUnit\uG{\micro\gauss}
+
+\usepackage{journalabbrv}
+
+\usepackage[%
+  backend=biber,
+  style=authoryear-comp,
+]{biblatex}
+
+\AtBeginBibliography{
+  \linespread{1.0}
+  \footnotesize
+}
+\addbibresource{../references.bib}
+
+\graphicspath{
+  {./}
+  {figures/}
+  {../figures/}
+  {../figures/self/}
+  {../sjtuthesis/}
+}
+
+% Change 'emph' style to bold face
+\let\emph\relax  % there's no \RedeclareTextFontCommand
+\DeclareTextFontCommand{\emph}{\boldmath\bfseries}
+
+\newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
+\newcommand{\doi}[1]{\href{https://doi.org/#1}{\textsc{doi}:#1}}
+\newcommand{\ads}[1]{\href{http://adsabs.harvard.edu/abs/#1}{\textsc{ads}:#1}}
+\newcommand{\arxiv}[1]{\href{https://arixv.org/abs/#1}{\textsc{arXiv}:#1}}
+
+\endinput
