@@ -30,6 +30,34 @@
 }
 \makeatother
 
+% Change frametitle style for subsection pages
+\setbeamerfont{subsec}{size=\large,series=\normalfont}
+\setbeamercolor{subsec rule}{
+  use=normal text,
+  fg=normal text.fg!50!normal text.bg,
+}
+\makeatletter
+\providebool{my@subsec}
+\define@key{beamerframe}{subsec}[true]{%
+  \booltrue{my@subsec}
+  \begingroup
+    \setbeamertemplate{frametitle}{%
+      \vspace*{0.25\baselineskip}
+      \usebeamerfont{subsec}%
+      \usebeamercolor[fg]{normal text}%
+      \insertframetitle\strut%
+      \par\rule[0.5\baselineskip]{\textwidth}{0.2ex}%
+      \par\vspace*{-0.5\baselineskip}
+    }
+}
+\apptocmd{\beamer@reseteecodes}{%
+  \ifbool{my@subsec}{
+    \endgroup
+    \boolfalse{my@subsec}
+  }{}
+}{}{}
+\makeatother
+
 \setbeamertemplate{frametitle continuation}{(\insertcontinuationcount)}
 \setbeamertemplate{bibliography item}{\insertbiblabel}
 
