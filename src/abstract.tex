@@ -73,22 +73,24 @@ $\bar{\ac*{coef-correlation}}_{\R{cwt}} = \num{0.198 +- 0.160}$。
 
 \begin{englishabstract}
 
-The Epoch of Reionization (EoR; $z \sim \numrange{6}{16}$) is
+The epoch of reionization (EoR; $z \sim \numrange{6}{16}$) is
 an important stage in the early Universe and is expected to last
 from about \SI{300}{\Myr} to \SI{1}{\Gyr} after the Big Bang.
 During the EoR, the first stars and galaxies have just formed and
 start emitting ultraviolet and soft X-ray photons,
 which gradually reionize the surrounding neutral baryonic matter.
-Studying the EoR is of great value in understanding the first stars
-and galaxies and the structure formation of  the early Universe.
+Studying the EoR is invaluable in understanding the properties of the
+first stars and galaxies and the structure formation of the early
+Universe.
 Among the methods to probe the EoR, detecting the 21\,cm line of
 neutral hydrogen originating from the EoR in the low-frequency
 radio band ($\sim$\,\SIrange{50}{200}{\MHz}) is regarded as
 the most promising and effective method.
-However, the EoR signal is very faint and is buried in the overwhelming
-foreground contamination of about 4--5 orders of magnitude stronger.
-Therefore, it is required to thoroughly understand every foreground
-component and develop specific foreground removal and EoR signal
+However, the EoR signal is extremely faint and is buried in the
+overwhelming foreground contamination of about 4--5 orders of magnitude
+stronger.
+Therefore, it is indispensable to comprehend every foreground
+component and to develop specific foreground removal and EoR signal
 separation methods.
 
 Among various foreground components, the Galactic synchrotron and
@@ -98,25 +100,25 @@ the literature.
 Their low-frequency radio properties and contamination on the EoR
 detection are basically understood.
 On the other hand, radio halos in galaxy clusters, which are common
-extragalactic extended sources, can also have an impact on the EoR
-signal detection.
-However, only several works that investigated the EoR foreground
-have slightly explored radio halos.
+extragalactic extended sources, are also expected to have an impact on
+the EoR signal detection.
+However, only several works that investigate the EoR foreground
+have preliminarily explored radio halos.
 Those works made oversimplifications in simulating the images and
 spectra of radio halos and did not further analyze the impacts of
-radio halo emission on the EoR signal detection.
-In this work, we carry out two studies in regards to the EoR
-foreground contamination and signal separation problems.
+radio halo emission on the EoR detection.
+In this work, we carry out two studies concerning the EoR foreground
+contamination and signal separation problems.
 First, we construct a more complete and physical model for simulating
-the radio halo emissions and build a more realistic foreground model.
+the radio halo emission and build a more realistic foreground model.
 By taking into account the SKA1-Low instrument effects, we evaluate
-the contamination of radio halo emissions on the EoR signal detection.
+the contamination of radio halo emission on the EoR signal detection.
 Secondly, based on the improved foreground model, we develop a new EoR
 signal separation method by utilizing the deep learning algorithms,
 in order to achieve accurate separation of the EoR signal.
 
 By employing the Press--Schechter formalism and the turbulent
-re-acceleration model, we model the formation and evolution of
+re-acceleration theory, we model the formation and evolution of
 radio halos and simulate their sky maps in the low-frequency band.
 Then, we adopt the latest SKA1-Low layout configuration and simulate
 the SKA1-Low images of radio halos with instrument effects incorporated.
@@ -127,10 +129,10 @@ radio halos are generally about \num{10000}, 1000, and 300
 times more luminous than the EoR signal on scales of
 $\SI{0.1}{\per\Mpc} < k < \SI{2}{\per\Mpc}$ in the three bands,
 respectively.
-After examining the two-dimensional power spectra inside appropriately
-defined EoR windows, we find that the power leaked by radio halos can
-still be significant, as the power ratios of radio halos to the
-EoR signal on scales of
+After examining the two-dimensional power spectra inside the
+appropriately defined EoR windows, we find that the power leaked by
+radio halos can still be significant, as the power ratios of radio halos
+to the EoR signal on scales of
 $\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$ can be up to
 about \numrange{230}{800}\%, \numrange{18}{95}\%, and \numrange{7}{40}\%
 in the three bands, when the 68\% uncertainties caused by the variation
@@ -146,12 +148,12 @@ Based on the improved foreground model and simulated SKA1-Low images
 obtained above, we further investigate the beam effects of
 interferometers and their impacts on the spectral smoothness of
 the foreground emission.
-The frequency-dependent beam effects of interferometers will cause
+The frequency-dependent beam effects will cause
 rapid fluctuations along the frequency dimension and damage the
 spectral smoothness of the foreground emission, which makes
 traditional foreground removal methods inapplicable.
 To address this issue, we propose a deep-learning-based method
-that uses a 9-layer convolutional denoising autoencoder (CDAE) to
+that employs a 9-layer convolutional denoising autoencoder (CDAE) to
 separate the EoR signal.
 After being trained on the SKA1-Low images, the CDAE achieves excellent
 performance as the mean correlation coefficient between 
@@ -159,14 +161,14 @@ the reconstructed and input EoR signals reaches
 $\bar{\ac*{coef-correlation}}_{\R{cdae}} = \num{0.929 +- 0.045}$.
 In comparison, the two representative traditional methods, namely the
 polynomial fitting method and the continuous wavelet transform method,
-both have difficulties in modelling and removing the foreground emission
-complicated with the beam effects, yielding only
+both have difficulties in modeling and removing the foreground emission
+that is complicated with the beam effects, yielding only
 $\bar{\ac*{coef-correlation}}_{\R{poly}} = \num{0.296 +- 0.121}$ and
 $\bar{\ac*{coef-correlation}}_{\R{cwt}} = \num{0.198 +- 0.160}$,
 respectively.
 In consequence, the CDAE can effectively deal with the spectral
-smoothness damage caused by the beam effects and accurately separate
-the EoR signal.
+smoothness damage caused by the beam effects and thus accurately
+separate the EoR signal.
 This result also exhibits the great potential of deep-learning-based
 methods in future EoR experiments.
 
