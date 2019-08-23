@@ -15,9 +15,9 @@
 前景干扰的频谱非常光滑，而 EoR 信号沿频率维度发生剧烈变化；
 两者具有显著不同的频谱结构，从而能够被有效地分离 \cite{morales2010,chapman2016}。
 然而在实际情况中，未分辨的或者未完全扣除的干扰源在干涉阵列的波束效应的影响下，
-会在频率维度产生快速变化的辐射起伏，破坏前景频谱的光滑性 \cite{liu2009ps}。
+会在频率维度产生快速变化的辐射起伏，能够损坏前景频谱的光滑性 \cite{liu2009ps}。
 这会显著削弱前景干扰与 EoR 信号的可分性，
-导致传统\ac{fg-rm}方法的效果大打折扣甚至失效，
+导致传统\ac{fg-rm}方法的效果不理想甚至失效，
 因此需要研发能够克服波束效应的 EoR 信号分离新算法。
 
 
@@ -39,24 +39,24 @@
 \end{figure}
 
 一个干涉阵列拥有的基线数目和长度均是有限的，
-在观测中能达到的 $uv$ 覆盖也是有限而且不完备的 (\autoref{sec:uv-coverage})，
-导致干涉阵列\ac{beam-synthesized}的形状非常复杂。
-如\autoref{fig:ska-psf} 所示，
+在观测中能够达到的 $uv$ 覆盖也是有限而且不完备的 (\autoref{sec:uv-coverage})，
+这导致干涉阵列\ac{beam-synthesized}的形状非常复杂。
+\autoref{fig:ska-psf} 显示了 SKA1-Low 的模拟\ac{beam-synthesized}，
 除了中间一个很窄的\ac{mainlobe}，\ac{beam-synthesized}还包含一系列\ac{sidelobe}。
 这些\ac{sidelobe}的数量非常多，相对幅度约为 \numrange{0.01}{0.1}\%，
 一直延伸到远超出视场的位置。
 另见 \citeay{liu2009ps} 的图 1 和图 3。
 
-另一方面，波束的形状还依赖于观测频率，
+另一方面，波束的形状还依赖于观测频率（亦如\autoref{fig:ska-psf} 所示），
 \ac{sidelobe}的位置 $\theta$ 会随着频率 $\nu$ 的增大而向中间移动
 ($\theta \propto \nu^{-1}$)。
 因此，一个干扰源在视场中的辐射分布也随频率而变化。
 由于仪器的热噪声水平、成像天区的大小、CLEAN 阈值等因素的限制，
 视场中总是存在一批未分辨的或者未完全扣除的干扰源。
 由这些干扰源的辐射综合而成的前景干扰，
-在频率维度将出现类似于波束\ac{sidelobe}形状的起伏结构。
+将在频率维度呈现类似于波束\ac{sidelobe}形状的起伏结构。
 这将破坏前景辐射的频谱光滑性，使得前景干扰具有类似 EoR 信号的小尺度频谱结构，
-导致传统\ac{fg-rm}方法无法有效地将两者区分开。
+从而导致传统\ac{fg-rm}方法无法有效地将两者区分开。
 另见 \citeay{liu2009ps} 的第 1 节。
 
 
@@ -67,14 +67,14 @@
 即使愿意付出昂贵的计算代价，
 为传统\ac{fg-rm}方法手工打造一个用于克服上述波束效应的模型仍然非常困难
 \cite{lochner2015}。
-另一方面，SKA1-Low 等大型干涉阵列的海量数据的处理已经成为一个重要的瓶颈
+此外，SKA1-Low 等大型干涉阵列的海量数据处理已经成为一个关键瓶颈
 \cite{norris2011,dolensky2016,chrysostomou2018}，
 所以采用传统\ac{fg-rm}方法并建模克服波束效应在实际应用中几乎不可行。
-与传统方法相比，\ac{dl}方法具有以下几个关键优势：
+在另一方面，\ac{dl}方法与传统方法相比具有以下几个关键优势：
 \begin{itemize}
   \item 能够自适应地从数据中汲取信息用来优化模型；
-  \item 一旦训练好模型，使用过程则变得非常高效；
-  \item 网络架构灵活，易于扩展，便于重新训练并用于处理其他望远镜的数据。
+  \item 模型一旦训练好，使用过程则变得非常高效；
+  \item 网络架构灵活，易于扩展，便于重新训练以适用到其他望远镜的数据处理。
 \end{itemize}
 因此，基于\ac{dl}研发能够克服波束效应的 EoR 信号分离算法更加具有可行性和吸引力
 \cite{herbel2018,vafaeiSadr2019}。
@@ -110,9 +110,9 @@
 通过让机器从数据中学习并调整算法和模型，达到解决\ac{ai}领域的问题的目标
 \cite{samuel1959,mitchell1997}。
 利用该方法，只需要为机器设计需要从数据中提取的特征以及相应的学习策略，
-而不需要编写每一条具体的规则，有效地减轻了开发\ac{ai}系统的负担。
+而不必编写每一条具体的规则，有效地减轻了开发\ac{ai}系统的负担。
 \ac{dl}是\ac{ml}中的一个分支，
-利用多层\ac{nn}架构让机器自己去发掘数据中的特征，
+主要利用多层\ac{nn}架构让机器自己去发掘数据中的特征，
 并从简单特征构建出复杂特征，学习得到数据的一个有效\ac{representation}
 \cite{bengio2013rl,schmidhuber2015,goodfellow2016}。
 换言之，\ac{dl}让机器自身拥有了\ac{fx}的能力，
@@ -121,7 +121,7 @@
 \autoref{fig:ml-dl} 示意了\ac{ml}和\ac{dl}之间的主要区别。
 
 \ac{dl}算法包括多种\ac{nn} \cite{bengio2009,leCun2015,schmidhuber2015}，
-主要包括：\ac{cnn}、\ac{dbn}、\ac{rnn}、\ac{ae}、\ac{res-nn}。
+其中主要有：\ac{cnn}、\ac{dbn}、\ac{rnn}、\ac{ae}、\ac{res-nn}。
 \ac{dl}中的\enquote{深度}是指\ac{nn}的层数，
 一般认为深度\ac{nn}的\acs{layer-hidden}（即输入层与输出层之间的层）数目应大于 2。
 通过利用多个\ac{layer-hidden}，\ac{dl}算法可以将数据特征分为多个层次进行学习，
@@ -146,8 +146,8 @@
 因此适合用于数据的\ac{dim-reduction}\cite{hinton2006,wang2014}
 和\ac{denoising}\cite{xie2012,lu2013,bengio2013}。
 在\ac{ae}的诸多变种中，\ac{cdae}综合了\ac{dae}的\ac{denoising}能力以及
-\ac{cnn} 强大的特征提取能力，因此擅长于发掘数据中的抽象、细微的特征 \cite{du2017}，
-并且已经被成功地应用于微弱\ac{gw}信号的\ac{denoising}\cite{shen2017}、
+\ac{cnn} 的强大特征提取能力，因此擅于发掘数据中的抽象、细微的特征 \cite{du2017}，
+并且已经被成功应用于微弱\ac{gw}信号的\ac{denoising}\cite{shen2017}、
 单声道音源的分离\cite{grais2017}、等等。
 这些应用说明了 \ac{cdae} 具有从高度时变的数据中提取微弱信号的出色能力，
 契合 EoR 信号分离问题的需求。
@@ -198,7 +198,7 @@ $\B{x}$、$\B{h}$ 和 $\B{r}$ 均为一维矢量。
 即最小化\acl{loss} $\ac{loss}(\B{r}, \,\B{x})$。
 这个\ac{denoising}过程迫使\ac{ae}去发掘原始输入信号 $\B{x}$
 中那些对重建起关键作用的稳健特征。
-使用该\ac{denoising}准则训练的\ac{ae}被称为\ac{dae}。
+使用该\ac{denoising}准则训练的\ac{ae}称为\ac{dae}。
 
 \begin{figure}[htp]
   \centering
@@ -249,7 +249,7 @@ $\B{x}$、$\B{h}$ 和 $\B{r}$ 均为一维矢量。
 如\autoref{fig:cnn} 所示。
 每个卷积层由一组小尺寸（大小通常为 3、5、7）\ac{filter}构成，
 每个\ac{filter}的权重参数不随数据的位置而变化。
-因此，卷积层非常适合于提取数据中的局部特征 \cite{leCun1998}，
+因此，卷积层非常适用于提取数据中的局部特征 \cite{leCun1998}，
 同时有效地减少了参数数目。
 \ac{cnn} 的参数数目通常约为类似的全连接\ac{nn}的 1\% 或更少 \cite{grais2017}，
 所以 \ac{cnn} 更容易训练，消耗的资源（如内存和时间）也更少。
@@ -298,7 +298,7 @@ $\B{x}$、$\B{h}$ 和 $\B{r}$ 均为一维矢量。
   }
 \end{figure}
 
-\ac{ae}的\ac{encoder}和\ac{decoder}部分均包含多个卷积层。
+\ac{ae}的\ac{encoder}和\ac{decoder}两部分均包含多个卷积层。
 因为本工作关注于\ac{ae}的\ac{fx}能力和\ac{denoising}能力，
 而不关心\ac{code} $\B{h}$ 的具体形式，
 所以\ac{encoder}和\ac{decoder}之间并没有明确的界线。
@@ -327,12 +327,12 @@ $\left(\left\{ \B{v}_{i}^{(l)} \right\};\, i = 1, 2, \cdots, m_l \right)$。
 \begin{equation}
   \tanh(x) = \frac{\Ce^x - \Ce^{-x}}{\Ce^x + \Ce^{-x}} ,
 \end{equation}
-以方便数据的预处理（详见 \autoref{sec:preprocessing}）。
+这可以简化数据的预处理（详见 \autoref{sec:preprocessing}）。
 其他卷积层使用的\ac{f-activation}则为\ac{elu}\cite{clevert2016}：
 \begin{equation}
   \text{ELU}(x) =
     \begin{dcases*}
-      x , \quad & if $x \le 0$, \\
+      x , \quad & if $x \ge 0$, \\
       \alpha_{\R{elu}} (\Ce^x - 1) , \quad & if $x < 0$,
     \end{dcases*}
 \end{equation}
@@ -352,7 +352,7 @@ $\left(\left\{ \B{v}_{i}^{(l)} \right\};\, i = 1, 2, \cdots, m_l \right)$。
 \ac{decoder}的五个卷积层分别包含 32、64、64、32 和 1 个\ac{filter}。
 我们也测试了在 \ac{cdae} 中包含\ac{layer-pooling}和\ac{layer-upsampling}，
 但这些层对 \ac{cdae} 的性能影响可以忽略不计。
-因此，我们最终设计的 \ac{cdae} (\autoref{fig:cdae-network}) 完全由卷积层构成，
+因此，最终设计的 \ac{cdae} (\autoref{fig:cdae-network}) 完全由卷积层构成，
 这种网络也被称为\ac{fcn} \cite{long2015,springenberg2015}。
 
 %---------------------------------------------------------------------
@@ -383,7 +383,7 @@ $\B{x}^{(i)} = \B{x}^{(i)}_{\R{eor}} + \B{x}^{(i)}_{\R{fg}}$
 在每一个训练\ac{epoch}，将总辐射 $\B{x}^{(i)}$ 输入 \ac{cdae}，
 经过一系列卷积层 [参见\autoref{eq:conv}]
 后得到重建的 EoR 信号 $\B{r}^{(i)}_{\R{eor}}$。
-该重建信号 $\B{r}^{(i)}_{\R{eor}}$ 与输入的 EoR 信号 $\B{x}^{(i)}_{\R{eor}}$
+该重建信号 $\B{r}^{(i)}_{\R{eor}}$ 与输入 EoR 信号 $\B{x}^{(i)}_{\R{eor}}$
 之间的差异就是 \ac{cdae} 的\acl{loss} \ac{loss}，
 可利用\ac{mse}将其量化为：
 \begin{equation}
@@ -393,7 +393,7 @@ $\B{x}^{(i)} = \B{x}^{(i)}_{\R{eor}} + \B{x}^{(i)}_{\R{fg}}$
     \left[ \B{r}_{\R{eor}}^{(i)} - \B{x}_{\R{eor}}^{(i)} \right] ,
 \end{equation}
 其中 $N_{\R{tr}}$ 是\acl{s-training} \ac{s-training} 所包含数据点的数目，
-上标 \enquote{$T$} 表示转置算符。
+上标 \enquote{$T$} 表示转置运算。
 运用\ac{backprop}方法\cite{rumelhart1986,leCun1998bp}，
 可以计算\acl{loss} \ac{loss} 对任意一个参数 $p_i$ 的梯度
 $\partial \ac{loss} / \partial p_i$，
@@ -422,7 +422,7 @@ $\B{r}_{\R{eor}}$ 和 $\B{x}_{\R{eor}}$ 的平均值，
 $n$ 是信号的长度。
 \acl{coef-correlation}
 $\ac{coef-correlation}(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})$ 越接近于 1，
-则表示重建的 EoR 信号越准确，\ac{cdae} 的性能也就越好。
+则表示重建的 EoR 信号越准确，说明 \ac{cdae} 的性能越好。
 
 
 %=====================================================================
@@ -442,11 +442,11 @@ $\ac{coef-correlation}(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})$ 越接近于 1，
 取 \SIrange{154}{162}{\MHz} 这个典型频带为例 \cite{datta2010}，
 将其分成 $n_f = 101$ 个宽度为 \SI{80}{\kHz} 的频率\ac{channel}。
 与 \autoref{sec:obs-simu} 的射电天空模拟相比，
-我们将频率分辨率从 \SI{160}{\MHz} 提高到了 \SI{80}{\MHz}，
+这里将频率分辨率从 \SI{160}{\MHz} 提高到了 \SI{80}{\MHz}，
 这样能够保留更多频谱信息，有助于 EoR 信号的分离。
 
 利用已在\autoref{chap:simulation}中详细描述的方法，
-我们模拟了 EoR 信号 (\autoref{sec:simu-eor})
+模拟了 EoR 信号 (\autoref{sec:simu-eor})
 和前景辐射在每一个频率\ac{channel}里的\ac{skymap}。
 其中前景辐射包括了银河系的\ac{rad-syn}和\ac{rad-ff} (\autoref{sec:simu-galactic})、
 河外点源 (\autoref{sec:simu-eg-point})
@@ -473,10 +473,11 @@ $\ac{coef-correlation}(\B{r}_{\R{eor}}, \B{x}_{\R{eor}})$ 越接近于 1，
 \end{figure}
 
 然后，我们按照 \autoref{sec:obs-simu} 所述方法模拟了\ac{skymap}的
-SKA1-Low 观测图像，同时根据此处需求的不同而对模拟的具体过程进行了如下微调：
+SKA1-Low 观测图像，同时根据此处需求的不同而对具体的模拟过程进行了如下微调：
 \begin{itemize}
   \item 因为只区分 EoR 信号和前景辐射，
-    所以将所有前景成分的\ac{skymap}叠加起来再输入 \texttt{OSKAR} 模拟；
+    所以将所有前景成分的\ac{skymap}叠加起来再输入 \texttt{OSKAR}
+    模拟\ac{vis}数据；
   \item 假定 \SI{158}{\MHz} 流量密度 $S_{158} > \SI{10}{\mJy}$
     的河外点源已被全部去除 \cite{liu2009ps}；
   \item 为了强调暗弱而且比较弥散的 EoR 信号，
@@ -494,7 +495,7 @@ EoR 信号 $C_{\R{eor}}^{(1)}$ 和前景辐射 $C_{\R{fg}}^{(1)}$。
 其中还显示了相应的差分频谱（即相邻两个频谱\ac{channel}的差值）以及 EoR 信号的频谱。
 可以看出，前景辐射的本征频谱非常光滑（上栏），
 但是在复杂的波束效应的影响下出现了许多小幅度、小尺度 ($<$\,\SI{1}{\MHz}) 的涨落（中栏），
-说明频谱的光滑性受到了严重损坏。
+这说明频谱的光滑性受到了严重损坏。
 尽管这些小尺度的涨落与 EoR 信号（下栏）具有一些相似的频谱特征，
 但两者之间仍然具有足够的可区分度，能够被 \ac{cdae} 发掘出来并用于两者的分离。
 此外，\autoref{fig:cdae-simdata} 还显示\enquote{观测}的前景辐射
@@ -505,7 +506,7 @@ EoR 信号 $C_{\R{eor}}^{(1)}$ 和前景辐射 $C_{\R{fg}}^{(1)}$。
   \centering
   \includegraphics[width=0.84\textwidth]{cdae-simdata-example}
   \bicaption[前景辐射和 EoR 信号的频谱示例]{%
-    随机取一个天空像素点为例，得到的前景辐射和 EoR 信号的频谱。
+    随机取一个天空像素点为例所得到的前景辐射和 EoR 信号的频谱。
     （\uline{上栏}）
     理想的（即没有波束效应）前景辐射频谱（蓝线）以及相应的差分频谱（红线）。
     （\uline{中栏}）
@@ -531,12 +532,12 @@ EoR 信号 $C_{\R{eor}}^{(1)}$ 和前景辐射 $C_{\R{fg}}^{(1)}$。
 如果只有一组\ac{imgcube}，那么\acl{s-test} \ac{s-test} 只能包含一小部分像素点的数据，
 而且这些像素点随机地分布在天空平面里。
 在 \ac{cdae} 的测试阶段 (\autoref{sec:cdae-results})，
-从这样一个\acl{s-test} \ac{s-test} 重建得到的 EoR 信号无法构成完整、
+从这样一个\acl{s-test} \ac{s-test} 重建得到的 EoR 信号无法构成完整的、
 甚至局部完整的\ac{imgcube}，
 从而无法通过图像和\ac{ps}直观地展示 \ac{cdae} 分离 EoR 信号的效果。
-因此，为\acl{s-test} \ac{s-test} 额外模拟一组\ac{imgcube}能够解决上述问题。
-由于最终经过切取的\ac{imgcube}所覆盖的天区大小仅有 \SI{2 x 2}{\degree}，
-我们设第二组\ac{imgcube}的中心坐标为
+因此，可以为\acl{s-test} \ac{s-test} 额外模拟一组\ac{imgcube}来解决上述问题。
+由于最终切取后的\ac{imgcube}所覆盖的天区大小仅有 \SI{2 x 2}{\degree}，
+可以设第二组\ac{imgcube}的中心坐标为
 (R.A., Dec.\@) = (\SI{3}{\degree}, \SI{-27}{\degree})，
 即与第一组\ac{imgcube}
 $\left( C_{\R{eor}}^{(1)}, C_{\R{fg}}^{(1)} \right)$
@@ -544,8 +545,8 @@ $\left( C_{\R{eor}}^{(1)}, C_{\R{fg}}^{(1)} \right)$
 具体而言，我们以 (R.A., Dec.\@) = (\SI{3}{\degree}, \SI{-27}{\degree})
 为中心模拟了银河系弥散辐射（\ac{rad-syn}和\ac{rad-ff}）的\ac{skymap}；
 因为河外点源、射电晕以及 EoR 信号的空间分布几乎是各向同性的，
-所以我们将这几个成分原来的\ac{skymap}平移 \SI{3}{\degree} 得到所需的新\ac{skymap}。
-然后按照相同的方法模拟得到了第二组\ac{imgcube}
+所以将这几个成分原来的\ac{skymap}平移 \SI{3}{\degree} 来得到所需的新\ac{skymap}。
+然后按照相同的方法模拟生成了第二组\ac{imgcube}
 $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$。
 
 我们的新算法针对 EoR \ac{tomography}而设计，
@@ -570,14 +571,14 @@ $S = \left\{ \left(\B{x}^{(i)}, \,\B{x}^{(i)}_{\R{eor}} \right) \right\}$。
 在 \ac{cdae} 使用该数据集 $S$ 之前，
 还需要分别对输入的总辐射 $X = \big\{ \B{x}^{(i)} \big\}$
 以及 EoR 信号 $X_{\R{eor}} = \big\{ \B{x}^{(i)}_{\R{eor}} \big\}$
-进行合适的预处理。
+进行相应的预处理。
 
 对于输入数据 $X = \big\{ \B{x}^{(i)} \big\}$，
 我们提出首先对信号 $\B{x}^{(i)}$ 进行 Fourier 变换。
 这样可以提高 EoR 信号与前景辐射之间的可分度，
 于是 \ac{cdae} 能够更容易、更准确地学习两者之间的差异。
 我们将在 \autoref{sec:why-ft} 讨论不使用 Fourier 变换预处理数据时所得到的结果。
-由于信号 $\B{x}^{(i)}$ 的长度是有限的 ($n_f = 101$)，
+由于信号 $\B{x}^{(i)}$ 的长度 ($n_f = 101$) 是有限的，
 为了抑制信号的边界效应使 Fourier 变换产生显著的\ac{sidelobe}
 （参见 \autoref{sec:window}），
 先对信号 $\B{x}^{(i)}$ 施加 Blackman--Nuttall \ac{f-window}
@@ -642,7 +643,7 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$
 预处理得到的数据全部作为\acl{s-test} \ac{s-test}，
 即包含 \num{129600} 个数据点。
 使用完整的\ac{imgcube}作为\acl{s-test}允许我们在测试 \ac{cdae}
-的性能时能够获得重建 EoR 信号的完整图像。
+的性能时获得重建 EoR 信号的完整图像。
 
 我们使用了 \href{https://keras.io}{\texttt{Keras}}\footnote{%
   Keras: \url{https://keras.io} (v2.2.4)}
@@ -684,15 +685,15 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$
   \centering
   \includegraphics[width=0.9\textwidth]{cdae-eor-pix}
   \bicaption[CDAE 重建的和输入的 EoR 信号对比示例]{%
-    以\acl*{s-test} \ac*{s-test} 中一个随机像素点为例，
-    展示了 CDAE 重建的和输入的 EoR 信号之间的对比。
+    以\acl*{s-test} \ac*{s-test} 中一个随机像素点为例来对比
+    CDAE 重建的和输入的 EoR 信号。
     （\uline{上栏}）
     输入的 EoR 信号 $\B{x}_{\R{eor}}$（绿色实线）
     和 CDAE 重建的 EoR 信号 $\B{r}_{\R{eor}}$（蓝色虚线）
     在 Fourier 空间的对比。
     两个信号之间的\acl*{coef-correlation}为 $\ac*{coef-correlation} = 0.931$。
-    图中的灰线表示输入的总辐射信号 $\B{x} = \B{x}_{\R{fg}} + \B{x}_{\R{eor}}$，
-    品红阴影线标记的区域表示在 \autoref{sec:preprocessing}
+    灰线表示输入的总辐射信号 $\B{x} = \B{x}_{\R{fg}} + \B{x}_{\R{eor}}$，
+    品红线标记区域表示在 \autoref{sec:preprocessing}
     预处理过程中排除的 Fourier 系数。
     （\uline{下栏}）
     输入的 EoR 信号 $\B{x}_{\R{eor}}$（绿色实线）
@@ -743,15 +744,16 @@ $\bar{\xi}_{\R{cdae}} = \num{0.929 +- 0.045}$，
   \bicaption[输入的 EoR 图像和 CDAE 重建的 EoR 图像的对比]{%
     输入的 EoR 图像（左栏）和 CDAE 重建的 EoR 图像（右栏）
     在中心频率 \SI{158}{\MHz} 处的对比。
-    图像的尺寸均为 \num{360 x 360}，并且使用了相同的\ac{colorbar}，
-    幅度因 CDAE 训练的需要已被标准化 (\autoref{sec:preprocessing})。
+    图像的尺寸均为 \num{360 x 360}，并且使用了相同的\ac{colorbar}；
+    辐射强度因 CDAE 训练的需要已被标准化 (\autoref{sec:preprocessing})。
   }{%
     Comparison between the input EoR image (left panel) and
     reconstructed EoR image (right panel) at the central frequency of
     \SI{158}{\MHz}.
     The images have the same size (\num{360 x 360} pixel) and share the
     same color bar.
-    The amplitude is normalized for the CDAE (\autoref{sec:preprocessing}).
+    The emission amplitude is normalized for the CDAE
+    (\autoref{sec:preprocessing}).
   }
   \label{fig:cdae-eor-img}
 \end{figure}
@@ -759,7 +761,7 @@ $\bar{\xi}_{\R{cdae}} = \num{0.929 +- 0.045}$，
 \begin{figure}[htp]
   \centering
   \includegraphics[width=\textwidth]{cdae-eor-ps-comp}
-  \bicaption[输入的 EoR 信号和 CDAE 重建的 EoR 信号之间的二维功率谱对比]{%
+  \bicaption[输入的 EoR 信号和 CDAE 重建的 EoR 信号的二维功率谱对比]{%
     输入的 EoR 信号（左栏）和 CDAE 重建的 EoR 信号（右栏）之间的二维功率谱对比。
   }{%
     Comparison of two-dimensional power spectra between the input
@@ -770,7 +772,7 @@ $\bar{\xi}_{\R{cdae}} = \num{0.929 +- 0.045}$，
 
 由于\acl{s-test} \ac{s-test} 源自一组完整的\ac{imgcube}
 $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$，
-使用 \ac{s-test} 评估 \ac{cdae} 时我们能够获得重建 EoR 信号的完整\ac{imgcube}，
+因此评估 \ac{cdae} 时能够获得重建 EoR 信号的完整\ac{imgcube}，
 从而可以进行图像和功率谱的直观对比。
 以中心频率 \SI{158}{\MHz} 为例（如\autoref{fig:cdae-eor-img} 所示），
 相比输入的 EoR 图像，由 \ac{cdae} 重建的 EoR 图像中存在一些微弱的小尺度波纹状结构，
@@ -787,10 +789,10 @@ $\ac{k-perp} \approx \SI{0.7}{\per\Mpc}$ 的尺度上贡献了额外的功率，
 
 以上这些结果充分说明了训练好的 \ac{cdae}
 能够有效地克服波束效应对前景辐射频谱光滑性的影响，从而准确地分离 EoR 信号。
-\ac{cdae} 的优秀性能主要归功于堆叠多个卷积层所实现的强大的\ac{fx}能力，
+\ac{cdae} 的出色性能主要归功于堆叠多个卷积层所实现的强大\ac{fx}能力，
 这种堆叠式架构让每一层专注于提取相对简单的特征，
 然后这些特征逐层地融合成精细、抽象的高层次特征 \cite{leCun2015}。
-同时，\num{53569} 个可训练的参数让 \ac{cdae} 拥有高度的灵活性。
+同时，\num{53569} 个可训练参数让 \ac{cdae} 拥有高度的灵活性。
 经过有效训练后，\ac{cdae} 自适应地从数据中学得一个针对 EoR 信号分离而优化的模型
 \cite{domingos2012}。
 
@@ -806,8 +808,8 @@ $\ac{k-perp} \approx \SI{0.7}{\per\Mpc}$ 的尺度上贡献了额外的功率，
 然后输入训练好的 \ac{cdae}，得到重建的 EoR 信号 $\tilde{\B{r}}^{(i)}_{\R{eor}}$。
 如果输入信号 $\B{x}^{(i)}$ 没有被遮挡，
 则 \ac{cdae} 重建的 EoR 信号为 $\B{r}^{(i)}_{\R{eor}}$。
-对比在有无遮挡的两种情况下所重建的 EoR 信号的准确度，
-于是可定义 \ac{cdae} 对输入数据被遮挡部分的敏感度 $s$ 为：
+对比在有无遮挡这两种情况下所重建的 EoR 信号的准确度，
+可定义 \ac{cdae} 对输入数据被遮挡部分的敏感度 $s$ 为：
 \begin{equation}
   \label{eq:perf-loss}
   s = \frac{1}{N_{\R{val}}} \sum_{i=1}^{N_{\R{val}}} \left[
@@ -831,7 +833,7 @@ $N_{\R{val}}$ 是\acl{s-validation} \ac{s-validation} 包含的数据点数目�
 以及 EoR 信号强度的\acs*{rms}值 $\B{y}_{\R{eor}}$。
 我们发现 \ac{cdae} 的敏感度分布 $\B{s}$ 与 EoR 信号 $\B{y}_{\R{eor}}$
 之间的相关性为 $\ac*{coef-correlation}(\B{s}, \B{y}_{\R{eor}}) = 0.742$，
-显著高于与前景辐射 $\B{y}_{\R{fg}}$ 的相关性
+显著高于 $\B{s}$ 与前景辐射 $\B{y}_{\R{fg}}$ 的相关性
 [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{fg}}) = 0.562$]。
 这个结果表明，训练好的 \ac{cdae} 确实从输入数据中学到了
 能够帮助区分前景辐射的 EoR 信号的特征，
@@ -876,7 +878,7 @@ $N_{\R{val}}$ 是\acl{s-validation} \ac{s-validation} 包含的数据点数目�
 我们开展了一次对比实验。
 与 \autoref{sec:cdae-demo} 的演示唯一的区别是：
 没有在数据预处理阶段运用 Fourier 变换。
-我们使用相同的 \ac{cdae} 架构、\ac{ds}以及训练方法，
+使用相同的 \ac{cdae} 架构、\ac{ds}以及训练方法，
 得到的训练结果如\autoref{fig:cdae-train-noft} 所示。
 我们发现，\acl{loss-training} \ac{loss-training} 减小的速度更慢，
 大约经过 100 个\ac{epoch}才收敛。
@@ -889,8 +891,8 @@ $N_{\R{val}}$ 是\acl{s-validation} \ac{s-validation} 包含的数据点数目�
 中是没有的。
 此外，使用\acl{s-test} \ac{s-test} 来评估 \ac{cdae} 的性能可得，
 \ac{cdae} 重建的与输入的 EoR 信号之间的平均\acl{coef-correlation}仅有
-$\bar{\rho}_{\R{noft}} = \num{0.628 +- 0.167}$，
-显著差于使用了 Fourier 变换预处理数据所得的结果 (\autoref{sec:cdae-results})。
+$\bar{\ac{coef-correlation}}_{\R{noft}} = \num{0.628 +- 0.167}$，
+显著劣于使用了 Fourier 变换预处理数据所得的结果 (\autoref{sec:cdae-results})。
 
 \begin{figure}[htp]
   \centering
@@ -908,7 +910,7 @@ $\bar{\rho}_{\R{noft}} = \num{0.628 +- 0.167}$，
 \end{figure}
 
 这些结果说明在\ac{ds}的预处理阶段运用 Fourier 变换很有帮助。
-将 EoR 信号和前景辐射的频谱信号变换到 Fourier 空间后，
+将 EoR 信号和前景辐射变换到 Fourier 空间后，
 EoR 信号主要分布在较大的 Fourier \ac{mode}里，
 而频谱光滑的前景辐射则比较集中在较小的 Fourier \ac{mode}里 \cite{parsons2012}，
 所以两者的可区分度提高了，从而能够更容易、更准确地被 \ac{cdae} 学习并分离。
@@ -932,16 +934,17 @@ EoR 信号主要分布在较大的 Fourier \ac{mode}里，
 对于天空的每一个像素点 $i$，
 多项式拟合法使用一个低阶多项式来拟合该像素点的总辐射的频谱
 $\B{x}^{(i)} = \B{x}^{(i)}_{\R{eor}} + \B{x}^{(i)}_{\R{fg}}$，
-确定其中的光滑成分，并作为前景扣除，从而分离出其中的 EoR 信号 \cite{wang2006}。
+确定其中的光滑成分并作为前景扣除，从而分离出其中的 EoR 信号 \cite{wang2006}。
 使用在 \autoref{sec:cdae-images} 模拟的\ac{imgcube}
 $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$，
-我们测试了从二阶到五阶的多项式，发现四阶多项式达到的 EoR 信号分离的效果最佳。
+我们测试了从二阶到五阶的多项式，发现四阶多项式所达到的 EoR 信号分离效果最佳。
 然而，使用四阶多项式拟合分离的 EoR 信号与输入 EoR 信号
 之间的平均\acl{coef-correlation}仍然仅有
 $\bar{\ac{coef-correlation}}_{\R{poly}} = \num{0.296 +- 0.121}$。
-因此，当前景频谱的光滑性受到仪器的波束效应损坏时，多项式拟合法难以有效地扣除前景污染。
+因此，当前景频谱的光滑性受到仪器波束效应损坏时，多项式拟合法难以有效地扣除前景污染。
 
-\ac{cwt}法与其他\ac{fg-rm}方法同样依赖于前景辐射与 EoR 信号具有显著不同的频谱结构。
+\ac{cwt}法与其他\ac{fg-rm}方法同样依赖于前景辐射与 EoR 信号具有显著不同的频谱结构
+这一关键前提。
 对于天空每一个像素点的总辐射的频谱，首先运用基于 Morlet 小波函数的\ac{cwt}，
 于是前景辐射和 EoR 信号因为频谱特征不同而在小波空间中占据不同的区域。
 在小波空间中，可以更容易地识别那些主要源自前景辐射的小波系数并将其扣除，
@@ -956,7 +959,7 @@ $\left( C_{\R{eor}}^{(2)}, C_{\R{fg}}^{(2)} \right)$，
 以及\ac{coi} $c_i = 1.6$。
 但是，\ac{cwt}法分离的 EoR 信号与输入 EoR 信号之间的平均\acl{coef-correlation}仅有
 $\bar{\ac{coef-correlation}}_{\R{cwt}} = \num{0.198 +- 0.160}$。
-这个分离结果相比上述多项式拟合法的结果还要稍差一点，
+这个分离结果相比上述多项式拟合法的结果还要略差一点，
 这与 \citeay{gu2013} 的对比结果不同。
 主要原因是本文模拟的\ac{imgcube}的频带较窄、频率分辨率较差，
 所以在使用\ac{cwt}时产生了较严重的边界效应。
@@ -966,19 +969,19 @@ $\bar{\ac{coef-correlation}}_{\R{cwt}} = \num{0.198 +- 0.160}$。
 于是，低阶多项式无法有效地拟合前景辐射的频谱，
 在小波空间中区分前景辐射和 EoR 信号也变得非常困难，
 因此上述两种传统的\ac{fg-rm}方法都难以对复杂的前景辐射建模并扣除，
-导致无法准确地分离 EoR 信号。
+从而导致无法准确地分离 EoR 信号。
 \ac{cdae} 则完全不同；
 凭借强大的\ac{fx}能力以及数据驱动 (data-driven) 的特点，
 \ac{cdae} 可以从训练数据中汲取信息来优化自身模型，
-实现 EoR 信号与波束效应所导致的前景频谱涨落之间的有效区分。
-因此，\ac{cdae} 能够准确地分离 EoR 信号，取得非常出色的性能。
+实现 EoR 信号与波束效应所导致的前景频谱涨落之间的有效区分，
+最终准确地分离 EoR 信号。
 
 
 %=====================================================================
 \section{小结}
 
 干涉阵列的波束效应会使前景辐射产生沿频率维度快速变化的起伏，
-导致前景的频谱光滑性被破坏，使得传统\ac{fg-rm}方法无法成功分离 EoR 信号。
+损坏前景的频谱光滑性，导致传统\ac{fg-rm}方法无法成功分离 EoR 信号。
 为了克服复杂的波束效应，我们基于\ac{dl}方法设计了一个由 9 个卷积层构成的 \ac{cdae}，
 并且使用\autoref{chap:simulation}模拟的 SKA1-Low 观测图像来训练 \ac{cdae}，
 训练好的 \ac{cdae} 能够准确地分离 EoR 信号，分离效果显著优于传统\ac{fg-rm}方法。
