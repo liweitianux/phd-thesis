@@ -809,10 +809,10 @@ $\ac{k-perp} \approx \SI{0.7}{\per\Mpc}$ 的尺度上贡献了额外的功率，
 如果输入信号 $\B{x}^{(i)}$ 没有被遮挡，
 则 \ac{cdae} 重建的 EoR 信号为 $\B{r}^{(i)}_{\R{eor}}$。
 对比在有无遮挡这两种情况下所重建的 EoR 信号的准确度，
-可定义 \ac{cdae} 对输入数据被遮挡部分的敏感度 $s$ 为：
+可定义 \ac{cdae} 对输入数据被遮挡部分的敏感度 $\kappa$ 为：
 \begin{equation}
   \label{eq:perf-loss}
-  s = \frac{1}{N_{\R{val}}} \sum_{i=1}^{N_{\R{val}}} \left[
+  \kappa = \frac{1}{N_{\R{val}}} \sum_{i=1}^{N_{\R{val}}} \left[
       \ac{coef-correlation} \left(
         \B{r}^{(i)}_{\R{eor}}, \B{x}^{(i)}_{\R{eor}}
       \right) -
@@ -823,18 +823,18 @@ $\ac{k-perp} \approx \SI{0.7}{\per\Mpc}$ 的尺度上贡献了额外的功率，
 \end{equation}
 其中 $\B{x}^{(i)}_{\R{eor}}$ 为输入的 EoR 信号，
 $N_{\R{val}}$ 是\acl{s-validation} \ac{s-validation} 包含的数据点数目。
-敏感度 $s$ 越大，说明被遮挡的部分数据对 \ac{cdae} 的性能影响越强，
+敏感度 $\kappa$ 越大，说明被遮挡的部分数据对 \ac{cdae} 的性能影响越强，
 也就说明 \ac{cdae} 从该部分数据学到的特征越重要。
 
-通过每次遮挡输入数据的不同部分并计算相应的敏感度 $s$，
-可以得到 \ac{cdae} 对输入数据各个部分的敏感度分布 $\B{s}$，
+通过每次遮挡输入数据的不同部分并计算相应的敏感度 $\kappa$，
+可以得到 \ac{cdae} 对输入数据各个部分的敏感度分布 $\B{\kappa}$，
 如\autoref{fig:occ-fgeor} 所示。
 图中还画出了前景辐射强度的\acs*{rms}值 $\B{y}_{\R{fg}}$
 以及 EoR 信号强度的\acs*{rms}值 $\B{y}_{\R{eor}}$。
 我们发现 \ac{cdae} 的敏感度分布 $\B{s}$ 与 EoR 信号 $\B{y}_{\R{eor}}$
-之间的相关性为 $\ac*{coef-correlation}(\B{s}, \B{y}_{\R{eor}}) = 0.742$，
-显著高于 $\B{s}$ 与前景辐射 $\B{y}_{\R{fg}}$ 的相关性
-[$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{fg}}) = 0.562$]。
+之间的相关性为 $\ac*{coef-correlation}(\B{\kappa}, \B{y}_{\R{eor}}) = 0.742$，
+显著高于 $\B{\kappa}$ 与前景辐射 $\B{y}_{\R{fg}}$ 的相关性
+[$\ac*{coef-correlation}(\B{\kappa}, \B{y}_{\R{fg}}) = 0.562$]。
 这个结果表明，训练好的 \ac{cdae} 确实从输入数据中学到了
 能够帮助区分前景辐射的 EoR 信号的特征，
 因此 \ac{cdae} 对输入数据中\ac{snr}高的部分也更敏感。
@@ -843,25 +843,26 @@ $N_{\R{val}}$ 是\acl{s-validation} \ac{s-validation} 包含的数据点数目�
   \centering
   \includegraphics[width=\textwidth]{occlusion-fgeor}
   \bicaption[CDAE 对输入数据的敏感度分布]{%
-    采用\acs*{occlusion}方法得到的 CDAE 对输入数据的敏感度分布 $\B{s}$（蓝线）。
+    采用\acs*{occlusion}方法得到的 CDAE 对输入数据的敏感度分布
+    $\B{\kappa}$（蓝线）。
     左图红线显示了前景辐射的强度的\acs*{rms}值 $\B{y}_{\R{fg}}$；
     右图绿线显示了 EoR 信号的强度的\acs*{rms}值 $\B{y}_{\R{eor}}$。
     通过计算\acl*{coef-correlation} \ac*{coef-correlation}
-    可知敏感度分布 $\B{s}$ 与 EoR 信号的相关性
-    [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{eor}}) = 0.742$]
+    可知敏感度分布 $\B{\kappa}$ 与 EoR 信号的相关性
+    [$\ac*{coef-correlation}(\B{\kappa}, \B{y}_{\R{eor}}) = 0.742$]
     显著大于与前景辐射的相关性
-    [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{fg}}) = 0.562$]。
+    [$\ac*{coef-correlation}(\B{\kappa}, \B{y}_{\R{fg}}) = 0.562$]。
   }{%
-    The CDAE's sensitivity distribution $\B{s}$ (blue lines in both panels)
-    obtained by applying the occlusion method.
-    We also plot the root-mean-square amplitudes of
-    the foreground emission $\B{y}_{\R{fg}}$ (red line in left panel)
-    and the EoR signal $\B{y}_{\R{eor}}$ (green line in right panel).
-    The sensitivity distribution $\B{s}$ is more correlated with
+    The CDAE's sensitivity distribution $\B{\kappa}$
+    (blue lines) obtained by applying the occlusion method.
+    We also plot the root-mean-square amplitudes of the
+    foreground emission $\B{y}_{\R{fg}}$ (red line in the left panel)
+    and the EoR signal $\B{y}_{\R{eor}}$ (green line in the right panel).
+    The sensitivity distribution $\B{\kappa}$ is more correlated with
     the EoR signal
-    [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{eor}}) = 0.742$]
+    [$\ac*{coef-correlation}(\B{\kappa}, \B{y}_{\R{eor}}) = 0.742$]
     than the foreground
-    [$\ac*{coef-correlation}(\B{s}, \B{y}_{\R{fg}}) = 0.562$].
+    [$\ac*{coef-correlation}(\B{\kappa}, \B{y}_{\R{fg}}) = 0.562$].
   }
   \label{fig:occ-fgeor}
 \end{figure}
