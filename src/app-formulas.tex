@@ -199,4 +199,68 @@ $S_{\R{bolo}}$ 是测得的热流量 (bolometric flux)。
 \end{equation}
 
 
+%=====================================================================
+\section{波数与尺度的换算}
+\label{sec:wavenumber-scale-conv}
+
+Fourier 空间的\ac{wavenumber} \ac{k} 与实空间（即图像空间）的尺度 \ac{scale}
+之间的换算关系为 \cite{peebles1980,baugh2000}：
+\begin{equation}
+  \ac{k} = 2\Cpi / \ac{scale} .
+\end{equation}
+
+EoR 信号的\ac{ps}研究中通常采用\ac{comoving-frame}，
+其中\ac{wavenumber} \ac{k} 的单位通常为 [\si{\per\Mpc}]。
+然而在观测研究中，更习惯使用角分或角秒来描述尺度 \ac{scale}。
+为了进行 \ac{k} 和 \ac{scale} 两者的换算，
+首先需要计算 EoR 信号源（即中性氢云）的\acl{D-comoving}：
+\begin{equation}
+  \ac{D-comoving}(z) =
+    \ac{D-comoving}(z = \ac{freq21cm} / \ac{freq} - 1) ,
+\end{equation}
+其中 \ac{freq} 是观测频率，\ac{freq21cm} 是\acl{freq21cm}。
+于是可得换算关系为：
+\begin{equation}
+  \left( \frac{\ac{k}}{\si{\per\Mpc}} \right) =
+    2\Cpi \left( \frac{\si{\Mpc}}{\ac{D-comoving}(z)} \right)
+    \left( \frac{\si{rad}}{\ac{scale}} \right) ,
+\end{equation}
+相应的逆换算关系为：
+\begin{equation}
+  \left( \frac{\ac{scale}}{\si{rad}} \right) =
+    2\Cpi \left( \frac{\si{\Mpc}}{\ac{D-comoving}(z)} \right)
+    \left( \frac{\si{\per\Mpc}}{\ac{k}} \right) .
+\end{equation}
+
+以本文使用的三个频带的中心频率 124、158 和 196 MHz 为例，
+\ac{wavenumber} \ac{k} 和空间尺度 \ac{scale} 的换算关系
+如\autoref{tab:k-s-conv} 所示：
+
+\begin{table}[htp]
+  \centering
+  \bicaption{%
+    波数与尺度在 124、158 和 196 MHz 的换算关系
+  }{%
+    The conversion relations between the wavenumber and scale
+    at 124, 158 and 196 MHz.
+  }
+  \label{tab:k-s-conv}
+
+  \begin{tabular}{cccc}
+    \toprule
+    物理量 & \SI{124}{\MHz} & \SI{158}{\MHz} & \SI{196}{\MHz} \\
+    \midrule
+    红移 $z$ & 10.45 & 7.99 & 6.25 \\
+    共动距离 \ac*{D-comoving}(z) &
+      \SI{9762.6}{\Mpc} & \SI{9144.9}{\Mpc} & \SI{8529.8}{\Mpc} \\
+    \midrule
+    波数 $\ac*{k} = \SI{1}{\per\Mpc}$ &
+      \SI{2.21}{\arcminute} & \SI{2.36}{\arcminute} & \SI{2.53}{\arcminute} \\
+    尺度 $\ac*{scale} = \SI{1}{\arcminute}$ &
+      \SI{2.21}{\per\Mpc} & \SI{2.36}{\per\Mpc} & \SI{2.53}{\per\Mpc} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
 %% EOF
