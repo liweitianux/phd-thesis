@@ -111,9 +111,9 @@ $x_m (m = 0, 1, \cdots, M)$。
   W_m = \left\{
     \begin{alignedat}{2}
       & \left[ 1 + \frac{w_m^2}{24} + \frac{w_m^4}{1920} \right]^{-1} ,
-        & \quad\text{when~} |w_m| < 0.1 , \\
+        & \quad\text{if~} |w_m| < 0.1 , \\
       & \frac{|w_m| \exp(-|w_m|/2)}{1 - \exp(-|w_m|)} ,
-        & \quad\text{when~} |w_m| \ge 0.1 .
+        & \quad\text{if~} |w_m| \ge 0.1 .
     \end{alignedat}
   \right.
 \end{equation}
@@ -164,8 +164,8 @@ $x_m (m = 0, 1, \cdots, M)$。
 \autoref{eq:fp-tridigonal} 的线性方程组可由快速的三对角矩阵算法
 （亦称 Thomas 算法）求解\cite{press1992}。
 
-在\ac{no-flux}边界条件下，粒子可能在边界处堆积，这对本文所研究的湍流加速应用来说是不合理的，
-因此需要在边界处进行额外处理。
+在\ac{no-flux}边界条件下，粒子可能在边界处堆积，
+这对本文所研究的湍流加速应用而言是不合理的，因此需要在边界处进行额外处理。
 可在边界处设定一个\enquote{缓冲区}，在每个时间步，利用缓冲区外的有效粒子能谱，
 按幂律谱外延并替换缓冲区内的能谱\cite{borovsky1986,donnert2014}。
 
