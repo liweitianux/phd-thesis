@@ -1451,9 +1451,10 @@ $u$ 轴向东，$v$ 轴向北。
     \,\D{l}\,\D{m} .
 \end{equation}
 注意，因为上式的相位因子存在额外项 \enquote{$w \sqrt{1-l^2-m^2}$}，
+该项反映了干涉阵列天线的三维分布情况以及成像天区偏离平面近似的程度，
 所以这\emph{不是}二维 Fourier 变换。
 但是在下述两种常见的特殊情况下，上式可变成二维 Fourier 变换，
-从而可以通过逆 Fourier 变换从\ac{vis} \acs{Vis} 获得目标的亮度分布 $\ac{I-nu}(l,m)$。
+从而可以通过逆 Fourier 变换从\ac{vis} \acs{Vis} 获得目标的亮度分布 \ac{I-nu}。
 \begin{itemize}
 \item
 \emph{所有\acl{v-baseline}共面:}
@@ -1493,10 +1494,10 @@ $u$ 轴向东，$v$ 轴向北。
 则上式变成二维 Fourier 变换，即：
 \begin{align}
   \acs{Vis}(u,v)
-    & \equiv \acs{Vis}(u,v,w) \exp (2\Cpi\Ci\,w)  \\
-    & = \iint \frac{\ac{I-nu}(l,m)}{\sqrt{1-l^2-m^2}}
+    & = \acs{Vis}(u,v,w) \exp (2\Cpi\Ci\,w)  \\
+    & \approx \iint \frac{\ac{I-nu}(l,m)}{\sqrt{1-l^2-m^2}}
     \exp [-2\Cpi\Ci\, (ul+vm)] \,\D{l}\,\D{m} ,
-  \label{eq:vis-uv}
+  \label{eq:vis-approx}
 \end{align}
 然后通过逆 Fourier 变换，便得到目标的亮度分布：
 \begin{equation}
@@ -1505,6 +1506,33 @@ $u$ 轴向东，$v$ 轴向北。
     = \iint \acs{Vis}(u,v)
       \exp [2\Cpi\Ci\, (ul+vm)] \,\D{u}\,\D{v} .
 \end{equation}
+
+\hspace{2\ccwd}%
+\autoref{eq:vis-approx} 中的近似所引入的相位误差为：
+\begin{equation}
+  \sigma_p = \Cpi w (l^2 + m^2) .
+\end{equation}
+为估算 $w$ 的最大值，可设干涉阵列观测一个接近地平线的源，则有：
+\begin{equation}
+  w_{\R{max}}
+    \sim b_{\R{max}} / \lambda
+    \approx \acs{bw-synthesized}^{-1} ,
+\end{equation}
+其中 $b_{\R{max}}$ 为基线的最大长度，
+\acs{bw-synthesized} 为\acl{bw-synthesized} [\autoref{eq:bw-synthesized}]。
+于是最大相位误差约为：
+\begin{equation}
+  (\sigma_p)_{\R{max}} \sim
+    \Cpi \acs{bw-synthesized}^{-1}
+    \left( \frac{\theta_f}{2} \right)^2 ,
+\end{equation}
+其中 $\theta_f$ 为成像视场大小。
+如果要求相位误差 $\sigma_p$ 不超过某个阈值，比如 \SI{0.1}{\radian}，则要求：
+\begin{equation}
+  \theta_f < \frac{1}{3} \sqrt{\acs{bw-synthesized}} ,
+\end{equation}
+其中 $\theta_f$ 和 \acs{bw-synthesized} 均以 \si{\radian} 为单位。
+参见 \citeay{thompson2017} 的第 3.1.1 节。
 
 \end{itemize}
 
