@@ -125,6 +125,19 @@ Blackman--Nuttall \ac{f-window}，
 射电晕辐射的典型功率比银河系前景的功率强约 \numrange{10}{100} 倍。
 河外点源除了在最大尺度上弱于银河系前景，在其他尺度上均是最强的污染源。
 
+在射电观测研究中，更习惯使用角分或角秒来描述信号的尺度分布情况。
+尺度 \ac{scale} 与\ac{wavenumber} \ac{k} 之间的换算关系与信号源的距离相关，
+具体换算方法可参见附录 \autoref{sec:wavenumber-scale-conv}。
+以频率为 $\nu = \SI{158}{\MHz}$ 的 EoR 信号为例，对应的中性氢云的红移为
+$z = \ac{freq21cm} / \ac{freq} - 1 \approx 7.99$，
+其中 \ac{freq21cm} 是\acl{freq21cm} [\autoref{eq:hi-line-frequency}]，
+于是可知\ac{wavenumber} $\ac{k} = \SI{1}{\per\Mpc}$
+对应于尺度 $\ac{scale} = \SI{2.36}{\arcminute}$。
+因此，射电晕辐射的主要功率分布尺度
+$\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$
+大约对应于 \SIrange[range-units=repeat]{2.4}{4.8}{\arcsecond} 的尺度，
+这与射电晕的典型大小（角分至数个角分）相符。
+
 以上这些结果清楚地说明射电晕是严重的 EoR 前景污染源，需要在前景扣除中仔细处理。
 此外，射电晕的形态还呈现一定程度的不规则结构，这显著增加了对其进行准确建模和扣除的难度。
 
