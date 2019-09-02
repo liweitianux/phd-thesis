@@ -147,15 +147,8 @@
 \subsection{星系团射电晕}
 
 %............
-\begin{frame}{2.1 星系团射电晕的天图模拟}
-  \begin{alertblock}{本工作的贡献}
-    \begin{itemize}
-      \item 基于湍流再加速模型，显著改进了射电晕的低频射电辐射的建模
-      \item 编写并公开了射电晕模拟软件：
-        \href{https://github.com/liweitianux/fg21sim}{FG21sim}
-    \end{itemize}
-  \end{alertblock}
-  \begin{alertblock}{建模主要步骤}
+\begin{frame}{2.1 星系团射电晕的建模及天图模拟}
+  \begin{alertblock}{主要步骤}
     \begin{enumerate}
       \item 模拟星系团的质量和红移分布
       \item 模拟星系团的并合树
@@ -356,6 +349,7 @@
 
 %............
 \begin{frame}{2.4 SKA1-Low 观测图像的模拟}
+  \begin{alertblock}{主要步骤}
   \begin{enumerate}
     \item 采用目前最新的 \alert{SKA1-Low 阵列布局}
     \item 使用 \href{https://github.com/OxfordSKA/OSKAR}{\texttt{OSKAR}}
@@ -363,12 +357,6 @@
     \item 使用 \href{https://sourceforge.net/projects/wsclean/}{\texttt{WSClean}}
       从可见度数据生成\alert{观测图像}
   \end{enumerate}
-
-  \begin{alertblock}{本工作的贡献}
-    \begin{itemize}
-      \item 将仪器效应整合到了模拟和分析流程之中
-      \item 构建了更逼真的前景模型
-    \end{itemize}
   \end{alertblock}
 \end{frame}
 
@@ -770,6 +758,14 @@
       说明射电晕是一个有待重视的较重要前景干扰成分
     \item 基于深度学习设计了一个卷积去噪自编码器，
       准确地分离出 EoR 信号，效果显著优于传统方法
+    \item 程序、文档和论文均已公开在
+      \href{https://github.com/liweitianux/}{Github}:
+      \href{https://github.com/liweitianux/fg21sim}{fg21sim},
+      \href{https://github.com/liweitianux/cdae-eor}{cdae-eor},
+      \href{https://github.com/liweitianux/atoolbox}{atoolbox},
+      \href{https://github.com/liweitianux/paper-halo-eor}{paper-halo-eor},
+      \href{https://github.com/liweitianux/paper-eor-detection}{paper-eor-detection},
+      \href{https://github.com/liweitianux/phd-thesis}{phd-thesis}
   \end{itemize}
 \end{frame}
 
