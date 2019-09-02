@@ -182,13 +182,17 @@ $\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$
 从图中容易看出，EoR 信号的功率分散在大范围的 \ac{k-los} \ac{mode}里，
 反映了 EoR 信号沿频率维度快速变化的特点；
 频谱光滑的前景成分则集中在 \ac{k-los} 较小的区域
-($\ac{k-los} \lesssim \SI{0.2}{\per\Mpc}$)。
+($\ac{k-los} \lesssim \SI{0.2}{\per\Mpc}$;
+对应于 $\ac{scale} \gtrsim \SI{12}{\arcsecond}$)。
 在空间维度 (\ac{k-perp})，射电晕辐射的功率主要出现在
 $\ac{k-perp} \lesssim \SI{1}{\per\Mpc}$ 的范围，
-并且倾向于集中在 $\ac{k-perp} \sim \SI{0.5}{\per\Mpc}$ 的中等尺度上。
+并且倾向于集中在 $\ac{k-perp} \sim \SI{0.5}{\per\Mpc}$
+($\ac{scale} \sim \SI{4.8}{\arcsecond}$) 的中等尺度上。
 银河系弥散辐射的功率主导了 $\ac{k-perp} \lesssim \SI{0.1}{\per\Mpc}$
+($\ac{scale} \gtrsim \SI{24}{\arcsecond}$)
 的大尺度区域，而河外点源辐射的功率则占据了
-$\ac{k-perp} \gtrsim \SI{0.1}{\per\Mpc}$ 的中小尺度范围。
+$\ac{k-perp} \gtrsim \SI{0.1}{\per\Mpc}$
+($\ac{scale} \lesssim \SI{24}{\arcsecond}$) 的中小尺度范围。
 这些结果与 \autoref{fig:ps1d-3bands}(b) 所示结果相符，
 也与诸多文献中的结果一致 \cite{datta2010,trott2015,barry2016,chapman2016}。
 
@@ -230,12 +234,17 @@ $\ac{k-perp} \gtrsim \SI{0.1}{\per\Mpc}$ 的中小尺度范围。
 如\autoref{fig:ps2d-ratio} 所示，
 可见射电晕辐射的污染区域形成一个明显的楔形区域 (\autoref{sec:eor-window})。
 我们发现，在 \SIrange{120}{128}{\MHz} 频带内，
-射电晕辐射在 $\ac{k-perp} \gtrsim \SI{0.1}{\per\Mpc}$ 的尺度范围内
+射电晕辐射在 $\ac{k-perp} \gtrsim \SI{0.1}{\per\Mpc}$
+($\ac{scale} \lesssim \SI{22}{\arcsecond}$) 的尺度范围内
 对 EoR 信号探测产生了严重污染（两者的功率之比达到 $R \gtrsim 1$）。
 在 \numrange{154}{162} 和 \numrange{192}{200} \si{\MHz} 两个频带里，
 射电晕辐射的主要污染范围分别为 $\ac{k-perp} \gtrsim \SI{0.3}{\per\Mpc}$
-和 $\ac{k-perp} \gtrsim \SI{0.5}{\per\Mpc}$。
-同时容易看出，射电晕辐射在较低频率处 ($\sim$\,\SI{120}{\MHz})
+($\ac{scale} \lesssim \SI{8}{\arcsecond}$)
+和 $\ac{k-perp} \gtrsim \SI{0.5}{\per\Mpc}$
+($\ac{scale} \lesssim \SI{5}{\arcsecond}$)。
+注意，尺度 \ac{scale} 与\ac{wavenumber} \ac{k} 之间的换算依赖于频率，
+具体可参见附录 \autoref{sec:wavenumber-scale-conv} 的\autoref{tab:k-s-conv}。
+另外容易看出，射电晕辐射在较低频率处 ($\sim$\,\SI{120}{\MHz})
 对 EoR 探测的污染程度明显强于在较高频率处 ($\sim$\,\SI{200}{\MHz}) 的污染程度。
 \autoref{fig:ps1d-3bands} 也显示了与此一致的结果。
 
@@ -280,14 +289,17 @@ $R(\ac{k-perp}, \ac{k-los})$ 进行平均，
 可得到一维功率比 $R_{\R{eorw}}(k)$，如\autoref{fig:ps1d-ratio} 所示。
 相比\autoref{fig:ps1d-3bands} 所示的未受 EoR 窗口约束的一维功率谱 $\ac{psD}(k)$，
 射电晕辐射的污染在 EoR 窗口内被抑制了约 4 个数量级。
-比如，在 $k \sim \SI{1}{\per\Mpc}$ 尺度上，
+比如，在 $k \sim \SI{1}{\per\Mpc}$
+（约对应于 $\ac{scale} \sim \SI{2.4}{\arcsecond}$）尺度上，
 EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在 \numrange{120}{128}、
 \numrange{154}{162} 和 \numrange{192}{200} \si{\MHz}
 三个频带的典型值（图中的实线）分别约为 45\%、6\% 和 2\%。
 这充分展示了 EoR 窗口和\ac{fg-avd}法是探测 EoR 信号的有力工具。
 尽管如此，由于射电晕的亮度和数目在不同天区里具有显著的涨落，
 在 68\% 误差范围（图中的阴影区域）以及
-$\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$ 尺度范围内，
+$\SI{0.5}{\per\Mpc} \lesssim k \lesssim \SI{1}{\per\Mpc}$
+（约对应于 $\SI{2.4}{\arcsecond} < \ac{scale} < \SI{4.8}{\arcsecond}$）
+尺度范围内，
 EoR 窗口内的一维功率比 $R_{\R{eorw}}(k)$ 在三个频带内的值能够分别达到约
 \numrange{230}{800}\%、\numrange{18}{95}\% 和 \numrange{7}{40}\%，
 说明射电晕泄漏到 EoR 窗口内的功率仍然可能是显著的，
