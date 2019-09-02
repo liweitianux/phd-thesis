@@ -827,19 +827,22 @@
   \alert{射电窗口}的频率范围 $\sim$ \SI{10}{\MHz} -- \SI{1000}{\GHz}.
 
   \begin{figure}
-    \centering
+    \centering\footnotesize
     \includegraphics[width=\textwidth]{atmospheric-em-transmittance}
-    \caption{大气层的电磁辐射透射率 (来源: \cite{condon2016})}
+    大气层的电磁辐射透射率
   \end{figure}
+
+  \vspace*{0.5em}
+  \blfootnote{图片来源: \cite{condon2016}}
 \end{frame}
 
 %---------------------------------------------------------------------
 \subsection{基本概念}
 
 %............
-  \begin{columns}
 \begin{frame}[subsec]
   \frametitle{比强度和流量密度}
+  \begin{columns}[onlytextwidth]
     \column{0.6\textwidth}
       \begin{alertblock}{比强度 (specific intensity)}
         \smallskip
@@ -862,13 +865,14 @@
         $\SI{1}{\jansky} = \SI{e-26}{\watt\per\square\meter\per\hertz}$.
       \end{alertblock}
 
-    \column{0.4\textwidth}
+    \column{0.35\textwidth}
       \begin{figure}
         \centering
-        \includegraphics[width=0.9\columnwidth]{specific-intensity}
-        \caption{比强度 $I_{\nu}$ 测量示意图 (\cite{condon2016})}
+        \includegraphics[width=\columnwidth]{specific-intensity}
       \end{figure}
   \end{columns}
+
+  \blfootnote{图片来源: \cite{condon2016}}
 \end{frame}
 
 %............
@@ -917,10 +921,10 @@
 \subsection{干涉测量原理}
 
 %............
-  \begin{columns}
-    \column{0.4\textwidth}
 \begin{frame}[subsec]
   \frametitle{干涉测量的基本原理}
+  \begin{columns}[onlytextwidth]
+    \column{0.38\textwidth}
     二元单色干涉仪观测一个点源，相关器的输出响应为:
     \begin{align}
       R & = \langle V_1(t) V_2(t) \rangle \\
@@ -930,13 +934,14 @@
     $\B{b}$ 为基线矢量，\\
     $\hat{\B{s}}$ 为辐射源的方向.
 
-    \column{0.6\textwidth}
+    \column{0.55\textwidth}
     \begin{figure}
       \centering
       \includegraphics[width=\columnwidth]{interferometer}
-      \caption{二元单色干涉仪示意图 (\cite{condon2016})}
     \end{figure}
   \end{columns}
+
+  \blfootnote{图片来源: \cite{condon2016}}
 \end{frame}
 
 %............
@@ -968,9 +973,9 @@
 \end{frame}
 
 %............
-  \begin{columns}
 \begin{frame}[subsec]
   \frametitle{干涉成像坐标系统}
+  \begin{columns}[onlytextwidth]
     \column{0.55\textwidth}
     \begin{itemize}
       \item $w$ 轴指向参考方向，通常为目标的中心； \\
@@ -985,14 +990,16 @@
     \begin{figure}
       \centering
       \includegraphics[width=\columnwidth]{interferometer-coordsys}
-      \caption{干涉仪的 $(u,v,w)$ 直角坐标系 (\cite{thompson2017})}
     \end{figure}
   \end{columns}
+
+  \blfootnote{图片来源: \cite{thompson2017}}
 \end{frame}
 
 %............
 \begin{frame}[subsec]
   \frametitle{干涉成像原理}
+  \vspace{-1ex}
   \begin{equation}
     \mathcal{V}(u,v,w)
       = \!\iint \!\frac{I_{\nu}(l,m)}{\sqrt{1-l^2-m^2}}
@@ -1057,18 +1064,20 @@
     \footnotesize\noindent
     真实天图 \hspace{4em} 综合波束 \hspace{4.5em} 脏图 \\
     \includegraphics[width=0.75\textwidth]{imaging-relations} \\
-    真实的可见度 \hspace{2.5em} 采样函数 \hspace{3em} 测量的可见度 \\
-    (来源: Dale E. Gary, Radio Astronomy)
+    真实的可见度 \hspace{2.5em} 采样函数 \hspace{3em} 测量的可见度
   \end{center}
+
+  \vspace*{1em}
+  \blfootnote{图片来源: Dale E. Gary, Radio Astronomy}
 \end{frame}
 
 %---------------------------------------------------------------------
 \subsection{EoR 信号原理}
 
 %............
-  \begin{columns}
 \begin{frame}[subsec]
   \frametitle{中性氢 21\,cm 谱线}
+  \begin{columns}[t,onlytextwidth]
     \column{0.55\textwidth}
     \begin{itemize}
       \item 质子和电子均有 1/2 自旋
@@ -1081,9 +1090,10 @@
     \begin{figure}
       \centering
       \includegraphics[width=\columnwidth]{hydrogen-spinflip}
-      \caption{氢原子的自旋翻转跃迁\\(来源: Tiltec, Wikipedia)}
     \end{figure}
   \end{columns}
+
+  \blfootnote{图片来源: Tiltec, Wikipedia}
 \end{frame}
 
 %............
@@ -1091,7 +1101,6 @@
   \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{21cm-radiative-transfer}
-    \caption{CMB 辐射穿过中性氢云的辐射转移示意图 (\cite{zaroubi2013})}
   \end{figure}
 
   待探测的 \alert{EoR 信号}为中性氢云的辐射相对于 CMB 辐射的\alert{差异}:
@@ -1106,6 +1115,9 @@
   $\chi_{\R{HI}}$ 为氢原子的中性比例， \\
   $n_{\R{HI}}$ 为数密度，$v$ 为自行速度，$T_s$ 为自旋温度，\\
   $T_{\R{cmb}}$ 为 CMB 辐射亮温度
+
+  \vspace*{2em}
+  \blfootnote{图片来源: \cite{zaroubi2013}}
 \end{frame}
 
 %............
@@ -1116,11 +1128,13 @@
       \chi_{\R{HI}} n_{\R{HI}}
       \left[ 1 - \frac{T_{\R{cmb}}(z)}{T_s} \right]
   \end{equation}
+
   \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{eor-signal-evolution}
-    \caption{EoR 信号的平均强度的演化示意图 (\cite{pritchard2012})}
   \end{figure}
+
+  \blfootnote{图片来源: \cite{pritchard2012}}
 \end{frame}
 
 %---------------------------------------------------------------------
@@ -1151,10 +1165,10 @@
 \subsection{射电晕建模}
 
 %............
-  \begin{columns}
-    \column{0.5\textwidth}
 \begin{frame}[subsec]
   \frametitle{星系团的质量和红移分布}
+  \begin{columns}[onlytextwidth]
+    \column{0.49\textwidth}
     红移 $z$ 时每单位共动体积内质量范围 $[M,\, M+\D{M}]$ 的星系团数目:
     \begin{multline}
       n_{\R{cl}}(M,z) \,\D{M} =
@@ -1168,20 +1182,19 @@
     $\delta_c(z)$ 是暗物质坍缩的临界密度，
     $\sigma(M)$ 是平均质量为 $M$ 的球形区域里的密度涨落值.
 
-    \column{0.5\textwidth}
+    \column{0.49\textwidth}
     \begin{figure}
       \centering
       \includegraphics[width=\columnwidth]{mass-z-dist}
-      \caption{星系团的质量和红移分布直方图}
     \end{figure}
   \end{columns}
 \end{frame}
 
 %............
-  \begin{columns}
-    \column{0.5\textwidth}
 \begin{frame}[subsec]
   \frametitle{星系团并合树的模拟}
+  \begin{columns}[onlytextwidth]
+    \column{0.49\textwidth}
     质量为 $M_2$ 的星系团在一个较早时刻 $t_1$ 具有一个质量范围为
     $[M_1,\, M_1+\D{M_1}]$ 的前身的条件概率为:
     \begin{multline}
@@ -1195,11 +1208,10 @@
     \end{multline}
     利用 Monte Carlo 模拟构建星系团\alert{并合树}.
 
-    \column{0.5\textwidth}
+    \column{0.49\textwidth}
     \begin{figure}
       \centering
       \includegraphics[width=\columnwidth]{merging-history}
-      \caption{星系团并合树的模拟结果示例}
     \end{figure}
   \end{columns}
 \end{frame}
@@ -1224,7 +1236,7 @@
 \end{frame}
 
 %............
-\begin{frame}
+\begin{frame}[t]
   \begin{alertblock}{初级电子注入过程}
     \smallskip
     \begin{itemize}
@@ -1249,8 +1261,7 @@
 \end{frame}
 
 %............
-\begin{frame}
-  \vspace{1ex}
+\begin{frame}[t]
   \begin{alertblock}{湍流再加速过程}
     \smallskip
     \begin{itemize}
@@ -1277,8 +1288,7 @@
   \end{alertblock}
 \end{frame}
 
-\begin{frame}
-  \vspace{1ex}
+\begin{frame}[t]
   \begin{alertblock}{湍流再加速过程}
     \smallskip
     \begin{itemize}
@@ -1306,8 +1316,7 @@
 \end{frame}
 
 %............
-\begin{frame}
-  \vspace{1ex}
+\begin{frame}[t]
   \begin{alertblock}{能量损失过程}
     \smallskip
     \begin{itemize}
@@ -1423,14 +1432,14 @@
 \begin{frame}[subsec]
   \frametitle{射电晕模拟结果}
   \begin{columns}
-    \column{0.5\textwidth}
+    \column{0.55\textwidth}
     \begin{figure}
       \centering
       \includegraphics[width=\columnwidth]{halo-power-mvir}
       \caption{$P_{1400}$--$M_{\R{vir}}$ 标度关系的对比}
     \end{figure}
 
-    \column{0.5\textwidth}
+    \column{0.55\textwidth}
     \begin{figure}
       \centering
       \includegraphics[width=\columnwidth]{fluxfunc-simucomp}
@@ -1554,7 +1563,7 @@
 \begin{frame}[subsec]
   \frametitle{SKA1-Low~阵列布局}
   \begin{columns}
-    \column{0.5\textwidth}
+    \column{0.55\textwidth}
     \myfigure{%
       width=\columnwidth,
     }{SKA1low-config-central}{%
@@ -1563,7 +1572,7 @@
       以及 12 个站点团
     }
 
-    \column{0.5\textwidth}
+    \column{0.55\textwidth}
     \myfigure{%
       width=\columnwidth,
     }{SKA1low-config-outside}{%
