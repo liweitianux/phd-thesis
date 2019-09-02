@@ -51,7 +51,8 @@
   \begin{itemize}
     \item \alert{再电离时期 (EoR)}：大爆炸之后约 \numrange{3}{10} 亿年，
       红移约 \numrange{6}{15}
-    \item \alert{重要意义}：第一代恒星和星系、宇宙早期结构、完整宇宙演化图景
+    \item \alert{重要意义}：第一代恒星和星系、宇宙早期结构形成、
+      宇宙演化关键环节之一
     \item 亟待深入理解的一个重要时期
   \end{itemize}
 
@@ -66,12 +67,12 @@
 \begin{frame}{如何探测 EoR ？}
   \begin{columns}
     \column{0.7\textwidth}
-  \begin{itemize}
-    \item \alert{中性氢 21\,cm 谱线}：EoR 最直接有效的探针
-    \item 氢原子自旋翻转跃迁，本征频率 $\sim$\,\SI{1420}{\MHz}
-    \item EoR 信号将出现在 $\sim$\,\SIrange{90}{200}{\MHz}
-      的\alert{低频射电波段}
-  \end{itemize}
+    \begin{itemize}
+      \item \alert{中性氢 21\,cm 谱线}：EoR 最直接有效的探针
+      \item 氢原子自旋翻转跃迁，本征频率 $\sim$\,\SI{1420}{\MHz}
+      \item EoR 信号将出现在 $\sim$\,\SIrange{90}{200}{\MHz}
+        的\alert{低频射电波段}
+    \end{itemize}
 
     \column{0.3\textwidth}
     \includegraphics[width=\columnwidth]{hydrogen-spinflip}
@@ -110,7 +111,8 @@
       \item 课题组研究星系团的丰富经验
     \end{itemize}
   \end{alertblock}
-  \begin{alertblock}{2. 研发 EoR 信号分离算法}
+
+  \begin{alertblock}{2. EoR 信号分离算法的研发}
     \begin{itemize}
       \item 利用上述改进的前景模型，研究仪器波束效应对 EoR 信号分离的影响
       \item 基于深度学习研发 EoR 信号分离算法，克服波束效应的影响
@@ -128,14 +130,14 @@
 
 
 %=====================================================================
-\section{低频射电天空的模拟}
+\section{低频射电天空建模的改进}
 
 \begin{frame}
   \begin{block}{本节提纲}
   \begin{enumerate}
-    \item 星系团射电晕的天图模拟
+    \item 星系团射电晕的建模及天图模拟
     \item 其他前景成分的天图模拟
-    \item EoR 信号天图模拟
+    \item EoR 信号的天图模拟
     \item SKA1-Low 观测图像的模拟
   \end{enumerate}
   \end{block}
@@ -264,7 +266,7 @@
     \begin{figure}
       \centering\footnotesize
       \includegraphics[width=\columnwidth]{skymap-halos-f158}
-      射电晕 \SI{158}{\MHz} 天图
+      射电晕 \SI{158}{\MHz} 天图示例
     \end{figure}
   \end{columns}
 \end{frame}
@@ -275,20 +277,24 @@
 %............
 \begin{frame}{2.2 其他前景成分的天图模拟}
   \begin{alertblock}{银河系同步辐射}
-    \vspace{1ex}
-    以 Haslam \SI{408}{\MHz} 全天图为模板，按幂律形式向低频外延
+    \begin{itemize}
+      \item 以 Haslam \SI{408}{\MHz} 全天图为模板向低频外延
+      \item 考虑了谱指数随天空位置的变化
+    \end{itemize}
   \end{alertblock}
+
   \begin{alertblock}{银河系自由—自由辐射}
     \vspace{1ex}
     从 Hα 辐射导出，修正了尘埃吸收
   \end{alertblock}
+
   \begin{alertblock}{河外点源}
     \begin{itemize}
       \item 继承自我们之前的一项工作：\cite{wang2010}
       \item 模拟了 4 类点源：
-        (1) 恒星形成星系、
-        (2) 射电宁静 AGN、
-        (3) FR I 型和 II 型 AGN、
+        (1) FR I 型和 II 型射电星系、
+        (2) 恒星形成星系、
+        (3) 射电宁静 AGN、
         (4) GHz 倒转谱和致密陡谱 AGN
     \end{itemize}
   \end{alertblock}
@@ -296,26 +302,28 @@
 
 %............
 \begin{frame}[c]
+  \begin{alertblock}{\SI{158}{\MHz} 天图示例}
+  \end{alertblock}
   \begin{columns}
-    \column{0.34\textwidth}
+    \column{0.37\textwidth}
     \begin{figure}
-      \centering
+      \centering\footnotesize
       \includegraphics[width=\columnwidth]{skymap-gsyn-f158}
-      银河系同步辐射\\\SI{158}{\MHz} 天图
+      银河系同步辐射
     \end{figure}
 
-    \column{0.34\textwidth}
+    \column{0.37\textwidth}
     \begin{figure}
-      \centering
+      \centering\footnotesize
       \includegraphics[width=\columnwidth]{skymap-gff-f158}
-      银河系自由—自由辐射\\\SI{158}{\MHz} 天图
+      银河系自由—自由辐射
     \end{figure}
 
-    \column{0.34\textwidth}
+    \column{0.37\textwidth}
     \begin{figure}
-      \centering
+      \centering\footnotesize
       \includegraphics[width=\columnwidth]{skymap-ptrsrc-f158}
-      河外点源\\\SI{158}{\MHz} 天图
+      河外点源
     \end{figure}
   \end{columns}
 \end{frame}
@@ -328,7 +336,7 @@
   \begin{columns}
     \column{0.5\textwidth}
     \begin{itemize}
-      \item 使用了 \enquote{Evolution of 21\,cm Structure} (EOS)
+      \item 使用了 \href{http://homepage.sns.it/mesinger/EOS.html}{\textit{Evolution Of 21\,cm Structure}}
         项目公开的 EoR 模拟数据
       \item 提取所需红移（即频率）处的图像切片，平铺和缩放，
         与前景天图的大小和分辨率一致
@@ -336,7 +344,7 @@
 
     \column{0.5\textwidth}
     \begin{figure}
-      \centering
+      \centering\footnotesize
       \includegraphics[width=\columnwidth]{skymap-eor-f158}
       EoR 信号 \SI{158}{\MHz} 天图
     \end{figure}
@@ -350,8 +358,10 @@
 \begin{frame}{2.4 SKA1-Low 观测图像的模拟}
   \begin{enumerate}
     \item 采用目前最新的 \alert{SKA1-Low 阵列布局}
-    \item 使用 \texttt{OSKAR} 模拟天图的\alert{可见度数据}
-    \item 使用 \texttt{WSClean} 从可见度数据生成图像
+    \item 使用 \href{https://github.com/OxfordSKA/OSKAR}{\texttt{OSKAR}}
+      模拟天图的\alert{可见度数据}
+    \item 使用 \href{https://sourceforge.net/projects/wsclean/}{\texttt{WSClean}}
+      从可见度数据生成\alert{观测图像}
   \end{enumerate}
 
   \begin{alertblock}{本工作的贡献}
@@ -388,7 +398,7 @@
 
 %............
 \begin{frame}[t]
-  \begin{alertblock}{一维和二维功率谱的计算}
+  \begin{alertblock}{功率谱的计算}
   \end{alertblock}
   \begin{columns}
     \column{0.6\textwidth}
@@ -625,11 +635,11 @@
   \begin{alertblock}{CDAE 网络架构}
   \end{alertblock}
   \begin{itemize}
-    \item 编码器：4 层，分别包含 32、64、64、32 个过滤器
-    \item 解码器：5 层，分别包含 32、64、64、32、1 个过滤器
+    \item 编码器：4 层 (32, 64, 64, 32)
+    \item 解码器：5 层 (32, 64, 64, 32, 1)
     \item 过滤器的尺寸为 3
     \item 输出层的激活函数为 \alert{tanh}
-    \item 其余层使用\alert{指数线性单元}和\alert{批标准化} (BN) 技术
+    \item 其余层使用\alert{指数线性单元} (ELU) 和\alert{批标准化} (BN) 技术
   \end{itemize}
   %
   \myfigure{width=\textwidth}{cdae-network-crop}{CDAE 网络架构示意图}
@@ -757,7 +767,7 @@
     \item 改进了射电晕的低频射电天图的模拟，整合了 SKA1-Low 阵列的仪器效应，
       获得了更逼真的 EoR 前景模型
     \item 定量评估了射电晕辐射对 EoR 信号探测的影响，
-      说明射电晕是一个重要的前景干扰成分
+      说明射电晕是一个有待重视的较重要前景干扰成分
     \item 基于深度学习设计了一个卷积去噪自编码器，
       准确地分离出 EoR 信号，效果显著优于传统方法
   \end{itemize}
