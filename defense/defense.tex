@@ -816,10 +816,12 @@
   Backup slides
 \end{frame}
 
+%---------------------------------------------------------------------
 \subsection{射电天文学}
 
 %............
-\begin{frame}{射电天文学}
+\begin{frame}[subsec]
+  \frametitle{射电天文学}
   \alert{射电天文学}:
   在射电波段对天体和宇宙开展研究的天文学分支.
   \alert{射电窗口}的频率范围 $\sim$ \SI{10}{\MHz} -- \SI{1000}{\GHz}.
@@ -831,11 +833,13 @@
   \end{figure}
 \end{frame}
 
+%---------------------------------------------------------------------
 \subsection{基本概念}
 
 %............
-\begin{frame}{比强度和流量密度}
   \begin{columns}
+\begin{frame}[subsec]
+  \frametitle{比强度和流量密度}
     \column{0.6\textwidth}
       \begin{alertblock}{比强度 (specific intensity)}
         \smallskip
@@ -869,7 +873,8 @@
 \end{frame}
 
 %............
-\begin{frame}{黑体辐射和亮温度}
+\begin{frame}[subsec]
+  \frametitle{黑体辐射和亮温度}
   \begin{itemize}
     \item \alert{黑体辐射}的频谱 $B_{\nu}(\nu, T)$ 只取决于其温度 $T$，
       由 \alert{Planck 定律}给出:
@@ -891,7 +896,8 @@
 \end{frame}
 
 %............
-\begin{frame}{辐射转移方程和光深}
+\begin{frame}[subsec]
+  \frametitle{辐射转移方程和光深}
   \begin{itemize}
     \item 辐射在介质中传播时会经历吸收和发射，由\alert{辐射转移方程}描述:
       \begin{equation}
@@ -908,12 +914,14 @@
   \end{itemize}
 \end{frame}
 
+%---------------------------------------------------------------------
 \subsection{干涉测量原理}
 
 %............
-\begin{frame}{干涉测量的基本原理}
   \begin{columns}
     \column{0.4\textwidth}
+\begin{frame}[subsec]
+  \frametitle{干涉测量的基本原理}
     二元单色干涉仪观测一个点源，相关器的输出响应为:
     \begin{align}
       R & = \langle V_1(t) V_2(t) \rangle \\
@@ -961,8 +969,9 @@
 \end{frame}
 
 %............
-\begin{frame}{干涉成像坐标系统}
   \begin{columns}
+\begin{frame}[subsec]
+  \frametitle{干涉成像坐标系统}
     \column{0.55\textwidth}
     \begin{itemize}
       \item $w$ 轴指向参考方向，通常为目标的中心； \\
@@ -983,7 +992,8 @@
 \end{frame}
 
 %............
-\begin{frame}{干涉成像原理}
+\begin{frame}[subsec]
+  \frametitle{干涉成像原理}
   \begin{equation}
     \mathcal{V}(u,v,w)
       = \!\iint \!\frac{I_{\nu}(l,m)}{\sqrt{1-l^2-m^2}}
@@ -1014,7 +1024,8 @@
 \end{frame}
 
 %............
-\begin{frame}{$uv$ 覆盖和脏图}
+\begin{frame}[subsec]
+  \frametitle{$uv$ 覆盖和脏图}
   \begin{itemize}
     \item 基线 $\B{b} = (u,v,w) \,\lambda$ 每个时刻测量一对可见度数据: \\
       $\mathcal{V}(u,v)$ 和 $\mathcal{V}(-u,-v)$.
@@ -1037,7 +1048,8 @@
 \end{frame}
 
 %............
-\begin{frame}{成像过程的变换关系}
+\begin{frame}[subsec]
+  \frametitle{成像过程的变换关系}
   \vspace{-1ex}
   \begin{equation}
     I_{\nu}^D(l,m) = I_{\nu}(l,m) * B(l,m)
@@ -1051,11 +1063,13 @@
   \end{center}
 \end{frame}
 
+%---------------------------------------------------------------------
 \subsection{EoR 信号原理}
 
 %............
-\begin{frame}{中性氢 21\texorpdfstring{\,}{ }cm 谱线}
   \begin{columns}
+\begin{frame}[subsec]
+  \frametitle{中性氢 21\,cm 谱线}
     \column{0.55\textwidth}
     \begin{itemize}
       \item 质子和电子均有 1/2 自旋
@@ -1096,7 +1110,8 @@
 \end{frame}
 
 %............
-\begin{frame}{EoR 信号随红移的演化}
+\begin{frame}[subsec]
+  \frametitle{EoR 信号随红移的演化}
   \begin{equation}
     \delta T_b(\nu) \propto
       \chi_{\R{HI}} n_{\R{HI}}
@@ -1109,10 +1124,12 @@
   \end{figure}
 \end{frame}
 
+%---------------------------------------------------------------------
 \subsection{模式混合}
 
 %............
-\begin{frame}{模式混合和前景楔形}
+\begin{frame}[subsec]
+  \frametitle{模式混合和前景楔形}
   \begin{itemize}
     \item \alert{色彩效应 (chromatic effect)}：
       一条基线的空间分辨率随频率的增大而提高，
@@ -1131,12 +1148,14 @@
   }
 \end{frame}
 
+%---------------------------------------------------------------------
 \subsection{射电晕建模}
 
 %............
-\begin{frame}{星系团的质量和红移分布}
   \begin{columns}
     \column{0.5\textwidth}
+\begin{frame}[subsec]
+  \frametitle{星系团的质量和红移分布}
     红移 $z$ 时每单位共动体积内质量范围 $[M,\, M+\D{M}]$ 的星系团数目:
     \begin{multline}
       n_{\R{cl}}(M,z) \,\D{M} =
@@ -1160,9 +1179,10 @@
 \end{frame}
 
 %............
-\begin{frame}{星系团并合树的模拟}
   \begin{columns}
     \column{0.5\textwidth}
+\begin{frame}[subsec]
+  \frametitle{星系团并合树的模拟}
     质量为 $M_2$ 的星系团在一个较早时刻 $t_1$ 具有一个质量范围为
     $[M_1,\, M_1+\D{M_1}]$ 的前身的条件概率为:
     \begin{multline}
@@ -1186,7 +1206,8 @@
 \end{frame}
 
 %............
-\begin{frame}{高能电子的演化模型}
+\begin{frame}[subsec]
+  \frametitle{高能电子的演化模型}
   在\alert{湍流再加速}和\alert{能量损失}的共同作用下，
   电子能谱 $n_e(\gamma, t)$ 随时间的演化由 \alert{FP 方程}描述:
   \begin{multline}
@@ -1318,7 +1339,8 @@
 \end{frame}
 
 %............
-\begin{frame}{射电晕的识别和半径}
+\begin{frame}[subsec]
+  \frametitle{射电晕的识别和半径}
   \begin{itemize}
     \item 射电晕在频率 $\nu$ 处存在的判据：
       \begin{itemize}
@@ -1340,7 +1362,8 @@
 \end{frame}
 
 %............
-\begin{frame}{数值计算方法}
+\begin{frame}[subsec]
+  \frametitle{数值计算方法}
   \begin{itemize}
     \item 采用 \cite{chang1970} 提出的有限差分法求解 FP 方程
     \item 初始电子能谱 $n_e(\gamma, t_0)$：
@@ -1366,7 +1389,8 @@
 \end{frame}
 
 %............
-\begin{frame}{模型参数的约束}
+\begin{frame}[subsec]
+  \frametitle{模型参数的约束}
   \begin{itemize}
     \item 射电晕模型的 5 个待约束参数：
       \begin{itemize}
@@ -1397,7 +1421,8 @@
 \end{frame}
 
 %............
-\begin{frame}{射电晕模拟结果}
+\begin{frame}[subsec]
+  \frametitle{射电晕模拟结果}
   \begin{columns}
     \column{0.5\textwidth}
     \begin{figure}
@@ -1416,7 +1441,8 @@
 \end{frame}
 
 %............
-\begin{frame}{射电晕天图生成}
+\begin{frame}[subsec]
+  \frametitle{射电晕天图生成}
   \begin{itemize}
     \item 射电晕在频率 $\nu$ 处的功率和流量密度：
       \begin{align}
@@ -1438,10 +1464,12 @@
   \end{itemize}
 \end{frame}
 
+%---------------------------------------------------------------------
 \subsection{其他前景成分}
 
 %............
-\begin{frame}{银河系同步辐射}
+\begin{frame}[subsec]
+  \frametitle{银河系同步辐射}
   \begin{itemize}
     \item 以 Haslam \SI{408}{\MHz} 全天图为模板，
       按幂律形式向低频外延：
@@ -1460,7 +1488,8 @@
 \end{frame}
 
 %............
-\begin{frame}{银河系自由—自由辐射}
+\begin{frame}[subsec]
+  \frametitle{银河系自由—自由辐射}
   \begin{itemize}
     \item 自由–自由辐射和 Hα 辐射联系紧密
     \item Hα 辐射易被尘埃吸收，需要修正：
@@ -1489,7 +1518,8 @@
 \end{frame}
 
 %............
-\begin{frame}{河外点源}
+\begin{frame}[subsec]
+  \frametitle{河外点源}
   \begin{itemize}
     \item 继承自我们之前的一项工作：\cite{wang2010}
     \item 模拟了下述 4 类点源：
@@ -1504,10 +1534,12 @@
   \end{itemize}
 \end{frame}
 
+%---------------------------------------------------------------------
 \subsection{频率维度的加窗处理}
 
 %............
-\begin{frame}{频率维度的加窗处理}
+\begin{frame}[subsec]
+  \frametitle{频率维度的加窗处理}
   \myfigure{%
     width=\textwidth,
   }{ft-sidelobes}{%
@@ -1516,10 +1548,12 @@
   }
 \end{frame}
 
+%---------------------------------------------------------------------
 \subsection{SKA1-Low 阵列布局}
 
 %............
-\begin{frame}{SKA1-Low~阵列布局}
+\begin{frame}[subsec]
+  \frametitle{SKA1-Low~阵列布局}
   \begin{columns}
     \column{0.5\textwidth}
     \myfigure{%
@@ -1539,8 +1573,12 @@
   \end{columns}
 \end{frame}
 
+%---------------------------------------------------------------------
+\subsection{功率谱}
+
 %............
-\begin{frame}{各成分的二维功率谱}
+\begin{frame}[subsec]
+  \frametitle{各成分的二维功率谱}
   \vspace{-1ex}
   \myfigure{%
     height=0.9\textheight,
@@ -1548,6 +1586,9 @@
     各成分在 \SIrange{154}{162}{\MHz} 频带的二维功率谱对比
   }
 \end{frame}
+
+%---------------------------------------------------------------------
+\subsection{参考文献}
 
 \begin{frame}[allowframebreaks]{参考文献}
   \printbibliography[heading=none]
