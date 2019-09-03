@@ -85,7 +85,7 @@
     \centering
     \includegraphics[width=0.95\textwidth]{eor-signal-evolution}
   \end{figure}
-
+  \vspace{1ex}
   \blfootnote{图片来源: (1) Wikipedia; (2) \cite{pritchard2012}}
 \end{frame}
 
@@ -415,12 +415,15 @@
 
 %............
 \begin{frame}[t]
-  \begin{alertblock}{各成分的二维功率谱 ({\normalfont \SIrange{154}{162}{\MHz}})}
+  \begin{alertblock}{各成分的二维功率谱
+    {\normalfont (\SIrange{154}{162}{\MHz})}
+  }
+    \vspace{-1ex}
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.75\textwidth]{ps2d-band158}
+    \end{figure}
   \end{alertblock}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.75\textwidth]{ps2d-band158}
-  \end{figure}
 \end{frame}
 
 %............
@@ -431,7 +434,7 @@
   前景楔形
   \begin{figure}
     \centering
-    \includegraphics[height=0.75\textheight]{EoR-window}
+    \includegraphics[height=0.8\textheight]{EoR-window}
   \end{figure}
 \end{frame}
 
@@ -532,9 +535,10 @@
       射电晕辐射在 EoR 窗口内部分尺度的功率分别增加约 17、15、13 倍
     \item 如果 $A_{\R{arti}} = 1\%$，功率分别增加约 1700、1500、1300 倍
   \end{itemize}
+  \vspace{-1ex}
   \begin{figure}
     \centering
-    \includegraphics[height=0.65\textheight]{ps2d-ratio-crp-3bands}
+    \includegraphics[height=0.7\textheight]{ps2d-ratio-crp-3bands}
   \end{figure}
 \end{frame}
 
@@ -550,7 +554,7 @@
   \end{itemize}
   \begin{figure}
     \centering
-    \includegraphics[height=0.6\textheight]{ps2d-fscn}
+    \includegraphics[height=0.8\textheight]{ps2d-fscn}
   \end{figure}
 \end{frame}
 
@@ -604,6 +608,11 @@
 
 %............
 \begin{frame}{4.2 基于深度学习的新算法}
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.54\textheight]{SKA1-low-psf}
+  \end{figure}
+
   \begin{itemize}
     \item 对波束效应进行解析建模几乎不可行
     \item \alert{深度学习}是一条可能的途径：
@@ -614,22 +623,16 @@
       \end{itemize}
     \item \alert{卷积去噪自编码器 (CDAE)} 是其中一种值得尝试的方法
   \end{itemize}
-  %
-  \vspace{-1ex}
-  \begin{figure}
-    \centering
-    \includegraphics[height=0.54\textheight]{SKA1-low-psf}
-  \end{figure}
 \end{frame}
 
 %............
 \begin{frame}[t]
   \begin{alertblock}{自编码器和去噪自编码器}
   \end{alertblock}
-  \begin{center}
+  \begin{figure}
+    \centering
     \includegraphics[width=0.8\textwidth]{autoencoder}
-  \end{center}
-  \vspace{-1ex}
+  \end{figure}
   \begin{alertblock}{自编码器}
     \vspace{-1ex}
     \begin{itemize}
