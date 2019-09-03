@@ -621,20 +621,32 @@
         \item 一旦训练好，使用过程非常高效
         \item 灵活性高，易扩展用于其他望远镜
       \end{itemize}
-    \item \alert{卷积去噪自编码器 (CDAE)} 是其中一种值得尝试的方法
   \end{itemize}
 \end{frame}
 
 %............
-\begin{frame}[t]
-  \begin{alertblock}{自编码器和去噪自编码器}
-  \end{alertblock}
+\begin{frame}[subsec]
+  \frametitle{为什么采用 CDAE ？}
+  \begin{itemize}
+    \item EoR 信号分离问题可转化为 EoR 信号的\alert{去噪问题}
+    \item EoR 信号为需要的信号，前景辐射为强烈的噪声
+    \item \alert{自编码器}：深度学习算法中最常用的数据去噪算法之一
+    \item \alert{卷积去噪自编码器 (CDAE)}： \\
+      自编码器的去噪能力 + 卷积神经网络的特征提取能力 \\
+      $\rightarrow$ 值得尝试
+  \end{itemize}
+\end{frame}
+
+%............
+\begin{frame}[subsec]
+  \frametitle{自编码器和去噪自编码器}
   \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{autoencoder}
   \end{figure}
+
   \begin{alertblock}{自编码器}
-    \vspace{-1ex}
+    \vspace{-0.5ex}
     \begin{itemize}
       \item 由编码器 $f$ 和解码器 $g$ 组成：
         $\B{x} \rightarrow \B{h} = f(\B{x}) \rightarrow \B{r} = g(\B{h})$
@@ -642,8 +654,9 @@
       \item 学习输入数据的有效表示，常用于降维和去噪
     \end{itemize}
   \end{alertblock}
+
   \begin{alertblock}{去噪自编码器}
-    \vspace{-1ex}
+    \vspace{-0.5ex}
     \begin{itemize}
       \item 使用基于\alert{去噪准则}的训练策略：\\
         人为损坏 $\B{x}$，训练，使 $\B{r}$ 尽可能恢复 $\B{x}$
@@ -658,18 +671,18 @@
   \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{cnn}
-  \vspace{-1ex}
-  \begin{itemize}
-    \item 卷积神经网络采用的\alert{卷积层}相比\alert{全连接层}具有优势：
-      \begin{itemize}
-        \item 利用一组小尺寸过滤器，适合提取局部特征
-        \item 参数数目少，容易训练
-        \item 易于叠加多个卷积层，提升特征提取能力
-      \end{itemize}
-  \end{itemize}
   \end{figure}
+
+  \begin{alertblock}{卷积层的优势}
+    \begin{itemize}
+      \item 利用一组小尺寸过滤器，适合提取局部特征
+      \item 参数数目少，容易训练
+      \item 易于叠加多个卷积层，提升特征提取能力
+    \end{itemize}
+  \end{alertblock}
+
   \begin{alertblock}{卷积去噪自编码器}
-    \vspace{-1ex}
+    \vspace{-0.5ex}
     \begin{itemize}
       \item 使用卷积层的去噪自编码器
       \item 拥有更强的特征提取能力，提升去噪能力
@@ -683,11 +696,11 @@
   \begin{itemize}
     \item 编码器：4 层 (32, 64, 64, 32)
     \item 解码器：5 层 (32, 64, 64, 32, 1)
-    \item 过滤器的尺寸为 3
-    \item 输出层的激活函数为 \alert{tanh}
-    \item 其余层使用\alert{指数线性单元} (ELU) 和\alert{批标准化} (BN) 技术
+    \item 过滤器尺寸：3
+    \item 输出层：\alert{tanh} 激活函数
+    \item 其余层：\alert{指数线性单元} (ELU)，\alert{批标准化} (BN)
   \end{itemize}
-  %
+
   \begin{figure}
     \makebox[\textwidth][c]{%
       \includegraphics[width=1.1\textwidth]{cdae-network-crop}}
