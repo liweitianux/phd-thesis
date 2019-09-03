@@ -67,7 +67,7 @@
 
 %............
 \begin{frame}{如何探测 EoR ？}
-  \begin{columns}
+  \begin{columns}[onlytextwidth]
     \column{0.7\textwidth}
     \begin{itemize}
       \item \alert{中性氢 21\,cm 谱线}：EoR 最直接有效的探针
@@ -164,11 +164,10 @@
 \end{frame}
 
 %............
-\begin{frame}[t]
-  \begin{alertblock}{(1) 星系团的质量和红移分布}
-  \end{alertblock}
-  \begin{columns}
-    \column{0.5\textwidth}
+\begin{frame}[subsec]
+  \frametitle{(1) 星系团的质量和红移分布}
+  \begin{columns}[t,onlytextwidth]
+    \column{0.48\textwidth}
     \begin{itemize}
       \item Press--Schechter (PS) 理论：
         任意红移时刻星系团的质量分布
@@ -184,11 +183,10 @@
 \end{frame}
 
 %............
-\begin{frame}[t]
-  \begin{alertblock}{(2) 星系团并合树的模拟}
-  \end{alertblock}
-  \begin{columns}
-    \column{0.5\textwidth}
+\begin{frame}[subsec]
+  \frametitle{(2) 星系团的并合历史}
+  \begin{columns}[t,onlytextwidth]
+    \column{0.48\textwidth}
     \begin{itemize}
       \item 扩展 PS 理论：星系团的前身质量的条件概率分布
       \item Monte Carlo 模拟并合树
@@ -203,24 +201,26 @@
 \end{frame}
 
 %............
-\begin{frame}[t]
-  \begin{alertblock}{(3) 高能电子的演化模型}
-    \begin{itemize}
-      \item 电子注入过程
-      \item 并合湍流再加速过程
-      \item 能量损失过程
-    \end{itemize}
-    数值求解 Fokker--Planck 方程：
-  \begin{multline}
-    \pdiff{n_e(\gamma, t)}{t} =
-      \pdiff{}{\gamma} \left[ n_e(\gamma, t) \left(
-        \left| \diff{\gamma}{t} \right| -
-        \frac{2}{\gamma} D_{\gamma\gamma}(\gamma, t) \right) \right] + \\
-      \pdiff{}{\gamma} \left[
-      D_{\gamma\gamma} \pdiff{n_e(\gamma, t)}{\gamma} \right]
-      + Q_e(\gamma, t)
-  \end{multline}
-  \end{alertblock}
+\begin{frame}[subsec]
+  \frametitle{(3) 高能电子的演化模型}
+  \begin{itemize}
+    \item 构建演化模型：
+      \begin{itemize}
+        \item 电子注入过程
+        \item 并合湍流再加速过程
+        \item 能量损失过程
+      \end{itemize}
+    \item 数值求解 Fokker--Planck 方程：
+      \begin{multline}
+        \pdiff{n_e(\gamma, t)}{t} =
+          \pdiff{}{\gamma} \left[ n_e(\gamma, t) \left(
+            \left| \diff{\gamma}{t} \right| -
+            \frac{2}{\gamma} D_{\gamma\gamma}(\gamma, t) \right) \right] + \\
+          \pdiff{}{\gamma} \left[
+          D_{\gamma\gamma} \pdiff{n_e(\gamma, t)}{\gamma} \right]
+          + Q_e(\gamma, t)
+      \end{multline}
+  \end{itemize}
 \end{frame}
 
 %............
@@ -239,13 +239,13 @@
 \end{frame}
 
 %............
-\begin{frame}[t]
-  \begin{alertblock}{(4) 射电晕天图生成}
-  \end{alertblock}
-  \begin{columns}
-    \column{0.5\textwidth}
+\begin{frame}[subsec]
+  \frametitle{(4) 射电晕天图生成}
+  \begin{columns}[t,onlytextwidth]
+    \column{0.4\textwidth}
+    \vspace{-1ex}
     \begin{table}
-      \centering
+      \centering\small
       \begin{tabular}{cc}
         \toprule
         参数 & 取值 \\
@@ -262,7 +262,7 @@
       \end{tabular}
     \end{table}
 
-    \column{0.5\textwidth}
+    \column{0.55\textwidth}
     \begin{figure}
       \centering\footnotesize
       \includegraphics[width=\columnwidth]{skymap-halos-f158}
@@ -333,8 +333,8 @@
 
 %............
 \begin{frame}{2.3 EoR 信号天图模拟}
-  \begin{columns}
-    \column{0.5\textwidth}
+  \begin{columns}[t,onlytextwidth]
+    \column{0.48\textwidth}
     \begin{itemize}
       \item 使用了 \href{http://homepage.sns.it/mesinger/EOS.html}{\textit{Evolution Of 21\,cm Structure}}
         项目公开的 EoR 模拟数据
@@ -393,11 +393,10 @@
 \end{frame}
 
 %............
-\begin{frame}[t]
-  \begin{alertblock}{功率谱的计算}
-  \end{alertblock}
-  \begin{columns}
-    \column{0.6\textwidth}
+\begin{frame}[subsec]
+  \frametitle{功率谱的计算}
+  \begin{columns}[t,onlytextwidth]
+    \column{0.55\textwidth}
     \begin{itemize}
       \item \alert{图像立方} $I(\B{\theta}, \nu)$，
         三维 Fourier 变换，得到\alert{三维功率谱} $P(\B{k})$
@@ -425,9 +424,8 @@
 \end{frame}
 
 %............
-\begin{frame}[t]
-  \begin{alertblock}{EoR 窗口和前景楔形}
-  \end{alertblock}
+\begin{frame}[subsec]
+  \frametitle{EoR 窗口和前景楔形}
   仪器的色彩效应 $\rightarrow$
   $k_{\perp}$ 模式的功率混合到 $k_{\parallel}$ 模式里 $\rightarrow$
   前景楔形
@@ -558,11 +556,10 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[t]
-  \begin{alertblock}{波束效应对频谱光滑性的影响}
-  \end{alertblock}
-  \begin{columns}
-    \column{0.5\textwidth}
+\begin{frame}[subsec]
+  \frametitle{波束效应对频谱光滑性的影响}
+  \begin{columns}[t,onlytextwidth]
+    \column{0.48\textwidth}
     \begin{itemize}
       \item 旁瓣位置随频率增大而向中间移动 ($\theta \propto 1/\nu$)
       \item 干扰源的辐射分布随频率变化
@@ -629,12 +626,11 @@
 \end{frame}
 
 %............
-\begin{frame}[t]
-  \begin{alertblock}{卷积去噪自编码器}
-  \end{alertblock}
-  \begin{center}
+\begin{frame}[subsec]
+  \frametitle{卷积去噪自编码器}
+  \begin{figure}
+    \centering
     \includegraphics[width=0.8\textwidth]{cnn}
-  \end{center}
   \vspace{-1ex}
   \begin{itemize}
     \item 卷积神经网络采用的\alert{卷积层}相比\alert{全连接层}具有优势：
@@ -644,6 +640,7 @@
         \item 易于叠加多个卷积层，提升特征提取能力
       \end{itemize}
   \end{itemize}
+  \end{figure}
   \begin{alertblock}{卷积去噪自编码器}
     \vspace{-1ex}
     \begin{itemize}
@@ -654,9 +651,8 @@
 \end{frame}
 
 %............
-\begin{frame}[t]
-  \begin{alertblock}{CDAE 网络架构}
-  \end{alertblock}
+\begin{frame}[subsec]
+  \frametitle{CDAE 网络架构}
   \begin{itemize}
     \item 编码器：4 层 (32, 64, 64, 32)
     \item 解码器：5 层 (32, 64, 64, 32, 1)
@@ -672,9 +668,8 @@
 \end{frame}
 
 %............
-\begin{frame}[t]
-  \begin{alertblock}{训练和评估方法}
-  \end{alertblock}
+\begin{frame}[subsec]
+  \frametitle{训练和评估方法}
   \begin{itemize}
     \item 三个数据集：
       \begin{itemize}
@@ -769,9 +764,8 @@
 \end{frame}
 
 %............
-\begin{frame}[t]
-  \begin{alertblock}{与传统方法的对比}
-  \end{alertblock}
+\begin{frame}[subsec]
+  \frametitle{与传统前景扣除方法的对比}
   \begin{table}
     \centering
     \begin{tabular}{cc}
