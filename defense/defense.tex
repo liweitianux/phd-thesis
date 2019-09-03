@@ -740,11 +740,23 @@
 
 %............
 \begin{frame}{4.3 新算法的演示}
-  \begin{alertblock}{训练数据的模拟和处理}
+  \begin{alertblock}{主要流程}
+    \begin{enumerate}
+      \item 模拟训练数据
+      \item 预处理数据
+      \item 训练 CDAE
+      \item 测试 CDAE 的分离效果
+      \item 对比传统前景扣除算法
+    \end{enumerate}
   \end{alertblock}
+\end{frame}
+
+%............
+\begin{frame}[subsec]
+  \frametitle{训练数据的模拟和预处理}
   \begin{itemize}
-    \item 模拟两组 SKA1-Low 图像立方：
-      EoR 信号 $C_{\R{eor}}$ 和前景辐射 $C_{\R{fg}}$
+    \item 模拟两组 SKA 图像立方：
+      EoR 信号 $C_{\R{eor}}$，前景辐射 $C_{\R{fg}}$
       \begin{itemize}
         \item \SIrange{154}{162}{\MHz}，频率分辨率 \SI{80}{\kHz}，
           尺寸 \num{360 x 360 x 101}
@@ -763,42 +775,47 @@
 \end{frame}
 
 %............
-\begin{frame}[t]
-  \begin{alertblock}{训练结果和 EoR 信号分离效果}
-  \end{alertblock}
-  \begin{columns}
-    \column{0.5\textwidth}
-    \begin{itemize}
-      \item 训练效果良好，无过拟合
-      \item 利用测试集 $S_{\R{test}}$，
-        分离效果达 $\bar{\xi} = \num{0.929 +- 0.045}$
-    \end{itemize}
-    %
-    \vspace{-1ex}
-    \myfigure{%
-      width=\columnwidth,
-    }{cdae-train}{CDAE 的训练过程和结果}
+\begin{frame}[subsec]
+  \frametitle{CDAE 的训练结果}
 
-    \column{0.5\textwidth}
-    \myfigure{%
-      width=\columnwidth,
-    }{cdae-eor-pix}{重建 EoR 信号的示例 ($\xi = 0.931$)}
-  \end{columns}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{cdae-train}
+  \end{figure}
+
+  训练损失 $L_{\R{tr}}$ 和验证损失 $L_{\R{val}}$ 平稳减小，
+  评估指标 $\xi$ 稳步上升 \\
+  $\rightarrow$
+  训练效果良好，无过拟合
+\end{frame}
+
+%............
+\begin{frame}[subsec]
+  \frametitle{CDAE 的分离效果}
+  \begin{itemize}
+    \item 利用测试集 $S_{\R{test}}$，
+      分离效果达 $\bar{\xi} = \num{0.929 +- 0.045}$
+    \item CDAE 重建的 EoR 信号示例 ($\xi = 0.931$)：
+      \begin{figure}
+        \centering
+        \includegraphics[height=0.8\textheight]{cdae-eor-pix}
+      \end{figure}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \vspace{1ex}
   \begin{itemize}
     \item 重建图像的空间结构与强度分布与输入几乎完全相同 \\
-      （小尺度波纹结构源自预处理时去除了低频 Fourier 系数）
+      {\small（小尺度波纹结构源自预处理时去除了低频 Fourier 系数）}
       \begin{figure}
-      \centering
-      \includegraphics[height=0.42\textheight]{cdae-eor-img-comp}
+        \centering
+        \includegraphics[height=0.44\textheight]{cdae-eor-img-comp}
       \end{figure}
-    \item CDAE 很好地恢复了 EoR 信号在各尺度的功率
+    \item CDAE 很好地恢复了 EoR 信号在各尺度的功率：
       \begin{figure}
-      \centering
-      \includegraphics[height=0.42\textheight]{cdae-eor-ps-comp}
+        \centering
+        \includegraphics[height=0.44\textheight]{cdae-eor-ps-comp}
       \end{figure}
   \end{itemize}
 \end{frame}
