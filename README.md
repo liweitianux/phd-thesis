@@ -29,5 +29,10 @@
 
 日期 | Date
 -----------
-* 2019 年 mm 月 dd 日
-* mmm dd, 2019
+* 2019 年 9 月 6 日
+* September 6, 2019
+
+许可证 | License
+----------------
+* 知识共享协议 -- 署名 4.0 国际 (CC BY 4.0)
+* Creative Commons -- Attribution 4.0 International (CC BY 4.0)
