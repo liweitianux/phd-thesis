@@ -3,7 +3,7 @@
 %%==================================================
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{sjtuthesis}[2019/07/20 v0.18 SJTU Thesis Template]
+\ProvidesClass{sjtuthesis}[2019/09/03 v0.19 SJTU Thesis Template]
 
 \newif\ifsjtu@english\sjtu@englishfalse
 \newif\ifsjtu@bachelor\sjtu@bachelorfalse
@@ -125,6 +125,7 @@
 \RequirePackage{relsize}
 \RequirePackage[nottoc]{tocbibind}
 \RequirePackage[titles]{tocloft}
+\RequirePackage{hyphenat}
 
 % Delay the execution of \hypersetup at \begin{document}.
 % NOTE: Should be set before hyperref uses it.
@@ -663,7 +664,7 @@
 }{%
   \vspace{2ex}
   \par\noindent
-  {\zihao{4}
+  {\zihao{4}%
     \textbf{\sjtu@label@keywords}
     \sjtu@value@keywords}
 }
@@ -681,9 +682,9 @@
 }{%
   \vspace{2ex}
   \par\noindent
-  {\zihao{4}
+  {\zihao{4}\nohyphens{%
     \textbf{\sjtu@label@englishkeywords}
-    \sjtu@value@englishkeywords}
+    \sjtu@value@englishkeywords}}
 }
 
 % 主要符号对照表
