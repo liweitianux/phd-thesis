@@ -29,7 +29,19 @@
 我们将模拟的天区大小设为 \SI{10 x 10}{\degree}。
 模拟的图像大小取为 \num{1800 x 1800}，即像素大小为 \SI{20}{\arcsecond}。
 
-本章首先重点阐述对星系团射电晕的低频射电辐射特征的建模及其结果
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=\textwidth]{flow-simulation}
+  \bicaption{%
+    低频射电天空模拟的主要流程
+  }{%
+    The basic flows of the simulation of the low-frequency radio sky.
+  }
+  \label{fig:flow-simulation}
+\end{figure}
+
+本章开展的低频射电天空模拟的主要流程如\autoref{fig:flow-simulation} 所示，
+首先重点阐述对星系团射电晕的低频射电辐射特征的建模及其结果
 (\autoref{sec:simu-halos})，
 接着介绍银河系弥散辐射 (\autoref{sec:simu-galactic})
 和河外点源 (\autoref{sec:simu-eg-point}) 的模拟方法，
