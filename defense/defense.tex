@@ -440,15 +440,26 @@
 
 %............
 \begin{frame}{3.2 一维功率谱的结果}
-  在 \SI{1.2}{\arcminute}--\SI{24}{\arcminute}
-  ($k \sim \SIrange{0.1}{2}{\per\Mpc}$) 尺度上，
-  射电晕辐射在三个频带内的典型功率分别约为 EoR 信号的
-  10\,000、1000、300 倍
-
   \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{ps1d-3bands}
   \end{figure}
+  \vspace{-1ex}
+  尺度 \SI{1.2}{\arcminute}--\SI{24}{\arcminute}
+  ($k \sim \SIrange{0.1}{2}{\per\Mpc}$)：
+  \vspace{-0.5ex}
+  \begin{table}
+    \centering
+    \begin{tabular}{cc}
+      \toprule
+      频带 (\si{\MHz}) & $P_{\R{halo}} / P_{\R{eor}}$ \\
+      \midrule
+      120--128 & $\sim$\,\num{10000} \\
+      154--162 & $\sim$\,1000 \\
+      192--200 & $\sim$\,300 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
 \end{frame}
 
 %---------------------------------------------------------------------
@@ -456,40 +467,53 @@
 
 %............
 \begin{frame}{3.3 二维功率谱的结果}
-  \begin{itemize}
-    \item 射电晕辐射与 EoR 信号的\alert{二维功率谱之比}
-    \item 射电晕辐射在三个频带内的显著污染尺度分别约为：\\
-      $k_{\perp} \gtrsim \SI{0.1}{\per\Mpc}$
-      ($\lesssim \SI{24}{\arcminute}$)、
-      $k_{\perp} \gtrsim \SI{0.3}{\per\Mpc}$
-      ($\lesssim \SI{8.0}{\arcminute}$)、
-      $k_{\perp} \gtrsim \SI{0.5}{\per\Mpc}$
-      ($\lesssim \SI{4.8}{\arcminute}$)
-    \item 射电晕辐射在较低频率 ($\sim$\,\SI{120}{\MHz}) 的污染更严重
-  \end{itemize}
-
   \begin{figure}
-    \centering\footnotesize
+    \centering
     \includegraphics[width=\textwidth]{ps2d-ratio-3bands}
-    射电晕和 EoR 信号的二维功率比
   \end{figure}
+  \vspace{-1ex}
+  射电晕辐射与 EoR 信号的\alert{二维功率谱之比}：
+  \vspace{-0.5ex}
+  \begin{table}
+    \centering
+    \begin{tabular}{cc}
+      \toprule
+      频带 (\si{\MHz}) & 污染尺度 \\
+      \midrule
+      120--128 & $k_{\perp} \gtrsim \SI{0.1}{\per\Mpc}$
+                 ($\lesssim \SI{22}{\arcminute}$) \\
+      154--162 & $k_{\perp} \gtrsim \SI{0.3}{\per\Mpc}$
+                 ($\lesssim \SI{8}{\arcminute}$) \\
+      192--200 & $k_{\perp} \gtrsim \SI{0.5}{\per\Mpc}$
+                 ($\lesssim \SI{5}{\arcminute}$) \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
 \end{frame}
 
 %............
-\begin{frame}[t]
-  \begin{alertblock}{EoR 窗口内一维功率比的结果}
-  \end{alertblock}
-  \begin{columns}
-    \column{0.5\textwidth}
-    \begin{itemize}
-      \item 在 \SI{2.4}{\arcminute}--\SI{4.8}{\arcminute}
-        ($k \sim \SIrange{0.5}{1}{\per\Mpc}$) 尺度范围，
-        EoR 窗口内的一维功率比能够达到约：
-        230--800\%、18--95\%、7-40\%
-      \item 射电晕泄漏到 EoR 窗口的污染不可忽略，尤其在较低频率
-    \end{itemize}
+\begin{frame}[subsec]
+  \frametitle{EoR 窗口内一维功率比的结果}
+  \begin{columns}[t,onlytextwidth]
+    \column{0.45\textwidth}
+      尺度 \SI{2.4}{\arcminute}--\SI{4.8}{\arcminute}
+      ($k \sim \SIrange{0.5}{1}{\per\Mpc}$)：
+      \vspace{-1ex}
+      \begin{table}
+        \small
+        \begin{tabular}{cc}
+          \toprule
+          频带 (\si{\MHz}) & $\max(P_{\R{halo}} / P_{\R{eor}})$ \\
+          \midrule
+          120--128 & $\sim$\,230--800\% \\
+          154--162 & $\sim$\,18--95\% \\
+          192--200 & $\sim$\,7-40\% \\
+          \bottomrule
+        \end{tabular}
+      \end{table}
+      EoR 窗口内的射电晕辐射仍然不可忽略
 
-    \column{0.5\textwidth}
+    \column{0.53\textwidth}
     \begin{figure}
       \centering
       \includegraphics[width=\columnwidth]{ps1d-ratio-3bands}
