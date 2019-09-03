@@ -92,7 +92,7 @@
 %............
 \begin{frame}{前景干扰：EoR 探测主要困难之一}
   \begin{itemize}
-    \item EoR 信号非常微弱
+    \item EoR 信号非常微弱 ($\sim$\,\SI{10}{\mK} @ \SI{150}{\MHz})
     \item \alert{多种前景干扰}，比待测信号强 $\sim$\,4--5 个数量级
     \item \alert{对策}：深入理解前景干扰，构建准确的前景模型，
       研发有效的前景处理和 EoR 信号分离算法
@@ -149,14 +149,14 @@
 \end{frame}
 
 %---------------------------------------------------------------------
-\subsection{星系团射电晕的建模及天图模拟}
+\subsection{射电晕的建模及天图模拟}
 
 %............
-\begin{frame}{2.1 星系团射电晕的建模及天图模拟}
+\begin{frame}{2.1 射电晕的建模及天图模拟}
   \begin{alertblock}{主要步骤}
     \begin{enumerate}
       \item 模拟星系团的质量和红移分布
-      \item 模拟星系团的并合树
+      \item 模拟星系团的并合历史
       \item 计算高能电子能谱的时间演化
       \item 计算射电晕的性质并生成图像
     \end{enumerate}
@@ -358,7 +358,7 @@
 \begin{frame}{2.4 SKA1-Low 观测图像的模拟}
   \begin{alertblock}{主要步骤}
   \begin{enumerate}
-    \item 采用目前最新的 \alert{SKA1-Low 阵列布局}
+    \item 采用 \alert{SKA1-Low 阵列布局} (2016-05-31)
     \item 使用 \href{https://github.com/OxfordSKA/OSKAR}{\texttt{OSKAR}}
       模拟天图的\alert{可见度数据}
     \item 使用 \href{https://sourceforge.net/projects/wsclean/}{\texttt{WSClean}}
@@ -387,7 +387,7 @@
 \begin{frame}{3.1 为什么使用功率谱？}
   \begin{itemize}
     \item 对灵敏度、空间分辨率要求较低
-    \item 一维和二维功率谱压缩了 EoR 信号，提高了信噪比
+    \item 压缩信息，提高 EoR 信号的信噪比
     \item 分析 EoR 信号和前景干扰的最常用工具
   \end{itemize}
 \end{frame}
@@ -531,9 +531,9 @@
 \begin{frame}{3.4 频谱伪结构对射电晕辐射的影响}
   \begin{itemize}
     \item 干涉阵列的频率响应约有 0.1--1\% 的校准不确定度
-    \item 频谱伪结构幅度为 $A_{\R{arti}} = 0.1\%$ 时，
+    \item \alert{频谱伪结构}幅度 $A_{\R{arti}} = 0.1\%$：
       射电晕辐射在 EoR 窗口内部分尺度的功率分别增加约 17、15、13 倍
-    \item 如果 $A_{\R{arti}} = 1\%$，功率分别增加约 1700、1500、1300 倍
+    \item $A_{\R{arti}} = 1\%$：功率分别增加约 1700、1500、1300 倍
   \end{itemize}
   \vspace{-1ex}
   \begin{figure}
@@ -549,7 +549,7 @@
 \begin{frame}{3.5 旁瓣内射电晕辐射对 EoR 探测的影响}
   \begin{itemize}
     \item \alert{远旁瓣致淆噪声 (FSCN)}：场外源通过旁瓣在视场中产生干扰
-    \item 模拟新射电晕图像：覆盖从角半径 \SI{10}{\degree} 至地平线
+    \item 模拟新射电晕图像：从角半径 \SI{10}{\degree} 覆盖至地平线
     \item 射电晕 FSCN 在 EoR 窗口内的功率可达 EoR 信号约 20 倍
   \end{itemize}
   \begin{figure}
@@ -580,7 +580,7 @@
   \begin{itemize}
     \item EoR 信号沿频率方法剧烈变化
     \item 前景辐射的频谱在本质上非常光滑
-    \item 利用两者的频谱结构差异，可以有效地分离 EoR 信号
+    \item 利用两者的频谱结构差异实现 EoR 信号的分离
   \end{itemize}
 \end{frame}
 
@@ -592,7 +592,7 @@
       \item 旁瓣位置随频率增大而向中间移动 ($\theta \propto 1/\nu$)
       \item 干扰源的辐射分布随频率变化
       \item 考虑视场中一个位置，频率维度出现小尺度涨落
-      \item 前景辐射的频谱光滑性受损，导致传统前景扣除方法失效
+      \item 前景辐射的频谱光滑性受损，传统前景扣除方法失效
     \end{itemize}
 
     \column{0.5\textwidth}
