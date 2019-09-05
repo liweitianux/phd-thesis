@@ -639,48 +639,31 @@
 
 %............
 \begin{frame}[subsec]
-  \frametitle{自编码器和去噪自编码器}
+  \frametitle{CDAE 是什么？}
   \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{autoencoder}
+    \includegraphics[width=0.7\textwidth]{autoencoder}
   \end{figure}
-
+  \vspace{-0.8ex}
   \begin{alertblock}{自编码器}
     \vspace{-0.5ex}
     \begin{itemize}
       \item 由编码器 $f$ 和解码器 $g$ 组成：
         $\B{x} \rightarrow \B{h} = f(\B{x}) \rightarrow \B{r} = g(\B{h})$
       \item 训练使得重建信号 $\B{r}$ 的损失 $L(\B{r}, \B{x})$ 最小
-      \item 学习输入数据的有效表示，常用于降维和去噪
     \end{itemize}
   \end{alertblock}
-
+  \vspace{-0.3ex}
   \begin{alertblock}{去噪自编码器}
     \vspace{-0.5ex}
     \begin{itemize}
-      \item 使用基于\alert{去噪准则}的训练策略：\\
-        人为损坏 $\B{x}$，训练，使 $\B{r}$ 尽可能恢复 $\B{x}$
+      \item 去噪训练策略：
+        人为损坏 $\B{x}$ $\rightarrow$
+        训练 $\rightarrow$ 使 $\B{r}$ 恢复 $\B{x}$
       \item 迫使学习一个更有效的表示，提升性能
     \end{itemize}
   \end{alertblock}
-\end{frame}
-
-%............
-\begin{frame}[subsec]
-  \frametitle{卷积去噪自编码器}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{cnn}
-  \end{figure}
-
-  \begin{alertblock}{卷积层的优势}
-    \begin{itemize}
-      \item 利用一组小尺寸过滤器，适合提取局部特征
-      \item 参数数目少，容易训练
-      \item 易于叠加多个卷积层，提升特征提取能力
-    \end{itemize}
-  \end{alertblock}
-
+  \vspace{-0.3ex}
   \begin{alertblock}{卷积去噪自编码器}
     \vspace{-0.5ex}
     \begin{itemize}
