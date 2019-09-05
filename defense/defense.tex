@@ -109,7 +109,7 @@
 
 %............
 \begin{frame}{本文研究内容}
-  \begin{alertblock}{1. 射电晕辐射建模的改进以及对 EoR 探测影响的评估}
+  \begin{alertblock}{1. 射电晕建模的改进以及对 EoR 探测影响的评估}
     \begin{itemize}
       \item 星系团射电晕：常见的射电展源，
         尺度较大，形态相对复杂，数目较多
@@ -120,8 +120,8 @@
 
   \begin{alertblock}{2. EoR 信号分离算法的研发}
     \begin{itemize}
-      \item 利用上述改进的前景模型，研究仪器波束效应对 EoR 信号分离的影响
-      \item 基于深度学习研发 EoR 信号分离算法，克服波束效应的影响
+      \item 利用上述改进的模拟结果，研究仪器波束效应对 EoR 信号分离的影响
+      \item 基于深度学习研发 EoR 信号分离算法，尝试克服波束效应的影响
     \end{itemize}
   \end{alertblock}
 \end{frame}
@@ -388,6 +388,7 @@
   \begin{itemize}
     \item 对灵敏度、空间分辨率要求较低
     \item 压缩信息，提高 EoR 信号的信噪比
+    \item 测量及数据处理相对容易
     \item 分析 EoR 信号和前景干扰的最常用工具
   \end{itemize}
 \end{frame}
@@ -421,7 +422,7 @@
     \vspace{-1ex}
     \begin{figure}
       \centering
-      \includegraphics[width=0.75\textwidth]{ps2d-band158}
+      \includegraphics[height=0.95\textheight]{ps2d-band158}
     \end{figure}
   \end{alertblock}
 \end{frame}
@@ -552,9 +553,10 @@
     \item 模拟新射电晕图像：从角半径 \SI{10}{\degree} 覆盖至地平线
     \item 射电晕 FSCN 在 EoR 窗口内的功率可达 EoR 信号约 20 倍
   \end{itemize}
+  \vspace{-1ex}
   \begin{figure}
     \centering
-    \includegraphics[height=0.8\textheight]{ps2d-fscn}
+    \includegraphics[width=\textwidth]{ps2d-fscn}
   \end{figure}
 \end{frame}
 
@@ -760,12 +762,11 @@
 %............
 \begin{frame}[subsec]
   \frametitle{CDAE 的训练结果}
-
   \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{cdae-train}
   \end{figure}
-
+  \vspace{-1ex}
   训练损失 $L_{\R{tr}}$ 和验证损失 $L_{\R{val}}$ 平稳减小，
   评估指标 $\xi$ 稳步上升 \\
   $\rightarrow$
@@ -830,18 +831,19 @@
     \item 改进了射电晕的低频射电天图的模拟，整合了 SKA1-Low 阵列的仪器效应，
       获得了更逼真的 EoR 前景模型
     \item 定量评估了射电晕辐射对 EoR 信号探测的影响，
-      说明射电晕是一个有待重视的较重要前景干扰成分
+      说明了射电晕是一个有待重视的较强前景干扰成分
     \item 基于深度学习设计了一个卷积去噪自编码器，
       准确地分离出 EoR 信号，效果显著优于传统方法
-    \item 程序、文档和论文均已公开在
-      \href{https://github.com/liweitianux/}{Github}:
-      \href{https://github.com/liweitianux/fg21sim}{fg21sim},
-      \href{https://github.com/liweitianux/cdae-eor}{cdae-eor},
-      \href{https://github.com/liweitianux/atoolbox}{atoolbox},
-      \href{https://github.com/liweitianux/paper-halo-eor}{paper-halo-eor},
-      \href{https://github.com/liweitianux/paper-eor-detection}{paper-eor-detection},
-      \href{https://github.com/liweitianux/phd-thesis}{phd-thesis}
   \end{itemize}
+
+  程序、文档和论文均已公开在
+  \href{https://github.com/liweitianux/}{Github}:\\
+  \href{https://github.com/liweitianux/fg21sim}{fg21sim},
+  \href{https://github.com/liweitianux/cdae-eor}{cdae-eor},
+  \href{https://github.com/liweitianux/atoolbox}{atoolbox},
+  \href{https://github.com/liweitianux/paper-halo-eor}{paper-halo-eor},
+  \href{https://github.com/liweitianux/paper-eor-detection}{paper-eor-detection},
+  \href{https://github.com/liweitianux/phd-thesis}{phd-thesis}
 \end{frame}
 
 \begin{frame}{已发表论文}
