@@ -432,7 +432,7 @@ $\SI{e4}{\mK\squared} \times (0.1\%)^2 = \SI{e-2}{\mK\squared}$，
   \label{fig:ska-beams}
 \end{figure}
 
-低频干涉阵列的波束形状非常复杂，除\ac{mainlobe}外还有一系列明显的\ac{sidelobe}
+低频干涉阵列的波束形状非常复杂，除\ac{mainlobe}之外还有一系列明显的\ac{sidelobe}
 \cite{noordam2004,wijnholds2010}（\autoref{fig:ska-beams}），
 更多关于 SKA1-Low 的波束形状及其影响的研究可参见 \citeay{mort2017}。
 辐射源即使远在视场之外，也会通过\ac{sidelobe}在视场中产生类似噪声的干扰，
@@ -446,8 +446,8 @@ $\SI{e4}{\mK\squared} \times (0.1\%)^2 = \SI{e-2}{\mK\squared}$，
 实现了高仿真的\ac{beam-forming}，并且能够开展全天模拟 \cite{mort2010}。
 我们取 \SIrange{154}{162}{\MHz} 频带为例，
 首先模拟射电晕的天图，其中射电晕覆盖了从第二\ac{sidelobe}的边缘
-(距离视场中心 $\phi \sim \SI{10}{\degree}$)
-一直到地平线 ($\phi = \SI{90}{\degree}$) 的范围。
+（距离视场中心 $\phi \sim \SI{10}{\degree}$）
+一直到地平线（即 $\phi = \SI{90}{\degree}$）的范围。
 这相当于在实际数据处理中将\ac{mainlobe}和第一\ac{sidelobe}里的射电晕
 全部识别并完全去除。
 然后，使用 \texttt{OSKAR} 和 \texttt{WSClean} 软件按
