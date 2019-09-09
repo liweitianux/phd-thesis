@@ -50,8 +50,10 @@
 以及 SKA1-Low 开始加速建设，解决 EoR 探测的前景干扰问题的需求也愈加迫切。
 基于在本工作中积累的技术和经验，我们认为后续可开展的工作包括：
 \begin{itemize}
-\item 前景辐射建模的改进：
+\item \emph{前景辐射建模的改进：}
   \begin{itemize}
+    \item 完善并优化低频射电观测图像的模拟流程与技术，比如提高空间和频率分辨率，
+      测试不同的成像权重以及成像算法，针对 EoR 探测优化观测模式和成像质量；
     \item 改进射电晕形态结构的模拟，生成形态更逼真的射电晕图像，
       比如利用\ac{vae}\cite{kingma2013} 或\ac{gan}\cite{goodfellow2014}；
     \item 增加对星系团其他弥散射电辐射的模拟，比如\ac{rr}和\ac{rmh}；
@@ -62,7 +64,7 @@
       考虑并评估星系团的\ac{clustering-effect}\cite{delPopolo2005,fedeli2009}
       对 EoR 探测的可能影响；
     \item 不经过成像步骤，使用\ac{delay-spec}方法\cite{parsons2012}
-      来计算\ac{ps}\cite{morales2019}，
+      或其他方法从\ac{vis}数据计算\ac{ps}\cite{morales2019}，
       然后评估前景辐射对 EoR 信号探测的干扰情况，
       同时分析不同的\ac{ps}计算方法的优劣；
     \item 深入挖掘低频射电巡天数据，主要包括：
@@ -72,8 +74,11 @@
       \ac{gmrt} 的 \ac{tgss}\cite{intema2017}。
   \end{itemize}
 
-\item EoR 信号分离算法的研发：
+\item \emph{EoR 信号分离算法的研发：}
   \begin{itemize}
+    \item 进一步测试和验证本文设计的 \ac{cdae} 新算法，
+      包括测试不同的 EoR 模型、不同的前景模型、
+      不同的仪器效应（比如模拟不同的天区）；
     \item 将本文设计的 \ac{cdae} 适用到二维\ac{ps}的处理，
       因为二维\ac{ps}是目前广泛使用的 EoR 探测方法，更接近实际应用；
     \item 除了 \ac{cdae}，尝试将其他\ac{dl}算法用于 EoR 信号分离问题，
@@ -87,6 +92,17 @@
       据此研究频带宽度及频率分辨率对 EoR 信号分离的影响，并给出有效的建议。
     \item 研发\ac{fg-rm}和\ac{fg-avd}的混合方法 \cite{kerrigan2018}，
       能够尽可能地抑制\ac{fg-wedge}的范围，扩大 EoR 窗口。
+  \end{itemize}
+
+\item \emph{干涉阵列仪器效应的处理：}
+  \begin{itemize}
+    \item 深入理解干涉阵列的仪器效应，构建一个更符合实际情况的模型来描述和研究
+      仪器频率响应的不确定性 \cite{chapman2016}，
+      然后进一步研究 EoR 探测的前景干扰问题，并改进 EoR 信号分离算法；
+    \item 干涉阵列安装于野外环境，其众多天线可能出现故障，
+      同时还会受多种环境因素（比如温度、天气）的影响而改变响应。
+      这些因素将会如何影响干涉阵列的校准、如何影响 EoR 探测实验的开展，
+      都是值得进一步探讨的问题。
   \end{itemize}
 \end{itemize}
 
