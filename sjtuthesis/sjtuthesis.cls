@@ -3,7 +3,7 @@
 %%==================================================
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{sjtuthesis}[2019/09/03 v0.19 SJTU Thesis Template]
+\ProvidesClass{sjtuthesis}[2021/03/13 v0.20 SJTU Thesis Template]
 
 \newif\ifsjtu@english\sjtu@englishfalse
 \newif\ifsjtu@bachelor\sjtu@bachelorfalse
@@ -250,9 +250,6 @@
   textfont={small,sf},
   labelfont={small,bf},
 }
-\captionsetup[sub]{font=footnotesize}
-\captionsetup[bi-first]{bi-first}
-\captionsetup[bi-second]{bi-second}
 \DeclareCaptionOption{bi-first}[]{
   \def\tablename{\sjtu@tablename}
   \def\figurename{\sjtu@figurename}
@@ -261,6 +258,11 @@
   \def\tablename{Table}
   \def\figurename{Figure}
 }
+% \captionsetup[xxx] must be placed *after* \DeclareCaptionOption{xxx}
+% Credit: https://github.com/mohuangrui/ucasthesis/issues/223#issuecomment-731495483
+\captionsetup[bi-first]{bi-first}
+\captionsetup[bi-second]{bi-second}
+\captionsetup[sub]{font=footnotesize}
 
 \renewcommand{\lstlistingname}{\sjtu@listingname}
 
