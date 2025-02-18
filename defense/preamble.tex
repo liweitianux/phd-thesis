@@ -61,7 +61,6 @@
 \makeatother
 
 \setbeamertemplate{frametitle continuation}{(\insertcontinuationcount)}
-\setbeamertemplate{bibliography item}{\insertbiblabel}
 
 \setbeamertemplate{itemize items}[circle]
 \setbeamertemplate{itemize subitem}[triangle]
@@ -190,7 +189,7 @@
 }
 \ExplSyntaxOff
 
-\usepackage{siunitx}
+\usepackage{siunitx}[=v2] % v3 requires many updates ...
 % siunitx settings and new units
 \sisetup{
   range-phrase=\text{--},
