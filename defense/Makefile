@@ -1,3 +1,7 @@
+# Install the required extra packages:
+# $ tlmgr --usermode init-usertree
+# $ tlmgr --usermode install newtx newtxsf siunitx biblatex logreq
+
 all: defense.pdf
 
 defense.pdf: defense.tex preamble.tex
