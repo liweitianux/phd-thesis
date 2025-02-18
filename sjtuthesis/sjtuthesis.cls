@@ -121,7 +121,7 @@
 \RequirePackage[inline]{enumitem}
 \RequirePackage{pdfpages}
 \RequirePackage{calc}
-\RequirePackage{siunitx}
+\RequirePackage{siunitx}[=v2] % v3 requires many updates ...
 \RequirePackage{relsize}
 \RequirePackage[nottoc]{tocbibind}
 \RequirePackage[titles]{tocloft}
