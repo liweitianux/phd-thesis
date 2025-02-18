@@ -126,6 +126,7 @@
 \RequirePackage[nottoc]{tocbibind}
 \RequirePackage[titles]{tocloft}
 \RequirePackage{hyphenat}
+\RequirePackage{xeCJKfntef} % for CJKfilltwosides
 
 % Delay the execution of \hypersetup at \begin{document}.
 % NOTE: Should be set before hyperref uses it.
