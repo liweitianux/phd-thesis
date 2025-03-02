@@ -4,10 +4,11 @@
 # $ tlmgr --usermode install biblatex-gb7714-2015
 #
 # Acro v3 is major update, and v3.6+ seems to have issues, so use v2.
-# $ wget https://pi.kwarc.info/historic/systems/texlive/2019/tlnet-final/archive/acro.tar.xz  # v2.11c
+# $ wget https://ftp.math.utah.edu/pub/texlive/historic/systems/texlive/2019/tlnet-final/archive/acro.tar.xz  # v2.11c
 # $ tlmgr --usermode install --file acro.tar.xz
 #
 # Historic TeXLive 2019 archives:
+# - https://ftp.math.utah.edu/pub/texlive/historic/systems/texlive/2019/tlnet-final/archive/
 # - https://pi.kwarc.info/historic/systems/texlive/2019/tlnet-final/archive/
 # - https://texlive.info/historic/systems/texlive/2019/tlnet-final/archive/
 
